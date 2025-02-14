@@ -100626,7 +100626,7 @@ _ZN5Yosys7hashlib4poolINS_9ModWalker7PortBitENS0_8hash_opsIS3_EEED2Ev.exit: ; pr
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKSt3setINS0_6SigBitESt4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ShareWorker26filter_activation_patternsERN5Yosys7hashlib4poolISt4pairINS1_5RTLIL7SigSpecENS5_5ConstEENS2_8hash_opsIS8_EEEERKSB_RKSt3setINS5_6SigBitESt4lessISG_ESaISG_EE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ShareWorker26filter_activation_patternsERN5Yosys7hashlib4poolISt4pairINS1_5RTLIL7SigSpecENS5_5ConstEENS2_8hash_opsIS8_EEEERKSB_RKSt3setINS5_6SigBitESt4lessISG_ESaISG_EE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.594", align 8
   %5 = alloca %"struct.std::pair.736", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -134526,7 +134526,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef i32 @_ZN5ezSAT14frozen_literalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111ShareWorker25find_in_input_cone_workerEPN5Yosys5RTLIL4CellES4_RNS1_7hashlib4poolIS4_NS5_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef nonnull align 8 dereferenceable(49) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.821", align 8
   %6 = alloca %"class.std::tuple.784", align 1
   %7 = alloca ptr, align 8

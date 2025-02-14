@@ -439,7 +439,7 @@ bi_flush.exit:                                    ; preds = %if.else.i, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_tr_flush_block(ptr noundef %s, ptr noundef readonly %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #4 {
+define void @_tr_flush_block(ptr noundef %s, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #4 {
 entry:
   %level = getelementptr inbounds nuw i8, ptr %s, i64 196
   %0 = load i32, ptr %level, align 4

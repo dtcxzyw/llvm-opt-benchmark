@@ -1050,7 +1050,7 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @parse_vorbis_comment_field(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @parse_vorbis_comment_field(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %7
 

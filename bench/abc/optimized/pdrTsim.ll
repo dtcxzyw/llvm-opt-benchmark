@@ -359,7 +359,7 @@ define range(i32 0, 4) i32 @Pdr_ManExtendOneEval(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Pdr_ManSimDataInit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Pdr_ManSimDataInit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #4 {
   %8 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %8, align 8, !tbaa !30
   %9 = getelementptr i8, ptr %0, i64 376
@@ -1430,7 +1430,7 @@ Vec_IntPush.exit68:                               ; preds = %113, %Vec_IntGrow.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Pdr_ManPrintCex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @Pdr_ManPrintCex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 136
   %.val43 = load i32, ptr %5, align 8, !tbaa !29
   %6 = add nsw i32 %.val43, 1

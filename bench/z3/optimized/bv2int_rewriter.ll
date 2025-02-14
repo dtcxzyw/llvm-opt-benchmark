@@ -1494,7 +1494,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorI8rationa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN19bv2int_rewriter_ctx9is_power2EP4exprRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly %x, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %log_x) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN19bv2int_rewriter_ctx9is_power2EP4exprRS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(address) %x, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %log_x) local_unnamed_addr #5 align 2 {
 entry:
   %m_power2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 12

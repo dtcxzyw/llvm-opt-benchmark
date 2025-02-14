@@ -1953,7 +1953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp5EqualEPS0_S1_(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re26Regexp5EqualEPS0_S1_(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -3677,7 +3677,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIN3re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re216CharClassBuilder12AddCharClassEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly %cc) local_unnamed_addr #8 align 2 {
+define void @_ZN3re216CharClassBuilder12AddCharClassEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef readonly captures(address) %cc) local_unnamed_addr #8 align 2 {
 entry:
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %cc, i64 40
   %0 = load ptr, ptr %_M_left.i.i.i, align 8
@@ -3701,7 +3701,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3re216CharClassBuilder8ContainsEi(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZN3re216CharClassBuilder8ContainsEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, i32 noundef %r) local_unnamed_addr #13 align 2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -3752,7 +3752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN3re216CharClassBuilder4CopyEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3re216CharClassBuilder4CopyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
   invoke void @_ZN3re216CharClassBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
@@ -4616,7 +4616,7 @@ return:                                           ; preds = %if.else, %if.end9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN3re216CharClassBuilder12GetCharClassEv(ptr noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN3re216CharClassBuilder12GetCharClassEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %_M_node_count.i.i, align 8

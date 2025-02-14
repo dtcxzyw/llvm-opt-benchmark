@@ -91,7 +91,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %expr) local_unnamed_addr #2 {
+define hidden void @_ZN3ue218relaxForbiddenUtf8ERNS_8NGHolderERKNS_14ExpressionInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %expr) local_unnamed_addr #2 {
 entry:
   %ref.tmp.i = alloca %"class.ue2::CharReach", align 8
   %ref.tmp12.i = alloca %"class.ue2::CharReach", align 8

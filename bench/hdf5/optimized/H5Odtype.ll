@@ -389,7 +389,7 @@ H5O__dtype_encode.exit:                           ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dtype_copy(ptr noundef %0, ptr noundef writeonly %1) #0 {
+define internal ptr @H5O__dtype_copy(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) #0 {
   %3 = tail call ptr @H5T_copy(ptr noundef %0, i32 noundef 1) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -608,7 +608,7 @@ define internal range(i32 -1, 2) i32 @H5O__dtype_can_share(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__dtype_pre_copy_file(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly %4) #0 {
+define internal range(i32 -1, 1) i32 @H5O__dtype_pre_copy_file(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24

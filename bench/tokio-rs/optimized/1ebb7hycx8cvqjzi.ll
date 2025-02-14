@@ -217,7 +217,7 @@ _ZN10tokio_util4sync18cancellation_token30WaitForCancellationFutureOwned3new17h3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN10tokio_util4sync18cancellation_token17CancellationToken10drop_guard17h90e85b5b243076c3E(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
+define noundef nonnull ptr @_ZN10tokio_util4sync18cancellation_token17CancellationToken10drop_guard17h90e85b5b243076c3E(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

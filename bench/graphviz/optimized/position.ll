@@ -2355,7 +2355,7 @@ declare double @selfRightSpace(ptr noundef) local_unnamed_addr #1
 declare ptr @find_fast_edge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @go(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @go(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) unnamed_addr #10 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

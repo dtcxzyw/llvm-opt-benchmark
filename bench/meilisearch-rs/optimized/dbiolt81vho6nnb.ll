@@ -888,7 +888,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5alloc3str17join_generic_copy17h4ac2941b72d59395E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [48 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [48 x i8], align 8
@@ -6351,7 +6351,7 @@ define void @"_ZN176_$LT$meilisearch_types..settings..WildcardSetting$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN88_$LT$meilisearch_types..settings..WildcardSetting$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf903293ade029e26E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN88_$LT$meilisearch_types..settings..WildcardSetting$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf903293ade029e26E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

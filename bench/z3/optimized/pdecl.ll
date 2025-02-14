@@ -10490,7 +10490,7 @@ if.end20:                                         ; preds = %if.end18.i.i, %for.
 declare noundef ptr @_ZNK11ast_manager10get_pluginEi(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK13pdecl_manager7displayERSoP4sort(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef readonly %s) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK13pdecl_manager7displayERSoP4sort(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef readonly captures(address) %s) local_unnamed_addr #3 align 2 {
 entry:
   %m_sort2info = getelementptr inbounds nuw i8, ptr %this, i64 112
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -10597,7 +10597,7 @@ return:                                           ; preds = %if.else5.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK13pdecl_manager2ppER19smt2_pp_environmentP4sort(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr noundef readonly %s) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK13pdecl_manager2ppER19smt2_pp_environmentP4sort(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr noundef readonly captures(address) %s) local_unnamed_addr #3 align 2 {
 entry:
   %m_sort2info = getelementptr inbounds nuw i8, ptr %this, i64 112
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12

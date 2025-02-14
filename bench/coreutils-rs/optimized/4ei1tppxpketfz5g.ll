@@ -375,17 +375,17 @@ _ZN12clap_builder6parser7matches11arg_matches10ArgMatches12verify_arg_t17h3dde7c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core3ops8function6FnOnce9call_once17h328863c13035d70dE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core3ops8function6FnOnce9call_once17h328863c13035d70dE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN4core3ops8function6FnOnce9call_once17had8054db1241cf7fE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN4core3ops8function6FnOnce9call_once17had8054db1241cf7fE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 2 dereferenceable_or_null(2) ptr @_ZN4core3ops8function6FnOnce9call_once17hc919d8f350b007bfE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 2 dereferenceable_or_null(2) ptr @_ZN4core3ops8function6FnOnce9call_once17hc919d8f350b007bfE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -412,17 +412,17 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 2 dereferenceable_or_null(2) ptr @_ZN4core6option6Option4Some17h157eb5c05051ba3fE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 2 dereferenceable_or_null(2) ptr @_ZN4core6option6Option4Some17h157eb5c05051ba3fE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN4core6option6Option4Some17hb643249d83135999E.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN4core6option6Option4Some17hb643249d83135999E.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core6option6Option4Some17hf9b34ea8cc7af64aE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(24) ptr @_ZN4core6option6Option4Some17hf9b34ea8cc7af64aE.llvm.3824196512585743476(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

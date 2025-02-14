@@ -6749,7 +6749,7 @@ declare noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull al
 declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListenerEED2Ev(ptr readonly %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120Chttp2ServerListenerEED2Ev(ptr readonly captures(address_is_null) %this.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this.0.val, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7464,7 +7464,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_ZN4absl12lts_202308027CondVar9SignalAllEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener20ConfigFetcherWatcher23UpdateConnectionManagerENS_13RefCountedPtrIN26grpc_server_config_fetcher17ConnectionManagerEEEEN35GracefulShutdownExistingConnectionsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN9grpc_core12_GLOBAL__N_120Chttp2ServerListener20ConfigFetcherWatcher23UpdateConnectionManagerENS_13RefCountedPtrIN26grpc_server_config_fetcher17ConnectionManagerEEEEN35GracefulShutdownExistingConnectionsD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %this.val2 = load ptr, ptr %0, align 8

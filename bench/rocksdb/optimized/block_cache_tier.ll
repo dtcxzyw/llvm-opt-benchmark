@@ -279,7 +279,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14BlockCacheTier4OpenEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(6656) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14BlockCacheTier4OpenEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(6656) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.163", align 8
   %status = alloca %"class.rocksdb::Status", align 8
@@ -1090,7 +1090,7 @@ declare void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14BlockCacheTier18CleanupCacheFolderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(6656) %this, ptr noundef nonnull align 8 dereferenceable(32) %folder) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14BlockCacheTier18CleanupCacheFolderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(6656) %this, ptr noundef nonnull align 8 dereferenceable(32) %folder) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %suffix.i = alloca %"class.std::__cxx11::basic_string", align 8
   %files = alloca %"class.std::vector.66", align 8
@@ -3874,7 +3874,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit22:                 ; preds = %ehcleanup28
 declare noundef ptr @_ZN7rocksdb22BlockCacheTierMetadata5EvictEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18NewPersistentCacheEPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRKSt10shared_ptrINS_6LoggerEEbPSA_INS_15PersistentCacheEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(16) %log, i1 noundef zeroext %optimized_for_nvm, ptr noundef %cache) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18NewPersistentCacheEPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRKSt10shared_ptrINS_6LoggerEEbPSA_INS_15PersistentCacheEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(16) %log, i1 noundef zeroext %optimized_for_nvm, ptr noundef captures(address_is_null) %cache) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1 = alloca %"class.rocksdb::Slice", align 8

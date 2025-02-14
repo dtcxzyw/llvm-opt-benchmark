@@ -124,7 +124,7 @@ if.end6:                                          ; preds = %if.then.i, %if.then
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_read(ptr noundef %b, ptr noundef %out, i32 noundef %outl) #1 {
+define internal noundef i32 @sock_read(ptr noundef %b, ptr noundef captures(address_is_null) %out, i32 noundef %outl) #1 {
 entry:
   %cmp.not = icmp eq ptr %out, null
   br i1 %cmp.not, label %if.end13, label %if.then
@@ -370,7 +370,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @sock_free(ptr noundef captures(address_is_null) %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

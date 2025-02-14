@@ -2214,7 +2214,7 @@ declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @preprocess_qual_conditions(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @preprocess_qual_conditions(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %common.ret, label %4
 
@@ -7551,7 +7551,7 @@ declare void @split_pathtarget_at_srfs(ptr noundef, ptr noundef, ptr noundef, pt
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %9 = load ptr, ptr %8, align 8
@@ -7865,7 +7865,7 @@ define internal fastcc void @apply_scanjoin_target_to_paths(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_paths_for_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @adjust_paths_for_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 

@@ -181,7 +181,7 @@ define hidden noundef ptr @new_gogcfg(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @add_hfid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @add_hfid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not41 = icmp eq ptr %1, null
   br i1 %.not41, label %26, label %.lr.ph
 

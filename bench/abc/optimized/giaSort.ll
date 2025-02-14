@@ -670,7 +670,7 @@ selectionsort3.exit:                              ; preds = %._crit_edge.i, %tai
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Gia_SortFloats(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define noundef ptr @Gia_SortFloats(ptr noundef captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %.loopexit
 

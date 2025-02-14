@@ -264,7 +264,7 @@ define dso_local void @find_placeholders_in_jointree(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %66, label %4
 

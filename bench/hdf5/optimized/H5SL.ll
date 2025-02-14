@@ -14833,7 +14833,7 @@ define range(i32 -1, 1) i32 @H5SL_release(ptr noundef captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -14937,7 +14937,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @H5SL__release_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -14954,7 +14954,7 @@ define range(i32 -1, 1) i32 @H5SL_free(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5SL_destroy(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5SL_destroy(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @H5SL__release_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %21, label %H5SL__close_common.exit

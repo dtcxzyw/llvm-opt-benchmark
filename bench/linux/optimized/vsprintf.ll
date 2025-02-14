@@ -141,7 +141,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sscanf: ; .a
 @llvm.compiler.used = appending global [19 x ptr] [ptr @__UNIQUE_ID___addressable_bprintf877, ptr @__UNIQUE_ID___addressable_bstr_printf876, ptr @__UNIQUE_ID___addressable_no_hash_pointers820, ptr @__UNIQUE_ID___addressable_scnprintf870, ptr @__UNIQUE_ID___addressable_simple_strtol823, ptr @__UNIQUE_ID___addressable_simple_strtoll824, ptr @__UNIQUE_ID___addressable_simple_strtoul822, ptr @__UNIQUE_ID___addressable_simple_strtoull821, ptr @__UNIQUE_ID___addressable_snprintf869, ptr @__UNIQUE_ID___addressable_sprintf872, ptr @__UNIQUE_ID___addressable_sscanf879, ptr @__UNIQUE_ID___addressable_vbin_printf873, ptr @__UNIQUE_ID___addressable_vscnprintf868, ptr @__UNIQUE_ID___addressable_vsnprintf867, ptr @__UNIQUE_ID___addressable_vsprintf871, ptr @__UNIQUE_ID___addressable_vsprintf_init_hashval827, ptr @__UNIQUE_ID___addressable_vsscanf878, ptr @__setup_debug_boot_weak_hash_enable, ptr @__setup_no_hash_pointers_enable], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @simple_strtoull(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i64 @simple_strtoull(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -185,7 +185,7 @@ simple_strntoull.exit:                            ; preds = %20, %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @simple_strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i64 @simple_strtoul(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -229,7 +229,7 @@ simple_strtoull.exit:                             ; preds = %20, %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @simple_strtol(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i64 @simple_strtol(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -326,13 +326,13 @@ simple_strtoull.exit1:                            ; preds = %47, %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @simple_strtoll(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i64 @simple_strtoll(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 align 16 {
   %4 = tail call fastcc i64 @simple_strntoll(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef 2147483647)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @simple_strntoll(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef range(i64 -1, 2147483648) %3) unnamed_addr #0 align 16 {
+define internal fastcc i64 @simple_strntoll(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i64 noundef range(i64 -1, 2147483648) %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -519,7 +519,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc ptr @put_dec(ptr noundef writeonly captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #4 align 16 {
   %3 = icmp ugt i64 %1, 99999999
   br i1 %3, label %4, label %.thread
 
@@ -1834,7 +1834,7 @@ thread-pre-split:                                 ; preds = %114, %108, %76
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 %3) unnamed_addr #8 align 16 {
+define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i64 %3) unnamed_addr #8 align 16 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ult ptr %2, inttoptr (i64 4096 to ptr)
   %7 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
@@ -8357,7 +8357,7 @@ hex_string.exit:                                  ; preds = %3611, %3516, %3307,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, inaccessiblemem: none)
-define internal fastcc ptr @number(ptr noundef writeonly %0, ptr noundef readnone %1, i64 noundef %2, i64 %3) unnamed_addr #9 align 16 {
+define internal fastcc ptr @number(ptr noundef writeonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, i64 noundef %2, i64 %3) unnamed_addr #9 align 16 {
   %5 = alloca [24 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
   %6 = lshr i64 %3, 32
@@ -11065,7 +11065,7 @@ widen_string.exit:                                ; preds = %75, %111, %widen_st
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 %3) unnamed_addr #13 align 16 {
+define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i64 %3) unnamed_addr #13 align 16 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ult ptr %2, inttoptr (i64 4096 to ptr)
   %7 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
@@ -11553,7 +11553,7 @@ widen_string.exit16:                              ; preds = %171, %164, %.loopex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, inaccessiblemem: none)
-define internal fastcc ptr @pointer_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #9 align 16 {
+define internal fastcc ptr @pointer_string(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef captures(address) %1, ptr noundef %2, i64 %3) unnamed_addr #9 align 16 {
   %5 = and i64 %3, -280512904036353
   %6 = or disjoint i64 %5, 17729624997888
   %7 = shl i64 %3, 32
@@ -11897,7 +11897,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local i64 @_find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 16 {
+define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [8 x i8], align 8
   %5 = alloca %struct.in6_addr, align 4
@@ -12188,7 +12188,7 @@ ip4_string.specialized.1.exit:                    ; preds = %.loopexit.i
 declare i16 @llvm.bswap.i16(i16) #15
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i8 %.0.val, i8 %.2.val) unnamed_addr #14 align 16 {
+define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i8 %.0.val, i8 %.2.val) unnamed_addr #14 align 16 {
   %3 = alloca [4 x i8], align 4
   %.0.val.fr = freeze i8 %.0.val
   %4 = icmp eq i8 %.0.val.fr, 105
@@ -12384,7 +12384,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #11
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 %3, ptr noundef readonly captures(none) %4) unnamed_addr #13 align 16 {
+define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i64 %3, ptr noundef readonly captures(none) %4) unnamed_addr #13 align 16 {
   %6 = icmp eq ptr %2, null
   %7 = icmp ult ptr %2, inttoptr (i64 4096 to ptr)
   %8 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)

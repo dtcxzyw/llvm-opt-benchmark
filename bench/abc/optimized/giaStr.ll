@@ -7908,7 +7908,7 @@ Str_ObjDelay.exit:                                ; preds = %100, %10, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %.pre = sext i32 %3 to i64
   br i1 %.not, label %._crit_edge129, label %8
@@ -8347,7 +8347,7 @@ define range(i32 -1, 2) i32 @Str_MuxFindPath_rec(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @Str_MuxFindBranching(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @Str_MuxFindBranching(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %3, i64 0, i64 %4

@@ -1735,7 +1735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(2880)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, i32 noundef range(i32 0, 5) %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, i32 noundef range(i32 0, 5) %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca [3 x %"struct.std::pair.363"], align 8
   %7 = alloca [5 x %"struct.std::pair.363"], align 8
   %8 = icmp eq ptr %.0.val, %.8.val

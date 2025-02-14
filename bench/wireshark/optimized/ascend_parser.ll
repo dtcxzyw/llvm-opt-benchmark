@@ -33,7 +33,7 @@ define hidden void @AscendParserInit(ptr noundef initializes((8, 12)) %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @AscendParserFinalize(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @AscendParserFinalize(ptr noundef captures(address) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2

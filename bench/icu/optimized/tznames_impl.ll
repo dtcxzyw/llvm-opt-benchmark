@@ -622,7 +622,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513CharacterNode12deleteValuesEPFvPvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly %valueDeleter) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513CharacterNode12deleteValuesEPFvPvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address_is_null) %valueDeleter) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -3173,7 +3173,7 @@ entry:
 declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517TimeZoneNamesImpleqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 dereferenceable(320) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %other) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517TimeZoneNamesImpleqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(320) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   ret i1 %cmp
@@ -6067,7 +6067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7517TZDBTimeZoneNameseqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 dereferenceable(236) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %other) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7517TZDBTimeZoneNameseqERKNS_13TimeZoneNamesE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(236) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(8) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   ret i1 %cmp

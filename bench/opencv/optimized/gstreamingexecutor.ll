@@ -30687,7 +30687,7 @@ define linkonce_odr hidden void @_ZN2cv5gimpl6stream9SyncQueue3popERNS_4util7var
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19sync_dataERSt6vectorIN2cv7GRunArgESaIS2_EERS0_INS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSJ_9OpaqueRefEEEESaISM_EE(ptr %.0.val, ptr readnone %.8.val, ptr readonly %.0.val1, ptr readnone %.8.val3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19sync_dataERSt6vectorIN2cv7GRunArgESaIS2_EERS0_INS1_4util7variantIJPNS1_4UMatEPNS1_3MatEPNS1_4RMatEPNS1_7Scalar_IdEEPNS1_10MediaFrameENS1_6detail9VectorRefENSJ_9OpaqueRefEEEESaISM_EE(ptr captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr readonly captures(address) %.0.val1, ptr readnone captures(address) %.8.val3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.cv::util::bad_variant_access", align 8
   %2 = alloca %"class.cv::util::bad_variant_access", align 8
   %3 = alloca %"class.cv::util::bad_variant_access", align 8
@@ -46634,7 +46634,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_5gimpl6stream5StartENS4_4StopENS_7GRunArg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115StreamingOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115StreamingOutputD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(192) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -47732,7 +47732,7 @@ _ZN2cv4util7variantIJNS_5gimpl11EndOfStreamESt6vectorINS_7GRunArgESaIS5_EENS2_9E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt13unordered_mapIPKvSt4pairIiSt14_List_iteratorIN12_GLOBAL__N_115StreamingOutput7PostingEEESt4hashIS1_ESt8equal_toIS1_ESaIS2_IKS1_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt13unordered_mapIPKvSt4pairIiSt14_List_iteratorIN12_GLOBAL__N_115StreamingOutput7PostingEEESt4hashIS1_ESt8equal_toIS1_ESaIS2_IKS1_S8_EEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %2, align 8
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null

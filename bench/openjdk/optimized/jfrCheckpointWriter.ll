@@ -1109,7 +1109,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
@@ -1231,7 +1231,7 @@ define hidden noundef zeroext i1 @_ZNK19JfrCheckpointWriter8has_dataEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19JfrCheckpointWriter4copyEPK20JfrCheckpointContext(ptr dead_on_unwind noalias writable sret(%class.RefCountHandle) align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(73) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19JfrCheckpointWriter4copyEPK20JfrCheckpointContext(ptr dead_on_unwind noalias writable sret(%class.RefCountHandle) align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(73) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not10.i = icmp eq ptr %5, null
@@ -1286,7 +1286,7 @@ _ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext.exit: ; preds
 declare void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19JfrCheckpointWriter4moveEPK20JfrCheckpointContext(ptr dead_on_unwind noalias writable sret(%class.RefCountHandle) align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(73) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19JfrCheckpointWriter4moveEPK20JfrCheckpointContext(ptr dead_on_unwind noalias writable sret(%class.RefCountHandle) align 8 %0, ptr noundef nonnull align 8 captures(none) dereferenceable(73) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not10.i = icmp eq ptr %5, null

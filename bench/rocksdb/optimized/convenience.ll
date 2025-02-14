@@ -543,7 +543,7 @@ return:                                           ; preds = %if.then.i.i.i5, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb29VerifySstFileChecksumInternalERKNS_7OptionsERKNS_10EnvOptionsERKNS_11ReadOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(32) %file_path, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %largest_seqno) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29VerifySstFileChecksumInternalERKNS_7OptionsERKNS_10EnvOptionsERKNS_11ReadOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKm(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(1508) %options, ptr noundef nonnull align 8 dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(32) %file_path, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %largest_seqno) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %file = alloca %"class.std::unique_ptr.364", align 8
   %file_size = alloca i64, align 8

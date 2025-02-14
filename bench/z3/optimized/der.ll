@@ -321,7 +321,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3der12is_var_diseqEP4exprjRP3varR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(784) %this, ptr noundef %e, i32 noundef %num_decls, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3der12is_var_diseqEP4exprjRP3varR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 captures(address) dereferenceable(784) %this, ptr noundef %e, i32 noundef %num_decls, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
@@ -874,7 +874,7 @@ declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnul
 declare noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3der9is_var_eqEP4exprjRP3varR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(784) %this, ptr noundef %e, i32 noundef %num_decls, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3der9is_var_eqEP4exprjRP3varR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 captures(address) dereferenceable(784) %this, ptr noundef %e, i32 noundef %num_decls, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %v, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4

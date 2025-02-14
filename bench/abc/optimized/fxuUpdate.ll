@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @Fxu_Update(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Fxu_Update(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -626,7 +626,7 @@ define internal fastcc void @Fxu_UpdateMatrixSingleClean(ptr noundef %0, ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1067,7 +1067,7 @@ declare ptr @Fxu_HeapSingleReadMax(ptr noundef) local_unnamed_addr #1
 declare ptr @Fxu_HeapDoubleGetMax(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fxu_UpdateCleanOldDoubles(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

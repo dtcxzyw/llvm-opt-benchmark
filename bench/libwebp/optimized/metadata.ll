@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @MetadataInit(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @MetadataInit(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -20,7 +20,7 @@ define hidden void @MetadataInit(ptr noundef writeonly %0) local_unnamed_addr #0
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @MetadataPayloadDelete(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @MetadataPayloadDelete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -38,7 +38,7 @@ define hidden void @MetadataPayloadDelete(ptr noundef %0) local_unnamed_addr #2 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @MetadataFree(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @MetadataFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %MetadataPayloadDelete.exit
 
@@ -61,7 +61,7 @@ MetadataPayloadDelete.exit:                       ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden range(i32 0, 2) i32 @MetadataCopy(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @MetadataCopy(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i64 %1, 0
   %or.cond = or i1 %4, %5

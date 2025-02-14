@@ -17,7 +17,7 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__op
 @.str.3 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp ne ptr %1, null
   %3 = icmp sgt i64 %0, 0
   %or.cond13 = and i1 %.not, %3
@@ -42,7 +42,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp sgt i64 %0, 0
   %or.cond17 = and i1 %3, %4
@@ -69,7 +69,7 @@ define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp ne ptr %1, null
   %3 = icmp sgt i64 %0, 0
   %or.cond = and i1 %.not, %3
@@ -88,7 +88,7 @@ define hidden void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp sgt i64 %0, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 

@@ -319,7 +319,7 @@ define internal range(i32 0, 2) i32 @print_line_text(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @print_line_color_text(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #0 {
+define internal range(i32 0, 2) i32 @print_line_color_text(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -566,7 +566,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @print_preamble_ps(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @print_preamble_ps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -631,7 +631,7 @@ ps_clean_string.exit:                             ; preds = %21, %25, %12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @print_line_ps(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #8 {
+define internal range(i32 0, 2) i32 @print_line_ps(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #8 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -690,7 +690,7 @@ ps_clean_string.exit:                             ; preds = %17, %21, %8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #8 {
+define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #8 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

@@ -398,7 +398,7 @@ declare zeroext i1 @superuser() local_unnamed_addr #1
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetPGVariable(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @SetPGVariable(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr noundef %1)
   %5 = tail call zeroext i1 @superuser() #7
   %6 = select i1 %5, i32 5, i32 6
@@ -418,7 +418,7 @@ declare void @ResetAllOptions() local_unnamed_addr #1
 declare void @RunObjectPostAlterHookStr(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

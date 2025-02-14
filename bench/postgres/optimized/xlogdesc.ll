@@ -252,7 +252,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.RelFileLocator, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

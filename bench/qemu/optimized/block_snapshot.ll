@@ -182,7 +182,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @bdrv_snapshot_find_by_id_and_name(ptr noundef %bs, ptr noundef readonly %id, ptr noundef readonly %name, ptr noundef writeonly captures(none) %sn_info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bdrv_snapshot_find_by_id_and_name(ptr noundef %bs, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(address_is_null) %name, ptr noundef writeonly captures(none) %sn_info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab = alloca ptr, align 8
   %tobool = icmp ne ptr %id, null
@@ -858,7 +858,7 @@ if.end5:                                          ; preds = %do.end, %if.then3
 declare void @error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @bdrv_all_can_snapshot(i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bdrv_all_can_snapshot(i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8
@@ -1031,7 +1031,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly %devices, ptr noundef nonnull writeonly captures(none) %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @bdrv_all_get_snapshot_devices(i1 noundef zeroext %has_devices, ptr noundef readonly captures(address_is_null) %devices, ptr noundef nonnull writeonly captures(none) %all_bdrvs, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %it = alloca %struct.BdrvNextIterator, align 8
   br i1 %has_devices, label %if.then, label %if.else
@@ -1102,7 +1102,7 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @bdrv_all_delete_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_delete_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab.i = alloca ptr, align 8
   %bdrvs = alloca ptr, align 8
@@ -1255,7 +1255,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @bdrv_all_goto_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_goto_snapshot(ptr noundef %name, i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8
@@ -1397,7 +1397,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %while.cond.preheade
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 2) i32 @bdrv_all_has_snapshot(ptr noundef readonly captures(none) %name, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @bdrv_all_has_snapshot(ptr noundef readonly captures(none) %name, i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sn_tab.i = alloca ptr, align 8
   %bdrvs = alloca ptr, align 8
@@ -1578,7 +1578,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @bdrv_all_create_snapshot(ptr noundef %sn, ptr noundef readnone %vm_state_bs, i64 noundef %vm_state_size, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bdrv_all_create_snapshot(ptr noundef %sn, ptr noundef readnone captures(address) %vm_state_bs, i64 noundef %vm_state_size, i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8
@@ -1757,7 +1757,7 @@ glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @bdrv_all_find_vmstate_bs(ptr noundef %vmstate_bs, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @bdrv_all_find_vmstate_bs(ptr noundef %vmstate_bs, i1 noundef zeroext %has_devices, ptr noundef captures(address_is_null) %devices, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bdrvs = alloca ptr, align 8
   store ptr null, ptr %bdrvs, align 8

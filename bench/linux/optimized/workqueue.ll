@@ -2870,7 +2870,7 @@ define internal fastcc zeroext i1 @flush_workqueue_prep_pwqs(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @check_flush_dependency(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @check_flush_dependency(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 

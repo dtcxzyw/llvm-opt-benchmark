@@ -5940,7 +5940,7 @@ define internal noundef i32 @dissect_btcommon_cod(ptr noundef %0, ptr readnone c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btcommon_le_channel_map(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) #1 {
+define internal noundef i32 @dissect_btcommon_le_channel_map(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) #1 {
   %5 = load i32, ptr @hf_btcommon_le_channel_map_0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %7 = load i32, ptr @hf_btcommon_le_channel_map_1, align 4
@@ -6096,7 +6096,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

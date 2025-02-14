@@ -572,7 +572,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @usprep_close_75(ptr noundef %profile) local_unnamed_addr #0 {
+define void @usprep_close_75(ptr noundef captures(address_is_null) %profile) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %profile, null
   br i1 %cmp, label %return, label %if.end
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %if.end15
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @usprep_prepare_75(ptr noundef readonly %profile, ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @usprep_prepare_75(ptr noundef readonly captures(address_is_null) %profile, ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s1 = alloca %"class.icu_75::UnicodeString", align 8
   %s2 = alloca %"class.icu_75::UnicodeString", align 8

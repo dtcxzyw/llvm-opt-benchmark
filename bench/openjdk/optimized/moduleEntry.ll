@@ -434,7 +434,7 @@ declare void @_ZN15ClassLoaderData18init_handle_lockedER9OopHandle6Handle(ptr no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK11ModuleEntry8can_readEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK11ModuleEntry8can_readEPS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1872,7 +1872,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK11ModuleEntr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ModuleEntry20write_growable_arrayEP13GrowableArrayIPS_E(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ModuleEntry20write_growable_arrayEP13GrowableArrayIPS_E(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -1945,7 +1945,7 @@ _ZN11ModuleEntry18get_archived_entryEPS_.exit:    ; preds = %31
 declare void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ModuleEntry22restore_growable_arrayEP5ArrayIPS_E(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11ModuleEntry22restore_growable_arrayEP5ArrayIPS_E(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 

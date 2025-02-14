@@ -3874,7 +3874,7 @@ declare i32 @allPersistenceDisabled() local_unnamed_addr #4
 declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @closeRepldbfd(ptr noundef %myself) local_unnamed_addr #0 {
+define dso_local void @closeRepldbfd(ptr noundef captures(address) %myself) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8
@@ -6671,7 +6671,7 @@ declare void @llvm.va_start.p0(ptr) #17
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sendCommandArgv(ptr noundef %conn, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly %argv_lens) local_unnamed_addr #0 {
+define dso_local ptr @sendCommandArgv(ptr noundef %conn, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly captures(address_is_null) %argv_lens) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsempty() #22
   %call1 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call, ptr noundef nonnull @.str.138, i32 noundef %argc) #22
@@ -10113,7 +10113,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef writeonly %mincapa_out, ptr noundef writeonly %req_out) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @shouldStartChildReplication(ptr noundef writeonly captures(address_is_null) %mincapa_out, ptr noundef writeonly captures(address_is_null) %req_out) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %call = tail call i32 @hasActiveChildProcess() #22

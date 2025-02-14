@@ -3158,7 +3158,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -6871,7 +6871,7 @@ add_extra_padding.exit:                           ; preds = %._crit_edge, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 1, 7) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef range(i32 1, 7) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -7274,7 +7274,7 @@ define internal fastcc noundef i32 @dissect_struct_lu_fid(ptr noundef %0, i32 no
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_ldlm_lock_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_ldlm_lock_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_lustre_ldlm_lock_desc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 80, i32 noundef 0) #8

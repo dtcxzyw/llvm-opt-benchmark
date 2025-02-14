@@ -901,7 +901,7 @@ define range(i32 -1, 1) i32 @H5get_free_list_sizes(ptr noundef %0, ptr noundef %
 declare i32 @H5FL_get_free_list_sizes(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5get_libversion(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5get_libversion(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1
@@ -1257,7 +1257,7 @@ define noundef i32 @H5free_memory(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -1271,7 +1271,7 @@ define range(i32 -1, 1) i32 @H5is_library_threadsafe(ptr noundef writeonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @H5is_library_terminating(ptr noundef writeonly %0) local_unnamed_addr #17 {
+define range(i32 -1, 1) i32 @H5is_library_terminating(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

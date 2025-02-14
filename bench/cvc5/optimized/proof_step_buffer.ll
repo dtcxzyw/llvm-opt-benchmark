@@ -1605,7 +1605,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal15ProofStepBuffer8getStepsEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal15ProofStepBuffer8getStepsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_steps = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_steps

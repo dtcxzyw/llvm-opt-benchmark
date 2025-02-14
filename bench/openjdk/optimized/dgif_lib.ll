@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DGifDecompressInput.CodeMasks = internal unnamed_addr constant [13 x i16] [i16 0, i16 1, i16 3, i16 7, i16 15, i16 31, i16 63, i16 127, i16 255, i16 511, i16 1023, i16 2047, i16 4095], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #14
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
@@ -43,7 +43,7 @@ define hidden noundef ptr @DGifOpenFileName(ptr noundef readonly captures(none) 
 declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DGifOpenFileHandle(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @DGifOpenFileHandle(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [7 x i8], align 1
   %calloc = tail call dereferenceable_or_null(120) ptr @calloc(i64 1, i64 120)
   %4 = icmp eq ptr %calloc, null
@@ -404,7 +404,7 @@ InternalRead.exit47:                              ; preds = %88, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DGifOpen(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noundef ptr @DGifOpen(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [7 x i8], align 1
   %calloc = tail call dereferenceable_or_null(120) ptr @calloc(i64 1, i64 120)
   %5 = icmp eq ptr %calloc, null
@@ -2160,7 +2160,7 @@ DGifExtensionToGCB.exit:                          ; preds = %21, %8, %.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifCloseFile(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifCloseFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %42, label %4
 

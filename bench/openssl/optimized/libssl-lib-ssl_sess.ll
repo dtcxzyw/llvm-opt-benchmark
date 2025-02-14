@@ -35,7 +35,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_session(ptr noundef readonly %ssl) local_unnamed_addr #2 {
+define ptr @SSL_get_session(ptr noundef readonly captures(address_is_null) %ssl) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -486,7 +486,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly %s, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly captures(ret: address, provenance) %s, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %len, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -504,7 +504,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @SSL_SESSION_get0_id_context(ptr noundef readonly %s, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define nonnull ptr @SSL_SESSION_get0_id_context(ptr noundef readonly captures(ret: address, provenance) %s, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %len, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1779,7 +1779,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare i32 @SSL_set_ssl_method(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_id(ptr noundef writeonly %s, ptr noundef readonly %sid, i32 noundef %sid_len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_id(ptr noundef writeonly captures(address) %s, ptr noundef readonly captures(address) %sid, i32 noundef %sid_len) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i32 %sid_len, 32
   br i1 %cmp, label %if.then, label %if.end
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %if.end7, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_SESSION_get_timeout(ptr noundef readonly %s) local_unnamed_addr #7 {
+define range(i64 0, 18446744074) i64 @SSL_SESSION_get_timeout(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -1878,7 +1878,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time(ptr noundef readonly %s) local_unnamed_addr #7 {
+define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -2024,7 +2024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_SESSION_get0_ticket(ptr noundef readonly captures(none) %s, ptr noundef writeonly %tick, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
+define void @SSL_SESSION_get0_ticket(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(address_is_null) %tick, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
 entry:
   %ticklen = getelementptr inbounds nuw i8, ptr %s, i64 840
   %0 = load i64, ptr %ticklen, align 8
@@ -2122,7 +2122,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_id_context(ptr noundef writeonly %s, ptr noundef readonly %sid_ctx, i32 noundef %sid_ctx_len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_id_context(ptr noundef writeonly captures(address) %s, ptr noundef readonly captures(address) %sid_ctx, i32 noundef %sid_ctx_len) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i32 %sid_ctx_len, 32
   br i1 %cmp, label %if.then, label %if.end
@@ -2177,7 +2177,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, 18446744074) i64 @SSL_CTX_set_timeout(ptr noundef %s, i64 noundef %t) local_unnamed_addr #0 {
+define range(i64 0, 18446744074) i64 @SSL_CTX_set_timeout(ptr noundef captures(address_is_null) %s, i64 noundef %t) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -2196,7 +2196,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_CTX_get_timeout(ptr noundef readonly %s) local_unnamed_addr #7 {
+define range(i64 0, 18446744074) i64 @SSL_CTX_get_timeout(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -2213,7 +2213,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_set_session_secret_cb(ptr noundef %s, ptr noundef %tls_session_secret_cb, ptr noundef %arg) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @SSL_set_session_secret_cb(ptr noundef captures(address_is_null) %s, ptr noundef %tls_session_secret_cb, ptr noundef %arg) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -2245,7 +2245,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_set_session_ticket_ext_cb(ptr noundef %s, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @SSL_set_session_ticket_ext_cb(ptr noundef captures(address_is_null) %s, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -2277,7 +2277,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_set_session_ticket_ext(ptr noundef %s, ptr noundef readonly %ext_data, i32 noundef %ext_len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_set_session_ticket_ext(ptr noundef captures(address_is_null) %s, ptr noundef readonly captures(address_is_null) %ext_data, i32 noundef %ext_len) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false

@@ -4317,7 +4317,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i111 = alloca i64, align 8
   %v.addr.i49 = alloca i32, align 4
@@ -4614,7 +4614,7 @@ if.end82:                                         ; preds = %for.end64
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly captures(none) %edges, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i53 = alloca i32, align 4
   %v.addr.i48 = alloca i8, align 1
@@ -9858,7 +9858,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad18, %l
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10226,7 +10226,7 @@ eh.resume:                                        ; preds = %if.end.i.i.i.i25, %
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull readonly captures(none) %nodes, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4

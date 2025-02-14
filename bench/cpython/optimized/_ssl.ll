@@ -5012,7 +5012,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_and_set_sslerror(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 105, 5432) %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc void @fill_and_set_sslerror(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 105, 5432) %5, i64 noundef %6) unnamed_addr #0 {
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %46, label %8
 
@@ -9175,7 +9175,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc ptr @newPySSLSocket(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !94
   %11 = icmp eq i32 %2, 1
@@ -12549,7 +12549,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca ptr, align 8
@@ -12883,7 +12883,7 @@ _ssl__SSLSocket_do_handshake_impl.exit:           ; preds = %19, %133, %135, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_write(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @_ssl__SSLSocket_write(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca %struct.pollfd, align 4
@@ -13284,7 +13284,7 @@ _ssl__SSLSocket_write_impl.exit:                  ; preds = %24, %151, %PySSL_Ch
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_read(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @_ssl__SSLSocket_read(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca ptr, align 8
@@ -13803,7 +13803,7 @@ _ssl__SSLSocket_read_impl.exit:                   ; preds = %34, %.thread152.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_pending(ptr noundef initializes((64, 72)) %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @_ssl__SSLSocket_pending(ptr noundef captures(address_is_null) initializes((64, 72)) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyEval_SaveThread() #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !73
@@ -14231,7 +14231,7 @@ _ssl__SSLSocket_compression_impl.exit:            ; preds = %2, %5, %8, %11, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca %struct.pollfd, align 4
   %5 = alloca ptr, align 8
@@ -14754,7 +14754,7 @@ declare i32 @PyErr_CheckSignals() local_unnamed_addr #1
 declare i64 @_PyDeadline_Get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PySSL_SetError(ptr noundef %0, i32 noundef range(i32 1066, 2814) %1) unnamed_addr #0 {
+define internal fastcc ptr @PySSL_SetError(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 1066, 2814) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !123
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -15735,7 +15735,7 @@ declare i32 @_PyArg_NoPositional(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSLSession_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal ptr @PySSLSession_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %0, null

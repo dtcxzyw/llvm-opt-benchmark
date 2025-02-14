@@ -753,7 +753,7 @@ _ZN3ade20MemoryDescriptorView9Connector11addListenerEPS0_PNS_29IMemoryDescriptor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade20MemoryDescriptorView14removeListenerEPNS_29IMemoryDescriptorViewListenerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN3ade20MemoryDescriptorView14removeListenerEPNS_29IMemoryDescriptorViewListenerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ade20MemoryDescriptorView9Connector8findDescEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %0)
@@ -869,7 +869,7 @@ _ZN3ade20MemoryDescriptorView9Connector14removeListenerEPS0_PNS_29IMemoryDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 captures(none) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 captures(none) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

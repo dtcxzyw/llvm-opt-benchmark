@@ -299,7 +299,7 @@ define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_buf_clear(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_draw_buf_clear(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_area_t, align 4
   %.not = icmp eq ptr %0, null
@@ -468,7 +468,7 @@ lv_draw_buf_goto_xy.exit28:                       ; preds = %61, %70
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_buf_goto_xy(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @lv_draw_buf_goto_xy(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1126,7 +1126,7 @@ define ptr @lv_draw_buf_dup_ex(ptr noundef %0, ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_draw_buf_reshape(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @lv_draw_buf_reshape(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %63, label %7
 
@@ -1284,7 +1284,7 @@ draw_buf_free.exit:                               ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_draw_buf_adjust_stride(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_draw_buf_adjust_stride(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1521,7 +1521,7 @@ define zeroext i1 @lv_draw_buf_has_flag(ptr noundef readonly captures(none) %0, 
 declare ptr @lv_memmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1733,7 +1733,7 @@ declare void @lv_color_premultiply(ptr noundef) local_unnamed_addr #3
 declare void @lv_color16_premultiply(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_draw_buf_set_palette(ptr noundef readonly %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
+define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1879,7 +1879,7 @@ define void @lv_draw_buf_to_image(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_image_buf_set_palette(ptr noundef readonly %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
+define void @lv_image_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %4
 

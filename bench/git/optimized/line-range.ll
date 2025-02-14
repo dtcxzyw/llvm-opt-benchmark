@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [43 x i8] c"-L parameter '%s' starting at line %ld: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parse_range_arg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef initializes((0, 8)) %5, ptr noundef initializes((0, 8)) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_range_arg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) initializes((0, 8)) %5, ptr noundef captures(address_is_null) initializes((0, 8)) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   store i64 0, ptr %6, align 8, !tbaa !4
   store i64 0, ptr %5, align 8, !tbaa !4
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %4, i64 1)
@@ -89,7 +89,7 @@ define dso_local range(i32 -1, 1) i32 @parse_range_arg(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_range_funcname(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc ptr @parse_range_funcname(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [1 x i8], align 1
   %11 = alloca [1 x i8], align 1
   %12 = alloca [1 x %struct.regmatch_t], align 4
@@ -470,7 +470,7 @@ match_funcname.exit.thread:                       ; preds = %match_funcname.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_loc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @parse_loc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.re_pattern_buffer, align 8
   %9 = alloca [1 x %struct.regmatch_t], align 4

@@ -296,7 +296,7 @@ define void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef initializes((0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
@@ -509,7 +509,7 @@ _ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly %.136.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZL29tMPI_Send_env_list_search_oldP18send_envelope_listP8envelope(ptr readonly captures(address) %.136.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
   %.0.in4 = getelementptr inbounds nuw i8, ptr %.136.val, i64 136
   %.05 = load ptr, ptr %.0.in4, align 8
   %.not6 = icmp eq ptr %.05, %.136.val
@@ -1416,7 +1416,7 @@ _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread: ; preds = %12, %_Z16t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 

@@ -52,7 +52,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @replay_chr_be_write(ptr noundef readnone %s, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @replay_chr_be_write(ptr noundef readnone captures(address) %s, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   %0 = load i32, ptr @drivers_count, align 4

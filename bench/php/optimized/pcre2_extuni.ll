@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_ucp_gbtable_8 = external local_unnamed_addr constant [0 x i32], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(address) %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %1, %3
   br i1 %7, label %.lr.ph122, label %._crit_edge123
 

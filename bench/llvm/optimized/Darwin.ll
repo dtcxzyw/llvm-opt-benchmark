@@ -31088,7 +31088,7 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EEC2IJS1_ETnNSt9ena
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatformD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8, !tbaa !478, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
@@ -32445,7 +32445,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit84.thread47: ; preds = %_ZNK4llvm9Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 28)) %0, i32 noundef range(i32 0, 6) %1, ptr readonly %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 28)) %0, i32 noundef range(i32 0, 6) %1, ptr readonly captures(address_is_null) %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   store i32 4, ptr %0, align 8, !tbaa !591
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4

@@ -756,7 +756,7 @@ declare void @dt_gui_presets_update_autoapply(ptr noundef, ptr noundef, i32 noun
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @illuminant_to_xy(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, float noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #10 {
+define internal fastcc void @illuminant_to_xy(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, float noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #10 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
@@ -3412,7 +3412,7 @@ define internal fastcc void @_declare_cat_on_pipe(ptr noundef %0, i32 noundef ra
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_temperature_from_raw_coeffs(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @find_temperature_from_raw_coeffs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #10 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16
@@ -6257,7 +6257,7 @@ dt_introspection_get_enum_name.exit:              ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_check_if_close_to_daylight(float noundef %0, float noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #3 {
+define internal fastcc void @_check_if_close_to_daylight(float noundef %0, float noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #3 {
   %6 = alloca [2 x float], align 8
   %7 = fcmp reassoc nsz arcp contract afn olt float %0, 0x47EFFFFFE0000000
   br i1 %7, label %xy_to_CCT.exit, label %xy_to_CCT.exit.thread
@@ -6671,7 +6671,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #3 {
 declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly %2) local_unnamed_addr #3 {
+define void @gui_changed(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -13242,7 +13242,7 @@ define internal void @_run_validation_callback(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #3 {
+define void @gui_cleanup(ptr noundef captures(address) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -13332,7 +13332,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.145) #29
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %111, label %4
@@ -15810,7 +15810,7 @@ declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_add
 declare void @gtk_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_RGB_slider_stop(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #3 {
+define internal fastcc void @_update_RGB_slider_stop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #3 {
   %9 = alloca [4 x float], align 16
   %10 = alloca [4 x float], align 16
   %11 = alloca [4 x float], align 16

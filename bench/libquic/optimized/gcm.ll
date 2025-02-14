@@ -991,7 +991,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly captures(address) %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8
@@ -1240,7 +1240,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @aesni_gcm_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %ctx, ptr noundef %key, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef readonly captures(address) %stream) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load i64, ptr %arrayidx, align 8

@@ -918,7 +918,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSRaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSRaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %owned.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %owned.i, align 8
@@ -1077,7 +1077,7 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSR11setHashCodeEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_753LSR11setHashCodeEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %hashCode = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %hashCode, align 8

@@ -749,7 +749,7 @@ declare i32 @PMIx_tool_set_server(ptr noundef, ptr noundef, i64 noundef) local_u
 declare i32 @PMIx_Allocation_request_nb(i8 noundef zeroext, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @infocbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @infocbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1368
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null

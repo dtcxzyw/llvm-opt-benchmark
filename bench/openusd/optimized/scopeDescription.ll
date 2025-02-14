@@ -2056,7 +2056,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry3AddENSt6thre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_StackD2Ev(ptr noundef nonnull readnone align 8 dereferenceable(9) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_StackD2Ev(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(9) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_StackRegistry::_StackEntry", align 8
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111GetRegistryEvE11theRegistry acquire, align 8

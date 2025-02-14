@@ -3726,7 +3726,7 @@ cleanup.action:                                   ; preds = %lpad, %lpad3
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb3Env13GetFileSystemEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23BlockAccessCipherStream7EncryptEmPcm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %fileOffset, ptr noundef %data, i64 noundef %dataSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockAccessCipherStream7EncryptEmPcm(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %fileOffset, ptr noundef %data, i64 noundef %dataSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scratch = alloca %"class.std::__cxx11::basic_string", align 8
   %status = alloca %"class.rocksdb::Status", align 8
@@ -4477,7 +4477,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef captures(none) %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef captures(none) %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status = alloca %"class.rocksdb::Status", align 8
   %cipher_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4582,7 +4582,7 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef captures(none) %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef captures(none) %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef %data, ptr noundef %scratch)
   ret void
@@ -9326,7 +9326,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl15NewWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl15NewWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %underlying = alloca %"class.std::unique_ptr.42", align 8
   %status = alloca %"class.rocksdb::IOStatus", align 8
@@ -9483,7 +9483,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl18ReopenWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl18ReopenWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %underlying = alloca %"class.std::unique_ptr.42", align 8
   %status = alloca %"class.rocksdb::IOStatus", align 8
@@ -9640,7 +9640,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl17ReuseWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(32) %old_fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl17ReuseWritableFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS_11FileOptionsEPSt10unique_ptrINS_14FSWritableFileESt14default_deleteISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(32) %old_fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %underlying = alloca %"class.std::unique_ptr.42", align 8
   %status = alloca %"class.rocksdb::IOStatus", align 8
@@ -10518,7 +10518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt6vectorINS_3Env14FileAttributesESaISF_EEPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt6vectorINS_3Env14FileAttributesESaISF_EEPNS_14IODebugContextE(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status = alloca %"class.rocksdb::IOStatus", align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11273,7 +11273,7 @@ declare void @llvm.trap() #14
 declare void @_ZN7rocksdb10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 initializes((0, 6), (8, 16)) %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef captures(none) %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp16.i = alloca %"class.rocksdb::Status", align 8
@@ -15594,7 +15594,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #5 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_116ROT13BlockCipherESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #5 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag

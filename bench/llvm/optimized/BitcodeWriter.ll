@@ -23968,7 +23968,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit706: ; preds = %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter17writeUseListBlockEPKN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::SmallVector.418", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.val = load ptr, ptr %4, align 8, !tbaa !1124
@@ -32947,7 +32947,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17writeStringRecordRN4llvm15BitstreamWriterEjNS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef range(i32 1, 20) %1, ptr readonly %2, i64 %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL17writeStringRecordRN4llvm15BitstreamWriterEjNS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef range(i32 1, 20) %1, ptr readonly captures(address) %2, i64 %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::SmallVector.410", align 8
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6) #28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -39658,7 +39658,7 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeMetadataStringsEN4llvm8ArrayRefIPKNS1_8MetadataEEERNS1_15SmallVectorImplImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeMetadataStringsEN4llvm8ArrayRefIPKNS1_8MetadataEEERNS1_15SmallVectorImplImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::BitstreamWriter", align 8
@@ -40070,7 +40070,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeMetadataRecordsEN4llvm8ArrayRefIPKNS1_8MetadataEEERNS1_15SmallVectorImplImEEPSt6vectorIjSaIjEEPSA_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter20writeMetadataRecordsEN4llvm8ArrayRefIPKNS1_8MetadataEEERNS1_15SmallVectorImplImEEPSt6vectorIjSaIjEEPSA_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #1 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = icmp eq i64 %2, 0
@@ -41502,7 +41502,7 @@ _ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter12writeMDTupleEPKN4llvm7MDTupleERNS1_15SmallVectorImplImEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter12writeMDTupleEPKN4llvm7MDTupleERNS1_15SmallVectorImplImEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
@@ -49711,7 +49711,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit25: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter13writeDIModuleEPKN4llvm8DIModuleERNS1_15SmallVectorImplImEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119ModuleBitcodeWriter13writeDIModuleEPKN4llvm8DIModuleERNS1_15SmallVectorImplImEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 127
@@ -61910,7 +61910,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24collectMemProfCallStacksPN4llvm15FunctionSummaryESt8functionIFjjEERNS_9MapVectorImNS_11SmallVectorIjLj12EEENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEE(ptr readonly %.104.val, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL24collectMemProfCallStacksPN4llvm15FunctionSummaryESt8functionIFjjEERNS_9MapVectorImNS_11SmallVectorIjLj12EEENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEE(ptr readonly captures(address_is_null) %.104.val, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 {
   %3 = alloca %"class.std::tuple.775", align 8
   %4 = alloca %"class.std::tuple.778", align 8
   %5 = alloca i32, align 4

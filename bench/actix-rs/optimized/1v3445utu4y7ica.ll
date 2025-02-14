@@ -2215,7 +2215,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17hd809d8eea6aedd30E.llvm.10144161
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hdabb952c84eaff4cE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hdabb952c84eaff4cE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -4291,7 +4291,7 @@ default.unreachable27:                            ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17he8201ca738bf5376E.llvm.10144161557925507027(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 4 captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17he8201ca738bf5376E.llvm.10144161557925507027(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 4 captures(none) %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9) unnamed_addr #4 {
   %11 = alloca [128 x i32], align 4
   %12 = alloca [128 x i16], align 2
   %13 = alloca [128 x i8], align 1
@@ -10429,7 +10429,7 @@ define hidden void @_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE(ptr noalias noundef nonnull writeonly align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE(ptr noalias noundef nonnull writeonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ugt i64 %2, %1
   br i1 %4, label %5, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit"
 
@@ -10456,7 +10456,7 @@ define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE(ptr noalias noundef nonnull writeonly align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE(ptr noalias noundef nonnull writeonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ugt i64 %2, %1
   br i1 %4, label %5, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit"
 
@@ -10483,7 +10483,7 @@ define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E(ptr noalias noundef nonnull writeonly align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E(ptr noalias noundef nonnull writeonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ugt i64 %2, %1
   br i1 %4, label %5, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit"
 
@@ -10573,7 +10573,7 @@ define hidden void @_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h27c57c8e514d7079E(ptr noalias noundef align 8 captures(none) dereferenceable(2832) %0, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h27c57c8e514d7079E(ptr noalias noundef align 8 captures(none) dereferenceable(2832) %0, ptr noalias noundef nonnull readonly align 2 captures(address) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   %6 = load i64, ptr %5, align 8, !alias.scope !1327, !noundef !4
   %7 = add i64 %6, %3
@@ -10615,7 +10615,7 @@ define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h27c57c8e514d7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h51da60c814b6d924E(ptr noalias noundef align 8 captures(none) dereferenceable(1040) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h51da60c814b6d924E(ptr noalias noundef align 8 captures(none) dereferenceable(1040) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %6 = load i64, ptr %5, align 8, !alias.scope !1339, !noundef !4
   %7 = add i64 %6, %3
@@ -10649,7 +10649,7 @@ define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h51da60c814b6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h7232d01df834c7edE(ptr noalias noundef align 8 captures(none) dereferenceable(2192) %0, ptr noalias noundef nonnull readonly align 2 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h7232d01df834c7edE(ptr noalias noundef align 8 captures(none) dereferenceable(2192) %0, ptr noalias noundef nonnull readonly align 2 captures(address) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %6 = load i64, ptr %5, align 8, !alias.scope !1351, !noundef !4
   %7 = add i64 %6, %3
@@ -12471,7 +12471,7 @@ define void @_ZN10actix_http2h17encoder10write_data17h2ccbc580de82a48eE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN10actix_http2h17encoder16write_camel_case17hffd1ca0f5c8822e2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #4 {
+define void @_ZN10actix_http2h17encoder16write_camel_case17hffd1ca0f5c8822e2E(ptr noalias noundef nonnull readonly align 1 captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull readonly align 1 %0, i64 %3, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = icmp eq i64 %1, 0

@@ -1770,7 +1770,7 @@ _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i64 @_ZN16CgroupController14limit_from_strEPc(ptr noundef readonly %0) local_unnamed_addr #7 align 2 {
+define hidden noundef i64 @_ZN16CgroupController14limit_from_strEPc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 align 2 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4

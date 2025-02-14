@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [10 x i8] c"reachable\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pmdl_base_harvest_envars(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef i32 @pmix_pmdl_base_harvest_envars(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

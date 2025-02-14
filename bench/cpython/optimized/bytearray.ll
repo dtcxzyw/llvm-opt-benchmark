@@ -37,7 +37,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestLimitedCAPI_Init_ByteArray(ptr nounde
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_check(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
+define internal ptr @bytearray_check(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   %spec.store.select = select i1 %3, ptr null, ptr %1
   %4 = getelementptr i8, ptr %spec.store.select, i64 8
@@ -58,7 +58,7 @@ PyObject_TypeCheck.exit:                          ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_checkexact(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
+define internal ptr @bytearray_checkexact(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   %spec.store.select = select i1 %3, ptr null, ptr %1
   %4 = getelementptr i8, ptr %spec.store.select, i64 8

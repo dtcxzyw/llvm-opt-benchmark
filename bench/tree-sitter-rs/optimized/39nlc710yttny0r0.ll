@@ -1227,7 +1227,7 @@ define { ptr, ptr } @_ZN16tree_sitter_tags11TagsContext3new17h713de8b311cdbcbcE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16tree_sitter_tags11TagsContext6parser17hc6fc8868778b7846E(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16tree_sitter_tags11TagsContext6parser17hc6fc8868778b7846E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

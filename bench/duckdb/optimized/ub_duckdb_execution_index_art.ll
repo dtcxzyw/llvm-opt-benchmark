@@ -5401,7 +5401,7 @@ unreachable:                                      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK6duckdb5Node48GetChildEh(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZNK6duckdb5Node48GetChildEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !56
   %conv = zext i8 %0 to i64
@@ -5435,7 +5435,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK6duckdb6Node168GetChildEh(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZNK6duckdb6Node168GetChildEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !58
   %conv = zext i8 %0 to i64
@@ -5469,7 +5469,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK6duckdb6Node488GetChildEh(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZNK6duckdb6Node488GetChildEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(648) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %child_index = getelementptr inbounds nuw i8, ptr %this, i64 1
   %idxprom = zext i8 %byte to i64
@@ -5484,7 +5484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK6duckdb7Node2568GetChildEh(ptr noundef nonnull readonly align 8 dereferenceable(2056) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZNK6duckdb7Node2568GetChildEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(2056) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i8 %byte to i64
@@ -6001,7 +6001,7 @@ unreachable:                                      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZN6duckdb5Node415GetChildMutableEh(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZN6duckdb5Node415GetChildMutableEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !56
   %conv = zext i8 %0 to i64
@@ -6035,7 +6035,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZN6duckdb6Node1615GetChildMutableEh(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZN6duckdb6Node1615GetChildMutableEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !58
   %conv = zext i8 %0 to i64
@@ -6069,7 +6069,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZN6duckdb6Node4815GetChildMutableEh(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZN6duckdb6Node4815GetChildMutableEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(648) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %child_index = getelementptr inbounds nuw i8, ptr %this, i64 1
   %idxprom = zext i8 %byte to i64
@@ -6084,7 +6084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZN6duckdb7Node25615GetChildMutableEh(ptr noundef nonnull readonly align 8 dereferenceable(2056) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
+define ptr @_ZN6duckdb7Node25615GetChildMutableEh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(2056) %this, i8 noundef zeroext %byte) local_unnamed_addr #11 align 2 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idxprom = zext i8 %byte to i64
@@ -6628,7 +6628,7 @@ unreachable:                                      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZNK6duckdb5Node412GetNextChildERh(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZNK6duckdb5Node412GetNextChildERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !56
   %conv = zext i8 %0 to i64
@@ -6664,7 +6664,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZNK6duckdb6Node1612GetNextChildERh(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZNK6duckdb6Node1612GetNextChildERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !58
   %conv = zext i8 %0 to i64
@@ -6700,7 +6700,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZNK6duckdb6Node4812GetNextChildERh(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZNK6duckdb6Node4812GetNextChildERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(648) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %byte, align 1, !tbaa !14
   %conv = zext i8 %0 to i64
@@ -6735,7 +6735,7 @@ return:                                           ; preds = %for.inc, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZNK6duckdb7Node25612GetNextChildERh(ptr noundef nonnull readonly align 8 dereferenceable(2056) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZNK6duckdb7Node25612GetNextChildERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(2056) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %byte, align 1, !tbaa !14
   %conv = zext i8 %0 to i64
@@ -7306,7 +7306,7 @@ unreachable:                                      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZN6duckdb5Node419GetNextChildMutableERh(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZN6duckdb5Node419GetNextChildMutableERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !56
   %conv = zext i8 %0 to i64
@@ -7342,7 +7342,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZN6duckdb6Node1619GetNextChildMutableERh(ptr noundef nonnull readonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZN6duckdb6Node1619GetNextChildMutableERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !58
   %conv = zext i8 %0 to i64
@@ -7378,7 +7378,7 @@ return:                                           ; preds = %for.inc, %cleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZN6duckdb6Node4819GetNextChildMutableERh(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZN6duckdb6Node4819GetNextChildMutableERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(648) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %byte, align 1, !tbaa !14
   %conv = zext i8 %0 to i64
@@ -7413,7 +7413,7 @@ return:                                           ; preds = %for.inc, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @_ZN6duckdb7Node25619GetNextChildMutableERh(ptr noundef nonnull readonly align 8 dereferenceable(2056) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
+define ptr @_ZN6duckdb7Node25619GetNextChildMutableERh(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(2056) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %byte) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i8, ptr %byte, align 1, !tbaa !14
   %conv = zext i8 %0 to i64
@@ -16730,7 +16730,7 @@ _ZN6duckdb4Leaf6AppendERNS_3ARTEl.exit:           ; preds = %if.then.i, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6duckdb4Leaf6AppendERNS_3ARTEl(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(401) %art, i64 noundef %row_id) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6duckdb4Leaf6AppendERNS_3ARTEl(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(401) %art, i64 noundef %row_id) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !140
   %cmp = icmp eq i8 %0, 4
@@ -18827,7 +18827,7 @@ return:                                           ; preds = %_ZN6duckdb4Node10Re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6Prefix6AppendERNS_3ARTEh(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(401) %art, i8 noundef zeroext %byte) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6Prefix6AppendERNS_3ARTEh(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(401) %art, i8 noundef zeroext %byte) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 15
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !14

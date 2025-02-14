@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.77 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @namelist_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @namelist_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12

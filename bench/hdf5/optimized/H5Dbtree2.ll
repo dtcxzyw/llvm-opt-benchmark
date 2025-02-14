@@ -1187,7 +1187,7 @@ define internal noundef i32 @H5D__bt2_store(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__bt2_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) #7 {
+define internal noundef i32 @H5D__bt2_compare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq ptr %0, %1

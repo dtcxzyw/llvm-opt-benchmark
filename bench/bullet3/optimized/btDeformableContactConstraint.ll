@@ -2418,7 +2418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef readnone %node) unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef readnone captures(address) %node) unnamed_addr #1 align 2 {
 entry:
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 40
   %m_total_tangent_dv = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2953,7 +2953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone %n) unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readnone captures(address) %n) unnamed_addr #1 align 2 {
 entry:
   %m_total_normal_dv = getelementptr inbounds nuw i8, ptr %this, i64 64
   %m_total_tangent_dv = getelementptr inbounds nuw i8, ptr %this, i64 80

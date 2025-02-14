@@ -4188,7 +4188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone %oldChild, ptr noundef %newChild) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone captures(address) %oldChild, ptr noundef %newChild) local_unnamed_addr #6 align 2 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8
@@ -4463,7 +4463,7 @@ if.end10:                                         ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone %child) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone captures(address) %child) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8

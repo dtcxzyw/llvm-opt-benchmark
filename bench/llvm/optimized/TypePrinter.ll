@@ -865,7 +865,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang28isSubstitutedDefaultArgumentERNS_10ASTContextENS_16TemplateArgumentEPKNS_9NamedDeclEN4llvm8ArrayRefIS2_EEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef readonly byval(%"class.clang::TemplateArgument") align 8 captures(none) %1, ptr noundef readonly %2, ptr %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang28isSubstitutedDefaultArgumentERNS_10ASTContextENS_16TemplateArgumentEPKNS_9NamedDeclEN4llvm8ArrayRefIS2_EEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef readonly byval(%"class.clang::TemplateArgument") align 8 captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr %3, i64 %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::TemplateArgument", align 8
   %8 = alloca %"class.clang::TemplateArgument", align 8
   %9 = alloca %"class.clang::TemplateArgument", align 8
@@ -5822,7 +5822,7 @@ _ZNK5clang10Qualifiers18isEmptyWhenPrintedERKNS_14PrintingPolicyE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(22) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::LangOptions", align 8
   %5 = alloca %"struct.clang::PrintingPolicy", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16650,7 +16650,7 @@ _ZN4llvm11raw_ostreamlsEc.exit37:                 ; preds = %185, %183, %_ZNK5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printObjCObjectBeforeEPKN5clang14ObjCObjectTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter21printObjCObjectBeforeEPKN5clang14ObjCObjectTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 16
   %or.cond = icmp ult i32 %5, 524288
@@ -17253,7 +17253,7 @@ _ZN12_GLOBAL__N_111TypePrinter22spaceBeforePlaceHolderERN4llvm11raw_ostreamE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCTypeParamBeforeEPKN5clang17ObjCTypeParamTypeERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(22) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter24printObjCTypeParamBeforeEPKN5clang17ObjCTypeParamTypeERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(22) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !290
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -24023,7 +24023,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printConstantArrayAfterEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printConstantArrayAfterEPKN5clang17ConstantArrayTypeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(22) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24170,7 +24170,7 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit: ; preds
 declare noundef zeroext i1 @_ZNK5clang14AttributedType13isCallingConvEv(ptr noundef nonnull align 16 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang14IdentifierInfoEEEZN12_GLOBAL__N_111TypePrinter20printAttributedAfterEPKNS2_14AttributedTypeERNS_11raw_ostreamEE3$_0SB_KS4_EEvRKT_RT1_T0_"(ptr readonly %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %1) unnamed_addr #5 {
+define internal fastcc void @"_ZN4llvm15interleaveCommaINS_8ArrayRefIPN5clang14IdentifierInfoEEEZN12_GLOBAL__N_111TypePrinter20printAttributedAfterEPKNS2_14AttributedTypeERNS_11raw_ostreamEE3$_0SB_KS4_EEvRKT_RT1_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %1) unnamed_addr #5 {
   %.idx.i = shl nuw nsw i64 %.8.val, 3
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx.i
   %4 = icmp eq i64 %.8.val, 0

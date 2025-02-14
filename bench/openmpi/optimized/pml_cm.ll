@@ -381,7 +381,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @mca_pml_cm_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) #1 {
+define internal i32 @mca_pml_cm_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) #1 {
   %8 = alloca ptr, align 8
   %9 = tail call fastcc ptr @opal_free_list_get()
   store ptr %9, ptr %8, align 8
@@ -2260,7 +2260,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @mca_pml_cm_mrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) #1 {
+define internal i32 @mca_pml_cm_mrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64

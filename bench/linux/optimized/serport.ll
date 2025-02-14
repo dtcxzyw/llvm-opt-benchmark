@@ -287,7 +287,7 @@ define internal void @serport_ldisc_hangup(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @serport_ldisc_receive(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #2 align 16 {
+define internal void @serport_ldisc_receive(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 44

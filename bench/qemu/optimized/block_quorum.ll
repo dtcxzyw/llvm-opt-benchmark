@@ -120,7 +120,7 @@ declare i32 @qcrypto_hash_supports(i32 noundef) local_unnamed_addr #1
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @quorum_recurse_can_replace(ptr noundef readonly captures(none) %bs, ptr noundef readonly %to_replace) #2 {
+define internal zeroext i1 @quorum_recurse_can_replace(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(address) %to_replace) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

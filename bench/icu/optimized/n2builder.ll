@@ -702,7 +702,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6icu_7522Normalizer2DataBuilder19checkNormForMappingEPNS_4NormEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(860) %this, ptr noundef returned %p, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN6icu_7522Normalizer2DataBuilder19checkNormForMappingEPNS_4NormEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(860) %this, ptr noundef returned captures(address_is_null, ret: address, provenance) %p, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end15, label %if.then

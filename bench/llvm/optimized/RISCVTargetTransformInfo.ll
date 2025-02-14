@@ -659,7 +659,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %1, i64 %2, i16 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostENS_8ArrayRefIjEENS_3MVTENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address) %1, i64 %2, i16 %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = add i16 %3, -17
   %spec.select.i = icmp ult i16 %6, 174
   br i1 %spec.select.i, label %7, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
@@ -999,7 +999,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl17getIntImmCostInstEjjRKNS_5APIntEPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl17getIntImmCostInstEjjRKNS_5APIntEPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
   %10 = alloca %"class.llvm::APInt", align 8
@@ -7354,7 +7354,7 @@ _ZN4llvm12RISCVTTIImpl17getEstimatedVLForEPNS_10VectorTypeE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl28getCostOfKeepingLiveOverCallENS_8ArrayRefIPNS_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl28getCostOfKeepingLiveOverCallENS_8ArrayRefIPNS_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
   %.not43 = icmp eq i64 %2, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
@@ -15689,7 +15689,7 @@ _ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10V
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZNS_12RISCVTTIImpl18getCmpSelInstrCostEjPNS_4TypeESA_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENSD_16OperandValueInfoESF_PKNS_11InstructionEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr readnone %.0.val1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implIKNS_4UserEEEEEZNS_12RISCVTTIImpl18getCmpSelInstrCostEjPNS_4TypeESA_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENSD_16OperandValueInfoESF_PKNS_11InstructionEE3$_1EEbOT_T0_"(ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr readnone captures(address) %.0.val1) unnamed_addr #6 {
   %.not5.i.i.i.i = icmp eq ptr %.0.val, %.8.val
   br i1 %.not5.i.i.i.i, label %"_ZSt6all_ofIN4llvm5Value18user_iterator_implIKNS0_4UserEEEZNS0_12RISCVTTIImpl18getCmpSelInstrCostEjPNS0_4TypeES8_NS0_7CmpInst9PredicateENS0_19TargetTransformInfo14TargetCostKindENSB_16OperandValueInfoESD_PKNS0_11InstructionEE3$_1EbT_SI_T0_.exit", label %.lr.ph.i.i.i.i
 
@@ -16660,7 +16660,7 @@ _ZNK4llvm27TargetTransformInfoImplBase22getArithmeticInstrCostEjPNS_4TypeENS_19T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl20getPointersChainCostENS_8ArrayRefIPKNS_5ValueEEES4_RKNS_19TargetTransformInfo17PointersChainInfoEPNS_4TypeENS6_14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, i64 %2, ptr noundef readnone %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl20getPointersChainCostENS_8ArrayRefIPKNS_5ValueEEES4_RKNS_19TargetTransformInfo17PointersChainInfoEPNS_4TypeENS6_14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"struct.llvm::TargetLoweringBase::AddrMode", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
   %10 = alloca %"class.llvm::ArrayRef.82", align 8

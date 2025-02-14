@@ -345,7 +345,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newAlignNodeEPP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newEmbedDataNodeEPPNS0_13EmbedDataNodeENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, i8 noundef zeroext %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newEmbedDataNodeEPPNS0_13EmbedDataNodeENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, i8 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -756,7 +756,7 @@ define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9addBefor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(410) %0, ptr noundef nonnull returned %1) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(410) %0, ptr noundef nonnull returned captures(address, ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %4 = load i8, ptr %3, align 1, !tbaa !16
   %5 = icmp slt i8 %4, 0
@@ -806,7 +806,7 @@ define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder10removeN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder11removeNodesEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(410) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder11removeNodesEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(410) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #10 align 2 {
   %4 = icmp eq ptr %1, %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %6 = load i8, ptr %5, align 1, !tbaa !16
@@ -2285,7 +2285,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !46
@@ -2366,7 +2366,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5embedEPKvm(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14embedDataArrayENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14embedDataArrayENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, i8 noundef zeroext %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !46

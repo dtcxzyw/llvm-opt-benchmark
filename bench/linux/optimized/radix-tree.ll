@@ -524,7 +524,7 @@ radix_tree_node_alloc.exit.thread:                ; preds = %133, %114, %48, %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @__radix_tree_lookup(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 align 16 {
+define dso_local ptr @__radix_tree_lookup(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -1063,7 +1063,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @radix_tree_replace_slot(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load volatile ptr, ptr %1, align 8
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -2410,7 +2410,7 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr noundef readnone %2) #0 align 16 {
+define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64

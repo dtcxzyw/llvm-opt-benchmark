@@ -494,7 +494,7 @@ EVP_PKEY_free.exit:                               ; preds = %end, %CRYPTO_DOWN_R
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evp_pkey_copy_downgraded(ptr noundef %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_pkey_copy_downgraded(ptr noundef captures(address_is_null) %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %dest, null
   br i1 %cmp.not, label %return, label %if.end
@@ -807,7 +807,7 @@ return:                                           ; preds = %if.end6, %land.lhs.
 declare i32 @evp_keymgmt_util_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_pkey_export_to_provider(ptr noundef %pk, ptr noundef %libctx, ptr noundef %keymgmt, ptr noundef %propquery) local_unnamed_addr #0 {
+define ptr @evp_pkey_export_to_provider(ptr noundef %pk, ptr noundef %libctx, ptr noundef captures(address_is_null) %keymgmt, ptr noundef %propquery) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pk, null
   br i1 %cmp, label %return, label %land.end
@@ -2261,7 +2261,7 @@ declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #1
 declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_PKEY_get0(ptr noundef readonly %pkey) local_unnamed_addr #3 {
+define ptr @EVP_PKEY_get0(ptr noundef readonly captures(address_is_null) %pkey) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %pkey, null
   br i1 %cmp, label %return, label %if.end
@@ -2283,7 +2283,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get0_hmac(ptr noundef %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get0_hmac(ptr noundef captures(address_is_null) %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   %cmp.not = icmp eq i32 %0, 855
@@ -2314,7 +2314,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_pkey_get_legacy(ptr noundef %pk) local_unnamed_addr #0 {
+define ptr @evp_pkey_get_legacy(ptr noundef captures(address_is_null) %pk) local_unnamed_addr #0 {
 entry:
   %tmp_copy = alloca ptr, align 8
   store ptr null, ptr %tmp_copy, align 8
@@ -2429,7 +2429,7 @@ return:                                           ; preds = %if.end3.i, %CRYPTO_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get0_poly1305(ptr noundef %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get0_poly1305(ptr noundef captures(address_is_null) %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   %cmp.not = icmp eq i32 %0, 1061
@@ -2460,7 +2460,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get0_siphash(ptr noundef %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get0_siphash(ptr noundef captures(address_is_null) %pkey, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   %cmp.not = icmp eq i32 %0, 1062
@@ -2491,7 +2491,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get0_DSA(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get0_DSA(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   %cmp.not.i = icmp eq i32 %0, 116
@@ -2530,7 +2530,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @DSA_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get1_DSA(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get1_DSA(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   %cmp.not.i = icmp eq i32 %0, 116
@@ -2557,14 +2557,14 @@ if.end:                                           ; preds = %evp_pkey_get0_DSA_i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_evp_pkey_get1_X25519(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @ossl_evp_pkey_get1_X25519(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef 1034)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef range(i32 1034, 1089) %type) unnamed_addr #0 {
+define internal fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef captures(address_is_null) %pkey, i32 noundef range(i32 1034, 1089) %type) unnamed_addr #0 {
 entry:
   %e.i.i.i = alloca ptr, align 8
   %0 = load i32, ptr %pkey, align 8
@@ -2610,21 +2610,21 @@ if.end:                                           ; preds = %evp_pkey_get0_ECX_K
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_evp_pkey_get1_X448(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @ossl_evp_pkey_get1_X448(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef 1035)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_evp_pkey_get1_ED25519(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @ossl_evp_pkey_get1_ED25519(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef 1087)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_evp_pkey_get1_ED448(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @ossl_evp_pkey_get1_ED448(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @evp_pkey_get1_ECX_KEY(ptr noundef %pkey, i32 noundef 1088)
   ret ptr %call
@@ -2664,7 +2664,7 @@ declare ptr @DH_get0_q(ptr noundef) local_unnamed_addr #1
 declare i32 @DH_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_pkey_get0_DH_int(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @evp_pkey_get0_DH_int(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   switch i32 %0, label %if.then [
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get0_DH(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get0_DH(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   switch i32 %0, label %if.then.i [
@@ -2712,7 +2712,7 @@ evp_pkey_get0_DH_int.exit:                        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_get1_DH(ptr noundef %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_get1_DH(ptr noundef captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pkey, align 8
   switch i32 %0, label %evp_pkey_get0_DH_int.exit.thread [
@@ -2880,7 +2880,7 @@ return:                                           ; preds = %for.end, %if.then
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_is_a(ptr noundef readonly %pkey, ptr noundef %name) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_is_a(ptr noundef readonly captures(address_is_null) %pkey, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pkey, null
   br i1 %cmp, label %return, label %if.end
@@ -3050,7 +3050,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_pkey(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef range(i32 132, 135) %selection, ptr noundef readonly %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
+define internal fastcc i32 @print_pkey(ptr noundef %pkey, ptr noundef %out, i32 noundef %indent, i32 noundef range(i32 132, 135) %selection, ptr noundef readonly captures(address_is_null) %legacy_print, ptr noundef %legacy_pctx) unnamed_addr #0 {
 entry:
   %conv = sext i32 %indent to i64
   %cmp.i = icmp sgt i32 %indent, 0
@@ -3347,14 +3347,14 @@ declare i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef, ptr noundef, pt
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_get_group_name(ptr noundef %pkey, ptr noundef %gname, i64 noundef %gname_sz, ptr noundef %gname_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_get_group_name(ptr noundef %pkey, ptr noundef %gname, i64 noundef %gname_sz, ptr noundef captures(address_is_null) %gname_len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %pkey, ptr noundef nonnull @.str.1, ptr noundef %gname, i64 noundef %gname_sz, ptr noundef %gname_len)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %str, i64 noundef %max_buf_sz, ptr noundef writeonly %out_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %str, i64 noundef %max_buf_sz, ptr noundef writeonly captures(address_is_null) %out_len) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -3516,7 +3516,7 @@ return:                                           ; preds = %evp_pkey_asn1_ctrl.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_octet_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_octet_string_param(ptr noundef captures(address_is_null) %pkey, ptr noundef %key_name, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -3629,7 +3629,7 @@ return:                                           ; preds = %evp_pkey_asn1_ctrl.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_get_octet_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %buf, i64 noundef %max_buf_sz, ptr noundef writeonly %out_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PKEY_get_octet_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %buf, i64 noundef %max_buf_sz, ptr noundef writeonly captures(address_is_null) %out_len) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -4550,7 +4550,7 @@ return:                                           ; preds = %EVP_PKEY_get_params
 declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_int_param(ptr noundef %pkey, ptr noundef %key_name, i32 noundef %in) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_int_param(ptr noundef captures(address_is_null) %pkey, ptr noundef %key_name, i32 noundef %in) local_unnamed_addr #0 {
 entry:
   %in.addr = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -4597,7 +4597,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_params(ptr noundef %pkey, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_params(ptr noundef captures(address_is_null) %pkey, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pkey, null
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -4630,7 +4630,7 @@ return:                                           ; preds = %if.end4, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_size_t_param(ptr noundef %pkey, ptr noundef %key_name, i64 noundef %in) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_size_t_param(ptr noundef captures(address_is_null) %pkey, ptr noundef %key_name, i64 noundef %in) local_unnamed_addr #0 {
 entry:
   %in.addr = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -4677,7 +4677,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_bn_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %bn) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_bn_param(ptr noundef captures(address_is_null) %pkey, ptr noundef %key_name, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %buffer = alloca [2048 x i8], align 16
@@ -4752,7 +4752,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_bn2nativepad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_set_utf8_string_param(ptr noundef %pkey, ptr noundef %key_name, ptr noundef %str) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_set_utf8_string_param(ptr noundef captures(address_is_null) %pkey, ptr noundef %key_name, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -4797,7 +4797,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_settable_params(ptr noundef readonly %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_settable_params(ptr noundef readonly captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pkey, null
   br i1 %cmp.not, label %cond.end, label %land.lhs.true
@@ -4822,7 +4822,7 @@ declare ptr @EVP_KEYMGMT_settable_params(ptr noundef) local_unnamed_addr #1
 declare i32 @evp_keymgmt_set_params(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_gettable_params(ptr noundef readonly %pkey) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_gettable_params(ptr noundef readonly captures(address_is_null) %pkey) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pkey, null
   br i1 %cmp.not, label %cond.end, label %land.lhs.true

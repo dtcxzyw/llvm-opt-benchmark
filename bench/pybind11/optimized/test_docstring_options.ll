@@ -31415,7 +31415,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZ3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE16DocstringTestFooJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE16DocstringTestFooJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE16DocstringTestFoo, ptr %4, align 8
@@ -36965,7 +36965,7 @@ _ZNSt10_HashtableIP7_objectS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE16DocstringTestFooJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE16DocstringTestFooJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -40626,7 +40626,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit513:           ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum1JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum1JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE18DocstringTestEnum1, ptr %4, align 8
@@ -53232,7 +53232,7 @@ _ZNKR8pybind116handle7inc_refEv.exit:             ; preds = %.lr.ph.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum2JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE18DocstringTestEnum2, ptr %4, align 8
@@ -53948,7 +53948,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_5enum_IZ32test_submodule_docstring_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum3JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum3JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE18DocstringTestEnum3, ptr %4, align 8
@@ -54664,7 +54664,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_5enum_IZ32test_submodule_docstring_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum4JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum4JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE18DocstringTestEnum4, ptr %4, align 8
@@ -55380,7 +55380,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_5enum_IZ32test_submodule_docstring_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum5JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ32test_submodule_docstring_optionsRNS_7module_EE18DocstringTestEnum5JEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ32test_submodule_docstring_optionsRN8pybind117module_EE18DocstringTestEnum5, ptr %4, align 8

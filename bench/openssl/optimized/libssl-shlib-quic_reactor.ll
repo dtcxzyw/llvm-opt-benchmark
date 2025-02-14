@@ -30,7 +30,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_r(ptr noundef captures(none) initializes((0, 4)) %rtor, ptr noundef readonly %r) local_unnamed_addr #0 {
+define void @ossl_quic_reactor_set_poll_r(ptr noundef captures(none) initializes((0, 4)) %rtor, ptr noundef readonly captures(address_is_null) %r) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %if.then, label %if.else
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_w(ptr noundef captures(none) initializes((16, 20)) %rtor, ptr noundef readonly %w) local_unnamed_addr #0 {
+define void @ossl_quic_reactor_set_poll_w(ptr noundef captures(none) initializes((16, 20)) %rtor, ptr noundef readonly captures(address_is_null) %w) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %w, null
   %poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 16
@@ -94,13 +94,13 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @ossl_quic_reactor_get_poll_r(ptr noundef readnone returned %rtor) local_unnamed_addr #3 {
+define noundef ptr @ossl_quic_reactor_get_poll_r(ptr noundef readnone returned captures(ret: address, provenance) %rtor) local_unnamed_addr #3 {
 entry:
   ret ptr %rtor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_reactor_get_poll_w(ptr noundef readnone %rtor) local_unnamed_addr #3 {
+define nonnull ptr @ossl_quic_reactor_get_poll_w(ptr noundef readnone captures(ret: address, provenance) %rtor) local_unnamed_addr #3 {
 entry:
   %poll_w = getelementptr inbounds nuw i8, ptr %rtor, i64 16
   ret ptr %poll_w

@@ -84,7 +84,7 @@ $_ZN4llvm8DenseMapINS_13AttributeListENS_6detail13DenseSetEmptyENS_12DenseMapInf
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(121) initializes((120, 121)) %0, ptr noundef nonnull readonly align 8 dereferenceable(841) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(121) initializes((120, 121)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::AttributeList", align 8
   %5 = alloca %"class.llvm::AttributeSet", align 8
   %6 = alloca %"class.llvm::Attribute", align 8

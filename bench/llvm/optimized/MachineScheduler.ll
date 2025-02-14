@@ -2686,7 +2686,7 @@ define dso_local void @_ZN4llvm13ScheduleDAGMID0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI11releaseSuccEPNS_5SUnitEPNS_4SDepE(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI11releaseSuccEPNS_5SUnitEPNS_4SDepE(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %4 = and i64 %.0.copyload.i.i.i.i, -8
   %5 = inttoptr i64 %4 to ptr
@@ -2756,7 +2756,7 @@ define dso_local void @_ZN4llvm13ScheduleDAGMI11releaseSuccEPNS_5SUnitEPNS_4SDep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI17releaseSuccessorsEPNS_5SUnitE(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI17releaseSuccessorsEPNS_5SUnitE(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -2845,7 +2845,7 @@ _ZN4llvm13ScheduleDAGMI11releaseSuccEPNS_5SUnitEPNS_4SDepE.exit: ; preds = %22, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI11releasePredEPNS_5SUnitEPNS_4SDepE(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI11releasePredEPNS_5SUnitEPNS_4SDepE(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %4 = and i64 %.0.copyload.i.i.i.i, -8
   %5 = inttoptr i64 %4 to ptr
@@ -2915,7 +2915,7 @@ define dso_local void @_ZN4llvm13ScheduleDAGMI11releasePredEPNS_5SUnitEPNS_4SDep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI19releasePredecessorsEPNS_5SUnitE(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI19releasePredecessorsEPNS_5SUnitE(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3695,7 +3695,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5SUnitELb1EE9push_backES2_.exit13: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(3360) initializes((3344, 3360)) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) initializes((3344, 3360)) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3344
   %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
@@ -3974,7 +3974,7 @@ _ZL11nextIfDebugN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS0_I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI12updateQueuesEPNS_5SUnitEb(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI12updateQueuesEPNS_5SUnitEb(ptr noundef nonnull align 8 captures(address) dereferenceable(3360) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   br i1 %2, label %4, label %55
 
 4:                                                ; preds = %3
@@ -5764,7 +5764,7 @@ declare void @_ZN4llvm18RegPressureTracker11closeBottomEv(ptr noundef nonnull al
 declare void @_ZN4llvm18RegPressureTracker12initLiveThruERKS0_(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ScheduleDAGMILive19updatePressureDiffsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull readonly align 8 dereferenceable(5840) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ScheduleDAGMILive19updatePressureDiffsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(5840) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw %"struct.llvm::VRegMaskOrUnit", ptr %1, i64 %2
   %.not54209 = icmp eq i64 %2, 0
   br i1 %.not54209, label %._crit_edge, label %.lr.ph211
@@ -6902,7 +6902,7 @@ _ZNSt6vectorIN4llvm14PressureChangeESaIS1_EE5clearEv.exit: ; preds = %6, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(5840) initializes((3344, 3360)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 captures(address) dereferenceable(5840) initializes((3344, 3360)) %0, ptr captures(address) %1, i64 %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(3360) %0, ptr %1, i64 %2, ptr %3, i64 %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   %7 = load i8, ptr %6, align 8, !tbaa !398, !range !56, !noundef !57
@@ -8063,7 +8063,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
 declare void @_ZN4llvm14SchedDFSResult7computeENS_8ArrayRefINS_5SUnitEEE(ptr noundef nonnull align 8 dereferenceable(224), ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm17ScheduleDAGMILive25computeCyclicCriticalPathEv(ptr noundef nonnull readonly align 8 dereferenceable(5840) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4llvm17ScheduleDAGMILive25computeCyclicCriticalPathEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(5840) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load ptr, ptr %2, align 8, !tbaa !280
   %4 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock11isSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef %3) #31
@@ -10154,7 +10154,7 @@ declare noundef zeroext i1 @_ZNK4llvm16TargetSchedModel14mustBeginGroupEPKNS_12M
 declare noundef zeroext i1 @_ZNK4llvm16TargetSchedModel12mustEndGroupEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
   %.not18 = icmp eq i64 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -11747,7 +11747,7 @@ define dso_local void @_ZN4llvm13SchedBoundary14releasePendingEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm13SchedBoundary11removeReadyEPNS_5SUnitE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN4llvm13SchedBoundary11removeReadyEPNS_5SUnitE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %5 = load i32, ptr %4, align 4, !tbaa !690
@@ -12763,7 +12763,7 @@ _ZN4llvm13SchedBoundary14findMaxLatencyENS_8ArrayRefIPNS_5SUnitEEE.exit19: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20GenericSchedulerBase9setPolicyERNS0_10CandPolicyEbRNS_13SchedBoundaryEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %3, ptr noundef readonly %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20GenericSchedulerBase9setPolicyERNS0_10CandPolicyEbRNS_13SchedBoundaryEPS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZN4llvm13SchedBoundary21getOtherResourceCountERj.exit, label %6
 
@@ -13991,7 +13991,7 @@ declare void @_ZN4llvm18RegPressureTracker25getMaxUpwardPressureDeltaEPKNS_12Mac
 declare void @_ZNK4llvm18RegPressureTracker22getUpwardPressureDeltaEPKNS_12MachineInstrERNS_12PressureDiffERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS8_IjEE(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef, ptr noundef nonnull align 2 dereferenceable(64), ptr noundef nonnull align 2 dereferenceable(12), ptr, i64, ptr noundef byval(%"class.llvm::ArrayRef.466") align 8) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16GenericScheduler12tryCandidateERNS_20GenericSchedulerBase14SchedCandidateES3_PNS_13SchedBoundaryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noundef readonly %3) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16GenericScheduler12tryCandidateERNS_20GenericSchedulerBase14SchedCandidateES3_PNS_13SchedBoundaryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1664) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !718
   %.not123 = icmp eq ptr %6, null
@@ -17209,7 +17209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm16ResourceSegments19getFirstAvailableAtEjjjSt8functionIFSt4pairIllEjjjEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm16ResourceSegments19getFirstAvailableAtEjjjSt8functionIFSt4pairIllEjjjEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -25740,7 +25740,7 @@ _ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 {
   %3 = alloca %"struct.(anonymous namespace)::BaseMemOpClusterMutation::MemOpInfo", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader

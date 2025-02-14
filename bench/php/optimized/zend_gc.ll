@@ -415,7 +415,7 @@ gc_possible_root_when_full.exit:                  ; preds = %97, %gc_grow_root_b
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #6 {
+define void @gc_remove_from_buffer(ptr noundef captures(address) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 10

@@ -930,7 +930,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17he040c1b3edc68fa6E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17he040c1b3edc68fa6E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !12, !nonnull !12
@@ -8031,12 +8031,12 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17he80e2328617fb
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h03a956f4d2ab847bE.llvm.14229044446495144540"(ptr noalias noundef readnone returned align 8 dereferenceable(224) %0) unnamed_addr #2 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h03a956f4d2ab847bE.llvm.14229044446495144540"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(224) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h5bd07ec229b48a58E.llvm.14229044446495144540"(ptr noalias noundef readnone returned align 8 dereferenceable(384) %0) unnamed_addr #2 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h5bd07ec229b48a58E.llvm.14229044446495144540"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(384) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

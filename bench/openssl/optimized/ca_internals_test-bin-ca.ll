@@ -3634,7 +3634,7 @@ declare i32 @ASN1_TIME_set_string(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @ASN1_TIME_compare(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @unpack_revinfo(ptr noundef writeonly %prevtm, ptr noundef writeonly %preason, ptr noundef writeonly %phold, ptr noundef writeonly %pinvtm, ptr noundef %str) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @unpack_revinfo(ptr noundef writeonly captures(address_is_null) %prevtm, ptr noundef writeonly captures(address_is_null) %preason, ptr noundef writeonly captures(address_is_null) %phold, ptr noundef writeonly captures(address_is_null) %pinvtm, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef %str, ptr noundef nonnull @.str.198, i32 noundef 2545) #12
   %tobool.not = icmp eq ptr %call, null

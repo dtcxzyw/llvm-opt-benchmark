@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @dma_buf_read(ptr noundef %ptr, i64 noundef %len, ptr noundef writeonly %residual, ptr noundef readonly captures(none) %sg, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local i32 @dma_buf_read(ptr noundef %ptr, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %residual, ptr noundef readonly captures(none) %sg, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %sg, i64 16
   %0 = load i64, ptr %size.i, align 8
@@ -687,7 +687,7 @@ dma_buf_rw.exit:                                  ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @dma_buf_write(ptr noundef %ptr, i64 noundef %len, ptr noundef writeonly %residual, ptr noundef readonly captures(none) %sg, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local i32 @dma_buf_write(ptr noundef %ptr, i64 noundef %len, ptr noundef writeonly captures(address_is_null) %residual, ptr noundef readonly captures(none) %sg, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %size.i = getelementptr inbounds nuw i8, ptr %sg, i64 16
   %0 = load i64, ptr %size.i, align 8

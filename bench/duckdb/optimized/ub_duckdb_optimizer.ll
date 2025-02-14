@@ -21867,7 +21867,7 @@ return:                                           ; preds = %tailrecurse, %for.b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS0_6vectorINS0_10unique_ptrINS0_10ExpressionESt14default_deleteIS4_ELb1EEELb1EEEE15ExpressionCostsSaISA_EED2Ev(ptr %this.0.val, ptr readnone %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIZN6duckdb20ExpressionHeuristics18ReorderExpressionsERNS0_6vectorINS0_10unique_ptrINS0_10ExpressionESt14default_deleteIS4_ELb1EEELb1EEEE15ExpressionCostsSaISA_EED2Ev(ptr %this.0.val, ptr readnone captures(address) %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i.i.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i

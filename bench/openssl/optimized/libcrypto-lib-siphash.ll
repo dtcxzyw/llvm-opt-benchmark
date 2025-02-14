@@ -141,7 +141,7 @@ if.end83:                                         ; preds = %if.then80, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @SipHash_Update(ptr noundef captures(none) %ctx, ptr noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #3 {
+define void @SipHash_Update(ptr noundef captures(none) %ctx, ptr noundef readonly captures(address) %in, i64 noundef %inlen) local_unnamed_addr #3 {
 entry:
   %v01 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load i64, ptr %v01, align 8

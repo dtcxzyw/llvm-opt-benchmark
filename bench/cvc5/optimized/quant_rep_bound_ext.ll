@@ -526,7 +526,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12QRepBoundExt10resetIndexEPNS1_14RepSetIteratorENS0_12NodeTemplateILb1EEEmbRSt6vectorIS7_SaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef %rsi, ptr noundef readonly captures(none) %owner, i64 noundef %i, i1 noundef zeroext %initial, ptr noundef nonnull align 8 dereferenceable(24) %elements) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12QRepBoundExt10resetIndexEPNS1_14RepSetIteratorENS0_12NodeTemplateILb1EEEmbRSt6vectorIS7_SaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %this, ptr noundef %rsi, ptr noundef readonly captures(none) %owner, i64 noundef %i, i1 noundef zeroext %initial, ptr noundef nonnull align 8 dereferenceable(24) %elements) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.3", align 8
   %agg.tmp7 = alloca %"class.cvc5::internal::NodeTemplate.3", align 8

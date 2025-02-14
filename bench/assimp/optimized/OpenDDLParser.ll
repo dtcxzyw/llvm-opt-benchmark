@@ -382,7 +382,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParser11logToStreamEP8_IO_FILENS_11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %f, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %message) #4 align 2 {
+define hidden void @_ZN10ODDLParser13OpenDDLParser11logToStreamEP8_IO_FILENS_11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(address_is_null) %f, i32 noundef %severity, ptr noundef nonnull align 8 dereferenceable(32) %message) #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %f, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4164,7 +4164,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser18parseDataArrayListEPcS1_NS_5Value9ValueTypeEPPNS_13DataArrayListE(ptr noundef %in, ptr noundef %end, i32 noundef %type, ptr noundef writeonly %dataArrayList) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser18parseDataArrayListEPcS1_NS_5Value9ValueTypeEPPNS_13DataArrayListE(ptr noundef %in, ptr noundef %end, i32 noundef %type, ptr noundef writeonly captures(address_is_null) %dataArrayList) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %currentValue = alloca ptr, align 8
   %refs = alloca ptr, align 8

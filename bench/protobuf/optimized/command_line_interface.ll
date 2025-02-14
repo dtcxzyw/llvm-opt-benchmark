@@ -2411,7 +2411,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream17InsertShiftedInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmRNS0_17GeneratedCodeInfoE(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(32) %insertion_content, i64 noundef %insertion_offset, i64 noundef %indent_length, ptr noundef nonnull align 8 dereferenceable(48) %target_info) local_unnamed_addr #5 align 2 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStream17InsertShiftedInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmRNS0_17GeneratedCodeInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(32) %insertion_content, i64 noundef %insertion_offset, i64 noundef %indent_length, ptr noundef nonnull align 8 dereferenceable(48) %target_info) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %1 = load ptr, ptr %0, align 8

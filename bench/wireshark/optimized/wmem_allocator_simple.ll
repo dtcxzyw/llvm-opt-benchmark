@@ -67,7 +67,7 @@ define internal ptr @wmem_simple_alloc(ptr noundef captures(none) %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wmem_simple_realloc(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i64 noundef %2) #0 {
+define internal ptr @wmem_simple_realloc(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

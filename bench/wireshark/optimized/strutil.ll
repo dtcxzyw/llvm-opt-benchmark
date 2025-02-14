@@ -75,7 +75,7 @@ define hidden ptr @find_line_end(ptr noundef %0, ptr noundef %1, ptr noundef wri
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @get_token_len(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = icmp ult ptr %0, %1
@@ -136,7 +136,7 @@ define i32 @get_token_len(ptr noundef %0, ptr noundef readnone %1, ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i8, align 1
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i8], align 1
@@ -334,7 +334,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca i8, align 1
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %.thread58, label %7
@@ -714,7 +714,7 @@ uri_to_bytes.exit:                                ; preds = %11, %19, %23, %27, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @byte_array_dup(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @byte_array_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -734,13 +734,13 @@ define noundef ptr @byte_array_dup(ptr noundef readonly %0) local_unnamed_addr #
 declare ptr @g_byte_array_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @oid_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @oid_str_to_bytes(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call i32 @rel_oid_str_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [5 x i8], align 1
   %5 = tail call ptr @g_byte_array_set_size(ptr noundef %1, i32 noundef 0) #14
   %6 = load i8, ptr %0, align 1
@@ -942,7 +942,7 @@ define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @byte_array_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @byte_array_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

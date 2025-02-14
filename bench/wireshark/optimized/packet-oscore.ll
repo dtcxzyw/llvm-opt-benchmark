@@ -523,7 +523,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeonly initializes((0, 44), (48, 112)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 44), (48, 112)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   store ptr %5, ptr %0, align 8

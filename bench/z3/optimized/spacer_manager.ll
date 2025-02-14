@@ -2874,7 +2874,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer10sk_lt_procclEPK3appS3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly %a1, ptr noundef readonly %a2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer10sk_lt_procclEPK3appS3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(address) %a1, ptr noundef readonly captures(address) %a2) local_unnamed_addr #3 align 2 {
 entry:
   %n1 = alloca i32, align 4
   %n2 = alloca i32, align 4

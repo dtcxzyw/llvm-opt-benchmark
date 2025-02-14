@@ -3403,7 +3403,7 @@ define hidden range(i32 0, 2) i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 n
 declare void @start_requested_stats() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @must_do_dissection(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @must_do_dissection(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store volatile ptr %2, ptr %4, align 8
   %.b = load i1, ptr @print_packet_info, align 4

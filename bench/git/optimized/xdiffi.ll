@@ -1810,7 +1810,7 @@ xdl_free_script.exit:                             ; preds = %.lr.ph.i, %31, %._c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xdl_free_script(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local void @xdl_free_script(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 

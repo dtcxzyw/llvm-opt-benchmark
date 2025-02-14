@@ -1583,7 +1583,7 @@ cli_parse_mbox.exit:                              ; preds = %15, %58, %71, %471
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i64 0, 2147483648) i64 @strstrip(ptr noundef %0) local_unnamed_addr #2 {
+define range(i64 0, 2147483648) i64 @strstrip(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %strip.exit, label %3
 
@@ -5265,7 +5265,7 @@ declare ptr @encodingLine(ptr noundef) local_unnamed_addr #1
 declare i32 @messageAddLine(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readnone %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readnone captures(address) %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = sext i32 %2 to i64

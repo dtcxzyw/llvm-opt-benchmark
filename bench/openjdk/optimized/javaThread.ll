@@ -2944,7 +2944,7 @@ define hidden noundef ptr @_ZN10JavaThread6activeEv() local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %0, ptr noundef readnone %1) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1800) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -6470,7 +6470,7 @@ declare noundef ptr @_ZN8Universe19system_thread_groupEv() local_unnamed_addr #1
 declare ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbol6HandleS4_P10JavaThread(ptr noundef, ptr noundef, ptr, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef %0, ptr noundef %1, ptr readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @Threads_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %6

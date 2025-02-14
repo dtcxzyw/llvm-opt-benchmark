@@ -301,7 +301,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic6Packet11destinationEv(ptr noundef nonnull readnone align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4node4quic6Packet11destinationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %destination_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   ret ptr %destination_
@@ -1187,7 +1187,7 @@ _ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node4quic6Packet4SendEP8uv_udp_sNS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %handle, ptr noundef %ref) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN4node4quic6Packet4SendEP8uv_udp_sNS_17BaseObjectPtrImplINS_10BaseObjectELb0EEE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %handle, ptr noundef captures(address) %ref) local_unnamed_addr #6 align 2 {
 entry:
   %buf = alloca %struct.uv_buf_t, align 8
   %handle_.i = getelementptr inbounds nuw i8, ptr %this, i64 568

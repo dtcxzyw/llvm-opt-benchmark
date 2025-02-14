@@ -7369,7 +7369,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111UnrollState16addRecipeForPartEPN4llvm12VPRecipeBaseES3_j(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111UnrollState16addRecipeForPartEPN4llvm12VPRecipeBaseES3_j(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.53", align 8
   %5 = alloca %"class.llvm::SmallVector.55", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16

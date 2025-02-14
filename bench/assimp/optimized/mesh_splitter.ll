@@ -1757,7 +1757,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit35:                  ; preds = %for.end45, %if.then
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr noundef readonly %pMesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_Z28ComputeVertexBoneWeightTablePK6aiMesh(ptr noundef readonly captures(address_is_null) %pMesh) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %pMesh, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

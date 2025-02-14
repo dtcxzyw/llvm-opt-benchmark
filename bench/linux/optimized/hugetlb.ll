@@ -1377,7 +1377,7 @@ define internal fastcc i64 @region_del(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @hugetlb_dup_vma_private(ptr noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local void @hugetlb_dup_vma_private(ptr noundef captures(address) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 128
@@ -1405,7 +1405,7 @@ define dso_local void @hugetlb_dup_vma_private(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clear_vma_resv_huge_pages(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @clear_vma_resv_huge_pages(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 128
@@ -5394,7 +5394,7 @@ define internal void @hugetlb_vm_op_open(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hugetlb_vm_op_close(ptr noundef readonly %0) #0 align 16 {
+define internal void @hugetlb_vm_op_close(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -6525,7 +6525,7 @@ define dso_local range(i64 0, 548682072065) i64 @hugetlb_mask_last_page(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 64
@@ -6712,7 +6712,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local i32 @copy_user_large_folio(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -7479,7 +7479,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
 declare dso_local void @flush_tlb_mm_range(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone %4, i32 %5) local_unnamed_addr #0 align 16 {
+define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(address) %4, i32 %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8186,7 +8186,7 @@ define dso_local void @__hugetlb_zap_begin(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__hugetlb_zap_end(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @__hugetlb_zap_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
@@ -8314,7 +8314,7 @@ define dso_local void @__hugetlb_zap_end(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unmap_hugepage_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 %4) local_unnamed_addr #0 align 16 {
+define dso_local void @unmap_hugepage_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, i32 %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.mmu_notifier_range, align 8
   %7 = alloca %struct.mmu_gather, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #22
@@ -9562,7 +9562,7 @@ declare dso_local void @migration_entry_wait_huge(ptr noundef, ptr noundef) loca
 declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef readnone %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef readnone captures(address) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -10361,7 +10361,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
+define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
@@ -10844,7 +10844,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly %0, i64 noun
 declare dso_local i32 @try_grab_page(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hugetlb_change_protection(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @hugetlb_change_protection(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -11896,7 +11896,7 @@ hugetlb_vma_lock_free.exit:                       ; preds = %169, %191
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @region_chg(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i64 @region_chg(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_raw_spin_lock(ptr noundef nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12258,7 +12258,7 @@ define dso_local range(i64 -9223372036854775808, 1) i64 @hugetlb_unreserve_pages
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @want_pmd_share(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local zeroext i1 @want_pmd_share(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = and i64 %1, -1073741824
   %4 = add i64 %3, 1073741824
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12292,7 +12292,7 @@ define dso_local zeroext i1 @want_pmd_share(ptr noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %7 = load ptr, ptr %6, align 8
@@ -14029,7 +14029,7 @@ define internal fastcc ptr @alloc_surplus_hugetlb_folio(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -14085,7 +14085,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @demote_size_store(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal noundef i64 @demote_size_store(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = tail call i64 @memparse(ptr noundef %2, ptr noundef null) #22
   %6 = load i32, ptr @hugetlb_max_hstate, align 4
   %7 = sext i32 %6 to i64
@@ -14180,7 +14180,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i64 @memparse(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @demote_store(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.nodemask_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
@@ -14774,7 +14774,7 @@ declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local void @prep_compound_page(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -14842,7 +14842,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @nr_hugepages_store(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store i64 0, ptr %5, align 8, !annotation !41
@@ -16148,7 +16148,7 @@ declare dso_local void @hugetlb_vmemmap_optimize_folios(ptr noundef, ptr noundef
 declare dso_local i64 @hugetlb_vmemmap_restore_folios(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -16216,7 +16216,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -16982,7 +16982,7 @@ define internal fastcc void @hugetlb_register_all_nodes() unnamed_addr #10 secti
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -17035,7 +17035,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   br label %7
@@ -17113,7 +17113,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -17166,7 +17166,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_show(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_show(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   br label %5
 
 4:                                                ; preds = %5
@@ -17234,7 +17234,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store i64 0, ptr %5, align 8, !annotation !41
@@ -17681,7 +17681,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @allocate_file_region_entri
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @hugetlb_resv_map_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #9 align 16 {
+define internal fastcc noundef i64 @hugetlb_resv_map_add(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #9 align 16 {
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %167
 

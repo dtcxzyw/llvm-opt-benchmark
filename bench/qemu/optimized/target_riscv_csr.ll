@@ -156,7 +156,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @riscv_csrrw_i128(ptr noundef %env, i32 noundef %csrno, ptr noundef writeonly %ret_value, i64 noundef %new_value.coerce0, i64 noundef %new_value.coerce1, i128 noundef %write_mask) local_unnamed_addr #2 {
+define dso_local i32 @riscv_csrrw_i128(ptr noundef %env, i32 noundef %csrno, ptr noundef writeonly captures(address_is_null) %ret_value, i64 noundef %new_value.coerce0, i64 noundef %new_value.coerce1, i128 noundef %write_mask) local_unnamed_addr #2 {
 entry:
   %old_value.i18 = alloca i64, align 8
   %old_value.i = alloca i128, align 16
@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @rmw_seed(ptr readnone captures(none) %env, i32 %csrno, ptr noundef writeonly %ret_value, i64 %new_value, i64 %write_mask) #2 {
+define internal noundef i32 @rmw_seed(ptr readnone captures(none) %env, i32 %csrno, ptr noundef writeonly captures(address_is_null) %ret_value, i64 %new_value, i64 %write_mask) #2 {
 entry:
   %random_v = alloca i16, align 2
   %random_e = alloca ptr, align 8

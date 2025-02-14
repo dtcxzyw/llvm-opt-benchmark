@@ -149,7 +149,7 @@ _ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaThreadPl(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaThreadPl(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

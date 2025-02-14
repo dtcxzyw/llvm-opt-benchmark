@@ -670,7 +670,7 @@ define void @_ZN3gmx10EnergyData7Element22restoreCheckpointStateESt8optionalINS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx10EnergyData7Element8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx10EnergyData7Element8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -1050,7 +1050,7 @@ define void @_ZThn32_N3gmx10EnergyData7Element22restoreCheckpointStateESt8option
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn32_N3gmx10EnergyData7Element8clientIDB5cxx11Ev(ptr noundef readnone %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZThn32_N3gmx10EnergyData7Element8clientIDB5cxx11Ev(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -2310,7 +2310,7 @@ define void @_ZN3gmx10EnergyData21addToConstraintVirialEPA3_Kfl(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData11forceVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData11forceVirialEl(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %1, %4
@@ -2328,7 +2328,7 @@ define noundef nonnull ptr @_ZN3gmx10EnergyData11forceVirialEl(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %1, %4
@@ -2346,7 +2346,7 @@ define noundef nonnull ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData11totalVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData11totalVirialEl(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %1, %4
@@ -2364,7 +2364,7 @@ define noundef nonnull ptr @_ZN3gmx10EnergyData11totalVirialEl(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData8pressureEl(ptr noundef nonnull align 8 dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData8pressureEl(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(552) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %1, %4
@@ -2382,7 +2382,7 @@ define noundef nonnull ptr @_ZN3gmx10EnergyData8pressureEl(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull readnone align 8 dereferenceable(552) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(552) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 324
   ret ptr %2
 }
@@ -2409,7 +2409,7 @@ define noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3gmx10EnergyData17needToSumEkinhOldEv(ptr noundef nonnull readnone align 8 dereferenceable(552) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZN3gmx10EnergyData17needToSumEkinhOldEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(552) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   ret ptr %2
 }

@@ -3375,7 +3375,7 @@ do.end20:                                         ; preds = %if.then15, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %buf, ptr noundef readonly %pos, ptr noundef writeonly captures(none) %data_out, i64 noundef %datlen) local_unnamed_addr #1 {
+define dso_local i64 @evbuffer_copyout_from(ptr noundef readonly captures(none) %buf, ptr noundef readonly captures(address_is_null) %pos, ptr noundef writeonly captures(none) %data_out, i64 noundef %datlen) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -4146,7 +4146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evbuffer_readln(ptr noundef %buffer, ptr noundef writeonly %n_read_out, i32 noundef %eol_style) local_unnamed_addr #1 {
+define dso_local ptr @evbuffer_readln(ptr noundef %buffer, ptr noundef writeonly captures(address_is_null) %n_read_out, i32 noundef %eol_style) local_unnamed_addr #1 {
 entry:
   %extra_drain = alloca i64, align 8
   %tmp = alloca %struct.evbuffer_ptr, align 8
@@ -4219,7 +4219,7 @@ if.end29:                                         ; preds = %if.then27, %do.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search_eol(ptr noalias sret(%struct.evbuffer_ptr) align 8 initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly %start, ptr noundef writeonly %eol_len_out, i32 noundef %eol_style) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search_eol(ptr noalias sret(%struct.evbuffer_ptr) align 8 captures(address_is_null) initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly captures(address_is_null) %start, ptr noundef writeonly captures(address_is_null) %eol_len_out, i32 noundef %eol_style) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.evbuffer_ptr, align 8
   %tobool.not = icmp eq ptr %start, null
@@ -4685,7 +4685,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search(ptr noalias sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly captures(none) %what, i64 noundef %len, ptr noundef %start) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search(ptr noalias sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly captures(none) %what, i64 noundef %len, ptr noundef captures(address_is_null) %start) local_unnamed_addr #1 {
 entry:
   tail call void @evbuffer_search_range(ptr sret(%struct.evbuffer_ptr) align 8 %agg.result, ptr noundef %buffer, ptr noundef %what, i64 noundef %len, ptr noundef %start, ptr noundef null)
   ret void
@@ -5597,7 +5597,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search_range(ptr noalias sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly captures(none) %what, i64 noundef %len, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search_range(ptr noalias sret(%struct.evbuffer_ptr) align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef readonly captures(none) %buffer, ptr noundef readonly captures(none) %what, i64 noundef %len, ptr noundef readonly captures(address_is_null) %start, ptr noundef readonly captures(address_is_null) %end) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -5791,7 +5791,7 @@ do.end97:                                         ; preds = %if.then92, %do.body
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evbuffer_peek(ptr noundef readonly captures(none) %buffer, i64 noundef %len, ptr noundef readonly %start_at, ptr noundef writeonly captures(none) %vec, i32 noundef %n_vec) local_unnamed_addr #1 {
+define dso_local i32 @evbuffer_peek(ptr noundef readonly captures(none) %buffer, i64 noundef %len, ptr noundef readonly captures(address_is_null) %start_at, ptr noundef writeonly captures(none) %vec, i32 noundef %n_vec) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %start_at, null
   br i1 %tobool.not, label %do.body2, label %land.lhs.true
@@ -7199,7 +7199,7 @@ do.end26:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evbuffer_remove_cb(ptr noundef readonly captures(none) %buffer, ptr noundef readnone %cb, ptr noundef readnone %cbarg) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evbuffer_remove_cb(ptr noundef readonly captures(none) %buffer, ptr noundef readnone captures(address) %cb, ptr noundef readnone captures(address) %cbarg) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8

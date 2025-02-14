@@ -358,19 +358,19 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.PyExpat_unsignedCharToPrintable = private unnamed_addr constant [256 x ptr] [ptr @.str.181, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.249, ptr @.str.250, ptr @.str.251, ptr @.str.252, ptr @.str.253, ptr @.str.254, ptr @.str.255, ptr @.str.256, ptr @.str.257, ptr @.str.258, ptr @.str.259, ptr @.str.260, ptr @.str.261, ptr @.str.262, ptr @.str.263, ptr @.str.264, ptr @.str.265, ptr @.str.266, ptr @.str.267, ptr @.str.268, ptr @.str.269, ptr @.str.270, ptr @.str.271, ptr @.str.272, ptr @.str.273, ptr @.str.274, ptr @.str.275, ptr @.str.276, ptr @.str.277, ptr @.str.278, ptr @.str.279, ptr @.str.280, ptr @.str.281, ptr @.str.282, ptr @.str.283, ptr @.str.284, ptr @.str.285, ptr @.str.286, ptr @.str.287, ptr @.str.288, ptr @.str.289, ptr @.str.290, ptr @.str.291, ptr @.str.292, ptr @.str.293, ptr @.str.294, ptr @.str.295, ptr @.str.296, ptr @.str.297, ptr @.str.298, ptr @.str.299, ptr @.str.300, ptr @.str.301, ptr @.str.302, ptr @.str.303, ptr @.str.304, ptr @.str.305, ptr @.str.306, ptr @.str.307, ptr @.str.308, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @doProlog.enumValueStart, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @doProlog.enumValueSep, ptr @.str.178, ptr @.str.179, ptr @.str.180], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreate(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ParserCreate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreate_MM(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ParserCreate_MM(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @parserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ParserCreateNS(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ParserCreateNS(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #25
   store i8 %1, ptr %3, align 1, !tbaa !3
@@ -388,7 +388,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parserCreate(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @parserCreate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
 
@@ -635,7 +635,7 @@ dtdCreate.exit:                                   ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_ParserReset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_ParserReset(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %197, label %4
 
@@ -1098,7 +1098,7 @@ dtdReset.exit:                                    ; preds = %183, %.loopexit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parserInit(ptr noundef nonnull initializes((544, 552)) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @parserInit(ptr noundef nonnull initializes((544, 552)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1275,7 +1275,7 @@ getDebugLevel.exit85:                             ; preds = %getDebugLevel.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PyExpat_XML_SetEncoding(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PyExpat_XML_SetEncoding(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 
@@ -1327,7 +1327,7 @@ copyString.exit:                                  ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_ExternalEntityParserCreate(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = icmp eq ptr %0, null
   br i1 %5, label %693, label %6
@@ -2620,7 +2620,7 @@ dtdCopy.exit.thread:                              ; preds = %240, %poolCopyStrin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread115, label %4
 
@@ -3584,7 +3584,7 @@ define hidden void @PyExpat_XML_UseParserAsHandlerArg(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 42) i32 @PyExpat_XML_UseForeignDTD(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 42) i32 @PyExpat_XML_UseForeignDTD(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -3607,7 +3607,7 @@ define hidden range(i32 0, 42) i32 @PyExpat_XML_UseForeignDTD(ptr noundef %0, i8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @PyExpat_XML_SetReturnNSTriplet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @PyExpat_XML_SetReturnNSTriplet(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3631,7 +3631,7 @@ define hidden void @PyExpat_XML_SetReturnNSTriplet(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @PyExpat_XML_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @PyExpat_XML_SetUserData(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3652,7 +3652,7 @@ define hidden void @PyExpat_XML_SetUserData(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PyExpat_XML_SetBase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PyExpat_XML_SetBase(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %poolCopyString.exit.thread, label %4
 
@@ -3715,7 +3715,7 @@ poolCopyString.exit.thread:                       ; preds = %15, %poolCopyString
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @PyExpat_XML_GetBase(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden ptr @PyExpat_XML_GetBase(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3730,7 +3730,7 @@ define hidden ptr @PyExpat_XML_GetBase(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @PyExpat_XML_GetSpecifiedAttributeCount(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @PyExpat_XML_GetSpecifiedAttributeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3745,7 +3745,7 @@ define hidden i32 @PyExpat_XML_GetSpecifiedAttributeCount(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @PyExpat_XML_GetIdAttributeIndex(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @PyExpat_XML_GetIdAttributeIndex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3760,7 +3760,7 @@ define hidden i32 @PyExpat_XML_GetIdAttributeIndex(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetElementHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -3776,7 +3776,7 @@ define hidden void @PyExpat_XML_SetElementHandler(ptr noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetStartElementHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetStartElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3790,7 +3790,7 @@ define hidden void @PyExpat_XML_SetStartElementHandler(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetEndElementHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetEndElementHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3804,7 +3804,7 @@ define hidden void @PyExpat_XML_SetEndElementHandler(ptr noundef writeonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetCharacterDataHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetCharacterDataHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3818,7 +3818,7 @@ define hidden void @PyExpat_XML_SetCharacterDataHandler(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetProcessingInstructionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3832,7 +3832,7 @@ define hidden void @PyExpat_XML_SetProcessingInstructionHandler(ptr noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetCommentHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetCommentHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3846,7 +3846,7 @@ define hidden void @PyExpat_XML_SetCommentHandler(ptr noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -3862,7 +3862,7 @@ define hidden void @PyExpat_XML_SetCdataSectionHandler(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetStartCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetStartCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3876,7 +3876,7 @@ define hidden void @PyExpat_XML_SetStartCdataSectionHandler(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetEndCdataSectionHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetEndCdataSectionHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3890,7 +3890,7 @@ define hidden void @PyExpat_XML_SetEndCdataSectionHandler(ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetDefaultHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetDefaultHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -3906,7 +3906,7 @@ define hidden void @PyExpat_XML_SetDefaultHandler(ptr noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetDefaultHandlerExpand(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetDefaultHandlerExpand(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -3922,7 +3922,7 @@ define hidden void @PyExpat_XML_SetDefaultHandlerExpand(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -3938,7 +3938,7 @@ define hidden void @PyExpat_XML_SetDoctypeDeclHandler(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetStartDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetStartDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3952,7 +3952,7 @@ define hidden void @PyExpat_XML_SetStartDoctypeDeclHandler(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetEndDoctypeDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetEndDoctypeDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3966,7 +3966,7 @@ define hidden void @PyExpat_XML_SetEndDoctypeDeclHandler(ptr noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3980,7 +3980,7 @@ define hidden void @PyExpat_XML_SetUnparsedEntityDeclHandler(ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetNotationDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetNotationDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3994,7 +3994,7 @@ define hidden void @PyExpat_XML_SetNotationDeclHandler(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -4010,7 +4010,7 @@ define hidden void @PyExpat_XML_SetNamespaceDeclHandler(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4024,7 +4024,7 @@ define hidden void @PyExpat_XML_SetStartNamespaceDeclHandler(ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4038,7 +4038,7 @@ define hidden void @PyExpat_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetNotStandaloneHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetNotStandaloneHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4052,7 +4052,7 @@ define hidden void @PyExpat_XML_SetNotStandaloneHandler(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetExternalEntityRefHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4082,7 +4082,7 @@ define hidden void @PyExpat_XML_SetExternalEntityRefHandlerArg(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetSkippedEntityHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetSkippedEntityHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4096,7 +4096,7 @@ define hidden void @PyExpat_XML_SetSkippedEntityHandler(ptr noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -4112,7 +4112,7 @@ define hidden void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetElementDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetElementDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4126,7 +4126,7 @@ define hidden void @PyExpat_XML_SetElementDeclHandler(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetAttlistDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetAttlistDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4140,7 +4140,7 @@ define hidden void @PyExpat_XML_SetAttlistDeclHandler(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetEntityDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetEntityDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4154,7 +4154,7 @@ define hidden void @PyExpat_XML_SetEntityDeclHandler(ptr noundef writeonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XML_SetXmlDeclHandler(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @PyExpat_XML_SetXmlDeclHandler(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4168,7 +4168,7 @@ define hidden void @PyExpat_XML_SetXmlDeclHandler(ptr noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @PyExpat_XML_SetParamEntityParsing(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @PyExpat_XML_SetParamEntityParsing(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -4191,7 +4191,7 @@ define hidden range(i32 0, 2) i32 @PyExpat_XML_SetParamEntityParsing(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @PyExpat_XML_SetHashSalt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @PyExpat_XML_SetHashSalt(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #6 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %4, %2
@@ -4224,7 +4224,7 @@ tailrecurse:                                      ; preds = %4, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @PyExpat_XML_Parse(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @PyExpat_XML_Parse(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -4452,7 +4452,7 @@ generate_hash_secret_salt.exit:                   ; preds = %writeRandomBytes_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_GetBuffer(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge.thread, label %4
 
@@ -4958,7 +4958,7 @@ define internal i32 @errorProcessor(ptr noundef readonly captures(none) %0, ptr 
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @PyExpat_XML_StopParser(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @PyExpat_XML_StopParser(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %23, label %4
 
@@ -5183,7 +5183,7 @@ define hidden range(i32 0, 3) i32 @PyExpat_XML_ResumeParser(ptr noundef %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @PyExpat_XML_GetParsingStatus(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define hidden void @PyExpat_XML_GetParsingStatus(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -5198,7 +5198,7 @@ define hidden void @PyExpat_XML_GetParsingStatus(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @PyExpat_XML_GetErrorCode(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @PyExpat_XML_GetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5213,7 +5213,7 @@ define hidden i32 @PyExpat_XML_GetErrorCode(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @PyExpat_XML_GetCurrentByteIndex(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i64 @PyExpat_XML_GetCurrentByteIndex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -5240,7 +5240,7 @@ define hidden i64 @PyExpat_XML_GetCurrentByteIndex(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @PyExpat_XML_GetCurrentByteCount(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @PyExpat_XML_GetCurrentByteCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -5269,7 +5269,7 @@ define hidden i32 @PyExpat_XML_GetCurrentByteCount(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @PyExpat_XML_GetInputContext(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define hidden ptr @PyExpat_XML_GetInputContext(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %25, label %5
 
@@ -5394,7 +5394,7 @@ define hidden i64 @PyExpat_XML_GetCurrentColumnNumber(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PyExpat_XML_FreeContentModel(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @PyExpat_XML_FreeContentModel(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -5409,7 +5409,7 @@ define hidden void @PyExpat_XML_FreeContentModel(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @PyExpat_XML_MemMalloc(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noalias ptr @PyExpat_XML_MemMalloc(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -5425,7 +5425,7 @@ define hidden noalias ptr @PyExpat_XML_MemMalloc(ptr noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PyExpat_XML_MemRealloc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @PyExpat_XML_MemRealloc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -5441,7 +5441,7 @@ define hidden ptr @PyExpat_XML_MemRealloc(ptr noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PyExpat_XML_MemFree(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @PyExpat_XML_MemFree(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -5456,7 +5456,7 @@ define hidden void @PyExpat_XML_MemFree(ptr noundef readonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @PyExpat_XML_DefaultCurrent(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @PyExpat_XML_DefaultCurrent(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -5714,7 +5714,7 @@ define hidden noundef nonnull ptr @PyExpat_XML_GetFeatureList() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProtectionMaximumAmplification(ptr noundef %0, float noundef %1) local_unnamed_addr #4 {
+define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProtectionMaximumAmplification(ptr noundef captures(address_is_null) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -5741,7 +5741,7 @@ define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProtectionActivationThreshold(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProtectionActivationThreshold(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -5762,7 +5762,7 @@ define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetBillionLaughsAttackProte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetReparseDeferralEnabled(ptr noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetReparseDeferralEnabled(ptr noundef writeonly captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %.not = icmp ne ptr %0, null
   %or.cond = icmp ult i8 %1, 2
   %or.cond8 = and i1 %.not, %or.cond
@@ -5779,7 +5779,7 @@ define hidden zeroext range(i8 0, 2) i8 @PyExpat_XML_SetReparseDeferralEnabled(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @PyExpat_testingAccountingGetCountBytesDirect(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i64 @PyExpat_testingAccountingGetCountBytesDirect(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5794,7 +5794,7 @@ define hidden i64 @PyExpat_testingAccountingGetCountBytesDirect(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @PyExpat_testingAccountingGetCountBytesIndirect(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i64 @PyExpat_testingAccountingGetCountBytesIndirect(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -13780,7 +13780,7 @@ declare i32 @PyExpat_XmlParseXmlDeclNS(i32 noundef, ptr noundef, ptr noundef, pt
 declare i32 @PyExpat_XmlParseXmlDecl(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @hash(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc i64 @hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
   %3 = alloca %struct.siphash, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #25
   br label %tailrecurse.i.i
@@ -13930,7 +13930,7 @@ sip24_update.exit:                                ; preds = %25, %.critedge.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @sip24_update(ptr noundef nonnull returned %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #16 {
+define internal fastcc noundef nonnull ptr @sip24_update(ptr noundef nonnull returned %0, ptr noundef readonly captures(address) %1, i64 noundef %2) unnamed_addr #16 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

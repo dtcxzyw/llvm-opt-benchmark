@@ -455,7 +455,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm19SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9misexpect15verifyMisExpectERNS_11InstructionENS_8ArrayRefIjEES4_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm9misexpect15verifyMisExpectERNS_11InstructionENS_8ArrayRefIjEES4_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -813,7 +813,7 @@ declare noundef i64 @_ZNK4llvm17BranchProbability5scaleEm(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9misexpect27checkBackendInstrumentationERNS_11InstructionENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i64 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm9misexpect27checkBackendInstrumentationERNS_11InstructionENS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr captures(address) %1, i64 %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::SmallVector.14", align 8
   %5 = tail call noundef zeroext i1 @_ZN4llvm21hasBranchWeightOriginERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %0) #15
   br i1 %5, label %6, label %19
@@ -892,7 +892,7 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit:           ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9misexpect22checkExpectAnnotationsERNS_11InstructionENS_8ArrayRefIjEEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm9misexpect22checkExpectAnnotationsERNS_11InstructionENS_8ArrayRefIjEEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr captures(address) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.14", align 8
   %6 = alloca %"class.llvm::SmallVector.14", align 8
   br i1 %3, label %7, label %20

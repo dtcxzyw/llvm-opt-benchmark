@@ -405,7 +405,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tls13_final_finish_mac(ptr noundef %s, ptr noundef readnone %str, i64 noundef %slen, ptr noundef %out) local_unnamed_addr #0 {
+define i64 @tls13_final_finish_mac(ptr noundef %s, ptr noundef readnone captures(address) %str, i64 noundef %slen, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %hash = alloca [64 x i8], align 16
   %finsecret = alloca [64 x i8], align 16

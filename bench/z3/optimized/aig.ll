@@ -517,7 +517,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN7aig_refaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN7aig_refaSERKS_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #6 align 2 {
 entry:
   %m_ref = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load ptr, ptr %m_ref, align 8
@@ -2116,7 +2116,7 @@ return:                                           ; preds = %_ZN11aig_manager3im
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager11max_sharingER7aig_ref(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11aig_manager11max_sharingER7aig_ref(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.aig_ref, align 8
   %0 = load ptr, ptr %this, align 8

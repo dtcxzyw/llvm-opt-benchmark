@@ -6554,7 +6554,7 @@ _ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE10PickleableJEED2Ev.
 declare void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ23test_submodule_picklingRN8pybind117module_EENK10Pickleable5valueB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(40) %0) #7 align 2 {
+define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ23test_submodule_picklingRN8pybind117module_EENK10Pickleable5valueB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) #7 align 2 {
   ret ptr %0
 }
 
@@ -35955,7 +35955,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE10PickleableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE10PickleableJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ23test_submodule_picklingRN8pybind117module_EE10Pickleable, ptr %4, align 8
@@ -38934,7 +38934,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail19unpacking_collectorILNS_19
 declare i32 @PyDict_Contains(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ23test_submodule_picklingRN8pybind117module_EE13PickleableNew, ptr %4, align 8
@@ -39719,7 +39719,7 @@ _ZNSt6vectorISt4pairIPKSt9type_infoPFPvS4_EESaIS7_EE12emplace_backIJRS3_RS6_EEER
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #7 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE13PickleableNewJZ23test_submodule_picklingS2_E10PickleableEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #7 align 2 {
   ret ptr %0
 }
 
@@ -40347,7 +40347,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderERKNS_5tupleEEE9loa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ23test_submodule_picklingRN8pybind117module_EE18PickleableWithDict, ptr %4, align 8
@@ -41069,7 +41069,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ23test_submodule_picklingRN
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictJEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -42875,7 +42875,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ23test_submodule_picklingRN8pybind117module_EE21PickleableWithDictNew, ptr %4, align 8
@@ -43187,7 +43187,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #7 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ23test_submodule_picklingRNS_7module_EE21PickleableWithDictNewJZ23test_submodule_picklingS2_E18PickleableWithDictEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #7 align 2 {
   ret ptr %0
 }
 

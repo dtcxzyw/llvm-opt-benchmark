@@ -1822,7 +1822,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq8router_t8xhas_outEv(ptr noundef nonnull readonly align 8 dereferenceable(2180) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3zmq8router_t8xhas_outEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(2180) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_mandatory = getelementptr inbounds nuw i8, ptr %this, i64 2176
   %0 = load i8, ptr %_mandatory, align 8

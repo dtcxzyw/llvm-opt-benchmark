@@ -105,7 +105,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_extract_iter
 @llvm.compiler.used = appending global [34 x ptr] [ptr @__UNIQUE_ID___addressable___sg_alloc_table379, ptr @__UNIQUE_ID___addressable___sg_free_table376, ptr @__UNIQUE_ID___addressable___sg_page_iter_dma_next406, ptr @__UNIQUE_ID___addressable___sg_page_iter_next405, ptr @__UNIQUE_ID___addressable___sg_page_iter_start404, ptr @__UNIQUE_ID___addressable_extract_iter_to_sg448, ptr @__UNIQUE_ID___addressable_sg_alloc_append_table_from_pages389, ptr @__UNIQUE_ID___addressable_sg_alloc_table380, ptr @__UNIQUE_ID___addressable_sg_alloc_table_from_pages_segment392, ptr @__UNIQUE_ID___addressable_sg_copy_buffer424, ptr @__UNIQUE_ID___addressable_sg_copy_from_buffer425, ptr @__UNIQUE_ID___addressable_sg_copy_to_buffer426, ptr @__UNIQUE_ID___addressable_sg_free_append_table377, ptr @__UNIQUE_ID___addressable_sg_free_table378, ptr @__UNIQUE_ID___addressable_sg_init_one375, ptr @__UNIQUE_ID___addressable_sg_init_table374, ptr @__UNIQUE_ID___addressable_sg_last373, ptr @__UNIQUE_ID___addressable_sg_miter_next415, ptr @__UNIQUE_ID___addressable_sg_miter_skip414, ptr @__UNIQUE_ID___addressable_sg_miter_start409, ptr @__UNIQUE_ID___addressable_sg_miter_stop421, ptr @__UNIQUE_ID___addressable_sg_nents370, ptr @__UNIQUE_ID___addressable_sg_nents_for_len371, ptr @__UNIQUE_ID___addressable_sg_next369, ptr @__UNIQUE_ID___addressable_sg_pcopy_from_buffer427, ptr @__UNIQUE_ID___addressable_sg_pcopy_to_buffer428, ptr @__UNIQUE_ID___addressable_sg_zero_buffer431, ptr @__UNIQUE_ID___addressable_sgl_alloc400, ptr @__UNIQUE_ID___addressable_sgl_alloc_order399, ptr @__UNIQUE_ID___addressable_sgl_free403, ptr @__UNIQUE_ID___addressable_sgl_free_n_order401, ptr @__UNIQUE_ID___addressable_sgl_free_order402, ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule328, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @sg_next(ptr noundef readonly %0) #0 align 16 {
+define dso_local ptr @sg_next(ptr noundef readonly captures(ret: address, provenance) %0) #0 align 16 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 2
   %4 = icmp eq i64 %3, 0
@@ -129,7 +129,7 @@ define dso_local ptr @sg_next(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @sg_nents(ptr noundef readonly %0) #1 align 16 {
+define dso_local i32 @sg_nents(ptr noundef readonly captures(address) %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %.preheader
 
@@ -171,7 +171,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @sg_nents_for_len(ptr noundef readonly %0, i64 noundef %1) #1 align 16 {
+define dso_local i32 @sg_nents_for_len(ptr noundef readonly captures(address) %0, i64 noundef %1) #1 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread, label %4
 
@@ -220,7 +220,7 @@ define dso_local i32 @sg_nents_for_len(ptr noundef readonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @sg_last(ptr noundef readonly %0, i32 noundef %1) #3 align 16 {
+define dso_local noundef ptr @sg_last(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) #3 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %..loopexit_crit_edge, label %.preheader
 
@@ -1125,7 +1125,7 @@ define dso_local i32 @sg_alloc_table_from_pages_segment(ptr noundef captures(non
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef writeonly %4) #3 align 16 {
+define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #3 align 16 {
   %6 = add i64 %0, -1
   %7 = zext nneg i32 %1 to i64
   %8 = shl i64 4096, %7
@@ -1336,7 +1336,7 @@ define dso_local void @sgl_free_order(ptr noundef %0, i32 noundef %1) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @sgl_alloc(i64 noundef %0, i32 noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local ptr @sgl_alloc(i64 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #3 align 16 {
   %4 = tail call ptr @sgl_alloc_order(i64 noundef %0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %1, ptr noundef %2)
   ret ptr %4
 }

@@ -257,7 +257,7 @@ define dso_local ptr @type_int_unsigned_by_bitsize(i64 noundef %0) local_unnamed
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_quoted_error_string(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @type_quoted_error_string(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, %0
@@ -5019,7 +5019,7 @@ define dso_local ptr @type_find_parent_type(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %.not8.not = icmp eq ptr %1, null
   br i1 %.not8.not, label %._crit_edge, label %.lr.ph
 
@@ -5098,7 +5098,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_array_element_is_equivalent(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @type_array_element_is_equivalent(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br i1 %3, label %.preheader, label %31
 
 .preheader:                                       ; preds = %4, %17
@@ -5269,7 +5269,7 @@ type_is_matching_int.exit:                        ; preds = %65
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %132, %4
@@ -5595,7 +5595,7 @@ type_is_subtype.exit:                             ; preds = %108, %105, %118, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @type_array_is_equivalent(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 8
   %6 = load i32, ptr %1, align 8
   switch i32 %6, label %29 [
@@ -5660,7 +5660,7 @@ define internal fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef
 declare zeroext i1 @sema_resolve_type_decl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 31
   br i1 %3, label %4, label %8
@@ -5764,7 +5764,7 @@ define dso_local noundef zeroext i1 @type_may_have_sub_elements(ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_find_max_num_type(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, -18
@@ -5842,7 +5842,7 @@ type_int_signed_by_bitsize.exit:                  ; preds = %21, %22, %23, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_decay_array_pointer(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @type_decay_array_pointer(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -6270,7 +6270,7 @@ tailrecurse:                                      ; preds = %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %type_is_subtype.exit [
     i32 34, label %4
@@ -6454,7 +6454,7 @@ type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit58, label %4
 
@@ -6988,7 +6988,7 @@ declare void @scratch_buffer_append_signed_int(i64 noundef) local_unnamed_addr #
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @flatten_raw_function_type(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @flatten_raw_function_type(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %3, %1

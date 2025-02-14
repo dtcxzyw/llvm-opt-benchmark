@@ -1284,7 +1284,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4

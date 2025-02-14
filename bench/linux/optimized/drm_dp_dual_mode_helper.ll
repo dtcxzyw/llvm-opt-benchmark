@@ -182,7 +182,7 @@ define dso_local range(i64 -2147483648, 1) i64 @drm_dp_dual_mode_write(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
@@ -343,7 +343,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = icmp eq i32 %1, 0
@@ -423,7 +423,7 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   %7 = icmp ult i32 %1, 4
@@ -499,7 +499,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_set_tmds_output(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_set_tmds_output(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   %7 = alloca %struct.i2c_msg, align 8
@@ -692,7 +692,7 @@ define dso_local noundef ptr @drm_dp_get_dual_mode_type_name(i32 noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = alloca i8, align 1
@@ -798,7 +798,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.i2c_msg, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9

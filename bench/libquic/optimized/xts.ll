@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 noundef %enc) #1 {
+define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %ctx, ptr noundef %key, ptr noundef readonly captures(address_is_null) %iv, i32 noundef %enc) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -76,7 +76,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(address_is_null) %out, ptr noundef readonly captures(address_is_null) %in, i64 noundef %len) #1 {
 entry:
   %tweak.i = alloca %union.anon.0, align 8
   %scratch.i = alloca %union.anon.0, align 8

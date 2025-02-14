@@ -441,7 +441,7 @@ define hidden noundef zeroext i1 @_ZN4ring4aead3aes3Key9is_aes_hw17hf643dd7dcd4f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(244) ptr @_ZN4ring4aead3aes3Key15inner_less_safe17h5d49d699cb11494aE(ptr noalias noundef readonly returned align 4 dereferenceable(244) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 4 dereferenceable(244) ptr @_ZN4ring4aead3aes3Key15inner_less_safe17h5d49d699cb11494aE(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(244) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -1849,7 +1849,7 @@ define hidden noundef zeroext i1 @_ZN4ring4aead3gcm13has_avx_movbe17hf0399d7a1e6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(12) ptr @"_ZN96_$LT$ring..aead..nonce..Nonce$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u3b$$u20$_$u5d$$GT$$GT$6as_ref17h5b2e0ed8e52e1159E"(ptr noalias noundef readonly returned align 1 dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(12) ptr @"_ZN96_$LT$ring..aead..nonce..Nonce$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u3b$$u20$_$u5d$$GT$$GT$6as_ref17h5b2e0ed8e52e1159E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

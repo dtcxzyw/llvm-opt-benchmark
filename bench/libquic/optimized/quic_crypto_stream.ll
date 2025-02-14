@@ -337,7 +337,7 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(433) ptr @_ZNK3net16QuicCryptoStream24crypto_negotiated_paramsEv(ptr noundef nonnull readnone align 8 dereferenceable(1048) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(433) ptr @_ZNK3net16QuicCryptoStream24crypto_negotiated_paramsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1048) %this) local_unnamed_addr #3 align 2 {
 entry:
   %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   ret ptr %crypto_negotiated_params_

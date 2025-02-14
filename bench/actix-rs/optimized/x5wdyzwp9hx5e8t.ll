@@ -7424,7 +7424,7 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$alloc..vec..Vec$LT$futures_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h667f9c8da8a7620dE"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h667f9c8da8a7620dE"(ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2337)
@@ -24788,7 +24788,7 @@ define hidden void @"_ZN4core3ptr625drop_in_place$LT$alloc..raw_vec..RawVec$LT$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr627drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$$GT$17h868c958ae5374048E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr627drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$GT$$GT$17h868c958ae5374048E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #0 {
   tail call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d7d576a66c346f3E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
@@ -27854,7 +27854,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$regex_automata..meta..wrappe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr721drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h6f1271474d85c583E"(ptr readonly %.0.val) unnamed_addr #7 {
+define internal fastcc void @"_ZN4core3ptr721drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h6f1271474d85c583E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #7 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -32997,7 +32997,7 @@ define hidden noundef i64 @_ZN5alloc2rc10RcInnerPtr6strong17hf6f8d9676a304b16E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h316f69b32a4ee611E.llvm.11632439649900387884"(ptr noundef readnone %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h316f69b32a4ee611E.llvm.11632439649900387884"(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
@@ -33005,7 +33005,7 @@ define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h3f9b94f19431986fE.llvm.11632439649900387884"(ptr noundef readnone %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h3f9b94f19431986fE.llvm.11632439649900387884"(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
@@ -33013,7 +33013,7 @@ define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hd1aa6887c6b529c7E.llvm.11632439649900387884"(ptr noundef readnone %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hd1aa6887c6b529c7E.llvm.11632439649900387884"(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
@@ -34041,122 +34041,122 @@ define hidden void @"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..dr
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h3996666dc87d7c86E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h3996666dc87d7c86E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h41fcd54c5aed5626E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h41fcd54c5aed5626E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h5260f7bdd2a98a7eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h5260f7bdd2a98a7eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h75de47b813c53542E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h75de47b813c53542E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h82f896902835c12cE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h82f896902835c12cE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8d09b125f7ada2d2E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8d09b125f7ada2d2E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8dea63bc09f535d4E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h8dea63bc09f535d4E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h98caacecf216430eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h98caacecf216430eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17hcc24b80d1401a163E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17hcc24b80d1401a163E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17he4c9a5eef5f30062E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17he4c9a5eef5f30062E.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17heae908c6b5fc9f2eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17heae908c6b5fc9f2eE.llvm.11632439649900387884"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h2b2cd5071d6a6d1eE.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h2b2cd5071d6a6d1eE.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h4a9cdc62a15fcba6E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h4a9cdc62a15fcba6E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h6370c5e40ad477d8E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h6370c5e40ad477d8E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h6484ee78eb5213b2E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h6484ee78eb5213b2E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h713e13e3e0bb1bd1E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17h713e13e3e0bb1bd1E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17haddbf95a47a147b7E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17haddbf95a47a147b7E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hb062edf7605a02a1E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hb062edf7605a02a1E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hc9e9304baa0e8857E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hc9e9304baa0e8857E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hf1b101afc32e1530E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hf1b101afc32e1530E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hfbf5eeab9bc66437E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hfbf5eeab9bc66437E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hffb9e76c9c280fb2E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 %0) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$8weak_ref17hffb9e76c9c280fb2E.llvm.11632439649900387884"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -39554,7 +39554,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d7d576a66c346f3E.llvm.11632439649900387884"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d7d576a66c346f3E.llvm.11632439649900387884"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5

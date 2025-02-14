@@ -2775,7 +2775,7 @@ define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_o
 declare double @llvm.round.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 captures(none) initializes((0, 16)) %0, ptr readonly %1) local_unnamed_addr #6 {
+define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread, label %sub_0
 

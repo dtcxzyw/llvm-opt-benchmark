@@ -384,28 +384,28 @@ _ZN6duckdb16CatalogEntryInfoD2Ev.exit:            ; preds = %if.then.i.i3.i, %_Z
 declare void @_ZN6duckdb14InCatalogEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb15DependencyEntry18SubjectMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb15DependencyEntry18SubjectMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
 entry:
   %subject_name = getelementptr inbounds nuw i8, ptr %this, i64 136
   ret ptr %subject_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry7SubjectEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %subject
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb15DependencyEntry20DependentMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb15DependencyEntry20DependentMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
 entry:
   %dependent_name = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %dependent_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry9DependentEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6duckdb15DependencyEntry9DependentEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) local_unnamed_addr #4 align 2 {
 entry:
   %dependent = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %dependent
@@ -706,28 +706,28 @@ declare void @_ZN6duckdb21MangledDependencyNameC1ERKNS_16MangledEntryNameES3_(pt
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb22DependencySubjectEntry16EntryMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb22DependencySubjectEntry16EntryMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %subject_name = getelementptr inbounds nuw i8, ptr %this, i64 136
   ret ptr %subject_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb22DependencySubjectEntry9EntryInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb22DependencySubjectEntry9EntryInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %subject
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb22DependencySubjectEntry17SourceMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb22DependencySubjectEntry17SourceMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %dependent_name = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %dependent_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb22DependencySubjectEntry10SourceInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb22DependencySubjectEntry10SourceInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %dependent = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %dependent
@@ -897,28 +897,28 @@ _ZN6duckdb16MangledEntryNameD2Ev.exit47:          ; preds = %if.then.i.i.i43, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb24DependencyDependentEntry16EntryMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb24DependencyDependentEntry16EntryMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %dependent_name = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %dependent_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb24DependencyDependentEntry9EntryInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb24DependencyDependentEntry9EntryInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %dependent = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %dependent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb24DependencyDependentEntry17SourceMangledNameEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb24DependencyDependentEntry17SourceMangledNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %subject_name = getelementptr inbounds nuw i8, ptr %this, i64 136
   ret ptr %subject_name
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb24DependencyDependentEntry10SourceInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(345) %this) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6duckdb24DependencyDependentEntry10SourceInfoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(345) %this) unnamed_addr #4 align 2 {
 entry:
   %subject = getelementptr inbounds nuw i8, ptr %this, i64 256
   ret ptr %subject

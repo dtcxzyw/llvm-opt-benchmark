@@ -4135,7 +4135,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_expand_zero_clusters(ptr noundef %bs, ptr noundef %status_cb, ptr noundef %cb_opaque) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_expand_zero_clusters(ptr noundef %bs, ptr noundef captures(address_is_null) %status_cb, ptr noundef %cb_opaque) local_unnamed_addr #0 {
 entry:
   %visited_l1_entries = alloca i64, align 8
   %local_err = alloca ptr, align 8
@@ -4290,7 +4290,7 @@ fail:                                             ; preds = %if.end44, %for.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef readonly %l1_table, i32 noundef %l1_size, ptr noundef nonnull captures(none) %visited_l1_entries, i64 noundef %l1_entries, ptr noundef readonly %status_cb, ptr noundef %cb_opaque) unnamed_addr #0 {
+define internal fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef readonly captures(address) %l1_table, i32 noundef %l1_size, ptr noundef nonnull captures(none) %visited_l1_entries, i64 noundef %l1_entries, ptr noundef readonly captures(address_is_null) %status_cb, ptr noundef %cb_opaque) unnamed_addr #0 {
 entry:
   %l2_slice = alloca ptr, align 8
   %l2_refcount = alloca i64, align 8

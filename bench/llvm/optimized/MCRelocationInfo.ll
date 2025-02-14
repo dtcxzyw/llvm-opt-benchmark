@@ -34,7 +34,7 @@ define dso_local void @_ZN4llvm16MCRelocationInfoD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4llvm16MCRelocationInfo28createExprForCAPIVariantKindEPKNS_6MCExprEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN4llvm16MCRelocationInfo28createExprForCAPIVariantKindEPKNS_6MCExprEj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %.not = icmp eq i32 %2, 0
   %. = select i1 %.not, ptr %1, ptr null
   ret ptr %.

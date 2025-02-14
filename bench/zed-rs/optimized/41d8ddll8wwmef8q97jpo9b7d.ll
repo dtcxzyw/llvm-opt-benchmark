@@ -3051,7 +3051,7 @@ define internal fastcc void @"_ZN14event_listener3sys14Inner$LT$T$GT$6notify17h2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17h7375b2924a85ebf8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull align 8 %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17h7375b2924a85ebf8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %2, align 8, !range !131, !noundef !4

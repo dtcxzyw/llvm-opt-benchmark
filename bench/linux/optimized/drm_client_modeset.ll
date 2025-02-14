@@ -2567,7 +2567,7 @@ declare dso_local i32 @drm_modeset_backoff(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %3
 

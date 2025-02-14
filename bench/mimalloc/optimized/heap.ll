@@ -787,7 +787,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @mi_heap_contains_block(ptr noundef readnone %heap, ptr noundef %p) local_unnamed_addr #2 {
+define zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %heap, ptr noundef %p) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ne ptr %heap, null
   %cmp.i = icmp ne ptr %heap, @_mi_heap_empty
@@ -836,7 +836,7 @@ return:                                           ; preds = %entry, %mi_heap_of_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly %heap, ptr noundef %p) local_unnamed_addr #0 {
+define noundef zeroext i1 @mi_heap_check_owned(ptr noundef readonly captures(address) %heap, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %psize.i.i = alloca i64, align 8
   %cmp = icmp eq ptr %heap, null

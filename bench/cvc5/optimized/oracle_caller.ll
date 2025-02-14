@@ -1681,7 +1681,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal12OracleCaller16getCachedResultsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc58internal12OracleCaller16getCachedResultsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_cachedResults = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_cachedResults

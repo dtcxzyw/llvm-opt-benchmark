@@ -615,7 +615,7 @@ common.resume:                                    ; preds = %13, %26, %31
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr readonly %.0.val, i64 %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN4ring10arithmetic6bigint12elem_reduced17h274c2844cf5250c0E(ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { ptr, i64 }, align 8
@@ -2455,13 +2455,13 @@ common.resume:                                    ; preds = %63, %.thread366, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN4ring3rsa7keypair7KeyPair6public17hface1ca49d534235E(ptr noalias noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN4ring3rsa7keypair7KeyPair6public17hface1ca49d534235E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(240) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @"_ZN72_$LT$ring..rsa..keypair..KeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17h23be7b3490586772E"(ptr noalias noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(80) ptr @"_ZN72_$LT$ring..rsa..keypair..KeyPair$u20$as$u20$ring..signature..KeyPair$GT$10public_key17h23be7b3490586772E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(240) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   ret ptr %2
 }

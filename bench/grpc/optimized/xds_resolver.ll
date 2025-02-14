@@ -21625,7 +21625,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #15
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvE_8__invokeES5_(ptr noundef returned %p) #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvE_8__invokeES5_(ptr noundef returned captures(address_is_null, ret: address, provenance) %p) #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i = icmp eq ptr %p, null
   br i1 %cmp.not.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENKUlPvE_clES5_.exit, label %_ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit.i
@@ -21663,7 +21663,7 @@ _ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvS5_E_8__invokeES5_S5_(ptr noundef readnone %p1, ptr noundef readnone %p2) #20 align 2 {
+define internal noundef range(i32 -1, 2) i32 @_ZZN9grpc_core20ChannelArgTypeTraitsINS_12_GLOBAL__N_111XdsResolver17XdsConfigSelectorEvE6VTableEvENUlPvS5_E_8__invokeES5_S5_(ptr noundef readnone captures(address) %p1, ptr noundef readnone captures(address) %p2) #20 align 2 {
 entry:
   %cmp.i.i.i = icmp ult ptr %p1, %p2
   %cmp1.i.i.i = icmp ult ptr %p2, %p1

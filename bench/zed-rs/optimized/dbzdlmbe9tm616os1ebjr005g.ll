@@ -32090,7 +32090,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr159drop_in_place$LT$alloc..collections..vec_deque..drain..Drain$LT$$LP$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$usize$RP$$GT$$GT$17h8fc16b3bdddcb922E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #5 {
+define hidden void @"_ZN4core3ptr159drop_in_place$LT$alloc..collections..vec_deque..drain..Drain$LT$$LP$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$usize$RP$$GT$$GT$17h8fc16b3bdddcb922E"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #5 {
   tail call void @"_ZN98_$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78d48de14622d26eE.llvm.16563453502491001324"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
@@ -32826,7 +32826,7 @@ define hidden void @"_ZN4core3ptr169drop_in_place$LT$core..cell..UnsafeCell$LT$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$core..task..wake..Waker$C$alloc..alloc..Global$GT$$GT$17h828ec3baa13da2aaE"(ptr readonly %.0.val) unnamed_addr #12 {
+define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$core..task..wake..Waker$C$alloc..alloc..Global$GT$$GT$17h828ec3baa13da2aaE"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #12 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -36569,7 +36569,7 @@ define hidden void @"_ZN4core3ptr215drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr215drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$core..pin..Pin$LT$$RF$mut$u20$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h1a023aa3a503581cE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #5 {
+define hidden void @"_ZN4core3ptr215drop_in_place$LT$alloc..vec..drain..Drain$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$core..pin..Pin$LT$$RF$mut$u20$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h1a023aa3a503581cE"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #5 {
   tail call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbced54009907e2f6E.llvm.16563453502491001324"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
@@ -38898,7 +38898,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr253drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$usize$RP$$C$alloc..alloc..Global$GT$$GT$17h9ab5b508e4c8dbf4E"(ptr readonly %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr253drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$usize$RP$$C$alloc..alloc..Global$GT$$GT$17h9ab5b508e4c8dbf4E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = alloca [32 x i8], align 8
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
@@ -42796,7 +42796,7 @@ define hidden void @"_ZN4core3ptr308drop_in_place$LT$event_listener_strategy..Fu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$core..pin..Pin$LT$$RF$mut$u20$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$GT$$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17hb7a7eae692b32af6E"(ptr readonly %.0.val) unnamed_addr #12 {
+define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$async_tar..entry..EntryIo$LT$async_tar..archive..Archive$LT$core..pin..Pin$LT$$RF$mut$u20$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$GT$$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17hb7a7eae692b32af6E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #12 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
@@ -55348,7 +55348,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$async_std..io..utils..Verbos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$async_std..task..task_local..Entry$GT$17hb438f2fbacd6c852E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$async_std..task..task_local..Entry$GT$17hb438f2fbacd6c852E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4
@@ -61655,7 +61655,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Weak$LT$str$C$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..drain..Drain$LT$core..task..wake..Waker$GT$$GT$17h63902bd0e88f71c6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..drain..Drain$LT$core..task..wake..Waker$GT$$GT$17h63902bd0e88f71c6E"(ptr noalias noundef nonnull align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26786)
   %2 = load ptr, ptr %0, align 8, !alias.scope !26786, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74356,13 +74356,13 @@ define hidden { ptr, i1 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4b3334
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h123962849ffca839E.llvm.16563453502491001324"(ptr noundef readnone %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h123962849ffca839E.llvm.16563453502491001324"(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h83d02f929c11ff04E.llvm.16563453502491001324"(ptr noundef readnone %0) unnamed_addr #1 {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17h83d02f929c11ff04E.llvm.16563453502491001324"(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   ret ptr %2
 }
@@ -79304,7 +79304,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbced54009907e2f6E.llvm.16563453502491001324"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbced54009907e2f6E.llvm.16563453502491001324"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
@@ -82644,7 +82644,7 @@ define hidden void @"_ZN95_$LT$core..slice..sort..stable..merge..MergeState$LT$T
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN98_$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78d48de14622d26eE.llvm.16563453502491001324"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN98_$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78d48de14622d26eE.llvm.16563453502491001324"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(40) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !4

@@ -3171,7 +3171,7 @@ define dso_local void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_end_request_batch(ptr noundef %0) #0 align 16 {
+define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_null) %0) #0 align 16 {
   %2 = alloca [32 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false), !annotation !11
@@ -5339,7 +5339,7 @@ define dso_local void @blk_mq_flush_busy_ctxs(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
@@ -7231,7 +7231,7 @@ define dso_local void @blk_mq_flush_plug_list(ptr noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(address_is_null) %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -8668,7 +8668,7 @@ define dso_local void @blk_rq_unprep_clone(ptr noundef captures(none) %0) #0 ali
 declare dso_local void @bio_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %2, null
   %8 = select i1 %7, ptr @fs_bio_set, ptr %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -13645,7 +13645,7 @@ define internal noundef zeroext i1 @blk_mq_handle_expired(ptr noundef %0, ptr no
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_mq_update_tag_set_shared(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_mq_update_tag_set_shared(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8

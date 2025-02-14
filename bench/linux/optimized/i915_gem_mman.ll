@@ -354,7 +354,7 @@ define dso_local noundef i32 @i915_gem_mmap_gtt_version() local_unnamed_addr #5 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__i915_gem_object_release_mmap_gtt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @__i915_gem_object_release_mmap_gtt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -383,7 +383,7 @@ define dso_local void @__i915_gem_object_release_mmap_gtt(ptr noundef readonly %
 declare dso_local void @i915_vma_revoke_mmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_release_mmap_gtt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_release_mmap_gtt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8928

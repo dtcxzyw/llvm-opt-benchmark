@@ -18146,7 +18146,7 @@ ehcleanup42:                                      ; preds = %if.then.i.i.i48, %e
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %agg.result, ptr readonly %raw_stack.coerce0, i64 %raw_stack.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(address) %raw_stack.coerce0, i64 %raw_stack.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp6 = alloca %"class.absl::AlphaNum", align 8

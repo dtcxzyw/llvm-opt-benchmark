@@ -7014,7 +7014,7 @@ switch.early.test:                                ; preds = %89, %_ZN3std2io5err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource7as_file17h3c046d09ccd8cd92E.llvm.9369894712845813854(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource7as_file17h3c046d09ccd8cd92E.llvm.9369894712845813854(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 8, !range !120, !noundef !4
   %trunc = trunc nuw i32 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4

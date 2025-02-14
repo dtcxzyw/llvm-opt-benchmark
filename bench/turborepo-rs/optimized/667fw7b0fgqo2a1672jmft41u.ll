@@ -59,7 +59,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5token5TokenuEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1S_8PeekableINtNtB1U_4fuse4FuseINtNtNtB5_5array4iter8IntoIterBM_Kj1_EEE4peek0EBS_.llvm.2038835765883349039(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5token5TokenuEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1S_8PeekableINtNtB1U_4fuse4FuseINtNtNtB5_5array4iter8IntoIterBM_Kj1_EEE4peek0EBS_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %16, label %4
@@ -98,7 +98,7 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5token5TokenuEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1S_8PeekableINtNtB1U_4fuse4FuseINtNtNtB5_5slice4iter4IterBN_EEE4peek0EBS_.llvm.2038835765883349039(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5token5TokenuEEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1S_8PeekableINtNtB1U_4fuse4FuseINtNtNtB5_5slice4iter4IterBN_EEE4peek0EBS_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %13, label %4
@@ -130,7 +130,7 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token5TokenEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1P_8PeekableINtNtB1R_4fuse4FuseINtNtB1R_6copied6CopiedINtNtNtB5_5slice4iter4IterBM_EEEE4peek0EBR_.llvm.2038835765883349039(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token5TokenEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1P_8PeekableINtNtB1R_4fuse4FuseINtNtB1R_6copied6CopiedINtNtNtB5_5slice4iter4IterBM_EEEE4peek0EBR_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %15, label %4
@@ -169,7 +169,7 @@ _RNCNvMs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB7_8PeekableINtNtB9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token5TokenEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1P_8PeekableINtNtB1R_4fuse4FuseINtNtNtB5_5slice4iter4IterBN_EEE4peek0EBR_.llvm.2038835765883349039(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token5TokenEE18get_or_insert_withNCNvMs3_NtNtNtB5_4iter8adapters8peekableINtB1P_8PeekableINtNtB1R_4fuse4FuseINtNtNtB5_5slice4iter4IterBN_EEE4peek0EBR_.llvm.2038835765883349039(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
   br i1 %trunc, label %13, label %4
@@ -922,7 +922,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_RNvMs4_NtNtCsaz5AFKTGGYY_5regex5regex6stringNtB5_5Regex11is_match_at(ptr readonly %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_RNvMs4_NtNtCsaz5AFKTGGYY_5regex5regex6stringNtB5_5Regex11is_match_at(ptr readonly captures(address_is_null) %.0.val, ptr %.8.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
 ._crit_edge.i:
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
@@ -3565,7 +3565,7 @@ _RNvMs4_NtCseG2FYMysgNb_3wax7captureNtB5_11MatchedText17to_candidate_path.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_RNvMs4_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntry7matched(ptr noalias noundef readonly returned align 8 dereferenceable(136) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_RNvMs4_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntry7matched(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(136) %0) unnamed_addr #13 {
   ret ptr %0
 }
 

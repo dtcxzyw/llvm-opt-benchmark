@@ -16,12 +16,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [37 x i8] c"Error! Cannot open output file '%s'\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @ImgIoUtilSetBinaryMode(ptr noundef readnone returned %0) local_unnamed_addr #0 {
+define hidden noundef ptr @ImgIoUtilSetBinaryMode(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ImgIoUtilReadFromStdin(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ImgIoUtilReadFromStdin(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -113,7 +113,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %sub_0
 
@@ -217,7 +217,7 @@ declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #6
 declare void @WebPFree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @ImgIoUtilWriteFile(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @ImgIoUtilWriteFile(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %6

@@ -315,7 +315,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare noundef zeroext i1 @_ZN8Settings14readConfigFileEPKc(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11LuaSettingsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(42) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LuaSettingsD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(42) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_is_own_settings = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %m_is_own_settings, align 8, !tbaa !18, !range !37, !noundef !38

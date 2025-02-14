@@ -1825,7 +1825,7 @@ define internal void @dma_fence_default_wait_cb(ptr readnone captures(none) %0, 
 declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3, ptr noundef writeonly %4) #1 align 16 {
+define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #1 align 16 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne i32 %1, 0
   %8 = icmp sgt i64 %3, -1

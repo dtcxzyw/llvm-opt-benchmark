@@ -636,7 +636,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss6ivflib27search_and_return_centroidsEPNS_5IndexEmPKflPfPlS6_S6_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss6ivflib27search_and_return_centroidsEPNS_5IndexEmPKflPfPlS6_S6_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = icmp eq ptr %0, null
   br i1 %9, label %.thread103, label %10
 
@@ -2631,7 +2631,7 @@ define void @_ZN5faiss6ivflib17set_invlist_rangeEPNS_5IndexEllPNS_18ArrayInverte
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss6ivflib22search_with_parametersEPKNS_5IndexElPKflPfPlPKNS_19SearchParametersIVFEPmPd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss6ivflib22search_with_parametersEPKNS_5IndexElPKflPfPlPKNS_19SearchParametersIVFEPmPd(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %6, null
@@ -2980,7 +2980,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit88: ; preds = %_ZNKSt14de
 declare noundef double @_ZN5faiss12getmillisecsEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss6ivflib28range_search_with_parametersEPKNS_5IndexElPKffPNS_17RangeSearchResultEPKNS_19SearchParametersIVFEPmPd(ptr noundef %0, i64 noundef %1, ptr noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss6ivflib28range_search_with_parametersEPKNS_5IndexElPKffPNS_17RangeSearchResultEPKNS_19SearchParametersIVFEPmPd(ptr noundef %0, i64 noundef %1, ptr noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %5, null

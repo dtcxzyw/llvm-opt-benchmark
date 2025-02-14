@@ -62,7 +62,7 @@ declare i32 @sat_solver_nvars(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Sat_SolverTraceWrite(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Sat_SolverTraceWrite(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = icmp eq ptr %6, null

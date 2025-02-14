@@ -477,14 +477,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull readnone align 8 dereferenceable(65) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(65) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_children = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_children
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode12getArgumentsEv(ptr noundef nonnull readnone align 8 dereferenceable(65) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode12getArgumentsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(65) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_args = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %d_args

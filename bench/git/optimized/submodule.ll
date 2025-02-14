@@ -983,7 +983,7 @@ define dso_local range(i32 0, 2) i32 @is_submodule_populated_gently(ptr noundef 
 declare ptr @resolve_gitdir_gently(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2103,7 +2103,7 @@ define internal fastcc void @collect_changed_submodules(ptr noundef %0, ptr noun
 declare ptr @submodule_from_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.child_process, align 8
   %8 = alloca %struct.child_process, align 8
   %9 = alloca %struct.string_list, align 8

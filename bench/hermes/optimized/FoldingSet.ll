@@ -836,7 +836,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((16, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((16, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
 entry:
   %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
@@ -1192,7 +1192,7 @@ _ZN4llvh16FoldingSetNodeIDD2Ev.exit:              ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4llvh14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef %N) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvh14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(address) %N) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %N, align 8
   %tobool.not = icmp ne ptr %0, null

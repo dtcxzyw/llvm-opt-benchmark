@@ -32,7 +32,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @ulist_addItemEndList_75(ptr noundef %list, ptr noundef %data, i8 noundef signext %forceDelete, ptr noundef captures(none) %status) local_unnamed_addr #0 {
+define void @ulist_addItemEndList_75(ptr noundef captures(address_is_null) %list, ptr noundef %data, i8 noundef signext %forceDelete, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -110,7 +110,7 @@ return:                                           ; preds = %if.then, %if.then4,
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @ulist_addItemBeginList_75(ptr noundef %list, ptr noundef %data, i8 noundef signext %forceDelete, ptr noundef captures(none) %status) local_unnamed_addr #0 {
+define void @ulist_addItemBeginList_75(ptr noundef captures(address_is_null) %list, ptr noundef %data, i8 noundef signext %forceDelete, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -187,7 +187,7 @@ return:                                           ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define signext range(i8 0, 2) i8 @ulist_containsString_75(ptr noundef readonly %list, ptr noundef readonly captures(none) %data, i32 noundef %length) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @ulist_containsString_75(ptr noundef readonly captures(address_is_null) %list, ptr noundef readonly captures(none) %data, i32 noundef %length) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %list, null
   br i1 %cmp.not, label %return, label %for.cond.preheader
@@ -227,7 +227,7 @@ return:                                           ; preds = %if.then4, %for.inc,
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ulist_removeString_75(ptr noundef %list, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ulist_removeString_75(ptr noundef captures(address_is_null) %list, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %list, null
   br i1 %cmp.not, label %return, label %for.cond
@@ -296,7 +296,7 @@ return:                                           ; preds = %for.cond, %entry, %
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @ulist_getNext_75(ptr noundef %list) local_unnamed_addr #5 {
+define ptr @ulist_getNext_75(ptr noundef captures(address_is_null) %list) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %list, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -319,7 +319,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ulist_getListSize_75(ptr noundef readonly %list) local_unnamed_addr #6 {
+define i32 @ulist_getListSize_75(ptr noundef readonly captures(address_is_null) %list) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq ptr %list, null
   br i1 %cmp.not, label %return, label %if.then
@@ -335,7 +335,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ulist_resetList_75(ptr noundef %list) local_unnamed_addr #7 {
+define void @ulist_resetList_75(ptr noundef captures(address_is_null) %list) local_unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %list, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -462,7 +462,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @ulist_next_keyword_value_75(ptr noundef readonly captures(none) %en, ptr noundef writeonly %resultLength, ptr noundef readonly captures(none) %status) local_unnamed_addr #9 {
+define ptr @ulist_next_keyword_value_75(ptr noundef readonly captures(none) %en, ptr noundef writeonly captures(address_is_null) %resultLength, ptr noundef readonly captures(none) %status) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

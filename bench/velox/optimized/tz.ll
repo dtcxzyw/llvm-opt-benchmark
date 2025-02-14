@@ -3175,7 +3175,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4date9time_zone13load_sys_infoEN9__gnu_cxx17__normal_iteratorIPKNS_6detail10transitionESt6vectorIS4_SaIS4_EEEE(ptr noalias sret(%"struct.date::sys_info") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr readonly %i.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4date9time_zone13load_sys_infoEN9__gnu_cxx17__normal_iteratorIPKNS_6detail10transitionESt6vectorIS4_SaIS4_EEEE(ptr noalias sret(%"struct.date::sys_info") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr readonly captures(address) %i.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abbrev.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 0, i64 16, i1 false)

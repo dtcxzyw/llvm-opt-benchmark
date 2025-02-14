@@ -261,7 +261,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_ZN6icu_759SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uspoof_openFromSerialized_75(ptr noundef %data, i32 noundef %length, ptr noundef writeonly %pActualLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @uspoof_openFromSerialized_75(ptr noundef %data, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %pActualLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -748,7 +748,7 @@ declare noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_check_75(ptr noundef %sc, ptr noundef %id, i32 noundef %length, ptr noundef writeonly %position, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @uspoof_check_75(ptr noundef %sc, ptr noundef %id, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %position, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %position, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -865,7 +865,7 @@ return:                                           ; preds = %if.then2, %entry, %
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_checkUTF8_75(ptr noundef %sc, ptr noundef %id, i32 noundef %length, ptr noundef writeonly %position, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uspoof_checkUTF8_75(ptr noundef %sc, ptr noundef %id, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %position, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stackCheckResult.i = alloca %"class.icu_75::CheckResult", align 8
   %idStr.i = alloca %"class.icu_75::UnicodeString", align 8
@@ -1892,7 +1892,7 @@ return:                                           ; preds = %cleanup, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uspoof_checkUnicodeString_75(ptr noundef %sc, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef writeonly %position, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @uspoof_checkUnicodeString_75(ptr noundef %sc, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef writeonly captures(address_is_null) %position, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stackCheckResult.i = alloca %"class.icu_75::CheckResult", align 8
   %cmp.not = icmp eq ptr %position, null

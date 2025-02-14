@@ -888,7 +888,7 @@ define void @destroy_op_array(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_cleanup_internal_class_data(ptr noundef %0) local_unnamed_addr #0 {
+define void @zend_cleanup_internal_class_data(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1066,7 +1066,7 @@ define void @zend_cleanup_internal_class_data(ptr noundef %0) local_unnamed_addr
 declare void @zend_ref_del_type_source(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @zend_cleanup_mutable_class_data(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @zend_cleanup_mutable_class_data(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
@@ -3093,7 +3093,7 @@ define internal void @zend_extension_op_array_dtor_handler(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_recalc_live_ranges(ptr noundef initializes((128, 132)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @zend_recalc_live_ranges(ptr noundef initializes((128, 132)) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   tail call void @_efree(ptr noundef nonnull %4) #13
@@ -3105,7 +3105,7 @@ define void @zend_recalc_live_ranges(ptr noundef initializes((128, 132)) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_calc_live_ranges(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_calc_live_ranges(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4301,7 +4301,7 @@ declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 declare void @gc_possible_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, i32 noundef range(i32 0, -1) %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, i32 noundef range(i32 0, -1) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %2 to i64

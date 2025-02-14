@@ -737,7 +737,7 @@ if.end12:                                         ; preds = %if.then8, %if.end
 declare void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef readnone %shape) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef readnone captures(address) %shape) unnamed_addr #0 align 2 {
 entry:
   %temp.sroa.0.i.i = alloca [4 x float], align 8
   %temp.sroa.2.i.i = alloca [4 x float], align 8

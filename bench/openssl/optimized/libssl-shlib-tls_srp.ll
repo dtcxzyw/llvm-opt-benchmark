@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.srp_verify_server_param = private unnamed_addr constant [24 x i8] c"srp_verify_server_param\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -65,14 +65,14 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_free(ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_free(ptr noundef captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ssl_ctx_srp_ctx_free_intern(ptr noundef %ctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_srp_ctx_free_intern(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_srp_ctx_free_intern(ptr noundef captures(address_is_null) %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %if.end
@@ -120,7 +120,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SRP_CTX_free(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SRP_CTX_free(ptr noundef captures(address_is_null) %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %cond.end10, label %cond.false
@@ -147,7 +147,7 @@ cond.end10:                                       ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef captures(address_is_null) %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -371,7 +371,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SRP_CTX_init(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SRP_CTX_init(ptr noundef captures(address_is_null) %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %cond.end10, label %cond.false
@@ -398,7 +398,7 @@ cond.end10:                                       ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef writeonly %ctx) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ssl_ctx_srp_ctx_init_intern(ptr noundef writeonly captures(address_is_null) %ctx) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -416,7 +416,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_init(ptr noundef writeonly %ctx) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_CTX_SRP_CTX_init(ptr noundef writeonly captures(address_is_null) %ctx) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %ssl_ctx_srp_ctx_init_intern.exit, label %if.end.i
@@ -613,7 +613,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare i32 @SRP_create_verifier_BN_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef %s, ptr noundef %N, ptr noundef %g, ptr noundef %sa, ptr noundef %v, ptr noundef %info) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef captures(address_is_null) %s, ptr noundef %N, ptr noundef %g, ptr noundef %sa, ptr noundef %v, ptr noundef %info) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1139,7 +1139,7 @@ return:                                           ; preds = %if.end, %entry
 declare ptr @SRP_Calc_A(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SRP_Calc_A_param(ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SRP_Calc_A_param(ptr noundef captures(address_is_null) %s) local_unnamed_addr #0 {
 entry:
   %rnd.i = alloca [48 x i8], align 16
   %cmp = icmp eq ptr %s, null
@@ -1197,7 +1197,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_srp_g(ptr noundef readonly %s) local_unnamed_addr #5 {
+define ptr @SSL_get_srp_g(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1235,7 +1235,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_srp_N(ptr noundef readonly %s) local_unnamed_addr #5 {
+define ptr @SSL_get_srp_N(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1273,7 +1273,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_srp_username(ptr noundef readonly %s) local_unnamed_addr #5 {
+define ptr @SSL_get_srp_username(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -1311,7 +1311,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SSL_get_srp_userinfo(ptr noundef readonly %s) local_unnamed_addr #5 {
+define ptr @SSL_get_srp_userinfo(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false

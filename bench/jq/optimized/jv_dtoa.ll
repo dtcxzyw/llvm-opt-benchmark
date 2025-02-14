@@ -85,7 +85,7 @@ Bfree.exit:                                       ; preds = %9, %10
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define double @jvp_strtod(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define double @jvp_strtod(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3008,7 +3008,7 @@ Bfree.exit:                                       ; preds = %37, %36, %30, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mult(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @mult(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3307,7 +3307,7 @@ Bfree.exit:                                       ; preds = %.loopexit, %65, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @diff(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @diff(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3519,7 +3519,7 @@ Bfree.exit:                                       ; preds = %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @jvp_dtoa(ptr noundef captures(none) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define nonnull ptr @jvp_dtoa(ptr noundef captures(none) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %union.U, align 8
@@ -5365,7 +5365,7 @@ Bfree.exit:                                       ; preds = %54, %53, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5555,7 +5555,7 @@ cmp.exit.thread2:                                 ; preds = %52, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @jvp_dtoa_fmt(ptr noundef captures(none) %0, ptr noundef returned writeonly %1, double noundef %2) local_unnamed_addr #1 {
+define noundef ptr @jvp_dtoa_fmt(ptr noundef captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5818,7 +5818,7 @@ jvp_freedtoa.exit:                                ; preds = %102, %103
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #7 {
+define internal fastcc double @b2d(ptr noundef readonly captures(address) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #7 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4

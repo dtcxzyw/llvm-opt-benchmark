@@ -63,7 +63,7 @@ define dso_local ptr @next_online_pgdat(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @next_zone(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 3648
@@ -107,7 +107,7 @@ define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__next_zones_zonelist(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local ptr @__next_zones_zonelist(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.preheader, label %.preheader1, !prof !6
 

@@ -3389,7 +3389,7 @@ declare noundef ptr @_ZN9Inventory7addListERKNSt7__cxx1112basic_stringIcSt11char
 declare void @_ZN13InventoryList7addItemEjRK9ItemStack(ptr dead_on_unwind writable sret(%struct.ItemStack) align 8, ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, ptr noundef nonnull align 8 dereferenceable(312)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15parse_itemstackPKc(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef readonly %s) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15parse_itemstackPKc(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef readonly captures(address_is_null) %s) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3559,7 +3559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef readonly %s, ptr noundef %inv, ptr noundef %obj, ptr noundef %gamedef) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12apply_actionPKcP16InventoryManagerP18ServerActiveObjectP8IGameDef(ptr noundef readonly captures(address_is_null) %s, ptr noundef %inv, ptr noundef %obj, ptr noundef %gamedef) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %str = alloca %"class.std::__cxx11::basic_istringstream", align 8

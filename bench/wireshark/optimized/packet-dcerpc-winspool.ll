@@ -1237,7 +1237,7 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAI
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @iremotewinspool_dissect_enum_winspool_PrintPropertyType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @iremotewinspool_dissect_enum_winspool_PrintPropertyType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

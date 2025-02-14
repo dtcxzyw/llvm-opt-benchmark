@@ -166,7 +166,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -808,7 +808,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1928,7 +1928,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.33) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %23, label %4
@@ -2091,7 +2091,7 @@ declare void @cairo_surface_set_device_scale(ptr noundef, double noundef, double
 declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dt_iop_levels_move_handle(ptr captures(none) %.704.val, i32 noundef %0, float noundef %1, ptr noundef %2, float noundef %3) unnamed_addr #1 {
+define internal fastcc void @dt_iop_levels_move_handle(ptr captures(none) %.704.val, i32 noundef %0, float noundef %1, ptr noundef captures(address_is_null) %2, float noundef %3) unnamed_addr #1 {
   %or.cond = icmp ugt i32 %0, 2
   %5 = icmp eq ptr %2, null
   %or.cond38 = or i1 %or.cond, %5

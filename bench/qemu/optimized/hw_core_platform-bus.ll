@@ -66,7 +66,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare ptr @sysbus_get_connected_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @platform_bus_get_mmio_addr(ptr noundef readnone %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local i64 @platform_bus_get_mmio_addr(ptr noundef readnone captures(address) %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_mmio_get_region(ptr noundef %sbdev, i32 noundef %n) #9
   %call1 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef %call) #9

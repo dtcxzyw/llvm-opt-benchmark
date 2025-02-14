@@ -9435,7 +9435,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit25: ; preds = %_ZNK10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9774,7 +9774,7 @@ _ZNSt3mapIN10open_spiel9solitaire4CardENS1_6PileIDESt4lessIS2_ESaISt4pairIKS2_S3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.067.071, i64 20, i1 false)
   store ptr %54, ptr %24, align 8
   invoke void @_ZN10open_spiel9solitaire4Pile6ExtendESt6vectorINS0_4CardESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %9)
-          to label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit unwind label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit33
+          to label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit unwind label %56
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %53
   call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 20) #35
@@ -9792,170 +9792,168 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %53
           cleanup
   br label %.body
 
-_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit33: ; preds = %53
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %53
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 20) #35
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit, %2
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 %58, 2
-  br i1 %59, label %60, label %75
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp eq i32 %59, 2
+  br i1 %60, label %61, label %76
 
-60:                                               ; preds = %._crit_edge
-  %61 = load i32, ptr %6, align 8
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 16), align 8
-  %.not10.i.i.i.i34 = icmp eq ptr %62, null
+61:                                               ; preds = %._crit_edge
+  %62 = load i32, ptr %6, align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 16), align 8
+  %.not10.i.i.i.i34 = icmp eq ptr %63, null
   br i1 %.not10.i.i.i.i34, label %.critedge.i43.invoke, label %.lr.ph.i.i.i.i35
 
-.lr.ph.i.i.i.i35:                                 ; preds = %60, %.lr.ph.i.i.i.i35
-  %.012.i.i.i.i36 = phi ptr [ %.1.i.i.i.i41, %.lr.ph.i.i.i.i35 ], [ %62, %60 ]
-  %.0811.i.i.i.i37 = phi ptr [ %.19.i.i.i.i38, %.lr.ph.i.i.i.i35 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8), %60 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i36, i64 32
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp slt i32 %64, %61
-  %.19.i.i.i.i38 = select i1 %65, ptr %.0811.i.i.i.i37, ptr %.012.i.i.i.i36
-  %.1.in.v.i.i.i.i39 = select i1 %65, i64 24, i64 16
+.lr.ph.i.i.i.i35:                                 ; preds = %61, %.lr.ph.i.i.i.i35
+  %.012.i.i.i.i36 = phi ptr [ %.1.i.i.i.i41, %.lr.ph.i.i.i.i35 ], [ %63, %61 ]
+  %.0811.i.i.i.i37 = phi ptr [ %.19.i.i.i.i38, %.lr.ph.i.i.i.i35 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8), %61 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i36, i64 32
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp slt i32 %65, %62
+  %.19.i.i.i.i38 = select i1 %66, ptr %.0811.i.i.i.i37, ptr %.012.i.i.i.i36
+  %.1.in.v.i.i.i.i39 = select i1 %66, i64 24, i64 16
   %.1.in.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i36, i64 %.1.in.v.i.i.i.i39
   %.1.i.i.i.i41 = load ptr, ptr %.1.in.i.i.i.i40, align 8
   %.not.i.i.i.i42 = icmp eq ptr %.1.i.i.i.i41, null
   br i1 %.not.i.i.i.i42, label %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i, label %.lr.ph.i.i.i.i35, !llvm.loop !117
 
 _ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i: ; preds = %.lr.ph.i.i.i.i35
-  %66 = icmp eq ptr %.19.i.i.i.i38, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8)
-  br i1 %66, label %.critedge.i43.invoke, label %67
+  %67 = icmp eq ptr %.19.i.i.i.i38, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8)
+  br i1 %67, label %.critedge.i43.invoke, label %68
 
-67:                                               ; preds = %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i
-  %68 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i38, i64 32
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp slt i32 %61, %69
-  br i1 %70, label %.critedge.i43.invoke, label %71
+68:                                               ; preds = %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i38, i64 32
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp slt i32 %62, %70
+  br i1 %71, label %.critedge.i43.invoke, label %72
 
-.critedge.i43.invoke:                             ; preds = %79, %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54, %86, %60, %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i, %67
+.critedge.i43.invoke:                             ; preds = %80, %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54, %87, %61, %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i, %68
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.107) #31
           to label %.critedge.i43.cont unwind label %.loopexit.split-lp
 
 .critedge.i43.cont:                               ; preds = %.critedge.i43.invoke
   unreachable
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i38, i64 40
-  %73 = load double, ptr %72, align 8
-  %74 = fadd double %73, 0.000000e+00
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i38, i64 40
+  %74 = load double, ptr %73, align 8
+  %75 = fadd double %74, 0.000000e+00
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %93
+  br label %94
 
-75:                                               ; preds = %._crit_edge
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, 2
-  br i1 %78, label %79, label %93
+76:                                               ; preds = %._crit_edge
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp eq i32 %78, 2
+  br i1 %79, label %80, label %94
 
-79:                                               ; preds = %75
-  %80 = load i32, ptr %6, align 8
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 16), align 8
-  %.not10.i.i.i.i45 = icmp eq ptr %81, null
+80:                                               ; preds = %76
+  %81 = load i32, ptr %6, align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 16), align 8
+  %.not10.i.i.i.i45 = icmp eq ptr %82, null
   br i1 %.not10.i.i.i.i45, label %.critedge.i43.invoke, label %.lr.ph.i.i.i.i46
 
-.lr.ph.i.i.i.i46:                                 ; preds = %79, %.lr.ph.i.i.i.i46
-  %.012.i.i.i.i47 = phi ptr [ %.1.i.i.i.i52, %.lr.ph.i.i.i.i46 ], [ %81, %79 ]
-  %.0811.i.i.i.i48 = phi ptr [ %.19.i.i.i.i49, %.lr.ph.i.i.i.i46 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8), %79 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i47, i64 32
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp slt i32 %83, %80
-  %.19.i.i.i.i49 = select i1 %84, ptr %.0811.i.i.i.i48, ptr %.012.i.i.i.i47
-  %.1.in.v.i.i.i.i50 = select i1 %84, i64 24, i64 16
+.lr.ph.i.i.i.i46:                                 ; preds = %80, %.lr.ph.i.i.i.i46
+  %.012.i.i.i.i47 = phi ptr [ %.1.i.i.i.i52, %.lr.ph.i.i.i.i46 ], [ %82, %80 ]
+  %.0811.i.i.i.i48 = phi ptr [ %.19.i.i.i.i49, %.lr.ph.i.i.i.i46 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8), %80 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i47, i64 32
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp slt i32 %84, %81
+  %.19.i.i.i.i49 = select i1 %85, ptr %.0811.i.i.i.i48, ptr %.012.i.i.i.i47
+  %.1.in.v.i.i.i.i50 = select i1 %85, i64 24, i64 16
   %.1.in.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i47, i64 %.1.in.v.i.i.i.i50
   %.1.i.i.i.i52 = load ptr, ptr %.1.in.i.i.i.i51, align 8
   %.not.i.i.i.i53 = icmp eq ptr %.1.i.i.i.i52, null
   br i1 %.not.i.i.i.i53, label %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54, label %.lr.ph.i.i.i.i46, !llvm.loop !117
 
 _ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54: ; preds = %.lr.ph.i.i.i.i46
-  %85 = icmp eq ptr %.19.i.i.i.i49, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8)
-  br i1 %85, label %.critedge.i43.invoke, label %86
+  %86 = icmp eq ptr %.19.i.i.i.i49, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_117kFoundationPointsE, i64 8)
+  br i1 %86, label %.critedge.i43.invoke, label %87
 
-86:                                               ; preds = %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54
-  %87 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i49, i64 32
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp slt i32 %80, %88
-  br i1 %89, label %.critedge.i43.invoke, label %.thread
+87:                                               ; preds = %_ZNKSt3mapIN10open_spiel9solitaire8RankTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEE11lower_boundERS6_.exit.i54
+  %88 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i49, i64 32
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp slt i32 %81, %89
+  br i1 %90, label %.critedge.i43.invoke, label %.thread
 
-.thread:                                          ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i49, i64 40
-  %91 = load double, ptr %90, align 8
-  %92 = fsub double 0.000000e+00, %91
-  br label %.critedge.thread
+.thread:                                          ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i49, i64 40
+  %92 = load double, ptr %91, align 8
+  %93 = fsub double 0.000000e+00, %92
+  br label %.critedge
 
-93:                                               ; preds = %75, %71
-  %94 = phi i32 [ %.pre, %71 ], [ %77, %75 ]
-  %.0 = phi double [ %74, %71 ], [ 0.000000e+00, %75 ]
-  %.fr = freeze i32 %94
-  switch i32 %.fr, label %.critedge.thread [
-    i32 3, label %95
-    i32 1, label %105
-  ]
+94:                                               ; preds = %76, %72
+  %95 = phi i32 [ %.pre, %72 ], [ %78, %76 ]
+  %.0 = phi double [ %75, %72 ], [ 0.000000e+00, %76 ]
+  %96 = icmp eq i32 %95, 3
+  br i1 %96, label %97, label %.critedge
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %97, %99
-  br i1 %100, label %.critedge.thread, label %101
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %99, %101
+  br i1 %102, label %.critedge, label %103
 
-101:                                              ; preds = %95
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 -8
+103:                                              ; preds = %97
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %101, i64 -8
   %.sroa.1.0.copyload = load i8, ptr %.sroa.1.0..sroa_idx, align 4
-  %102 = trunc i8 %.sroa.1.0.copyload to i1
-  br i1 %102, label %103, label %.critedge.thread
+  %104 = trunc i8 %.sroa.1.0.copyload to i1
+  br i1 %104, label %105, label %.critedge
 
-103:                                              ; preds = %101
-  %104 = fadd double %.0, 2.000000e+01
-  br label %.critedge.thread
-
-105:                                              ; preds = %93
+105:                                              ; preds = %103
   %106 = fadd double %.0, 2.000000e+01
-  br label %.critedge.thread
+  br label %.critedge
 
-.critedge.thread:                                 ; preds = %93, %.thread, %101, %103, %95, %105
-  %107 = phi double [ %106, %105 ], [ %92, %.thread ], [ %.0, %101 ], [ %104, %103 ], [ %.0, %95 ], [ %.0, %93 ]
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store double %107, ptr %108, align 8
-  %109 = load ptr, ptr %7, align 8
-  %.not.i.i.i58 = icmp eq ptr %109, null
-  br i1 %.not.i.i.i58, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit60, label %110
+.critedge:                                        ; preds = %.thread, %97, %94, %105, %103
+  %.1 = phi double [ %.0, %97 ], [ %106, %105 ], [ %.0, %103 ], [ %.0, %94 ], [ %93, %.thread ]
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp eq i32 %108, 1
+  %110 = fadd double %.1, 2.000000e+01
+  %.2 = select i1 %109, double %110, double %.1
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store double %.2, ptr %111, align 8
+  %112 = load ptr, ptr %7, align 8
+  %.not.i.i.i58 = icmp eq ptr %112, null
+  br i1 %.not.i.i.i58, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit60, label %113
 
-110:                                              ; preds = %.critedge.thread
-  %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %114 = ptrtoint ptr %109 to i64
-  %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %115) #35
+113:                                              ; preds = %.critedge
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %115 to i64
+  %117 = ptrtoint ptr %112 to i64
+  %118 = sub i64 %116, %117
+  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #35
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit60
 
-_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit60: ; preds = %.critedge.thread, %110
+_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit60: ; preds = %.critedge, %113
   ret void
 
-.body:                                            ; preds = %51, %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit33
-  %.pn.pn = phi { ptr, i32 } [ %56, %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit33 ], [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %116 = load ptr, ptr %7, align 8
-  %.not.i.i.i61 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i61, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63, label %117
+.body:                                            ; preds = %51, %.loopexit, %.loopexit.split-lp, %56
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %119 = load ptr, ptr %7, align 8
+  %.not.i.i.i61 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i61, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63, label %120
 
-117:                                              ; preds = %.body
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = ptrtoint ptr %119 to i64
-  %121 = ptrtoint ptr %116 to i64
-  %122 = sub i64 %120, %121
-  call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef %122) #35
+120:                                              ; preds = %.body
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = ptrtoint ptr %122 to i64
+  %124 = ptrtoint ptr %119 to i64
+  %125 = sub i64 %123, %124
+  call void @_ZdlPvm(ptr noundef nonnull %119, i64 noundef %125) #35
   br label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63
 
-_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63: ; preds = %.body, %117
+_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63: ; preds = %.body, %120
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -10793,7 +10791,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open_spiel::solitaire::Card", align 8
   %4 = alloca %"class.open_spiel::solitaire::Card", align 8
   %5 = alloca %"class.open_spiel::solitaire::Card", align 8
@@ -11403,7 +11401,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EED2Ev.exit: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK10open_spiel9solitaire14SolitaireState7GetPileERKNS0_4CardE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(309) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

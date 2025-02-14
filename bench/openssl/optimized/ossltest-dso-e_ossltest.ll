@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -228,7 +228,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_digests(ptr readnone captures(none) %e, ptr noundef writeonly %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
+define internal i32 @ossltest_digests(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %digest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -379,7 +379,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end

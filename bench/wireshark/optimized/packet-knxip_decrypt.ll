@@ -207,7 +207,7 @@ build_b0.exit:                                    ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
+define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i8 noundef zeroext %5, ptr noundef readonly captures(none) %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca [16 x i8], align 16
@@ -368,7 +368,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @wmem_packet_scope() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @knxip_ccm_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define hidden ptr @knxip_ccm_encrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
   %9 = icmp ult i8 %6, 17
   br i1 %9, label %11, label %10
@@ -398,7 +398,7 @@ build_ctr0.exit:                                  ; preds = %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @knxip_ccm_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define hidden ptr @knxip_ccm_decrypt(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = icmp ult i8 %5, 17
   br i1 %8, label %10, label %9
@@ -431,7 +431,7 @@ build_ctr0.exit:                                  ; preds = %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @read_knx_keyring_xml_file(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
@@ -1192,7 +1192,7 @@ declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #3
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -1279,7 +1279,7 @@ fprintf_hex.exit:                                 ; preds = %29
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -1363,7 +1363,7 @@ fprintf_hex.exit:                                 ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = call zeroext i1 @ws_strtou64(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %4) #11

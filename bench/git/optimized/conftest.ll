@@ -56,7 +56,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @noop(ptr noundef readnone returned %0) #3 {
+define internal noundef ptr @noop(ptr noundef readnone returned captures(ret: address, provenance) %0) #3 {
   ret ptr %0
 }
 

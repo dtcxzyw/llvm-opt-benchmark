@@ -835,7 +835,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #12 {
+define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) #12 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -880,7 +880,7 @@ H5VM_vector_cmp_u.exit:                           ; preds = %.lr.ph.i, %16, %18,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #12 {
+define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) #12 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -1031,7 +1031,7 @@ define internal noundef i32 @H5D__btree_found(ptr readnone captures(none) %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(none) %0, i64 %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6, ptr readnone captures(none) %7, ptr noundef writeonly captures(none) %8) #0 {
+define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(address) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address) %6, ptr readnone captures(none) %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8

@@ -267,7 +267,7 @@ luaV_tointegerns.exit:                            ; preds = %5, %if.then.i.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaV_finishget(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr noundef %val, ptr noundef readnone %slot) local_unnamed_addr #0 {
+define hidden void @luaV_finishget(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr noundef %val, ptr noundef readnone captures(address) %slot) local_unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   br label %for.body

@@ -66,7 +66,7 @@ if.end12:                                         ; preds = %if.then7, %land.lhs
 declare hidden i32 @luaD_growstack(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lua_xmove(ptr noundef %from, ptr noundef %to, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local void @lua_xmove(ptr noundef captures(address) %from, ptr noundef captures(address) %to, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %from, %to
   br i1 %cmp, label %for.end, label %if.end
@@ -1710,7 +1710,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare hidden i64 @luaO_str2num(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @lua_tonumberx(ptr noundef readonly captures(none) %L, i32 noundef %idx, ptr noundef writeonly %pisnum) local_unnamed_addr #0 {
+define dso_local double @lua_tonumberx(ptr noundef readonly captures(none) %L, i32 noundef %idx, ptr noundef writeonly captures(address_is_null) %pisnum) local_unnamed_addr #0 {
 entry:
   %n = alloca double, align 8
   store double 0.000000e+00, ptr %n, align 8
@@ -1821,7 +1821,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lua_tointegerx(ptr noundef readonly captures(none) %L, i32 noundef %idx, ptr noundef writeonly %pisnum) local_unnamed_addr #0 {
+define dso_local i64 @lua_tointegerx(ptr noundef readonly captures(none) %L, i32 noundef %idx, ptr noundef writeonly captures(address_is_null) %pisnum) local_unnamed_addr #0 {
 entry:
   %res = alloca i64, align 8
   store i64 0, ptr %res, align 8
@@ -2025,7 +2025,7 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lua_tolstring(ptr noundef %L, i32 noundef %idx, ptr noundef writeonly %len) local_unnamed_addr #0 {
+define dso_local ptr @lua_tolstring(ptr noundef %L, i32 noundef %idx, ptr noundef writeonly captures(address_is_null) %len) local_unnamed_addr #0 {
 entry:
   %ci1.i = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %ci1.i, align 8
@@ -6349,7 +6349,7 @@ index2value.exit:                                 ; preds = %if.then.i, %if.then
 declare hidden void @luaV_objlen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_getallocf(ptr noundef readonly captures(none) %L, ptr noundef writeonly %ud) local_unnamed_addr #10 {
+define dso_local ptr @lua_getallocf(ptr noundef readonly captures(none) %L, ptr noundef writeonly captures(address_is_null) %ud) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %ud, null
   br i1 %tobool.not, label %if.end, label %if.then

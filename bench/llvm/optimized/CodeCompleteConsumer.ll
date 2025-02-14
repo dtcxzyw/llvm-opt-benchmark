@@ -491,7 +491,7 @@ define dso_local noundef ptr @_ZNK5clang20CodeCompletionString13getAnnotationEj(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang20CodeCompletionString11getAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK5clang20CodeCompletionString11getAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -884,7 +884,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %196, %195, %193, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK5clang20CodeCompletionString12getTypedTextEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK5clang20CodeCompletionString12getTypedTextEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 65535
   %.idx = shl nuw nsw i64 %3, 4
@@ -919,7 +919,7 @@ define dso_local noundef ptr @_ZNK5clang20CodeCompletionString12getTypedTextEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang20CodeCompletionString15getAllTypedTextB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK5clang20CodeCompletionString15getAllTypedTextB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5173,7 +5173,7 @@ switch.lookup:                                    ; preds = %_ZL19getDeclAvailab
 declare noundef i32 @_ZN5clang20getCursorKindForDeclEPKNS_4DeclE(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK5clang20CodeCompletionResult14getOrderedNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang20CodeCompletionResult14getOrderedNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.clang::DeclarationName", align 8
   %4 = alloca %"class.clang::Selector", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

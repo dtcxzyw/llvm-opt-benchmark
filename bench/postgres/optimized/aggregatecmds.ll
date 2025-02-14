@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.extractModify = private unnamed_addr constant [14 x i8] c"extractModify\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

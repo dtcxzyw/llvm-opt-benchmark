@@ -448,7 +448,7 @@ declare void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dere
 declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN27cmCMakePresetsGraphInternal12ExpandMacrosERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS_13MacroExpanderESt14default_deleteIS9_EESaISC_EEi(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2760,7 +2760,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN19cmCMakePresetsGraph15ConfigurePreset24VisitPresetBeforeInheritEv(ptr noundef nonnull readonly align 8 dereferenceable(600) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN19cmCMakePresetsGraph15ConfigurePreset24VisitPresetBeforeInheritEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(600) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %2 = load ptr, ptr %1, align 8, !tbaa !67
@@ -10546,7 +10546,7 @@ declare void @_ZN20cmCMakePresetsErrors33CONFIGURE_WORKFLOW_STEP_NOT_FIRSTERKNSt
 declare void @_ZN20cmCMakePresetsErrors17NO_WORKFLOW_STEPSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19cmCMakePresetsGraph21printPrecedingNewlineEPNS_21PrintPrecedingNewlineE(ptr noundef %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN19cmCMakePresetsGraph21printPrecedingNewlineEPNS_21PrintPrecedingNewlineE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 
@@ -10751,7 +10751,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %65, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -10806,7 +10806,7 @@ _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListERKSt8functionIFbRKNS_15ConfigurePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph24PrintConfigurePresetListERKSt8functionIFbRKNS_15ConfigurePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.347", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -11159,7 +11159,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph20PrintBuildPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph20PrintBuildPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.347", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -11485,7 +11485,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph19PrintTestPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph19PrintTestPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.347", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -11811,7 +11811,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.355", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -11866,7 +11866,7 @@ _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListERKSt8functionIFbRKNS_13PackagePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph22PrintPackagePresetListERKSt8functionIFbRKNS_13PackagePresetEEEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.347", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -12219,7 +12219,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19cmCMakePresetsGraph23PrintWorkflowPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK19cmCMakePresetsGraph23PrintWorkflowPresetListEPNS_21PrintPrecedingNewlineE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.347", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456

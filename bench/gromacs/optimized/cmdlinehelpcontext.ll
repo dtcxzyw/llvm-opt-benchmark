@@ -407,7 +407,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2EOS0_(ptr noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx22CommandLineHelpContextaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx22CommandLineHelpContextaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8

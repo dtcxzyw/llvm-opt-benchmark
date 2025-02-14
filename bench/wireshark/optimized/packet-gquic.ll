@@ -1443,7 +1443,7 @@ proto_item_set_generated.exit:                    ; preds = %13, %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_gquic_frame_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_gquic_frame_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -3036,7 +3036,7 @@ switch.lookup190:                                 ; preds = %87
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 1, 7) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 1, 7) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_gquic_message_authentication_hash, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 12, i32 noundef 0) #4
   %9 = add i32 %3, 12

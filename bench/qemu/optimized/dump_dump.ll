@@ -3514,7 +3514,7 @@ declare i32 @cpu_write_elf32_note(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @cpu_write_elf32_qemunote(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @get_next_page(ptr noundef nonnull captures(none) %blockptr, ptr noundef nonnull captures(none) %pfnptr, ptr noundef %bufptr, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
+define internal fastcc zeroext i1 @get_next_page(ptr noundef nonnull captures(none) %blockptr, ptr noundef nonnull captures(none) %pfnptr, ptr noundef captures(address_is_null) %bufptr, ptr noundef readonly captures(none) %s) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %blockptr, align 8
   %page_size1 = getelementptr inbounds nuw i8, ptr %s, i64 36

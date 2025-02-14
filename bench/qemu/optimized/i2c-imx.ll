@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal nonnull ptr @imx_i2c_get_driver(ptr noundef readnone %obj, ptr noundef %interface) #1 {
+define internal nonnull ptr @imx_i2c_get_driver(ptr noundef readnone captures(ret: address, provenance) %obj, ptr noundef %interface) #1 {
 entry:
   %call = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str) #5
   %tobool.not = icmp eq i32 %call, 0

@@ -1541,7 +1541,7 @@ define hidden void @"_ZN3std3sys6common12thread_local10fast_local13destroy_value
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3243e78bc1afc3bfE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3243e78bc1afc3bfE"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
@@ -1640,7 +1640,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb8c55caeb0ea766E"(ptr noundef nonnull writeonly align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hbb8c55caeb0ea766E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   %.not.i = icmp eq ptr %1, null
@@ -1682,7 +1682,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys6commo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$3get17hc61e998a43c4771bE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
+define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$3get17hc61e998a43c4771bE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !27, !noundef !13
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1691,7 +1691,7 @@ define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$3get17hfdb9d9f21f4a4e3bE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$3get17hfdb9d9f21f4a4e3bE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !27, !noundef !13
   %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1730,7 +1730,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h2e53f4f3c49d4aeeE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h2e53f4f3c49d4aeeE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -1752,7 +1752,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h3a1e49953c85a5c8E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h3a1e49953c85a5c8E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -1774,7 +1774,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h3e2f138e0c183aeeE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h3e2f138e0c183aeeE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -1796,7 +1796,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4f3f1eba02118e67E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4f3f1eba02118e67E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -1818,7 +1818,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4f5397a1f0cdedc8E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4f5397a1f0cdedc8E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -1840,7 +1840,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hd3e99f05e3258120E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hd3e99f05e3258120E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -2771,7 +2771,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$C$alloc..alloc..Global$GT$$GT$17hfa7e08f35d0b26aaE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$C$alloc..alloc..Global$GT$$GT$17hfa7e08f35d0b26aaE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -2780,7 +2780,7 @@ define internal fastcc void @"_ZN4core3ptr174drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$C$alloc..alloc..Global$GT$$GT$17h168b86d312162359E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$C$alloc..alloc..Global$GT$$GT$17h168b86d312162359E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -2789,7 +2789,7 @@ define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$C$alloc..alloc..Global$GT$$GT$17hfed854c4d01917d3E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$C$alloc..alloc..Global$GT$$GT$17hfed854c4d01917d3E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -9976,7 +9976,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #13 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45ec29a67d099ba8E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #13 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -13698,13 +13698,13 @@ define void @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo3new17ha5362
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo7address17hcf036bb2cab7bea3E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo7address17hcf036bb2cab7bea3E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo16receiver_address17h904bff218421785bE(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo16receiver_address17h904bff218421785bE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -13716,13 +13716,13 @@ define void @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo14socket_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo15flow_control_id17h10feb592cc8d7ec2E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo15flow_control_id17h10feb592cc8d7ec2E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo4mode17hc6697818ee081272E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN19ockam_transport_tcp8registry6common13TcpSenderInfo4mode17hc6697818ee081272E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
@@ -13743,13 +13743,13 @@ define void @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo3new17h579
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo7address17h0ddbedac954085a7E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo7address17h0ddbedac954085a7E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo14sender_address17he6b88ffb5e83c0b5E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo14sender_address17he6b88ffb5e83c0b5E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
@@ -13761,13 +13761,13 @@ define void @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo14socket_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo15flow_control_id17h40a6ea2274879ae6E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo15flow_control_id17h40a6ea2274879ae6E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo4mode17h246f3ae2f456e004E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #10 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN19ockam_transport_tcp8registry6common15TcpReceiverInfo4mode17h246f3ae2f456e004E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
@@ -13783,7 +13783,7 @@ define void @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo3new17hb96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo7address17hf3364249f2f89967E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo7address17hf3364249f2f89967E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -13795,7 +13795,7 @@ define void @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo14socket_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo15flow_control_id17ha0ca18837df11b90E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN19ockam_transport_tcp8registry6common15TcpListenerInfo15flow_control_id17ha0ca18837df11b90E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }

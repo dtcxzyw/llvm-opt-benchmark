@@ -795,7 +795,7 @@ textbuffer_putc.exit:                             ; preds = %28, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @destroy_tree(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @destroy_tree(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -838,7 +838,7 @@ define internal fastcc void @destroy_tree(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dup_node(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @dup_node(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -928,7 +928,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %.not131 = icmp eq ptr %0, null
   br i1 %.not131, label %.thread120, label %.lr.ph
 

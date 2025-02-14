@@ -19,7 +19,7 @@ define hidden ptr @lxb_selectors_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lxb_selectors_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define hidden i32 @lxb_selectors_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -87,7 +87,7 @@ declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_selectors_find(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_selectors_find(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -271,7 +271,7 @@ lxb_selectors_descendant_next.exit:               ; preds = %50, %48, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 20, 19) i32 @lxb_selectors_find_reverse(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 20, 19) i32 @lxb_selectors_find_reverse(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
@@ -434,7 +434,7 @@ lxb_selectors_find_by_reverse.exit.thread16:      ; preds = %50, %.lr.ph, %14, %
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 20, 19) i32 @lxb_selectors_find_by(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef range(i32 20, 19) i32 @lxb_selectors_find_by(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   br label %lxb_selectors_descendant_next.exit
 
 lxb_selectors_descendant_next.exit:               ; preds = %lxb_selectors_descendant_next.exit.backedge, %7
@@ -2327,7 +2327,7 @@ declare zeroext i1 @lxb_dom_node_is_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @lxb_dom_document_root(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @lxb_selectors_next(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @lxb_selectors_next(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 
@@ -2407,7 +2407,7 @@ define internal noundef i32 @lxb_selectors_first_match(ptr readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lxb_selectors_current(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc ptr @lxb_selectors_current(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null, ret: address, provenance) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.loopexit, label %7
 

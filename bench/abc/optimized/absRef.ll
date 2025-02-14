@@ -111,7 +111,7 @@ declare void @Gia_ManCleanMark1(ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Rnm_ManStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %110, label %3
 

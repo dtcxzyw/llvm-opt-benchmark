@@ -406,7 +406,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_type_specific_keypair_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_type_specific_keypair_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -491,7 +491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -636,7 +636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -776,7 +776,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_to_type_specific_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i55 = alloca ptr, align 8
   %der.i45 = alloca ptr, align 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i21 = alloca ptr, align 8
   %der.i = alloca ptr, align 8
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i21 = alloca ptr, align 8
   %der.i = alloca ptr, align 8
@@ -1397,7 +1397,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1575,7 +1575,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1687,7 +1687,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1985,7 +1985,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2132,7 +2132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2278,7 +2278,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2354,7 +2354,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2430,7 +2430,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2506,7 +2506,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2582,7 +2582,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2658,7 +2658,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2734,7 +2734,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2810,7 +2810,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2886,7 +2886,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2962,7 +2962,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3038,7 +3038,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3114,7 +3114,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3190,7 +3190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3266,7 +3266,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3342,7 +3342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3418,7 +3418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3494,7 +3494,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3570,7 +3570,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dh_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3646,7 +3646,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3722,7 +3722,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3798,7 +3798,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3874,7 +3874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3950,7 +3950,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4026,7 +4026,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dhx_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dhx_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4102,7 +4102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4246,7 +4246,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4390,7 +4390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4497,7 +4497,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4604,7 +4604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4742,7 +4742,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4849,7 +4849,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -4991,7 +4991,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -5133,7 +5133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5240,7 +5240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5347,7 +5347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -5483,7 +5483,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ec_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5590,7 +5590,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -5732,7 +5732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -5874,7 +5874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5981,7 +5981,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6088,7 +6088,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -6224,7 +6224,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @sm2_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6331,7 +6331,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6454,7 +6454,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6577,7 +6577,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6684,7 +6684,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6791,7 +6791,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6908,7 +6908,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed25519_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed25519_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7025,7 +7025,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7148,7 +7148,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7271,7 +7271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7378,7 +7378,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7485,7 +7485,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7602,7 +7602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ed448_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @ed448_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7719,7 +7719,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7842,7 +7842,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7965,7 +7965,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8072,7 +8072,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8179,7 +8179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8296,7 +8296,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x25519_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8413,7 +8413,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8536,7 +8536,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8659,7 +8659,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_PrivateKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8766,7 +8766,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_PrivateKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8873,7 +8873,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_SubjectPublicKeyInfo_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8990,7 +8990,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @x448_to_SubjectPublicKeyInfo_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9107,7 +9107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_RSA_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_RSA_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9192,7 +9192,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9370,7 +9370,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_DH_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -9515,7 +9515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_DH_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9627,7 +9627,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -9772,7 +9772,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9879,7 +9879,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_to_DSA_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i55 = alloca ptr, align 8
   %der.i45 = alloca ptr, align 8
@@ -10123,7 +10123,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10314,7 +10314,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_EC_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_EC_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i21 = alloca ptr, align 8
   %der.i = alloca ptr, align 8
@@ -10500,7 +10500,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_EC_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_EC_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10647,7 +10647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SM2_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i21 = alloca ptr, align 8
   %der.i = alloca ptr, align 8
@@ -10833,7 +10833,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10979,7 +10979,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_to_PKCS1_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_to_PKCS1_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11064,7 +11064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11242,7 +11242,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsapss_to_PKCS1_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal i32 @rsapss_to_PKCS1_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11327,7 +11327,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11505,7 +11505,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -11650,7 +11650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11762,7 +11762,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -11907,7 +11907,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -12020,7 +12020,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_X9_62_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_der_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %der.i21 = alloca ptr, align 8
   %der.i = alloca ptr, align 8
@@ -12206,7 +12206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -12336,7 +12336,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key2any_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, i32 noundef range(i32 6, 1173) %type, ptr noundef %pemname, ptr noundef readonly %checker, ptr noundef readonly %writer, ptr noundef %pwcb, ptr noundef %pwcbarg, ptr noundef %key2paramstring, ptr noundef %key2der) unnamed_addr #0 {
+define internal fastcc i32 @key2any_encode(ptr noundef %ctx, ptr noundef %cout, ptr noundef %key, i32 noundef range(i32 6, 1173) %type, ptr noundef %pemname, ptr noundef readonly captures(address_is_null) %checker, ptr noundef readonly captures(address_is_null) %writer, ptr noundef %pwcb, ptr noundef %pwcbarg, ptr noundef %key2paramstring, ptr noundef %key2der) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.then, label %if.else
@@ -12790,7 +12790,7 @@ declare i32 @ossl_pw_pem_password(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare i32 @PEM_ASN1_write_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_epki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_epki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -12957,7 +12957,7 @@ declare ptr @PKCS8_encrypt_ex(i32 noundef, ptr noundef, ptr noundef, i32 noundef
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_epki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_epki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13008,7 +13008,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 declare i32 @PEM_write_bio_PKCS8(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -13119,7 +13119,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @i2d_PKCS8_PRIV_KEY_INFO_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -13230,7 +13230,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @PEM_write_bio_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_spki_der_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
+define internal i32 @key_to_spki_der_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13316,7 +13316,7 @@ declare ptr @X509_PUBKEY_new() local_unnamed_addr #3
 declare i32 @X509_PUBKEY_set0_param(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_spki_pem_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
+define internal i32 @key_to_spki_pem_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly captures(address_is_null) %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13619,7 +13619,7 @@ declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #3
 declare i32 @i2o_ECPublicKey(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @ecx_pki_priv_to_der(ptr noundef readonly %vecxkey, ptr noundef %pder) #0 {
+define internal range(i32 0, -2147483648) i32 @ecx_pki_priv_to_der(ptr noundef readonly captures(address_is_null) %vecxkey, ptr noundef %pder) #0 {
 entry:
   %oct = alloca %struct.asn1_string_st, align 8
   %cmp = icmp eq ptr %vecxkey, null

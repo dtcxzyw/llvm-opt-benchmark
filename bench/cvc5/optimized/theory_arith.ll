@@ -1143,14 +1143,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory5arith11TheoryArith17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(1856) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory5arith11TheoryArith17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1856) %this) unnamed_addr #8 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 1656
   ret ptr %d_rewriter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory5arith11TheoryArith15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(1856) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory5arith11TheoryArith15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1856) %this) unnamed_addr #8 align 2 {
 entry:
   %d_checker = getelementptr inbounds nuw i8, ptr %this, i64 1832
   ret ptr %d_checker
@@ -3594,7 +3594,7 @@ declare noundef i32 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate17
 declare i16 @_ZN4cvc58internal6theory5arith16isExpressionZeroERNS0_3EnvENS0_12NodeTemplateILb1EEERKNS2_9ArithSubsEb(ptr noundef nonnull align 8 dereferenceable(576), ptr noundef, ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith11TheoryArith22getCandidateModelValueENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(1856) %this, ptr noundef captures(none) %var) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith11TheoryArith22getCandidateModelValueENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1856) %this, ptr noundef captures(none) %var) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.875", align 8
   %0 = load ptr, ptr %var, align 8

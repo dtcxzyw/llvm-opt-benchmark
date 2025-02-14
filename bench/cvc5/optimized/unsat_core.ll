@@ -280,14 +280,14 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9UnsatCore7getCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9UnsatCore7getCoreEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_core = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9UnsatCore12getCoreNamesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9UnsatCore12getCoreNamesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_names = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %d_names

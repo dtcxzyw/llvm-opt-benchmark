@@ -728,7 +728,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3rdflsERNS_11ra
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf8Liveness18getAllReachingDefsENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEEbbRKNS0_12RegisterAggrE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.100") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef nonnull readonly align 8 dereferenceable(80) %8) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3rdf8Liveness18getAllReachingDefsENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEEbbRKNS0_12RegisterAggrE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.100") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %8) local_unnamed_addr #1 align 2 {
   %10 = alloca %"class.std::reverse_iterator.206", align 8
   %11 = alloca %"class.std::reverse_iterator.206", align 8
   %12 = alloca %"class.std::tuple.614", align 8
@@ -3018,14 +3018,14 @@ declare noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasCoverOfENS0_11Regist
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr6insertENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(80), i32, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf8Liveness21getAllReachingDefsRecENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEERSt3setIjSt4lessIjESaIjEERKSB_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3rdf8Liveness21getAllReachingDefsRecENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEERSt3setIjSt4lessIjESaIjEERKSB_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %7) local_unnamed_addr #1 align 2 {
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10MaxRecNest, i64 120), align 8, !tbaa !34
   tail call void @_ZN4llvm3rdf8Liveness25getAllReachingDefsRecImplENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEERSt3setIjSt4lessIjESaIjEERKSB_jj(ptr dead_on_unwind writable sret(%"struct.std::pair.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef 0, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf8Liveness25getAllReachingDefsRecImplENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEERSt3setIjSt4lessIjESaIjEERKSB_jj(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly align 8 dereferenceable(48) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3rdf8Liveness25getAllReachingDefsRecImplENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEERSt3setIjSt4lessIjESaIjEERKSB_jj(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Alloc_node", align 8
   %12 = alloca %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Alloc_node", align 8
   %13 = alloca %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Alloc_node", align 8
@@ -24820,7 +24820,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_1EEEvT_SH_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr %2, ptr %3) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm3rdf8Liveness18getAllReachingDefsENS5_11RegisterRefENS5_8NodeAddrIPNS5_7RefNodeEEEbbRKNS5_12RegisterAggrEE3$_1EEEvT_SH_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr %2, ptr %3) unnamed_addr #1 {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   store ptr %2, ptr %6, align 8

@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @VP8LCheckSignature(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @VP8LGetInfo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @VP8LGetInfo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = alloca %struct.VP8LBitReader, align 8
   %7 = icmp eq ptr %0, null
   %8 = icmp ult i64 %1, 5
@@ -117,7 +117,7 @@ VP8LCheckSignature.exit.thread:                   ; preds = %17, %15, %9, %30, %
 declare void @VP8LInitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #1 {
   %8 = icmp sgt i32 %0, 0
   %9 = shl nuw i32 1, %0
   %10 = sext i32 %0 to i64
@@ -971,7 +971,7 @@ VP8LNew.exit.thread:                              ; preds = %3, %VP8LDelete.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -2222,7 +2222,7 @@ DecodeAlphaData.exit:                             ; preds = %395, %393, %391, %3
 declare void @WebPInitAlphaProcessing() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = sdiv i32 %8, %2

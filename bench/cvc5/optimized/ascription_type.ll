@@ -158,7 +158,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal14AscriptionTypeaSERKS1_(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %at) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal14AscriptionTypeaSERKS1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %at) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)

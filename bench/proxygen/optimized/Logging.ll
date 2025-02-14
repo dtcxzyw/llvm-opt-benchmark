@@ -299,7 +299,7 @@ _ZNSt12_Vector_baseIPN8proxygen12IOBufPrinterESaIS2_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen6hexStrB5cxx11EN5folly5RangeIPKcEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly %sp.coerce0, ptr readnone %sp.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen6hexStrB5cxx11EN5folly5RangeIPKcEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly captures(address) %sp.coerce0, ptr readnone captures(address) %sp.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %widths.i.i.i.i = alloca [2 x i32], align 8
   %out.i.i.i = alloca %"struct.folly::detail::BaseFormatterAppendToString", align 8
@@ -878,7 +878,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13dumpBinToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5folly5IOBufE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef readonly %buf) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13dumpBinToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5folly5IOBufE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef readonly captures(address) %buf) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %fstat = alloca %struct.stat, align 8
   %file = alloca %"class.std::basic_ofstream", align 8

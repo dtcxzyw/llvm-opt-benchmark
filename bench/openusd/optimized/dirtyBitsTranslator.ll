@@ -3022,7 +3022,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocator
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet3endEv(ptr noundef nonnull align 8 dereferenceable(456)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr readnone %.0.val, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr readnone captures(address) %.0.val, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %.0.val
   br i1 %5, label %.loopexit, label %.lr.ph

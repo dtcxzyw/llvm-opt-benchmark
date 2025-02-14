@@ -1018,7 +1018,7 @@ define internal fastcc i32 @stat_put(ptr noundef %0, i16 noundef zeroext %1, i64
 declare dso_local i32 @nla_put_64bit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef range(i32 5, 7) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr noundef %0, i32 noundef range(i32 5, 7) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

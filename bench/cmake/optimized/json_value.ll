@@ -641,7 +641,7 @@ define dso_local void @_ZN4Json18ValueConstIteratorC2ERKNS_13ValueIteratorE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4Json18ValueConstIteratoraSERKNS_17ValueIteratorBaseE(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4Json18ValueConstIteratoraSERKNS_17ValueIteratorBaseE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !14
   store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -796,7 +796,7 @@ define dso_local void @_ZN4Json13ValueIteratorC2ERKS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4Json13ValueIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(9) ptr @_ZN4Json13ValueIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !14
   store i64 %3, ptr %0, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1252,7 +1252,7 @@ define dso_local void @_ZN4Json5Value8CZString4swapERS1_(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4Json5Value8CZStringaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4Json5Value8CZStringaSERKS1_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   store ptr %3, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1263,7 +1263,7 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4Json5Value
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4Json5Value8CZStringaSEOS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4Json5Value8CZStringaSEOS1_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   store ptr %3, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1669,7 +1669,7 @@ define dso_local void @_ZN4Json5ValueC2Ed(ptr noundef nonnull align 8 captures(n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json5ValueC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json5ValueC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2153,7 +2153,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEEC2ERKS9_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json5Value7dupMetaERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN4Json5Value7dupMetaERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -2428,7 +2428,7 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Json::Value", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #41
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2463,7 +2463,7 @@ _ZN4Json5ValueC2ERKS0_.exit:                      ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Json5Value4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret ptr %0
 }
@@ -2532,7 +2532,7 @@ _ZN4Json5Value14releasePayloadEv.exit:            ; preds = %2, %5, %7, %9, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json5Value4copyERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json5Value4copyERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %trunc.i.i = trunc i16 %4 to i8
@@ -6507,7 +6507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !43
   store ptr null, ptr %1, align 8, !tbaa !43
   %4 = load ptr, ptr %0, align 8, !tbaa !43
@@ -6553,7 +6553,7 @@ _ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEL
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Json5Value8CommentsaSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #41
   %.val = load ptr, ptr %1, align 8, !tbaa !43
@@ -8364,11 +8364,11 @@ define dso_local void @_ZNK4Json5Value3getEPKcRKS0_(ptr dead_on_unwind noalias w
 
 _ZNK4Json5Value3getEPKcS2_RKS0_.exit:             ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !49
+  %16 = load i64, ptr %15, align 8, !tbaa !49, !noalias !72
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %16, ptr %17, align 8, !tbaa !49, !alias.scope !72
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !58
+  %19 = load i64, ptr %18, align 8, !tbaa !58, !noalias !72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %19, ptr %20, align 8, !tbaa !58, !alias.scope !72
   ret void
@@ -8402,18 +8402,18 @@ define dso_local void @_ZNK4Json5Value3getERKNSt7__cxx1112basic_stringIcSt11char
 
 _ZNK4Json5Value3getEPKcS2_RKS0_.exit:             ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !49
+  %18 = load i64, ptr %17, align 8, !tbaa !49, !noalias !75
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %18, ptr %19, align 8, !tbaa !49, !alias.scope !75
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !58
+  %21 = load i64, ptr %20, align 8, !tbaa !58, !noalias !75
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %21, ptr %22, align 8, !tbaa !58, !alias.scope !75
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcS2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcS2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.Json::Value::CZString", align 8
@@ -8612,7 +8612,7 @@ _ZN4Json5Value8CZStringD2Ev.exit13:               ; preds = %_ZNSt3mapIN4Json5Va
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 align 2 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #42
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = tail call noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcS2_PS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %2)
@@ -8620,7 +8620,7 @@ define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberEPKcPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json5Value12removeMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !25
@@ -8776,7 +8776,7 @@ define dso_local void @_ZN4Json5Value12removeMemberERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json5Value11removeIndexEjPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Json5Value11removeIndexEjPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9900,7 +9900,7 @@ define dso_local void @_ZN4Json5Value8CommentsC2ERKS1_(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr readonly %.0.val) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEEESt10unique_ptrIT_St14default_deleteISA_EERKSD_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr readonly captures(address_is_null) %.0.val) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   store ptr null, ptr %0, align 8, !tbaa !47
   %.not = icmp eq ptr %.0.val, null
@@ -10953,7 +10953,7 @@ define dso_local void @_ZN4Json12PathArgumentC2Ej(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json12PathArgumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json12PathArgumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !23
@@ -11814,7 +11814,7 @@ define dso_local void @_ZN4Json4Path11invalidPathERKNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json4Path7resolveERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json4Path7resolveERKNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !107
@@ -12166,7 +12166,7 @@ _ZN4Json5Value13nullSingletonEv.exit:             ; preds = %_ZNK4Json5ValueixER
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json4Path4makeERNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json4Path4makeERNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(40) %1) local_unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !107

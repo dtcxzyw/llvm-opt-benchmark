@@ -1221,7 +1221,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %7 = alloca { i32, [3 x i32] }, align 8
   %8 = alloca { { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64 }, { ptr, ptr } }, align 8

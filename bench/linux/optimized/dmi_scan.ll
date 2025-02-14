@@ -497,7 +497,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @dmi_first_match(ptr noundef readonly %0) #4 align 16 {
+define dso_local noundef ptr @dmi_first_match(ptr noundef readonly captures(ret: address, provenance) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 127
@@ -589,7 +589,7 @@ define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) #4 align 16 {
+define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #4 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = select i1 %4, ptr @dmi_devices, ptr %2
   %6 = icmp eq i32 %0, 0
@@ -660,7 +660,7 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly %1, p
 declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #2 align 16 {
+define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   %6 = sext i32 %0 to i64
@@ -897,7 +897,7 @@ declare dso_local ptr @memremap(i64 noundef, i64 noundef, i64 noundef) local_unn
 declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @dmi_match(i32 noundef %0, ptr noundef readonly %1) #6 align 16 {
+define dso_local zeroext i1 @dmi_match(i32 noundef %0, ptr noundef readonly captures(address) %1) #6 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -1550,7 +1550,7 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
 declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_ident(ptr noundef %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_ident(ptr noundef captures(address) %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -1718,7 +1718,7 @@ define internal fastcc void @dmi_save_type(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_system_slot(ptr noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_system_slot(ptr noundef readonly captures(none) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 17
@@ -1748,7 +1748,7 @@ define internal fastcc void @dmi_save_system_slot(ptr noundef readonly %0) unnam
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_devices(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_devices(ptr noundef captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
@@ -1790,7 +1790,7 @@ define internal fastcc void @dmi_save_devices(ptr noundef %0) unnamed_addr #0 se
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef captures(address) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 5
@@ -1880,7 +1880,7 @@ define internal fastcc void @dmi_save_ipmi_device(ptr noundef readonly captures(
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_extended_devices(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_extended_devices(ptr noundef captures(address_is_null) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp ult i8 %3, 11
@@ -1920,7 +1920,7 @@ define internal fastcc void @dmi_save_extended_devices(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @dmi_string(ptr noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc ptr @dmi_string(ptr noundef readonly captures(address) %0, i8 noundef zeroext %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = tail call fastcc ptr @dmi_string_nosave(ptr noundef %0, i8 noundef zeroext %1) #23
   %4 = icmp eq ptr %3, @dmi_empty_string
   br i1 %4, label %13, label %5
@@ -1943,7 +1943,7 @@ define internal fastcc ptr @dmi_string(ptr noundef readonly %0, i8 noundef zeroe
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(argmem: read)
-define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #15 section ".init.text" align 16 {
+define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) unnamed_addr #15 section ".init.text" align 16 {
   %3 = icmp eq i8 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -2057,7 +2057,7 @@ define internal fastcc void @dmi_save_dev_pciaddr(i32 noundef range(i32 0, 65536
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @dmi_save_one_device(i32 noundef range(i32 0, 128) %0, ptr noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @dmi_save_one_device(i32 noundef range(i32 0, 128) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = tail call ptr @dmi_find_device(i32 noundef %0, ptr noundef %1, ptr noundef null)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %20
@@ -2093,7 +2093,7 @@ define internal fastcc void @dmi_save_one_device(i32 noundef range(i32 0, 128) %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64 -2147483519, 2147483777) %1, ptr noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64 -2147483519, 2147483777) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 
@@ -2151,7 +2151,7 @@ define internal void @count_mem_devices(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @save_mem_devices(ptr noundef %0, ptr readnone captures(none) %1) #0 section ".init.text" align 16 {
+define internal void @save_mem_devices(ptr noundef captures(address) %0, ptr readnone captures(none) %1) #0 section ".init.text" align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 17
   br i1 %4, label %5, label %64

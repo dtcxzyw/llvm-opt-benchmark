@@ -6128,7 +6128,7 @@ declare noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11Instructi
 declare { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef i32 @_ZL25getBestDestForJumpOnUndefPN4llvm10BasicBlockE(ptr noundef readonly %0) unnamed_addr #8 {
+define internal fastcc noundef i32 @_ZL25getBestDestForJumpOnUndefPN4llvm10BasicBlockE(ptr noundef readonly captures(address) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %4 = icmp eq ptr %2, %3
@@ -7696,7 +7696,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5countES3_.exit.thread242: ; preds
 declare noundef ptr @_ZN4llvm13LazyValueInfo14getPredicateAtENS_7CmpInst9PredicateEPNS_5ValueEPNS_8ConstantEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL19replaceFoldableUsesPN4llvm11InstructionEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !227
   %6 = icmp eq ptr %5, %2
@@ -9333,7 +9333,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit.thread:      ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZL32updatePredecessorProfileMetadataPN4llvm7PHINodeEPNS_10BasicBlockE(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 {
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %2 = alloca %"class.llvm::SmallPtrSet.85", align 8
   %3 = alloca i64, align 8
@@ -11870,7 +11870,7 @@ declare noundef zeroext i1 @_ZNK4llvm10BasicBlock16hasNPredecessorsEj(ptr nounde
 declare noundef zeroext i1 @_ZNK4llvm11Instruction18mayHaveSideEffectsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19findMostPopularDestPN4llvm10BasicBlockERKNS_15SmallVectorImplISt4pairIS1_S1_EEE(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL19findMostPopularDestPN4llvm10BasicBlockERKNS_15SmallVectorImplISt4pairIS1_S1_EEE(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 {
   %3 = alloca %"struct.std::pair.417", align 8
   %4 = alloca %"struct.std::pair.425", align 8
   %5 = alloca %"struct.std::pair.417", align 8
@@ -14804,7 +14804,7 @@ _ZN4llvm16SmallSetIteratorISt4pairIPNS_5ValueES3_ELj16ESt4lessIS4_EEppEv.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL28getJumpThreadDuplicationCostPKN4llvm19TargetTransformInfoEPNS_10BasicBlockEPNS_11InstructionEj(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL28getJumpThreadDuplicationCostPKN4llvm19TargetTransformInfoEPNS_10BasicBlockEPNS_11InstructionEj(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.472", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -15323,7 +15323,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj1EED2Ev.exit: ; preds = %_ZN4llvm23Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17JumpThreadingPass24doesBlockHaveProfileDataEPNS_10BasicBlockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm17JumpThreadingPass24doesBlockHaveProfileDataEPNS_10BasicBlockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(256) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %5 = icmp eq ptr %3, %4
@@ -15607,7 +15607,7 @@ declare void @_ZN4llvm21BranchProbabilityInfo21copyEdgeProbabilitiesEPNS_10Basic
 declare void @_ZN4llvm11Instruction12setSuccessorEjPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31addPHINodeEntriesForMappedBlockPN4llvm10BasicBlockES1_S1_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef nonnull %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL31addPHINodeEntriesForMappedBlockPN4llvm10BasicBlockES1_S1_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %3) unnamed_addr #1 {
   %5 = tail call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1

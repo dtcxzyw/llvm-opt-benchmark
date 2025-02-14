@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @strtokx(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i8 noundef signext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i8 noundef signext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %.pr = load ptr, ptr @strtokx.storage, align 8
   br i1 %.not, label %14, label %.thread

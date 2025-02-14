@@ -118,7 +118,7 @@ declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #2
 declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @get_follow_proto_id(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @get_follow_proto_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -132,7 +132,7 @@ define i32 @get_follow_proto_id(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_follow_tap_string(ptr noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_follow_tap_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

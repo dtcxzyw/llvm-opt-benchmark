@@ -71009,7 +71009,7 @@ _ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapD2Ev.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrap12loadInternalEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr readonly %rowSet.coerce0, ptr readonly %rowSet.coerce1, ptr noundef readnone %hook, i32 noundef %resultSize, ptr noundef captures(none) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrap12loadInternalEN5folly5RangeIPKiEEPNS0_9ValueHookEiPSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %rowSet.coerce0, ptr readonly captures(address) %rowSet.coerce1, ptr noundef readnone captures(address_is_null) %hook, i32 noundef %resultSize, ptr noundef captures(none) %result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i.i = alloca i32, align 4
   %agg.tmp.i.i.i = alloca %class.anon.485, align 8

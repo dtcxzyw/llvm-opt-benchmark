@@ -543,7 +543,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw_current() local_unna
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2) #13
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.loopexit, label %.preheader21
@@ -967,7 +967,7 @@ declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @rb_dump_backtrace_with_lines(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef zeroext i1 @rb_vm_bugreport(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @rb_vm_bugreport(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16

@@ -167,7 +167,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrie10getTriggerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrie10getTriggerERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.std::vector.3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)

@@ -1291,7 +1291,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %53, %59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15ciInstanceKlass19is_java_lang_ObjectEv(ptr noundef nonnull readnone align 8 dereferenceable(144) %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ciInstanceKlass19is_java_lang_ObjectEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(144) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
   %3 = icmp eq ptr %0, %2
   ret i1 %3
@@ -2466,7 +2466,7 @@ _ZN17GrowableArrayViewIP7ciFieldE4sortEPFiPS1_S3_E.exit: ; preds = %78, %83
 declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15ciInstanceKlass29compute_nonstatic_fields_implEP13GrowableArrayIP7ciFieldE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15ciInstanceKlass29compute_nonstatic_fields_implEP13GrowableArrayIP7ciFieldE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaFieldStream, align 8
   %4 = alloca %class.JavaFieldStream, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

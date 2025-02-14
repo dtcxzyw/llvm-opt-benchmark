@@ -307,7 +307,7 @@ define dso_local void @ptp_cleanup_pin_groups(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @ptp_is_attribute_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #3 align 16 {
+define internal zeroext i16 @ptp_is_attribute_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 968

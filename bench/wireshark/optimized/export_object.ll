@@ -72,7 +72,7 @@ declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32
 declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @get_eo_proto_id(ptr noundef readonly %0) local_unnamed_addr #3 {
+define i32 @get_eo_proto_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -274,7 +274,7 @@ define internal fastcc ptr @eo_rename(ptr noundef %0, i64 noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @eo_ct2ext(ptr noundef readnone returned %0) local_unnamed_addr #5 {
+define noundef ptr @eo_ct2ext(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   ret ptr %0
 }
 

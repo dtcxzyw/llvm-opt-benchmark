@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly %s, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 19, 23) i32 @ASN1_PRINTABLE_type(ptr noundef readonly captures(address_is_null) %s, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp1 = icmp eq ptr %s, null
   br i1 %cmp1, label %return, label %while.cond.preheader

@@ -6250,7 +6250,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @partition_list_bsearch(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_one_partition_rbound(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_one_partition_rbound(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = tail call ptr @palloc0(i64 noundef 32) #11
   store i32 %1, ptr %6, align 8
@@ -7697,7 +7697,7 @@ define internal fastcc void @generate_matching_part_pairs(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @build_merged_partition_bounds(i8 noundef signext %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @build_merged_partition_bounds(i8 noundef signext %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit, label %7
 

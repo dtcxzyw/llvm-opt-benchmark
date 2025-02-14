@@ -5381,7 +5381,7 @@ lpad:                                             ; preds = %entry
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21DistinctAggregateDataC2ERKNS_31DistinctAggregateCollectionInfoERKSt3setImSt4lessImESaImEEPKNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteISD_ELb1EEELb1EEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef nonnull align 8 dereferenceable(128) %info, ptr noundef nonnull readonly align 8 dereferenceable(48) %groups, ptr noundef %group_expressions) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21DistinctAggregateDataC2ERKNS_31DistinctAggregateCollectionInfoERKSt3setImSt4lessImESaImEEPKNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteISD_ELb1EEELb1EEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef nonnull align 8 dereferenceable(128) %info, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %groups, ptr noundef captures(address_is_null) %group_expressions) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6823,7 +6823,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20GroupedAggregateData18InitializeDistinctERKNS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEEPKNS_6vectorIS5_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %aggregate, ptr noundef %groups_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20GroupedAggregateData18InitializeDistinctERKNS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEEPKNS_6vectorIS5_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %aggregate, ptr noundef captures(address_is_null) %groups_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.23", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7361,7 +7361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb31DistinctAggregateCollectionInfo7IndicesEv(ptr noundef nonnull readnone returned align 8 dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb31DistinctAggregateCollectionInfo7IndicesEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(128) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret ptr %this
 }
@@ -21681,7 +21681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb20GroupedAggregateData20GetGroupingFunctionsEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb20GroupedAggregateData20GetGroupingFunctionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #10 align 2 {
 entry:
   %grouping_functions = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %grouping_functions
@@ -22076,7 +22076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20GroupedAggregateData24InitializeDistinctGroupsEPKNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEELb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly %groups_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20GroupedAggregateData24InitializeDistinctGroupsEPKNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS3_ELb1EEELb1EEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly captures(address_is_null) %groups_p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.23", align 8
   %tobool.not = icmp eq ptr %groups_p, null

@@ -221,7 +221,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @concat_string_parts(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @concat_string_parts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread57, label %2
 
@@ -7438,7 +7438,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 declare ptr @str_cat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_linked_libs(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @add_linked_libs(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %4
 

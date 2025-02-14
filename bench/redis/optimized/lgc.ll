@@ -250,7 +250,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sweeplist(ptr noundef %L, ptr noundef %p, i64 noundef range(i64 -3, 41) %count) unnamed_addr #0 {
+define internal fastcc noundef ptr @sweeplist(ptr noundef %L, ptr noundef captures(ret: address, provenance) %p, i64 noundef range(i64 -3, 41) %count) unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4

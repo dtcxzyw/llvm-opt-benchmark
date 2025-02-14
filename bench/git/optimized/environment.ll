@@ -312,7 +312,7 @@ define internal fastcc ptr @_() unnamed_addr #7 {
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strip_namespace(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @strip_namespace(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @get_git_namespace()
   br label %3
 

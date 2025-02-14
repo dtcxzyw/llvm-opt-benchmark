@@ -87,7 +87,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_pointer_array_t_class = external global %struct.pmix_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_store(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef i32 @pmix_hash_store(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -547,7 +547,7 @@ declare ptr @pmix_util_print_name_args(ptr noundef) local_unnamed_addr #1
 declare ptr @pmix_util_print_rank(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_hash_lookup_key(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @pmix_hash_lookup_key(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   %4 = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2928), ptr %2
   %5 = icmp eq i32 %0, -1
@@ -761,7 +761,7 @@ pmix_obj_new_tma.exit:                            ; preds = %20, %.loopexit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_keyval(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @lookup_keyval(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
 pmix_hash_lookup_key.exit:
   %.not.i = icmp eq ptr %4, null
   %5 = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2928), ptr %4
@@ -1085,7 +1085,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %2, %8, %pmix_pointe
 declare void @pmix_dstor_release_tma(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_fetch(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_hash_fetch(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1695,7 +1695,7 @@ declare void @PMIx_Info_qualifier(ptr noundef) local_unnamed_addr #1
 declare i32 @pmix_hash_table_get_next_key_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -27, 1) i32 @pmix_hash_remove_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_hash_remove_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2154,7 +2154,7 @@ declare i32 @pmix_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @pmix_hash_table_remove_value_uint32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_hash_register_key(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @pmix_hash_register_key(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   %4 = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2928), ptr %2
   %5 = icmp eq i32 %0, -1
@@ -5700,7 +5700,7 @@ pmix_bfrops_base_tma_copy_resource_unit.exit:     ; preds = %246, %pmix_tma_mall
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %7, label %4
 
@@ -10038,7 +10038,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pmix_bfrops_base_tma_argv_copy(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @pmix_bfrops_base_tma_argv_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %pmix_bfrops_base_tma_argv_free.exit, label %4
 

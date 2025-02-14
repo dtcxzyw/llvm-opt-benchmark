@@ -58,7 +58,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %.not6 = icmp eq ptr %0, %1
   br i1 %.not6, label %.critedge, label %.lr.ph.preheader
 
@@ -91,7 +91,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16tr
 declare i32 @isspace(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE17trim_spaces_rightEPKcS6_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE17trim_spaces_rightEPKcS6_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #3 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %4, %3
@@ -117,7 +117,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE17tr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE21scan_attr_placeholderEPKcS6_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE21scan_attr_placeholderEPKcS6_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = ptrtoint ptr %1 to i64
   %5 = sub i64 %4, %3
@@ -148,7 +148,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE21sc
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE13parse_operandEPKcS6_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = icmp eq ptr %0, %1
@@ -586,7 +586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
 declare i32 @isxdigit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
   %.not6 = icmp eq ptr %0, %1
   br i1 %.not6, label %.critedge, label %.lr.ph
 
@@ -611,7 +611,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16tr
 declare i32 @iswspace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE17trim_spaces_rightEPKwS6_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE17trim_spaces_rightEPKwS6_(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #7 align 2 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -631,7 +631,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE17tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE21scan_attr_placeholderEPKwS6_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE21scan_attr_placeholderEPKwS6_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
   br label %3
 
 3:                                                ; preds = %4, %2
@@ -656,7 +656,7 @@ define hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE21sc
 declare i32 @iswalnum(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE13parse_operandEPKwS6_RNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE13parse_operandEPKwS6_RNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %5, label %6
 

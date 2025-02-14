@@ -268,7 +268,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers24InstStrategyUserPatterns30processResetInstantiationRoundENS1_6Theory6EffortE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, i32 %effort) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers24InstStrategyUserPatterns30processResetInstantiationRoundENS1_6Theory6EffortE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %this, i32 %effort) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80

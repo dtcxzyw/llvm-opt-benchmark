@@ -2333,7 +2333,7 @@ declare ptr @LLVMDIBuilderCreateSubroutineType(ptr noundef, ptr noundef, ptr nou
 declare ptr @LLVMDIBuilderCreateUnionType(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_get_debug_struct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @llvm_get_debug_struct(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
   %char0 = load i8, ptr %2, align 1
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %8

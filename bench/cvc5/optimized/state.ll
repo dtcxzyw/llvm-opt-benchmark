@@ -3730,7 +3730,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEES3_St9_IdentityIS3_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(232) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State14getPatTermInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(424) %this, ptr noundef readonly captures(none) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(232) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State14getPatTermInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(424) %this, ptr noundef readonly captures(none) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -3962,7 +3962,7 @@ return:                                           ; preds = %for.inc, %if.then12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State14getFreeVarInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(424) %this, ptr noundef readonly captures(none) %v) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State14getFreeVarInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(424) %this, ptr noundef readonly captures(none) %v) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %v, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -4063,7 +4063,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(280) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State12getQuantInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(424) %this, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(280) ptr @_ZN4cvc58internal6theory11quantifiers5ieval5State12getQuantInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(424) %this, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %q, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -4680,7 +4680,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i104, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(280) ptr @_ZNK4cvc58internal6theory11quantifiers5ieval5State12getQuantInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(424) %this, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(280) ptr @_ZNK4cvc58internal6theory11quantifiers5ieval5State12getQuantInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(424) %this, ptr noundef readonly captures(none) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %q, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -4785,7 +4785,7 @@ declare void @_ZNK4cvc58internal6theory11quantifiers5ieval9QuantInfo20getFailure
 declare noundef zeroext i1 @_ZN4cvc58internal4expr11hasBoundVarENS0_12NodeTemplateILb0EEE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(232) ptr @_ZNK4cvc58internal6theory11quantifiers5ieval5State14getPatTermInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 dereferenceable(424) %this, ptr noundef readonly captures(none) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(232) ptr @_ZNK4cvc58internal6theory11quantifiers5ieval5State14getPatTermInfoENS0_12NodeTemplateILb0EEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(424) %this, ptr noundef readonly captures(none) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -5510,7 +5510,7 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State19toStringDebugSearchB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State19toStringDebugSearchB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(424) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)

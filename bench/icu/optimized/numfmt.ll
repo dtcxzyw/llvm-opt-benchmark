@@ -708,7 +708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7525SimpleNumberFormatFactory15getSupportedIDsERiR10UErrorCode(ptr noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %count, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK6icu_7525SimpleNumberFormatFactory15getSupportedIDsERiR10UErrorCode(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %count, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1012,7 +1012,7 @@ declare noundef zeroext i1 @_ZNK6icu_756FormateqERKS0_(ptr noundef nonnull align
 declare i32 @u_strcmp_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, double %0, ptr noundef nonnull readnone returned align 8 dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, double %0, ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
 entry:
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %2, 1
@@ -1027,7 +1027,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEiRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i32 %0, ptr noundef nonnull readnone returned align 8 dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatEiRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i32 %0, ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
 entry:
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %2, 1
@@ -1042,7 +1042,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatElRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i64 %0, ptr noundef nonnull readnone returned align 8 dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512NumberFormat6formatElRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i64 %0, ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(64) %toAppendTo, ptr readnone captures(none) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #12 align 2 {
 entry:
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %2, 1
@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7512NumberFormat11getCurrencyEv(ptr noundef nonnull readnone align 8 dereferenceable(356) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7512NumberFormat11getCurrencyEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(356) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fCurrency = getelementptr inbounds nuw i8, ptr %this, i64 342
   ret ptr %fCurrency

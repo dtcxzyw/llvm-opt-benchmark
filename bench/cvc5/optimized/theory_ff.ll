@@ -544,7 +544,7 @@ _ZN4cvc58internal6theory2ff18TheoryFiniteFieldsD2Ev.exit: ; preds = %_ZNSt10uniq
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2ff18TheoryFiniteFields17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(776) %this) unnamed_addr #9 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2ff18TheoryFiniteFields17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %this) unnamed_addr #9 align 2 {
 entry:
   %d_rewriter = getelementptr inbounds nuw i8, ptr %this, i64 408
   ret ptr %d_rewriter

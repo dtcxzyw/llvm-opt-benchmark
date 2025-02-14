@@ -179,7 +179,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -11, 1) i32 @_ZN3ue220hs_compile_multi_intEPKPKcPKjS5_PKPK11hs_expr_extjjPK16hs_platform_infoPP11hs_databasePP16hs_compile_errorRKNS_4GreyE(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef readonly %ext, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef writeonly %db, ptr noundef writeonly %comp_error, ptr noundef nonnull align 8 dereferenceable(292) %g) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -11, 1) i32 @_ZN3ue220hs_compile_multi_intEPKPKcPKjS5_PKPK11hs_expr_extjjPK16hs_platform_infoPP11hs_databasePP16hs_compile_errorRKNS_4GreyE(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef readonly captures(address_is_null) %ext, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef writeonly captures(address_is_null) %db, ptr noundef writeonly captures(address_is_null) %comp_error, ptr noundef nonnull align 8 dereferenceable(292) %g) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -1106,7 +1106,7 @@ eh.resume:                                        ; preds = %lpad39, %lpad.i41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef readonly %p, ptr noundef nonnull writeonly captures(none) %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL13checkPlatformPK16hs_platform_infoPP16hs_compile_error(ptr noundef readonly captures(address_is_null) %p, ptr noundef nonnull writeonly captures(none) %comp_error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -1253,7 +1253,7 @@ declare noundef ptr @_ZN3ue25buildERNS_2NGEPjh(ptr noundef nonnull align 8 deref
 declare void @_ZN3ue22NGD1Ev(ptr noundef nonnull align 8 dereferenceable(1104)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -11, 1) i32 @_ZN3ue224hs_compile_lit_multi_intEPKPKcPKjS5_PKPK11hs_expr_extPKmjjPK16hs_platform_infoPP11hs_databasePP16hs_compile_errorRKNS_4GreyE(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef readonly %ext, ptr noundef readonly %lens, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef writeonly %db, ptr noundef writeonly %comp_error, ptr noundef nonnull align 8 dereferenceable(292) %g) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -11, 1) i32 @_ZN3ue224hs_compile_lit_multi_intEPKPKcPKjS5_PKPK11hs_expr_extPKmjjPK16hs_platform_infoPP11hs_databasePP16hs_compile_errorRKNS_4GreyE(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef readonly captures(address_is_null) %ext, ptr noundef readonly captures(address_is_null) %lens, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef writeonly captures(address_is_null) %db, ptr noundef writeonly captures(address_is_null) %comp_error, ptr noundef nonnull align 8 dereferenceable(292) %g) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -2000,7 +2000,7 @@ unreachable:                                      ; preds = %invoke.cont115
 declare void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 -11, 1) i32 @hs_compile(ptr noundef %expression, i32 noundef %flags, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile(ptr noundef %expression, i32 noundef %flags, i32 noundef %mode, ptr noundef %platform, ptr noundef captures(address_is_null) %db, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %expression.addr = alloca ptr, align 8
   %flags.addr = alloca i32, align 4
@@ -2089,7 +2089,7 @@ eh.resume:                                        ; preds = %lpad5, %ehcleanup
 declare void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef captures(address_is_null) %db, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.ue2::Grey", align 8
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %ref.tmp)
@@ -2110,7 +2110,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_ext_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef %ext, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_ext_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef captures(address_is_null) %ext, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef captures(address_is_null) %db, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.ue2::Grey", align 8
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %ref.tmp)
@@ -2131,7 +2131,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 -11, 1) i32 @hs_compile_lit(ptr noundef %expression, i32 noundef %flags, i64 noundef %len, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile_lit(ptr noundef %expression, i32 noundef %flags, i64 noundef %len, i32 noundef %mode, ptr noundef %platform, ptr noundef captures(address_is_null) %db, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %expression.addr = alloca ptr, align 8
   %flags.addr = alloca i32, align 4
@@ -2220,7 +2220,7 @@ eh.resume:                                        ; preds = %lpad5, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_compile_lit_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef %lens, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_compile_lit_multi(ptr noundef %expressions, ptr noundef %flags, ptr noundef %ids, ptr noundef captures(address_is_null) %lens, i32 noundef %elements, i32 noundef %mode, ptr noundef %platform, ptr noundef captures(address_is_null) %db, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.ue2::Grey", align 8
   call void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %ref.tmp)
@@ -2241,14 +2241,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_expression_info(ptr noundef %expression, i32 noundef %flags, ptr noundef %info, ptr noundef %error) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_expression_info(ptr noundef %expression, i32 noundef %flags, ptr noundef captures(address_is_null) %info, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef null, ptr noundef %info, ptr noundef %error)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -11, 1) i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef writeonly %info, ptr noundef writeonly %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -11, 1) i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef writeonly captures(address_is_null) %info, ptr noundef writeonly captures(address_is_null) %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -2819,14 +2819,14 @@ unreachable:                                      ; preds = %invoke.cont108, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -11, 1) i32 @hs_expression_ext_info(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef %info, ptr noundef %error) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -11, 1) i32 @hs_expression_ext_info(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef captures(address_is_null) %info, ptr noundef captures(address_is_null) %error) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL22hs_expression_info_intPKcjPK11hs_expr_extjPP12hs_expr_infoPP16hs_compile_error(ptr noundef %expression, i32 noundef %flags, ptr noundef %ext, ptr noundef %info, ptr noundef %error)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i32 -1, 1) i32 @hs_populate_platform(ptr noundef writeonly %platform) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @hs_populate_platform(ptr noundef writeonly captures(address_is_null) %platform) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %platform, null
   br i1 %tobool.not, label %return, label %if.end

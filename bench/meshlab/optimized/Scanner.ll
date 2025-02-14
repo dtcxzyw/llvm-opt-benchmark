@@ -704,7 +704,7 @@ define noundef nonnull ptr @_Z18coco_string_createPKwii(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -750,7 +750,7 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -793,7 +793,7 @@ _Z24coco_string_create_lowerPKwii.exit:           ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -921,7 +921,7 @@ _Z18coco_string_lengthPKw.exit.thread:            ; preds = %_Z18coco_string_len
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z18coco_string_lengthPKw(ptr noundef readonly %0) local_unnamed_addr #7 {
+define noundef i32 @_Z18coco_string_lengthPKw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1083,7 +1083,7 @@ define noundef i32 @_Z21coco_string_comparetoPKwS0_(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %.preheader
 
@@ -1114,7 +1114,7 @@ define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread.thread, label %.thread
 
@@ -1164,7 +1164,7 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @_Z23coco_string_create_charPKw(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noalias noundef nonnull ptr @_Z23coco_string_create_charPKw(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit, label %2
 
@@ -2555,7 +2555,7 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8

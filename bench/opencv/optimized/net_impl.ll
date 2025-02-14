@@ -2745,7 +2745,7 @@ define noundef zeroext i1 @_ZNK2cv3dnn14dnn4_v202405213Net4Impl5emptyEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl5clearEv(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl5clearEv(ptr noundef nonnull align 8 captures(address) dereferenceable(504) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
   %3 = alloca %"struct.cv::Ptr.90", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3dnn14dnn4_v202405213Net4Impl5clearEvE24__cv_trace_location_fn73)
@@ -6400,7 +6400,7 @@ _ZNK2cv3dnn14dnn4_v202405213Net4Impl12getLayerDataEi.exit: ; preds = %_ZNKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(576) ptr @_ZNK2cv3dnn14dnn4_v202405213Net4Impl12getLayerDataEi(ptr noundef nonnull readonly align 8 dereferenceable(504) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(576) ptr @_ZNK2cv3dnn14dnn4_v202405213Net4Impl12getLayerDataEi(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(504) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -7205,7 +7205,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK2cv3dnn14dnn4_v202405213Net4Impl10getLayerIdEi(ptr noundef nonnull readonly align 8 dereferenceable(504) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK2cv3dnn14dnn4_v202405213Net4Impl10getLayerIdEi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -15249,7 +15249,7 @@ _ZN2cv7details26FPDenormalsIgnoreHintScopeD2Ev.exit24: ; preds = %87, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load i64, ptr %3, align 8
@@ -31299,7 +31299,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl23getUnconnectedOutLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.134") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl23getUnconnectedOutLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.134") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load i64, ptr %3, align 8
@@ -34013,7 +34013,7 @@ _ZNSt10shared_ptrIN2cv3dnn14dnn4_v2024052120ConvolutionLayerInt8EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerTypesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull readonly align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerTypesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map.10", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34253,7 +34253,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK2cv3dnn14dnn4_v202405213Net4Impl14getLayersCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK2cv3dnn14dnn4_v202405213Net4Impl14getLayersCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88

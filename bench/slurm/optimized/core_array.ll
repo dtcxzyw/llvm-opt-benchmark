@@ -30,7 +30,7 @@ define ptr @build_core_array() local_unnamed_addr #0 {
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @clear_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @clear_core_array(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   %2 = load i32, ptr @node_record_count, align 4
   %3 = icmp sgt i32 %2, 0
@@ -64,7 +64,7 @@ define void @clear_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare void @bit_clear_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @copy_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @copy_core_array(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -107,7 +107,7 @@ define ptr @copy_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @count_core_array_set(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @count_core_array_set(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   %2 = load i32, ptr @node_record_count, align 4
   %3 = icmp sgt i32 %2, 0
@@ -145,7 +145,7 @@ define i32 @count_core_array_set(ptr noundef readonly %0) local_unnamed_addr #0 
 declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @core_array_not(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @core_array_not(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp ne ptr %0, null
   %2 = load i32, ptr @node_record_count, align 4
   %3 = icmp sgt i32 %2, 0
@@ -423,7 +423,7 @@ define void @free_core_array(ptr noundef captures(none) %0) local_unnamed_addr #
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @core_array_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @core_array_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [100 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -529,7 +529,7 @@ declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 {
+define ptr @core_array_to_bitmap(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit22, label %2
 

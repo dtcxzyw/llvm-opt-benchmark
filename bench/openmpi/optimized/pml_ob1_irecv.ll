@@ -342,7 +342,7 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %26, %23, %opal_thre
 declare void @mca_pml_ob1_recv_req_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 77, 76) i32 @mca_pml_ob1_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define range(i32 77, 76) i32 @mca_pml_ob1_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = load i8, ptr @ompi_mpi_thread_multiple, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.thread, label %10
@@ -1587,7 +1587,7 @@ declare void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef, ptr noundef, p
 declare void @mca_pml_ob1_recv_request_progress_rget(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 77, 76) i32 @mca_pml_ob1_mrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 77, 76) i32 @mca_pml_ob1_mrecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64

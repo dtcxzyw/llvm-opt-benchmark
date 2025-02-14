@@ -2155,7 +2155,7 @@ define hidden void @"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone.
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h70884cc79afafa55E.llvm.1271834235494842624"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #12 {
+define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$alloc..rc..RcBox$LT$T$GT$$u20$as$u20$alloc..rc..RcInnerPtr$GT$10strong_ref17h70884cc79afafa55E.llvm.1271834235494842624"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
@@ -3335,7 +3335,7 @@ define hidden { ptr, ptr } @_ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef align 8 dereferenceable(40) ptr @_ZN3syn6buffer6Cursor5entry17h3862dcef44adfc64E.llvm.1271834235494842624(ptr noundef readnone returned %0, ptr noundef readnone captures(none) %1) unnamed_addr #18 {
+define hidden noundef align 8 dereferenceable(40) ptr @_ZN3syn6buffer6Cursor5entry17h3862dcef44adfc64E.llvm.1271834235494842624(ptr noundef readnone returned captures(ret: address, provenance) %0, ptr noundef readnone captures(none) %1) unnamed_addr #18 {
   ret ptr %0
 }
 
@@ -3397,7 +3397,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3syn6buffer6Cursor3eof17h40a6fb68b36837b6E(ptr noundef readnone %0, ptr noundef readnone %1) unnamed_addr #18 {
+define noundef zeroext i1 @_ZN3syn6buffer6Cursor3eof17h40a6fb68b36837b6E(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #18 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }
@@ -4588,7 +4588,7 @@ default.unreachable10:                            ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN3syn6buffer6Cursor9prev_span17hc67a120d346c1757E(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #7 {
+define noundef i32 @_ZN3syn6buffer6Cursor9prev_span17hc67a120d346c1757E(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #7 {
   %3 = load i32, ptr %1, align 8, !range !233, !noundef !9
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exit, label %5
@@ -4842,13 +4842,13 @@ _ZN3syn6buffer11same_buffer17hf491bc9bb2facc27E.exit: ; preds = %_ZN3syn6buffer1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN3syn6buffer10same_scope17hf94d023cff8fa44eE(ptr noundef readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2, ptr noundef readnone %3) unnamed_addr #18 {
+define hidden noundef zeroext i1 @_ZN3syn6buffer10same_scope17hf94d023cff8fa44eE(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #18 {
   %5 = icmp eq ptr %1, %3
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN3syn6buffer11same_buffer17hf491bc9bb2facc27E(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readnone captures(none) %2, ptr noundef readonly %3) unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN3syn6buffer11same_buffer17hf491bc9bb2facc27E(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(address) %3) unnamed_addr #7 {
   %5 = load i32, ptr %1, align 8, !range !233, !noundef !9
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exit, label %7
@@ -4878,7 +4878,7 @@ _ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) unnamed_addr #7 {
+define hidden noundef ptr @_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) unnamed_addr #7 {
   %3 = load i32, ptr %1, align 8, !range !233, !noundef !9
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %5, label %9
@@ -4895,7 +4895,7 @@ define hidden noundef ptr @_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i8 -1, 2) i8 @_ZN3syn6buffer24cmp_assuming_same_buffer17h5cf2dd54b899f0deE(ptr noundef readnone %0, ptr noundef readnone captures(none) %1, ptr noundef readnone %2, ptr noundef readnone captures(none) %3) unnamed_addr #18 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN3syn6buffer24cmp_assuming_same_buffer17h5cf2dd54b899f0deE(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(none) %3) unnamed_addr #18 {
   %5 = icmp ult ptr %0, %2
   %6 = icmp ne ptr %0, %2
   %..i = zext i1 %6 to i8

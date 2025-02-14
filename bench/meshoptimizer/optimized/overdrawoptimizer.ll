@@ -17,7 +17,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @meshopt_optimizeOverdraw(ptr noundef writeonly %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, float noundef %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @meshopt_optimizeOverdraw(ptr noundef writeonly captures(address) %destination, ptr noundef readonly captures(address) %indices, i64 noundef %index_count, ptr noundef readonly captures(none) %vertex_positions, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride, float noundef %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %histogram.i = alloca [2048 x i32], align 16
   %allocator = alloca %class.meshopt_Allocator, align 8

@@ -132,7 +132,7 @@ define dso_local noalias nonnull ptr @mm_strdup(ptr noundef readonly captures(no
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not45 = icmp eq ptr %0, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
@@ -380,7 +380,7 @@ ECPGmake_struct_member.exit:                      ; preds = %96, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @ECPGmake_struct_type(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %mm_strdup.exit
@@ -1067,7 +1067,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @mmerror(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %10 = icmp eq ptr %6, null
   br i1 %10, label %13, label %11
@@ -1575,7 +1575,7 @@ get_type.exit145:                                 ; preds = %switch.lookup184, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ECPGfree_struct_member(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ECPGfree_struct_member(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

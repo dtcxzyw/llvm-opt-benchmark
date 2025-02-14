@@ -450,7 +450,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dar_Truth4VarNPN(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #10 {
+define void @Dar_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
 .lr.ph.i12.i:
   %4 = alloca [50 x i8], align 16
   %5 = tail call noalias dereferenceable_or_null(131072) ptr @calloc(i64 noundef 65536, i64 noundef 2) #15

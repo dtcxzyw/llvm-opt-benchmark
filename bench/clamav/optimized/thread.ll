@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @onas_scan_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -332,7 +332,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

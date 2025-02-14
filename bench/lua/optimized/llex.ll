@@ -396,7 +396,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @llex(ptr noundef %ls, ptr noundef %seminfo) unnamed_addr #0 {
+define internal fastcc i32 @llex(ptr noundef %ls, ptr noundef captures(address_is_null) %seminfo) unnamed_addr #0 {
 entry:
   %buff.i83.i = alloca [8 x i8], align 1
   %buff = getelementptr inbounds nuw i8, ptr %ls, i64 72
@@ -2690,7 +2690,7 @@ while.end:                                        ; preds = %cond.end22, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr noundef captures(none) %ls, ptr noundef writeonly %seminfo, i64 noundef range(i64 2, 0) %sep) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr noundef captures(none) %ls, ptr noundef writeonly captures(address_is_null) %seminfo, i64 noundef range(i64 2, 0) %sep) unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds nuw i8, ptr %ls, i64 4
   %0 = load i32, ptr %linenumber, align 4

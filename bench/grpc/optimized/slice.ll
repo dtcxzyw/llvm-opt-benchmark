@@ -1066,7 +1066,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z29grpc_slice_differs_refcountedRK10grpc_sliceS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %b_not_inline) local_unnamed_addr #12 {
+define noundef i32 @_Z29grpc_slice_differs_refcountedRK10grpc_sliceS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %b_not_inline) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null

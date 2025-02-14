@@ -1619,7 +1619,7 @@ _ZN12_GLOBAL__N_116inproc_transportD2Ev.exit:     ; preds = %invoke.cont.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN12_GLOBAL__N_116inproc_transport22filter_stack_transportEv(ptr noundef nonnull readnone align 8 dereferenceable(160) %this) unnamed_addr #12 align 2 {
+define internal noundef nonnull ptr @_ZN12_GLOBAL__N_116inproc_transport22filter_stack_transportEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(160) %this) unnamed_addr #12 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr
@@ -4422,7 +4422,7 @@ if.end:                                           ; preds = %if.then.i.i6, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116fill_in_metadataEPNS_13inproc_streamEPK19grpc_metadata_batchPS2_Pb(ptr noundef readonly captures(none) %s, ptr noundef %metadata, ptr noundef %out_md, ptr noundef writeonly %markfilled) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116fill_in_metadataEPNS_13inproc_streamEPK19grpc_metadata_batchPS2_Pb(ptr noundef readonly captures(none) %s, ptr noundef %metadata, ptr noundef %out_md, ptr noundef writeonly captures(address_is_null) %markfilled) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %struct.grpc_slice, align 8
   %agg.tmp2.i.i = alloca %"class.grpc_core::Slice", align 8

@@ -202,7 +202,7 @@ define noalias ptr @virtual_getcwd_ex(ptr noundef writeonly captures(none) initi
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @virtual_getcwd(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @virtual_getcwd(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %8
@@ -289,7 +289,7 @@ realpath_cache_clean_helper.exit:                 ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @realpath_cache_del(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @realpath_cache_del(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %4 = icmp sgt i64 %1, 0
   br i1 %4, label %.lr.ph.i, label %realpath_cache_key.exit
@@ -381,13 +381,13 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @realpath_cache_lookup(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @realpath_cache_lookup(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @realpath_cache_find(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @realpath_cache_find(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @realpath_cache_find(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph.i, label %realpath_cache_key.exit
@@ -544,7 +544,7 @@ define nonnull ptr @realpath_cache_get_buckets() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -733,7 +733,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.stat, align 8
   store i32 0, ptr %9, align 4
@@ -1397,7 +1397,7 @@ define i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @virtual_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define noundef ptr @virtual_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %0, align 1
@@ -1461,7 +1461,7 @@ define noundef ptr @virtual_realpath(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2166,7 +2166,7 @@ define noalias noundef ptr @virtual_popen(ptr noundef readonly captures(none) %0
 declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define ptr @tsrm_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @tsrm_realpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = load i8, ptr %0, align 1

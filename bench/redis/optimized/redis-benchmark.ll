@@ -17337,7 +17337,7 @@ declare ptr @hi_sdscat(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @hi_sdstolower(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 251) i32 @showThroughput(ptr noundef %eventLoop, i64 %id, ptr noundef readonly %clientData) #0 {
+define dso_local range(i32 -1, 251) i32 @showThroughput(ptr noundef %eventLoop, i64 %id, ptr noundef readonly captures(address_is_null) %clientData) #0 {
 entry:
   %tv.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
@@ -19860,7 +19860,7 @@ for.end:                                          ; preds = %createBenchmarkThre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @createClient(ptr noundef %cmd, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef readonly %from, i32 noundef %thread_id) unnamed_addr #0 {
+define internal fastcc noundef ptr @createClient(ptr noundef %cmd, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef readonly captures(address_is_null) %from, i32 noundef %thread_id) unnamed_addr #0 {
 entry:
   %err37 = alloca ptr, align 8
   %buf = alloca ptr, align 8

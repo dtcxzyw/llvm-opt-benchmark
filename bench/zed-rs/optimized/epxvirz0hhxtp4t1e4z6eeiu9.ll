@@ -967,7 +967,7 @@ define hidden noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e
 }
 
 ; Function Attrs: cold inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hd7e8e467a5510264E.llvm.16744547508767205241(ptr noundef nonnull readnone returned %0) unnamed_addr #5 {
+define hidden noundef nonnull ptr @_ZN6anyhow9__private8must_use17hd7e8e467a5510264E.llvm.16744547508767205241(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

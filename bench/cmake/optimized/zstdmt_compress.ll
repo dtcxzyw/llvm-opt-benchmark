@@ -384,7 +384,7 @@ declare void @POOL_free(ptr noundef) local_unnamed_addr #2
 declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %60, label %3
 

@@ -8701,7 +8701,7 @@ declare noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTime
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_T0_"(ptr %0, ptr readnone %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_T0_"(ptr %0, ptr readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", align 8
   %5 = icmp eq ptr %0, %1

@@ -124,7 +124,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @FigureColname(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local nonnull ptr @FigureColname(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef %2)
@@ -137,7 +137,7 @@ define dso_local nonnull ptr @FigureColname(ptr noundef %0) local_unnamed_addr #
 declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not35 = icmp eq ptr %1, null
@@ -619,7 +619,7 @@ ExpandAllTables.exit:                             ; preds = %.thread, %.lr.ph32.
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformExpressionList(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @transformExpressionList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -727,7 +727,7 @@ ExpandIndirectionStar.exit:                       ; preds = %38, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resolveTargetListUnknowns(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @resolveTargetListUnknowns(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -771,7 +771,7 @@ declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 declare ptr @coerce_type(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @markTargetListOrigins(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @markTargetListOrigins(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -962,7 +962,7 @@ markTargetListOrigin.exit:                        ; preds = %.lr.ph33, %13, %16,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1113,7 +1113,7 @@ declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -1346,7 +1346,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef captures(none) initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef captures(none) initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %8, i32 noundef 17, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
@@ -1360,7 +1360,7 @@ define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef captures(address_is_null) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   store i32 %3, ptr %13, align 4
@@ -1428,7 +1428,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @coerce_to_domain(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %.preheader
@@ -1888,7 +1888,7 @@ declare ptr @GetCTEForRTE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @get_expr_result_tupdesc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.lr.ph157
 
@@ -2178,7 +2178,7 @@ switch.lookup247:                                 ; preds = %104
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @FigureIndexColname(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local ptr @FigureIndexColname(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = call fastcc i32 @FigureColnameInternal(ptr noundef %0, ptr noundef %2)

@@ -87,7 +87,7 @@ up_irq_restore.exit:                              ; preds = %._crit_edge, %13
 declare i32 @timer_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @timer_gethandle(ptr noundef readnone %0) local_unnamed_addr #1 {
+define noundef ptr @timer_gethandle(ptr noundef readnone captures(address, ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %up_irq_restore.exit, label %3

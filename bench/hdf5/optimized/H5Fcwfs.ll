@@ -358,7 +358,7 @@ define noundef i32 @H5F_cwfs_advance_heap(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define noundef i32 @H5F_cwfs_remove_heap(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

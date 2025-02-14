@@ -438,7 +438,7 @@ declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @ip_ra_control(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mrtsock_destruct(ptr noundef readonly %0) #1 align 16 {
+define internal void @mrtsock_destruct(ptr noundef readonly captures(address) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @rtnl_lock() #17
@@ -2938,7 +2938,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ipmr_cache_unresolved(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, -2147483647) %5) unnamed_addr #1 align 16 {
+define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, -2147483647) %5) unnamed_addr #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3592
   %8 = load volatile i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -6595,7 +6595,7 @@ define internal void @ipmr_net_exit(ptr noundef captures(none) %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ipmr_net_exit_batch(ptr noundef readonly %0) #1 align 16 {
+define internal void @ipmr_net_exit_batch(ptr noundef readonly captures(address) %0) #1 align 16 {
   tail call void @rtnl_lock() #17
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
@@ -6693,7 +6693,7 @@ define internal noundef i32 @ipmr_rules_dump(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @ipmr_mr_table_iter(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #16 align 16 {
+define internal ptr @ipmr_mr_table_iter(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1) #16 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -6954,7 +6954,7 @@ define internal void @mr_mfc_seq_stop(ptr noundef readonly captures(none) %0, pt
 declare dso_local ptr @mr_mfc_seq_next(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ipmr_mfc_seq_show(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define internal noundef i32 @ipmr_mfc_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #1 align 16 {
   %3 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %5
 

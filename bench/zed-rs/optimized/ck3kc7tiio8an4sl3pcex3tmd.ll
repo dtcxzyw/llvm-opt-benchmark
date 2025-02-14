@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN3url3Url17parse_with_params17haf0ab213b2026505E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3url3Url17parse_with_params17haf0ab213b2026505E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(address) %3, i64 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [56 x i8], align 8
   %8 = alloca [40 x i8], align 8
@@ -844,7 +844,7 @@ define { ptr, ptr } @"_ZN76_$LT$http_client..HttpClientWithProxy$u20$as$u20$http
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 ptr @"_ZN76_$LT$http_client..HttpClientWithProxy$u20$as$u20$http_client..HttpClient$GT$5proxy17hb7d22d3b2e96a7ffE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #4 {
+define noundef align 8 ptr @"_ZN76_$LT$http_client..HttpClientWithProxy$u20$as$u20$http_client..HttpClient$GT$5proxy17hb7d22d3b2e96a7ffE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8, !range !114, !noundef !5
   %3 = icmp eq i8 %2, 3
   %. = select i1 %3, ptr null, ptr %0
@@ -852,7 +852,7 @@ define noundef align 8 ptr @"_ZN76_$LT$http_client..HttpClientWithProxy$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @"_ZN74_$LT$http_client..HttpClientWithUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2857f83f27cedc7cE"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #1 {
+define noundef nonnull align 8 ptr @"_ZN74_$LT$http_client..HttpClientWithUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2857f83f27cedc7cE"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -1058,7 +1058,7 @@ define void @_ZN11http_client17HttpClientWithUrl9build_url17h5ade9b9ac729ac56E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11http_client17HttpClientWithUrl17build_zed_api_url17h283e029f7626cc9cE(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN11http_client17HttpClientWithUrl17build_zed_api_url17h283e029f7626cc9cE(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
@@ -1307,7 +1307,7 @@ define void @_ZN11http_client17HttpClientWithUrl17build_zed_api_url17h283e029f76
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11http_client17HttpClientWithUrl17build_zed_llm_url17ha2be9dbe6ed3b302E(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN11http_client17HttpClientWithUrl17build_zed_llm_url17ha2be9dbe6ed3b302E(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
@@ -1574,7 +1574,7 @@ define { ptr, ptr } @"_ZN74_$LT$http_client..HttpClientWithUrl$u20$as$u20$http_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 ptr @"_ZN74_$LT$http_client..HttpClientWithUrl$u20$as$u20$http_client..HttpClient$GT$5proxy17hf9e8db1d787a510eE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #4 {
+define noundef align 8 ptr @"_ZN74_$LT$http_client..HttpClientWithUrl$u20$as$u20$http_client..HttpClient$GT$5proxy17hf9e8db1d787a510eE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 8, !range !114, !noundef !5
   %3 = icmp eq i8 %2, 3
   %. = select i1 %3, ptr null, ptr %0

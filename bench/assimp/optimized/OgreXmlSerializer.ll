@@ -3188,7 +3188,7 @@ eh.resume:                                        ; preds = %ehcleanup136, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializer19ReadBoneAssignmentsERN4pugi8xml_nodeEPNS0_13VertexDataXmlE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, ptr noundef %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializer19ReadBoneAssignmentsERN4pugi8xml_nodeEPNS0_13VertexDataXmlE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %influencedVertices = alloca %"class.std::set", align 8
   %__begin2 = alloca %"class.pugi::xml_node_iterator", align 8

@@ -60,7 +60,7 @@ if.end5:                                          ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_read(ptr noundef %b, ptr noundef %out, i32 noundef %outl) #1 {
+define internal noundef i32 @sock_read(ptr noundef %b, ptr noundef captures(address_is_null) %out, i32 noundef %outl) #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   br i1 %cmp, label %return, label %if.end
@@ -119,7 +119,7 @@ sock_write.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @sock_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @sock_ctrl(ptr noundef captures(address_is_null) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef captures(address_is_null) %ptr) #1 {
 entry:
   switch i32 %cmd, label %sw.default [
     i32 104, label %sw.bb
@@ -223,7 +223,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_free(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @sock_free(ptr noundef captures(address_is_null) %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

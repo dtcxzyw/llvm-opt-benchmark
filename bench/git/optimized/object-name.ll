@@ -239,7 +239,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @repo_for_each_abbrev(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.oid_array, align 8
   %7 = alloca %struct.disambiguate_state, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
@@ -4060,7 +4060,7 @@ declare i32 @refs_head_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @commit_list_sort_by_date(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.re_pattern_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
@@ -4184,7 +4184,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @resolve_relative_path(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @resolve_relative_path(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @starts_with(ptr noundef %1, ptr noundef nonnull @.str.50) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6

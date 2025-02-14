@@ -270,7 +270,7 @@ define void @zend_observer_add_begin_handler(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -391,7 +391,7 @@ define void @zend_observer_add_end_handler(ptr noundef readonly captures(none) %
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @zend_observer_remove_end_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define noundef zeroext i1 @zend_observer_remove_end_handler(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8

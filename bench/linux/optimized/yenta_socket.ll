@@ -3680,7 +3680,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9
@@ -3964,7 +3964,7 @@ define internal void @topic97_zoom_video(ptr noundef readonly captures(none) %0,
 declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ene_tune_bridge(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #2 align 16 {
+define internal void @ene_tune_bridge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr i8, ptr %0, i64 -64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40

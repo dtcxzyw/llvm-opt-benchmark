@@ -160,7 +160,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_DECODER_CTX_get_num_decoders(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @OSSL_DECODER_CTX_get_num_decoders(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -566,7 +566,7 @@ if.end:                                           ; preds = %bio_from_file.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_from_data(ptr noundef %ctx, ptr noundef %pdata, ptr noundef %pdata_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_from_data(ptr noundef %ctx, ptr noundef %pdata, ptr noundef captures(address_is_null) %pdata_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pdata, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.end7, %if.then
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_selection(ptr noundef writeonly %ctx, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_selection(ptr noundef writeonly captures(address_is_null) %ctx, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_type(ptr noundef writeonly %ctx, ptr noundef %input_type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_type(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %input_type) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_structure(ptr noundef writeonly %ctx, ptr noundef %input_structure) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_input_structure(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %input_structure) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -917,7 +917,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_decoder(ptr noundef %ctx, ptr noundef %decoder) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_decoder(ptr noundef captures(address_is_null) %ctx, ptr noundef %decoder) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   %cmp5.not = icmp eq ptr %decoder, null
@@ -1365,7 +1365,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_INSTANCE_get_input_type(ptr noundef readonly %decoder_inst) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_INSTANCE_get_input_type(ptr noundef readonly captures(address_is_null) %decoder_inst) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %decoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct(ptr noundef writeonly %ctx, ptr noundef %construct) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %construct) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1403,7 +1403,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct_data(ptr noundef writeonly %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_construct_data(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %construct_data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1425,7 +1425,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef writeonly %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef writeonly captures(address_is_null) %ctx, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -1447,7 +1447,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_CTX_get_construct(ptr noundef readonly %ctx) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_CTX_get_construct(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_CTX_get_construct_data(ptr noundef readonly %ctx) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_CTX_get_construct_data(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef readonly %ctx) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef readonly captures(address_is_null) %ctx) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_DECODER_export(ptr noundef readonly %decoder_inst, ptr noundef %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
+define i32 @OSSL_DECODER_export(ptr noundef readonly captures(address_is_null) %decoder_inst, ptr noundef %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %decoder_inst, null
   %cmp5.not = icmp eq ptr %reference, null
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %OSSL_DECODER_INSTAN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_INSTANCE_get_decoder(ptr noundef readonly %decoder_inst) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_INSTANCE_get_decoder(ptr noundef readonly captures(address_is_null) %decoder_inst) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %decoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -1542,7 +1542,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_DECODER_INSTANCE_get_decoder_ctx(ptr noundef readonly %decoder_inst) local_unnamed_addr #4 {
+define ptr @OSSL_DECODER_INSTANCE_get_decoder_ctx(ptr noundef readonly captures(address_is_null) %decoder_inst) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %decoder_inst, null
   br i1 %cmp, label %return, label %if.end
@@ -1558,7 +1558,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @OSSL_DECODER_INSTANCE_get_input_structure(ptr noundef readonly %decoder_inst, ptr noundef writeonly captures(none) %was_set) local_unnamed_addr #5 {
+define ptr @OSSL_DECODER_INSTANCE_get_input_structure(ptr noundef readonly captures(address_is_null) %decoder_inst, ptr noundef writeonly captures(none) %was_set) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %decoder_inst, null
   br i1 %cmp, label %return, label %if.end

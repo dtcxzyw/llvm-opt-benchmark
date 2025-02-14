@@ -1491,7 +1491,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #8
 declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_snapshots_toggle_last(ptr noundef readonly %0) #1 {
+define internal void @_lib_snapshots_toggle_last(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
   %2 = load i32, ptr %0, align 8, !tbaa !190
@@ -1967,7 +1967,7 @@ declare void @gtk_widget_set_halign(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @gtk_entry_new() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_entry_activated_callback(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #1 {
+define internal void @_entry_activated_callback(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 56

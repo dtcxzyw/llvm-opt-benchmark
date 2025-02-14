@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [37 x i8] c"5b585e8f-3be5-11e3-bf0b-18037319526c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_add_sample(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define void @clamav_stats_add_sample(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %106, label %6
 
@@ -350,7 +350,7 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 4294967296) i64 @clamav_stats_get_num(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i64 0, 4294967296) i64 @clamav_stats_get_num(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -374,7 +374,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #5 {
+define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.03769 = load ptr, ptr %6, align 8, !tbaa !58
   %.not70 = icmp eq ptr %.03769, null
@@ -564,7 +564,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_flush(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @clamav_stats_flush(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -894,7 +894,7 @@ declare ptr @export_stats_to_json(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @submit_post(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @clamav_stats_remove_sample(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %64, label %5
 

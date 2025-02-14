@@ -1521,7 +1521,7 @@ reftable_be_downcast.exit:                        ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @reftable_be_iterator_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal ptr @reftable_be_iterator_begin(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = and i32 %3, 1
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr %0, align 8, !tbaa !61
@@ -2993,7 +2993,7 @@ declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @prepare_transaction_update(ptr noundef writeonly %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @prepare_transaction_update(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
@@ -4620,7 +4620,7 @@ declare i32 @reftable_stack_read_ref(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @reftable_writer_add_refs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ref_iterator_for_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @ref_iterator_for_stack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 248) #20
   tail call void @base_ref_iterator_init(ptr noundef %6, ptr noundef nonnull @reftable_ref_iterator_vtable) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
@@ -5414,7 +5414,7 @@ define internal noundef i32 @reftable_reflog_iterator_abort(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @yield_log_record(ptr readonly %.8.val.400.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @yield_log_record(ptr readonly captures(address) %.8.val.400.val, ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %struct.object_id, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #20

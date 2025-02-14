@@ -2032,7 +2032,7 @@ _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %ehcleanup46, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db12BlobDumpTool17DumpBlobLogFooterEmPm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %file_size, ptr noundef writeonly captures(none) initializes((0, 8)) %footer_offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db12BlobDumpTool17DumpBlobLogFooterEmPm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %file_size, ptr noundef writeonly captures(none) initializes((0, 8)) %footer_offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %slice = alloca %"class.rocksdb::Slice", align 8
   %s = alloca %"class.rocksdb::Status", align 8

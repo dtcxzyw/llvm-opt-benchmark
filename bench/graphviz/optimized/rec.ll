@@ -351,7 +351,7 @@ aggetrec.exit:                                    ; preds = %11, %6, %objdelrec.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @objdelrec(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #2 {
+define internal void @objdelrec(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %2

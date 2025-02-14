@@ -989,7 +989,7 @@ init_string_reloption.exit:                       ; preds = %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = icmp eq ptr %1, null
@@ -2262,7 +2262,7 @@ define dso_local noundef ptr @tablespace_reloptions(i64 noundef %0, i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

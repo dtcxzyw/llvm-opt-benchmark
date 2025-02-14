@@ -8670,7 +8670,7 @@ declare void @_ZN6Assimp3IFC8TempMesh17RemoveDegeneratesEv(ptr noundef nonnull a
 declare noundef ptr @_ZN6Assimp3IFC8TempMesh6ToMeshEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC17AssignAddedMeshesERSt3setIjSt4lessIjESaIjEEP6aiNodeRNS0_14ConversionDataE(ptr noundef nonnull readonly align 8 dereferenceable(48) %mesh_indices, ptr noundef captures(none) %nd, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(392) %0) local_unnamed_addr #0 {
+define hidden void @_ZN6Assimp3IFC17AssignAddedMeshesERSt3setIjSt4lessIjESaIjEEP6aiNodeRNS0_14ConversionDataE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %mesh_indices, ptr noundef captures(none) %nd, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(392) %0) local_unnamed_addr #0 {
 entry:
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %mesh_indices, i64 40
   %1 = load i64, ptr %_M_node_count.i.i, align 8
@@ -8719,7 +8719,7 @@ if.end:                                           ; preds = %for.body, %land.rhs
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3IFC17TryQueryMeshCacheERKNS0_10Schema_2x321IfcRepresentationItemERSt3setIjSt4lessIjESaIjEEjRNS0_14ConversionDataE(ptr noundef nonnull readnone align 8 dereferenceable(9) %item, ptr noundef nonnull align 8 dereferenceable(48) %mesh_indices, i32 noundef %mat_index, ptr noundef nonnull readonly align 8 dereferenceable(392) %conv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3IFC17TryQueryMeshCacheERKNS0_10Schema_2x321IfcRepresentationItemERSt3setIjSt4lessIjESaIjEEjRNS0_14ConversionDataE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(9) %item, ptr noundef nonnull align 8 dereferenceable(48) %mesh_indices, i32 noundef %mat_index, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(392) %conv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %conv, i64 240
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

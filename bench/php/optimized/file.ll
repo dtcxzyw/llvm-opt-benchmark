@@ -328,7 +328,7 @@ file_globals_dtor.exit:                           ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = trunc i64 %1 to i32
   %7 = and i32 %6, 3
   %8 = icmp eq i32 %7, 0
@@ -5751,7 +5751,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %4, -1

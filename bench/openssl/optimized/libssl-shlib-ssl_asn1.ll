@@ -393,14 +393,14 @@ declare i32 @i2d_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SSL_SESSION(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
+define ptr @d2i_SSL_SESSION(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @d2i_SSL_SESSION_ex(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef null, ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SSL_SESSION_ex(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @d2i_SSL_SESSION_ex(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %data86 = alloca ptr, align 8
@@ -843,7 +843,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr noundef nonnull captures(none) %pdst, ptr noundef readonly %src) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr noundef nonnull captures(none) %pdst, ptr noundef readonly captures(address_is_null) %src) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pdst, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 231) #5

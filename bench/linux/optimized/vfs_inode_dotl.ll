@@ -717,7 +717,7 @@ define dso_local i32 @v9fs_refresh_inode_dotl(ptr noundef %0, ptr noundef %1) lo
 declare dso_local ptr @v9fs_vfs_lookup(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_create_dotl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 zeroext %4) #0 align 16 {
+define internal i32 @v9fs_vfs_create_dotl(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i16 noundef zeroext %3, i1 zeroext %4) #0 align 16 {
   %6 = tail call i32 @v9fs_vfs_mknod_dotl(ptr poison, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef 0)
   ret i32 %6
 }
@@ -950,7 +950,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr noundef captures(non
 declare dso_local i32 @v9fs_vfs_unlink(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_symlink_dotl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal i32 @v9fs_vfs_symlink_dotl(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.p9_qid, align 8
   %7 = alloca ptr, align 8
@@ -1369,7 +1369,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr readnone captures(none) %0, ptr nou
 declare dso_local i32 @v9fs_vfs_rmdir(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_mknod_dotl(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #0 align 16 {
+define internal i32 @v9fs_vfs_mknod_dotl(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.p9_qid, align 8

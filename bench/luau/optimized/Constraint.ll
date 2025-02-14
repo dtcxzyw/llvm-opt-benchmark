@@ -1363,7 +1363,7 @@ define dso_local void @_ZN4Luau10ConstraintC2ENS_7NotNullINS_5ScopeEEERKNS_8Loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau22isReferenceCountedTypeEPKNS_4TypeE(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4Luau22isReferenceCountedTypeEPKNS_4TypeE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, label %2
 

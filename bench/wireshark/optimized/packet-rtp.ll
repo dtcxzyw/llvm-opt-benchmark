@@ -575,7 +575,7 @@ declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define void @rtp_dyn_payload_insert_full(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define void @rtp_dyn_payload_insert_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %7
 
@@ -647,13 +647,13 @@ define internal void @rtp_dyn_payload_add_fmtp_int(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @rtp_dyn_payload_insert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @rtp_dyn_payload_insert(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   tail call void @rtp_dyn_payload_insert_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @rtp_dyn_payload_add_fmtp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @rtp_dyn_payload_add_fmtp(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %5
 
@@ -691,7 +691,7 @@ define void @rtp_dyn_payload_add_fmtp(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @rtp_dyn_payload_get_name(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @rtp_dyn_payload_get_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -717,7 +717,7 @@ define ptr @rtp_dyn_payload_get_name(ptr noundef readonly %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @rtp_dyn_payload_get_full(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @rtp_dyn_payload_get_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %7
 
@@ -1277,7 +1277,7 @@ define void @rtp_add_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #11
   %7 = zext i8 %6 to i32
   %8 = lshr i32 %7, 6
@@ -3153,7 +3153,7 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %550, %537, %513, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._rtp_info, align 8
   %7 = alloca i32, align 4

@@ -1994,7 +1994,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit: ; preds = %_ZNSt16_Sp_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGTrackerCreate(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerCreate(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.xgboost::Json", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2943,7 +2943,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGTrackerWorkerArgs(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerWorkerArgs(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.xgboost::Json", align 8
@@ -3246,7 +3246,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit32:  ; preds = %103
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116GetTrackerHandleEPv(ptr noundef readnone returned %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116GetTrackerHandleEPv(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dmlc::LogMessageFatal", align 1
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.not = icmp eq ptr %0, null
@@ -3360,7 +3360,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGTrackerRun(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerRun(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.std::future", align 8
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -5753,7 +5753,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit23:  ; preds = %39
 declare void @_ZN7xgboost10collective5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @XGCommunicatorGetProcessorName(ptr noundef writeonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorGetProcessorName(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"struct.dmlc::Error", align 8

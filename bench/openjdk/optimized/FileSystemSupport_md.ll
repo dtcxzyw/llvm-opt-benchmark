@@ -68,7 +68,7 @@ define hidden range(i32 0, 2) i32 @isAbsolute(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @normalize_path(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @normalize_path(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
@@ -116,7 +116,7 @@ define hidden noundef ptr @normalize_path(ptr noundef %0) local_unnamed_addr #0 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @normalizePath(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -315,7 +315,7 @@ define hidden noalias noundef ptr @resolve(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef ptr @fromURIPath(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @fromURIPath(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 1

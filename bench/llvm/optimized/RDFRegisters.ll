@@ -88,7 +88,7 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC1ERKS1_b = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2ERKS1_b
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull readonly align 8 dereferenceable(1065) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::BitVector", align 8
   %5 = alloca %"class.llvm::BitVector", align 8
   %6 = alloca %"class.llvm::BitVector", align 8
@@ -3411,7 +3411,7 @@ define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr9intersectENS0_11RegisterRefE(ptr noundef nonnull readonly returned align 8 dereferenceable(80) %0, i32 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr9intersectENS0_11RegisterRefE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0, i32 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::rdf::RegisterAggr", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3579,7 +3579,7 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %_ZN4llvm3rdf12Regis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr9intersectERKS1_(ptr noundef nonnull readonly returned align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr9intersectERKS1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3628,7 +3628,7 @@ _ZN4llvm9BitVectoraNERKS0_.exit:                  ; preds = %17, %.preheader.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr5clearENS0_11RegisterRefE(ptr noundef nonnull readonly returned align 8 dereferenceable(80) %0, i32 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr5clearENS0_11RegisterRefE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0, i32 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::rdf::RegisterAggr", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3784,7 +3784,7 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %_ZN4llvm3rdf12Regis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr5clearERKS1_(ptr noundef nonnull readonly returned align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr5clearERKS1_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

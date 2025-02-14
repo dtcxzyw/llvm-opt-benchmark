@@ -1366,7 +1366,7 @@ define range(i32 -1, 1) i32 @H5Pget_type_conv_cb(i64 noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_btree_ratios(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_btree_ratios(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [3 x double], align 16
   %6 = load i8, ptr @H5_libinit_g, align 1
   %7 = trunc i8 %6 to i1

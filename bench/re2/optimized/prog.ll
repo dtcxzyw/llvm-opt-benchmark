@@ -1511,7 +1511,7 @@ _ZN3re210SparseSetTIvED2Ev.exit:                  ; preds = %for.inc124, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 64) i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr readnone %text.coerce0, i64 %text.coerce1, ptr noundef readonly %p) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 64) i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr readnone captures(address) %text.coerce0, i64 %text.coerce1, ptr noundef readonly captures(address) %p) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq ptr %p, %text.coerce0
   br i1 %cmp, label %if.end4, label %if.end4.thread
@@ -5933,7 +5933,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN3re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this, ptr noundef readonly %data, i64 noundef %size) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN3re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this, ptr noundef readonly captures(address, ret: address, provenance) %data, i64 noundef %size) local_unnamed_addr #12 align 2 {
 entry:
   %prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %prefix_size_, align 8

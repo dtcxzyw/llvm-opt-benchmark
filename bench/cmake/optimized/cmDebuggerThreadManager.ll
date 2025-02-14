@@ -353,7 +353,7 @@ _ZNSt7__cxx1110_List_baseISt10shared_ptrIN10cmDebugger16cmDebuggerThreadEESaIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger23cmDebuggerThreadManager27GetThreadStackTraceResponseERKN3dap17StackTraceRequestE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger23cmDebuggerThreadManager27GetThreadStackTraceResponseERKN3dap17StackTraceRequestE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.dap::StackTraceResponse", align 8
   %5 = alloca %"class.dap::optional.8", align 1
   %6 = load ptr, ptr %1, align 8, !tbaa !35

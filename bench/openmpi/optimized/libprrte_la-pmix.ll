@@ -702,7 +702,7 @@ declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef z
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_cbfunc(i32 noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef initializes((212, 216)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define internal void @cleanup_cbfunc(i32 noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef initializes((212, 216)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #1 {
   fence release
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7

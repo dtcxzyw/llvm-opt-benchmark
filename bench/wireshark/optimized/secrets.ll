@@ -210,7 +210,7 @@ get_pkcs11_token_uris.exit:                       ; preds = %15, %0
 declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -502,7 +502,7 @@ declare ptr @g_slist_reverse(ptr noundef) local_unnamed_addr #1
 declare void @gnutls_pkcs11_set_pin_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6) #7 {
+define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6) #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
 
@@ -601,7 +601,7 @@ define internal void @pkcs11_libs_uats_library_path_tostr_cb(ptr noundef readonl
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_pkcs11_lib_copy_str_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_pkcs11_lib_copy_str_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -740,7 +740,7 @@ define internal void @rsa_privkeys_uats_password_tostr_cb(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8

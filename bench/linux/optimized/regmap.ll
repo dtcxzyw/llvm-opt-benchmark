@@ -1832,7 +1832,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1965,7 +1965,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -3802,7 +3802,7 @@ define internal void @dev_get_regmap_release(ptr readnone captures(none) %0, ptr
 declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 
@@ -6304,7 +6304,7 @@ define dso_local ptr @dev_get_regmap(ptr noundef %0, ptr noundef %1) #1 align 16
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @dev_get_regmap_match(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #1 align 16 {
+define internal range(i32 0, 2) i32 @dev_get_regmap_match(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -8184,7 +8184,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
+define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %1, %8
@@ -8213,7 +8213,7 @@ define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_update_bits_base(ptr noundef initializes((184, 185)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local i32 @regmap_update_bits_base(ptr noundef initializes((184, 185)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -8331,7 +8331,7 @@ define dso_local i32 @regmap_field_read(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_fields_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local i32 @regmap_fields_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, %1
@@ -10420,7 +10420,7 @@ define dso_local i32 @regmap_bulk_read(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_regmap_update_bits(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #1 align 16 {
+define internal fastcc i32 @_regmap_update_bits(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #1 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   %8 = icmp ne ptr %4, null

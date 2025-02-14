@@ -2696,7 +2696,7 @@ _ZNSt10_HashtableIPN3ue211CastleProtoESt4pairIKS2_St6vectorINS0_12graph_detail17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue213unmakeCastlesERNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 dereferenceable(780) %tbi) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue213unmakeCastlesERNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %tbi) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %left_castles = alloca %"class.std::map.149", align 8
   %suffix_castles = alloca %"class.std::map.156", align 8
@@ -3939,7 +3939,7 @@ _ZNSt8_Rb_treeIN3ue27left_idESt4pairIKS1_St6vectorINS0_12graph_detail17vertex_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215remapCastleTopsERNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 dereferenceable(780) %tbi) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215remapCastleTopsERNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %tbi) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %__node5.i370 = alloca %"struct.std::_Hashtable<ue2::CastleProto *, std::pair<ue2::CastleProto *const, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::allocator<std::pair<ue2::CastleProto *const, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>>, std::__detail::_Select1st, std::equal_to<ue2::CastleProto *>, std::hash<ue2::CastleProto *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i = alloca %"struct.std::_Hashtable<ue2::CastleProto *, std::pair<ue2::CastleProto *const, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>, std::allocator<std::pair<ue2::CastleProto *const, std::vector<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>>>>>, std::__detail::_Select1st, std::equal_to<ue2::CastleProto *>, std::hash<ue2::CastleProto *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8

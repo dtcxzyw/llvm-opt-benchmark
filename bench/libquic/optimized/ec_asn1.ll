@@ -764,7 +764,7 @@ declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %cbb, ptr noundef readonly %key, i32 noundef %enc_flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %cbb, ptr noundef readonly captures(address_is_null) %key, i32 noundef %enc_flags) local_unnamed_addr #0 {
 entry:
   %ec_private_key = alloca %struct.cbb_st, align 8
   %private_key = alloca %struct.cbb_st, align 8
@@ -1042,7 +1042,7 @@ declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #1
 declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_ECPrivateKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp.not = icmp eq ptr %out, null
@@ -1132,7 +1132,7 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_ECParameters(ptr noundef %out_key, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_ECParameters(ptr noundef captures(address_is_null) %out_key, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_ECParameters(ptr noundef readonly %key, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_ECParameters(ptr noundef readonly captures(address_is_null) %key, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %cmp = icmp eq ptr %key, null
@@ -1222,7 +1222,7 @@ return:                                           ; preds = %if.end7, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @o2i_ECPublicKey(ptr noundef readonly %keyp, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @o2i_ECPublicKey(ptr noundef readonly captures(address_is_null) %keyp, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %keyp, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1291,7 +1291,7 @@ return:                                           ; preds = %if.end14, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2o_ECPublicKey(ptr noundef readonly %key, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2o_ECPublicKey(ptr noundef readonly captures(address_is_null) %key, ptr noundef captures(address_is_null) %outp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.then, label %if.end

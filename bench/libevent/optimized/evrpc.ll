@@ -254,7 +254,7 @@ return:                                           ; preds = %for.cond, %evrpc_co
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %vbase, i32 noundef %hook_type, ptr noundef readnone %handle) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %vbase, i32 noundef %hook_type, ptr noundef readnone captures(address) %handle) local_unnamed_addr #0 {
 entry:
   switch i32 %hook_type, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1327,7 +1327,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evrpc_resume_request(ptr noundef captures(none) %vbase, ptr noundef readnone %ctx, i32 noundef %res) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_resume_request(ptr noundef captures(none) %vbase, ptr noundef readnone captures(address) %ctx, i32 noundef %res) local_unnamed_addr #0 {
 entry:
   %pause_requests = getelementptr inbounds nuw i8, ptr %vbase, i64 32
   br label %for.cond

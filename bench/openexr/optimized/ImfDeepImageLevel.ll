@@ -271,7 +271,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_214DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -296,7 +296,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_214DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %this, i64 noundef %i, i32 noundef %oldNumSamples, i32 noundef %newNumSamples, i64 noundef %newSampleListPosition) local_unnamed_addr #3 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -321,7 +321,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_214DeepImageLevel22moveSamplesToNewBufferEPKjS2_PKm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %this, ptr noundef %oldNumSamples, ptr noundef %newNumSamples, ptr noundef %newSampleListPositions) local_unnamed_addr #3 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -346,7 +346,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -1330,14 +1330,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZN7Imf_3_214DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #11 align 2 {
+define nonnull ptr @_ZN7Imf_3_214DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %add.ptr.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK7Imf_3_214DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #11 align 2 {
+define nonnull ptr @_ZNK7Imf_3_214DeepImageLevel3endEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %add.ptr.i.i

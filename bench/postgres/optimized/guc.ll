@@ -4920,7 +4920,7 @@ define dso_local noundef ptr @get_config_unit_name(i32 noundef %0) local_unnamed
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
+define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
@@ -5200,7 +5200,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
 declare double @llvm.rint.f64(double) #16
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
+define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
@@ -7535,7 +7535,7 @@ define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @extra_field_used(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @extra_field_used(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -7841,7 +7841,7 @@ define internal fastcc zeroext i1 @call_string_check_hook(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @string_field_used(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @string_field_used(ptr noundef readonly captures(none) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -9338,7 +9338,7 @@ select.unfold._crit_edge:                         ; preds = %.critedge, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetConfigOptionByName(ptr noundef %0, ptr noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @GetConfigOptionByName(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @find_option(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext %2, i32 noundef 21)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -10458,7 +10458,7 @@ read_gucstate_binary.exit121:                     ; preds = %read_gucstate_binar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @guc_restore_error_context_callback(ptr noundef readonly %0) #0 {
+define internal void @guc_restore_error_context_callback(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -11247,7 +11247,7 @@ declare ptr @escape_single_quotes_ascii(ptr noundef) local_unnamed_addr #1
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @reapply_stacked_values(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8

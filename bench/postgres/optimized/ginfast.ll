@@ -545,7 +545,7 @@ declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_ad
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginInsertCleanup(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @ginInsertCleanup(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ginxlogDeleteListPages, align 8
   %7 = alloca [16 x i32], align 16
   %8 = alloca [16 x i32], align 16

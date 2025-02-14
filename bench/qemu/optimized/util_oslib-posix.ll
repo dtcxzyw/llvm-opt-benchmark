@@ -226,7 +226,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_anon_ram_alloc(i64 noundef %size, ptr noundef writeonly %alignment, i1 noundef zeroext %shared, i1 noundef zeroext %noreserve) local_unnamed_addr #0 {
+define dso_local ptr @qemu_anon_ram_alloc(i64 noundef %size, ptr noundef writeonly captures(address_is_null) %alignment, i1 noundef zeroext %shared, i1 noundef zeroext %noreserve) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cond = select i1 %shared, i32 2, i32 0

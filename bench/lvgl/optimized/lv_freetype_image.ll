@@ -210,7 +210,7 @@ declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_freetype_set_cbs_image_font(ptr noundef %0) local_unnamed_addr #4 {
+define void @lv_freetype_set_cbs_image_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -279,7 +279,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_image_release_cb(ptr noundef readonly %0, ptr noundef captures(none) %1) #0 {
+define internal void @freetype_image_release_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

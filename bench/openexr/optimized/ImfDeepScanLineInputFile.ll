@@ -6172,7 +6172,7 @@ unreachable:                                      ; preds = %invoke.cont109, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_127readSampleCountForLineBlockEPNS_16InputStreamMutexEPNS_21DeepScanLineInputFile4DataEiPNS_7Array2DIjEEib(ptr noundef readonly captures(none) %streamData, ptr noundef readonly captures(none) %data, i32 noundef %lineBlockId, ptr noundef readonly %sampleCountBuffer, i32 noundef %sampleCountMinY, i1 noundef zeroext %writeToSlice) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_127readSampleCountForLineBlockEPNS_16InputStreamMutexEPNS_21DeepScanLineInputFile4DataEiPNS_7Array2DIjEEib(ptr noundef readonly captures(none) %streamData, ptr noundef readonly captures(none) %data, i32 noundef %lineBlockId, ptr noundef readonly captures(address_is_null) %sampleCountBuffer, i32 noundef %sampleCountMinY, i1 noundef zeroext %writeToSlice) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i92 = alloca [4 x i8], align 4
   %b.i85 = alloca [8 x i8], align 8

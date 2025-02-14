@@ -275,7 +275,7 @@ define internal void @iolatency_pd_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @iolatency_pd_offline(ptr noundef readonly %0) #2 align 16 {
+define internal void @iolatency_pd_offline(ptr noundef readonly captures(address_is_null) %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -856,7 +856,7 @@ define internal fastcc void @iolatency_set_min_lat_nsec(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iolatency_clear_scaling(ptr readonly %.48.val) unnamed_addr #2 align 16 {
+define internal fastcc void @iolatency_clear_scaling(ptr readonly captures(address_is_null) %.48.val) unnamed_addr #2 align 16 {
   %1 = icmp eq ptr %.48.val, null
   br i1 %1, label %14, label %2
 

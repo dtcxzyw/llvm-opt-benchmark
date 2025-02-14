@@ -2746,7 +2746,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @setsid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @pmix_cmd_line_get_param(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc ptr @pmix_cmd_line_get_param(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.09 = load ptr, ptr %4, align 8
@@ -2874,7 +2874,7 @@ declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef z
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @defhandler(i64 %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @defhandler(i64 %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
   %10 = alloca %struct.pmix_proc, align 4
   %11 = alloca %struct.pmix_info, align 8
   switch i32 %1, label %34 [
@@ -2996,7 +2996,7 @@ declare i32 @getegid() local_unnamed_addr #2
 declare i32 @PMIx_server_setup_application(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @setupcbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((224, 240)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @setupcbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((224, 240)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %7
 
@@ -3060,7 +3060,7 @@ declare ptr @PMIx_Argv_copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Spawn(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_cbfunc(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @debug_cbfunc(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %10
 
@@ -3094,7 +3094,7 @@ define internal void @opcbfunc(i32 %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @evhandler(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
   %10 = alloca [256 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
   %.not = icmp eq ptr %3, null

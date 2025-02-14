@@ -1231,7 +1231,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #16 align 2 {
+define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, ptr noundef captures(ret: address, provenance) %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #16 align 2 {
   br i1 %3, label %8, label %19
 
 8:                                                ; preds = %7
@@ -1461,7 +1461,7 @@ _ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %92, %107, %123, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) local_unnamed_addr #14 align 2 {
   %.not37 = icmp eq ptr %3, null
   br i1 %.not37, label %.loopexit30, label %.lr.ph
 
@@ -2311,7 +2311,7 @@ _ZN11TransTableS10AddNodeSetEv.exit110:           ; preds = %181, %196, %198, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned initializes((2, 4)) %5) local_unnamed_addr #19 align 2 {
+define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned captures(ret: address, provenance) initializes((2, 4)) %5) local_unnamed_addr #19 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i32

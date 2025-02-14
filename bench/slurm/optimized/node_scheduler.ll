@@ -463,7 +463,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @set_job_features_use(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local void @set_job_features_use(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -1537,7 +1537,7 @@ define dso_local void @filter_by_node_mcs(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @select_nodes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @select_nodes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -9217,7 +9217,7 @@ declare zeroext i1 @extra_constraints_test(ptr noundef, ptr noundef) local_unnam
 declare void @acct_policy_set_qos_order(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_find_qos_grp_node_bitmap(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc void @_find_qos_grp_node_bitmap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %74, label %7
 

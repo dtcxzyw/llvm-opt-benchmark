@@ -564,7 +564,7 @@ declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 declare void @RelationDecrementReferenceCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @get_default_oid_from_partdesc(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i32 @get_default_oid_from_partdesc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 

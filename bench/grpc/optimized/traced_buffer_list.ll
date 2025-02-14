@@ -450,7 +450,7 @@ declare { i64, i64 } @gpr_inf_past(i32 noundef) local_unnamed_addr #0
 declare noundef i32 @_ZN17grpc_event_engine12experimental16GetSocketTcpInfoEPNS0_8tcp_infoEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental16TracedBufferList16ProcessTimestampEP17sock_extended_errP7cmsghdrPNS0_16scm_timestampingE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(none) %serr, ptr noundef %opt_stats, ptr noundef readonly captures(none) %tss) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental16TracedBufferList16ProcessTimestampEP17sock_extended_errP7cmsghdrPNS0_16scm_timestampingE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(none) %serr, ptr noundef captures(address_is_null) %opt_stats, ptr noundef readonly captures(none) %tss) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp54 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -784,7 +784,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit55:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS0_17ConnectionMetricsEPK7cmsghdr(ptr noundef nonnull captures(none) %metrics, ptr noundef readonly %opt_stats) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS0_17ConnectionMetricsEPK7cmsghdr(ptr noundef nonnull captures(none) %metrics, ptr noundef readonly captures(address_is_null) %opt_stats) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %opt_stats, null
   br i1 %cmp, label %while.end, label %if.end

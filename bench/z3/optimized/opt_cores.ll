@@ -2511,7 +2511,7 @@ if.end55:                                         ; preds = %for.body, %for.inc3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3opt5cores6rotateERK13obj_hashtableI4exprEPS2_j(ptr noundef nonnull align 8 dereferenceable(117) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %_mss, ptr noundef readnone %excl, i32 noundef %depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3opt5cores6rotateERK13obj_hashtableI4exprEPS2_j(ptr noundef nonnull align 8 dereferenceable(117) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %_mss, ptr noundef readnone captures(address) %excl, i32 noundef %depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i721 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i722 = alloca %"class.std::allocator", align 1
@@ -11796,7 +11796,7 @@ _ZN3opt13weighted_coreD2Ev.exit:                  ; preds = %_ZN8rationalD2Ev.ex
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN3opt13weighted_coreEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_S9_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN3opt13weighted_coreEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_S9_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__val = alloca %"struct.opt::weighted_core", align 8
   %cmp = icmp eq ptr %__first, %__last
@@ -15217,7 +15217,7 @@ _ZgtRK8rationalS1_.exit:                          ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone %__last, ptr %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last, ptr %__comp.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i12 = alloca %"struct.obj_map<expr, rational>::key_data", align 8
   %ref.tmp.i = alloca %"struct.obj_map<expr, rational>::key_data", align 8

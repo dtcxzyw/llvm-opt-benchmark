@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.06e7e092f553c95666f1043904b4b908.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.06e7e092f553c95666f1043904b4b908.0, [8 x i8] c"\06\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h70e9a846c951fe1fE"(ptr readnone returned align 8 %0) unnamed_addr #0 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h70e9a846c951fe1fE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
   ret ptr %0
 }
 

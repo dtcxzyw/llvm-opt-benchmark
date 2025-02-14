@@ -162,7 +162,7 @@ define noundef nonnull ptr @_ZNK4LIEF5MachO10VersionMin5cloneEv(ptr noundef nonn
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10VersionMin7versionEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10VersionMin7versionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -175,7 +175,7 @@ define void @_ZN4LIEF5MachO10VersionMin7versionERKSt5arrayIjLm3EE(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10VersionMin3sdkEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10VersionMin3sdkEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   ret ptr %2
 }

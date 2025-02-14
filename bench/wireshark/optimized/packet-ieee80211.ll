@@ -15783,7 +15783,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 258) i32 @dissect_advertisement_protocol_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc range(i32 2, 258) i32 @dissect_advertisement_protocol_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -16114,7 +16114,7 @@ define internal fastcc noundef i32 @add_ff_lmr_report(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @add_ff_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define hidden i32 @add_ff_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -23638,7 +23638,7 @@ define internal range(i32 0, 2) i32 @sta_prop_equal_fn(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ieee80211(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @dissect_ieee80211(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = alloca %struct.ieee_802_11_phdr, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %7, label %9
@@ -24071,7 +24071,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_wep_key_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @uat_wep_key_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #22
@@ -33220,7 +33220,7 @@ define internal range(i32 1, -2147483648) i32 @dissect_ric_descriptor(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ieee80211_tag_mesh_peering_mgmt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @ieee80211_tag_mesh_peering_mgmt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #22
   %6 = load i32, ptr @hf_ieee80211_mesh_peering_proto, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #22
@@ -36283,7 +36283,7 @@ define internal i32 @dissect_vendor_wifi_alliance_anqp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_hs20_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal i32 @dissect_hs20_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca [3 x i32], align 4
   %7 = alloca ptr, align 8
@@ -50170,7 +50170,7 @@ define internal fastcc void @dissect_future_channel_guidance(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_owe_dh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2147483647) %3, ptr noundef writeonly %4) unnamed_addr #2 {
+define internal fastcc void @dissect_owe_dh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2147483647) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 {
   %6 = icmp samesign ult i32 %3, 2
   br i1 %6, label %7, label %9
 

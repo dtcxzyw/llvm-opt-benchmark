@@ -794,7 +794,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZN5clang4ento14CheckerManager16_registerForBindENS0_9CheckerFnIFvNS0_4SValES3_PKNS_4StmtERNS0_14CheckerContextEEEE(ptr noundef nonnull align 8 dereferenceable(1560), ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang4ento5check4Bind10_checkBindIN12_GLOBAL__N_126UndefinedAssignmentCheckerEEEvPvNS0_4SValES7_PKNS_4StmtERNS0_14CheckerContextE(ptr noundef %0, ptr readnone captures(none) %1, i8 %2, ptr readnone captures(none) %3, i8 %4, ptr noundef readonly %5, ptr noundef nonnull align 8 dereferenceable(81) %6) #0 align 2 {
+define internal void @_ZN5clang4ento5check4Bind10_checkBindIN12_GLOBAL__N_126UndefinedAssignmentCheckerEEEvPvNS0_4SValES7_PKNS_4StmtERNS0_14CheckerContextE(ptr noundef %0, ptr readnone captures(none) %1, i8 %2, ptr readnone captures(none) %3, i8 %4, ptr noundef readonly captures(address) %5, ptr noundef nonnull align 8 dereferenceable(81) %6) #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.233", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

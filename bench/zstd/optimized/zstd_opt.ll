@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTD_MLcode.ML_Code = internal unnamed_addr constant [128 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F  !!\22\22##$$$$%%%%&&&&&&&&''''''''(((((((((((((((())))))))))))))))********************************", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ZSTD_updateTree(ptr noundef captures(none) %ms, ptr noundef %ip, ptr noundef %iend) local_unnamed_addr #0 {
+define void @ZSTD_updateTree(ptr noundef captures(none) %ms, ptr noundef %ip, ptr noundef captures(address) %iend) local_unnamed_addr #0 {
 entry:
   %minMatch = getelementptr inbounds nuw i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
@@ -3078,7 +3078,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ZSTD_insertBt1(ptr noundef readonly captures(none) %ms, ptr noundef %ip, ptr noundef %iend, i32 noundef %target, i32 noundef %mls, i32 noundef range(i32 0, 2) %extDict) unnamed_addr #0 {
+define internal fastcc i32 @ZSTD_insertBt1(ptr noundef readonly captures(none) %ms, ptr noundef %ip, ptr noundef captures(address) %iend, i32 noundef %target, i32 noundef %mls, i32 noundef range(i32 0, 2) %extDict) unnamed_addr #0 {
 entry:
   %dummy32 = alloca i32, align 4
   %cParams1 = getelementptr inbounds nuw i8, ptr %ms, i64 256
@@ -3401,7 +3401,7 @@ for.end:                                          ; preds = %for.inc, %if.end71,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone %iEnd, ptr noundef %mEnd, ptr noundef readonly captures(none) %iStart) unnamed_addr #3 {
+define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone captures(address) %iEnd, ptr noundef %mEnd, ptr noundef readonly captures(none) %iStart) unnamed_addr #3 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %mEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %match to i64
@@ -4451,7 +4451,7 @@ return:                                           ; preds = %if.then14.i, %lor.l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_noDict_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_noDict_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -5106,7 +5106,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %ZSTD
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_noDict_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_noDict_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -5581,7 +5581,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_noDict_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_noDict_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -6056,7 +6056,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_noDict_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_noDict_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -6531,7 +6531,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_extDict_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_extDict_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -7246,7 +7246,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %ZSTD
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_extDict_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_extDict_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -7770,7 +7770,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_extDict_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_extDict_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -8294,7 +8294,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_extDict_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_extDict_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -8818,7 +8818,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_dictMatchState_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_dictMatchState_3(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr noundef captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -9639,7 +9639,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %ZSTD
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_dictMatchState_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_dictMatchState_4(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -10278,7 +10278,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_dictMatchState_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_dictMatchState_5(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
@@ -10917,7 +10917,7 @@ ZSTD_btGetAllMatches_internal.exit:               ; preds = %if.then234.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ZSTD_btGetAllMatches_dictMatchState_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
+define internal i32 @ZSTD_btGetAllMatches_dictMatchState_6(ptr noundef writeonly captures(none) %matches, ptr noundef captures(none) %ms, ptr readnone captures(none) %nextToUpdate3, ptr noundef %ip, ptr noundef captures(address) %iHighLimit, ptr noundef readonly captures(none) %rep, i32 noundef %ll0, i32 noundef %lengthToBeat) #0 {
 entry:
   %dummy32.i = alloca i32, align 4
   %base.i = getelementptr inbounds nuw i8, ptr %ms, i64 8

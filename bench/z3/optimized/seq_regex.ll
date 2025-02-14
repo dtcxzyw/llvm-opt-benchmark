@@ -6319,7 +6319,7 @@ ehcleanup46:                                      ; preds = %ehcleanup45, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3smt9seq_regex9is_memberEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this, ptr noundef readnone %r, ptr noundef readonly %u) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt9seq_regex9is_memberEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this, ptr noundef readnone captures(address) %r, ptr noundef readonly captures(address) %u) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_fid.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1800

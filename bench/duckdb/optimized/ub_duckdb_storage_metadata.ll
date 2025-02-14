@@ -8407,7 +8407,7 @@ _ZN6duckdb17MetadataBlockInfoD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6duckdb17MetadataBlockInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_15MetadataManager15GetMetadataInfoEvE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.sroa.0 = alloca { i64, i64 }, align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

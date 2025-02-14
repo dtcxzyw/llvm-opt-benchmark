@@ -46,7 +46,7 @@ define void @ecpg_init_sqlca(ptr noundef writeonly captures(none) initializes((0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_init(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @ecpg_init(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @pthread_once(ptr noundef nonnull @sqlca_key_once, ptr noundef nonnull @ecpg_sqlca_key_init) #16
   %5 = load i32, ptr @sqlca_key, align 4
   %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #16

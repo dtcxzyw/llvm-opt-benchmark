@@ -3076,7 +3076,7 @@ define internal fastcc ptr @fix_scan_expr(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef nonnull returned %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @set_indexonlyscan_references(ptr noundef %0, ptr noundef nonnull returned captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -3443,7 +3443,7 @@ fix_scan_expr.exit58:                             ; preds = %182, %185
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_subqueryscan_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_subqueryscan_references(ptr noundef %0, ptr noundef nonnull captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca double, align 8
@@ -5290,7 +5290,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_append_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_append_references(ptr noundef %0, ptr noundef nonnull captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -5479,7 +5479,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i, %list_len
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_mergeappend_references(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @set_mergeappend_references(ptr noundef %0, ptr noundef nonnull captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -6346,7 +6346,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull readonly captures(none) %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull readonly captures(none) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %.thread, label %.lr.ph
 

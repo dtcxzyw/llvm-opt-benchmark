@@ -1759,7 +1759,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
 declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(address_is_null) %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1784,7 +1784,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(address_is_null) %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1809,7 +1809,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone captures(address) %theValue, i32 noundef %creationStatus) local_unnamed_addr #11 align 2 {
 entry:
   %fNoValue = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %fNoValue, align 8

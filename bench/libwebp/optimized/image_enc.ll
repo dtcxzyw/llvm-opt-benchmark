@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [14 x i8] c"P6\0A%u %u\0A255\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -149,7 +149,7 @@ declare void @png_write_rows(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @png_write_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePPM(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWritePPM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -196,7 +196,7 @@ WritePPMPAM.exit:                                 ; preds = %19, %21, %2, %5, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePAM(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWritePAM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -243,7 +243,7 @@ WritePPMPAM.exit:                                 ; preds = %19, %21, %2, %5, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -297,7 +297,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca [70 x i8], align 16
   %4 = alloca [3 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -559,7 +559,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca [210 x i8], align 16
   store i8 73, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -1027,7 +1027,7 @@ WebPIsAlphaMode.exit:                             ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1074,7 +1074,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1229,7 +1229,7 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef %0, ptr noundef read
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1355,7 +1355,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %.not

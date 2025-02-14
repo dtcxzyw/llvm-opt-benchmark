@@ -98,7 +98,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_write(ptr noundef %b, ptr noundef readonly %in, i32 noundef %inl) #1 {
+define internal noundef i32 @mem_write(ptr noundef %b, ptr noundef readonly captures(address_is_null) %in, i32 noundef %inl) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -200,7 +200,7 @@ return:                                           ; preds = %if.then, %if.then4,
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mem_read(ptr noundef %b, ptr noundef writeonly %out, i32 noundef %outl) #1 {
+define internal i32 @mem_read(ptr noundef %b, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outl) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -263,7 +263,7 @@ if.end26:                                         ; preds = %if.else, %if.then23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_puts(ptr noundef %bp, ptr noundef %str) #1 {
+define internal noundef i32 @mem_puts(ptr noundef %bp, ptr noundef captures(address_is_null) %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #8
   %conv = trunc i64 %call to i32
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mem_gets(ptr noundef %bp, ptr noundef writeonly %buf, i32 noundef %size) #1 {
+define internal i32 @mem_gets(ptr noundef %bp, ptr noundef writeonly captures(address_is_null) %buf, i32 noundef %size) #1 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %bp, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -618,7 +618,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly %a) #1 {
+define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly captures(address_is_null) %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end.i

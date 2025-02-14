@@ -173,7 +173,7 @@ define void @_ZN4pkpy5BytesC2EOS0_(ptr noundef nonnull writeonly align 8 capture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN4pkpy5BytesaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(12) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN4pkpy5BytesaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) initializes((8, 12)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5

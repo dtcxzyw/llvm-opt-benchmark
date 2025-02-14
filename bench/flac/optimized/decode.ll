@@ -3155,7 +3155,7 @@ define internal fastcc void @print_error_with_state(ptr noundef nonnull readonly
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef %0, ptr noundef nonnull captures(none) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captures(address) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2

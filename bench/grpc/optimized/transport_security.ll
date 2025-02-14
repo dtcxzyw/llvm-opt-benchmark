@@ -714,7 +714,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef %self) local_unnamed_addr #2 {
+define void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef captures(address_is_null) %self) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %self, null
   br i1 %cmp, label %return, label %if.end
@@ -885,7 +885,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef readonly %peer, ptr noundef readonly %name) local_unnamed_addr #7 {
+define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef readonly captures(address_is_null) %peer, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %peer, null
   br i1 %cmp, label %return, label %for.cond.preheader

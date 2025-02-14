@@ -656,7 +656,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) initializes((0, 1)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 1)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
+define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) initializes((0, 1)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull captures(none) initializes((0, 1)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store i8 0, ptr %2, align 1
   store i8 0, ptr %4, align 1
@@ -834,7 +834,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #1
 declare void @CacheInvalidateRelcacheAll() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -922,7 +922,7 @@ define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @OpenTableList(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph166
 
@@ -1194,7 +1194,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransformPubWhereClauses(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @TransformPubWhereClauses(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1306,7 +1306,7 @@ define internal fastcc void @TransformPubWhereClauses(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CheckPubRelationColumnList(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @CheckPubRelationColumnList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1415,7 +1415,7 @@ define internal fastcc void @CheckPubRelationColumnList(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PublicationAddTables(i32 noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @PublicationAddTables(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1516,7 +1516,7 @@ define internal fastcc void @PublicationAddTables(i32 noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @LockSchemaList(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @LockSchemaList(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1566,7 +1566,7 @@ define internal fastcc void @LockSchemaList(ptr noundef readonly %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PublicationAddSchemas(i32 noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @PublicationAddSchemas(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1635,7 +1635,7 @@ declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InvalidatePublicationRels(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @InvalidatePublicationRels(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.thread, label %list_length.exit
 
@@ -3107,7 +3107,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare zeroext i1 @is_schema_publication(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PublicationDropTables(i32 noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @PublicationDropTables(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.ObjectAddress, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

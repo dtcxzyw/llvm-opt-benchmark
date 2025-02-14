@@ -25,7 +25,7 @@ $_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_default_appendEm = comdat any
 @_ZN6Assimp11KeyIteratorC1EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 1), (4, 28), (32, 112)) %this, ptr noundef %_objPos, ptr noundef %_targetObjPos, ptr noundef readonly %defaultObjectPos, ptr noundef readonly %defaultTargetPos) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 1), (4, 28), (32, 112)) %this, ptr noundef %_objPos, ptr noundef %_targetObjPos, ptr noundef readonly captures(address_is_null) %defaultObjectPos, ptr noundef readonly captures(address_is_null) %defaultTargetPos) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %curPosition = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -549,7 +549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper7ProcessEPSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %distanceTrack) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper7ProcessEPSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(28) %this, ptr noundef %distanceTrack) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %real = alloca %"class.std::vector", align 8
   %iter = alloca %"class.Assimp::KeyIterator", align 8

@@ -120,7 +120,7 @@ define dso_local void @dm_kcopyd_exit() local_unnamed_addr #2 align 16 {
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #2 align 16 {
+define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #2 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = tail call noalias ptr @mempool_alloc(ptr noundef nonnull %8, i32 noundef 3072) #9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 296

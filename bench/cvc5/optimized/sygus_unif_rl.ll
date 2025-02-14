@@ -9212,7 +9212,7 @@ return:                                           ; preds = %if.then13.i.i201, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers11SygusUnifRl30getConditionForEvaluationPointENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(680) %this, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers11SygusUnifRl30getConditionForEvaluationPointENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(680) %this, ptr noundef readonly captures(none) %e) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -9604,7 +9604,7 @@ if.end125:                                        ; preds = %cleanup.done56, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl17getEvalPointHeadsENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(680) %this, ptr noundef readonly captures(none) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl17getEvalPointHeadsENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(680) %this, ptr noundef readonly captures(none) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

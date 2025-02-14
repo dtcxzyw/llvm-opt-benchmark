@@ -1225,7 +1225,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr noundef nonnull readonly captures(none) %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %g, ptr readonly captures(address) %terminal.coerce0, ptr noundef nonnull readonly captures(none) %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %vset = alloca %"class.std::set", align 8
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8

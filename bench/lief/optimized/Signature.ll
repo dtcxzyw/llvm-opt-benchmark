@@ -3249,7 +3249,7 @@ define noundef i32 @_ZNK4LIEF2PE9Signature7versionEv(ptr noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4LIEF2PE9Signature12content_infoEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4LIEF2PE9Signature12content_infoEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

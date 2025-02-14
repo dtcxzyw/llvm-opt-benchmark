@@ -1658,7 +1658,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %27, %_ZNSt7__cxx111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm2gi10CXXPattern10expandCodeERKNS_14CodeExpansionsENS_8ArrayRefINS_5SMLocEEENS_12function_refIFvRNS_11raw_ostreamEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, ptr readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm2gi10CXXPattern10expandCodeERKNS_14CodeExpansionsENS_8ArrayRefINS_5SMLocEEENS_12function_refIFvRNS_11raw_ostreamEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, ptr readonly captures(address_is_null) %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.llvm::raw_string_ostream", align 8

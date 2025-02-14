@@ -5667,7 +5667,7 @@ select.unfold:                                    ; preds = %139, %130
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @png_do_read_interlace(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @png_do_read_interlace(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %.sroa.0 = alloca i64, align 8
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %0, null
@@ -7005,7 +7005,7 @@ define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_paeth_1byte_pixel(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define internal void @png_read_filter_row_paeth_1byte_pixel(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -7057,7 +7057,7 @@ define internal void @png_read_filter_row_paeth_1byte_pixel(ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #7 {
+define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64

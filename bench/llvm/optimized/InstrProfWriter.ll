@@ -2051,7 +2051,7 @@ _ZN4llvm24InstrProfValueSiteRecord11sortByCountEv.exit: ; preds = %_ZN4llvm11sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15InstrProfWriter16addMemProfRecordEmRKNS_7memprof20IndexedMemProfRecordE(ptr noundef nonnull align 8 dereferenceable(5306) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(248) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15InstrProfWriter16addMemProfRecordEmRKNS_7memprof20IndexedMemProfRecordE(ptr noundef nonnull align 8 dereferenceable(5306) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(248) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::memprof::IndexedMemProfRecord", align 8
   %5 = alloca %"struct.std::pair.55", align 8
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %4) #25
@@ -2478,7 +2478,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %52, %_ZNK4llvm7memp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter19addMemProfCallStackEmRKNS_11SmallVectorImLj6EEENS_12function_refIFvNS_5ErrorEEEE(ptr noundef nonnull align 8 dereferenceable(5306) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter19addMemProfCallStackEmRKNS_11SmallVectorImLj6EEENS_12function_refIFvNS_5ErrorEEEE(ptr noundef nonnull align 8 dereferenceable(5306) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"struct.std::pair.73", align 8
@@ -4332,7 +4332,7 @@ _ZN4llvm15SmallVectorImplISt4pairImNS_7memprof20IndexedMemProfRecordEEE7reserveE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter16shouldEncodeDataERKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5306) %0, ptr noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm15InstrProfWriter16shouldEncodeDataERKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5306) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %1) local_unnamed_addr #11 align 2 {
   %3 = load i8, ptr %0, align 8, !tbaa !3, !range !186, !noundef !187
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.critedge
@@ -17058,7 +17058,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_7memprof9FrameStatENS_12DenseMapInfoImvE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN4llvm7memprof5FrameEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZL22writeMemProfFrameArrayRNS3_11ProfOStreamERNS3_9MapVectorImS5_NS3_8DenseMapImjNS3_12DenseMapInfoImvEENS3_6detail12DenseMapPairImjEEEENS3_11SmallVectorIS2_ImS5_ELj0EEEEERNSJ_ImNS4_9FrameStatESL_NSN_ImSV_EEEEE3$_0EEEvT_S11_T0_"(ptr %0, ptr readnone %1, ptr %2) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN4llvm7memprof5FrameEESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZL22writeMemProfFrameArrayRNS3_11ProfOStreamERNS3_9MapVectorImS5_NS3_8DenseMapImjNS3_12DenseMapInfoImvEENS3_6detail12DenseMapPairImjEEEENS3_11SmallVectorIS2_ImS5_ELj0EEEEERNSJ_ImNS4_9FrameStatESL_NSN_ImSV_EEEEE3$_0EEEvT_S11_T0_"(ptr %0, ptr readnone captures(address) %1, ptr %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -27996,7 +27996,7 @@ _ZN4llvm15InstrProfRecordD2Ev.exit:               ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_6detail12DenseMapPairImNS1_15InstrProfRecordEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15InstrProfWriter9writeTextERNS1_14raw_fd_ostreamEE3$_0EEEvT_SH_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.212", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader

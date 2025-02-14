@@ -381,7 +381,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01952874170
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(352) ptr @"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h6f3beb1227af4e82E"(ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(352) ptr @"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h6f3beb1227af4e82E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { ptr, [5 x i64] }, align 8
@@ -1785,7 +1785,7 @@ define hidden noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfigur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new17hc776a3b8ae105a0eE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 1 %3, i64 %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef align 8 %6, ptr %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %7, i64 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new17hc776a3b8ae105a0eE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 1 %3, i64 %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noundef align 8 %6, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %7, i64 noundef %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9) unnamed_addr #0 personality ptr @rust_eh_personality {
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { [1 x i64], i64, [1 x i64] }, align 8

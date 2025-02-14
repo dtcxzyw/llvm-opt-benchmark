@@ -170,7 +170,7 @@ delete.end:                                       ; preds = %_ZN6icu_7512_GLOBAL
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @umutablecptrie_clone_75(ptr noundef readonly %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @umutablecptrie_clone_75(ptr noundef readonly captures(address_is_null) %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -836,7 +836,7 @@ entry:
 declare i32 @ucptrie_internalGetRange_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly captures(none) %trie, i32 noundef %start, ptr noundef readonly %filter, ptr noundef %context, ptr noundef writeonly %pValue) #0 {
+define internal noundef i32 @_ZN12_GLOBAL__N_18getRangeEPKviPFjS1_jES1_Pj(ptr noundef readonly captures(none) %trie, i32 noundef %start, ptr noundef readonly captures(address_is_null) %filter, ptr noundef %context, ptr noundef writeonly captures(address_is_null) %pValue) #0 {
 entry:
   %cmp.i = icmp ugt i32 %start, 1114111
   br i1 %cmp.i, label %_ZNK6icu_7512_GLOBAL__N_120MutableCodePointTrie8getRangeEiPFjPKvjES3_Pj.exit, label %if.end.i

@@ -1148,7 +1148,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12VTableLayoutD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12VTableLayoutD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2946,7 +2946,7 @@ _ZN4llvm11SmallVectorISt4pairImN5clang9ThunkInfoEELj1EED2Ev.exit: ; preds = %_ZN
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilderD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(912) %0) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ItaniumVTableBuilderD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(912) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -28150,7 +28150,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPPKN5clang13CXXMethod
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang13CXXMethodDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10AddMethodsENS0_13BaseSubobjectENS0_9CharUnitsEPKNS0_13CXXRecordDeclESB_RN4llvm14SmallSetVectorISE_Lj8EEEE3$_0EEEvT_SL_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang13CXXMethodDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10AddMethodsENS0_13BaseSubobjectENS0_9CharUnitsEPKNS0_13CXXRecordDeclESB_RN4llvm14SmallSetVectorISE_Lj8EEEE3$_0EEEvT_SL_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -29337,7 +29337,7 @@ _ZSt17__rotate_adaptiveIPPKN5clang13CXXMethodDeclES4_lET_S5_S5_S5_T1_S6_T0_S6_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPPKN5clang13CXXMethodDeclES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10AddMethodsENS0_13BaseSubobjectENS0_9CharUnitsEPKNS0_13CXXRecordDeclESB_RN4llvm14SmallSetVectorISE_Lj8EEEE3$_0EEET0_T_SM_SM_SM_SL_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIPPKN5clang13CXXMethodDeclES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10AddMethodsENS0_13BaseSubobjectENS0_9CharUnitsEPKNS0_13CXXRecordDeclESB_RN4llvm14SmallSetVectorISE_Lj8EEEE3$_0EEET0_T_SM_SM_SM_SL_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #0 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7
@@ -32656,7 +32656,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i: ; preds = %74
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN5clang9ThunkInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #21 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN5clang9ThunkInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #21 {
   %3 = alloca %"struct.clang::ThunkInfo", align 8
   %4 = alloca %"struct.clang::ThunkInfo", align 8
   %5 = icmp eq ptr %0, %1
@@ -34436,7 +34436,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20findPathsToSubobjectRN5clang10ASTContextERKNS_15ASTRecordLayoutEPKNS_13CXXRecordDeclENS_9CharUnitsENS_13BaseSubobjectERN4llvm9SetVectorIS9_St6vectorIS9_SaIS9_EENSA_8DenseSetIS9_NSA_12DenseMapInfoIS9_vEEEELj0EEERNSt7__cxx114listISJ_SaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL20findPathsToSubobjectRN5clang10ASTContextERKNS_15ASTRecordLayoutEPKNS_13CXXRecordDeclENS_9CharUnitsENS_13BaseSubobjectERN4llvm9SetVectorIS9_St6vectorIS9_SaIS9_EENSA_8DenseSetIS9_NSA_12DenseMapInfoIS9_vEEEELj0EEERNSt7__cxx114listISJ_SaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef %2, i64 %3, ptr captures(address) %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.clang::BaseSubobject", align 8
@@ -40215,7 +40215,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN5clang9ThunkInfoES2
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN5clang9ThunkInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114VFTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #21 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN5clang9ThunkInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114VFTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_SD_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #21 {
   %3 = alloca %"struct.clang::ThunkInfo", align 8
   %4 = alloca %"struct.clang::ThunkInfo", align 8
   %5 = icmp eq ptr %0, %1
@@ -41448,7 +41448,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPN5clang9ThunkInfoES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114VFTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #21 {
+define internal fastcc void @"_ZSt12__move_mergeIPN5clang9ThunkInfoES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114VFTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #21 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7

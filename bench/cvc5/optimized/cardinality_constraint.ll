@@ -322,7 +322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal21CardinalityConstraint13getUpperBoundEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal21CardinalityConstraint13getUpperBoundEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_ubound = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_ubound
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal29CombinedCardinalityConstraint13getUpperBoundEv(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal29CombinedCardinalityConstraint13getUpperBoundEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
   ret ptr %this
 }

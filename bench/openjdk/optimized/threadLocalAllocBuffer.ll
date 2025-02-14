@@ -345,7 +345,7 @@ _ZN22ThreadLocalAllocBuffer9remainingEv.exit:     ; preds = %2, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN22ThreadLocalAllocBuffer6threadEv(ptr noundef nonnull readnone align 8 dereferenceable(116) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZN22ThreadLocalAllocBuffer6threadEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(116) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -432
   ret ptr %2
 }
@@ -584,7 +584,7 @@ _ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit: ; preds = %53, %37, %_ZN22Thr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

@@ -152,7 +152,7 @@ $_ZTVN4llvm17CodeGenDataReaderE = comdat any
 @_ZTVN4llvm17CodeGenDataReaderE = linkonce_odr unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr @_ZN4llvm17CodeGenDataReaderD2Ev, ptr @_ZN4llvm17CodeGenDataReaderD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17CodeGenDataReader19mergeFromObjectFileEPKNS_6object10ObjectFileERNS_22OutlinedHashTreeRecordERNS_23StableFunctionMapRecordEPm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [2 x i64], align 16
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.llvm::OutlinedHashTreeRecord", align 8

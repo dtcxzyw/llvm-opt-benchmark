@@ -358,7 +358,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @put_nullptr(ptr noundef %f, ptr noundef readnone %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
+define internal range(i32 -22, 1) i32 @put_nullptr(ptr noundef %f, ptr noundef readnone captures(address_is_null) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cmp = icmp eq ptr %pv, null
   br i1 %cmp, label %if.then, label %if.end

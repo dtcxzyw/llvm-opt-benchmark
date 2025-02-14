@@ -176,7 +176,7 @@ if.end4:                                          ; preds = %if.then3, %end
 declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @TS_CONF_get_tsa_section(ptr noundef %conf, ptr noundef readnone %section) local_unnamed_addr #0 {
+define ptr @TS_CONF_get_tsa_section(ptr noundef %conf, ptr noundef readnone captures(address_is_null, ret: address, provenance) %section) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %section, null
   br i1 %tobool.not, label %if.then, label %if.end3

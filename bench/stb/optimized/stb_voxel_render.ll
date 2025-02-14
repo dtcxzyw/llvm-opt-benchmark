@@ -3255,7 +3255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned %mm) local_unnamed_addr #13 {
+define noundef ptr @stbvox_get_input_description(ptr noundef readnone returned captures(ret: address, provenance) %mm) local_unnamed_addr #13 {
 entry:
   ret ptr %mm
 }

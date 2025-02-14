@@ -71,7 +71,7 @@ declare ptr @Aig_MmFlexStart(...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_LibFree(ptr noundef %0) local_unnamed_addr #0 {
+define void @Amap_LibFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %91, label %3
 
@@ -413,7 +413,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 5, i64 1, ptr %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !52

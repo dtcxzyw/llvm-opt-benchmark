@@ -1607,7 +1607,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$aho_corasick..packed..api..Search
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha56c5583cacf5ffaE.llvm.9705991524997079221"(i64 noundef %0, ptr noalias noundef nonnull readnone align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha56c5583cacf5ffaE.llvm.9705991524997079221"(i64 noundef %0, ptr noalias noundef nonnull readnone align 4 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !81
 
@@ -2717,39 +2717,39 @@ define hidden { ptr, ptr } @"_ZN14regex_automata4meta8strategy12Pre$LT$P$GT$3new
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17h5f4d7be1141d8eaaE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17h5f4d7be1141d8eaaE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17h8a0fa1ad1356df41E.llvm.9705991524997079221"(ptr noalias noundef readonly align 32 dereferenceable(320) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17h8a0fa1ad1356df41E.llvm.9705991524997079221"(ptr noalias noundef readonly align 32 captures(ret: address, provenance) dereferenceable(320) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17haa71da940ef2b974E.llvm.9705991524997079221"(ptr noalias noundef readonly align 8 dereferenceable(536) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17haa71da940ef2b974E.llvm.9705991524997079221"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(536) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   ret ptr %2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hd3c8862d309b5d8cE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hd3c8862d309b5d8cE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hd9fdc26d0bb5cc71E.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hd9fdc26d0bb5cc71E.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hdaf3214cc93d055aE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17hdaf3214cc93d055aE.llvm.9705991524997079221"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17he237b424d0436b45E.llvm.9705991524997079221"(ptr noalias noundef readonly align 8 dereferenceable(264) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$10group_info17he237b424d0436b45E.llvm.9705991524997079221"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(264) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   ret ptr %2
 }
@@ -9641,7 +9641,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder16set_look_matcher1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN14regex_automata3nfa8thompson7builder7Builder16get_look_matcher17hf28d16ca361bf93eE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN14regex_automata3nfa8thompson7builder7Builder16get_look_matcher17hf28d16ca361bf93eE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 106
   ret ptr %2
 }
@@ -10181,7 +10181,7 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h16e0ea42d0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h8f7e76da2856e79dE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h8f7e76da2856e79dE(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca [1 x i8], align 1

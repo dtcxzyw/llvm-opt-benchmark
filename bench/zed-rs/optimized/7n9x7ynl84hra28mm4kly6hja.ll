@@ -1107,7 +1107,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN123_$LT$alacr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h52d890e5741003fbE"(i64 noundef %0, ptr noundef readnone returned %1) unnamed_addr #6 {
+define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h52d890e5741003fbE"(i64 noundef %0, ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %1) unnamed_addr #6 {
   %switch = icmp eq i64 %0, 0
   br i1 %switch, label %5, label %3
 
@@ -10486,7 +10486,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN50_$LT$std..path..Path$u20$as$u20$
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2e40ddc7610257bfE.llvm.8621876355426791832"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h2e40ddc7610257bfE.llvm.8621876355426791832"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, i8, [7 x i8] }, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2288)
   %.not.i = icmp eq i64 %2, 0
@@ -14259,7 +14259,7 @@ define hidden { i64, i32 } @"_ZN88_$LT$alacritty_terminal..index..Point$LT$L$C$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h77eb17efca258ff5E.llvm.8621876355426791832"(ptr noalias noundef readonly returned align 1 dereferenceable(323) %0) unnamed_addr #11 {
+define hidden noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h77eb17efca258ff5E.llvm.8621876355426791832"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(323) %0) unnamed_addr #11 {
   ret ptr %0
 }
 

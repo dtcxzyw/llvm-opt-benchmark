@@ -140,7 +140,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__signal_loop_cleanup(ptr noundef %loop) local_unnamed_addr #0 {
+define hidden void @uv__signal_loop_cleanup(ptr noundef captures(address) %loop) local_unnamed_addr #0 {
 entry:
   %handle_queue = getelementptr inbounds nuw i8, ptr %loop, i64 16
   %q.012 = load ptr, ptr %handle_queue, align 8
@@ -191,7 +191,7 @@ if.end20:                                         ; preds = %if.then14, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__signal_stop(ptr noundef %handle) unnamed_addr #0 {
+define internal fastcc void @uv__signal_stop(ptr noundef captures(address) %handle) unnamed_addr #0 {
 entry:
   %data.i.i = alloca i8, align 1
   %sa.i19 = alloca %struct.sigaction, align 8
@@ -1072,7 +1072,7 @@ return:                                           ; preds = %if.end.i, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__signal_close(ptr noundef %handle) local_unnamed_addr #0 {
+define hidden void @uv__signal_close(ptr noundef captures(address) %handle) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__signal_stop(ptr noundef %handle)
   ret void
@@ -1767,7 +1767,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_signal_stop(ptr noundef %handle) local_unnamed_addr #0 {
+define dso_local noundef i32 @uv_signal_stop(ptr noundef captures(address) %handle) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__signal_stop(ptr noundef %handle)
   ret i32 0

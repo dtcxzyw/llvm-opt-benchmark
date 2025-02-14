@@ -641,7 +641,7 @@ define internal fastcc i32 @AddDataToChunkList(ptr noundef nonnull %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPMuxSetAnimationParams(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @WebPMuxSetAnimationParams(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca %struct.WebPData, align 8
   store ptr %3, ptr %4, align 8
@@ -873,7 +873,7 @@ define i32 @WebPMuxDeleteFrame(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare i32 @MuxImageDeleteNth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [10 x i8], align 1
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca i32, align 4

@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory13SortInference9UnionFind3setERS3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %c) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory13SortInference9UnionFind3setERS3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %c) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -21333,7 +21333,7 @@ eh.resume:                                        ; preds = %lpad21, %lpad11, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory13SortInference11isMonotonicENS0_8TypeNodeE(ptr noundef nonnull readonly align 8 dereferenceable(648) %this, ptr noundef readonly captures(none) %tn) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory13SortInference11isMonotonicENS0_8TypeNodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(648) %this, ptr noundef readonly captures(none) %tn) local_unnamed_addr #6 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

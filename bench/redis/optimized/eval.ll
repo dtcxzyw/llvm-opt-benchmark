@@ -571,7 +571,7 @@ scriptingRelease.exit:                            ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %body, ptr noundef writeonly captures(none) %out_flags, ptr noundef writeonly %out_shebang_len, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evalExtractShebangFlags(ptr noundef %body, ptr noundef writeonly captures(none) %out_flags, ptr noundef writeonly captures(address_is_null) %out_shebang_len, ptr noundef writeonly captures(address_is_null) %err) local_unnamed_addr #0 {
 entry:
   %numparts = alloca i32, align 4
   %numflags = alloca i32, align 4

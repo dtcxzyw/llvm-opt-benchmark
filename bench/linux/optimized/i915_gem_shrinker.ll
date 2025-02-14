@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_i915_gem_shrink.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace608, ptr @trace_i915_gem_shrink.__UNIQUE_ID___addressable___SCK__tp_func_i915_gem_shrink607], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [3 x %struct.anon], align 16
   %7 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
@@ -716,7 +716,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @i915_gem_shrinker_scan(ptr noundef readonly captures(none) %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
+define internal i64 @i915_gem_shrinker_scan(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) initializes((16, 24)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -884,7 +884,7 @@ define hidden noundef zeroext i1 @_ZNK8FrameMap22location_for_sp_offsetE8ByteSiz
 declare noundef zeroext i1 @_ZN8Location21legal_offset_in_bytesEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK8FrameMap18locations_for_slotEiN8Location4TypeEPS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK8FrameMap18locations_for_slotEiN8Location4TypeEPS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %1, %7

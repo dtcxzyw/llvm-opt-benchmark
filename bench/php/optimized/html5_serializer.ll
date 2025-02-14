@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [3 x i8] c"</\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1

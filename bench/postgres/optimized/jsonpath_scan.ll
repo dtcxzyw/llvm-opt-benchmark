@@ -2724,7 +2724,7 @@ define dso_local void @jsonpath_yyfree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @jsonpath_yy_flush_buffer(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local void @jsonpath_yy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

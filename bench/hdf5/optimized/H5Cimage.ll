@@ -686,7 +686,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__get_cache_image_config(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C__get_cache_image_config(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %8
 
@@ -2941,7 +2941,7 @@ define internal range(i32 -1, 2) i32 @H5C__image_entry_cmp(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_set_cache_image_config(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C_set_cache_image_config(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %9
 
@@ -2983,7 +2983,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_image_config(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_validate_cache_image_config(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C_validate_cache_image_config(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 

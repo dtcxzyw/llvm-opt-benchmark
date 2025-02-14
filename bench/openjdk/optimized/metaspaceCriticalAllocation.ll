@@ -109,7 +109,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN27MetaspaceCriticalAllocation6unlinkEP25MetadataAllocationRequestS1_(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN27MetaspaceCriticalAllocation6unlinkEP25MetadataAllocationRequestS1_(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN27MetaspaceCriticalAllocation14_requests_headE, align 8
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %5, label %8
@@ -145,7 +145,7 @@ define hidden void @_ZN27MetaspaceCriticalAllocation6unlinkEP25MetadataAllocatio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27MetaspaceCriticalAllocation6removeEP25MetadataAllocationRequest(ptr noundef readnone %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27MetaspaceCriticalAllocation6removeEP25MetadataAllocationRequest(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @MetaspaceCritical_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3
@@ -218,7 +218,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN27MetaspaceCriti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequest(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN27MetaspaceCriticalAllocation21try_allocate_criticalEP25MetadataAllocationRequest(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @MetaspaceCritical_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3

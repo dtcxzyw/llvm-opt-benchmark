@@ -2035,7 +2035,7 @@ define internal fastcc ptr @ddLinearAndSiftingUp(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc ptr @ddUndoMoves(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
   %.not64 = icmp eq ptr %1, null
   br i1 %.not64, label %.loopexit, label %.lr.ph
 

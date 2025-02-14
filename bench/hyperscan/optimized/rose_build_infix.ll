@@ -253,7 +253,7 @@ $_ZTSN5boost21checked_array_deleterINS_18default_color_typeEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue219findMaxInfixMatchesERKNS_7left_idERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %left, ptr noundef nonnull align 8 dereferenceable(48) %lits) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue219findMaxInfixMatchesERKNS_7left_idERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %left, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %lits) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.ue2::CharReach", align 8
   %ref.tmp2.i.i.i.i.i = alloca %"struct.ue2::ue2_literal::elem", align 2
@@ -398,7 +398,7 @@ return:                                           ; preds = %do.end49.i, %for.bo
 declare noundef zeroext i1 @_ZN3ue210onlyOneTopERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2147483647) i32 @_ZN3ue2L21findMaxLiteralMatchesERKNS_8NGHolderERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull readonly align 8 dereferenceable(48) %lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 2147483647) i32 @_ZN3ue2L21findMaxLiteralMatchesERKNS_8NGHolderERKSt3setINS_11ue2_literalESt4lessIS4_ESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.i = alloca %"class.ue2::flat_set", align 8
   %next.i = alloca %"class.ue2::flat_set", align 8

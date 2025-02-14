@@ -39,7 +39,7 @@ $_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_i
 @.str.9 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17grpc_event_stringB5cxx11P10grpc_event(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %ev) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z17grpc_event_stringB5cxx11P10grpc_event(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(address_is_null) %ev) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i58 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i59 = alloca %"class.std::__cxx11::basic_string", align 8

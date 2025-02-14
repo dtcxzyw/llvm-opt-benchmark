@@ -618,7 +618,7 @@ for.end9:                                         ; preds = %for.body4, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneRSt6vectorIS2_SaIS2_EEj(ptr noundef %_dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %src, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneRSt6vectorIS2_SaIS2_EEj(ptr noundef captures(address_is_null) %_dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %src, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcList = alloca %"class.std::vector.8", align 8
   %cmp = icmp eq ptr %_dest, null
@@ -814,7 +814,7 @@ return:                                           ; preds = %if.then.i.i.i35, %i
 declare void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_(ptr noundef %_dest, ptr noundef %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner13CopySceneFlatEPP7aiScenePKS1_(ptr noundef captures(address_is_null) %_dest, ptr noundef captures(address_is_null) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -871,7 +871,7 @@ declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneS2_RSt6vectorINS_14AttachmentInfoESaIS5_EEj(ptr noundef %_dest, ptr noundef %master, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %srcList, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeScenesEPP7aiSceneS2_RSt6vectorINS_14AttachmentInfoESaIS5_EEj(ptr noundef captures(address_is_null) %_dest, ptr noundef %master, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %srcList, i32 noundef %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.std::vector", align 8
   %ref.tmp16 = alloca %"struct.Assimp::SceneHelper", align 8
@@ -4710,7 +4710,7 @@ entry:
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP9aiTexturePKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -4773,7 +4773,7 @@ if.end20:                                         ; preds = %entry, %if.end14, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiMaterialPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiMaterialPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -4890,7 +4890,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -5255,7 +5255,7 @@ if.end41:                                         ; preds = %_ZN6Assimp13SceneCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiNodePKS1_(ptr noundef writeonly captures(none) %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiNodePKS1_(ptr noundef writeonly captures(none) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1144) ptr @_Znwm(i64 noundef 1144) #19
   invoke void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %call)
@@ -5368,7 +5368,7 @@ for.end:                                          ; preds = %for.body, %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP7aiLightPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP7aiLightPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -5445,7 +5445,7 @@ return:                                           ; preds = %entry, %_ZN7aiLight
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP8aiCameraPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP8aiCameraPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -5483,7 +5483,7 @@ return:                                           ; preds = %entry, %_ZN8aiCamer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP11aiAnimationPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP11aiAnimationPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -5673,7 +5673,7 @@ _ZNSt12_Vector_baseIN6Assimp11SceneHelperESaIS1_EED2Ev.exit: ; preds = %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner19BuildUniqueBoneListERNSt7__cxx114listINS_12BoneWithHashESaIS3_EEEN9__gnu_cxx17__normal_iteratorIPKP6aiMeshSt6vectorISA_SaISA_EEEESG_(ptr noundef nonnull align 8 dereferenceable(24) %asBones, ptr readonly %it.coerce, ptr readnone %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner19BuildUniqueBoneListERNSt7__cxx114listINS_12BoneWithHashESaIS3_EEEN9__gnu_cxx17__normal_iteratorIPKP6aiMeshSt6vectorISA_SaISA_EEEESG_(ptr noundef nonnull align 8 dereferenceable(24) %asBones, ptr readonly captures(address) %it.coerce, ptr readnone captures(address) %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not78 = icmp eq ptr %it.coerce, %end.coerce
   br i1 %cmp.i.not78, label %for.end34, label %for.cond2.preheader.lr.ph
@@ -6000,7 +6000,7 @@ for.end34:                                        ; preds = %for.end30, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner10MergeBonesEP6aiMeshN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESA_(ptr noundef %out, ptr %it.coerce, ptr %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner10MergeBonesEP6aiMeshN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESA_(ptr noundef captures(address_is_null) %out, ptr captures(address) %it.coerce, ptr captures(address) %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %asBones = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp19 = alloca %struct.aiString, align 4
@@ -6409,7 +6409,7 @@ _ZNSt7__cxx1110_List_baseIN6Assimp12BoneWithHashESaIS2_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner11MergeMeshesEPP6aiMeshjN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly %_out, i32 noundef %0, ptr %begin.coerce, ptr %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner11MergeMeshesEPP6aiMeshjN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly captures(address_is_null) %_out, i32 noundef %0, ptr captures(address) %begin.coerce, ptr captures(address) %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7524,7 +7524,7 @@ terminate.lpad:                                   ; preds = %if.then55
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner14MergeMaterialsEPP10aiMaterialN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly %dest, ptr readonly %begin.coerce, ptr readnone %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner14MergeMaterialsEPP10aiMaterialN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEESB_(ptr noundef writeonly captures(address_is_null) %dest, ptr readonly captures(address) %begin.coerce, ptr readnone captures(address) %end.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prop_exist = alloca ptr, align 8
   %cmp = icmp eq ptr %dest, null
@@ -7688,7 +7688,7 @@ declare void @_ZN10aiMaterial5ClearEv(ptr noundef nonnull align 8 dereferenceabl
 declare i32 @aiGetMaterialProperty(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef %_dest, ptr noundef readonly %src, i1 noundef zeroext %allocate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner9CopySceneEPP7aiScenePKS1_b(ptr noundef captures(address_is_null) %_dest, ptr noundef readonly captures(address_is_null) %src, i1 noundef zeroext %allocate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -8504,7 +8504,7 @@ for.end:                                          ; preds = %_ZN6Assimp13SceneCo
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP8aiStringPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP8aiStringPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -8536,7 +8536,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiAnimMeshPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiAnimMeshPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -8727,7 +8727,7 @@ while.end15:                                      ; preds = %_ZN6Assimp12GetArra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiNodeAnimPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiNodeAnimPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -8862,7 +8862,7 @@ return:                                           ; preds = %arrayctor.cont.i35,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP15aiMeshMorphAnimPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP15aiMeshMorphAnimPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -8986,7 +8986,7 @@ for.end:                                          ; preds = %for.body, %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiBonePKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP6aiBonePKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address) %src) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null
@@ -9085,7 +9085,7 @@ return:                                           ; preds = %arrayctor.cont.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiMetadataPKS1_(ptr noundef writeonly %_dest, ptr noundef readonly %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SceneCombiner4CopyEPP10aiMetadataPKS1_(ptr noundef writeonly captures(address_is_null) %_dest, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %_dest, null
   %cmp1 = icmp eq ptr %src, null

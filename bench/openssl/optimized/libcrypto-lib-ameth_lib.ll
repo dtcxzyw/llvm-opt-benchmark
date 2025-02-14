@@ -66,7 +66,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_asn1_find(ptr noundef writeonly %pe, i32 noundef %type) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_asn1_find(ptr noundef writeonly captures(address_is_null) %pe, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.evp_pkey_asn1_method_st, align 8
   %t.i = alloca ptr, align 8
@@ -154,7 +154,7 @@ declare ptr @ENGINE_get_pkey_asn1_meth_engine(i32 noundef) local_unnamed_addr #1
 declare ptr @ENGINE_get_pkey_asn1_meth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_PKEY_asn1_find_str(ptr noundef writeonly %pe, ptr noundef %str, i32 noundef %len) local_unnamed_addr #0 {
+define ptr @EVP_PKEY_asn1_find_str(ptr noundef writeonly captures(address_is_null) %pe, ptr noundef %str, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %e = alloca ptr, align 8
   %cmp = icmp eq i32 %len, -1
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly %ppkey_id, ptr noundef writeonly %ppkey_base_id, ptr noundef writeonly %ppkey_flags, ptr noundef writeonly %pinfo, ptr noundef writeonly %ppem_str, ptr noundef readonly %ameth) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @EVP_PKEY_asn1_get0_info(ptr noundef writeonly captures(address_is_null) %ppkey_id, ptr noundef writeonly captures(address_is_null) %ppkey_base_id, ptr noundef writeonly captures(address_is_null) %ppkey_flags, ptr noundef writeonly captures(address_is_null) %pinfo, ptr noundef writeonly captures(address_is_null) %ppem_str, ptr noundef readonly captures(address_is_null) %ameth) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %ameth, null
   br i1 %tobool.not, label %return, label %if.end

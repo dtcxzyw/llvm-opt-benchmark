@@ -21905,7 +21905,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13318982336751502688.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$node_runtime..NodeRuntimeTrait$GT$$GT$17h30829b0ad3e05e4fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$node_runtime..NodeRuntimeTrait$GT$$GT$17h30829b0ad3e05e4fE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4
@@ -24586,7 +24586,7 @@ define hidden void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h180d5c5498a7b7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow12Cow$LT$B$GT$6to_mut17hce0d8a83b2063038E"(ptr noalias noundef returned align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc6borrow12Cow$LT$B$GT$6to_mut17hce0d8a83b2063038E"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !780, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -40388,7 +40388,7 @@ define void @_ZN9languages4yaml23server_binary_arguments17h2f576996d002ec38E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN9languages4yaml14YamlLspAdapter3new17h5f74b6f14d3edba5E(ptr noundef nonnull readnone returned %0) unnamed_addr #12 {
+define hidden noundef nonnull ptr @_ZN9languages4yaml14YamlLspAdapter3new17h5f74b6f14d3edba5E(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #12 {
   ret ptr %0
 }
 

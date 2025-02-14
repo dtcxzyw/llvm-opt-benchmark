@@ -2632,7 +2632,7 @@ sw.epilog:                                        ; preds = %_ZNK6google8protobu
 declare void @_ZN6google8protobuf8internal14ArenaStringPtr3SetIJEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf5Value8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf5Value8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end

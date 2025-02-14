@@ -35,7 +35,7 @@ $__clang_call_terminate = comdat any
 @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_118evaluateShiftToBoxERKNS_11BasicVectorIfEEPA3_KfRK7PbcTypeRKNS_12UnitCellTypeERKNS_13CenteringTypeEENK3$_0clEv" = private unnamed_addr constant [186 x i8] c"auto gmx::(anonymous namespace)::evaluateShiftToBox(const RVec &, const real (*)[3], const PbcType &, const UnitCellType &, const CenteringType &)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, ptr %1, ptr readnone %2) local_unnamed_addr #0 {
+define void @_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, ptr captures(address) %1, ptr readnone captures(address) %2) local_unnamed_addr #0 {
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4
   %.not17.i = icmp eq ptr %1, %2
@@ -63,7 +63,7 @@ define void @_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28placeCoordinatesWithCOMInBoxERK7PbcTypeNS_12UnitCellTypeENS_13CenteringTypeEPA3_KfNS_8ArrayRefINS_11BasicVectorIfEEEERK10gmx_mtop_tNS_12COMShiftTypeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr %4, ptr readnone captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %6, i32 noundef %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx28placeCoordinatesWithCOMInBoxERK7PbcTypeNS_12UnitCellTypeENS_13CenteringTypeEPA3_KfNS_8ArrayRefINS_11BasicVectorIfEEEERK10gmx_mtop_tNS_12COMShiftTypeE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr captures(address) %4, ptr readnone captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(768) %6, i32 noundef %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.gmx::BasicVector", align 8
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = alloca %"class.std::vector.44", align 8

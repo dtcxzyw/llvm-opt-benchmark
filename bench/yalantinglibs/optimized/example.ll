@@ -97847,7 +97847,7 @@ if.end:                                           ; preds = %_ZNSt8__detail16_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN7cinatra17coro_http_requestERNS0_18coro_http_responseEEZ21test_coro_http_servervE3$_0E9_M_invokeERKSt9_Any_dataS2_S4_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRN7cinatra17coro_http_requestERNS0_18coro_http_responseEEZ21test_coro_http_servervE3$_0E9_M_invokeERKSt9_Any_dataS2_S4_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readnone align 8 captures(none) %__args, ptr noundef nonnull align 8 captures(address) dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator", align 1
@@ -98995,7 +98995,7 @@ _ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIvEENS_16callback_awaitor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4asio6detail11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEE11do_completeEPvPSQ_RKSt10error_codem"(ptr noundef readnone %owner, ptr noundef %base, ptr nonnull readnone align 8 captures(none) %0, i64 %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4asio6detail11executor_opINS0_7binder0IZNK7coro_io11post_helperIN12async_simple3TryIvEEZZ21test_coro_http_servervENK3$_1clERN7cinatra17coro_http_requestERNS9_18coro_http_responseEEUlvE_EclINS3_21callback_awaitor_baseIS7_NS3_16callback_awaitorIS7_EEE15awaitor_handlerEEEvT_EUlvE_EESaIvENS0_19scheduler_operationEE11do_completeEPvPSQ_RKSt10error_codem"(ptr noundef readnone captures(address_is_null) %owner, ptr noundef %base, ptr nonnull readnone align 8 captures(none) %0, i64 %1) #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then5.i:
   %allocator = alloca %"class.std::allocator.51", align 1
   %p = alloca %"struct.asio::detail::executor_op<asio::detail::binder0<(lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:315:44)>, std::allocator<void>>::ptr.1349", align 8

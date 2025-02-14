@@ -680,7 +680,7 @@ define dso_local void @intel_gt_fini_timelines(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_show_timelines(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_gt_show_timelines(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8

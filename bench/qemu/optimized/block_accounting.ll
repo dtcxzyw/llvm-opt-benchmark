@@ -162,7 +162,7 @@ declare void @timed_average_init(ptr noundef, i32 noundef, i64 noundef) local_un
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @block_acct_interval_next(ptr noundef readonly captures(none) %stats, ptr noundef readonly %s) local_unnamed_addr #4 {
+define dso_local ptr @block_acct_interval_next(ptr noundef readonly captures(none) %stats, ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   %intervals = getelementptr inbounds nuw i8, ptr %stats, i64 344
@@ -200,7 +200,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr noundef captures(none) %stats, i32 noundef %type, ptr noundef readonly %boundaries) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @block_latency_histogram_set(ptr noundef captures(none) %stats, i32 noundef %type, ptr noundef readonly captures(address_is_null) %boundaries) local_unnamed_addr #0 {
 entry:
   %latency_histogram = getelementptr inbounds nuw i8, ptr %stats, i64 360
   %idxprom = zext i32 %type to i64

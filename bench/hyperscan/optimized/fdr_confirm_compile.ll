@@ -99,7 +99,7 @@ $_ZN3ue212bytecode_ptrIhEC2Emm = comdat any
 @.str.3 = private unnamed_addr constant [8 x i8] c"map::at\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214setupFullConfsERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_17EngineDescriptionERKSt3mapIjS0_IjSaIjEESt4lessIjESaISt4pairIKjSB_EEEb(ptr noalias sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lits, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %eng, ptr noundef nonnull readonly align 8 dereferenceable(48) %bucketToLits, i1 noundef zeroext %make_small) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214setupFullConfsERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_17EngineDescriptionERKSt3mapIjS0_IjSaIjEESt4lessIjESaISt4pairIKjSB_EEEb(ptr noalias sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lits, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %eng, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %bucketToLits, i1 noundef zeroext %make_small) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::vector<unsigned int>>>, std::less<unsigned int>>::_Auto_node", align 8
   %mask.i58.i.i = alloca i64, align 8

@@ -3899,7 +3899,7 @@ declare i32 @_PyThreadState_IsRunningMain(ptr noundef) local_unnamed_addr #0
 declare void @_PyInterpreterState_SetNotRunningMain(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @Py_FdIsInteractive(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @Py_FdIsInteractive(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @fileno(ptr noundef %0) #23
   %4 = tail call i32 @isatty(i32 noundef %3) #23
   %.not = icmp eq i32 %4, 0

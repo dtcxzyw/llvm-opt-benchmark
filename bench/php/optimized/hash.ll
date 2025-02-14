@@ -253,7 +253,7 @@ define hidden ptr @lexbor_hash_create() local_unnamed_addr #2 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lexbor_hash_init(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @lexbor_hash_init(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %21, label %5
 

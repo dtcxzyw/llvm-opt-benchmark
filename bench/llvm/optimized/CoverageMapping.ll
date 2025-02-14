@@ -8885,7 +8885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8coverage15CoverageMapping15loadFromReadersENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderERS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(492) %3, ptr noundef nonnull align 8 dereferenceable(98) initializes((96, 98)) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8coverage15CoverageMapping15loadFromReadersENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderERS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(492) %3, ptr noundef nonnull align 8 dereferenceable(98) initializes((96, 98)) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::coverage::CoverageMappingIterator", align 8
   %8 = load ptr, ptr %3, align 8, !tbaa !109
@@ -8981,7 +8981,7 @@ _ZN4llvm5ErrorD2Ev.exit43:                        ; preds = %._crit_edge, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.275") align 8 captures(none) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(492) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.275") align 8 captures(none) initializes((0, 8)) %0, ptr captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(492) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
@@ -20827,7 +20827,7 @@ _ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_c
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #19 {
+define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #19 {
   %.sroa.0.i = alloca { %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter", %"class.std::variant", i32, i32 }, align 8
   %.sroa.7.i = alloca <{ i64, i64, i8, i8, [6 x i8] }>, align 8
   %3 = alloca %"struct.llvm::coverage::CountedRegion", align 8
@@ -21478,7 +21478,7 @@ _ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12emplace_backIJRjS6_RKmRb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt27__stable_partition_adaptiveIPPKN4llvm8coverage13CountedRegionES5_N9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_SF_T1_T2_T0_SH_(ptr noundef %0, ptr noundef %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZSt27__stable_partition_adaptiveIPPKN4llvm8coverage13CountedRegionES5_N9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_SF_T1_T2_T0_SH_(ptr noundef %0, ptr noundef captures(address) %1, ptr %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %3, 1
   br i1 %7, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit, label %8
 
@@ -28889,7 +28889,7 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit:           ; preds = %_ZN4llvm15SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.684", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader

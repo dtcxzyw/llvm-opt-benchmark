@@ -2270,7 +2270,7 @@ define hidden i32 @sanitize_usb_max_packet_size(i8 noundef zeroext %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_usb_endpoint_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #1 {
+define hidden noundef i32 @dissect_usb_endpoint_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct._address, align 8
@@ -5099,7 +5099,7 @@ define internal i32 @dissect_darwin_usb(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netmon_usb_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_netmon_usb_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -6125,7 +6125,7 @@ proto_item_set_generated.exit:                    ; preds = %181, %187, %190
 declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_setup_get_status_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) #1 {
+define internal noundef i32 @dissect_usb_setup_get_status_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
   %6 = load i32, ptr @hf_usb_value, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #11
   %.not = icmp eq ptr %4, null
@@ -6156,7 +6156,7 @@ define internal noundef i32 @dissect_usb_setup_get_status_request(ptr readnone c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_setup_clear_feature_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) #1 {
+define internal noundef i32 @dissect_usb_setup_clear_feature_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %6
 
@@ -6194,7 +6194,7 @@ switch.lookup:                                    ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_setup_set_feature_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) #1 {
+define internal noundef i32 @dissect_usb_setup_set_feature_request(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %6
 
@@ -6246,7 +6246,7 @@ define internal noundef i32 @dissect_usb_setup_set_address_request(ptr readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_setup_get_descriptor_request(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) #1 {
+define internal noundef i32 @dissect_usb_setup_get_descriptor_request(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
   %6 = alloca %struct._usb_trans_info_t, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %7

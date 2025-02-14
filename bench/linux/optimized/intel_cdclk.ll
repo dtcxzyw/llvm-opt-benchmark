@@ -702,7 +702,7 @@ define dso_local zeroext i1 @intel_cdclk_needs_modeset(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_cdclk_dump_config(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_cdclk_dump_config(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -7044,7 +7044,7 @@ define internal void @i965gm_get_cdclk(ptr noundef %0, ptr noundef captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pnv_get_cdclk(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
+define internal void @pnv_get_cdclk(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

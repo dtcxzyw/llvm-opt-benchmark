@@ -14367,7 +14367,7 @@ declare void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferen
 declare noundef ptr @_ZN4llvm16ehAwareSplitEdgeEPNS_10BasicBlockES1_PNS_14LandingPadInstEPNS_7PHINodeERKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(37), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28movePHIValuesToInsertedBlockPN4llvm10BasicBlockES1_S1_PNS_7PHINodeE(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28movePHIValuesToInsertedBlockPN4llvm10BasicBlockES1_S1_PNS_7PHINodeE(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16961,7 +16961,7 @@ _ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm4coro10AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_SI_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm4coro10AllocaInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_SI_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::optional.331", align 8
   %5 = alloca %"class.std::optional.331", align 8
   %6 = icmp eq ptr %0, %1

@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [24 x i8] c"config error: %s %s %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -95,7 +95,7 @@ define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gvplugin_package_record(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc ptr @gvplugin_package_record(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call ptr @gmalloc(i64 noundef 24) #20
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %gv_strdup.exit, label %5

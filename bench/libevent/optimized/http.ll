@@ -233,7 +233,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.167 = private unnamed_addr constant [6 x i8] c"unix:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evhttp_htmlescape(ptr noundef readonly %html) local_unnamed_addr #0 {
+define ptr @evhttp_htmlescape(ptr noundef readonly captures(address_is_null) %html) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %html, null
   br i1 %cmp, label %return, label %if.end
@@ -2611,7 +2611,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @bufferevent_set_timeouts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_timeout_tv(ptr noundef initializes((224, 256)) %evcon, ptr noundef readonly %tv) local_unnamed_addr #0 {
+define void @evhttp_connection_set_timeout_tv(ptr noundef initializes((224, 256)) %evcon, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %tv, null
   %flags1 = getelementptr inbounds nuw i8, ptr %evcon, i64 200
@@ -2648,7 +2648,7 @@ if.end:                                           ; preds = %if.else, %evhttp_se
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_connect_timeout_tv(ptr noundef initializes((208, 224)) %evcon, ptr noundef readonly %tv) local_unnamed_addr #0 {
+define void @evhttp_connection_set_connect_timeout_tv(ptr noundef initializes((208, 224)) %evcon, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags, align 8
@@ -2683,7 +2683,7 @@ if.end:                                           ; preds = %if.then, %evhttp_se
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_read_timeout_tv(ptr noundef initializes((224, 240)) %evcon, ptr noundef readonly %tv) local_unnamed_addr #0 {
+define void @evhttp_connection_set_read_timeout_tv(ptr noundef initializes((224, 240)) %evcon, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags, align 8
@@ -2719,7 +2719,7 @@ if.end:                                           ; preds = %if.then, %evhttp_se
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_write_timeout_tv(ptr noundef initializes((240, 256)) %evcon, ptr noundef readonly %tv) local_unnamed_addr #0 {
+define void @evhttp_connection_set_write_timeout_tv(ptr noundef initializes((240, 256)) %evcon, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags, align 8
@@ -2755,7 +2755,7 @@ if.end:                                           ; preds = %if.then, %evhttp_se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_connection_set_initial_retry_tv(ptr noundef writeonly captures(none) initializes((264, 280)) %evcon, ptr noundef readonly %tv) local_unnamed_addr #6 {
+define void @evhttp_connection_set_initial_retry_tv(ptr noundef writeonly captures(none) initializes((264, 280)) %evcon, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %tv, null
   %initial_retry_timeout1 = getelementptr inbounds nuw i8, ptr %evcon, i64 264
@@ -5877,7 +5877,7 @@ return:                                           ; preds = %evhttp_decode_uri_i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evhttp_uridecode(ptr noundef readonly captures(none) %uri, i32 noundef %decode_plus, ptr noundef writeonly %size_out) local_unnamed_addr #0 {
+define ptr @evhttp_uridecode(ptr noundef readonly captures(none) %uri, i32 noundef %decode_plus, ptr noundef writeonly captures(address_is_null) %size_out) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %uri) #18
   %add = add i64 %call, 1
@@ -7348,7 +7348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 160)) %http, ptr noundef readonly %tv) local_unnamed_addr #6 {
+define void @evhttp_set_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 160)) %http, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #6 {
 entry:
   %timeout_read = getelementptr inbounds nuw i8, ptr %http, i64 128
   %cmp.i = icmp eq ptr %tv, null
@@ -7369,7 +7369,7 @@ evhttp_set_timeout_tv_.exit6:                     ; preds = %if.then2.i4, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_read_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 144)) %http, ptr noundef readonly %tv) local_unnamed_addr #6 {
+define void @evhttp_set_read_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 144)) %http, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #6 {
 entry:
   %timeout_read = getelementptr inbounds nuw i8, ptr %http, i64 128
   %cmp.i = icmp eq ptr %tv, null
@@ -7388,7 +7388,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %if.then2.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_write_timeout_tv(ptr noundef writeonly captures(none) initializes((144, 160)) %http, ptr noundef readonly %tv) local_unnamed_addr #6 {
+define void @evhttp_set_write_timeout_tv(ptr noundef writeonly captures(none) initializes((144, 160)) %http, ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #6 {
 entry:
   %timeout_write = getelementptr inbounds nuw i8, ptr %http, i64 144
   %cmp.i = icmp eq ptr %tv, null
@@ -8614,7 +8614,7 @@ return:                                           ; preds = %land.lhs.true16.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly %cp, i32 noundef range(i32 0, 3) %part, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly captures(ret: address, provenance) %cp, i32 noundef range(i32 0, 3) %part, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -8774,7 +8774,7 @@ return:                                           ; preds = %while.cond8, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @evhttp_uri_join(ptr noundef readonly %uri, ptr noundef %buf, i64 noundef %limit) local_unnamed_addr #0 {
+define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_null) %uri, ptr noundef %buf, i64 noundef %limit) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %uri, null
   %tobool1 = icmp ne ptr %buf, null
@@ -9633,7 +9633,7 @@ declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evhttp_find_vhost(ptr noundef %http, ptr noundef %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evhttp_find_vhost(ptr noundef %http, ptr noundef captures(address_is_null) %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evhttp_find_alias(ptr noundef %http, ptr noundef %outhttp, ptr noundef %hostname)
   %tobool.not = icmp eq i32 %call, 0
@@ -9681,7 +9681,7 @@ return:                                           ; preds = %do.end, %if.then7, 
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %http, ptr noundef %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %http, ptr noundef captures(address_is_null) %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
 entry:
   %aliases = getelementptr inbounds nuw i8, ptr %http, i64 104
   br label %for.cond

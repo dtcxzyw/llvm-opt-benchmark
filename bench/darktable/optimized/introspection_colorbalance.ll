@@ -1971,7 +1971,7 @@ _process_legacy.exit:                             ; preds = %.lr.ph, %_process_l
 declare i32 @dt_iop_have_required_input_format(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
+define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -5199,7 +5199,7 @@ _check_tuner_picker_labels.exit:                  ; preds = %27, %30
 declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !107
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6575,7 +6575,7 @@ declare void @dt_bauhaus_slider_set_stop(ptr noundef, float noundef, float nound
 declare ptr @dt_bauhaus_slider_new_with_range_and_feedback(ptr noundef, float noundef, float noundef, float noundef, float noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @lift_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @lift_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = alloca [3 x float], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !107
@@ -6692,7 +6692,7 @@ update_saturation_slider_color.exit:              ; preds = %hsl2rgb.exit.i, %24
 declare void @dt_bauhaus_slider_set_soft_max(ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @gamma_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @gamma_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = alloca [3 x float], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !107
@@ -6807,7 +6807,7 @@ update_saturation_slider_color.exit:              ; preds = %hsl2rgb.exit.i, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gain_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @gain_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = alloca [3 x float], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %5 = load ptr, ptr %4, align 8, !tbaa !107
@@ -6960,7 +6960,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.30) #27
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %43, label %4

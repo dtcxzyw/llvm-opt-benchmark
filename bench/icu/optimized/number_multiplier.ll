@@ -630,7 +630,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_756number4impl6DecNumC1ERKS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 dereferenceable(20) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca i32, align 4
   %cmp = icmp eq ptr %this, %other
@@ -693,7 +693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((0, 4)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) initializes((0, 4)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -1123,7 +1123,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6icu_756number4impl15DecimalQuantity8divideByERKNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl23MultiplierFormatHandler11setAndChainERKNS0_5ScaleEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(20) %multiplier, ptr noundef %parent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl23MultiplierFormatHandler11setAndChainERKNS0_5ScaleEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %multiplier, ptr noundef %parent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus.i = alloca i32, align 4
   %fMultiplier = getelementptr inbounds nuw i8, ptr %this, i64 8

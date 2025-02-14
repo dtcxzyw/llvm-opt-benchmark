@@ -290,7 +290,7 @@ return:                                           ; preds = %if.else26, %if.end2
 declare ptr @CRYPTO_clear_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @BUF_reverse(ptr noundef captures(none) %out, ptr noundef readonly %in, i64 noundef %size) local_unnamed_addr #3 {
+define void @BUF_reverse(ptr noundef captures(none) %out, ptr noundef readonly captures(address_is_null) %in, i64 noundef %size) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %in, null
   br i1 %tobool.not, label %if.else, label %if.then

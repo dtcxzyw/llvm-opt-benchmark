@@ -1934,7 +1934,7 @@ declare noundef i32 @_ZN6solver9check_satEjPKP4expr(ptr noundef nonnull align 8 
 declare void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %k, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager8is_proxyEP3appR7obj_refIS2_11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(address) %k, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def) local_unnamed_addr #3 align 2 {
 entry:
   %m_proxy2def = getelementptr inbounds nuw i8, ptr %this, i64 48
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %k, i64 12
@@ -2264,7 +2264,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager12is_proxy_defEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readnone %v) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver11def_manager12is_proxy_defEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readnone captures(address) %v) local_unnamed_addr #6 align 2 {
 entry:
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_nodes.i.i, align 8
@@ -2297,7 +2297,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(398) %this, ptr noundef %e, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(398) %this, ptr noundef captures(address) %e, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4

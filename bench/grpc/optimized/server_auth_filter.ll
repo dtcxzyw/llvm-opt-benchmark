@@ -605,7 +605,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCode18OnMdProcessingDoneEPvPK13grpc_metadatamS5_m16grpc_status_codePKc(ptr noundef %user_data, ptr noundef %consumed_md, i64 noundef %num_consumed_md, ptr noundef readnone %response_md, i64 noundef %num_response_md, i32 noundef %status, ptr noundef %error_details) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCode18OnMdProcessingDoneEPvPK13grpc_metadatamS5_m16grpc_status_codePKc(ptr noundef %user_data, ptr noundef %consumed_md, i64 noundef %num_consumed_md, ptr noundef readnone captures(address_is_null) %response_md, i64 noundef %num_response_md, i32 noundef %status, ptr noundef %error_details) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.absl::lts_20230802::Status", align 8
   %helper.i = alloca %"class.grpc_core::metadata_detail::RemoveHelper", align 8

@@ -157,7 +157,7 @@ define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1) #1 align 16 {
+define dso_local noundef ptr @strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -175,7 +175,7 @@ define dso_local noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef ptr @strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -297,7 +297,7 @@ define dso_local i64 @strscpy(ptr noundef writeonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly %0, ptr noalias noundef readonly captures(none) %1) #1 align 16 {
+define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly captures(ret: address, provenance) %0, ptr noalias noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -315,7 +315,7 @@ define dso_local noundef ptr @stpcpy(ptr noalias noundef writeonly %0, ptr noali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strcat(ptr noundef returned %0, ptr noundef readonly captures(none) %1) #1 align 16 {
+define dso_local noundef ptr @strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -340,7 +340,7 @@ define dso_local noundef ptr @strcat(ptr noundef returned %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strncat(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef ptr @strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader1
 
@@ -504,7 +504,7 @@ define dso_local range(i32 -1, 2) i32 @strncmp(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @strchr(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @strchr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) #0 align 16 {
   %3 = trunc i32 %1 to i8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, %3
@@ -528,7 +528,7 @@ define dso_local noundef ptr @strchr(ptr noundef readonly %0, i32 noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @strchrnul(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @strchrnul(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) #0 align 16 {
   %3 = trunc i32 %1 to i8
   br label %4
 
@@ -546,7 +546,7 @@ define dso_local noundef ptr @strchrnul(ptr noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @strnchrnul(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @strnchrnul(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -576,7 +576,7 @@ define dso_local noundef ptr @strnchrnul(ptr noundef readonly %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @strrchr(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @strrchr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) #0 align 16 {
   %3 = trunc i32 %1 to i8
   br label %4
 
@@ -595,7 +595,7 @@ define dso_local ptr @strrchr(ptr noundef readonly %0, i32 noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @strnchr(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @strnchr(ptr noundef readonly captures(ret: address, provenance) %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = trunc i32 %2 to i8
   br label %5
 
@@ -652,7 +652,7 @@ define dso_local noundef i64 @strnlen(ptr noundef %0, i64 noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef i64 @strspn(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local noundef i64 @strspn(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread, label %5
@@ -699,7 +699,7 @@ define dso_local noundef i64 @strspn(ptr noundef %0, ptr noundef readonly %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef i64 @strcspn(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local noundef i64 @strcspn(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit4, label %5
@@ -746,7 +746,7 @@ define dso_local noundef i64 @strcspn(ptr noundef %0, ptr noundef readonly %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @strpbrk(ptr noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local noundef ptr @strpbrk(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1) #0 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit4, label %5
@@ -790,7 +790,7 @@ define dso_local noundef ptr @strpbrk(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local ptr @strsep(ptr noundef captures(none) %0, ptr noundef readonly %1) #4 align 16 {
+define dso_local ptr @strsep(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %31, label %5
@@ -968,7 +968,7 @@ define dso_local range(i32 -255, 256) i32 @bcmp(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @memscan(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef ptr @memscan(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -1114,7 +1114,7 @@ define dso_local ptr @strstr(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @strnstr(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local ptr @strnstr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -1222,7 +1222,7 @@ define dso_local ptr @strnstr(ptr noundef readonly %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @memchr(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local ptr @memchr(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = trunc i32 %1 to i8
   br label %5
 

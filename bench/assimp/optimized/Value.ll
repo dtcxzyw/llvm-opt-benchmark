@@ -162,7 +162,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10ODDLParser5Value8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10ODDLParser5Value8IteratorppEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current, align 8
@@ -1804,7 +1804,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser14ValueAllocator15releasePrimDataEPPNS_5ValueE(ptr noundef %data) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10ODDLParser14ValueAllocator15releasePrimDataEPPNS_5ValueE(ptr noundef captures(address_is_null) %data) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %return, label %if.end

@@ -770,7 +770,7 @@ define internal noundef i32 @php_libxml_post_deactivate() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_libxml_set_old_ns(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @php_libxml_set_old_ns(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %php_libxml_set_old_ns_list.exit, label %4
 
@@ -1474,7 +1474,7 @@ define void @php_libxml_pretend_ctx_error_ex(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef range(i32 0, 3) %0, ptr noundef readonly %1, ptr %.0.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef range(i32 0, 3) %0, ptr noundef readonly captures(address_is_null) %1, ptr %.0.val, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct._xmlError, align 8
   %7 = alloca ptr, align 8
   %8 = call i64 @zend_vspprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %.0.val, ptr noundef nonnull %2) #17
@@ -1690,7 +1690,7 @@ declare i32 @xmlCopyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @__xmlLastError() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @php_libxml_ctx_error(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define void @php_libxml_ctx_error(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -1718,7 +1718,7 @@ php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_libxml_ctx_warning(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define void @php_libxml_ctx_warning(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
@@ -1746,7 +1746,7 @@ php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_libxml_error_handler(ptr noundef %0, ptr noundef %1, ...) #0 {
+define void @php_libxml_error_handler(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 0, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
@@ -2086,7 +2086,7 @@ declare void @xmlRelaxNGCleanupTypes() local_unnamed_addr #2
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @php_libxml_switch_context(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
+define void @php_libxml_switch_context(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -2987,7 +2987,7 @@ define ptr @php_libxml_import_node(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_libxml_increment_node_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @php_libxml_increment_node_ptr(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -3065,7 +3065,7 @@ php_libxml_decrement_node_ptr.exit:               ; preds = %13, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_node_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_node_ptr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -3149,7 +3149,7 @@ define i32 @php_libxml_increment_doc_ref(ptr noundef captures(none) %0, ptr noun
 declare noalias ptr @_emalloc_32() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_doc_ref(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @php_libxml_decrement_doc_ref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %2
 
@@ -3480,7 +3480,7 @@ php_libxml_unregister_node.exit30:                ; preds = %92, %php_libxml_dec
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_libxml_node_decrement_resource(ptr noundef %0) local_unnamed_addr #0 {
+define void @php_libxml_node_decrement_resource(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 

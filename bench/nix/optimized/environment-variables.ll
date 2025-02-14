@@ -698,7 +698,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10replaceEnvERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10replaceEnvERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @_ZN3nix6getEnvB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::map") align 8 %2)

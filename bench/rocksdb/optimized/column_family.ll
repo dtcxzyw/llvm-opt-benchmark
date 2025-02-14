@@ -4982,7 +4982,7 @@ _ZNSt10shared_ptrIKN7rocksdb14SliceTransformEED2Ev.exit: ; preds = %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN7rocksdb12SuperVersion3RefEv(ptr noundef nonnull returned align 8 dereferenceable(752) %this) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb12SuperVersion3RefEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(752) %this) local_unnamed_addr #5 align 2 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %this, i64 640
   %0 = atomicrmw add ptr %refs, i32 1 monotonic, align 4
@@ -9525,7 +9525,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7rocksdb16CompactionPicker26RangeOverlapWithCompactionERKNS_5SliceES3_i(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ColumnFamilyData26RangesOverlapWithMemtablesERKNS_10autovectorINS_5RangeELm8EEEPNS_12SuperVersionEbPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2656) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %ranges, ptr noundef readonly captures(none) %super_version, i1 noundef zeroext %allow_data_in_errors, ptr noundef captures(none) initializes((0, 1)) %overlap) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ColumnFamilyData26RangesOverlapWithMemtablesERKNS_10autovectorINS_5RangeELm8EEEPNS_12SuperVersionEbPb(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(2656) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %ranges, ptr noundef readonly captures(none) %super_version, i1 noundef zeroext %allow_data_in_errors, ptr noundef captures(none) initializes((0, 1)) %overlap) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %arena = alloca %"class.rocksdb::Arena", align 16
@@ -12529,7 +12529,7 @@ return:                                           ; preds = %if.else, %if.end4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ColumnFamilyData14AddDirectoriesEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_11FSDirectoryEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2656) %this, ptr noundef %created_dirs) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ColumnFamilyData14AddDirectoriesEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_11FSDirectoryEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2656) %this, ptr noundef %created_dirs) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path_directory = alloca %"class.std::unique_ptr.311", align 8
   %ref.tmp11 = alloca %"class.rocksdb::IOStatus", align 8
@@ -14575,7 +14575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl21GetColumnFamilyHandleEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #19 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl21GetColumnFamilyHandleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this) unnamed_addr #19 align 2 {
 entry:
   %handle_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %handle_

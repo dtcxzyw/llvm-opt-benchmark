@@ -142,7 +142,7 @@ declare i32 @ECDSA_SIG_to_bytes(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly %sig, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_do_verify(ptr noundef %digest, i64 noundef %digest_len, ptr noundef readonly captures(address_is_null) %sig, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %eckey) #4
   %cmp = icmp eq ptr %call, null

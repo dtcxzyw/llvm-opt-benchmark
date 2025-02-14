@@ -1634,7 +1634,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9ExtTheory18getSubstitutedTermEiNS0_12NodeTemplateILb1EEERSt6vectorIS4_SaIS4_EE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %effort, ptr noundef nonnull %term, ptr noundef nonnull align 8 dereferenceable(24) %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9ExtTheory18getSubstitutedTermEiNS0_12NodeTemplateILb1EEERSt6vectorIS4_SaIS4_EE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(576) %this, i32 noundef %effort, ptr noundef nonnull %term, ptr noundef nonnull align 8 dereferenceable(24) %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %terms = alloca %"class.std::vector.403", align 8
   %sterms = alloca %"class.std::vector.403", align 8
@@ -1900,7 +1900,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9ExtTheory19getSubstitutedTermsEiRKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERS7_RS3_IS7_SaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(576) %this, i32 noundef %effort, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %terms, ptr noundef nonnull align 8 dereferenceable(24) %sterms, ptr noundef nonnull align 8 dereferenceable(24) %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9ExtTheory19getSubstitutedTermsEiRKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERS7_RS3_IS7_SaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(576) %this, i32 noundef %effort, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %terms, ptr noundef nonnull align 8 dereferenceable(24) %sterms, ptr noundef nonnull align 8 dereferenceable(24) %exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %cache.i = alloca %"class.std::unordered_map.522", align 8
   %vars = alloca %"class.std::vector.403", align 8

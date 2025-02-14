@@ -1441,7 +1441,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator8andFalseENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %parent, ptr %holdout.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator8andFalseENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %parent, ptr captures(address) %holdout.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i.i = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
@@ -2629,7 +2629,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly captures(none) %parent, ptr readnone %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly captures(none) %parent, ptr readnone captures(address) %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2738,7 +2738,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator6orTrueENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %parent, ptr %holdout.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator6orTrueENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %parent, ptr captures(address) %holdout.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

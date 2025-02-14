@@ -1306,7 +1306,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_audio_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_usb_audio_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1470,7 +1470,7 @@ dissect_usb_midi_event.exit:                      ; preds = %63, %44, %is_last_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @dissect_usb_audio_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal range(i32 0, 256) i32 @dissect_usb_audio_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread230, label %6
@@ -1740,7 +1740,7 @@ dissect_as_ep_general_body.exit:                  ; preds = %102, %89, %69, %74,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
+define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %58, label %6
 

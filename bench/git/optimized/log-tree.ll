@@ -364,7 +364,7 @@ declare i32 @refs_for_each_ref(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @get_main_ref_store(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_ref_decoration(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr noundef readonly %4) #0 {
+define internal noundef i32 @add_ref_decoration(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca %struct.object_id, align 4
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ref_namespace, i64 80), align 16, !tbaa !29
   %.not = icmp eq ptr %4, null
@@ -813,7 +813,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @format_decorations(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @format_decorations(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.b.i.i = load i1, ptr @decoration_loaded, align 4
   br i1 %.b.i.i, label %get_name_decoration.exit, label %6

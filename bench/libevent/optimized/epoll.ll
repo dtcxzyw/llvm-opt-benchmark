@@ -235,7 +235,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %base, ptr noundef readonly %tv) #0 {
+define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %base, ptr noundef readonly captures(address_is_null) %tv) #0 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8

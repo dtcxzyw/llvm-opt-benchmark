@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [2 x i8] c",\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @php_url_scanner_adapt_single_url(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define noalias ptr @php_url_scanner_adapt_single_url(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.smart_str, align 8
   %8 = alloca %struct.smart_str, align 8
   %9 = alloca %struct.smart_str, align 8

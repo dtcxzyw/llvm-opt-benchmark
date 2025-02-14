@@ -3226,7 +3226,7 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManPrintStats(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @Gia_ManPrintStats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %.not = icmp eq ptr %4, null
@@ -7129,7 +7129,7 @@ define range(i32 0, 2) i32 @Gia_ManNameIsLegalInVerilog(ptr noundef readonly cap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef nonnull ptr @Gia_ObjGetDumpName(ptr noundef readonly %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef nonnull ptr @Gia_ObjGetDumpName(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %5
 
@@ -7202,7 +7202,7 @@ Gia_ManNameIsLegalInVerilog.exit:                 ; preds = %24, %14
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ManWriteNames(ptr noundef captures(none) %0, i8 noundef signext %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #8 {
+define void @Gia_ManWriteNames(ptr noundef captures(none) %0, i8 noundef signext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #8 {
   %9 = icmp ult i32 %2, 2
   br i1 %9, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -7358,7 +7358,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDumpVerilog(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @Gia_ManDumpVerilog(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %.not = icmp eq i32 %5, 0
   %.not16 = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %9
@@ -8616,7 +8616,7 @@ Vec_BitFree.exit267:                              ; preds = %Vec_BitFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDumpVerilogNoInterAssign(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define void @Gia_ManDumpVerilogNoInterAssign(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr i8, ptr %0, i64 24
   %.val259 = load i32, ptr %6, align 8, !tbaa !29
   %7 = icmp ult i32 %.val259, 2
@@ -9711,7 +9711,7 @@ Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDumpVerilogNoInter(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define void @Gia_ManDumpVerilogNoInter(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr i8, ptr %0, i64 24
   %.val259 = load i32, ptr %6, align 8, !tbaa !29
   %7 = icmp ult i32 %.val259, 2

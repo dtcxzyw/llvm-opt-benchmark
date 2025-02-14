@@ -10147,7 +10147,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18cmCTestTestHandler14LogFailedTestsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKSt3setINS_17cmCTestTestResultENS_21cmCTestTestResultLessESaISC_EE(ptr noundef nonnull align 8 dereferenceable(4392) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18cmCTestTestHandler14LogFailedTestsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKSt3setINS_17cmCTestTestResultENS_21cmCTestTestResultLessESaISC_EE(ptr noundef nonnull align 8 dereferenceable(4392) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.815"], align 8
   %5 = alloca [4 x %"struct.std::pair.815"], align 8
   %6 = alloca %class.cmGeneratedFileStream, align 8

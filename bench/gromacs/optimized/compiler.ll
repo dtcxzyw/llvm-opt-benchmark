@@ -6537,7 +6537,7 @@ declare void @_Z22_gmx_sel_evaluate_initP18gmx_sel_evaluate_tP17gmx_sel_mempool_
 declare void @_ZN3gmx19SelectionCollection4Impl16clearSymbolTableEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25init_pos_keyword_defaultsPN3gmx20SelectionTreeElementEPKcS3_PKNS_8internal13SelectionDataE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL25init_pos_keyword_defaultsPN3gmx20SelectionTreeElementEPKcS3_PKNS_8internal13SelectionDataE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 1

@@ -1713,7 +1713,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList21_MakeNonConstIteratorEPKSt4pairINS_7SdfPathENS0_5EntryEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(224) %0, ptr noundef readnone returned %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList21_MakeNonConstIteratorEPKSt4pairINS_7SdfPathENS0_5EntryEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(224) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   ret ptr %1
 }
 

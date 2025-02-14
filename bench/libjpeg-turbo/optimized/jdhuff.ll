@@ -890,7 +890,7 @@ define internal void @start_pass_huff_decoder(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @decode_mcu(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @decode_mcu(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = alloca %struct.bitread_working_state, align 8
   %4 = alloca %struct.savable_state, align 4
   %5 = alloca %struct.savable_state, align 4

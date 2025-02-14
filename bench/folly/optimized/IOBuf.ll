@@ -470,7 +470,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN5folly5IOBufnwEmPv(i64 noundef %0, ptr noundef readnone returned %ptr) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN5folly5IOBufnwEmPv(i64 noundef %0, ptr noundef readnone returned captures(ret: address, provenance) %ptr) local_unnamed_addr #10 align 2 {
 entry:
   ret ptr %ptr
 }
@@ -2021,7 +2021,7 @@ while.end58:                                      ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBufC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(56) %other) unnamed_addr #5 align 2 {
+define void @_ZN5folly5IOBufC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %other) unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.folly::IOBuf", align 8
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2040,7 +2040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf12cloneAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf12cloneAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %flagsAndSharedInfo_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %flagsAndSharedInfo_.i.i, align 8, !tbaa !57, !noalias !95
@@ -2315,7 +2315,7 @@ return:                                           ; preds = %if.then16, %_ZN5fol
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5IOBufD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBufD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %next_, align 8, !tbaa !55
@@ -2463,7 +2463,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
+define noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
 entry:
   br label %do.body
 
@@ -2484,7 +2484,7 @@ cleanup:                                          ; preds = %if.end, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
+define noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
 entry:
   br label %for.cond
 
@@ -2502,7 +2502,7 @@ for.cond.cleanup:                                 ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
+define noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !60
   %current.0.in7 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2526,7 +2526,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5folly5IOBuf20computeChainCapacityEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
+define noundef i64 @_ZNK5folly5IOBuf20computeChainCapacityEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #26 align 2 {
 entry:
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %capacity_, align 8, !tbaa !76
@@ -2552,7 +2552,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %flagsAndSharedInfo_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2797,7 +2797,7 @@ _ZN5folly5IOBufnwEm.exit:                         ; preds = %if.then1.i, %_ZN5fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::IOBuf", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp) #34
@@ -2865,7 +2865,7 @@ lpad:                                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf21cloneCoalescedAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
+define void @_ZNK5folly5IOBuf21cloneCoalescedAsValueEv(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i, align 8, !tbaa !59
@@ -2893,7 +2893,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf34cloneCoalescedWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf34cloneCoalescedWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::IOBuf", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp) #34
@@ -2940,7 +2940,7 @@ lpad:                                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind noalias writable sret(%"class.folly::IOBuf") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %struct.Initializer, align 1
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3333,7 +3333,7 @@ _ZN5folly5IOBuf17decrementRefcountEv.exit:        ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf14unshareChainedEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBuf14unshareChainedEv(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %while.cond
 
@@ -3407,7 +3407,7 @@ cleanup:                                          ; preds = %if.end, %_ZN5folly5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf12coalesceSlowEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBuf12coalesceSlowEv(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %do.body
 
@@ -3448,7 +3448,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly5IOBuf20markExternallySharedEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #27 align 2 {
+define void @_ZN5folly5IOBuf20markExternallySharedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #27 align 2 {
 entry:
   br label %do.body
 
@@ -3477,7 +3477,7 @@ do.end:                                           ; preds = %_ZN5folly5IOBuf23ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf18makeManagedChainedEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN5folly5IOBuf18makeManagedChainedEv(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 {
 entry:
   br label %while.cond
 
@@ -3503,7 +3503,7 @@ while.end:                                        ; preds = %_ZN5folly5IOBuf14ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf21coalesceAndReallocateEmmPS0_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newLength, ptr noundef readnone %end, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBuf21coalesceAndReallocateEmmPS0_m(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, i64 noundef %newHeadroom, i64 noundef %newLength, ptr noundef readnone captures(address) %end, i64 noundef %newTailroom) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newBuf = alloca ptr, align 8
   %newInfo = alloca ptr, align 8
@@ -3630,7 +3630,7 @@ if.end12:                                         ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf12coalesceSlowEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %maxLength) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBuf12coalesceSlowEm(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this, i64 noundef %maxLength) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %while.cond32
 
@@ -4177,7 +4177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly5IOBuf14moveToFbStringEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::basic_fbstring") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly5IOBuf14moveToFbStringEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::basic_fbstring") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %flagsAndSharedInfo_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %flagsAndSharedInfo_.i, align 8, !tbaa !57
@@ -4423,7 +4423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf6getIovEv(ptr dead_on_unwind noalias writable sret(%"class.folly::fbvector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly5IOBuf6getIovEv(ptr dead_on_unwind noalias writable sret(%"class.folly::fbvector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %struct.iovec, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -4618,7 +4618,7 @@ return:                                           ; preds = %if.end16, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly5IOBuf11appendToIovEPNS_8fbvectorI5iovecSaIS2_EEE(ptr noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %iov) local_unnamed_addr #5 align 2 {
+define void @_ZNK5folly5IOBuf11appendToIovEPNS_8fbvectorI5iovecSaIS2_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this, ptr noundef %iov) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %struct.iovec, align 8
   %iov_len = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -5207,7 +5207,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef writeonly captures(none) %iov, i64 noundef %len) local_unnamed_addr #30 align 2 {
+define { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this, ptr noundef writeonly captures(none) %iov, i64 noundef %len) local_unnamed_addr #30 align 2 {
 entry:
   br label %while.cond
 

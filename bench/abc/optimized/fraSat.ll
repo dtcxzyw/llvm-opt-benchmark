@@ -511,7 +511,7 @@ declare void @Fra_CnfNodeAddToSolver(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fra_SetActivityFactors(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fra_SetActivityFactors(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10

@@ -96,7 +96,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_clear_param(ptr noundef readonly %0) local_unnamed_addr #1 {
+define void @phpdbg_clear_param(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -453,7 +453,7 @@ declare i64 @zend_hash_func(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define zeroext i1 @phpdbg_match_param(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -601,7 +601,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @phpdbg_param_debug(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @phpdbg_param_debug(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %71, label %3
 
@@ -714,7 +714,7 @@ define void @phpdbg_param_debug(ptr noundef readonly %0, ptr noundef %1) local_u
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_stack_free(ptr noundef %0) local_unnamed_addr #1 {
+define void @phpdbg_stack_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -857,7 +857,7 @@ define void @phpdbg_stack_separate(ptr noundef captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @phpdbg_stack_verify(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @phpdbg_stack_verify(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %431, label %4
@@ -1750,7 +1750,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [3 x ptr], align 16
   %.promoted = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)

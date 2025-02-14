@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_lpe_audio_irq_handler(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_lpe_audio_irq_handler(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -369,7 +369,7 @@ define dso_local void @intel_lpe_audio_teardown(ptr noundef captures(none) %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   %9 = load ptr, ptr %8, align 8

@@ -168,7 +168,7 @@ define hidden void @_ZN12futures_task5waker19wake_by_ref_arc_raw17h7e76ff45b7267
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h0fc3b7c35460bd7bE"(i64 noundef %0, ptr noundef readnone returned %1) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h0fc3b7c35460bd7bE"(i64 noundef %0, ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %1) unnamed_addr #3 {
   %switch = icmp eq i64 %0, 0
   br i1 %switch, label %5, label %3
 
@@ -8224,7 +8224,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN88_$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h56c7b10855086cc2E"(ptr noundef readnone returned %0) unnamed_addr #5 {
+define hidden noundef ptr @"_ZN88_$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h56c7b10855086cc2E"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

@@ -1594,7 +1594,7 @@ return:                                           ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6hermes2vm14OrderedHashMap12iteratorNextERNS0_7RuntimeEPNS0_12HashMapEntryE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly %entry1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK6hermes2vm14OrderedHashMap12iteratorNextERNS0_7RuntimeEPNS0_12HashMapEntryE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(address_is_null) %entry1) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq ptr %entry1, null
   %0 = ptrtoint ptr %runtime to i64

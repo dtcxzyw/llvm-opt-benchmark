@@ -324,7 +324,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 9), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 9), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -1529,7 +1529,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Pack_external_size_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_pack_external_size_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_pack_external_size_f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
+define void @ompi_pack_external_size_f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %2, align 4
   %9 = tail call ptr @PMPI_Type_f2c(i32 noundef %8) #5

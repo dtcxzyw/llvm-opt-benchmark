@@ -2197,7 +2197,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.iomap_iter, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #16
@@ -2449,7 +2449,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_zero_range(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @iomap_truncate_page(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %6 = load i8, ptr %5, align 2
   %7 = zext nneg i8 %6 to i32

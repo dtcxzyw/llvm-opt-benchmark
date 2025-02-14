@@ -5344,7 +5344,7 @@ declare void @_ZN4cvc58internal10LetBinding7processENS0_12NodeTemplateILb1EEE(pt
 declare void @_ZN4cvc58internal5proof19LfscPrintChannelPreC1ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof11LfscPrinter18printProofInternalEPNS1_16LfscPrintChannelEPKNS0_9ProofNodeERKNS0_10LetBindingERKSt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEERSB_INS0_12NodeTemplateILb1EEEmSC_ISM_ESaISE_IKSM_mEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %out, ptr noundef %pn, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(48) %passumeMap) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof11LfscPrinter18printProofInternalEPNS1_16LfscPrintChannelEPKNS0_9ProofNodeERKNS0_10LetBindingERKSt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEERSB_INS0_12NodeTemplateILb1EEEmSC_ISM_ESaISE_IKSM_mEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %out, ptr noundef %pn, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(48) %passumeMap) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__node_gen.i.i399 = alloca %"struct.std::__detail::_AllocNode.712", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.711", align 8
@@ -12322,7 +12322,7 @@ _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %invok
 declare void @_ZNK4cvc58internal5DType16getSubfieldTypesEv(ptr sret(%"class.std::unordered_set.103") align 8, ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof11LfscPrinter9printPLetEPNS1_16LfscPrintChannelEPKNS0_9ProofNodeEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_10LetBindingERKSt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEERSJ_INS0_12NodeTemplateILb1EEEmSK_ISU_ESaISM_IKSU_mEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %out, ptr noundef %p, i64 noundef %pid, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(48) %passumeMap) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal5proof11LfscPrinter9printPLetEPNS1_16LfscPrintChannelEPKNS0_9ProofNodeEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_10LetBindingERKSt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEERSJ_INS0_12NodeTemplateILb1EEEmSK_ISU_ESaISM_IKSU_mEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %out, ptr noundef %p, i64 noundef %pid, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(48) %passumeMap) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %out, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
@@ -12500,7 +12500,7 @@ declare noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull 
 declare noundef i32 @_ZN4cvc58internal5proof11getLfscRuleENS0_12NodeTemplateILb1EEE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof11LfscPrinter16computeProofArgsEPKNS0_9ProofNodeERSt6vectorINS1_5PExprESaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef nonnull %pn, ptr noundef nonnull align 8 dereferenceable(24) %pargs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof11LfscPrinter16computeProofArgsEPKNS0_9ProofNodeERSt6vectorINS1_5PExprESaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(312) %this, ptr noundef nonnull %pn, ptr noundef nonnull align 8 dereferenceable(24) %pargs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i2254 = alloca %"class.cvc5::internal::NodeTemplate.259", align 8
   %nb.i2255 = alloca %"class.cvc5::internal::NodeBuilder", align 8

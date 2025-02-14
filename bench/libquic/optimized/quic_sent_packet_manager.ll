@@ -2592,7 +2592,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 dereferenceable(776) %this) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net21QuicSentPacketManager25HasPendingRetransmissionsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %this) unnamed_addr #7 align 2 {
 entry:
   %list_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %list_.i, align 8
@@ -3886,7 +3886,7 @@ entry:
 declare noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap26HasMultipleInFlightPacketsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 dereferenceable(776) %this) unnamed_addr #8 align 2 {
+define dso_local noundef nonnull ptr @_ZNK3net21QuicSentPacketManager11GetRttStatsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %this) unnamed_addr #8 align 2 {
 entry:
   %rtt_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   ret ptr %rtt_stats_
@@ -3905,7 +3905,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 dereferenceable(776) %this) unnamed_addr #8 align 2 {
+define dso_local noundef nonnull ptr @_ZNK3net21QuicSentPacketManager26SustainedBandwidthRecorderEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(776) %this) unnamed_addr #8 align 2 {
 entry:
   %sustained_bandwidth_recorder_ = getelementptr inbounds nuw i8, ptr %this, i64 736
   ret ptr %sustained_bandwidth_recorder_

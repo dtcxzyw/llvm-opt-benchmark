@@ -28476,12 +28476,12 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h579d3919ff512b4fE.llvm.450774749160709717(ptr noundef nonnull readnone returned %0, i64 noundef %1) unnamed_addr #14 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h579d3919ff512b4fE.llvm.450774749160709717(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #14 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4core3ops8function6FnOnce9call_once17hdcc1e3bd3762c487E.llvm.450774749160709717(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #14 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4core3ops8function6FnOnce9call_once17hdcc1e3bd3762c487E.llvm.450774749160709717(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #14 {
   ret ptr %0
 }
 
@@ -47887,7 +47887,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hb1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h4d9520b904b52f6eE.llvm.450774749160709717"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h4d9520b904b52f6eE.llvm.450774749160709717"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #10 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -47920,7 +47920,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h4d9520b904b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h34f5467ff498dc7dE"(ptr noalias noundef nonnull align 4 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h34f5467ff498dc7dE"(ptr noalias noundef nonnull align 4 captures(ret: address, provenance) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = alloca { { [20 x i32], i32, [3 x i32] }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 16
   %4 = load i32, ptr %0, align 4, !range !9594, !noundef !4
   %5 = icmp eq i32 %4, 0
@@ -47991,7 +47991,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @"_ZN4core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h4d5d85c0ec17e8c7E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h4d5d85c0ec17e8c7E"(ptr noalias noundef nonnull align 4 captures(ret: address, provenance) dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = alloca { { [20 x i32], i32, [3 x i32] }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 16
   %4 = load i32, ptr %0, align 4, !range !9594, !noundef !4
   %5 = icmp eq i32 %4, 0
@@ -52958,7 +52958,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor22visit_free_pl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$3key17h58f44116e7faf6fcE.llvm.450774749160709717"(ptr noundef nonnull readnone returned %0, i64 noundef %1) unnamed_addr #30 {
+define hidden noundef nonnull ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$3key17h58f44116e7faf6fcE.llvm.450774749160709717"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #30 {
   ret ptr %0
 }
 
@@ -52969,7 +52969,7 @@ define hidden i64 @"_ZN8indexmap19Bucket$LT$K$C$V$GT$3key17h7f9b30251fe307fbE.ll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$7key_ref17h1a9d2dc89785145cE.llvm.450774749160709717"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #30 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$7key_ref17h1a9d2dc89785145cE.llvm.450774749160709717"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #30 {
   ret ptr %0
 }
 
@@ -72871,7 +72871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, ptr } @"_ZN6hir_ty11diagnostics11match_check7PatCtxt10lower_path28_$u7b$$u7b$closure$u7d$$u7d$17he191db0e6d8e5921E"(ptr readonly %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @"_ZN6hir_ty11diagnostics11match_check7PatCtxt10lower_path28_$u7b$$u7b$closure$u7d$$u7d$17he191db0e6d8e5921E"(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [47 x i8] }, align 8
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -78633,7 +78633,7 @@ define internal fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$
   %112 = add i64 %.sroa.01.0.i.i.i.i, %111
   br label %93
 
-default.unreachable1494:                          ; preds = %"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hcac1401d238b4ae9E.exit"
+default.unreachable1498:                          ; preds = %"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hcac1401d238b4ae9E.exit"
   unreachable
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1bf52122b1f1738aE.exit": ; preds = %101
@@ -78707,7 +78707,7 @@ _ZN6hir_ty3mir12ProjectionId6lookup17h97c7a19d43dfb3e1E.exit: ; preds = %120
   %145 = load ptr, ptr %144, align 8, !alias.scope !22062, !noalias !22065, !nonnull !4, !noundef !4
   %146 = getelementptr inbounds nuw [0 x { i8, [47 x i8] }], ptr %145, i64 0, i64 %139
   %147 = load i8, ptr %146, align 8, !range !20082, !noundef !4
-  switch i8 %147, label %default.unreachable1494 [
+  switch i8 %147, label %default.unreachable1498 [
     i8 0, label %148
     i8 1, label %149
     i8 2, label %153
@@ -78833,8 +78833,8 @@ _ZN6hir_ty3mir5lower11MirLowerCtx15new_basic_block17h911bde2f263a539aE.exit: ; p
   %.sroa.4.0..sroa_idx.i952 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 80
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 84
-  %.pre1492 = load i32, ptr %78, align 4
-  %.pre1493 = load i32, ptr %76, align 4
+  %.pre1496 = load i32, ptr %78, align 4
+  %.pre1497 = load i32, ptr %76, align 4
   br label %329
 
 196:                                              ; preds = %"_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17hcac1401d238b4ae9E.exit"
@@ -79015,10 +79015,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit948: ; pred
 278:                                              ; preds = %336, %341, %595, %722, %727, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit1018, %854, %780, %825, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit1001, %767, %764, %543, %556, %561, %481, %452, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957, %394, %326, %328, %857, %406, %._crit_edge1420, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit948, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit, %148
   ret void
 
-._crit_edge1420:                                  ; preds = %552, %.._crit_edge1420_crit_edge, %718, %725, %815, %819, %752, %765, %855, %852, %410, %392, %.loopexit, %327, %149
-  %.sroa.0390.0 = phi i32 [ %.sroa.0820.0.copyload, %855 ], [ %.sroa.0799.0.copyload, %852 ], [ %797, %819 ], [ %816, %815 ], [ %.sroa.0736.0.copyload, %765 ], [ %753, %752 ], [ %411, %410 ], [ %.sroa.0511.0.copyload, %392 ], [ %182, %.loopexit ], [ %.0.i1020, %327 ], [ %150, %149 ], [ %709, %718 ], [ %.sroa.0633.0.copyload, %725 ], [ %.pre1489, %.._crit_edge1420_crit_edge ], [ %.sroa.0612.0.copyload, %552 ]
-  %.sroa.15.0 = phi i32 [ %.sroa.4821.0.copyload, %855 ], [ %.sroa.4800.0.copyload, %852 ], [ %798, %819 ], [ %817, %815 ], [ %.sroa.4737.0.copyload, %765 ], [ %754, %752 ], [ %412, %410 ], [ %.sroa.4512.0.copyload, %392 ], [ %361, %.loopexit ], [ %.sroa.0.0.i1019, %327 ], [ %151, %149 ], [ 1, %718 ], [ %.sroa.4634.0.copyload, %725 ], [ %.pre1490, %.._crit_edge1420_crit_edge ], [ %.sroa.4613.0.copyload, %552 ]
-  %.sroa.22.0 = phi i32 [ %.sroa.5822.0.copyload, %855 ], [ %.sroa.5801.0.copyload, %852 ], [ %799, %819 ], [ %818, %815 ], [ %.sroa.5738.0.copyload, %765 ], [ %755, %752 ], [ %413, %410 ], [ %.sroa.5513.0.copyload, %392 ], [ %362, %.loopexit ], [ %.sroa.4.0.i, %327 ], [ %152, %149 ], [ %.0850, %718 ], [ %.sroa.5635.0.copyload, %725 ], [ %.pre1491, %.._crit_edge1420_crit_edge ], [ %.sroa.5614.0.copyload, %552 ]
+._crit_edge1420:                                  ; preds = %552, %508, %718, %725, %815, %819, %752, %765, %855, %852, %410, %392, %.loopexit, %327, %149
+  %.sroa.0390.0 = phi i32 [ %.sroa.0820.0.copyload, %855 ], [ %.sroa.0799.0.copyload, %852 ], [ %797, %819 ], [ %816, %815 ], [ %.sroa.0736.0.copyload, %765 ], [ %753, %752 ], [ %411, %410 ], [ %.sroa.0511.0.copyload, %392 ], [ %182, %.loopexit ], [ %.0.i1020, %327 ], [ %150, %149 ], [ %709, %718 ], [ %.sroa.0633.0.copyload, %725 ], [ %.pre1493, %508 ], [ %.sroa.0612.0.copyload, %552 ]
+  %.sroa.15.0 = phi i32 [ %.sroa.4821.0.copyload, %855 ], [ %.sroa.4800.0.copyload, %852 ], [ %798, %819 ], [ %817, %815 ], [ %.sroa.4737.0.copyload, %765 ], [ %754, %752 ], [ %412, %410 ], [ %.sroa.4512.0.copyload, %392 ], [ %361, %.loopexit ], [ %.sroa.0.0.i1019, %327 ], [ %151, %149 ], [ 1, %718 ], [ %.sroa.4634.0.copyload, %725 ], [ %.pre1494, %508 ], [ %.sroa.4613.0.copyload, %552 ]
+  %.sroa.22.0 = phi i32 [ %.sroa.5822.0.copyload, %855 ], [ %.sroa.5801.0.copyload, %852 ], [ %799, %819 ], [ %818, %815 ], [ %.sroa.5738.0.copyload, %765 ], [ %755, %752 ], [ %413, %410 ], [ %.sroa.5513.0.copyload, %392 ], [ %362, %.loopexit ], [ %.sroa.4.0.i, %327 ], [ %152, %149 ], [ %.0850, %718 ], [ %.sroa.5635.0.copyload, %725 ], [ %.pre1495, %508 ], [ %.sroa.5614.0.copyload, %552 ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.0390.0, ptr %279, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -79183,12 +79183,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit948: ; pred
   br label %278
 
 329:                                              ; preds = %.lr.ph1422, %359
-  %330 = phi i32 [ %.pre1492, %.lr.ph1422 ], [ %.sroa.5478.0.copyload, %359 ]
+  %330 = phi i32 [ %.pre1496, %.lr.ph1422 ], [ %.sroa.5478.0.copyload, %359 ]
   %.sroa.01030.01421 = phi ptr [ %189, %.lr.ph1422 ], [ %331, %359 ]
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.01030.01421, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   %332 = load i32, ptr %.sroa.01030.01421, align 4, !noundef !4
-  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %72, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %330, i32 noundef 0, i32 undef, i32 noundef %.pre1493, i32 noundef %135, i32 noundef %332, i1 noundef zeroext false)
+  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %72, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %330, i32 noundef 0, i32 undef, i32 noundef %.pre1497, i32 noundef %135, i32 noundef %332, i1 noundef zeroext false)
   %333 = load i8, ptr %72, align 8, !range !3333, !noundef !4
   %334 = icmp eq i8 %333, 24
   br i1 %334, label %335, label %336
@@ -79224,7 +79224,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit948: ; pred
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)
-  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %71, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %.sroa.0476.0.copyload, i32 noundef 0, i32 undef, i32 noundef %.pre1493, i32 noundef %135, i32 noundef %332, i1 noundef zeroext true)
+  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %71, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %.sroa.0476.0.copyload, i32 noundef 0, i32 undef, i32 noundef %.pre1497, i32 noundef %135, i32 noundef %332, i1 noundef zeroext true)
   %338 = load i8, ptr %71, align 8, !range !3333, !noundef !4
   %339 = icmp eq i8 %338, 24
   br i1 %339, label %340, label %341
@@ -79536,6 +79536,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   %.sroa.5571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 12
   %.pre = load i32, ptr %76, align 4, !alias.scope !22255, !noalias !22258
   %.pre1486 = load i32, ptr %78, align 4
+  %.pre1487 = load i32, ptr %77, align 4, !range !9594
+  %.pre1488 = load i32, ptr %79, align 4
   br label %497
 
 442:                                              ; preds = %"_ZN120_$LT$hir_ty..infer..InferenceResult$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$hir_def..hir..Pat$GT$$GT$$GT$5index17h96ed53f381901213E.exit962"
@@ -79776,21 +79778,21 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   br i1 %.not900, label %508, label %505
 
 497:                                              ; preds = %.lr.ph, %557
-  %498 = phi i32 [ %.pre1486, %.lr.ph ], [ %.sroa.0569.0.copyload, %557 ]
+  %498 = phi i32 [ %.pre1488, %.lr.ph ], [ %.sroa.5571.0.copyload, %557 ]
+  %499 = phi i32 [ %.pre1487, %.lr.ph ], [ %.sroa.4570.0.copyload, %557 ]
+  %500 = phi i32 [ %.pre1486, %.lr.ph ], [ %.sroa.0569.0.copyload, %557 ]
   %.sroa.81057.01415 = phi i64 [ 0, %.lr.ph ], [ %558, %557 ]
   %.sroa.01055.01414 = phi ptr [ %434, %.lr.ph ], [ %559, %557 ]
-  %499 = load i32, ptr %.sroa.01055.01414, align 4, !noundef !4
+  %501 = load i32, ptr %.sroa.01055.01414, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   store i64 %.sroa.81057.01415, ptr %439, align 8
   store i8 0, ptr %440, align 1
   store i8 4, ptr %58, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !22255)
-  %500 = call noundef i32 @_ZN6hir_ty3mir12ProjectionId7project17h24cd2dad989d1069E(i32 noundef %135, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 dereferenceable(64) %116), !noalias !22255
+  %502 = call noundef i32 @_ZN6hir_ty3mir12ProjectionId7project17h24cd2dad989d1069E(i32 noundef %135, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 dereferenceable(64) %116), !noalias !22255
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57)
-  %501 = load i32, ptr %77, align 4, !range !9594, !noundef !4
-  %502 = load i32, ptr %79, align 4
-  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %57, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %498, i32 noundef %501, i32 %502, i32 noundef %.pre, i32 noundef %500, i32 noundef %499, i1 noundef zeroext %8)
+  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %57, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %500, i32 noundef %499, i32 %498, i32 noundef %.pre, i32 noundef %502, i32 noundef %501, i1 noundef zeroext %8)
   %503 = load i8, ptr %57, align 8, !range !3333, !noundef !4
   %504 = icmp eq i8 %503, 24
   br i1 %504, label %557, label %561
@@ -79807,13 +79809,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   %512 = load i64, ptr %511, align 8, !noundef !4
   %513 = getelementptr inbounds i32, ptr %510, i64 %512
   %514 = icmp eq i64 %512, 0
-  %.pre1489 = load i32, ptr %78, align 4
-  br i1 %514, label %.._crit_edge1420_crit_edge, label %.lr.ph1419
-
-.._crit_edge1420_crit_edge:                       ; preds = %508
-  %.pre1490 = load i32, ptr %77, align 4, !range !9594
-  %.pre1491 = load i32, ptr %79, align 4
-  br label %._crit_edge1420
+  %.pre1493 = load i32, ptr %78, align 4
+  %.pre1494 = load i32, ptr %77, align 4, !range !9594
+  %.pre1495 = load i32, ptr %79, align 4
+  br i1 %514, label %._crit_edge1420, label %.lr.ph1419
 
 .lr.ph1419:                                       ; preds = %508
   %515 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -79821,7 +79820,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   %517 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.4613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 12
-  %.pre1487 = load i32, ptr %76, align 4, !alias.scope !22295, !noalias !22298
+  %.pre1489 = load i32, ptr %76, align 4, !alias.scope !22295, !noalias !22298
   br label %544
 
 518:                                              ; preds = %505
@@ -79898,21 +79897,21 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   br label %278
 
 544:                                              ; preds = %.lr.ph1419, %552
-  %545 = phi i32 [ %.pre1489, %.lr.ph1419 ], [ %.sroa.0612.0.copyload, %552 ]
+  %545 = phi i32 [ %.pre1495, %.lr.ph1419 ], [ %.sroa.5614.0.copyload, %552 ]
+  %546 = phi i32 [ %.pre1494, %.lr.ph1419 ], [ %.sroa.4613.0.copyload, %552 ]
+  %547 = phi i32 [ %.pre1493, %.lr.ph1419 ], [ %.sroa.0612.0.copyload, %552 ]
   %.sroa.81060.01417 = phi i64 [ 0, %.lr.ph1419 ], [ %553, %552 ]
   %.sroa.01058.01416 = phi ptr [ %510, %.lr.ph1419 ], [ %554, %552 ]
-  %546 = load i32, ptr %.sroa.01058.01416, align 4, !noundef !4
+  %548 = load i32, ptr %.sroa.01058.01416, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
   store i64 %.sroa.81060.01417, ptr %515, align 8
   store i8 1, ptr %516, align 1
   store i8 4, ptr %54, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !22295)
-  %547 = call noundef i32 @_ZN6hir_ty3mir12ProjectionId7project17h24cd2dad989d1069E(i32 noundef %135, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(64) %116), !noalias !22295
+  %549 = call noundef i32 @_ZN6hir_ty3mir12ProjectionId7project17h24cd2dad989d1069E(i32 noundef %135, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(64) %116), !noalias !22295
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
-  %548 = load i32, ptr %77, align 4, !range !9594, !noundef !4
-  %549 = load i32, ptr %79, align 4
-  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %53, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %545, i32 noundef %548, i32 %549, i32 noundef %.pre1487, i32 noundef %547, i32 noundef %546, i1 noundef zeroext %8)
+  call fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$19pattern_match_inner17h7e62cf72570f4592E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %53, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %547, i32 noundef %546, i32 %545, i32 noundef %.pre1489, i32 noundef %549, i32 noundef %548, i1 noundef zeroext %8)
   %550 = load i8, ptr %53, align 8, !range !3333, !noundef !4
   %551 = icmp eq i8 %550, 24
   br i1 %551, label %552, label %556
@@ -79924,8 +79923,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit957: ; pred
   %.sroa.4613.0.copyload = load i32, ptr %.sroa.4613.0..sroa_idx, align 8
   %.sroa.5614.0.copyload = load i32, ptr %.sroa.5614.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53)
-  store i32 %.sroa.4613.0.copyload, ptr %77, align 4
-  store i32 %.sroa.5614.0.copyload, ptr %79, align 4
   %555 = icmp eq ptr %554, %513
   br i1 %555, label %._crit_edge1420, label %544
 
@@ -94685,7 +94682,7 @@ define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx11lower_const17h4c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx22lower_const_to_operand17h94aa3e397b48f278E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr %.296.val, ptr readonly %.304.val, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx22lower_const_to_operand17h94aa3e397b48f278E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr %.296.val, ptr readonly captures(address_is_null) %.304.val, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -96284,7 +96281,7 @@ _ZN6hir_ty3mir5lower11MirLowerCtx14set_terminator17h28f52896600675faE.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6hir_ty3mir5lower11MirLowerCtx22expr_ty_without_adjust17hd9e15d38bc986813E(ptr readonly %.320.val, i32 noundef %0) unnamed_addr #5 {
+define internal fastcc noundef nonnull ptr @_ZN6hir_ty3mir5lower11MirLowerCtx22expr_ty_without_adjust17hd9e15d38bc986813E(ptr readonly captures(address_is_null) %.320.val, i32 noundef %0) unnamed_addr #5 {
   %2 = icmp ne ptr %.320.val, null
   tail call void @llvm.assume(i1 %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24746)
@@ -97521,7 +97518,7 @@ define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx17resolve_lang_ite
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx20lower_block_to_place17h16f8d2fc84a8bda6E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 %10) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx20lower_block_to_place17h16f8d2fc84a8bda6E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(344) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 %10) unnamed_addr #5 personality ptr @rust_eh_personality {
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { { i32, [1 x i32] }, { i8, [55 x i8] } }, align 8
@@ -99087,7 +99084,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx36emit_drop_and_storage_dead_for_scope17h248e22be84d33af5E(ptr noalias noundef nonnull align 8 dereferenceable(344) %0, ptr readonly %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, i32 %3) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6hir_ty3mir5lower11MirLowerCtx36emit_drop_and_storage_dead_for_scope17h248e22be84d33af5E(ptr noalias noundef nonnull align 8 dereferenceable(344) %0, ptr readonly captures(address) %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, i32 %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   %5 = alloca { [20 x i32], i32, [3 x i32] }, align 16
   %6 = alloca { { [20 x i32], i32, [3 x i32] }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 16
   %7 = alloca { { i32, [1 x i32] }, { i8, [55 x i8] } }, align 8

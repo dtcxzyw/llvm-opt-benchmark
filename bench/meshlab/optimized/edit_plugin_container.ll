@@ -484,7 +484,7 @@ _ZNSt6vectorIP10EditPluginSaIS1_EE9push_backERKS1_.exit: ; preds = %7, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19EditPluginContainer15eraseEditPluginEP10EditPlugin(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone %1) local_unnamed_addr #14 align 2 {
+define void @_ZN19EditPluginContainer15eraseEditPluginEP10EditPlugin(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #14 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

@@ -46456,7 +46456,7 @@ _ZStneIN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorESaIS1_EEbRKSt6ve
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL9_ToVectorRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet16IntersectionViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9_ToVectorRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet16IntersectionViewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionIterator", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet::IntersectionIterator", align 8
   %5 = alloca %"class.std::allocator.14", align 1

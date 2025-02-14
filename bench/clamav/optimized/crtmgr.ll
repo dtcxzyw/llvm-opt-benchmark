@@ -606,7 +606,7 @@ define void @crtmgr_init(ptr noundef writeonly captures(none) initializes((0, 12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %.026 = load ptr, ptr %0, align 8, !tbaa !15
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %.loopexit, label %.lr.ph
@@ -1219,7 +1219,7 @@ declare ptr @BN_new() local_unnamed_addr #2
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not = icmp eq ptr %1, %4
   br i1 %.not, label %crtmgr_free.exit, label %.preheader

@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef readonly captures(none) %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef readonly captures(none) %srv, i64 noundef %stream_id, ptr noundef writeonly captures(address_is_null) %app_error_code) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds nuw i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8
@@ -782,7 +782,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef readonly captures(none) %srv, i64 noundef %stream_id, ptr noundef writeonly %app_error_code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef readonly captures(none) %srv, i64 noundef %stream_id, ptr noundef writeonly captures(address_is_null) %app_error_code) local_unnamed_addr #0 {
 entry:
   %ch = getelementptr inbounds nuw i8, ptr %srv, i64 80
   %0 = load ptr, ptr %ch, align 8

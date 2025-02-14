@@ -4676,7 +4676,7 @@ check_crontab_process.exit:                       ; preds = %7, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_schedule_cmd(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_schedule_cmd(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.string_list, align 8
   %5 = alloca %struct.string_list, align 8
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.181) #21

@@ -51,7 +51,7 @@ define ptr @osqp_error_message(i64 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @osqp_get_dimensions(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
+define void @osqp_get_dimensions(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -86,7 +86,7 @@ define void @osqp_get_dimensions(ptr noundef readonly %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @osqp_set_default_codegen_defines(ptr noundef writeonly %0) local_unnamed_addr #5 {
+define void @osqp_set_default_codegen_defines(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -101,7 +101,7 @@ define void @osqp_set_default_codegen_defines(ptr noundef writeonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @osqp_set_default_settings(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define void @osqp_set_default_settings(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -1456,7 +1456,7 @@ define i64 @osqp_get_solution(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @osqp_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+define noundef i64 @osqp_cleanup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %163, label %2
 
@@ -1988,7 +1988,7 @@ declare void @OSQPVectorf_mult_scalar(ptr noundef, double noundef) local_unnamed
 declare void @reset_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @osqp_warm_start(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i64 @osqp_warm_start(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -2309,7 +2309,7 @@ declare i64 @unscale_data(ptr noundef) local_unnamed_addr #1
 declare void @OSQPMatrix_update_values(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @osqp_update_rho(ptr noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define i64 @osqp_update_rho(ptr noundef readonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

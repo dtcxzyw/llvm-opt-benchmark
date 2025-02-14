@@ -537,7 +537,7 @@ return:                                           ; preds = %entry, %X509V3_EXT_
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509V3_get_d2i(ptr noundef %x, i32 noundef %nid, ptr noundef writeonly %crit, ptr noundef %idx) local_unnamed_addr #0 {
+define hidden ptr @X509V3_get_d2i(ptr noundef %x, i32 noundef %nid, ptr noundef writeonly captures(address_is_null) %crit, ptr noundef captures(address_is_null) %idx) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %x, null
   %tobool1.not = icmp eq ptr %idx, null

@@ -1053,7 +1053,7 @@ unreachable:                                      ; preds = %invoke.cont34
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodpLERKS0_(ptr noundef nonnull returned align 4 dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodpLERKS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i261 = alloca %"struct.QuantLib::detail::short_period_holder", align 8
   %ref.tmp.i254 = alloca %"struct.QuantLib::detail::short_period_holder", align 8
@@ -2782,7 +2782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodmIERKS0_(ptr noundef nonnull returned align 4 dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodmIERKS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Period", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #17
@@ -2801,7 +2801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodmLEi(ptr noundef nonnull returned align 4 dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PeriodmLEi(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !3
   %mul = mul nsw i32 %0, %n
@@ -2810,7 +2810,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PerioddVEi(ptr noundef nonnull returned align 4 dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN8QuantLib6PerioddVEi(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(8) %this, i32 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.QuantLib::detail::short_period_holder", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

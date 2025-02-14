@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"Multiple status\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decContextClearStatus_75(ptr noundef returned %context, i32 noundef %mask) local_unnamed_addr #0 {
+define noundef ptr @uprv_decContextClearStatus_75(ptr noundef returned captures(ret: address, provenance) %context, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %not = xor i32 %mask, -1
   %status = getelementptr inbounds nuw i8, ptr %context, i64 20
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly initializes((0, 25)) %context, i32 noundef %kind) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 25)) %context, i32 noundef %kind) local_unnamed_addr #1 {
 entry:
   store i32 9, ptr %context, align 4
   %emax = getelementptr inbounds nuw i8, ptr %context, i64 4
@@ -90,7 +90,7 @@ sw.epilog:                                        ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decContextSetStatus_75(ptr noundef returned %context, i32 noundef %status) local_unnamed_addr #0 {
+define noundef ptr @uprv_decContextSetStatus_75(ptr noundef returned captures(ret: address, provenance) %context, i32 noundef %status) local_unnamed_addr #0 {
 entry:
   %status1 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1, align 4
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decContextRestoreStatus_75(ptr noundef returned %context, i32 noundef %newstatus, i32 noundef %mask) local_unnamed_addr #0 {
+define noundef ptr @uprv_decContextRestoreStatus_75(ptr noundef returned captures(ret: address, provenance) %context, i32 noundef %newstatus, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %not = xor i32 %mask, -1
   %status = getelementptr inbounds nuw i8, ptr %context, i64 20
@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextSetRounding_75(ptr noundef returned writeonly initializes((12, 16)) %context, i32 noundef %newround) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextSetRounding_75(ptr noundef returned writeonly captures(ret: address, provenance) initializes((12, 16)) %context, i32 noundef %newround) local_unnamed_addr #1 {
 entry:
   %round = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 %newround, ptr %round, align 4
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uprv_decContextSetStatusFromString_75(ptr noundef %context, ptr noundef readonly captures(none) %string) local_unnamed_addr #3 {
+define ptr @uprv_decContextSetStatusFromString_75(ptr noundef captures(ret: address, provenance) %context, ptr noundef readonly captures(none) %string) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %string, ptr noundef nonnull dereferenceable(18) @.str) #7
   %cmp = icmp eq i32 %call, 0
@@ -318,7 +318,7 @@ return:                                           ; preds = %if.end61, %if.then5
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uprv_decContextSetStatusFromStringQuiet_75(ptr noundef %context, ptr noundef readonly captures(none) %string) local_unnamed_addr #3 {
+define ptr @uprv_decContextSetStatusFromStringQuiet_75(ptr noundef captures(ret: address, provenance) %context, ptr noundef readonly captures(none) %string) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %string, ptr noundef nonnull dereferenceable(18) @.str) #7
   %cmp = icmp eq i32 %call, 0
@@ -487,7 +487,7 @@ return:                                           ; preds = %if.end61, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decContextSetStatusQuiet_75(ptr noundef returned %context, i32 noundef %status) local_unnamed_addr #0 {
+define noundef ptr @uprv_decContextSetStatusQuiet_75(ptr noundef returned captures(ret: address, provenance) %context, i32 noundef %status) local_unnamed_addr #0 {
 entry:
   %status1 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1, align 4
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextZeroStatus_75(ptr noundef returned writeonly initializes((20, 24)) %context) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextZeroStatus_75(ptr noundef returned writeonly captures(ret: address, provenance) initializes((20, 24)) %context) local_unnamed_addr #1 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   store i32 0, ptr %status, align 4

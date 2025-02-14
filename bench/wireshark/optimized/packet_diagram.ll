@@ -2084,7 +2084,7 @@ define void @_ZN13PacketDiagram20selectedFieldChangedEP16FieldInformation(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13PacketDiagram16setSelectedFieldEP10field_info(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13PacketDiagram16setSelectedFieldEP10field_info(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.17, align 8
   %4 = alloca %class.QVariant, align 8
   %5 = tail call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext true) #17

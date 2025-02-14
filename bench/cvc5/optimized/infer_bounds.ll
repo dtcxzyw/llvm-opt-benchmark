@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithm16getSimplexRoundsEv(ptr noundef nonnull readnone align 4 dereferenceable(12) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithm16getSimplexRoundsEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(12) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_simplexRounds = getelementptr inbounds nuw i8, ptr %this, i64 4
   ret ptr %d_simplexRounds
@@ -946,7 +946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult8getValueEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult8getValueEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_value
@@ -1081,7 +1081,7 @@ return:                                           ; preds = %_ZN4cvc58internal7I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult15valueAsRationalEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal6theory5arith6linear17InferBoundsResult15valueAsRationalEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_value.i

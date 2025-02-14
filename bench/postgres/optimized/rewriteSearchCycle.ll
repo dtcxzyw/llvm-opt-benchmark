@@ -1189,7 +1189,7 @@ declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 n
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 34, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

@@ -272,7 +272,7 @@ define void @PHP_MD5InitArgs(ptr noundef writeonly captures(none) initializes((0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @PHP_MD5Update(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
 ._crit_edge:
   %3 = load i32, ptr %0, align 4
   %4 = trunc i64 %2 to i32
@@ -754,7 +754,7 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @body(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 64, -63) %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @body(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 noundef range(i64 64, -63) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12

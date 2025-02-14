@@ -1964,7 +1964,7 @@ _ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE(ptr noundef readonly %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 align 2 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2437,7 +2437,7 @@ _ZN4llvm12safe_reallocEPvm.exit:                  ; preds = %41, %34, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang29NestedNameSpecifierLocBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang29NestedNameSpecifierLocBuilderaSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !510
   store ptr %3, ptr %0, align 8, !tbaa !510
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

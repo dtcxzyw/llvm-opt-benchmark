@@ -756,7 +756,7 @@ fill_fp_info.exit:                                ; preds = %231, %273, %.crited
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @k12_copy_cb(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @k12_copy_cb(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @g_strsplit(ptr noundef %5, ptr noundef nonnull @.str.42, i32 noundef 0) #5

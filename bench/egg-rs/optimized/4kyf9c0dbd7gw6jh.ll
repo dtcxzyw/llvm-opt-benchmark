@@ -102,7 +102,7 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0e91ff9af32add60E.llvm.5520512306816613332"(i64 noundef %0, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0e91ff9af32add60E.llvm.5520512306816613332"(i64 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !11
 
@@ -116,7 +116,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h87fcf6da0ec45b0eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h87fcf6da0ec45b0eE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !alias.scope !12, !noalias !15, !noundef !9
   %5 = icmp ugt i64 %4, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

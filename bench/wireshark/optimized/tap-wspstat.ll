@@ -368,7 +368,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #8 {
+define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
 

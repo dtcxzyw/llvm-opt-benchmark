@@ -1173,7 +1173,7 @@ PS_Conv_ASCIIHexDecode.exit38:                    ; preds = %.critedge, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_parser_to_coord_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #0 {
+define internal i32 @ps_parser_to_coord_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
@@ -1580,7 +1580,7 @@ ps_tocoordarray.exit:                             ; preds = %94, %.then.i, %skip
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = load ptr, ptr %0, align 8, !tbaa !25
@@ -6183,7 +6183,7 @@ afm_parser_next_key.exit.thread:                  ; preds = %32, %afm_parse_kern
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cff_builder_init(ptr noundef writeonly captures(none) initializes((0, 24), (48, 96), (128, 130), (152, 216)) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
+define internal void @cff_builder_init(ptr noundef writeonly captures(none) initializes((0, 24), (48, 96), (128, 130), (152, 216)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %6, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 129
@@ -6690,7 +6690,7 @@ define internal void @cff_builder_close_contour(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cff_decoder_init(ptr noundef writeonly captures(none) initializes((0, 1520)) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal void @cff_decoder_init(ptr noundef writeonly captures(none) initializes((0, 1520)) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %10 = load ptr, ptr %9, align 8, !tbaa !425
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 129
@@ -6786,7 +6786,7 @@ cff_compute_bias.exit:                            ; preds = %cff_builder_init.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @cff_decoder_prepare(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal range(i32 0, 4) i32 @cff_decoder_prepare(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !412
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1168
@@ -8819,7 +8819,7 @@ skip_string.exit:                                 ; preds = %41, %.lr.ph.i, %.lr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 4) i32 @skip_literal_string(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 4) i32 @skip_literal_string(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !25
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %.lr.ph51, label %.thread
@@ -8899,7 +8899,7 @@ define internal fastcc range(i32 0, 4) i32 @skip_literal_string(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ps_tofixedarray(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @ps_tofixedarray(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = load ptr, ptr %0, align 8, !tbaa !25
@@ -9272,7 +9272,7 @@ declare ptr @ft_hash_num_lookup(i32 noundef, ptr noundef) local_unnamed_addr #10
 declare hidden ptr @ft_module_get_service(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @cf2_free_instance(ptr noundef %0) #0 {
+define internal void @cf2_free_instance(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

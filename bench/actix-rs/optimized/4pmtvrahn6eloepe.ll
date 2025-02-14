@@ -6032,7 +6032,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 -15, 9223372036854775793) %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr readonly %.16.val, i64 %.24.val, ptr noalias noundef nonnull align 8 dereferenceable(264) %5, ptr noalias noundef nonnull align 4 %6, i64 noundef range(i64 1, 0) %7) unnamed_addr #1 {
+define internal fastcc void @_ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 -15, 9223372036854775793) %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr readonly captures(address_is_null) %.16.val, i64 %.24.val, ptr noalias noundef nonnull align 8 dereferenceable(264) %5, ptr noalias noundef nonnull align 4 %6, i64 noundef range(i64 1, 0) %7) unnamed_addr #1 {
   %9 = alloca { [4 x i32], i64, float, float }, align 16
   %10 = icmp ult i64 %1, %7
   br i1 %10, label %11, label %15, !prof !217
@@ -10478,7 +10478,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN96_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$u8$GT$$GT$6extend17hbbcb8382442f81e9E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN96_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$u8$GT$$GT$6extend17hbbcb8382442f81e9E"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [1 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1111)

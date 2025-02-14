@@ -49,7 +49,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @Ioa_FileNameGeneric(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @Ioa_FileNameGeneric(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
@@ -78,7 +78,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 

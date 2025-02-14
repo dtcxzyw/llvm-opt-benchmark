@@ -90,7 +90,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hexlookup = internal unnamed_addr constant [128 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\0A\0B\0C\0D\0E\0F\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @PQmakeEmptyPGresult(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @PQmakeEmptyPGresult(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %40, label %4
@@ -196,7 +196,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @pqSetResultError(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @pqSetResultError(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %4
 
@@ -232,7 +232,7 @@ define void @pqSetResultError(ptr noundef %0, ptr noundef readonly %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %31, label %5
 
@@ -385,7 +385,7 @@ define void @PQclear(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @PQsetResultAttrs(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @PQsetResultAttrs(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @OOM_result
   %or.cond = or i1 %4, %5
@@ -475,7 +475,7 @@ PQresultAlloc.exit:                               ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @PQresultAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define ptr @PQresultAlloc(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %0, @OOM_result
   %or.cond = or i1 %3, %4
@@ -869,7 +869,7 @@ PQmakeEmptyPGresult.exit.thread:                  ; preds = %124, %PQmakeEmptyPG
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsetvalue(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsetvalue(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %0, @OOM_result
   %or.cond = or i1 %6, %7
@@ -1266,7 +1266,7 @@ PQmakeEmptyPGresult.exit.thread:                  ; preds = %7, %2, %87
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @pqResultAlloc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
+define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %4
 
@@ -1381,7 +1381,7 @@ define ptr @pqResultAlloc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @PQresultMemorySize(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i64 @PQresultMemorySize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2150,7 +2150,7 @@ define range(i32 0, 2) i32 @PQsendQueryContinue(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext true)
   br i1 %9, label %10, label %16
 
@@ -2259,7 +2259,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr noundef readonly %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PQsendQueryGuts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -2596,7 +2596,7 @@ pqRecycleCmdQueueEntry.exit:                      ; preds = %.loopexit, %154
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsendPrepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext true)
   br i1 %6, label %7, label %72
 
@@ -2829,7 +2829,7 @@ define internal fastcc void @pqAppendCmdQueueEntry(ptr noundef %0, ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext true)
   br i1 %8, label %9, label %15
 
@@ -2859,7 +2859,7 @@ define range(i32 0, 2) i32 @PQsendQueryPrepared(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @PQsetSingleRowMode(ptr noundef %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @PQsetSingleRowMode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 
@@ -3556,7 +3556,7 @@ define internal fastcc noundef zeroext i1 @PQexecStart(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @PQexecParams(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %9, label %10, label %PQexecFinish.exit
 
@@ -3616,7 +3616,7 @@ PQexecFinish.exit:                                ; preds = %24, %21, %21, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQprepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @PQprepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %6, label %7, label %PQexecFinish.exit
 
@@ -3656,7 +3656,7 @@ PQexecFinish.exit:                                ; preds = %16, %13, %13, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @PQexecPrepared(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc zeroext i1 @PQexecStart(ptr noundef %0)
   br i1 %8, label %9, label %PQexecFinish.exit
 
@@ -4764,7 +4764,7 @@ pqPipelineFlush.exit.thread:                      ; preds = %pqPipelineFlush.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQresultStatus(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @PQresultStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4795,7 +4795,7 @@ define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @PQresultErrorMessage(ptr noundef readonly %0) local_unnamed_addr #6 {
+define nonnull ptr @PQresultErrorMessage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4857,7 +4857,7 @@ declare void @pqBuildErrorMessage3(ptr noundef, ptr noundef, i32 noundef, i32 no
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @PQresultErrorField(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
+define ptr @PQresultErrorField(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -4888,7 +4888,7 @@ define ptr @PQresultErrorField(ptr noundef readonly %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQntuples(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @PQntuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -4902,7 +4902,7 @@ define i32 @PQntuples(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQnfields(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @PQnfields(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4917,7 +4917,7 @@ define i32 @PQnfields(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQbinaryTuples(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @PQbinaryTuples(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4932,7 +4932,7 @@ define i32 @PQbinaryTuples(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQfname(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @PQfname(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -4968,7 +4968,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %3 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %3
@@ -5122,7 +5122,7 @@ define range(i32 -2147483648, 2147483647) i32 @PQfnumber(ptr noundef readonly %0
 declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQftable(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQftable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5158,7 +5158,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQftablecol(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQftablecol(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5194,7 +5194,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQfformat(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQfformat(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5230,7 +5230,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQftype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQftype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5266,7 +5266,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQfsize(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQfsize(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5302,7 +5302,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQfmod(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQfmod(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_field_number.exit.thread, label %3
 
@@ -5338,7 +5338,7 @@ check_field_number.exit.thread:                   ; preds = %2, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @PQcmdStatus(ptr noundef readnone %0) local_unnamed_addr #15 {
+define ptr @PQcmdStatus(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.0 = select i1 %.not, ptr null, ptr %2
@@ -5346,7 +5346,7 @@ define ptr @PQcmdStatus(ptr noundef readnone %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @PQoidStatus(ptr noundef readonly %0) local_unnamed_addr #17 {
+define noundef nonnull ptr @PQoidStatus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -5544,7 +5544,7 @@ define noundef ptr @PQcmdTuples(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @__ctype_b_loc() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQgetvalue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @PQgetvalue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_tuple_field_number.exit.thread, label %4
 
@@ -5592,7 +5592,7 @@ check_tuple_field_number.exit.thread:             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_tuple_field_number.exit.thread, label %4
 
@@ -5642,7 +5642,7 @@ check_tuple_field_number.exit.thread:             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_tuple_field_number.exit.thread, label %4
 
@@ -5692,7 +5692,7 @@ check_tuple_field_number.exit.thread:             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQnparams(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @PQnparams(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5707,7 +5707,7 @@ define i32 @PQnparams(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQparamtype(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @PQparamtype(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %check_param_number.exit.thread, label %3
 
@@ -5790,7 +5790,7 @@ define range(i32 -1, 1) i32 @PQsetnonblocking(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PQisnonblocking(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @PQisnonblocking(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -5850,7 +5850,7 @@ define void @PQfreeNotify(ptr noundef captures(none) %0) local_unnamed_addr #20 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %8
 
@@ -5891,7 +5891,7 @@ define noundef i64 @PQescapeStringConn(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %8
 
@@ -6611,7 +6611,7 @@ define noalias ptr @PQescapeBytea(ptr noundef readonly captures(none) %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %82, label %4
 

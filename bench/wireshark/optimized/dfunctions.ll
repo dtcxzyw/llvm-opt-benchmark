@@ -240,7 +240,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @df_func_deregister(ptr noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @df_func_deregister(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @registered_functions, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %3) #4
@@ -840,7 +840,7 @@ df_func_compare.exit:                             ; preds = %3, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ul_semcheck_compare(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, ptr noundef readonly %3, i64 %4, i64 %5) #0 {
+define internal noundef i32 @ul_semcheck_compare(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, ptr noundef readonly captures(address_is_null) %3, i64 %4, i64 %5) #0 {
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -1065,7 +1065,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly captures(address_is_null) %.0.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.0.val, null
   br i1 %3, label %.preheader, label %.loopexit
 

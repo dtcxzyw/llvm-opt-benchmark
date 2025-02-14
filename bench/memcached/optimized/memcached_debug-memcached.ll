@@ -3286,7 +3286,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @thread_io_queue_get(ptr noundef readonly %t, i32 noundef %type) local_unnamed_addr #11 {
+define dso_local ptr @thread_io_queue_get(ptr noundef readonly captures(ret: address, provenance) %t, i32 noundef %type) local_unnamed_addr #11 {
 entry:
   %type14 = getelementptr inbounds nuw i8, ptr %t, i64 6816
   %0 = load i32, ptr %type14, align 8
@@ -3316,7 +3316,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @conn_io_queue_get(ptr noundef readonly %c, i32 noundef %type) local_unnamed_addr #11 {
+define dso_local ptr @conn_io_queue_get(ptr noundef readonly captures(ret: address, provenance) %c, i32 noundef %type) local_unnamed_addr #11 {
 entry:
   %type14 = getelementptr inbounds nuw i8, ptr %c, i64 260
   %0 = load i32, ptr %type14, align 4
@@ -3952,7 +3952,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 declare void @item_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @resp_finish(ptr noundef captures(none) %c, ptr noundef %resp) local_unnamed_addr #1 {
+define dso_local ptr @resp_finish(ptr noundef captures(none) %c, ptr noundef captures(address) %resp) local_unnamed_addr #1 {
 entry:
   %next1 = getelementptr inbounds nuw i8, ptr %resp, i64 8
   %0 = load ptr, ptr %next1, align 8
@@ -5082,7 +5082,7 @@ if.end20:                                         ; preds = %grow_stats_buf.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %it, i32 noundef %comm, ptr noundef %t, i32 noundef %hv, ptr noundef writeonly %nbytes, ptr noundef writeonly %cas, i1 noundef zeroext %cas_stale) local_unnamed_addr #1 {
+define dso_local range(i32 0, 4) i32 @do_store_item(ptr noundef %it, i32 noundef %comm, ptr noundef %t, i32 noundef %hv, ptr noundef writeonly captures(address_is_null) %nbytes, ptr noundef writeonly captures(address_is_null) %cas, i1 noundef zeroext %cas_stale) local_unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %it, i64 48
   %it_flags = getelementptr inbounds nuw i8, ptr %it, i64 38
@@ -6138,7 +6138,7 @@ prot_text.exit:                                   ; preds = %switch.lookup, %ent
 declare zeroext i1 @item_stats_sizes_status() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_stats(ptr noundef readonly %stat_type, i32 noundef %nkey, ptr noundef %add_stats, ptr noundef %c) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @get_stats(ptr noundef readonly captures(address_is_null) %stat_type, i32 noundef %nkey, ptr noundef %add_stats, ptr noundef %c) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %add_stats, null
   br i1 %cmp.not, label %if.end28, label %if.then
@@ -6487,7 +6487,7 @@ declare ptr @item_get_locked(ptr noundef, i64 noundef, ptr noundef, i1 noundef z
 declare void @item_unlock(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @do_add_delta(ptr noundef %t, ptr noundef %key, i64 noundef %nkey, i1 noundef zeroext %incr, i64 noundef %delta, ptr noundef %buf, ptr noundef %cas, i32 noundef %hv, ptr noundef writeonly %it_ret) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @do_add_delta(ptr noundef %t, ptr noundef %key, i64 noundef %nkey, i1 noundef zeroext %incr, i64 noundef %delta, ptr noundef %buf, ptr noundef captures(address_is_null) %cas, i32 noundef %hv, ptr noundef writeonly captures(address_is_null) %it_ret) local_unnamed_addr #1 {
 entry:
   %value = alloca i64, align 8
   %call = tail call ptr @do_item_get(ptr noundef %key, i64 noundef %nkey, i32 noundef %hv, ptr noundef %t, i1 noundef zeroext false) #36
@@ -10204,7 +10204,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #25
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32 1, 0) %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_sockets(i32 noundef range(i32 1, 0) %port, i32 noundef range(i32 1, 3) %transport, ptr noundef captures(address_is_null) %portnumber_file) unnamed_addr #1 {
 entry:
   %b = alloca ptr, align 8
   %conntag = alloca i64, align 8
@@ -10498,7 +10498,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #24
 declare i32 @htonl(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef nonnull %d_it, ptr noundef readonly %s_it, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @_store_item_copy_chunks(ptr noundef nonnull %d_it, ptr noundef readonly captures(address) %s_it, i32 noundef %len) unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %d_it, i64 48
   %nkey = getelementptr inbounds nuw i8, ptr %d_it, i64 41
@@ -11499,7 +11499,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %interface, i32 noundef %port, i32 noundef range(i32 1, 3) %transport, ptr noundef %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @server_socket(ptr noundef %interface, i32 noundef %port, i32 noundef range(i32 1, 3) %transport, ptr noundef captures(address_is_null) %portnumber_file, i64 noundef %conntag, i32 noundef %bproto) unnamed_addr #1 {
 entry:
   %intsize.i = alloca i32, align 4
   %avg.i = alloca i32, align 4

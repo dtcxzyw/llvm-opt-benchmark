@@ -1120,7 +1120,7 @@ return:                                           ; preds = %if.end20.i, %while.
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @bundle_write_java(ptr noundef %bundle, ptr noundef readonly %outputDir, ptr noundef %outputEnc, ptr noundef %writtenFilename, i32 noundef %writtenFilenameLen, ptr noundef %packageName, ptr noundef %bundleName, ptr noundef %status) local_unnamed_addr #0 {
+define dso_local void @bundle_write_java(ptr noundef %bundle, ptr noundef readonly captures(address_is_null) %outputDir, ptr noundef %outputEnc, ptr noundef %writtenFilename, i32 noundef %writtenFilenameLen, ptr noundef %packageName, ptr noundef %bundleName, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %fileName = alloca [256 x i8], align 16
   %className = alloca [256 x i8], align 16

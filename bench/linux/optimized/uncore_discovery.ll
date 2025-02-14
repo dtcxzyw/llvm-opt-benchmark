@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @generic_uncore_mmio_ops = internal global %struct.intel_uncore_ops { ptr @intel_generic_uncore_mmio_init_box, ptr @uncore_mmio_exit_box, ptr @intel_generic_uncore_mmio_disable_box, ptr @intel_generic_uncore_mmio_enable_box, ptr @intel_generic_uncore_mmio_disable_event, ptr @intel_generic_uncore_mmio_enable_event, ptr @uncore_mmio_read_counter, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.uncore_global_discovery, align 8
   %3 = alloca %struct.uncore_unit_discovery, align 8
   %4 = alloca i32, align 4

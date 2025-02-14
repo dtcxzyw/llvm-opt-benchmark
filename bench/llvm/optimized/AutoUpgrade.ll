@@ -22032,7 +22032,7 @@ declare void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRef
 declare void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(841), i32 noundef, ptr, i64, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24UpgradeSectionAttributesERNS_6ModuleE(ptr noundef nonnull readonly align 8 dereferenceable(841) %0) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm24UpgradeSectionAttributesERNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %0) local_unnamed_addr #1 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.llvm::StringRef", align 8
@@ -24667,7 +24667,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1 align 2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm23UpgradeDataLayoutStringB5cxx11ENS_9StringRefES0_ENK3$_0clEv"(ptr nonnull %.0.val, ptr %.8.val) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZN4llvm23UpgradeDataLayoutStringB5cxx11ENS_9StringRefES0_ENK3$_0clEv"(ptr nonnull %.0.val, ptr captures(address) %.8.val) unnamed_addr #2 align 2 {
   %1 = alloca %"class.llvm::SmallVector.160", align 8
   %2 = alloca %"class.llvm::Regex", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

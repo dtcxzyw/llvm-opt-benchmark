@@ -777,7 +777,7 @@ define internal noundef i32 @autofs_dev_ioctl_askumount(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((20, 24)) %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((20, 24)) %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   %6 = alloca %struct.path, align 8

@@ -142,7 +142,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base10JSONReader18ReadAndReturnErrorERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEiPiPS7_SB_SB_(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %json, i32 noundef %options, ptr noundef writeonly %error_code_out, ptr noundef %error_msg_out, ptr noundef writeonly %error_line_out, ptr noundef writeonly %error_column_out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base10JSONReader18ReadAndReturnErrorERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEiPiPS7_SB_SB_(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %json, i32 noundef %options, ptr noundef writeonly captures(address_is_null) %error_code_out, ptr noundef %error_msg_out, ptr noundef writeonly captures(address_is_null) %error_line_out, ptr noundef writeonly captures(address_is_null) %error_column_out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.base::internal::JSONParser", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

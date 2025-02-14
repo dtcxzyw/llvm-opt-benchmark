@@ -1974,7 +1974,7 @@ declare float @expf(float noundef) local_unnamed_addr #16
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_free(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define void @ggml_free(ptr noundef readonly captures(address) %ctx) local_unnamed_addr #0 {
 entry:
   %0 = atomicrmw add ptr @g_state_barrier, i32 1 seq_cst, align 4
   %cmp1.i = icmp sgt i32 %0, 0
@@ -2514,7 +2514,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_i32(ptr noundef readonly returned %tensor, i32 noundef %value) local_unnamed_addr #15 {
+define noundef ptr @ggml_set_i32(ptr noundef readonly returned captures(ret: address, provenance) %tensor, i32 noundef %value) local_unnamed_addr #15 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %tensor, i64 24
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -2739,7 +2739,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_f32(ptr noundef readonly returned %tensor, float noundef %value) local_unnamed_addr #15 {
+define noundef ptr @ggml_set_f32(ptr noundef readonly returned captures(ret: address, provenance) %tensor, float noundef %value) local_unnamed_addr #15 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %tensor, i64 24
   %0 = load i64, ptr %arrayidx.i, align 8
@@ -2945,7 +2945,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @ggml_set_zero(ptr noundef readonly returned %tensor) local_unnamed_addr #23 {
+define noundef ptr @ggml_set_zero(ptr noundef readonly returned captures(ret: address, provenance) %tensor) local_unnamed_addr #23 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %0 = load ptr, ptr %data, align 8
@@ -3009,7 +3009,7 @@ ggml_nbytes.exit:                                 ; preds = %for.body17.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_unravel_index(ptr noundef readonly captures(none) %tensor, i64 noundef %i, ptr noundef writeonly %i0, ptr noundef writeonly %i1, ptr noundef writeonly %i2, ptr noundef writeonly %i3) local_unnamed_addr #20 {
+define void @ggml_unravel_index(ptr noundef readonly captures(none) %tensor, i64 noundef %i, ptr noundef writeonly captures(address_is_null) %i0, ptr noundef writeonly captures(address_is_null) %i1, ptr noundef writeonly captures(address_is_null) %i2, ptr noundef writeonly captures(address_is_null) %i3) local_unnamed_addr #20 {
 entry:
   %ne = getelementptr inbounds nuw i8, ptr %tensor, i64 16
   %arrayidx = getelementptr inbounds nuw i8, ptr %tensor, i64 32
@@ -4204,7 +4204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ggml_get_name(ptr noundef readnone %tensor) local_unnamed_addr #9 {
+define nonnull ptr @ggml_get_name(ptr noundef readnone captures(ret: address, provenance) %tensor) local_unnamed_addr #9 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %tensor, i64 288
   ret ptr %name
@@ -4224,7 +4224,7 @@ entry:
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @ggml_format_name(ptr noundef returned %tensor, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #12 {
+define noundef ptr @ggml_format_name(ptr noundef returned captures(ret: address, provenance) %tensor, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #12 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -19739,7 +19739,7 @@ for.end78:                                        ; preds = %for.inc76
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %gb, ptr noundef readonly %gf, ptr noundef %filename) local_unnamed_addr #0 {
+define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %gb, ptr noundef readonly captures(address_is_null) %gf, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %color = alloca [16 x i8], align 16
   %label = alloca [16 x i8], align 16
@@ -21538,7 +21538,7 @@ ggml_build_forward_expand.exit:                   ; preds = %ggml_new_graph_cust
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ggml_opt_resume_g(ptr noundef %ctx, ptr noundef %opt, ptr noundef readonly captures(none) %f, ptr noundef %gf, ptr noundef %gb, ptr noundef readonly %callback, ptr noundef %callback_data) local_unnamed_addr #32 {
+define i32 @ggml_opt_resume_g(ptr noundef %ctx, ptr noundef %opt, ptr noundef readonly captures(none) %f, ptr noundef captures(address_is_null) %gf, ptr noundef %gb, ptr noundef readonly captures(address_is_null) %callback, ptr noundef %callback_data) local_unnamed_addr #32 {
 entry:
   %sum.i615.i = alloca [4 x <8 x float>], align 32
   %sum.i545.i = alloca [4 x <8 x float>], align 32
@@ -25315,7 +25315,7 @@ ggml_aligned_malloc.exit:                         ; preds = %sw.epilog.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @gguf_init_from_file(ptr noundef readonly captures(none) %fname, i8 %params.coerce0, ptr writeonly %params.coerce1) local_unnamed_addr #0 {
+define noundef ptr @gguf_init_from_file(ptr noundef readonly captures(none) %fname, i8 %params.coerce0, ptr writeonly captures(address_is_null) %params.coerce1) local_unnamed_addr #0 {
 entry:
   %ne0.addr.i = alloca i64, align 8
   %aligned_memory.i = alloca ptr, align 8
@@ -26138,7 +26138,7 @@ return:                                           ; preds = %entry, %if.end555, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gguf_free(ptr noundef %ctx) local_unnamed_addr #0 {
+define void @gguf_free(ptr noundef captures(address_is_null) %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -46177,7 +46177,7 @@ do.body:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_soft_max(ptr noundef nonnull readonly captures(none) %params, ptr noundef readonly captures(none) %src0, ptr noundef readonly %src1, ptr noundef readonly captures(none) %dst) unnamed_addr #32 {
+define internal fastcc void @ggml_compute_forward_soft_max(ptr noundef nonnull readonly captures(none) %params, ptr noundef readonly captures(none) %src0, ptr noundef readonly captures(address_is_null) %src1, ptr noundef readonly captures(none) %dst) unnamed_addr #32 {
 entry:
   %0 = load i32, ptr %src0, align 8
   %cond = icmp eq i32 %0, 0

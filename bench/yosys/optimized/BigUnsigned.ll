@@ -664,7 +664,7 @@ define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -1041,7 +1041,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %97, %69, %_ZN15Numb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -1384,7 +1384,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -1689,7 +1689,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %40, %_ZN11BigUnsign
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %6, label %8
@@ -2070,7 +2070,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -2258,7 +2258,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %89, %84, %_ZN15Numb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -2458,7 +2458,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %40, %_ZN11BigUnsign
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   %6 = icmp eq ptr %0, %2
@@ -2680,7 +2680,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %107, %102, %._crit_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %6, label %46
@@ -2941,7 +2941,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %39, %_ZN11BigUnsign
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigUnsigned, align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %6, label %46

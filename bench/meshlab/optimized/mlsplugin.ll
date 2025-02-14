@@ -6906,7 +6906,7 @@ _ZN7QStringD2Ev.exit40:                           ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9MlsPlugin17computeProjectionER12MeshDocumentRK17RichParameterListPN7GaelMls10MlsSurfaceI6CMeshOEEP9MeshModelPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9MlsPlugin17computeProjectionER12MeshDocumentRK17RichParameterListPN7GaelMls10MlsSurfaceI6CMeshOEEP9MeshModelPFbiPKcE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef readonly captures(address) %4, ptr noundef %5) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [4096 x i8], align 16
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8

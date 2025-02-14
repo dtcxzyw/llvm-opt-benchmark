@@ -868,7 +868,7 @@ If_CutSopBalancePinDelaysIntInt.exit:             ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutSopBalanceEvalInt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #3 {
+define i32 @If_CutSopBalanceEvalInt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #3 {
   %8 = alloca [15 x i32], align 16
   %9 = alloca [15 x i32], align 16
   %10 = alloca [70 x i32], align 16
@@ -1719,7 +1719,7 @@ If_LogCreateAndXorMulti.exit166:                  ; preds = %.lr.ph.i162, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutSopBalanceEvalIntInt(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #3 {
+define i32 @If_CutSopBalanceEvalIntInt(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #3 {
   %7 = alloca [15 x i32], align 16
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7) #12
@@ -1835,7 +1835,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutSopBalanceEval(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
+define i32 @If_CutSopBalanceEval(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca [15 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28

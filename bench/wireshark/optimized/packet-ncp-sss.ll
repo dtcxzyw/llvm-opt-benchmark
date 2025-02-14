@@ -222,7 +222,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.153 = private unnamed_addr constant [38 x i8] c"(-899) Products BETA life has expired\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_sss_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @dissect_sss_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
   %7 = icmp slt i32 %6, 4
@@ -789,7 +789,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str) #3

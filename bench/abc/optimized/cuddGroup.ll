@@ -139,7 +139,7 @@ define range(i32 0, 2) i32 @cuddTreeSifting(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddTreeSiftingAux(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddTreeSiftingAux(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2) unnamed_addr #0 {
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -230,7 +230,7 @@ define internal fastcc range(i32 0, 2) i32 @ddTreeSiftingAux(ptr noundef %0, ptr
 declare void @Cudd_FreeTree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddReorderChildren(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ddReorderChildren(ptr noundef %0, ptr noundef nonnull captures(address) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1978,7 +1978,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %.not104133 = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %.preheader121

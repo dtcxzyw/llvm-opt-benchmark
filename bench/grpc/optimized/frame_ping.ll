@@ -279,7 +279,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef captures(none) %parser, ptr noundef %t, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z29grpc_chttp2_ping_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef captures(none) %parser, ptr noundef %t, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %1 = load ptr, ptr %slice, align 8

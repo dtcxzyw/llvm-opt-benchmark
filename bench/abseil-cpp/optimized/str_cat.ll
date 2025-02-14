@@ -202,7 +202,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i21, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly %pieces.coerce0, i64 %pieces.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly captures(address) %pieces.coerce0, i64 %pieces.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #4
   %add.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %pieces.coerce0, i64 %pieces.coerce1
@@ -264,7 +264,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc17, %for.con
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS4_EE(ptr noundef nonnull %dest, ptr readonly %pieces.coerce0, i64 %pieces.coerce1) local_unnamed_addr #0 {
+define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS4_EE(ptr noundef nonnull %dest, ptr readonly captures(address) %pieces.coerce0, i64 %pieces.coerce1) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #4
   %add.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %pieces.coerce0, i64 %pieces.coerce1

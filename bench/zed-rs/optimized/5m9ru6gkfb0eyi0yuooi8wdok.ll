@@ -1531,7 +1531,7 @@ define hidden void @"_ZN10async_task6header15Header$LT$M$GT$6notify28_$u7b$$u7b$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h14eb953be6382215E"(i64 noundef %0, ptr noundef readnone returned %1) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17h14eb953be6382215E"(i64 noundef %0, ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %1) unnamed_addr #3 {
   %switch = icmp eq i64 %0, 0
   br i1 %switch, label %5, label %3
 
@@ -1600,7 +1600,7 @@ define hidden void @"_ZN48_$LT$T$u20$as$u20$core..clone..CloneToUninit$GT$15clon
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function5FnMut8call_mut17h37d2132c42a46a07E.llvm.12712274325511499544(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(32) %1) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function5FnMut8call_mut17h37d2132c42a46a07E.llvm.12712274325511499544(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %1) unnamed_addr #5 {
   ret ptr %1
 }
 
@@ -1613,7 +1613,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h61caf9463d2bf245E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h61caf9463d2bf245E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %1) unnamed_addr #1 {
   ret ptr %1
 }
 
@@ -4010,7 +4010,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31Cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$3new17hfc6603a882deed31E.llvm.12712274325511499544"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$3new17hfc6603a882deed31E.llvm.12712274325511499544"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

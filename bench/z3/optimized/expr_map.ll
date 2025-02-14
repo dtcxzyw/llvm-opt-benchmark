@@ -497,7 +497,7 @@ if.end23:                                         ; preds = %_ZN11ast_manager7in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK8expr_map3getEP4exprRS1_RP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly %k, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %d, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK8expr_map3getEP4exprRS1_RP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(address) %k, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %d, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #7 align 2 {
 entry:
   %m_expr2expr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %k, i64 12

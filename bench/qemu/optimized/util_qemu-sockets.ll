@@ -2150,7 +2150,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @socket_dgram(ptr noundef readonly captures(none) %remote, ptr noundef readonly %local, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @socket_dgram(ptr noundef readonly captures(none) %remote, ptr noundef readonly captures(address_is_null) %local, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %ai.i = alloca %struct.addrinfo, align 8
@@ -2594,7 +2594,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @socket_address_flatten(ptr noundef readonly %addr_legacy) local_unnamed_addr #1 {
+define dso_local noundef ptr @socket_address_flatten(ptr noundef readonly captures(address_is_null) %addr_legacy) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %addr_legacy, null
   br i1 %tobool.not, label %return, label %if.end

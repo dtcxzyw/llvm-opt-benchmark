@@ -282,7 +282,7 @@ free_address.exit5:                               ; preds = %free_address.exit, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %add_address_to_hash.exit20, label %2
 
@@ -709,7 +709,7 @@ addresses_equal.exit:                             ; preds = %44, %36, %30, %16, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

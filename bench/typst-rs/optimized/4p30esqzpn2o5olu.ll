@@ -4406,7 +4406,7 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$image..codecs..gif..GifEnco
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$wasmi..store..ResourceLimiterQuery$LT$typst..foundations..plugin..StoreData$GT$$GT$$GT$17he2b724e87838113bE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$wasmi..store..ResourceLimiterQuery$LT$typst..foundations..plugin..StoreData$GT$$GT$$GT$17he2b724e87838113bE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr100drop_in_place$LT$wasmi..store..ResourceLimiterQuery$LT$typst..foundations..plugin..StoreData$GT$$GT$17h11b9542d5400c669E.exit", label %2
 
@@ -17039,7 +17039,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..V
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17ha9732e047d3d66ceE.exit": ; preds = %91
   %93 = getelementptr inbounds i8, ptr %.val.i.i, i64 -16
-  %94 = atomicrmw sub ptr %93, i64 1 release, align 8, !noalias !6336
+  %94 = atomicrmw sub ptr %93, i64 1 release, align 8
   %.not15 = icmp eq i64 %94, 1
   br i1 %.not15, label %95, label %"_ZN4core3ptr55drop_in_place$LT$typst..foundations..value..Dynamic$GT$17hd75910c25cc21603E.exit"
 
@@ -19088,7 +19088,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$wasmi..engine..cons
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$wasmi..externref..ExternObjectEntity$GT$17hffd141d0b16ea2b5E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$wasmi..externref..ExternObjectEntity$GT$17hffd141d0b16ea2b5E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4

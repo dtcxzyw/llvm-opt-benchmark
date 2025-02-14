@@ -2047,7 +2047,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit198:                 ; preds = %787, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14colvarbias_abf11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(2032) initializes((248, 256)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN14colvarbias_abf11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(2032) initializes((248, 256)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store double 0.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152

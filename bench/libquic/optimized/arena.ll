@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3net11UnsafeArenaaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3net11UnsafeArenaaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((0, 8), (24, 32)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -300,7 +300,7 @@ if.end8:                                          ; preds = %if.else, %_ZN3net11
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3net11UnsafeArena7ReallocEPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readonly %original, i64 noundef %oldsize, i64 noundef %newsize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN3net11UnsafeArena7ReallocEPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef readonly captures(address, ret: address, provenance) %original, i64 noundef %oldsize, i64 noundef %newsize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net11UnsafeArena4FreeEPcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone %data, i64 noundef %size) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net11UnsafeArena4FreeEPcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone captures(address) %data, i64 noundef %size) local_unnamed_addr #5 align 2 {
 entry:
   %blocks_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %blocks_, align 8
@@ -557,7 +557,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net11UnsafeArena5BlockaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net11UnsafeArena5BlockaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %size, align 8

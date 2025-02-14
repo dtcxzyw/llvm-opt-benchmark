@@ -1926,7 +1926,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib28FdmHestonHullWhiteEquityPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(336) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib28FdmHestonHullWhiteEquityPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %mapT_

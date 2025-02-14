@@ -9956,7 +9956,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit15: ; preds = %.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex18_RemoveTaskSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex18_RemoveTaskSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto", align 8
@@ -10379,7 +10379,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex19_RemoveRprimSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex19_RemoveRprimSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto", align 8
@@ -11032,7 +11032,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdSpri
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_PrimTypeIndexINS_7HdBprimEE13RemoveSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateERNS_15HdChangeTrackerEPNS_16HdRenderDelegateE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef nonnull align 8 dereferenceable(3328), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex23_RemoveInstancerSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdRenderIndex23_RemoveInstancerSubtreeERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(4080) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto", align 8
@@ -19905,7 +19905,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker17ResetVaryingStateEv(ptr noundef nonnull align 8 dereferenceable(3328)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPNS_15HdSceneDelegateENS_12_GLOBAL__N_123_RprimSyncRequestVectorENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPNS_15HdSceneDelegateENS_12_GLOBAL__N_123_RprimSyncRequestVectorENS_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i.i = load ptr, ptr %2, align 8
   %.not1.i.i.i.i = icmp eq ptr %.val.i.i.i, null
@@ -20161,7 +20161,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13HdRenderIndex10GetDriversEv(ptr noundef nonnull readnone align 8 dereferenceable(4080) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13HdRenderIndex10GetDriversEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(4080) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3896
   ret ptr %2
 }

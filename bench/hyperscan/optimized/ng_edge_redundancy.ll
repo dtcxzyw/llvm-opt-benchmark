@@ -3585,7 +3585,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L17checkFwdCandidateERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS9_St4lessIS9_ESaIS9_EEERKNS3_15edge_descriptorIS8_EERSt3mapIS9_bSC_SaISt4pairIKS9_bEEE(ptr %fixed_src.coerce0, i64 %fixed_src.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %fixed_parents, ptr %candidate.0.val.32.val, ptr readnone %candidate.0.val.40.val, ptr noundef nonnull align 8 dereferenceable(48) %done) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L17checkFwdCandidateERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS9_St4lessIS9_ESaIS9_EEERKNS3_15edge_descriptorIS8_EERSt3mapIS9_bSC_SaISt4pairIKS9_bEEE(ptr %fixed_src.coerce0, i64 %fixed_src.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %fixed_parents, ptr %candidate.0.val.32.val, ptr readnone captures(address) %candidate.0.val.40.val, ptr noundef nonnull align 8 dereferenceable(48) %done) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i72.i = alloca %"class.std::tuple.192", align 8
   %ref.tmp10.i73.i = alloca %"class.std::tuple.195", align 1

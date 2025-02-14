@@ -2378,7 +2378,7 @@ fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %2
 declare ptr @timelib_time_offset_ctor() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %20, label %8

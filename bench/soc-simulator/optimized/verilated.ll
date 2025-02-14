@@ -3315,7 +3315,7 @@ define dso_local noundef i64 @_ZNK19VerilatedContextImp17randSeedDefault64Ev(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z11VL_RANDOM_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #0 {
+define dso_local noundef ptr @_Z11VL_RANDOM_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #0 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3370,7 +3370,7 @@ define linkonce_odr dso_local noundef i64 @_Z9vl_rand64v() #0 comdat {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z15VL_RANDOM_RNG_WR5VlRNGiPj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef returned writeonly %2) #15 {
+define dso_local noundef ptr @_Z15VL_RANDOM_RNG_WR5VlRNGiPj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) %2) #15 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -3874,7 +3874,7 @@ define linkonce_odr dso_local noundef i64 @_Z11VL_RANDOM_Qv() #0 comdat {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #0 {
+define dso_local noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #0 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = add nsw i32 %4, -1
@@ -3910,7 +3910,7 @@ define dso_local noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_Z15VL_ZERO_RESET_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #13 {
+define dso_local noundef ptr @_Z15VL_ZERO_RESET_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #13 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = sext i32 %4 to i64
@@ -3920,7 +3920,7 @@ define dso_local noundef ptr @_Z15VL_ZERO_RESET_WiPj(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL9VL_ZERO_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #13 {
+define internal noundef ptr @_ZL9VL_ZERO_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #13 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = sext i32 %4 to i64
@@ -3958,7 +3958,7 @@ define dso_local void @_Z17_vl_debug_print_wiPKj(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z12_vl_moddiv_wiPjPKjS1_b(i32 noundef %0, ptr noundef returned writeonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) #15 {
+define dso_local noundef ptr @_Z12_vl_moddiv_wiPjPKjS1_b(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) #15 {
   %6 = alloca [129 x i32], align 16
   %7 = alloca [129 x i32], align 16
   %8 = add nsw i32 %0, 31
@@ -4448,7 +4448,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL17VL_MOSTSETBITP1_WiPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z10VL_POW_WWWiiiPjPKjS1_(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned initializes((0, 4)) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) #15 {
+define dso_local noundef ptr @_Z10VL_POW_WWWiiiPjPKjS1_(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) initializes((0, 4)) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) #15 {
   %7 = alloca %struct.VlWide, align 4
   %8 = alloca %struct.VlWide, align 4
   %9 = alloca %struct.VlWide, align 4
@@ -4614,7 +4614,7 @@ _ZL8VL_MUL_WiPjPKjS1_.exit44:                     ; preds = %._crit_edge39.us.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL11VL_ASSIGN_WiPjPKj(i32 noundef %0, ptr noundef returned writeonly %1, ptr noundef readonly captures(none) %2) #12 {
+define internal noundef ptr @_ZL11VL_ASSIGN_WiPjPKj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = add nsw i32 %0, 31
   %5 = sdiv i32 %4, 32
   %6 = sext i32 %5 to i64
@@ -4629,7 +4629,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm128EEcvPjEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL8VL_MUL_WiPjPKjS1_(i32 noundef %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #15 {
+define internal noundef ptr @_ZL8VL_MUL_WiPjPKjS1_(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #15 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.preheader.us.preheader, label %._crit_edge41
 
@@ -4692,7 +4692,7 @@ define internal noundef ptr @_ZL8VL_MUL_WiPjPKjS1_(i32 noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z10VL_POW_WWQiiiPjPKjm(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned initializes((0, 4)) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) #15 {
+define dso_local noundef ptr @_Z10VL_POW_WWQiiiPjPKjm(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) initializes((0, 4)) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) #15 {
   %7 = alloca %struct.VlWide.34, align 4
   %8 = trunc i64 %5 to i32
   store i32 %8, ptr %7, align 4
@@ -4771,7 +4771,7 @@ define dso_local noundef i64 @_Z10VL_POW_QQWiiimPKj(i32 %0, i32 %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z12VL_POWSS_WWWiiiPjPKjS1_bb(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #15 {
+define dso_local noundef ptr @_Z12VL_POWSS_WWWiiiPjPKjS1_bb(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #15 {
   br i1 %7, label %9, label %53
 
 9:                                                ; preds = %8
@@ -4875,7 +4875,7 @@ define dso_local noundef ptr @_Z12VL_POWSS_WWWiiiPjPKjS1_bb(i32 noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL12VL_ALLONES_WiPj(i32 noundef %0, ptr noundef returned writeonly %1) #13 {
+define internal noundef ptr @_ZL12VL_ALLONES_WiPj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) #13 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = add nsw i32 %4, -1
@@ -4893,7 +4893,7 @@ define internal noundef ptr @_ZL12VL_ALLONES_WiPj(i32 noundef %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z12VL_POWSS_WWQiiiPjPKjmbb(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #15 {
+define dso_local noundef ptr @_Z12VL_POWSS_WWQiiiPjPKjmbb(i32 noundef %0, i32 %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #15 {
   %9 = alloca %struct.VlWide.34, align 4
   %10 = trunc i64 %5 to i32
   store i32 %10, ptr %9, align 4
@@ -5235,7 +5235,7 @@ _Z11VL_ITOR_D_WiPKj.exit:                         ; preds = %28, %25, %22, %_Z11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL11VL_NEGATE_WiPjPKj(i32 noundef %0, ptr noundef returned writeonly %1, ptr noundef readonly captures(none) %2) #15 {
+define internal noundef ptr @_ZL11VL_NEGATE_WiPjPKj(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2) #15 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5265,7 +5265,7 @@ define internal noundef ptr @_ZL11VL_NEGATE_WiPjPKj(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL19_vl_clean_inplace_wiPj(i32 noundef %0, ptr noundef returned %1) #12 {
+define internal noundef ptr @_ZL19_vl_clean_inplace_wiPj(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1) #12 {
   %3 = add nsw i32 %0, 31
   %4 = sdiv i32 %3, 32
   %5 = and i32 %0, 31
@@ -5578,7 +5578,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm2050EEcvPjEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL8VL_ADD_WiPjPKjS1_(i32 noundef %0, ptr noundef returned writeonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #15 {
+define internal noundef ptr @_ZL8VL_ADD_WiPjPKjS1_(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #15 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5610,7 +5610,7 @@ define internal noundef ptr @_ZL8VL_ADD_WiPjPKjS1_(i32 noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL13VL_SHIFTL_WWIiiiPjPKjj(i32 noundef %0, i32 %1, i32 %2, ptr noundef returned %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
+define internal noundef ptr @_ZL13VL_SHIFTL_WWIiiiPjPKjj(i32 noundef %0, i32 %1, i32 %2, ptr noundef returned captures(ret: address, provenance) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #15 {
   %7 = lshr i32 %5, 5
   %.not = icmp ult i32 %5, %0
   br i1 %.not, label %13, label %.preheader41
@@ -12425,7 +12425,7 @@ define internal void @_ZL15_vl_vsss_setbitPjiiij(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z11_vl_vsscanfP8_IO_FILEiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P13__va_list_tag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef captures(none) %5) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z11_vl_vsscanfP8_IO_FILEiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P13__va_list_tag(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, ptr noundef captures(none) %5) #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca i32, align 4
   %9 = alloca %struct.VlWide.34, align 4
@@ -13504,7 +13504,7 @@ _ZL16_vl_vsss_advanceP8_IO_FILERi.exit:           ; preds = %110, %.thread, %79,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZL12_vl_vsss_eofP8_IO_FILEi(ptr noundef %0, i32 noundef %1) #17 {
+define internal noundef zeroext i1 @_ZL12_vl_vsss_eofP8_IO_FILEi(ptr noundef captures(address_is_null) %0, i32 noundef %1) #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -13526,7 +13526,7 @@ define internal noundef zeroext i1 @_ZL12_vl_vsss_eofP8_IO_FILEi(ptr noundef %0,
 declare i32 @isspace(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL18_vl_vsss_skipspaceP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) #17 {
+define internal void @_ZL18_vl_vsss_skipspaceP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) #17 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not.i = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -13611,7 +13611,7 @@ _ZL13_vl_vsss_peekP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZL13_vl_vsss_peekP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) #17 {
+define internal noundef i32 @_ZL13_vl_vsss_peekP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 
@@ -13664,7 +13664,7 @@ define internal noundef i32 @_ZL13_vl_vsss_peekP8_IO_FILERiPKjRKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL16_vl_vsss_advanceP8_IO_FILERi(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) #17 {
+define internal void @_ZL16_vl_vsss_advanceP8_IO_FILERi(ptr noundef captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -13683,7 +13683,7 @@ define internal void @_ZL16_vl_vsss_advanceP8_IO_FILERi(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL17_vl_vsss_read_strP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcPKc(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly %5) #17 {
+define internal void @_ZL17_vl_vsss_read_strP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcPKc(ptr noundef captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly %5) #17 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not.i = icmp eq ptr %0, null
   %8 = icmp eq ptr %2, null
@@ -13895,7 +13895,7 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef ptr @_ZL17_vl_vsss_read_binP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcmb(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly %4, i64 noundef %5, i1 noundef zeroext %6) #17 {
+define internal noundef ptr @_ZL17_vl_vsss_read_binP8_IO_FILERiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPcmb(ptr noundef captures(address_is_null) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly captures(ret: address, provenance) %4, i64 noundef %5, i1 noundef zeroext %6) #17 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = add i64 %5, -1
   %.not21 = icmp eq i64 %5, 0
@@ -14254,7 +14254,7 @@ _ZN19VerilatedContextImp10fdToFpListEj.exit.thread8: ; preds = %_ZN19VerilatedCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local void @_Z18_vl_vint_to_stringiPcPKj(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #18 {
+define dso_local void @_Z18_vl_vint_to_stringiPcPKj(i32 noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) #18 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -14677,7 +14677,7 @@ _ZL7getLineRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z12VL_FERROR_INjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z12VL_FERROR_INjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call ptr @__errno_location() #58
@@ -17031,7 +17031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z14VL_SSCANF_IWNXiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz(i32 noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 %3, ...) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z14VL_SSCANF_IWNXiPKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiz(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 %3, ...) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -18455,7 +18455,7 @@ define internal noundef i64 @_ZL10VL_CVT_Q_Dd(double noundef %0) #14 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_(i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS4_(i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22799,7 +22799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16VerilatedContext10checkMagicEPKS_(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN16VerilatedContext10checkMagicEPKS_(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
@@ -25786,7 +25786,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19VerilatedContextImp18commandArgVlStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN19VerilatedContextImp18commandArgVlStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RS5_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
@@ -28272,13 +28272,13 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Verilated13removeFlushCbEPFvPvES0_(ptr noundef %0, ptr noundef %1) #0 align 2 {
+define dso_local void @_ZN9Verilated13removeFlushCbEPFvPvES0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) #0 align 2 {
   tail call void @_ZL13removeCbFlushPFvPvES_(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13removeCbFlushPFvPvES_(ptr noundef readnone %0, ptr noundef readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL13removeCbFlushPFvPvES_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list", align 8
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL10VlCbStatic) #23
   %.not.i.i.i.i = icmp eq i32 %4, 0
@@ -28373,7 +28373,7 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12runCallbacksRKNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0) #0 personality ptr @__gxx_personality_v0 {
   %.sroa.05.08 = load ptr, ptr %0, align 8
   %2 = icmp eq ptr %.sroa.05.08, %0
   br i1 %2, label %._crit_edge, label %.lr.ph
@@ -28518,13 +28518,13 @@ _ZNSt7__cxx114listISt4pairIPFvPvES2_ESaIS5_EE6spliceESt20_List_const_iteratorIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Verilated12removeExitCbEPFvPvES0_(ptr noundef %0, ptr noundef %1) #0 align 2 {
+define dso_local void @_ZN9Verilated12removeExitCbEPFvPvES0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) #0 align 2 {
   tail call void @_ZL12removeCbExitPFvPvES_(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12removeCbExitPFvPvES_(ptr noundef readnone %0, ptr noundef readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12removeCbExitPFvPvES_(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list", align 8
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZL10VlCbStatic, i64 64)) #23
   %.not.i.i.i.i = icmp eq i32 %4, 0
@@ -29799,7 +29799,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK17VerilatedVarProps5udimsEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK17VerilatedVarProps16datapAdjustIndexEPvii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readnone %1, i32 noundef %2, i32 noundef %3) #28 align 2 {
+define dso_local noundef ptr @_ZNK17VerilatedVarProps16datapAdjustIndexEPvii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readnone captures(ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) #28 align 2 {
   %5 = icmp slt i32 %2, 1
   br i1 %5, label %.critedge, label %6
 
@@ -33073,7 +33073,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL16VL_MEMSET_ZERO_WPji(ptr noundef returned writeonly %0, i32 noundef %1) #42 {
+define internal noundef ptr @_ZL16VL_MEMSET_ZERO_WPji(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1) #42 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %4, i1 false)
@@ -33081,7 +33081,7 @@ define internal noundef ptr @_ZL16VL_MEMSET_ZERO_WPji(ptr noundef returned write
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL11VL_MEMCPY_WPjPKji(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #43 {
+define internal noundef ptr @_ZL11VL_MEMCPY_WPjPKji(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #43 {
   %4 = sext i32 %2 to i64
   %5 = shl nsw i64 %4, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %1, i64 %5, i1 false)
@@ -33089,7 +33089,7 @@ define internal noundef ptr @_ZL11VL_MEMCPY_WPjPKji(ptr noundef returned writeon
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL16VL_MEMSET_ONES_WPji(ptr noundef returned writeonly %0, i32 noundef %1) #42 {
+define internal noundef ptr @_ZL16VL_MEMSET_ONES_WPji(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1) #42 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 -1, i64 %4, i1 false)
@@ -36022,7 +36022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL12VL_EXTEND_WQiiPjm(i32 noundef %0, i32 %1, ptr noundef returned writeonly initializes((0, 8)) %2, i64 noundef %3) #13 {
+define internal noundef ptr @_ZL12VL_EXTEND_WQiiPjm(i32 noundef %0, i32 %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %2, i64 noundef %3) #13 {
   %5 = trunc i64 %3 to i32
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %3, 32
@@ -36074,7 +36074,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9_vl_cmp_wiPKjS0_(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @_ZL12VL_EXTEND_WIiiPjj(i32 noundef %0, i32 %1, ptr noundef returned writeonly initializes((0, 4)) %2, i32 noundef %3) #13 {
+define internal noundef ptr @_ZL12VL_EXTEND_WIiiPjj(i32 noundef %0, i32 %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4)) %2, i32 noundef %3) #13 {
   store i32 %3, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = add nsw i32 %0, 31

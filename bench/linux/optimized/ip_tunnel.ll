@@ -4611,7 +4611,7 @@ define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr no
 declare dso_local void @rtnl_unlock() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) #3 align 16 {
+define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) #3 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
   store ptr %4, ptr %4, align 8

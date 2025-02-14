@@ -3664,7 +3664,7 @@ define internal fastcc void @intel_pmu_save_and_restart_reload(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #4 align 16 {
+define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.insn, align 8
   %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !106
   %8 = inttoptr i64 %7 to ptr

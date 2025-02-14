@@ -1642,7 +1642,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h568390ec23f23865E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h568390ec23f23865E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = tail call noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h6ba97fd3d3130cd0E.llvm.5781664634918412060"()
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hcd87d505b964a739E.exit"
@@ -1683,7 +1683,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f504a64715dd7a9E"(ptr readonly %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7f504a64715dd7a9E"(ptr readonly captures(address_is_null) %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { { i64, ptr, {} }, i64 }, align 8
   %2 = tail call noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h24c7d229d2be66a4E.llvm.5781664634918412060"()
   %3 = icmp eq ptr %2, null
@@ -14385,7 +14385,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mov_rmi_to_xmm17h23261660d0810771E(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %0, ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mov_rmi_to_xmm17h23261660d0810771E(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %0, ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = load i8, ptr %1, align 4, !range !273, !noundef !4
   %5 = add nsw i8 %4, -6
@@ -14538,7 +14538,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %32
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_load17h2d9fbd0448d87940E(ptr %.0.val, ptr %.8.val, i16 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_load17h2d9fbd0448d87940E(ptr %.0.val, ptr captures(address_is_null) %.8.val, i16 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { i8, [15 x i8] } }, align 4
@@ -15337,7 +15337,7 @@ default.unreachable1.i.i:                         ; preds = %30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_movss_load17h96d383f00caafc67E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_movss_load17h96d383f00caafc67E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { { i8, [15 x i8] } }, align 4
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
@@ -15627,7 +15627,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movss_store17he952f397e95c0255E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movss_store17he952f397e95c0255E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
@@ -15838,7 +15838,7 @@ default.unreachable1.i.i21:                       ; preds = %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_movsd_load17ha87075d522d4dd15E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_x64_movsd_load17ha87075d522d4dd15E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { { i8, [15 x i8] } }, align 4
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
@@ -16128,7 +16128,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movsd_store17h84c458805d1c4a93E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movsd_store17h84c458805d1c4a93E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
@@ -16339,7 +16339,7 @@ default.unreachable1.i.i21:                       ; preds = %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movups_load17hd94e023393a2bfd0E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movups_load17hd94e023393a2bfd0E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { { i8, [15 x i8] } }, align 4
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
@@ -16629,7 +16629,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movups_store17hac00b49b1e119f73E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movups_store17hac00b49b1e119f73E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
@@ -16840,7 +16840,7 @@ default.unreachable1.i.i21:                       ; preds = %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movupd_load17hb3103e6814c95895E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movupd_load17hb3103e6814c95895E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { { i8, [15 x i8] } }, align 4
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
@@ -17130,7 +17130,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code38constructor_synthetic
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movupd_store17h008ceb1d98cad8b1E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movupd_store17h008ceb1d98cad8b1E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
@@ -17341,7 +17341,7 @@ default.unreachable1.i.i21:                       ; preds = %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_gpr17h0711464bad6b8fe5E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_gpr17h0711464bad6b8fe5E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17366,7 +17366,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_to_xmm17hcc36d0f93ec20295E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17391,7 +17391,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_xmm17ha58a87f8e87233d8E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17416,7 +17416,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_gpr17h3eb7f731b793a076E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_to_gpr17h3eb7f731b793a076E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17441,7 +17441,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movdqu_load17h0445b8bc41202cadE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17466,7 +17466,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movdqu_store17h0637dceef77bdedfE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_movdqu_store17h0637dceef77bdedfE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
@@ -17677,7 +17677,7 @@ default.unreachable1.i.i21:                       ; preds = %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxbw17hb73c75503b3f04bfE(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxbw17hb73c75503b3f04bfE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17702,7 +17702,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxbw17h8bce85c40902762fE(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxbw17h8bce85c40902762fE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17727,7 +17727,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxwd17h18d2ae7471734b38E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxwd17h18d2ae7471734b38E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17752,7 +17752,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxwd17hfeb417e8cb028a8cE(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxwd17hfeb417e8cb028a8cE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17777,7 +17777,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxdq17haf7d0ef519ce5d1cE(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovsxdq17haf7d0ef519ce5d1cE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -17802,7 +17802,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxdq17hf5f32588fb675cc6E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovzxdq17hf5f32588fb675cc6E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -18099,7 +18099,7 @@ default.unreachable1.i.i:                         ; preds = %29
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_x64_xmm_load_const17h527d18bbdb90673eE(ptr %.0.val, ptr %.8.val, i16 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_x64_xmm_load_const17h527d18bbdb90673eE(ptr %.0.val, ptr captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -21033,7 +21033,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_rotl17h765c8921f290f468E(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_rotl17h765c8921f290f468E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = alloca { { i8, [15 x i8] } }, align 4
   %6 = icmp ugt i16 %0, 255
@@ -21143,7 +21143,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_rotr17hae9c39c34f41ac2fE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_rotr17hae9c39c34f41ac2fE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ugt i16 %0, 255
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
@@ -21227,7 +21227,7 @@ switch.lookup4:                                   ; preds = %17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_shl17h54748e13d40f5339E(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_shl17h54748e13d40f5339E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ugt i16 %0, 255
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
@@ -21334,7 +21334,7 @@ default.unreachable:                              ; preds = %23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_shr17h234371a15be6ef7bE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_shr17h234371a15be6ef7bE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ugt i16 %0, 255
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
@@ -21441,7 +21441,7 @@ default.unreachable:                              ; preds = %23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_sar17h9d306a20287d23baE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_sar17h9d306a20287d23baE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ugt i16 %0, 255
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
@@ -30074,7 +30074,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_addss17h62023e498ca8bf50E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_addss17h62023e498ca8bf50E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -30210,7 +30210,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_addsd17h2403d7aae6518b0dE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_addsd17h2403d7aae6518b0dE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -30622,7 +30622,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_subss17hfb403f2b1c094464E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_subss17hfb403f2b1c094464E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -30758,7 +30758,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_subsd17hd1537eb0beb946aaE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_subsd17hd1537eb0beb946aaE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -31170,7 +31170,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_mulss17hc32775cc14669e22E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_mulss17hc32775cc14669e22E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -31306,7 +31306,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_mulsd17h1002f550623b8df5E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_mulsd17h1002f550623b8df5E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -31718,7 +31718,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_divss17hc13379ddda57a138E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_divss17hc13379ddda57a138E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -31854,7 +31854,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_divsd17h7766a0ad320296a2E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_divsd17h7766a0ad320296a2E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -32353,7 +32353,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pblendw17hf7117ea3332305e7E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_pblendw17hf7117ea3332305e7E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -32472,7 +32472,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_x64_movsd_regmove17h756e642618af6e42E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_x64_movsd_regmove17h756e642618af6e42E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ne ptr %.8.val, null
@@ -32510,7 +32510,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_x64_movss_regmove17h463f89508a5b7471E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_x64_movss_regmove17h463f89508a5b7471E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = alloca { { i8, [15 x i8] } }, align 4
   %5 = icmp ne ptr %.8.val, null
@@ -35236,7 +35236,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_palignr17h90f2b6c4fbb5e292E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_palignr17h90f2b6c4fbb5e292E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -35355,7 +35355,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_cmpp17h90b4f78eca83ab1dE(ptr %.0.val, ptr %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, i8 %.0.val1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_cmpp17h90b4f78eca83ab1dE(ptr %.0.val, ptr captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, i8 %.0.val1) unnamed_addr #0 {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   switch i16 %0, label %6 [
@@ -35395,7 +35395,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_cmpps17h40b0960280592be6E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_cmpps17h40b0960280592be6E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -35514,7 +35514,7 @@ default.unreachable1.i.i.i:                       ; preds = %23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_cmppd17ha400a116d98dd654E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_cmppd17ha400a116d98dd654E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 %.0.val1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -35633,7 +35633,7 @@ default.unreachable1.i.i.i:                       ; preds = %23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrb17h18ae197946e586faE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrb17h18ae197946e586faE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -35752,7 +35752,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrw17h742374761e628e81E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrw17h742374761e628e81E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -35871,7 +35871,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrd17ha928501349635601E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrd17ha928501349635601E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -35990,7 +35990,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrq17hb7db9c246ebb8793E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pinsrq17hb7db9c246ebb8793E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -36109,7 +36109,7 @@ default.unreachable1.i.i.i:                       ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.0.val, ptr %.8.val, i16 noundef range(i16 123, 125) %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_put_xmm_mem_in_xmm17hf691b53327e8527bE(ptr %.0.val, ptr captures(address_is_null) %.8.val, i16 noundef range(i16 123, 125) %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5153)
@@ -36517,7 +36517,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_insertps17h89d83e06711a6a9dE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef range(i8 0, -15) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_insertps17h89d83e06711a6a9dE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef range(i8 0, -15) %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -36861,7 +36861,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_shufps17h9229ace813590b1eE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_shufps17h9229ace813590b1eE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 4
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
@@ -37468,7 +37468,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrb17hde056fa222112be0E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrb17hde056fa222112be0E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -37493,7 +37493,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrb_store17h5e20fe5e5e407c2dE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrb_store17h5e20fe5e5e407c2dE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %7 = icmp ne ptr %.8.val, null
@@ -37708,7 +37708,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrw17h5590f49a15804f1bE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrw17h5590f49a15804f1bE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -37733,7 +37733,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrw_store17hbf664f9ae593708aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrw_store17hbf664f9ae593708aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %7 = icmp ne ptr %.8.val, null
@@ -37948,7 +37948,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrd17he3e4301d76193101E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrd17he3e4301d76193101E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -37973,7 +37973,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrd_store17ha2a58ee1eb6cfc49E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrd_store17ha2a58ee1eb6cfc49E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %7 = icmp ne ptr %.8.val, null
@@ -38188,7 +38188,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrq17h1c80a8abc83bcbc4E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrq17h1c80a8abc83bcbc4E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, i8 noundef %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -38213,7 +38213,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrq_store17h294f3a2a99619644E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_x64_pextrq_store17h294f3a2a99619644E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(120) %0, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %6 = alloca { [80 x i8], i8, [39 x i8] }, align 8
   %7 = icmp ne ptr %.8.val, null
@@ -38428,7 +38428,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovmskb17h15b994101be48004E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_pmovmskb17h15b994101be48004E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -38453,7 +38453,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_movmskps17h79b83d7f786a1d53E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_movmskps17h79b83d7f786a1d53E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -38478,7 +38478,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_movmskpd17h83f4d2f7cd24ce41E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_movmskpd17h83f4d2f7cd24ce41E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -39464,7 +39464,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_minss17h020cd5d73e31ffeaE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_minss17h020cd5d73e31ffeaE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -39600,7 +39600,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_minsd17h32e17ef47a9f8774E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_minsd17h32e17ef47a9f8774E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -40012,7 +40012,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_maxss17h5f70b6e98c6a0504E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_maxss17h5f70b6e98c6a0504E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -40148,7 +40148,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_maxsd17h21c4dc5761e77a1bE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_x64_maxsd17h21c4dc5761e77a1bE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -40644,7 +40644,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_sqrtss17h801c92a736ecb0a4E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_sqrtss17h801c92a736ecb0a4E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -40780,7 +40780,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_sqrtsd17hf92c8641de6ef354E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_sqrtsd17hf92c8641de6ef354E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -40974,7 +40974,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtss2sd17hdd9593824fb1cbe4E(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtss2sd17hdd9593824fb1cbe4E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -41110,7 +41110,7 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsd2ss17h16c88d6ab629ed7dE(ptr %.0.val, ptr readonly %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsd2ss17h16c88d6ab629ed7dE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { i8, [15 x i8] } }, align 4
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
@@ -41362,7 +41362,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsi2ss17he3462c38c74e2a2dE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsi2ss17he3462c38c74e2a2dE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca i32, align 4
@@ -41493,7 +41493,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsi2sd17hb09b6d02a112eabbE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_x64_cvtsi2sd17hb09b6d02a112eabbE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca i32, align 4
@@ -43654,7 +43654,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code18constructor_alu_rm17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_movddup17h3b793b3645a299b5E(ptr %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_x64_movddup17h3b793b3645a299b5E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 42
@@ -48652,7 +48652,7 @@ default.unreachable1.i.i:                         ; preds = %37
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_bitcast_xmm_to_gpr17hfe91ea6845f7ab1cE(ptr %.0.val, ptr readonly %.8.val, i16 noundef range(i16 123, 125) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_bitcast_xmm_to_gpr17hfe91ea6845f7ab1cE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef range(i16 123, 125) %0, i32 noundef %1) unnamed_addr #0 {
   %switch = icmp eq i16 %0, 123
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
@@ -48692,7 +48692,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movd_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_bitcast_gpr_to_xmm17h4a48ce6ea9787eebE(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_bitcast_gpr_to_xmm17h4a48ce6ea9787eebE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [0 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { i8, [15 x i8] } }, align 4
@@ -80286,7 +80286,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code33constructor_all_ones_or_all_zeros17h391958670e6269fbE(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code33constructor_all_ones_or_all_zeros17h391958670e6269fbE(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i32, align 4
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
@@ -80997,7 +80997,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E(ptr %.0.val, ptr readonly %.8.val, i16 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_flip_high_bit_mask17h2f527d41b5667ed5E(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, i16 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -91005,7 +91005,7 @@ default.unreachable425:                           ; preds = %984, %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1816
@@ -91077,7 +91077,7 @@ define internal fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18value_slice_unwrap17had4635cb2860f441E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %.0.val, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18value_slice_unwrap17had4635cb2860f441E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
@@ -91137,7 +91137,7 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1816
@@ -91201,7 +91201,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = icmp ne ptr %.0.val, null
@@ -91320,7 +91320,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 4) i8 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9tls_model17h08dc7c75aff231dcE"(ptr readonly %.8.val) unnamed_addr #1 {
+define internal fastcc noundef range(i8 0, 4) i8 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9tls_model17h08dc7c75aff231dcE"(ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 {
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
@@ -91349,7 +91349,7 @@ _ZN17cranelift_codegen8settings5Flags9tls_model17h4e427138fac418daE.exit: ; pred
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13func_ref_data17h53914980da3bb199E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %.0.val, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13func_ref_data17h53914980da3bb199E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -91451,7 +91451,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$craneli
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17symbol_value_data17h3a9a2083acf36810E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr readonly %.0.val, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17symbol_value_data17h3a9a2083acf36810E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -91568,7 +91568,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19u128_from_immediate17h8b173ea8a228b3c2E"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19u128_from_immediate17h8b173ea8a228b3c2E"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12701)
@@ -91608,7 +91608,7 @@ define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$23vec_mask_from_immediate17h9404a898162312fcE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr readonly %.0.val, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$23vec_mask_from_immediate17h9404a898162312fcE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(address_is_null) %.0.val, i32 noundef %1) unnamed_addr #1 {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12715)
@@ -91655,7 +91655,7 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
@@ -91783,7 +91783,7 @@ define internal fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #1 {
+define internal fastcc i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E"(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #1 {
   %2 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = icmp ne ptr %.0.val, null

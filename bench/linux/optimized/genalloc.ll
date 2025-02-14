@@ -252,7 +252,7 @@ declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #4
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq ptr %4, null
@@ -512,7 +512,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %37, label %5
 
@@ -577,7 +577,7 @@ define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %35, label %7
 
@@ -638,7 +638,7 @@ define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_alloc_align(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @gen_pool_dma_alloc_align(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.genpool_data_align, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 %3, ptr %5, align 4
@@ -726,7 +726,7 @@ define dso_local i64 @gen_pool_first_fit_align(ptr noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -792,7 +792,7 @@ define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
+define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread, label %7
 
@@ -854,7 +854,7 @@ define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.genpool_data_align, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 %3, ptr %5, align 4
@@ -920,7 +920,7 @@ define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq ptr %3, null
@@ -1368,7 +1368,7 @@ gen_pool_destroy.exit:                            ; preds = %28, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #6 align 16 {
+define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #6 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48

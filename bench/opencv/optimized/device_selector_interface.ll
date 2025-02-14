@@ -67,7 +67,7 @@ define void @_ZN2cv4gapi3wip6onevpl6DeviceD2Ev(ptr noundef nonnull align 8 deref
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2cv4gapi3wip6onevpl6Device8get_nameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2cv4gapi3wip6onevpl6Device8get_nameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 

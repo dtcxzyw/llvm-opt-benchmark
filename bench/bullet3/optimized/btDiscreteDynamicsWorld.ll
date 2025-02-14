@@ -2737,7 +2737,7 @@ _ZN20btAlignedObjectArrayIP17btActionInterfaceE9push_backERKS1_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld12removeActionEP17btActionInterface(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef readnone %action) unnamed_addr #6 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld12removeActionEP17btActionInterface(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef readnone captures(address) %action) unnamed_addr #6 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 436
   %0 = load i32, ptr %m_size.i.i.i, align 4

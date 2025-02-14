@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_cmp_msg_protect = private unnamed_addr constant [21 x i8] c"ossl_cmp_msg_protect\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cmp_calc_protection(ptr noundef readonly %ctx, ptr noundef readonly %msg) local_unnamed_addr #0 {
+define ptr @ossl_cmp_calc_protection(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef readonly captures(address_is_null) %msg) local_unnamed_addr #0 {
 entry:
   %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %algorOID = alloca ptr, align 8

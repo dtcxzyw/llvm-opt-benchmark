@@ -64,7 +64,7 @@ define dso_local void @rdmacg_uncharge(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %.loopexit, label %.preheader
@@ -531,7 +531,7 @@ define internal noundef ptr @rdmacg_css_alloc(ptr readnone captures(none) %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rdmacg_css_offline(ptr noundef readonly %0) #0 align 16 {
+define internal void @rdmacg_css_offline(ptr noundef readonly captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8

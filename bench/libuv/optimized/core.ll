@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.uv__getsockpeername = private unnamed_addr constant [9 x i64] [i64 184, i64 152, i64 poison, i64 poison, i64 poison, i64 184, i64 poison, i64 184, i64 176], align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_clock_gettime(i32 noundef %clock_id, ptr noundef writeonly %ts) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_clock_gettime(i32 noundef %clock_id, ptr noundef writeonly captures(address_is_null) %ts) local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.timespec, align 8
   %cmp = icmp eq ptr %ts, null
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @uv__socket_sockopt(ptr noundef readonly %handle, i32 noundef %optname, ptr noundef %value) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__socket_sockopt(ptr noundef readonly captures(address_is_null) %handle, i32 noundef %optname, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %cmp = icmp eq ptr %handle, null
@@ -385,7 +385,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uv_loop_alive(ptr noundef readonly %loop) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @uv_loop_alive(ptr noundef readonly captures(address) %loop) local_unnamed_addr #6 {
 entry:
   %active_handles.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   %0 = load i32, ptr %active_handles.i, align 8
@@ -1227,7 +1227,7 @@ return:                                           ; preds = %entry, %if.then
 declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_cwd(ptr noundef %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_cwd(ptr noundef %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [4097 x i8], align 16
   %cmp = icmp eq ptr %buffer, null
@@ -1977,7 +1977,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @dup3(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #0 {
 entry:
   %pwd = alloca %struct.uv_passwd_s, align 8
   %cmp1.i = icmp eq ptr %buffer, null
@@ -2043,7 +2043,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define range(i32 -105, 1) i32 @uv_os_getenv(ptr noundef readonly %name, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #16 {
+define range(i32 -105, 1) i32 @uv_os_getenv(ptr noundef readonly captures(address_is_null) %name, ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %name, null
   %cmp1 = icmp eq ptr %buffer, null
@@ -2084,7 +2084,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd(ptr noundef %pwd) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd(ptr noundef captures(address_is_null) %pwd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @geteuid() #23
   %call1 = tail call fastcc i32 @uv__getpwuid_r(ptr noundef %pwd, i32 noundef %call)
@@ -2097,7 +2097,7 @@ declare void @uv_os_free_passwd(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #16 {
+define range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %buffer, null
   %cmp1 = icmp eq ptr %size, null
@@ -2176,7 +2176,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr noundef %grp, i32 noundef %gid) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr noundef captures(address_is_null) %grp, i32 noundef %gid) local_unnamed_addr #0 {
 entry:
   %gp = alloca %struct.group, align 8
   %result = alloca ptr, align 8
@@ -2319,7 +2319,7 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #3
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr noundef %pwd, i32 noundef %uid) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr noundef captures(address_is_null) %pwd, i32 noundef %uid) unnamed_addr #0 {
 entry:
   %pw = alloca %struct.passwd, align 8
   %result = alloca ptr, align 8
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %for.cond, %for.cond
 declare i32 @geteuid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd2(ptr noundef %pwd, i32 noundef %uid) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd2(ptr noundef captures(address_is_null) %pwd, i32 noundef %uid) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uv__getpwuid_r(ptr noundef %pwd, i32 noundef %uid)
   ret i32 %call
@@ -2588,7 +2588,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr noundef readonly %name) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end
@@ -2613,7 +2613,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_gethostname(ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_gethostname(ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #0 {
 entry:
   %buf = alloca [65 x i8], align 16
   %cmp = icmp eq ptr %buffer, null
@@ -2702,7 +2702,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_os_getpriority(i32 noundef %pid, ptr noundef writeonly %priority) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_os_getpriority(i32 noundef %pid, ptr noundef writeonly captures(address_is_null) %priority) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %priority, null
   br i1 %cmp, label %return, label %if.end
@@ -2762,7 +2762,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_thread_getpriority(i64 noundef %tid, ptr noundef writeonly %priority) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_thread_getpriority(i64 noundef %tid, ptr noundef writeonly captures(address_is_null) %priority) local_unnamed_addr #0 {
 entry:
   %policy = alloca i32, align 4
   %param = alloca %struct.sched_param, align 4
@@ -3062,7 +3062,7 @@ return:                                           ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_gettimeofday(ptr noundef writeonly %tv) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @uv_gettimeofday(ptr noundef writeonly captures(address_is_null) %tv) local_unnamed_addr #7 {
 entry:
   %time = alloca %struct.timeval, align 8
   %cmp = icmp eq ptr %tv, null
@@ -3129,7 +3129,7 @@ do.end:                                           ; preds = %do.body, %land.rhs
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr noundef %prog, ptr noundef writeonly %buf, ptr noundef %buflen) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr noundef %prog, ptr noundef writeonly captures(address_is_null) %buf, ptr noundef captures(address_is_null) %buflen) local_unnamed_addr #0 {
 entry:
   %abspath = alloca [4096 x i8], align 16
   %trypath = alloca [4096 x i8], align 16

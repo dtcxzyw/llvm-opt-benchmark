@@ -6839,7 +6839,7 @@ declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr nound
 declare i32 @register_export_object(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dcm_eo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @dcm_eo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %33, label %6
 

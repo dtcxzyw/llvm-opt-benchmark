@@ -404,7 +404,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @dt_ui_center(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_init_chroma(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_init_chroma(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %dt_dev_reset_chroma.exit, label %2
 
@@ -929,7 +929,7 @@ define void @dt_dev_invalidate_preview(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_process_image_job(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @dt_dev_process_image_job(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.rusage, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca %struct.rusage, align 8
@@ -1615,7 +1615,7 @@ declare void @dt_mipmap_cache_release_with_caller(ptr noundef, ptr noundef, ptr 
 declare void @dt_dev_pixelpipe_change(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_zoom_move(ptr noundef %0, i32 noundef %1, float noundef %2, i32 noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @dt_dev_zoom_move(ptr noundef captures(address) %0, i32 noundef %1, float noundef %2, i32 noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [2 x float], align 4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !190
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !152
@@ -2612,7 +2612,7 @@ _dev_distort_backtransform_locked.exit:           ; preds = %521, %539, %512
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_get_viewport_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define void @dt_dev_get_viewport_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca [2 x float], align 4
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !152
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 9656
@@ -2743,7 +2743,7 @@ dt_dev_distort_transform_plus.exit:               ; preds = %35, %53, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @dt_dev_get_zoom_scale(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
+define float @dt_dev_get_zoom_scale(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %dt_dev_get_processed_size.exit, label %5
 
@@ -2982,7 +2982,7 @@ dt_get_perf_times.exit:                           ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dt_dev_get_processed_size(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #14 {
+define void @dt_dev_get_processed_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #14 {
   store i32 0, ptr %2, align 4, !tbaa !187
   store i32 0, ptr %1, align 4, !tbaa !187
   %.not = icmp eq ptr %0, null
@@ -5656,7 +5656,7 @@ _dev_write_history.exit:                          ; preds = %.lr.ph.i403, %1228
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_configure(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_configure(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !276
   %.not = icmp eq i32 %3, 0
@@ -8101,7 +8101,7 @@ declare i32 @dt_image_get_xmp_mode(...) local_unnamed_addr #4
 declare void @dt_image_cache_write_release(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_reprocess_all(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_reprocess_all(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !281
@@ -8158,7 +8158,7 @@ dt_dev_invalidate_all.exit:                       ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_reprocess_center(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_reprocess_center(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !281
@@ -8217,7 +8217,7 @@ dt_dev_invalidate_all.exit:                       ; preds = %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_reprocess_preview(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_reprocess_preview(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !281
@@ -8276,7 +8276,7 @@ dt_dev_invalidate_preview.exit:                   ; preds = %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -8491,7 +8491,7 @@ declare float @llvm.fabs.f32(float) #15
 declare void @dt_control_navigation_redraw(...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_get_pointer_zoom_pos(ptr noundef readonly %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
+define void @dt_dev_get_pointer_zoom_pos(ptr noundef readonly captures(address_is_null) %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca float, align 4
@@ -9693,7 +9693,7 @@ define noundef ptr @dt_dev_module_duplicate(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dt_dev_invalidate_history_module(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #21 {
+define void @dt_dev_invalidate_history_module(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #21 {
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -10114,7 +10114,7 @@ _dev_distort_backtransform_locked.exit:           ; preds = %16, %55, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @dt_dev_distort_get_iop_pipe(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define noundef ptr @dt_dev_distort_get_iop_pipe(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !227
   %6 = tail call ptr @g_list_last(ptr noundef %5) #24
@@ -10427,7 +10427,7 @@ declare ptr @dt_ui_get_container(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @dt_view_get_current() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_image(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
+define void @dt_dev_image(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #0 {
   %15 = alloca %struct.dt_develop_t, align 16
   call void @llvm.lifetime.start.p0(i64 2832, ptr nonnull %15) #24
   call void @dt_dev_init(ptr noundef nonnull %15, i32 noundef 1)
@@ -10688,7 +10688,7 @@ define void @dt_dev_clear_chroma_troubles(ptr noundef readonly captures(none) %0
 declare void @dt_iop_set_module_trouble_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_dev_reset_chroma(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_dev_reset_chroma(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

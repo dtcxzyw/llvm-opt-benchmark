@@ -2016,7 +2016,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @_find_config_ptr(ptr noundef readnone %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @_find_config_ptr(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #7 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

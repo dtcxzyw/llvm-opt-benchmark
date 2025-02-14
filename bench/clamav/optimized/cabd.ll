@@ -77,7 +77,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cabd_open(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @cabd_open(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %3
 
@@ -130,7 +130,7 @@ define internal ptr @cabd_open(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cabd_close(ptr noundef %0, ptr noundef %1) #0 {
+define internal void @cabd_close(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -351,7 +351,7 @@ cabd_free_decomp.exit:                            ; preds = %28, %.thread, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
+define internal ptr @cabd_search(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %.not = icmp eq ptr %0, null
@@ -701,7 +701,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cabd_extract(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @cabd_extract(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %192, label %4
 
@@ -1066,19 +1066,19 @@ thread-pre-split.thread:                          ; preds = %152, %thread-pre-sp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @cabd_prepend(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 9) i32 @cabd_prepend(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %2, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @cabd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 9) i32 @cabd_append(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @cabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #3 {
+define internal range(i32 0, 2) i32 @cabd_param(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -1124,7 +1124,7 @@ define internal range(i32 0, 2) i32 @cabd_param(ptr noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cabd_error(ptr noundef readonly %0) #4 {
+define internal i32 @cabd_error(ptr noundef readonly captures(address_is_null) %0) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1857,7 +1857,7 @@ define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef nonnull
 declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %123, label %4
 

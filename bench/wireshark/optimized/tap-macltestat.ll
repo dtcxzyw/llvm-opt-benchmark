@@ -103,7 +103,7 @@ define internal void @mac_lte_stat_reset(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %update_ueid_rnti_counts.exit.thread155, label %6
 

@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.stats_tree_get_default_sort_col = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
-define ptr @stats_tree_node_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @stats_tree_node_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %4
 
@@ -695,7 +695,7 @@ define noundef ptr @stats_tree_register_plugin(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stats_tree_set_group(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @stats_tree_set_group(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -709,7 +709,7 @@ define void @stats_tree_set_group(ptr noundef writeonly %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stats_tree_set_first_column_name(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @stats_tree_set_first_column_name(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

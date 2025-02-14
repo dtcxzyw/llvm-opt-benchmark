@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pollfd = type { i32, i32, i32, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define i32 @select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %69, label %.preheader141
 

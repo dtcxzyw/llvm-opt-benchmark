@@ -194,7 +194,7 @@ if.end6:                                          ; preds = %if.else, %if.then4
 declare void @_ZN3zmq6pipe_t9terminateEb(ptr noundef nonnull align 8 dereferenceable(328), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq7dgram_t16xpipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1848) %this, ptr noundef readnone %pipe_) unnamed_addr #9 align 2 {
+define void @_ZN3zmq7dgram_t16xpipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(1848) %this, ptr noundef readnone captures(address) %pipe_) unnamed_addr #9 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1832
   %0 = load ptr, ptr %_pipe, align 8

@@ -416,7 +416,7 @@ declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
+define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
@@ -2178,7 +2178,7 @@ define internal i32 @selinux_capset(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.common_audit_data, align 8
   %6 = alloca %struct.av_decision, align 4
   %7 = icmp eq ptr %1, @init_user_ns
@@ -2269,7 +2269,7 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_quotactl(i32 noundef %0, i32 %1, i32 %2, ptr noundef readonly %3) #1 align 16 {
+define internal i32 @selinux_quotactl(i32 noundef %0, i32 %1, i32 %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
@@ -3119,7 +3119,7 @@ define internal void @selinux_free_mnt_opts(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 12), align 4
@@ -3284,7 +3284,7 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 12), align 4
@@ -3771,7 +3771,7 @@ define internal i32 @selinux_umount(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
+define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 32
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 12), align 4
@@ -4252,7 +4252,7 @@ define internal i32 @selinux_move_mount(ptr readnone captures(none) %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_dentry_init_security(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef %5) #1 align 16 {
+define internal i32 @selinux_dentry_init_security(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) #1 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
@@ -4592,7 +4592,7 @@ define internal void @selinux_inode_free_security(ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_inode_init_security(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef captures(none) %4) #1 align 16 {
+define internal i32 @selinux_inode_init_security(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(none) %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -4836,7 +4836,7 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_inode_init_security_anon(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #1 align 16 {
+define internal i32 @selinux_inode_init_security_anon(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -6797,7 +6797,7 @@ define internal i32 @selinux_inode_setsecurity(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr readnone captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) #1 align 16 {
+define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) #1 align 16 {
   %4 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %5 = icmp eq i8 %4, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
@@ -9120,7 +9120,7 @@ define internal i32 @selinux_task_movememory(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_task_kill(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly %3) #1 align 16 {
+define internal i32 @selinux_task_kill(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 align 16 {
   switch i32 %2, label %7 [
     i32 0, label %9
     i32 17, label %8
@@ -11328,7 +11328,7 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 align 16 {
+define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11454,7 +11454,7 @@ define internal void @selinux_sk_clone_security(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_sk_getsecid(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_sk_getsecid(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -14658,7 +14658,7 @@ declare dso_local i32 @selinux_netlbl_socket_connect(ptr noundef, ptr noundef) l
 declare dso_local i32 @selinux_netlbl_socket_setsockopt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca i16, align 2

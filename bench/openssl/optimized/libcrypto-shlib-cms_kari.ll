@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"id-aes256-wrap\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_alg(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pukm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_alg(ptr noundef readonly captures(none) %ri, ptr noundef writeonly captures(address_is_null) %palg, ptr noundef writeonly captures(address_is_null) %pukm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -88,7 +88,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %pubalg, ptr noundef writeonly %pubkey, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr noundef readonly captures(none) %ri, ptr noundef writeonly captures(address_is_null) %pubalg, ptr noundef writeonly captures(address_is_null) %pubkey, ptr noundef writeonly captures(address_is_null) %keyid, ptr noundef writeonly captures(address_is_null) %issuer, ptr noundef writeonly captures(address_is_null) %sno) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -254,7 +254,7 @@ declare i32 @ossl_cms_ias_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @ossl_cms_keyid_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr noundef readonly captures(none) %rek, ptr noundef writeonly %keyid, ptr noundef writeonly %tm, ptr noundef writeonly %other, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr noundef readonly captures(none) %rek, ptr noundef writeonly captures(address_is_null) %keyid, ptr noundef writeonly captures(address_is_null) %tm, ptr noundef writeonly captures(address_is_null) %other, ptr noundef writeonly captures(address_is_null) %issuer, ptr noundef writeonly captures(address_is_null) %sno) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %rek, align 8
   %1 = load i32, ptr %0, align 8

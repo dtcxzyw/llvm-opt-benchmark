@@ -49,7 +49,7 @@ define void @Mvc_ListAddCubeTail_(ptr noundef captures(none) %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Mvc_ListDeleteCube_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define void @Mvc_ListDeleteCube_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = load ptr, ptr %2, align 8, !tbaa !11
   %. = select i1 %4, ptr %0, ptr %1
@@ -122,7 +122,7 @@ define void @Mvc_CoverAddCubeTail_(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Mvc_CoverDeleteCube_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @Mvc_CoverDeleteCube_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
 
@@ -389,7 +389,7 @@ define void @Mvc_CoverArray2List(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @Mvc_ListGetTailFromHead(ptr noundef readonly %0) local_unnamed_addr #5 {
+define noundef ptr @Mvc_ListGetTailFromHead(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

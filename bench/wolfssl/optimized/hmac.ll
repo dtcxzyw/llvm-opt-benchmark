@@ -967,7 +967,7 @@ return:                                           ; preds = %if.end6, %if.end19,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly %hmac, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #5 {
+define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(address_is_null) %hmac, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %hmac, null
   br i1 %cmp, label %return, label %if.end
@@ -1124,7 +1124,7 @@ wc_HKDF_Extract_ex.exit:                          ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef writeonly %out, i32 noundef %outSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #1 {
+define i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #1 {
 entry:
   %tmp = alloca [64 x i8], align 16
   %myHmac = alloca [1 x %struct.Hmac], align 16
@@ -1218,14 +1218,14 @@ return:                                           ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz) local_unnamed_addr #1 {
+define i32 @wc_HKDF_Expand(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef captures(address_is_null) %out, i32 noundef %outSz) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz, ptr noundef null, i32 poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz) local_unnamed_addr #1 {
+define i32 @wc_HKDF(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %info, i32 noundef %infoSz, ptr noundef captures(address_is_null) %out, i32 noundef %outSz) local_unnamed_addr #1 {
 entry:
   %tmp.i.i = alloca [64 x i8], align 16
   %myHmac.i.i = alloca [1 x %struct.Hmac], align 16

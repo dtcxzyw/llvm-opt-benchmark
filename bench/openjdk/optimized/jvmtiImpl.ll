@@ -2070,7 +2070,7 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit.thread: ; preds = %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JvmtiBreakpoints30clearall_in_class_at_safepointEP5Klass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16JvmtiBreakpoints30clearall_in_class_at_safepointEP5Klass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
 .critedge:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

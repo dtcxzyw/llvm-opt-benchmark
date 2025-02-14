@@ -4324,7 +4324,7 @@ lpad:                                             ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16GrpcXdsBootstrap12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE(ptr noundef nonnull readonly align 8 dereferenceable(632) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull %errors) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16GrpcXdsBootstrap12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(632) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull %errors) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %field6 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
@@ -5645,7 +5645,7 @@ return:                                           ; preds = %_ZNKSt3mapINSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK9grpc_core16GrpcXdsBootstrap13FindXdsServerERKNS_12XdsBootstrap9XdsServerE(ptr noundef nonnull readonly align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(8) %server) unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK9grpc_core16GrpcXdsBootstrap13FindXdsServerERKNS_12XdsBootstrap9XdsServerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(8) %server) unnamed_addr #3 align 2 {
 entry:
   %servers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %servers_, align 8

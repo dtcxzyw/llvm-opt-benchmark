@@ -257,7 +257,7 @@ aegis256_mac.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @decrypt_detached(ptr noundef writeonly %m, ptr noundef readonly captures(none) %c, i64 noundef %clen, ptr noundef %mac, i64 noundef %maclen, ptr noundef readonly captures(none) %ad, i64 noundef %adlen, ptr noundef readonly captures(none) %npub, ptr noundef readonly captures(none) %k) #1 {
+define internal i32 @decrypt_detached(ptr noundef writeonly captures(address_is_null) %m, ptr noundef readonly captures(none) %c, i64 noundef %clen, ptr noundef %mac, i64 noundef %maclen, ptr noundef readonly captures(none) %ad, i64 noundef %adlen, ptr noundef readonly captures(none) %npub, ptr noundef readonly captures(none) %k) #1 {
 entry:
   %pad.i67 = alloca [16 x i8], align 16
   %pad.i = alloca [16 x i8], align 16

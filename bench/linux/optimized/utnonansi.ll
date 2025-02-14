@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ctype = external dso_local local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @acpi_ut_strlwr(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ut_strlwr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -35,7 +35,7 @@ define dso_local void @acpi_ut_strlwr(ptr noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @acpi_ut_strupr(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ut_strupr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

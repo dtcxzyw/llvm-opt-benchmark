@@ -113,7 +113,7 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i8, i8 } @_ZN9html5ever12tree_builder4data24doctype_error_and_quirks17h371ae38ead2cea59E(ptr noundef nonnull readonly align 8 %0, i1 noundef zeroext %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define { i8, i8 } @_ZN9html5ever12tree_builder4data24doctype_error_and_quirks17h371ae38ead2cea59E(ptr noundef nonnull readonly align 8 captures(address) %0, i1 noundef zeroext %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8

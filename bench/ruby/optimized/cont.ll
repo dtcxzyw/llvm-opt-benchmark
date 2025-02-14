@@ -255,7 +255,7 @@ define hidden void @rb_jit_cont_each_iseq(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_yjit_cancel_jit_return(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 {
+define hidden void @rb_yjit_cancel_jit_return(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
   %.01223 = load ptr, ptr @first_jit_cont, align 8
   %.not24 = icmp eq ptr %.01223, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph26
@@ -338,7 +338,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 declare void @rb_native_mutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden nonnull ptr @rb_fiberptr_get_ec(ptr noundef readnone %0) local_unnamed_addr #5 {
+define hidden nonnull ptr @rb_fiberptr_get_ec(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -3807,7 +3807,7 @@ rb_fiber_mark_self.exit:                          ; preds = %10, %9, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @fiber_memsize(ptr noundef readonly %0) #0 {
+define internal i64 @fiber_memsize(ptr noundef readonly captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4392,7 +4392,7 @@ declare ptr @coroutine_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fiber_restore_thread(ptr noundef initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fiber_restore_thread(ptr noundef captures(address) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -4622,7 +4622,7 @@ declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #1
 declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @rollback_ensure_stack(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %.not63 = icmp eq ptr %0, null

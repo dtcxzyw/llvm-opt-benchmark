@@ -4036,7 +4036,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit274:              ; preds = %360, %837, %835, %_
 declare void @_ZNK4llvm9StringRef5upperB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16groupDiagnosticsN4llvm8ArrayRefIPKNS_6RecordEEES4_RSt3mapINS_9StringRefEN12_GLOBAL__N_19GroupInfoESt4lessIS6_ESaISt4pairIKS6_S8_EEE(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16groupDiagnosticsN4llvm8ArrayRefIPKNS_6RecordEEES4_RSt3mapINS_9StringRefEN12_GLOBAL__N_19GroupInfoESt4lessIS6_ESaISt4pairIKS6_S8_EEE(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.std::vector.97", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -16083,7 +16083,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15PieceESaIS2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__
 declare noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121DiagnosticTextBuilder8DiagText3NewINS_9TextPieceEJN4llvm9StringRefERA9_KcEEEPT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121DiagnosticTextBuilder8DiagText3NewINS_9TextPieceEJN4llvm9StringRefERA9_KcEEEPT_DpOT0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr readonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16239,7 +16239,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19TextPieceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_19TextPieceD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_19TextPieceE, i64 16), ptr %0, align 8, !tbaa !36
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !11
@@ -16488,7 +16488,7 @@ _ZN12_GLOBAL__N_111PluralPieceD2Ev.exit:          ; preds = %_ZNSt6vectorIPN12_G
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117SubstitutionPieceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_117SubstitutionPieceD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_117SubstitutionPieceE, i64 16), ptr %0, align 8, !tbaa !36
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !58

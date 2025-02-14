@@ -2583,7 +2583,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %0, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8Universe26should_fill_in_stack_traceE6Handle(ptr readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8Universe26should_fill_in_stack_traceE6Handle(ptr readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe21_out_of_memory_errorsE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN8Universe20out_of_memory_errorsEv.exit, label %4

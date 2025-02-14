@@ -1609,7 +1609,7 @@ declare void @virtio_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @iov_from_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @virtio_crypto_sym_op_helper(ptr noundef %vdev, ptr noundef readonly %cipher_para, ptr noundef readonly %alg_chain_para, ptr noundef %iov, i32 noundef %out_num) unnamed_addr #0 {
+define internal fastcc noundef ptr @virtio_crypto_sym_op_helper(ptr noundef %vdev, ptr noundef readonly captures(address_is_null) %cipher_para, ptr noundef readonly captures(address_is_null) %alg_chain_para, ptr noundef %iov, i32 noundef %out_num) unnamed_addr #0 {
 entry:
   %iov.addr = alloca ptr, align 8
   %out_num.addr = alloca i32, align 4

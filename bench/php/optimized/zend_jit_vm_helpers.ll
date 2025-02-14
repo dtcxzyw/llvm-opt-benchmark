@@ -441,7 +441,7 @@ define hidden range(i32 -1, 3) i32 @zend_jit_leave_func_helper(ptr noundef %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @zend_jit_copy_extra_args_helper(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @zend_jit_copy_extra_args_helper(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4

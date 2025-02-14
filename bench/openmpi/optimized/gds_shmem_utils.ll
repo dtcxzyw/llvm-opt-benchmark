@@ -311,7 +311,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_gds_shmem_get_session_tracker(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @pmix_gds_shmem_get_session_tracker(ptr noundef captures(address_is_null) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %156, label %4
 

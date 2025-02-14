@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._Z26alts_crypter_create_commonP17gsec_aead_crypterbmPPc.error_msg = private unnamed_addr constant [20 x i8] c"crypter is nullptr.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 4) i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef readnone %rp_crypter, ptr noundef readnone %data, ptr noundef readnone %output_size, ptr noundef writeonly %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 4) i32 @_Z18input_sanity_checkPK28alts_record_protocol_crypterPKhPmPPc(ptr noundef readnone captures(address_is_null) %rp_crypter, ptr noundef readnone captures(address_is_null) %data, ptr noundef readnone captures(address_is_null) %output_size, ptr noundef writeonly captures(address_is_null) %error_details) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rp_crypter, null
   br i1 %cmp, label %if.then, label %if.else
@@ -95,7 +95,7 @@ declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly %c) local_unnamed_addr #0 {
+define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly captures(address_is_null) %c) local_unnamed_addr #0 {
 entry:
   %num_overhead_bytes = alloca i64, align 8
   %error_details = alloca ptr, align 8
@@ -121,7 +121,7 @@ return:                                           ; preds = %if.then, %entry
 declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef readonly %c) local_unnamed_addr #0 {
+define void @_Z37alts_record_protocol_crypter_destructP12alts_crypter(ptr noundef readonly captures(address_is_null) %c) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.end, label %if.then

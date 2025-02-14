@@ -1240,7 +1240,7 @@ Vec_IntFree.exit:                                 ; preds = %140, %143
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @Aig_ManRegCreatePart(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define ptr @Aig_ManRegCreatePart(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 4
   %.val181 = load i32, ptr %6, align 4, !tbaa !21
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13

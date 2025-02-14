@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal15BoundVarManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15BoundVarManagerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_cacheVals = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

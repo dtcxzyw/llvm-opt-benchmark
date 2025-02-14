@@ -12881,7 +12881,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK8V3Number9count
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11opIsUnknownERKS_(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11opIsUnknownERKS_(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %3, label %7
 

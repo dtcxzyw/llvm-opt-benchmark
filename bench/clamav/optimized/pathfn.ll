@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [11 x i32] [i32 89, i32 77, i32 68, i32 72, i32 73, i32 83, i32 87, i32 65, i32 69, i32 78, i32 0], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z11PointToNamePKw(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @_Z11PointToNamePKw(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #19
   %3 = and i64 %2, 4294967295
   br label %4
@@ -118,7 +118,7 @@ define noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %0) local_unnamed_addr #3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z15PointToLastCharPKw(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @_Z15PointToLastCharPKw(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #19
   %.not = icmp eq i64 %2, 0
   %3 = getelementptr inbounds nuw i32, ptr %0, i64 %2

@@ -4558,7 +4558,7 @@ define void @Ivy_FraigInsertClass(ptr noundef captures(none) %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigRemoveClass(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @Ivy_FraigRemoveClass(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !tbaa !180
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %5, label %7
@@ -5571,7 +5571,7 @@ Abc_Clock.exit28:                                 ; preds = %._crit_edge, %35
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_FraigPrintClass(ptr noundef readonly %0) local_unnamed_addr #15 {
+define void @Ivy_FraigPrintClass(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
   %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8)
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -5597,7 +5597,7 @@ define void @Ivy_FraigPrintClass(ptr noundef readonly %0) local_unnamed_addr #15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_FraigCountClassNodes(ptr noundef readonly %0) local_unnamed_addr #10 {
+define i32 @Ivy_FraigCountClassNodes(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -8389,7 +8389,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %188
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_FraigSetActivityFactors(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Ivy_FraigSetActivityFactors(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26

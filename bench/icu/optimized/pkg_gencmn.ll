@@ -53,7 +53,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL11stringStore = internal global [200000 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @createCommonDataFile(ptr noundef %destDir, ptr noundef %name, ptr noundef %entrypointName, ptr noundef %type, ptr noundef readonly %source, ptr noundef %copyRight, ptr noundef %dataFile, i32 noundef %max_size, i8 noundef signext %sourceTOC, i8 noundef signext %verbose, ptr noundef %gencmnFileName) local_unnamed_addr #0 {
+define void @createCommonDataFile(ptr noundef %destDir, ptr noundef %name, ptr noundef %entrypointName, ptr noundef %type, ptr noundef readonly captures(address_is_null) %source, ptr noundef %copyRight, ptr noundef %dataFile, i32 noundef %max_size, i8 noundef signext %sourceTOC, i8 noundef signext %verbose, ptr noundef %gencmnFileName) local_unnamed_addr #0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4

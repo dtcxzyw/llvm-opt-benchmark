@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_File_delete_f08 = weak alias void (ptr, ptr, ptr, i32), ptr @ompi_file_delete_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_file_delete_f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
+define void @ompi_file_delete_f(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @PMPI_Info_f2c(i32 noundef %6) #5

@@ -215,7 +215,7 @@ define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
@@ -244,7 +244,7 @@ define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly %1) lo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4

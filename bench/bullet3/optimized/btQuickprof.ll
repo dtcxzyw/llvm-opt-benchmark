@@ -71,7 +71,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7btClockaSERKS_(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %other) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7btClockaSERKS_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %other) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   %1 = load ptr, ptr %this, align 8

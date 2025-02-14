@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 18)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((16, 18)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -71,7 +71,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
 declare noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratormmEv(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratormmEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -174,7 +174,7 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10BasicBlock9getParentEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9sandboxir10BasicBlock25buildBasicBlockFromLLVMIREPNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9sandboxir10BasicBlock25buildBasicBlockFromLLVMIREPNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.036.045 = load ptr, ptr %3, align 8, !tbaa !24
   %.not46 = icmp eq ptr %.sroa.036.045, %3

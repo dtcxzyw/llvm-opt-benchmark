@@ -31,7 +31,7 @@ define hidden noundef nonnull ptr @mbedtls_md_list() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @mbedtls_md_info_from_string(ptr noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @mbedtls_md_info_from_string(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -102,7 +102,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @mbedtls_md_info_from_ctx(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden ptr @mbedtls_md_info_from_ctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -227,7 +227,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -20736, 1) i32 @mbedtls_md_clone(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 -20736, 1) i32 @mbedtls_md_clone(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %48, label %4
 
@@ -457,7 +457,7 @@ declare void @mbedtls_sha256_init(ptr noundef) local_unnamed_addr #7
 declare void @mbedtls_sha512_init(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_starts(ptr noundef readonly %0) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_starts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -537,7 +537,7 @@ declare i32 @mbedtls_sha256_starts(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @mbedtls_sha512_starts(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %39, label %5
 
@@ -617,7 +617,7 @@ declare i32 @mbedtls_sha256_update(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @mbedtls_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_finish(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_finish(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %38, label %4
 
@@ -697,7 +697,7 @@ declare i32 @mbedtls_sha256_finish(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @mbedtls_sha512_finish(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %23, label %6
 
@@ -828,7 +828,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #11
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_hmac_starts(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = alloca [64 x i8], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %54, label %6
@@ -933,7 +933,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_hmac_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -958,7 +958,7 @@ define hidden i32 @mbedtls_md_hmac_update(ptr noundef %0, ptr noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_finish(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_hmac_finish(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp eq ptr %0, null
   br i1 %4, label %34, label %5
@@ -1016,7 +1016,7 @@ define hidden i32 @mbedtls_md_hmac_finish(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_hmac_reset(ptr noundef %0) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_hmac_reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -1095,7 +1095,7 @@ mbedtls_md_hmac_update.exit.thread:               ; preds = %13, %20, %mbedtls_m
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_md_process(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden i32 @mbedtls_md_process(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %38, label %4
 
@@ -1175,7 +1175,7 @@ declare i32 @mbedtls_internal_sha256_process(ptr noundef, ptr noundef) local_unn
 declare i32 @mbedtls_internal_sha512_process(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i8 @mbedtls_md_get_size(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden zeroext i8 @mbedtls_md_get_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1190,7 +1190,7 @@ define hidden zeroext i8 @mbedtls_md_get_size(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_md_get_type(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @mbedtls_md_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1205,7 +1205,7 @@ define hidden i32 @mbedtls_md_get_type(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @mbedtls_md_get_name(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden ptr @mbedtls_md_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

@@ -502,7 +502,7 @@ define range(i32 -128, 128) i32 @Map_CutReadLeavesNum(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @Map_CutReadLeaves(ptr noundef readnone %0) local_unnamed_addr #8 {
+define nonnull ptr @Map_CutReadLeaves(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -558,7 +558,7 @@ define i32 @Map_SuperReadNum(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @Map_SuperReadFanins(ptr noundef readnone %0) local_unnamed_addr #8 {
+define nonnull ptr @Map_SuperReadFanins(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -588,7 +588,7 @@ define range(i32 0, 16) i32 @Map_SuperReadNumPhases(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @Map_SuperReadPhases(ptr noundef readnone %0) local_unnamed_addr #8 {
+define nonnull ptr @Map_SuperReadPhases(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

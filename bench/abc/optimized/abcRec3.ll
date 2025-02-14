@@ -5189,7 +5189,7 @@ define i32 @If_CutDelayRecCost3(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @If_CutFindBestStruct(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #8 {
+define internal fastcc i32 @If_CutFindBestStruct(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #8 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load ptr, ptr @s_pMan3, align 8, !tbaa !138

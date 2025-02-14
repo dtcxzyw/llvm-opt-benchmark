@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @getTest(ptr noundef readonly %root, ptr noundef %name) local_unnamed_addr #2 {
+define ptr @getTest(ptr noundef readonly captures(address_is_null) %root, ptr noundef %name) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %root, null
   br i1 %cmp, label %if.then, label %if.end
@@ -969,7 +969,7 @@ return:                                           ; preds = %while.end, %getNext
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @vlog_info(ptr noundef readonly %prefix, ptr noundef readonly captures(none) %pattern, ptr noundef %ap) local_unnamed_addr #2 {
+define void @vlog_info(ptr noundef readonly captures(address_is_null) %prefix, ptr noundef readonly captures(none) %pattern, ptr noundef %ap) local_unnamed_addr #2 {
 entry:
   %.b.i.i = load i1, ptr @ON_LINE, align 1
   br i1 %.b.i.i, label %if.end.i.thread.i, label %if.end.i.i
@@ -1080,7 +1080,7 @@ return:                                           ; preds = %entry, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define signext range(i8 0, 2) i8 @log_knownIssue(ptr noundef %ticket, ptr noundef readonly %pattern, ...) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @log_knownIssue(ptr noundef %ticket, ptr noundef readonly captures(address_is_null) %pattern, ...) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [2048 x i8], align 16
   %firstForTicket.i = alloca i8, align 1
@@ -1323,7 +1323,7 @@ if.end6:                                          ; preds = %if.else, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @initArgs(i32 noundef %argc, ptr noundef %argv, ptr noundef readonly %argHandler, ptr noundef %context) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @initArgs(i32 noundef %argc, ptr noundef %argv, ptr noundef readonly captures(address_is_null) %argHandler, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %errorCode = alloca i32, align 4
   %endPtr = alloca ptr, align 8

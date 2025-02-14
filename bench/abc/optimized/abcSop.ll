@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Abc_SopToTruth7.Truth = internal unnamed_addr constant [7 x [2 x i64]] [[2 x i64] [i64 -6148914691236517206, i64 -6148914691236517206], [2 x i64] [i64 -3689348814741910324, i64 -3689348814741910324], [2 x i64] [i64 -1085102592571150096, i64 -1085102592571150096], [2 x i64] [i64 -71777214294589696, i64 -71777214294589696], [2 x i64] [i64 -281470681808896, i64 -281470681808896], [2 x i64] [i64 -4294967296, i64 -4294967296], [2 x i64] [i64 0, i64 -1]], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SopRegister(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Abc_SopRegister(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -142,7 +142,7 @@ define noundef ptr @Abc_SopCreateAnd2(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SopCreateAnd(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Abc_SopCreateAnd(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
 Abc_SopStart.exit.preheader:
   %3 = add nsw i32 %1, 3
   %4 = add nsw i32 %1, 4
@@ -217,7 +217,7 @@ Abc_SopStart.exit._crit_edge:                     ; preds = %Abc_SopStart.exit.p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SopCreateOr(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Abc_SopCreateOr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
 Abc_SopStart.exit.preheader:
   %3 = add nsw i32 %1, 3
   %4 = add nsw i32 %1, 4
@@ -263,7 +263,7 @@ Abc_SopStart.exit._crit_edge:                     ; preds = %Abc_SopStart.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SopCreateOrMultiCube(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Abc_SopCreateOrMultiCube(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 3
   %5 = mul nsw i32 %4, %1
   %6 = add nsw i32 %5, 1
@@ -1160,7 +1160,7 @@ define noundef i32 @Abc_SopGetVarNum(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_SopGetCubeNum(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Abc_SopGetCubeNum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1187,7 +1187,7 @@ define i32 @Abc_SopGetCubeNum(ptr noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_SopGetLitNum(ptr noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Abc_SopGetLitNum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -1522,7 +1522,7 @@ define range(i32 0, 2) i32 @Abc_SopIsInv(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Abc_SopIsAndType(ptr noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Abc_SopIsAndType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %Abc_SopGetCubeNum.exit.thread, label %.preheader.i
 
@@ -1796,7 +1796,7 @@ define range(i32 0, 2) i32 @Abc_SopCheck(ptr noundef %0, i32 noundef %1) local_u
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_SopCheckReadTruth(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_SopCheckReadTruth(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %5 = trunc i64 %4 to i32
   %6 = icmp ult i32 %5, 2
@@ -2178,7 +2178,7 @@ Vec_IntFree.exit73:                               ; preds = %.critedge, %92
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SopFromTruthsBin(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @Abc_SopFromTruthsBin(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !45
@@ -2545,7 +2545,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %105
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SopFromTruthsHex(ptr noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @Abc_SopFromTruthsHex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !45

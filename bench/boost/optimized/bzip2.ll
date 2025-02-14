@@ -333,7 +333,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -7, 1) i32 @_ZN5boost9iostreams6detail10bzip2_base9check_endEPKcS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -7, 1) i32 @_ZN5boost9iostreams6detail10bzip2_base9check_endEPKcS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !28

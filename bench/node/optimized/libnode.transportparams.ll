@@ -2730,7 +2730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4node4quic15TransportParams5errorEv(ptr noundef nonnull readnone align 8 dereferenceable(432) %this) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4node4quic15TransportParams5errorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(432) %this) local_unnamed_addr #9 align 2 {
 entry:
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   ret ptr %error_

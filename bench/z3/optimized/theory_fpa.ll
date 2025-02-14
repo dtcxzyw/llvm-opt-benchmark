@@ -6154,7 +6154,7 @@ entry:
 declare void @_ZN3smt7context19ensure_internalizedEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3smt10theory_fpa13get_ite_valueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1584) %this, ptr noundef readonly %e) local_unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_fpa13get_ite_valueEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1584) %this, ptr noundef readonly captures(ret: address, provenance) %e) local_unnamed_addr #12 align 2 {
 entry:
   %m_kind.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %e, i64 4
   %bf.load.i.i.i.i26 = load i32, ptr %m_kind.i.i.i.i25, align 4

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef readonly %pNode) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN5eastl15RBTreeIncrementEPKNS_16rbtree_node_baseE(ptr noundef readonly captures(address, ret: address, provenance) %pNode) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pNode, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -37,7 +37,7 @@ if.end12:                                         ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef readonly %pNode) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef readonly captures(address) %pNode) local_unnamed_addr #0 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNode, i64 16
   %0 = load ptr, ptr %mpNodeParent, align 8
@@ -84,7 +84,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(ptr noundef readnone %pNodeTop, ptr noundef readonly %pNodeBottom) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(ptr noundef readnone captures(address) %pNodeTop, ptr noundef readonly captures(address) %pNodeBottom) local_unnamed_addr #0 {
 entry:
   %tobool.not5 = icmp eq ptr %pNodeBottom, null
   br i1 %tobool.not5, label %for.end, label %for.body
@@ -112,7 +112,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone %pNodeRoot) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone captures(address, ret: address, provenance) %pNodeRoot) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pNode, align 8
   %mpNodeLeft = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -156,7 +156,7 @@ if.end17:                                         ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone %pNodeRoot) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef readnone captures(address, ret: address, provenance) %pNodeRoot) local_unnamed_addr #1 {
 entry:
   %mpNodeLeft = getelementptr inbounds nuw i8, ptr %pNode, i64 8
   %0 = load ptr, ptr %mpNodeLeft, align 8
@@ -200,7 +200,7 @@ if.end17:                                         ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef initializes((0, 25)) %pNode, ptr noundef %pNodeParent, ptr noundef %pNodeAnchor, i32 noundef %insertionSide) local_unnamed_addr #2 {
+define dso_local void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef initializes((0, 25)) %pNode, ptr noundef %pNodeParent, ptr noundef captures(address) %pNodeAnchor, i32 noundef %insertionSide) local_unnamed_addr #2 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNodeAnchor, i64 16
   %mpNodeParent1 = getelementptr inbounds nuw i8, ptr %pNode, i64 16
@@ -505,7 +505,7 @@ while.end:                                        ; preds = %land.rhs, %if.end80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %pNode, ptr noundef captures(none) %pNodeAnchor) local_unnamed_addr #2 {
+define dso_local void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef captures(address) %pNode, ptr noundef captures(none) %pNodeAnchor) local_unnamed_addr #2 {
 entry:
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNodeAnchor, i64 16
   %mpNodeLeft = getelementptr inbounds nuw i8, ptr %pNodeAnchor, i64 8

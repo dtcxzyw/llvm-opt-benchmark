@@ -349,7 +349,7 @@ define dso_local void @drm_mode_probed_add(ptr noundef %0, ptr noundef %1) #0 al
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #0 align 16 {
+define dso_local noundef ptr @drm_analog_tv_mode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #0 align 16 {
   switch i32 %1, label %266 [
     i32 0, label %8
     i32 1, label %8
@@ -1256,7 +1256,7 @@ define dso_local void @drm_mode_init(ptr noundef captures(none) initializes((0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_set_crtcinfo(ptr noundef %0, i32 noundef %1) #6 align 16 {
+define dso_local void @drm_mode_set_crtcinfo(ptr noundef captures(address_is_null) %0, i32 noundef %1) #6 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %106, label %4
 
@@ -1454,7 +1454,7 @@ define dso_local noalias noundef ptr @drm_mode_duplicate(ptr readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @drm_mode_match(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef zeroext i1 @drm_mode_match(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #2 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %6 = or i1 %4, %5
@@ -1626,13 +1626,13 @@ define dso_local noundef zeroext i1 @drm_mode_match(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @drm_mode_equal(ptr noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
+define dso_local noundef zeroext i1 @drm_mode_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = tail call zeroext i1 @drm_mode_match(ptr noundef %0, ptr noundef %1, i32 noundef 31)
   ret i1 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @drm_mode_equal_no_clocks(ptr noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
+define dso_local noundef zeroext i1 @drm_mode_equal_no_clocks(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = or i1 %3, %4
@@ -1736,7 +1736,7 @@ drm_mode_match.exit:                              ; preds = %68, %2, %6, %8, %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @drm_mode_equal_no_clocks_no_stereo(ptr noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
+define dso_local zeroext i1 @drm_mode_equal_no_clocks_no_stereo(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = or i1 %3, %4
@@ -2021,7 +2021,7 @@ define dso_local ptr @drm_get_mode_status_name(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mode_prune_invalid(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local void @drm_mode_prune_invalid(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6
@@ -3532,7 +3532,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 declare dso_local ptr @strnchr(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

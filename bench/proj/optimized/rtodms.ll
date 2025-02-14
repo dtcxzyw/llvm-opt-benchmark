@@ -69,7 +69,7 @@ define void @_Z10set_rtodmsii(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, provenance) %0, i64 noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = fcmp olt double %2, 0.000000e+00
   br i1 %6, label %7, label %15
 

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_remove_persistent_dirty_bitmap, ptr @.str.8, ptr @.str.9, i32 43, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_can_store_new_dirty_bitmap, ptr @.str.8, ptr @.str.10, i32 294, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @block_dirty_bitmap_lookup(ptr noundef %node, ptr noundef %name, ptr noundef writeonly %pbs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @block_dirty_bitmap_lookup(ptr noundef %node, ptr noundef %name, ptr noundef writeonly captures(address_is_null) %pbs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #5
   br i1 %call, label %do.end, label %if.else
@@ -181,7 +181,7 @@ declare void @bdrv_dirty_bitmap_set_persistence(ptr noundef, i1 noundef zeroext)
 declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @block_dirty_bitmap_remove(ptr noundef %node, ptr noundef %name, i1 noundef zeroext %release, ptr noundef writeonly %bitmap_bs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @block_dirty_bitmap_remove(ptr noundef %node, ptr noundef %name, i1 noundef zeroext %release, ptr noundef writeonly captures(address_is_null) %bitmap_bs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bs = alloca ptr, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #5
@@ -336,7 +336,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @block_dirty_bitmap_merge(ptr noundef %dst_node, ptr noundef %dst_bitmap, ptr noundef readonly %bms, ptr noundef writeonly %backup, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @block_dirty_bitmap_merge(ptr noundef %dst_node, ptr noundef %dst_bitmap, ptr noundef readonly captures(address_is_null) %bms, ptr noundef writeonly captures(address_is_null) %backup, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bs = alloca ptr, align 8
   %local_backup = alloca ptr, align 8
@@ -442,7 +442,7 @@ declare void @hbitmap_free(ptr noundef) local_unnamed_addr #1
 declare void @bdrv_restore_dirty_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_block_dirty_bitmap_merge(ptr noundef %node, ptr noundef %target, ptr noundef %bitmaps, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_block_dirty_bitmap_merge(ptr noundef %node, ptr noundef %target, ptr noundef captures(address_is_null) %bitmaps, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @block_dirty_bitmap_merge(ptr noundef %node, ptr noundef %target, ptr noundef %bitmaps, ptr noundef null, ptr noundef %errp)
   ret void

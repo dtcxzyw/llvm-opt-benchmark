@@ -327,7 +327,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 33) i64 @_ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define noundef range(i64 0, 33) i64 @_ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.not = icmp eq ptr %1, null

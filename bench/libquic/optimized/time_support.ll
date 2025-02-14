@@ -140,7 +140,7 @@ return:                                           ; preds = %if.end14.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @OPENSSL_gmtime_diff(ptr noundef writeonly %pday, ptr noundef writeonly %psec, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @OPENSSL_gmtime_diff(ptr noundef writeonly captures(address_is_null) %pday, ptr noundef writeonly captures(address_is_null) %psec, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to) local_unnamed_addr #2 {
 entry:
   %tm_hour.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %0 = load i32, ptr %tm_hour.i, align 8

@@ -258,7 +258,7 @@ refdict.exit:                                     ; preds = %10, %13
 declare i32 @agdtdelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -275,7 +275,7 @@ define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @agmarkhtmlstr(ptr noundef %0) local_unnamed_addr #3 {
+define void @agmarkhtmlstr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

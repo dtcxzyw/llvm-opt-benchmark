@@ -135,7 +135,7 @@ pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @pg_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @pg_realloc(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond = and i1 %3, %4
@@ -163,7 +163,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @pg_strdup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @pg_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 
@@ -334,7 +334,7 @@ define dso_local void @pfree(ptr noundef captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @pstrdup(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @pstrdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %2, label %5
 
@@ -360,7 +360,7 @@ pg_strdup.exit:                                   ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @pnstrdup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @pnstrdup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 
@@ -403,7 +403,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias nonnull ptr @repalloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @repalloc(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond.i = and i1 %3, %4

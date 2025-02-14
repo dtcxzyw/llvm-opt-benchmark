@@ -515,7 +515,7 @@ define internal range(i32 0, 2) i32 @ndisc_is_multicast(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @ndisc_allow_add(ptr noundef %0, ptr noundef writeonly %1) #1 align 16 {
+define internal noundef zeroext i1 @ndisc_allow_add(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1442,7 +1442,7 @@ define internal fastcc ptr @ndisc_alloc_skb(ptr noundef %0, i32 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ndisc_ns_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #1 align 16 {
+define dso_local ptr @ndisc_ns_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca [4 x i32], align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %ndisc_alloc_skb.exit.thread, label %7
@@ -4953,7 +4953,7 @@ declare dso_local i32 @neigh_direct_output(ptr noundef, ptr noundef) #3
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ndisc_solicit(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define internal void @ndisc_solicit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
   %3 = alloca %struct.in6_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = alloca %struct.in6_addr, align 4

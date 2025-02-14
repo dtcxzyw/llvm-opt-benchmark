@@ -327,7 +327,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @index_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, i16 noundef zeroext %15, i16 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18, ptr noundef writeonly %19) local_unnamed_addr #0 {
+define dso_local noundef i32 @index_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, i16 noundef zeroext %15, i16 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18, ptr noundef writeonly captures(address_is_null) %19) local_unnamed_addr #0 {
   %21 = alloca [21 x i64], align 16
   %22 = alloca [21 x i8], align 16
   %23 = alloca i32, align 4

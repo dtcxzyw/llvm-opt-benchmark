@@ -261,7 +261,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10Tf_Remnant20_GetUniqueIdentifierEv(ptr noundef nonnull readnone returned align 8 dereferenceable(15) %0) unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10Tf_Remnant20_GetUniqueIdentifierEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(15) %0) unnamed_addr #7 align 2 {
   ret ptr %0
 }
 

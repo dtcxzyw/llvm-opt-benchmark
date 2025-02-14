@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.exr_add_part.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_count(ptr noundef %ctxt, ptr noundef writeonly %count) local_unnamed_addr #0 {
+define i32 @exr_get_count(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %count) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -72,7 +72,7 @@ return:                                           ; preds = %entry, %if.end12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_storage(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %out) local_unnamed_addr #0 {
+define i32 @exr_get_storage(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -361,7 +361,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare i32 @exr_attr_string_create_with_length(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_tile_levels(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %levelsx, ptr noundef writeonly %levelsy) local_unnamed_addr #0 {
+define i32 @exr_get_tile_levels(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %levelsx, ptr noundef writeonly captures(address_is_null) %levelsy) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -510,7 +510,7 @@ return:                                           ; preds = %cond.true55, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_tile_sizes(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly %tilew, ptr noundef writeonly %tileh) local_unnamed_addr #0 {
+define i32 @exr_get_tile_sizes(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly captures(address_is_null) %tilew, ptr noundef writeonly captures(address_is_null) %tileh) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -700,7 +700,7 @@ return:                                           ; preds = %cond.true92, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_level_sizes(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly %levw, ptr noundef writeonly %levh) local_unnamed_addr #0 {
+define i32 @exr_get_level_sizes(ptr noundef %ctxt, i32 noundef %part_index, i32 noundef %levelx, i32 noundef %levely, ptr noundef writeonly captures(address_is_null) %levw, ptr noundef writeonly captures(address_is_null) %levh) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -883,7 +883,7 @@ return:                                           ; preds = %cond.true80, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_chunk_count(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %out) local_unnamed_addr #0 {
+define i32 @exr_get_chunk_count(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %cond.true67, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_scanlines_per_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %out) local_unnamed_addr #0 {
+define i32 @exr_get_scanlines_per_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1161,7 +1161,7 @@ return:                                           ; preds = %cond.true36, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_chunk_unpacked_size(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %out) local_unnamed_addr #0 {
+define i32 @exr_get_chunk_unpacked_size(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1243,7 +1243,7 @@ return:                                           ; preds = %entry, %if.end23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_zip_compression_level(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %level) local_unnamed_addr #0 {
+define i32 @exr_get_zip_compression_level(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %level) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1390,7 +1390,7 @@ return:                                           ; preds = %entry, %if.then13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_get_dwa_compression_level(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly %level) local_unnamed_addr #0 {
+define i32 @exr_get_dwa_compression_level(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef writeonly captures(address_is_null) %level) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

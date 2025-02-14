@@ -602,7 +602,7 @@ define dso_local void @pg_set_regex_collation(i32 noundef %0) local_unnamed_addr
 declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @freev(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @freev(ptr noundef nonnull captures(address) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1801,7 +1801,7 @@ prefixes.exit:                                    ; preds = %1, %28, %32, %51, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i16 @subcolor(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc signext i16 @subcolor(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -2961,7 +2961,7 @@ pseudocolor.exit25:                               ; preds = %64, %pseudocolor.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @removecaptures(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @removecaptures(ptr noundef nonnull captures(address_is_null) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 32
@@ -12007,7 +12007,7 @@ declare zeroext i1 @pg_locale_deterministic(ptr noundef) local_unnamed_addr #1
 declare i32 @GetDatabaseEncoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rfree(ptr noundef %0) #0 {
+define internal void @rfree(ptr noundef captures(address_is_null) %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %60, label %3
 
@@ -12157,7 +12157,7 @@ define internal range(i32 0, 2) i32 @rstacktoodeep() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freesubre(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @freesubre(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %freesrnode.exit, label %4
 
@@ -12225,7 +12225,7 @@ freesrnode.exit:                                  ; preds = %27, %24, %2
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freesrnode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @freesrnode(ptr noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %25, label %4
 
@@ -21909,7 +21909,7 @@ changearcsource.exit60:                           ; preds = %330, %336
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dupnfa(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dupnfa(ptr noundef captures(none) %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(address) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq ptr %1, %2
   br i1 %6, label %7, label %40
 
@@ -25149,7 +25149,7 @@ newarc.exit._crit_edge:                           ; preds = %97, %subcolorhi.exi
 declare ptr @repalloc_extended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i16 @newcolor(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc signext i16 @newcolor(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -28241,7 +28241,7 @@ define internal fastcc void @markreachable(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -28828,7 +28828,7 @@ breakconstraintloop.exit:                         ; preds = %isconstraintarc.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clonesuccessorstates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @clonesuccessorstates(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8

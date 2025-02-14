@@ -9980,7 +9980,7 @@ _ZN12_GLOBAL__N_18projectxERK5edparPA3_fS4_.exit: ; preds = %.lr.ph.i, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17copyEvecReferencePN12_GLOBAL__N_18t_eigvecEPf(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #5 {
+define internal fastcc void @_ZL17copyEvecReferencePN12_GLOBAL__N_18t_eigvecEPf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %8
 

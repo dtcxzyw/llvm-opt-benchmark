@@ -3381,7 +3381,7 @@ if.end20:                                         ; preds = %if.end20.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Camera15drawWieldedToolEPN3irr4core8CMatrix4IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, ptr noundef readonly %translation) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN6Camera15drawWieldedToolEPN3irr4core8CMatrix4IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, ptr noundef readonly captures(address_is_null) %translation) local_unnamed_addr #15 align 2 {
 entry:
   %focusPoint = alloca %"class.irr::core::vector3d", align 8
   %camera_pos = alloca %"class.irr::core::vector3d", align 8
@@ -3551,7 +3551,7 @@ if.end:                                           ; preds = %_ZN3irr4core8vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Camera12drawNametagsEv(ptr noundef nonnull readonly align 8 dereferenceable(560) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Camera12drawNametagsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(560) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.453", align 8
   %nametag_colorless = alloca %"class.std::__cxx11::basic_string.453", align 8
@@ -4417,7 +4417,7 @@ lpad:                                             ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6Camera13removeNametagEP7Nametag(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef %nametag) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Camera13removeNametagEP7Nametag(ptr noundef nonnull align 8 captures(address) dereferenceable(560) %this, ptr noundef %nametag) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
   %m_nametags = getelementptr inbounds nuw i8, ptr %this, i64 528

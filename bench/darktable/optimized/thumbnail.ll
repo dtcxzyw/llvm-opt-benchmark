@@ -141,7 +141,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._image_get_infos = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 4, i32 8, i32 128], align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_thumbnail_update_selection(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_thumbnail_update_selection(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %dt_thumbnail_set_selection.exit, label %2
 
@@ -966,7 +966,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_active_images_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal void @_dt_active_images_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
 
@@ -1021,7 +1021,7 @@ define internal void @_dt_active_images_callback(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_selection_changed_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal void @_dt_selection_changed_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1034,7 +1034,7 @@ define internal void @_dt_selection_changed_callback(ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_mipmaps_updated_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal void @_dt_mipmaps_updated_callback(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %4
 
@@ -1081,7 +1081,7 @@ _thumb_update_altered_tooltip.exit:               ; preds = %6, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_preview_updated_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal void @_dt_preview_updated_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %3
 
@@ -1131,7 +1131,7 @@ define internal void @_dt_preview_updated_callback(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_image_info_changed_callback(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal void @_dt_image_info_changed_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %4
@@ -1169,7 +1169,7 @@ dt_thumbnail_update_infos.exit:                   ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef readonly %3, i32 %4, ptr noundef %5) #0 {
+define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef readonly captures(address_is_null) %3, i32 %4, ptr noundef captures(address_is_null) %5) #0 {
   %7 = icmp ne ptr %5, null
   %8 = icmp ne ptr %3, null
   %or.cond = and i1 %8, %7
@@ -2822,7 +2822,7 @@ define internal void @_event_image_style_updated(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_event_cursor_draw(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
+define internal noundef i32 @_event_cursor_draw(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca %struct._GdkRGBA, align 8
   %5 = icmp ne ptr %2, null
   %6 = icmp ne ptr %0, null
@@ -3035,7 +3035,7 @@ define internal range(i32 0, 2) i32 @_event_rating_release(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_event_btn_enter_leave(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
+define internal range(i32 0, 2) i32 @_event_btn_enter_leave(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = load i32, ptr %1, align 8, !tbaa !160
   %5 = icmp eq i32 %4, 10
   br i1 %5, label %.thread, label %12
@@ -3113,7 +3113,7 @@ _thumb_update_tags_tooltip.exit:                  ; preds = %39, %35, %24, %21
 declare void @dtgtk_cairo_paint_star(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_event_star_enter(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noundef i32 @_event_star_enter(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 332
   %5 = load i32, ptr %4, align 4, !tbaa !213
   %.not = icmp eq i32 %5, 0
@@ -4886,7 +4886,7 @@ declare void @gtk_border_free(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @dt_thumbnail_update_infos(ptr noundef %0) local_unnamed_addr #0 {
+define void @dt_thumbnail_update_infos(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7192,7 +7192,7 @@ declare i32 @cairo_image_surface_get_height(ptr noundef) local_unnamed_addr #1
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_thumb_expose_again(ptr noundef %0) #0 {
+define internal noundef i32 @_thumb_expose_again(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 

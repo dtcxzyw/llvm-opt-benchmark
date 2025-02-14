@@ -1612,7 +1612,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatEPNS_12UniqueStringENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef readnone %ident, i32 noundef %grammarContext) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatEPNS_12UniqueStringENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef readnone captures(address) %ident, i32 noundef %grammarContext) local_unnamed_addr #0 align 2 {
 entry:
   %tok_.i = getelementptr inbounds nuw i8, ptr %this, i64 1144
   %0 = load ptr, ptr %tok_.i, align 8
@@ -10032,7 +10032,7 @@ return:                                           ; preds = %if.end257, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl25validateBindingIdentifierENS1_5ParamEN4llvh7SMRangeEPNS_12UniqueStringENS0_9TokenKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, i32 %param.coerce, ptr %range.coerce0, ptr %range.coerce1, ptr noundef readnone %id, i32 noundef %kind) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl25validateBindingIdentifierENS1_5ParamEN4llvh7SMRangeEPNS_12UniqueStringENS0_9TokenKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, i32 %param.coerce, ptr %range.coerce0, ptr %range.coerce1, ptr noundef readnone captures(address) %id, i32 noundef %kind) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp9 = alloca %"class.llvh::Twine", align 8
@@ -10160,7 +10160,7 @@ return:                                           ; preds = %_ZN6hermes6parser6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser6detail12JSParserImpl30ensureDestructuringInitializedEPNS_6ESTree23VariableDeclarationNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly %declNode) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes6parser6detail12JSParserImpl30ensureDestructuringInitializedEPNS_6ESTree23VariableDeclarationNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly captures(address) %declNode) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %_declarations = getelementptr inbounds nuw i8, ptr %declNode, i64 56
@@ -24665,7 +24665,7 @@ cleanup53:                                        ; preds = %if.end15.sink.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28reparseArrayAsignmentPatternEPNS_6ESTree19ArrayExpressionNodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly %AEN, i1 noundef zeroext %inDecl) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28reparseArrayAsignmentPatternEPNS_6ESTree19ArrayExpressionNodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly captures(address) %AEN, i1 noundef zeroext %inDecl) local_unnamed_addr #0 align 2 {
 entry:
   %elements = alloca %"class.llvh::simple_ilist", align 8
   %ref.tmp17 = alloca %"class.llvh::Twine", align 8
@@ -24990,7 +24990,7 @@ _ZN6hermes6ESTree16ArrayPatternNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl30reparseObjectAssignmentPatternEPNS_6ESTree20ObjectExpressionNodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly %OEN, i1 noundef zeroext %inDecl) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl30reparseObjectAssignmentPatternEPNS_6ESTree20ObjectExpressionNodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly captures(address) %OEN, i1 noundef zeroext %inDecl) local_unnamed_addr #0 align 2 {
 entry:
   %elements = alloca %"class.llvh::simple_ilist", align 8
   %ref.tmp14 = alloca %"class.llvh::Twine", align 8

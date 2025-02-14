@@ -932,7 +932,7 @@ return:                                           ; preds = %if.end, %end, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef %buf, i64 noundef %buflen, ptr noundef %der_oid, i64 noundef %der_oidlen, ptr noundef %acvp, i64 noundef %acvplen, ptr noundef %partyu, i64 noundef %partyulen, ptr noundef %partyv, i64 noundef %partyvlen, ptr noundef %supp_pub, i64 noundef %supp_publen, ptr noundef %supp_priv, i64 noundef %supp_privlen, i32 noundef range(i32 0, 134217721) %keylen_bits, ptr noundef writeonly %pcounter) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef %buf, i64 noundef %buflen, ptr noundef %der_oid, i64 noundef %der_oidlen, ptr noundef %acvp, i64 noundef %acvplen, ptr noundef %partyu, i64 noundef %partyulen, ptr noundef %partyv, i64 noundef %partyvlen, ptr noundef %supp_pub, i64 noundef %supp_publen, ptr noundef %supp_priv, i64 noundef %supp_privlen, i32 noundef range(i32 0, 134217721) %keylen_bits, ptr noundef writeonly captures(address_is_null) %pcounter) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %buf, null
   br i1 %cmp.not, label %cond.false, label %cond.true

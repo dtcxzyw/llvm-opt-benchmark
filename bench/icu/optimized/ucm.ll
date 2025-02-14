@@ -702,7 +702,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit: ; preds = %for.body.i103
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @ucm_moveMappings(ptr noundef captures(none) %base, ptr noundef %ext) local_unnamed_addr #1 {
+define void @ucm_moveMappings(ptr noundef captures(none) %base, ptr noundef captures(address_is_null) %ext) local_unnamed_addr #1 {
 entry:
   %mappingsLength = getelementptr inbounds nuw i8, ptr %base, i64 12
   %0 = load i32, ptr %mappingsLength, align 4
@@ -3341,7 +3341,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ucm_resetTable(ptr noundef writeonly %table) local_unnamed_addr #10 {
+define void @ucm_resetTable(ptr noundef writeonly captures(address_is_null) %table) local_unnamed_addr #10 {
 entry:
   %cmp.not = icmp eq ptr %table, null
   br i1 %cmp.not, label %if.end, label %if.then

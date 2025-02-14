@@ -201,7 +201,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @nbd_co_establish_connection(ptr noundef %conn, ptr noundef writeonly %info, i1 noundef zeroext %blocking, ptr noundef %errp) #1 {
+define dso_local ptr @nbd_co_establish_connection(ptr noundef %conn, ptr noundef writeonly captures(address_is_null) %info, i1 noundef zeroext %blocking, ptr noundef %errp) #1 {
 entry:
   %thread = alloca %struct.QemuThread, align 8
   %do_negotiation = getelementptr inbounds nuw i8, ptr %conn, i64 112

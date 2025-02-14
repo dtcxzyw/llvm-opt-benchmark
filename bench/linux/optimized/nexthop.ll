@@ -680,7 +680,7 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @fib6_check_nexthop(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fib6_check_nexthop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %14, label %5
 
@@ -749,7 +749,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fib6_check_nexthop(ptr noundef r
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @fib_check_nexthop(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fib_check_nexthop(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 102
   %5 = load i8, ptr %4, align 2, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
@@ -4841,7 +4841,7 @@ define internal noundef range(i32 -12, 1) i32 @nexthop_net_init(ptr noundef init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nexthop_net_exit_batch(ptr noundef readonly %0) #0 align 16 {
+define internal void @nexthop_net_exit_batch(ptr noundef readonly captures(address) %0) #0 align 16 {
   tail call void @rtnl_lock() #13
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
@@ -4880,7 +4880,7 @@ define internal void @nexthop_net_exit_batch(ptr noundef readonly %0) #0 align 1
 declare dso_local void @__init_rwsem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remove_nexthop(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @remove_nexthop(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef null)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
   tail call void @rb_erase(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -5860,7 +5860,7 @@ declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @remove_nexthop_from_groups(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.netlink_ext_ack, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -7178,7 +7178,7 @@ declare dso_local void @rt_cache_flush(ptr noundef) local_unnamed_addr #2
 declare dso_local void @fib_nhc_update_mtu(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext range(i16 0, 2) %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext range(i16 0, 2) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %6, align 2
@@ -7893,7 +7893,7 @@ define internal fastcc void @nh_rt_cache_flush(ptr noundef %0, ptr noundef nonnu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone captures(address) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 11

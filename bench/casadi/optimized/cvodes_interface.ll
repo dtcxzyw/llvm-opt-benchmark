@@ -2320,7 +2320,7 @@ define void @_ZN6casadi15CvodesInterface12cvodes_errorEPKci(ptr noundef %0, i32 
 declare i32 @CVodeSetErrHandlerFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi15CvodesInterface5ehfunEiPKcS2_PcPv(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly %4) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi15CvodesInterface5ehfunEiPKcS2_PcPv(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2806,7 +2806,7 @@ declare i32 @CVodeSetMaxOrd(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @CVodeSetNonlinConvCoef(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupFEP11CVodeMemReciP17_generic_N_VectorS4_PiS4_S4_S4_(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupFEP11CVodeMemReciP17_generic_N_VectorS4_PiS4_S4_S4_(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef ptr @_ZN6casadi15CvodesInterface6to_memEPv(ptr noundef %10)
@@ -3037,7 +3037,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7jtimesFEP17_gen
 declare i32 @CVSpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7psetupFEdP17_generic_N_VectorS2_iPidPvS2_S2_S2_(double noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr noundef %4, double noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7psetupFEdP17_generic_N_VectorS2_iPidPvS2_S2_S2_(double noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i32 %3, ptr noundef captures(address_is_null) %4, double noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.0", align 1
   %13 = invoke noundef ptr @_ZN6casadi15CvodesInterface6to_memEPv(ptr noundef %6)
@@ -3934,7 +3934,7 @@ declare i32 @CVodeQuadReInit(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @CVodeAdjReInit(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi15CvodesInterface7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2152) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr readnone captures(none) %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi15CvodesInterface7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2152) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
   %7 = alloca double, align 8
   %8 = tail call noundef ptr @_ZN6casadi15CvodesInterface6to_memEPv(ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1744
@@ -4586,7 +4586,7 @@ declare i32 @CVodeSStolerancesB(ptr noundef, i32 noundef, double noundef, double
 declare i32 @CVodeSetUserDataB(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVodeMemReciP17_generic_N_VectorS4_PiS4_S4_S4_(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVodeMemReciP17_generic_N_VectorS4_PiS4_S4_S4_(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(none) %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5123,7 +5123,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7jtimesBEP17_gen
 declare i32 @CVSpilsSetPreconditionerB(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7psetupBEdP17_generic_N_VectorS2_S2_iPidPvS2_S2_S2_(double noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4, ptr noundef %5, double noundef %6, ptr noundef %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7psetupBEdP17_generic_N_VectorS2_S2_iPidPvS2_S2_S2_(double noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4, ptr noundef captures(address_is_null) %5, double noundef %6, ptr noundef %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #3 align 2 personality ptr @__gxx_personality_v0 {
   %12 = invoke noundef ptr @_ZN6casadi15CvodesInterface6to_memEPv(ptr noundef %7)
           to label %13 unwind label %17
 
@@ -5760,7 +5760,7 @@ declare i32 @CVodeReInitB(ptr noundef, i32 noundef, double noundef, ptr noundef)
 declare i32 @CVodeQuadReInitB(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi15CvodesInterface7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(2152) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi15CvodesInterface7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(2152) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
   %7 = alloca double, align 8
   %8 = tail call noundef ptr @_ZN6casadi15CvodesInterface6to_memEPv(ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1744

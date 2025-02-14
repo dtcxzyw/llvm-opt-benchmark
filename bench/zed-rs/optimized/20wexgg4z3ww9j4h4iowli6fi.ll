@@ -739,7 +739,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8532454445049387414.exit.
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.14927708396969121011"(ptr noundef readnone %0) unnamed_addr #12 {
+define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.14927708396969121011"(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3300,7 +3300,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error12object_boxed17h95a761935416d936E.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb1d8ed0997fb9c05E.llvm.14927708396969121011(ptr noundef nonnull readnone %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17hb1d8ed0997fb9c05E.llvm.14927708396969121011(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = icmp eq i64 %1, -5076933981314334344
   %5 = icmp eq i64 %2, 7199936582794304877
   %or.cond = and i1 %4, %5

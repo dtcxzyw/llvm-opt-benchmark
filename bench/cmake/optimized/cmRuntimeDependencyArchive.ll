@@ -1917,13 +1917,13 @@ define dso_local noundef zeroext i1 @_ZN26cmRuntimeDependencyArchive22GetRuntime
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK26cmRuntimeDependencyArchive19GetBundleExecutableB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK26cmRuntimeDependencyArchive19GetBundleExecutableB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK26cmRuntimeDependencyArchive20GetSearchDirectoriesB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK26cmRuntimeDependencyArchive20GetSearchDirectoriesB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -5365,19 +5365,19 @@ define dso_local void @_ZN26cmRuntimeDependencyArchive17AddUnresolvedPathERKNSt7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive16GetResolvedPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive16GetResolvedPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive18GetUnresolvedPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive18GetUnresolvedPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive9GetRPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK26cmRuntimeDependencyArchive9GetRPathsB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   ret ptr %2
 }

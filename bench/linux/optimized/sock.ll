@@ -1029,7 +1029,7 @@ define dso_local noundef range(i32 -105, 1) i32 @__sock_queue_rcv_skb(ptr nounde
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sock_queue_rcv_skb_reason(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local i32 @sock_queue_rcv_skb_reason(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = tail call i32 @sk_filter_trim_cap(ptr noundef %0, ptr noundef %1, i32 noundef 1) #22
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -7609,7 +7609,7 @@ sk_backlog_rcv.exit:                              ; preds = %39, %47, %51, %53
 declare dso_local void @tcp_release_cb(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -32, 2) i32 @sk_wait_data(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readnone %2) #0 align 16 {
+define dso_local range(i32 -32, 2) i32 @sk_wait_data(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2) #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

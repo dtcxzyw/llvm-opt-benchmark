@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread5MutexC2EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef readonly %pMutexParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 {
+define dso_local void @_ZN2EA6Thread5MutexC2EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef readonly captures(address_is_null) %pMutexParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 {
 entry:
   %attr.i6 = alloca %union.pthread_mutexattr_t, align 4
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pMutexParameters) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %pMutexParameters) local_unnamed_addr #3 align 2 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
   %tobool.not = icmp eq ptr %pMutexParameters, null

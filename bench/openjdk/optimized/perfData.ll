@@ -462,7 +462,7 @@ define hidden void @_ZN13PerfByteArrayC2E9CounterNSPKcN8PerfData5UnitsENS3_11Var
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10PerfString10set_stringEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10PerfString10set_stringEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -484,7 +484,7 @@ define hidden void @_ZN10PerfString10set_stringEPKc(ptr noundef nonnull readonly
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.split5, label %.split
 
@@ -993,7 +993,7 @@ define hidden noundef ptr @_ZN15PerfDataManager10name_spaceEPKci(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr noundef nonnull align 8 dereferenceable(52) %5, i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1062,7 +1062,7 @@ _ZN16PerfLongConstantC2E9CounterNSPKcN8PerfData5UnitsEl.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq i32 %2, 0
   %7 = icmp ne ptr %3, null
   %or.cond = and i1 %6, %7

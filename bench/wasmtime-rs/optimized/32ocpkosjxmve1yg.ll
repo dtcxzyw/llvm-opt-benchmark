@@ -69,7 +69,7 @@ define zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hc58a32835cc7483dE(ptr align 8 %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3471689c1b769ba4E"(ptr sret({ i64, [5 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2, ptr readonly align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3471689c1b769ba4E"(ptr sret({ i64, [5 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2, ptr readonly align 8 captures(address_is_null) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -102,7 +102,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3f34e32278561a9eE"(ptr sret({ i64, [5 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2, ptr readonly align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3f34e32278561a9eE"(ptr sret({ i64, [5 x i64] }) align 16 %0, ptr readonly align 8 captures(none) %1, ptr align 16 %2, ptr readonly align 8 captures(address_is_null) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -142,7 +142,7 @@ define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h08164cc4d680dc82E"(ptr writeonly sret({ { { i64, ptr, {} }, i64 }, i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } } }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h08164cc4d680dc82E"(ptr writeonly sret({ { { i64, ptr, {} }, i64 }, i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } } }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr readonly align 8 captures(address_is_null) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -361,22 +361,22 @@ define zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h02bbf1218df67e7dE"(ptr readnone returned align 8 %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h02bbf1218df67e7dE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hdc96bfbe02c690b2E"(ptr readnone returned align 8 %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hdc96bfbe02c690b2E"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf1e0be15aa518fd7E"(ptr readnone returned align 8 %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf1e0be15aa518fd7E"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf8e5a7b9b1efaeebE"(ptr readnone returned align 8 %0) unnamed_addr #3 {
+define align 8 ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hf8e5a7b9b1efaeebE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

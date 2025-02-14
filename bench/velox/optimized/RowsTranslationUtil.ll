@@ -46,7 +46,7 @@ $_ZTIN8facebook5velox13AlignedBufferE = comdat any
 @_ZTIN8facebook5velox13AlignedBufferE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox13AlignedBufferE, ptr @_ZTIN8facebook5velox6BufferE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolE(ptr noalias sret(%"class.boost::intrusive_ptr") align 8 %agg.result, i32 noundef %numElements, ptr noundef nonnull align 8 captures(none) dereferenceable(38) %topLevelRows, ptr noundef readonly captures(none) %rawOffsets, ptr noundef readonly captures(none) %rawSizes, ptr noundef readonly %rawNulls, ptr noundef %pool) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolE(ptr noalias sret(%"class.boost::intrusive_ptr") align 8 %agg.result, i32 noundef %numElements, ptr noundef nonnull align 8 captures(none) dereferenceable(38) %topLevelRows, ptr noundef readonly captures(none) %rawOffsets, ptr noundef readonly captures(none) %rawSizes, ptr noundef readonly captures(address_is_null) %rawNulls, ptr noundef %pool) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)

@@ -377,7 +377,7 @@ $_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIN6hermes6parser19PreParsedBuff
 @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv.55 = private unnamed_addr constant [251 x ptr] [ptr @.str.8, ptr @.str.9, ptr poison, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr poison, ptr poison, ptr poison, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr poison, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr poison, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr poison, ptr @.str.49, ptr @.str.50, ptr poison, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr poison, ptr @.str.54, ptr @.str.55, ptr poison, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr poison, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr poison, ptr poison, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr poison, ptr poison, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr poison, ptr poison, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr poison, ptr poison, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_Program_body(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_Program_body(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 88
   ret ptr %_body
@@ -392,7 +392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_FunctionExpression_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_FunctionExpression_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
@@ -457,7 +457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ArrowFunctionExpression_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ArrowFunctionExpression_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
@@ -522,7 +522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_FunctionDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_FunctionDeclaration_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
@@ -587,7 +587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ComponentDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ComponentDeclaration_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
@@ -739,7 +739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_BlockStatement_body(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_BlockStatement_body(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_body
@@ -802,7 +802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_SwitchStatement_cases(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_SwitchStatement_cases(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_cases = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_cases
@@ -938,21 +938,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_SequenceExpression_expressions(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_SequenceExpression_expressions(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_expressions = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_expressions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectExpression_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectExpression_properties(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ArrayExpression_elements(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ArrayExpression_elements(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_elements = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elements
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_NewExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_NewExpression_arguments(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
@@ -1056,7 +1056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_CallExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_CallExpression_arguments(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
@@ -1079,7 +1079,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_OptionalCallExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_OptionalCallExpression_arguments(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
@@ -1373,7 +1373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_SwitchCase_consequent(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_SwitchCase_consequent(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_consequent = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_consequent
@@ -1420,21 +1420,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_VariableDeclaration_declarations(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_VariableDeclaration_declarations(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_declarations = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_declarations
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TemplateLiteral_quasis(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TemplateLiteral_quasis(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_quasis = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_quasis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TemplateLiteral_expressions(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TemplateLiteral_expressions(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_expressions = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_expressions
@@ -1565,14 +1565,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ClassDeclaration_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ClassDeclaration_implements(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ClassDeclaration_decorators(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ClassDeclaration_decorators(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_decorators
@@ -1619,14 +1619,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ClassExpression_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ClassExpression_implements(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ClassExpression_decorators(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ClassExpression_decorators(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_decorators
@@ -1641,7 +1641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ClassBody_body(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ClassBody_body(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
@@ -1833,7 +1833,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ImportDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ImportDeclaration_specifiers(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_specifiers
@@ -1848,7 +1848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ImportDeclaration_assertions(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ImportDeclaration_assertions(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_assertions = getelementptr inbounds nuw i8, ptr %node, i64 72
   ret ptr %_assertions
@@ -1927,7 +1927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ExportNamedDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ExportNamedDeclaration_specifiers(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_specifiers
@@ -1998,7 +1998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectPattern_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectPattern_properties(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
@@ -2013,7 +2013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ArrayPattern_elements(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ArrayPattern_elements(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_elements = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elements
@@ -2116,7 +2116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_JSXOpeningElement_attributes(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_JSXOpeningElement_attributes(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_attributes = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_attributes
@@ -2212,7 +2212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_JSXElement_children(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_JSXElement_children(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_children = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_children
@@ -2235,7 +2235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_JSXFragment_children(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_JSXFragment_children(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_children = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_children
@@ -2307,7 +2307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_FunctionTypeAnnotation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_FunctionTypeAnnotation_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -2371,7 +2371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ComponentTypeAnnotation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ComponentTypeAnnotation_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -2499,7 +2499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TupleTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TupleTypeAnnotation_types(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
@@ -2571,14 +2571,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_UnionTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_UnionTypeAnnotation_types(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_IntersectionTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_IntersectionTypeAnnotation_types(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
@@ -2699,7 +2699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_InterfaceTypeAnnotation_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_InterfaceTypeAnnotation_extends(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_extends
@@ -2786,7 +2786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_InterfaceDeclaration_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_InterfaceDeclaration_extends(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
@@ -2873,7 +2873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareInterface_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareInterface_extends(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
@@ -2904,21 +2904,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareClass_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareClass_extends(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareClass_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareClass_implements(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareClass_mixins(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareClass_mixins(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_mixins = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_mixins
@@ -2957,7 +2957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareComponent_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareComponent_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_params
@@ -3028,7 +3028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_DeclareExportDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_DeclareExportDeclaration_specifiers(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_specifiers
@@ -3132,28 +3132,28 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_properties(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_indexers(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_indexers(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_indexers = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_indexers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_callProperties(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_callProperties(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_callProperties = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_callProperties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_internalSlots(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_internalSlots(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_internalSlots = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_internalSlots
@@ -3403,7 +3403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TypeParameterDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TypeParameterDeclaration_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -3451,7 +3451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TypeParameterInstantiation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TypeParameterInstantiation_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -3514,7 +3514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_EnumStringBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_EnumStringBody_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
@@ -3539,7 +3539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_EnumNumberBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_EnumNumberBody_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
@@ -3564,7 +3564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_EnumBooleanBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_EnumBooleanBody_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
@@ -3589,7 +3589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_EnumSymbolBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_EnumSymbolBody_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
@@ -3758,7 +3758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSFunctionType_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSFunctionType_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -3781,7 +3781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSConstructorType_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSConstructorType_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -3820,7 +3820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSTupleType_elementTypes(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSTupleType_elementTypes(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_elementTypes = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elementTypes
@@ -3942,7 +3942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSInterfaceDeclaration_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSInterfaceDeclaration_extends(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
@@ -3973,7 +3973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSInterfaceBody_body(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSInterfaceBody_body(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
@@ -3988,7 +3988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSEnumDeclaration_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSEnumDeclaration_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_members
@@ -4027,7 +4027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSModuleBlock_body(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSModuleBlock_body(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
@@ -4050,7 +4050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSTypeParameterDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSTypeParameterDeclaration_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
@@ -4081,21 +4081,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSTypeParameterInstantiation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSTypeParameterInstantiation_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSUnionType_types(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSUnionType_types(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSIntersectionType_types(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSIntersectionType_types(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
@@ -4142,7 +4142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSTypeLiteral_members(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSTypeLiteral_members(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
@@ -4226,7 +4226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSMethodSignature_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSMethodSignature_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_params
@@ -4250,7 +4250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSIndexSignature_parameters(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSIndexSignature_parameters(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_parameters = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_parameters
@@ -4265,7 +4265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @hermes_get_TSCallSignatureDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
+define hidden nonnull ptr @hermes_get_TSCallSignatureDeclaration_params(ptr noundef readnone captures(ret: address, provenance) %node) local_unnamed_addr #0 {
 entry:
   %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params

@@ -24479,7 +24479,7 @@ declare { ptr, i32 } @_ZNK4llvm14TargetLowering23expandFMINIMUM_FMAXIMUMEPNS_6SD
 declare { ptr, i32 } @_ZNK4llvm14TargetLowering29expandFMINIMUMNUM_FMAXIMUMNUMEPNS_6SDNodeERNS_12SelectionDAGE(ptr noundef nonnull align 8 dereferenceable(412423), ptr noundef, ptr noundef nonnull align 8 dereferenceable(952)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL9useSinCosPN4llvm6SDNodeE(ptr noundef readonly %0) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL9useSinCosPN4llvm6SDNodeE(ptr noundef readonly captures(address) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !152
   %4 = icmp eq i32 %3, 248

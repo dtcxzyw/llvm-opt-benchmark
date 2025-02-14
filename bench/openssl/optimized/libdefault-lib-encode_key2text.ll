@@ -130,7 +130,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ecx_to_text = private unnamed_addr constant [4 x ptr] [ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @key2text_newctx(ptr noundef readnone returned %provctx) #0 {
+define internal noundef ptr @key2text_newctx(ptr noundef readnone returned captures(ret: address, provenance) %provctx) #0 {
 entry:
   ret ptr %provctx
 }
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @dh2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @dhx2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @ec2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -440,7 +440,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm22text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @sm22text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -481,7 +481,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed255192text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @ed255192text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef captures(address_is_null) %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -522,7 +522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed4482text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @ed4482text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef captures(address_is_null) %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x255192text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @x255192text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef captures(address_is_null) %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x4482text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @x4482text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef captures(address_is_null) %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -645,7 +645,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @rsa2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsapss2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
+define internal range(i32 0, 2) i32 @rsapss2text_encode(ptr noundef %vctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone captures(address_is_null) %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #1 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1584,7 +1584,7 @@ declare ptr @EC_GROUP_get0_generator(ptr noundef) local_unnamed_addr #2
 declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecx_to_text(ptr noundef %out, ptr noundef readonly %key, i32 noundef %selection) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ecx_to_text(ptr noundef %out, ptr noundef readonly captures(address_is_null) %key, i32 noundef %selection) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %out, null
   %cmp1 = icmp eq ptr %key, null

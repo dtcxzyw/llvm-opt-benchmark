@@ -164,7 +164,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 6) i32 @_Z33alts_tsi_handshaker_result_createP23grpc_gcp_HandshakerRespbPP21tsi_handshaker_result(ptr noundef readonly %resp, i1 noundef zeroext %is_client, ptr noundef writeonly %result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 6) i32 @_Z33alts_tsi_handshaker_result_createP23grpc_gcp_HandshakerRespbPP21tsi_handshaker_result(ptr noundef readonly captures(address_is_null) %resp, i1 noundef zeroext %is_client, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i = alloca ptr, align 8
   %it.i.i = alloca %struct.upb_strtable_iter, align 8
@@ -724,7 +724,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %do.end
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_Z26alts_tsi_handshaker_createPK29grpc_alts_credentials_optionsPKcS3_bP16grpc_pollset_setPP14tsi_handshakerm(ptr noundef %options, ptr noundef %target_name, ptr noundef %handshaker_service_url, i1 noundef zeroext %is_client, ptr noundef %interested_parties, ptr noundef writeonly %self, i64 noundef %user_specified_max_frame_size) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_Z26alts_tsi_handshaker_createPK29grpc_alts_credentials_optionsPKcS3_bP16grpc_pollset_setPP14tsi_handshakerm(ptr noundef %options, ptr noundef %target_name, ptr noundef %handshaker_service_url, i1 noundef zeroext %is_client, ptr noundef %interested_parties, ptr noundef writeonly captures(address_is_null) %self, i64 noundef %user_specified_max_frame_size) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %frombool = zext i1 %is_client to i8
@@ -807,7 +807,7 @@ declare ptr @gpr_strdup(ptr noundef) local_unnamed_addr #0
 declare noundef ptr @_Z34grpc_alts_credentials_options_copyPK29grpc_alts_credentials_options(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z43alts_tsi_handshaker_result_set_unused_bytesP21tsi_handshaker_resultP10grpc_slicem(ptr noundef %result, ptr noundef readonly %recv_bytes, i64 noundef %bytes_consumed) local_unnamed_addr #3 {
+define void @_Z43alts_tsi_handshaker_result_set_unused_bytesP21tsi_handshaker_resultP10grpc_slicem(ptr noundef captures(address_is_null) %result, ptr noundef readonly captures(address_is_null) %recv_bytes, i64 noundef %bytes_consumed) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %recv_bytes, null
   %cmp1 = icmp eq ptr %result, null
@@ -868,7 +868,7 @@ return:                                           ; preds = %cond.end.thread, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core8internal58alts_tsi_handshaker_get_has_sent_start_message_for_testingEP19alts_tsi_handshaker(ptr noundef readonly %handshaker) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN9grpc_core8internal58alts_tsi_handshaker_get_has_sent_start_message_for_testingEP19alts_tsi_handshaker(ptr noundef readonly captures(address_is_null) %handshaker) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %handshaker, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -885,7 +885,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal49alts_tsi_handshaker_set_client_vtable_for_testingEP19alts_tsi_handshakerP29alts_handshaker_client_vtable(ptr noundef writeonly %handshaker, ptr noundef %vtable) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal49alts_tsi_handshaker_set_client_vtable_for_testingEP19alts_tsi_handshakerP29alts_handshaker_client_vtable(ptr noundef writeonly captures(address_is_null) %handshaker, ptr noundef %vtable) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %handshaker, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -901,7 +901,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core8internal45alts_tsi_handshaker_get_is_client_for_testingEP19alts_tsi_handshaker(ptr noundef readonly %handshaker) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN9grpc_core8internal45alts_tsi_handshaker_get_is_client_for_testingEP19alts_tsi_handshaker(ptr noundef readonly captures(address_is_null) %handshaker) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %handshaker, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL49handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr noundef readonly %self, ptr noundef readonly %max_output_protected_frame_size, ptr noundef %protector) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL49handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr noundef readonly captures(address_is_null) %self, ptr noundef readonly captures(address_is_null) %max_output_protected_frame_size, ptr noundef %protector) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %max_frame_size = alloca i64, align 8
   %ref.tmp = alloca %"class.grpc_core::GsecKeyFactory", align 8
@@ -1201,7 +1201,7 @@ return:                                           ; preds = %_ZN9grpc_core14Gsec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL40handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr noundef readonly %self, ptr noundef %max_output_protected_frame_size, ptr noundef %protector) #3 {
+define internal noundef i32 @_ZL40handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr noundef readonly captures(address_is_null) %self, ptr noundef %max_output_protected_frame_size, ptr noundef %protector) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %protector, null
@@ -1232,7 +1232,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @_ZL34handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZL34handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly captures(address_is_null) %self, ptr noundef writeonly captures(address_is_null) %bytes, ptr noundef writeonly captures(address_is_null) %bytes_size) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %bytes, null

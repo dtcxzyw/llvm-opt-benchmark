@@ -36,7 +36,7 @@ define noalias noundef ptr @arkAdaptInit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arkPrintAdaptMem(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @arkPrintAdaptMem(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %68, label %3
 

@@ -277,7 +277,7 @@ define void @uat_insert_record_idx(ptr noundef readonly captures(none) %0, i32 n
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @uat_update_record(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @uat_update_record(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1375,7 +1375,7 @@ declare zeroext i1 @uat_load(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @uat_fld_chk_str(ptr noundef readnone captures(none) %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = icmp ne ptr %1, null
   br i1 %7, label %10, label %8
 
@@ -1390,7 +1390,7 @@ define noundef zeroext i1 @uat_fld_chk_str(ptr noundef readnone captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.sink.split, label %8
@@ -1905,7 +1905,7 @@ define noundef zeroext i1 @uat_fld_chk_color(ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @uat_unbinstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias ptr @uat_unbinstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = lshr i32 %1, 1
   %5 = and i32 %1, 1
   %.not = icmp eq i32 %5, 0
@@ -1958,7 +1958,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 1
   %5 = zext i32 %4 to i64
   %6 = tail call noalias ptr @g_malloc0(i64 noundef %5) #18
@@ -2146,7 +2146,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @uat_undquote(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noalias ptr @uat_undquote(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 1
   %5 = add i32 %1, -2
   %6 = tail call ptr @uat_unesc(ptr noundef %4, i32 noundef %5, ptr noundef %2)
@@ -2154,7 +2154,7 @@ define hidden noalias ptr @uat_undquote(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @uat_esc(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noalias ptr @uat_esc(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr i8, ptr %0, i64 %3
   %5 = shl i32 %1, 2

@@ -420,14 +420,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEE(i64 noundef %p, ptr readnone %i.coerce) local_unnamed_addr #4 {
+define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEE(i64 noundef %p, ptr readnone captures(ret: address, provenance) %i.coerce) local_unnamed_addr #4 {
 entry:
   %add.ptr.i = getelementptr inbounds ptr, ptr %i.coerce, i64 %p
   ret ptr %add.ptr.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEE(i64 noundef %p, ptr readnone %i.coerce) local_unnamed_addr #4 {
+define hidden ptr @_ZN4cvc58internal4exprplElNS1_9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEE(i64 noundef %p, ptr readnone captures(ret: address, provenance) %i.coerce) local_unnamed_addr #4 {
 entry:
   %add.ptr.i = getelementptr inbounds ptr, ptr %i.coerce, i64 %p
   ret ptr %add.ptr.i

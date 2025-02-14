@@ -1904,7 +1904,7 @@ define hidden void @proto_reg_handoff_signal_pdu() #0 {
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2040,7 +2040,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_spdu_signal_value_name_cb(ptr noundef returned writeonly initializes((0, 12), (16, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_spdu_signal_value_name_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12), (16, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2301,7 +2301,7 @@ post_update_spdu_signal_value_names_read_in_data.exit: ; preds = %.critedge5.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned writeonly initializes((0, 12), (16, 52), (56, 96)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12), (16, 52), (56, 96)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3528,7 +3528,7 @@ define internal void @reset_spdu_signal_list() #0 {
 declare void @uat_set_default_values(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_someip_mapping_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_someip_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3711,7 +3711,7 @@ register_signal_pdu_someip.exit:                  ; preds = %._crit_edge.i, %40,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_can_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_can_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3838,7 +3838,7 @@ register_signal_pdu_can.exit:                     ; preds = %._crit_edge.i, %29,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_flexray_mapping_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_flexray_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3939,7 +3939,7 @@ define internal void @post_update_spdu_flexray_mapping_cb() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_lin_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_lin_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4066,7 +4066,7 @@ register_signal_pdu_lin.exit:                     ; preds = %._crit_edge.i, %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_pdu_transport_mapping_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_pdu_transport_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4160,7 +4160,7 @@ register_signal_pdu_pdu_transport.exit:           ; preds = %._crit_edge.i, %23,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_ipdum_mapping_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_ipdum_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4254,7 +4254,7 @@ register_signal_pdu_ipdum.exit:                   ; preds = %._crit_edge.i, %23,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_spdu_dlt_mapping_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @copy_spdu_dlt_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -4353,7 +4353,7 @@ define internal void @post_update_spdu_dlt_mapping_cb() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_uds_mapping_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_uds_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4476,7 +4476,7 @@ define internal void @post_update_spdu_uds_mapping_cb() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_spdu_isobus_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
+define internal noundef ptr @copy_spdu_isobus_mapping_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4605,7 +4605,7 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #4
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_someip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_someip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -4660,7 +4660,7 @@ get_someip_mapping.exit:                          ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_can(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_can(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -4726,7 +4726,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_spdu_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %7
@@ -4790,7 +4790,7 @@ dissect_spdu_message_can.exit:                    ; preds = %7, %get_can_mapping
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -4835,7 +4835,7 @@ get_flexray_mapping.exit:                         ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_spdu_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %7
@@ -4877,7 +4877,7 @@ dissect_spdu_message_flexray.exit:                ; preds = %get_flexray_mapping
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_lin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_lin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -4936,7 +4936,7 @@ get_lin_mapping.exit:                             ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_pdu_transport(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_pdu_transport(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -4976,7 +4976,7 @@ get_pdu_transport_mapping.exit:                   ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_ipdum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_ipdum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -5016,7 +5016,7 @@ get_ipdum_mapping.exit:                           ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_dlt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_dlt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
@@ -5063,7 +5063,7 @@ get_dlt_mapping.exit:                             ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_spdu_message_uds_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_uds_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -5136,7 +5136,7 @@ get_uds_mapping.exit.thread:                      ; preds = %6, %get_uds_mapping
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_isobus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_spdu_message_isobus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7

@@ -487,7 +487,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_SSL_SESSION(ptr noundef %in, ptr noundef %pp) local_unnamed_addr #0 {
+define hidden i32 @i2d_SSL_SESSION(ptr noundef %in, ptr noundef captures(address_is_null) %pp) local_unnamed_addr #0 {
 entry:
   %out = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -949,7 +949,7 @@ declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_SSL_SESSION(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden ptr @d2i_SSL_SESSION(ptr noundef captures(address_is_null) %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %length, 0

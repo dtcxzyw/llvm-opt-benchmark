@@ -30,7 +30,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef %0) local_unnamed_addr #3 align 2 {
+define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca [3 x i32], align 4
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4

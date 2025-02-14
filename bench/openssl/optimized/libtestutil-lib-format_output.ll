@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [6 x i8] c"empty\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @test_fail_string_message(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef %m1, i64 noundef %l1, ptr noundef %m2, i64 noundef %l2) local_unnamed_addr #0 {
+define void @test_fail_string_message(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef captures(address) %m1, i64 noundef %l1, ptr noundef captures(address) %m2, i64 noundef %l2) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @test_fail_string_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef %m1, i64 noundef %l1, ptr noundef %m2, i64 noundef %l2)
   %call = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str) #7
@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_fail_string_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef readonly %m1, i64 noundef %l1, ptr noundef readonly %m2, i64 noundef %l2) unnamed_addr #0 {
+define internal fastcc void @test_fail_string_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef readonly captures(address) %m1, i64 noundef %l1, ptr noundef readonly captures(address) %m2, i64 noundef %l2) unnamed_addr #0 {
 entry:
   %b1 = alloca [81 x i8], align 16
   %b2 = alloca [81 x i8], align 16
@@ -349,7 +349,7 @@ fin:                                              ; preds = %if.end172, %if.else
 declare i32 @test_printf_stderr(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @test_output_string(ptr noundef %name, ptr noundef %m, i64 noundef %l) local_unnamed_addr #0 {
+define void @test_output_string(ptr noundef %name, ptr noundef captures(address) %m, i64 noundef %l) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @test_fail_string_common(ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %name, ptr noundef %m, i64 noundef %l, ptr noundef %m, i64 noundef %l)
   ret void
@@ -790,7 +790,7 @@ declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @test_fail_memory_message(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef %m1, i64 noundef %l1, ptr noundef %m2, i64 noundef %l2) local_unnamed_addr #0 {
+define void @test_fail_memory_message(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef captures(address) %m1, i64 noundef %l1, ptr noundef captures(address) %m2, i64 noundef %l2) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @test_fail_memory_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef %m1, i64 noundef %l1, ptr noundef %m2, i64 noundef %l2)
   %call = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str) #7
@@ -798,7 +798,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_fail_memory_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef readonly %m1, i64 noundef %l1, ptr noundef readonly %m2, i64 noundef %l2) unnamed_addr #0 {
+define internal fastcc void @test_fail_memory_common(ptr noundef %prefix, ptr noundef %file, i32 noundef %line, ptr noundef %type, ptr noundef %left, ptr noundef %right, ptr noundef %op, ptr noundef readonly captures(address) %m1, i64 noundef %l1, ptr noundef readonly captures(address) %m2, i64 noundef %l2) unnamed_addr #0 {
 entry:
   %b1 = alloca [81 x i8], align 16
   %b2 = alloca [81 x i8], align 16
@@ -1122,7 +1122,7 @@ fin:                                              ; preds = %if.end130, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define void @test_output_memory(ptr noundef %name, ptr noundef %m, i64 noundef %l) local_unnamed_addr #0 {
+define void @test_output_memory(ptr noundef %name, ptr noundef captures(address) %m, i64 noundef %l) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @test_fail_memory_common(ptr noundef nonnull @.str.7, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %name, ptr noundef %m, i64 noundef %l, ptr noundef %m, i64 noundef %l)
   ret void

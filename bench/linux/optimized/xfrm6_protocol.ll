@@ -311,7 +311,7 @@ declare dso_local i32 @inet6_add_protocol(ptr noundef, i8 noundef zeroext) local
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr noundef readonly captures(address) %0, i8 noundef zeroext %1) #0 align 16 {
   switch i8 %1, label %43 [
     i8 50, label %3
     i8 51, label %3

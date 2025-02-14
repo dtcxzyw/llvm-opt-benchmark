@@ -513,7 +513,7 @@ define dso_local zeroext i1 @intel_power_well_is_always_on(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @intel_power_well_domains(ptr noundef readnone %0) local_unnamed_addr #5 align 16 {
+define dso_local nonnull ptr @intel_power_well_domains(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

@@ -1759,7 +1759,7 @@ define internal void @snmp_users_privPassword_tostr_cb(ptr noundef readonly capt
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 20), (24, 36), (40, 52), (56, 76), (80, 92), (104, 108), (112, 120)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12), (16, 20), (24, 36), (40, 52), (56, 76), (80, 92), (104, 108), (112, 120)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1885,7 +1885,7 @@ define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.472) #11
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2129,7 +2129,7 @@ define internal void @specific_traps_desc_tostr_cb(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @snmp_specific_trap_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @snmp_specific_trap_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 12), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8

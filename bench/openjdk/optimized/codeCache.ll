@@ -1272,7 +1272,7 @@ declare noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef n
 declare void @_ZN13MemoryService25add_code_heap_memory_poolEP8CodeHeapPKc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not9 = icmp eq i32 %3, 0
@@ -1308,7 +1308,7 @@ define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9CodeCache13get_code_heapEPKv(ptr noundef readnone %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN9CodeCache13get_code_heapEPKv(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not9 = icmp eq i32 %3, 0
@@ -1806,7 +1806,7 @@ declare noundef i32 @_ZN8CodeBlob17align_code_offsetEi(i32 noundef) local_unname
 declare void @_ZN8CodeHeap15deallocate_tailEPvm(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not9.i = icmp eq i32 %3, 0
@@ -1883,7 +1883,7 @@ thread-pre-split:                                 ; preds = %27, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -1917,7 +1917,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9CodeCache8containsEP7nmethod(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9CodeCache8containsEP7nmethod(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -3590,7 +3590,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.thread: ; preds = %7, %1, %_ZN9
 declare noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef readnone %0) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef readnone captures(address) %0) local_unnamed_addr #10 align 2 {
 .lr.ph.i:
   %1 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %2 = load i32, ptr %1, align 4
@@ -4166,7 +4166,7 @@ declare noundef zeroext i1 @_ZN9DepChange13ContextStream4nextEv(ptr noundef nonn
 declare void @_ZN13InstanceKlass23mark_dependent_nmethodsEP19DeoptimizationScopeR14KlassDepChange(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9CodeCache22unregister_old_nmethodEP7nmethod(ptr noundef readnone %0) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN9CodeCache22unregister_old_nmethodEP7nmethod(ptr noundef readnone captures(address) %0) local_unnamed_addr #11 align 2 {
   %2 = load ptr, ptr @_ZL17old_nmethod_table, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN17GrowableArrayViewIP7nmethodE9delete_atEi.exit, label %3

@@ -226,7 +226,7 @@ define void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef captures(none) %
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #0 {
+define void @_Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 {
   tail call fastcc void @_ZL17gmx_stats_computeP9gmx_statsi(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %9
@@ -1287,7 +1287,7 @@ _Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_.exit: ; preds = %29, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16lsq_y_ax_b_erroriPfS_S_S_S_S_S_S_S_(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z16lsq_y_ax_b_erroriPfS_S_S_S_S_S_S_S_(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.gmx::InconsistentInputError", align 8
   %12 = alloca %"class.gmx::ExceptionInitializer", align 8
   %13 = alloca %"class.gmx::ExceptionInfo", align 8

@@ -678,7 +678,7 @@ declare void @qemu_mutex_lock_iothread_impl(ptr noundef, i32 noundef) local_unna
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_breakpoint_insert(ptr noundef %cpu, i64 noundef %pc, i32 noundef %flags, ptr noundef writeonly %breakpoint) local_unnamed_addr #0 {
+define dso_local noundef i32 @cpu_breakpoint_insert(ptr noundef %cpu, i64 noundef %pc, i32 noundef %flags, ptr noundef writeonly captures(address_is_null) %breakpoint) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10

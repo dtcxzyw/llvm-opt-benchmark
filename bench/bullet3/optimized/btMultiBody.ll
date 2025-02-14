@@ -13337,7 +13337,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, float noundef %dt, ptr noundef %pq, ptr noundef readonly %pqd) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, float noundef %dt, ptr noundef %pq, ptr noundef readonly captures(address) %pqd) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 180
   %0 = load i32, ptr %m_size.i.i, align 4

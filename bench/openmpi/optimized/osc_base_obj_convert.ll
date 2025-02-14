@@ -62,7 +62,7 @@ define noundef i32 @ompi_osc_base_get_primitive_type_info(ptr noundef %0, ptr no
 declare ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -8, 1) i32 @ompi_osc_base_process_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define range(i32 -8, 1) i32 @ompi_osc_base_process_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca %struct.opal_convertor_t, align 8

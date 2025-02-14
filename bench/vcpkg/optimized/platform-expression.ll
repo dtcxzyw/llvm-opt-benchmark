@@ -9254,7 +9254,7 @@ declare void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_str
 declare void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrINS_18PlatformExpression6detail8ExprImplESt14default_deleteIS7_EESt6vectorISA_SaISA_EEEEZNS5_9to_stringB5cxx11ERKNS5_4ExprEE4ImplEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralET_SS_T0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr readonly %3, ptr readnone %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrINS_18PlatformExpression6detail8ExprImplESt14default_deleteIS7_EESt6vectorISA_SaISA_EEEEZNS5_9to_stringB5cxx11ERKNS5_4ExprEE4ImplEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralET_SS_T0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr readonly captures(address) %3, ptr readnone captures(address) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %7 = icmp eq ptr %3, %4

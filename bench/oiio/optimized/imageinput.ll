@@ -6076,7 +6076,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput10read_imageEiiiiNS_8TypeDescEPvlllPFbS2_fES2_(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %chbegin, i32 noundef %chend, ptr noundef %format, ptr noundef %data, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride, ptr noundef readonly %progress_callback, ptr noundef %progress_callback_data) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput10read_imageEiiiiNS_8TypeDescEPvlllPFbS2_fES2_(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %chbegin, i32 noundef %chend, ptr noundef %format, ptr noundef %data, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride, ptr noundef readonly captures(address_is_null) %progress_callback, ptr noundef %progress_callback_data) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %spec = alloca %"class.OpenImageIO_v2_6_0::ImageSpec", align 8
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4

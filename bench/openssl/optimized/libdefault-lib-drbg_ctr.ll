@@ -436,7 +436,7 @@ return:                                           ; preds = %if.then1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly captures(none) %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %nonce, i64 noundef %noncelen, ptr noundef %pers, i64 noundef %perslen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly captures(none) %drbg, ptr noundef captures(address_is_null) %entropy, i64 noundef %entropylen, ptr noundef captures(address_is_null) %nonce, i64 noundef %noncelen, ptr noundef captures(address_is_null) %pers, i64 noundef %perslen) #0 {
 entry:
   %cmp = icmp eq ptr %entropy, null
   br i1 %cmp, label %return, label %if.end
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captures(none) %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %adin, i64 noundef %adinlen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captures(none) %drbg, ptr noundef captures(address_is_null) %entropy, i64 noundef %entropylen, ptr noundef captures(address_is_null) %adin, i64 noundef %adinlen) #0 {
 entry:
   %cmp = icmp eq ptr %entropy, null
   br i1 %cmp, label %return, label %if.end
@@ -530,7 +530,7 @@ return:                                           ; preds = %inc_128.exit, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adinlen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef captures(address_is_null) %adin, i64 noundef %adinlen) #0 {
 entry:
   %outl = alloca i32, align 4
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
@@ -698,7 +698,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr noundef readonly captures(none) %drbg, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %nonce, i64 noundef %noncelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr noundef readonly captures(none) %drbg, ptr noundef captures(address_is_null) %in1, i64 noundef %in1len, ptr noundef captures(address_is_null) %in2, i64 noundef %in2len, ptr noundef captures(address_is_null) %nonce, i64 noundef %noncelen) unnamed_addr #0 {
 entry:
   %outlen.i.i.i.i = alloca i32, align 4
   %in_tmp.i.i.i = alloca [48 x i8], align 16
@@ -1161,7 +1161,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ctr_BCC_update(ptr noundef %ctr, ptr noundef readonly %in, i64 noundef %inlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ctr_BCC_update(ptr noundef %ctr, ptr noundef readonly captures(address_is_null) %in, i64 noundef %inlen) unnamed_addr #0 {
 entry:
   %outlen.i.i26 = alloca i32, align 4
   %in_tmp.i27 = alloca [48 x i8], align 16

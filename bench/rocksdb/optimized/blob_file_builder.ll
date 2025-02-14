@@ -1537,7 +1537,7 @@ return:                                           ; preds = %if.then.i.i, %clean
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BlobFileBuilder15WriteBlobToFileERKNS_5SliceES3_PmS4_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %blob, ptr noundef writeonly captures(none) %blob_file_number, ptr noundef %blob_offset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlobFileBuilder15WriteBlobToFileERKNS_5SliceES3_PmS4_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %blob, ptr noundef writeonly captures(none) %blob_file_number, ptr noundef %blob_offset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %key_offset = alloca i64, align 8
   %s = alloca %"class.rocksdb::Status", align 8
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb15BlobFileBuilder24PutBlobIntoCacheIfNeededERKNS_5SliceEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(16) %blob, i64 noundef %blob_file_number, i64 noundef %blob_offset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb15BlobFileBuilder24PutBlobIntoCacheIfNeededERKNS_5SliceEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(16) %blob, i64 noundef %blob_file_number, i64 noundef %blob_offset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blob_cache = alloca %"class.rocksdb::FullTypedCacheInterface", align 8
   %base_cache_key = alloca %"class.rocksdb::OffsetableCacheKey", align 8

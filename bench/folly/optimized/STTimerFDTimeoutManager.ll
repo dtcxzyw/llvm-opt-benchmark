@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager20detachTimeoutManagerEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager20detachTimeoutManagerEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef captures(address) %obj) unnamed_addr #2 align 2 {
 entry:
   %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_.i, align 8, !tbaa !7
@@ -163,7 +163,7 @@ _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef captures(address) %obj) unnamed_addr #2 align 2 {
 entry:
   %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
@@ -541,7 +541,7 @@ declare void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb(ptr noundef %obj, i1 noundef zeroext %active) local_unnamed_addr #9 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb(ptr noundef captures(address_is_null) %obj, i1 noundef zeroext %active) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end14, label %if.then

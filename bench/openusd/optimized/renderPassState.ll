@@ -962,7 +962,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState14GetAovBindingsEv(ptr noundef nonnull readnone align 8 dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState14GetAovBindingsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   ret ptr %2
 }
@@ -975,7 +975,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetAovInp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetAovInputBindingsEv(ptr noundef nonnull readnone align 8 dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetAovInputBindingsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   ret ptr %2
 }
@@ -1085,7 +1085,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13SetDepthR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13GetDepthRangeEv(ptr noundef nonnull readnone align 8 dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13GetDepthRangeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(381) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 204
   ret ptr %2
 }

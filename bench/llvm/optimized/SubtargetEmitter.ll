@@ -15825,7 +15825,7 @@ declare noundef zeroext i1 @_ZNK4llvm18CodeGenSchedModels14hasItinerariesEv(ptr 
 declare void @_ZN4llvm20STIPredicateExpander18expandSTIPredicateERNS_11raw_ostreamERKNS_20STIPredicateFunctionE(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116SubtargetEmitter15emitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(816) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116SubtargetEmitter15emitHwModeCheckERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(816) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17422,7 +17422,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_124LessRecordFieldFieldNameEEEEvT_SG_T0_(ptr %0, ptr readnone %1) unnamed_addr #2 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_124LessRecordFieldFieldNameEEEEvT_SG_T0_(ptr %0, ptr readnone captures(address) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -17538,7 +17538,7 @@ declare void @_ZN4llvm23sortAndReportDuplicatesENS_15MutableArrayRefIPKNS_6Recor
 declare void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector.24") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16printFeatureMaskRN4llvm11raw_ostreamENS_8ArrayRefIPKNS_6RecordEEERKNS_8DenseMapIS5_jNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly %1, i64 %2, ptr readonly captures(none) %.0.val, i32 %.16.val) unnamed_addr #2 {
+define internal fastcc void @_ZL16printFeatureMaskRN4llvm11raw_ostreamENS_8ArrayRefIPKNS_6RecordEEERKNS_8DenseMapIS5_jNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(none) %.0.val, i32 %.16.val) unnamed_addr #2 {
   %4 = alloca %"struct.std::array", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)

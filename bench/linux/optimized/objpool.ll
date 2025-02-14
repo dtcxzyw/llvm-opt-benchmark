@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_objpool_fini
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_objpool_drop161, ptr @__UNIQUE_ID___addressable_objpool_fini162, ptr @__UNIQUE_ID___addressable_objpool_free160, ptr @__UNIQUE_ID___addressable_objpool_init144, ptr @__UNIQUE_ID___addressable_objpool_pop159, ptr @__UNIQUE_ID___addressable_objpool_push152], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) #0 align 16 {
+define dso_local i32 @objpool_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) #0 align 16 {
   %8 = add i32 %1, -16777217
   %9 = icmp ult i32 %8, -16777216
   %10 = add i32 %2, -65537
@@ -506,7 +506,7 @@ define dso_local void @objpool_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @objpool_drop(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @objpool_drop(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

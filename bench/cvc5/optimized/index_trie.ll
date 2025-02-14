@@ -501,7 +501,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers9IndexTrie7findRecEPKNS2_13IndexTrieNodeEmRKSt6vectorINS0_12NodeTemplateILb1EEESaIS9_EERm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly %n, i64 noundef %index, ptr noundef nonnull align 8 dereferenceable(24) %members, ptr noundef nonnull align 8 dereferenceable(8) %nonBlankLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers9IndexTrie7findRecEPKNS2_13IndexTrieNodeEmRKSt6vectorINS0_12NodeTemplateILb1EEESaIS9_EERm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readonly captures(address_is_null) %n, i64 noundef %index, ptr noundef nonnull align 8 dereferenceable(24) %members, ptr noundef nonnull align 8 dereferenceable(8) %nonBlankLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %n, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

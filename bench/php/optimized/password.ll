@@ -727,7 +727,7 @@ define dso_local noalias noundef ptr @php_password_algo_extract_ident(ptr nounde
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @php_password_algo_identify_ex(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define dso_local ptr @php_password_algo_identify_ex(ptr noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %php_password_algo_extract_ident.exit.thread, label %3
 

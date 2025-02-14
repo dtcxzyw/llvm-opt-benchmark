@@ -630,7 +630,7 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 2, 49088) %2, ptr noundef nonnull initializes((0, 56)) %3) unnamed_addr #0 {
+define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 2, 49088) %2, ptr noundef nonnull initializes((0, 56)) %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %5 = and i32 %2, 1
   %.not = icmp eq i32 %5, 0
@@ -1717,7 +1717,7 @@ list_length.exit.thread:                          ; preds = %walrcv_clear_result
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = alloca [1 x i32], align 4
   store i32 25, ptr %9, align 4
@@ -1938,7 +1938,7 @@ walrcv_clear_result.exit:                         ; preds = %101, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fetch_table_list(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @fetch_table_list(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.StringInfoData, align 8
@@ -4224,7 +4224,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph40
 

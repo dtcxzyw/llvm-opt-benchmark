@@ -53,7 +53,7 @@ define range(i32 -1, 4) i32 @forkname_to_number(ptr noundef readonly captures(no
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %14

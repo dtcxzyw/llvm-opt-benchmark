@@ -758,7 +758,7 @@ if.end29:                                         ; preds = %if.end21, %if.then2
 declare noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler7Version8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8compiler7Version8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -2806,7 +2806,7 @@ if.end31:                                         ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler26CodeGeneratorResponse_File8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(56) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8compiler26CodeGeneratorResponse_File8CopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end

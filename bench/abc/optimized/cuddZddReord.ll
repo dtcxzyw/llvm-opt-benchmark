@@ -541,7 +541,7 @@ declare i32 @cuddGarbageCollect(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zddFixTree(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @zddFixTree(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %37, label %4
 

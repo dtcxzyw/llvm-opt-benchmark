@@ -4294,7 +4294,7 @@ sw.epilog:                                        ; preds = %_ZN7Imf_3_23Xdr5wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, ptr noundef readnone %endPtr, i64 noundef %xStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, ptr noundef readnone captures(address) %endPtr, i64 noundef %xStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i46 = alloca [4 x i8], align 1
   %b.i37 = alloca [2 x i8], align 1

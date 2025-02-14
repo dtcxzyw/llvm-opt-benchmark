@@ -8720,7 +8720,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends23UpdateGroupDependenciesEv(ptr noundef nonnull readonly align 8 dereferenceable(744) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends23UpdateGroupDependenciesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(744) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.cmListFileBacktrace, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i64, ptr %3, align 8, !tbaa !356
@@ -10512,7 +10512,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK20cmComputeLinkDepends17GetCurrentFeatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 dereferenceable(744) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 dereferenceable(32) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK20cmComputeLinkDepends17GetCurrentFeatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(744) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -16127,7 +16127,7 @@ _ZNSt3setImSt4lessImESaImEE6insertERKm.exit:      ; preds = %15, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmComputeLinkDepends17AddVarLinkEntriesERKSt8optionalImEPKc(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmComputeLinkDepends17AddVarLinkEntriesERKSt8optionalImEPKc(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.864"], align 8
   %5 = alloca i64, align 8
   %6 = alloca %class.cmList, align 8

@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [55 x i8] c"cache_lookup_hash: cache_lookup_hash: mutex lock fail\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @clean_cache_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -244,7 +244,7 @@ declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @clean_cache_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @clean_cache_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -297,7 +297,7 @@ define void @clean_cache_destroy(ptr noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @clean_cache_add(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @clean_cache_add(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %111, label %4
 
@@ -681,7 +681,7 @@ define internal fastcc noundef ptr @cacheset_add(ptr noundef captures(none) %0, 
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @clean_cache_remove(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @clean_cache_remove(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %119, label %4
 
@@ -904,7 +904,7 @@ cacheset_remove.exit:                             ; preds = %27, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %101, label %4
 

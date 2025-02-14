@@ -40537,7 +40537,7 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit:     ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_0EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__val = alloca %"class.OpenImageIO_v2_6_0::ParamValue", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
@@ -42593,7 +42593,7 @@ _ZN18OpenImageIO_v2_6_010ParamValueD2Ev.exit38:   ; preds = %lpad, %land.lhs.tru
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil5ilessENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_010ParamValueESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_14ParamValueList4sortEbE3$_1EEEvT_SE_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp12.i.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

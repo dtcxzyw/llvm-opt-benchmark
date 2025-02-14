@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [56 x i8] c"The electrostatics potential has its minimum at r = %g\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
+define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = fcmp oeq float %2, 0.000000e+00
   %8 = fsub float %2, %1
   %9 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float %1)

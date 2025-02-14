@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm14FlattenCFGPass3runERNS_8FunctionERNS_15Analysis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121iterativelyFlattenCFGERN4llvm8FunctionEPNS0_9AAResultsE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121iterativelyFlattenCFGERN4llvm8FunctionEPNS0_9AAResultsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::vector.48", align 8
   %4 = alloca %"class.llvm::WeakVH", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12

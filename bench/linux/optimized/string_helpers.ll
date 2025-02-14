@@ -847,7 +847,7 @@ define dso_local i32 @string_escape_mem(ptr noundef readonly captures(none) %0, 
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @kstrdup_quotable(ptr noundef readonly %0, i32 noundef %1) #4 align 16 {
+define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #4 align 16 {
   %3 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #17
   store i8 12, ptr %3, align 1
@@ -1209,7 +1209,7 @@ define dso_local noalias ptr @kstrdup_and_replace(ptr noundef %0, i8 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strreplace(ptr noundef returned %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #8 align 16 {
+define dso_local noundef ptr @strreplace(ptr noundef returned captures(ret: address, provenance) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #8 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit, label %.preheader
@@ -1455,7 +1455,7 @@ define dso_local i64 @strscpy_pad(ptr noundef %0, ptr noundef %1, i64 noundef %2
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef ptr @skip_spaces(ptr noundef readonly %0) #9 align 16 {
+define dso_local noundef ptr @skip_spaces(ptr noundef readonly captures(ret: address, provenance) %0) #9 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1474,7 +1474,7 @@ define dso_local noundef ptr @skip_spaces(ptr noundef readonly %0) #9 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @strim(ptr noundef %0) #6 align 16 {
+define dso_local noundef ptr @strim(ptr noundef captures(address, ret: address, provenance) %0) #6 align 16 {
   %2 = tail call i64 @strlen(ptr noundef %0) #17
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.loopexit, label %4

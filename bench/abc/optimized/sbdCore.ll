@@ -9853,7 +9853,7 @@ declare i32 @Sbd_ManCutServerFirst(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @Sbd_StoObjBestCut(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Sbd_CutMergeSimple(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #12 {
+define i32 @Sbd_CutMergeSimple(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #12 {
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.ptr59 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %1, align 4, !tbaa !50

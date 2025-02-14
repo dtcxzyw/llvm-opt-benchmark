@@ -59,7 +59,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, i32 noundef %id, i32 noundef %code, ptr noundef %stats) local_unnamed_addr #3 {
+define void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, i32 noundef %id, i32 noundef %code, ptr noundef captures(address_is_null) %stats) local_unnamed_addr #3 {
 entry:
   tail call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef 13)
   %cmp.not = icmp eq ptr %stats, null
@@ -123,7 +123,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z40grpc_chttp2_add_rst_stream_to_next_writeP21grpc_chttp2_transportjjP28grpc_transport_one_way_stats(ptr noundef %t, i32 noundef %id, i32 noundef %code, ptr noundef %stats) local_unnamed_addr #3 {
+define void @_Z40grpc_chttp2_add_rst_stream_to_next_writeP21grpc_chttp2_transportjjP28grpc_transport_one_way_stats(ptr noundef %t, i32 noundef %id, i32 noundef %code, ptr noundef captures(address_is_null) %stats) local_unnamed_addr #3 {
 entry:
   %agg.tmp = alloca %struct.grpc_slice, align 8
   %num_pending_induced_frames = getelementptr inbounds nuw i8, ptr %t, i64 3292

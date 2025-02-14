@@ -3325,7 +3325,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16lis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly6fibers12FiberManager15getObserverListEv(ptr noundef nonnull readnone align 16 dereferenceable(577) %this) local_unnamed_addr #26 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly6fibers12FiberManager15getObserverListEv(ptr noundef nonnull readnone align 16 captures(ret: address, provenance) dereferenceable(577) %this) local_unnamed_addr #26 align 2 {
 entry:
   %observerList_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   ret ptr %observerList_

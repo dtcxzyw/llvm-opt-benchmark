@@ -9077,12 +9077,12 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h75962afdc05ab0b9E"(ptr noalias noundef readonly returned align 1 dereferenceable(32) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 1 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h75962afdc05ab0b9E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: nofree nounwind nonlazybind memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hbc3279ad02aebf37E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hbc3279ad02aebf37E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { [32 x i8] }, ptr %1, i64 %2
   br label %5
 

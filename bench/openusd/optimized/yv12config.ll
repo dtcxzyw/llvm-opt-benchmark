@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @aom_free_frame_buffer(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @aom_free_frame_buffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -52,7 +52,7 @@ aom_remove_metadata_from_frame_buffer.exit:       ; preds = %12, %15
 declare void @aom_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_remove_metadata_from_frame_buffer(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @aom_remove_metadata_from_frame_buffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -75,7 +75,7 @@ define hidden void @aom_remove_metadata_from_frame_buffer(ptr noundef %0) local_
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly %9, ptr noundef %10) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %calc_stride_and_planesize.exit, label %12
 
@@ -289,7 +289,7 @@ calc_stride_and_planesize.exit:                   ; preds = %140, %135, %69, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @aom_alloc_frame_buffer(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @aom_alloc_frame_buffer(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %9
 
@@ -338,7 +338,7 @@ aom_free_frame_buffer.exit:                       ; preds = %19, %22
 declare void @aom_img_metadata_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @aom_copy_metadata_to_frame_buffer(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @aom_copy_metadata_to_frame_buffer(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

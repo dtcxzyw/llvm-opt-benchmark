@@ -1845,7 +1845,7 @@ define internal noundef i32 @packed_pack_refs(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @packed_ref_iterator_begin(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
+define internal ptr @packed_ref_iterator_begin(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = and i32 %3, 1
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr %0, align 8, !tbaa !18

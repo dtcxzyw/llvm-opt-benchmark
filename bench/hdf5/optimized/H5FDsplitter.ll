@@ -178,7 +178,7 @@ declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #1
 declare i64 @H5FDregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -303,7 +303,7 @@ declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef nonnull initializes((0, 8216)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef captures(address_is_null) %0, ptr noundef nonnull initializes((0, 8216)) %1) unnamed_addr #0 {
   %3 = alloca %struct.H5FD_driver_prop_t, align 8
   %4 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %1, i8 0, i64 8216, i1 false)
@@ -1367,7 +1367,7 @@ define internal i32 @H5FD__splitter_cmp(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 

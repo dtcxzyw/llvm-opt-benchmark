@@ -711,7 +711,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare zeroext i1 @qht_remove(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tb_remove_from_jmp_list(ptr noundef %orig, i32 noundef range(i32 0, 2) %n_orig) unnamed_addr #0 {
+define internal fastcc void @tb_remove_from_jmp_list(ptr noundef captures(address) %orig, i32 noundef range(i32 0, 2) %n_orig) unnamed_addr #0 {
 entry:
   %jmp_dest = getelementptr inbounds nuw i8, ptr %orig, i64 152
   %idxprom = zext nneg i32 %n_orig to i64

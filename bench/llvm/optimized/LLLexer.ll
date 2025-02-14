@@ -1087,7 +1087,7 @@ define dso_local void @_ZNK4llvm7LLLexer7WarningENS_5SMLocERKNS_5TwineE(ptr noun
 declare void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(64), ptr, i32 noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64, ptr noundef byval(%"class.llvm::ArrayRef.16") align 8, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm7LLLexer6atoullEPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN4llvm7LLLexer6atoullEPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %.not17 = icmp eq ptr %1, %2
   br i1 %.not17, label %.loopexit, label %.critedge
@@ -1127,7 +1127,7 @@ define dso_local noundef i64 @_ZN4llvm7LLLexer6atoullEPKcS2_(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4llvm7LLLexer11HexIntToValEPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN4llvm7LLLexer11HexIntToValEPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %.not17 = icmp eq ptr %1, %2
   br i1 %.not17, label %.loopexit, label %.critedge
@@ -1247,7 +1247,7 @@ define dso_local void @_ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) initializes((8, 16)) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm(ptr noundef nonnull align 8 captures(none) dereferenceable(161) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) initializes((8, 16)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %6, align 8, !tbaa !50

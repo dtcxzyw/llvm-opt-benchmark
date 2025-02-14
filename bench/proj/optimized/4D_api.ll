@@ -2367,7 +2367,7 @@ proj_errno.exit:                                  ; preds = %.lr.ph, %10
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #1 {
+define i64 @proj_trans_generic(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5, i64 noundef %6, i64 noundef %7, ptr noundef captures(address_is_null) %8, i64 noundef %9, i64 noundef %10, ptr noundef captures(address_is_null) %11, i64 noundef %12, i64 noundef %13) local_unnamed_addr #1 {
   %15 = alloca double, align 8
   %16 = alloca double, align 8
   %17 = alloca %union.PJ_COORD, align 8
@@ -3478,7 +3478,7 @@ define void @proj_area_destroy(ptr noundef %0) local_unnamed_addr #6 {
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define void @proj_context_use_proj4_init_rules(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @proj_context_use_proj4_init_rules(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -4938,7 +4938,7 @@ define ptr @proj_create_crs_to_crs(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @proj_create_crs_to_crs_from_pj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @proj_create_crs_to_crs_from_pj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.3", align 8
   %7 = alloca %"class.std::vector.3", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6578,7 +6578,7 @@ declare void @proj_operation_factory_context_destroy(ptr noundef) local_unnamed_
 declare void @proj_list_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @proj_context_errno(ptr noundef readonly %0) local_unnamed_addr #1 {
+define i32 @proj_context_errno(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -6909,7 +6909,7 @@ declare noundef ptr @_Z14pj_get_releasev() local_unnamed_addr #2
 declare void @_Z26pj_get_default_searchpathsB5cxx11P6pj_ctx(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull captures(none) %2) unnamed_addr #25 {
+define internal fastcc noundef ptr @_ZL11path_appendPcPKcPm(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #25 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %29, label %5
 

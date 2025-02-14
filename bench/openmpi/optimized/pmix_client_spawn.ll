@@ -2404,7 +2404,7 @@ pmix_obj_run_destructors.exit705:                 ; preds = %.lr.ph.i702, %957
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spawn_cbfunc(i32 noundef %0, ptr noundef readonly %1, ptr noundef initializes((500, 504)) %2) #0 {
+define internal void @spawn_cbfunc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef initializes((500, 504)) %2) #0 {
   fence acquire
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 500
   store i32 %0, ptr %4, align 4

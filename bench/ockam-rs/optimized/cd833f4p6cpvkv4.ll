@@ -963,7 +963,7 @@ define internal noundef i128 @_ZN4core5error5Error7type_id17h516fe889df80d1a2E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h02ce17c2912fc7d8E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h02ce17c2912fc7d8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -1316,7 +1316,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error12object_boxed17h5401e82097aa48d0E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h0f8ef9ab2df887c6E(ptr noundef nonnull readnone %0, i128 noundef %1) unnamed_addr #4 {
+define hidden noundef ptr @_ZN6anyhow5error15object_downcast17h0f8ef9ab2df887c6E(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i128 noundef %1) unnamed_addr #4 {
   %3 = icmp eq i128 %1, -77111009725853176877900535404715628220
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0 = select i1 %3, ptr %4, ptr null

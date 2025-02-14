@@ -4670,7 +4670,7 @@ eh.resume:                                        ; preds = %lpad16.body, %ehcle
 declare noundef zeroext i1 @_ZNK4pbrt19ParameterDictionary10GetOneBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11GBufferFilm9AddSampleENS_6Point2IiEENS_15SampledSpectrumERKNS_18SampledWavelengthsEPKNS_14VisibleSurfaceEf(ptr noundef nonnull align 8 dereferenceable(872) %this, i64 %pFilm.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef readonly %visibleSurface, float noundef %weight) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt11GBufferFilm9AddSampleENS_6Point2IiEENS_15SampledSpectrumERKNS_18SampledWavelengthsEPKNS_14VisibleSurfaceEf(ptr noundef nonnull align 8 dereferenceable(872) %this, i64 %pFilm.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda, ptr noundef readonly captures(address_is_null) %visibleSurface, float noundef %weight) local_unnamed_addr #0 align 2 {
 entry:
   %ret.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i = alloca %"class.pbrt::SampledSpectrum", align 8

@@ -37553,7 +37553,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config19getDisplayAllByNameEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config19getDisplayAllByNameEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

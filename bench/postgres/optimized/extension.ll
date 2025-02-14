@@ -996,7 +996,7 @@ get_required_extension.exit:                      ; preds = %.lr.ph156
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @InsertExtensionTuple(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly %7) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @InsertExtensionTuple(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ObjectAddress, align 8
   %10 = alloca [8 x i64], align 16
   %11 = alloca [8 x i8], align 8
@@ -2524,7 +2524,7 @@ is_extension_script_filename.exit.outer._crit_edge: ; preds = %is_extension_scri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_update_path(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @find_update_path(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %.preheader72, label %.thread
 
 .preheader72:                                     ; preds = %5
@@ -3122,7 +3122,7 @@ declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @AlterExtensionNamespace(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @AlterExtensionNamespace(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
   %5 = alloca %struct.ObjectAddress, align 4
   %6 = tail call i32 @get_extension_oid(ptr noundef %0, i1 noundef zeroext false)
@@ -3816,7 +3816,7 @@ define internal fastcc void @check_valid_version_name(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca [1 x %struct.ScanKeyData], align 16
   %9 = alloca [1 x %struct.ScanKeyData], align 16
   %10 = alloca [1 x %struct.ScanKeyData], align 16
@@ -4068,7 +4068,7 @@ get_extension_schema.exit:                        ; preds = %get_required_extens
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.ScanKeyData], align 16
   %4 = alloca i8, align 1
   %5 = alloca [8 x i64], align 16
@@ -4556,7 +4556,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CreateComments(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @execute_extension_script(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @execute_extension_script(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -481,7 +481,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.449 = private unnamed_addr constant [4 x i8] c"\0A}\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @stats_print(ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef readonly %opts) local_unnamed_addr #0 {
+define hidden void @stats_print(ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef readonly captures(address_is_null) %opts) local_unnamed_addr #0 {
 entry:
   %epoch = alloca i64, align 8
   %u64sz = alloca i64, align 8
@@ -4649,7 +4649,7 @@ declare i32 @je_mallctlnametomib(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @je_mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mutex_stats_emit(ptr noundef nonnull captures(none) %emitter, ptr noundef readonly %row, ptr noundef nonnull readonly captures(none) %col_uint64_t, ptr noundef nonnull readonly captures(none) %col_uint32_t) unnamed_addr #0 {
+define internal fastcc void @mutex_stats_emit(ptr noundef nonnull captures(none) %emitter, ptr noundef readonly captures(address_is_null) %row, ptr noundef nonnull readonly captures(none) %col_uint64_t, ptr noundef nonnull readonly captures(none) %col_uint32_t) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %row, null
   br i1 %cmp.not, label %if.end, label %if.then

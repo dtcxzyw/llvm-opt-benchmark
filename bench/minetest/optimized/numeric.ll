@@ -82,7 +82,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_Z17murmur_hash_64_uaPKvij(ptr noundef readonly %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #5 {
+define dso_local noundef i64 @_Z17murmur_hash_64_uaPKvij(ptr noundef readonly captures(address) %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #5 {
 entry:
   %conv = zext i32 %seed to i64
   %conv1 = sext i32 %len to i64
@@ -232,7 +232,7 @@ sw.epilog:                                        ; preds = %while.end, %sw.bb36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_Z14isBlockInSightN3irr4core8vector3dIsEENS1_IfEES3_ffPf(i48 %blockpos_b.coerce, <2 x float> %camera_pos.coerce0, float %camera_pos.coerce1, <2 x float> %camera_dir.coerce0, float %camera_dir.coerce1, float noundef %camera_fov, float noundef %range, ptr noundef writeonly %distance_ptr) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_Z14isBlockInSightN3irr4core8vector3dIsEENS1_IfEES3_ffPf(i48 %blockpos_b.coerce, <2 x float> %camera_pos.coerce0, float %camera_pos.coerce1, <2 x float> %camera_dir.coerce0, float %camera_dir.coerce1, float noundef %camera_fov, float noundef %range, ptr noundef writeonly captures(address_is_null) %distance_ptr) local_unnamed_addr #6 {
 entry:
   %blockpos_b.sroa.0.0.extract.trunc = trunc i48 %blockpos_b.coerce to i16
   %mul.i = shl i16 %blockpos_b.sroa.0.0.extract.trunc, 4

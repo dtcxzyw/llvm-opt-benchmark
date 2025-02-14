@@ -1906,7 +1906,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit: ; preds
 declare void @_ZN17MLRenderingAction9setMeshIdEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18MLRenderingToolbar19getRenderingActionsEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18MLRenderingToolbar19getRenderingActionsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

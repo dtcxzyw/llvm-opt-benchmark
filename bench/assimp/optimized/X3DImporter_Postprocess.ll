@@ -410,7 +410,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter33PostprocessHelper_CollectMetadataERK18X3DNodeElementBaseRNSt7__cxx114listIPS1_SaIS6_EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter33PostprocessHelper_CollectMetadataERK18X3DNodeElementBaseRNSt7__cxx114listIPS1_SaIS6_EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Children = getelementptr inbounds nuw i8, ptr %pNodeElement, i64 48
   %el_it.sroa.0.019 = load ptr, ptr %Children, align 8
@@ -932,7 +932,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter25Postprocess_BuildMaterialERK18X3DNodeElementBasePP10aiMaterial(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 dereferenceable(76) %pNodeElement, ptr noundef %pMaterial) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter25Postprocess_BuildMaterialERK18X3DNodeElementBasePP10aiMaterial(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(76) %pNodeElement, ptr noundef captures(address_is_null) %pMaterial) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcol3 = alloca %struct.aiColor3D, align 4
   %tvalf = alloca float, align 4
@@ -1195,7 +1195,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter21Postprocess_BuildMeshERK18X3DNodeElementBasePP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(76) %pNodeElement, ptr noundef %pMesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter21Postprocess_BuildMeshERK18X3DNodeElementBasePP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(76) %pNodeElement, ptr noundef captures(address_is_null) %pMesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tarr = alloca %"class.std::vector", align 8
   %tarr57 = alloca %"class.std::vector", align 8
@@ -3333,7 +3333,7 @@ declare void @_ZN6Assimp12X3DGeoHelper10add_normalER6aiMeshRKSt6vectorIiSaIiEES7
 declare void @_ZN6Assimp12X3DGeoHelper13add_tex_coordER6aiMeshRKSt6vectorIiSaIiEES7_RKNSt7__cxx114listI10aiVector2tIfESaISB_EEE(ptr noundef nonnull align 8 dereferenceable(1320), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter21Postprocess_BuildNodeERK18X3DNodeElementBaseR6aiNodeRNSt7__cxx114listIP6aiMeshSaIS9_EEERNS7_IP10aiMaterialSaISE_EEERNS7_IP7aiLightSaISJ_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(1144) %pSceneNode, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMeshList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMaterialList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneLightList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter21Postprocess_BuildNodeERK18X3DNodeElementBaseR6aiNodeRNSt7__cxx114listIP6aiMeshSaIS9_EEERNS7_IP10aiMaterialSaISE_EEERNS7_IP7aiLightSaISJ_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 dereferenceable(1144) %pSceneNode, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMeshList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMaterialList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneLightList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %SceneNode_Child = alloca %"class.std::__cxx11::list.48", align 8
   %SceneNode_Mesh = alloca %"class.std::__cxx11::list.53", align 8
@@ -3694,7 +3694,7 @@ unreachable:                                      ; preds = %invoke.cont82
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter27Postprocess_CollectMetadataERK18X3DNodeElementBaseR6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %pSceneNode) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter27Postprocess_CollectMetadataERK18X3DNodeElementBaseR6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(76) %pNodeElement, ptr noundef nonnull align 8 captures(none) dereferenceable(1144) %pSceneNode) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meta_list = alloca %"class.std::__cxx11::list.6", align 8
   %ref.tmp24 = alloca i8, align 1
@@ -4040,7 +4040,7 @@ _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit63: ; preds = %while.bo
 declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 dereferenceable(76) %pShapeNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pNodeMeshInd, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMeshList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMaterialList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(76) %pShapeNodeElement, ptr noundef nonnull align 8 dereferenceable(24) %pNodeMeshInd, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMeshList, ptr noundef nonnull align 8 dereferenceable(24) %pSceneMaterialList) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmat = alloca ptr, align 8
   %tmesh = alloca ptr, align 8

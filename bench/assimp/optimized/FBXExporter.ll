@@ -44108,7 +44108,7 @@ lpad:                                             ; preds = %if.else.i.i8, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly %n, ptr noundef %root) local_unnamed_addr #10 {
+define hidden noundef i64 @_Z11count_nodesPK6aiNodeS1_(ptr noundef readonly captures(address) %n, ptr noundef captures(address) %root) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %n, %root
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %n, i64 1120
@@ -45685,7 +45685,7 @@ _ZNSt12_Vector_baseIN6Assimp3FBX4NodeESaIS2_EED2Ev.exit: ; preds = %invoke.cont,
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_Z17get_node_for_meshjP6aiNode(i32 noundef %meshIndex, ptr noundef readonly %node) local_unnamed_addr #10 {
+define hidden noundef ptr @_Z17get_node_for_meshjP6aiNode(i32 noundef %meshIndex, ptr noundef readonly captures(ret: address, provenance) %node) local_unnamed_addr #10 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %node, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8

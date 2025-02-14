@@ -1008,7 +1008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly captures(address) %q) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifier_stat.i = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1078,7 +1078,7 @@ _ZNK3smt18quantifier_manager3imp8get_statEP10quantifier.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly captures(address) %q) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifier_stat.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1072

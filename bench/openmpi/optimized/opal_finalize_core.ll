@@ -121,7 +121,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @opal_finalize_domain_init(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define void @opal_finalize_domain_init(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #10

@@ -316,7 +316,7 @@ declare zeroext i8 @extcap_base_handle_interface(ptr noundef) local_unnamed_addr
 declare zeroext i1 @extcap_base_register_graceful_shutdown_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef readnone %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4

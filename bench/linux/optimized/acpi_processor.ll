@@ -1335,7 +1335,7 @@ thread-pre-split:                                 ; preds = %129, %132, %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_processor_remove(ptr noundef readonly %0) #6 align 16 {
+define internal void @acpi_processor_remove(ptr noundef readonly captures(address_is_null) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 

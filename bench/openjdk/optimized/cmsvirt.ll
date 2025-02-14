@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @AllowedLUTTypes = internal unnamed_addr constant [11 x %struct.cmsAllowedLUT] [%struct.cmsAllowedLUT { i32 0, i32 0, i32 1835430962, i32 4, [5 x i32] [i32 1835103334, i32 1668707188, i32 1668052340, i32 1668707188, i32 0] }, %struct.cmsAllowedLUT { i32 0, i32 0, i32 1835430962, i32 3, [5 x i32] [i32 1668707188, i32 1668052340, i32 1668707188, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 0, i32 0, i32 1835430962, i32 2, [5 x i32] [i32 1668707188, i32 1668052340, i32 0, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 0, i32 1832993312, i32 1, [5 x i32] [i32 1668707188, i32 0, i32 0, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1093812784, i32 1832993312, i32 3, [5 x i32] [i32 1668707188, i32 1835103334, i32 1668707188, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1093812784, i32 1832993312, i32 3, [5 x i32] [i32 1668707188, i32 1668052340, i32 1668707188, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1093812784, i32 1832993312, i32 5, [5 x i32] [i32 1668707188, i32 1668052340, i32 1668707188, i32 1835103334, i32 1668707188] }, %struct.cmsAllowedLUT { i32 1, i32 1110589744, i32 1833058592, i32 1, [5 x i32] [i32 1668707188, i32 0, i32 0, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1110589744, i32 1833058592, i32 3, [5 x i32] [i32 1668707188, i32 1835103334, i32 1668707188, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1110589744, i32 1833058592, i32 3, [5 x i32] [i32 1668707188, i32 1668052340, i32 1668707188, i32 0, i32 0] }, %struct.cmsAllowedLUT { i32 1, i32 1110589744, i32 1833058592, i32 5, [5 x i32] [i32 1668707188, i32 1835103334, i32 1668707188, i32 1668052340, i32 1668707188] }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsCIEXYZTRIPLE, align 8
   %7 = alloca %struct.cmsCIExyY, align 8
@@ -295,7 +295,7 @@ declare i32 @cmsLinkTag(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare i32 @cmsCloseProfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCreateRGBProfile(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsCreateRGBProfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @cmsCreateRGBProfileTHR(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }

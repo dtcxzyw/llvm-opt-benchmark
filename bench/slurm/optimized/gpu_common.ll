@@ -83,7 +83,7 @@ declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @gpu_common_get_nearest_freq(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 

@@ -954,7 +954,7 @@ define hidden noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef %0, i1 nou
 declare noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1239,7 +1239,7 @@ switch.edge:                                      ; preds = %switch.early.test
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6IfNode13is_ctrl_foldsEP4NodeP12PhaseIterGVN(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6IfNode13is_ctrl_foldsEP4NodeP12PhaseIterGVN(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread, label %4
 
@@ -2384,7 +2384,7 @@ declare void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 deref
 declare void @_ZN7Compile30record_for_post_loop_opts_igvnEP4Node(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6IfNode20merge_uncommon_trapsEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull readonly align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6IfNode20merge_uncommon_trapsEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZNK8ProjNode13other_if_projEv(ptr noundef nonnull align 8 dereferenceable(57) %1) #8
   %7 = tail call noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(57) %2, i32 noundef 0) #8
   %8 = tail call noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(57) %6, i32 noundef 0) #8
@@ -3640,7 +3640,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %18, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6IfNode21is_cmp_with_loadrangeEP8ProjNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6IfNode21is_cmp_with_loadrangeEP8ProjNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

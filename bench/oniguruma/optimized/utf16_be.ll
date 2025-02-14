@@ -29,7 +29,7 @@ define internal i32 @utf16be_mbc_enc_len(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @utf16be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1) #0 {
+define internal range(i32 0, 2) i32 @utf16be_is_mbc_newline(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %5, label %11
@@ -313,7 +313,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #5 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

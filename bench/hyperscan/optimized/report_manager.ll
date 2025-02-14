@@ -494,7 +494,7 @@ do.end:                                           ; preds = %if.then.i32.i, %cle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN3ue213ReportManager14getRelateCKeysEj(ptr noundef nonnull readonly align 8 dereferenceable(505) %this, i32 noundef %lkey) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN3ue213ReportManager14getRelateCKeysEj(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(505) %this, i32 noundef %lkey) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -646,14 +646,14 @@ if.end:                                           ; preds = %_ZNSt3mapIjjSt4less
 declare void @_ZN3ue213ParsedLogical18logicalKeyRenumberEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK3ue213ReportManager14getLogicalTreeEv(ptr noundef nonnull readnone align 8 dereferenceable(505) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK3ue213ReportManager14getLogicalTreeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(505) %this) local_unnamed_addr #8 align 2 {
 entry:
   %logicalTree = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %logicalTree
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK3ue213ReportManager14getCombInfoMapEv(ptr noundef nonnull readnone returned align 8 dereferenceable(505) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK3ue213ReportManager14getCombInfoMapEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(505) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret ptr %this
 }
@@ -1796,7 +1796,7 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE2atERS5_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %reports, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8

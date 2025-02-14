@@ -9122,7 +9122,7 @@ declare noundef zeroext i1 @_ZN4llvm25setLoopEstimatedTripCountEPNS_4LoopEjj(ptr
 declare void @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE6verifyERKNS_17DominatorTreeBaseIS1_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(124)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL24needToInsertPhisForLCSSAPN4llvm4LoopERKSt6vectorIPNS_10BasicBlockESaIS4_EEPNS_8LoopInfoE(ptr noundef nonnull readonly %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZL24needToInsertPhisForLCSSAPN4llvm4LoopERKSt6vectorIPNS_10BasicBlockESaIS4_EEPNS_8LoopInfoE(ptr noundef nonnull readonly captures(address) %0, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %.not3753.not = icmp eq ptr %.0.val, %.8.val
   br i1 %.not3753.not, label %.thread35, label %.lr.ph56
 
@@ -9387,7 +9387,7 @@ _ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17Post
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm17GetUnrollMetadataEPNS_6MDNodeENS_9StringRefE(ptr noundef readonly %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @_ZN4llvm17GetUnrollMetadataEPNS_6MDNodeENS_9StringRefE(ptr noundef readonly captures(address) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 {
   %.fr69 = freeze i64 %2
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load i64, ptr %4, align 8

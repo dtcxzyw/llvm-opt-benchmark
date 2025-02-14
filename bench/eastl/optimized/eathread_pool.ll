@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 1), (4, 12)) %this, ptr noundef %pThreadPoolParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 1), (4, 12)) %this, ptr noundef captures(address_is_null) %pThreadPoolParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parameters = alloca %"struct.EA::Thread::ThreadPoolParameters", align 8
   store i8 0, ptr %this, align 8
@@ -308,7 +308,7 @@ _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread10ThreadPool4InitEPKNS0_20ThreadPoolParametersE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef readonly %pThreadPoolParameters) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread10ThreadPool4InitEPKNS0_20ThreadPoolParametersE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef readonly captures(address_is_null) %pThreadPoolParameters) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mnp = alloca %"struct.EA::Thread::ConditionParameters", align 1
   %mtp = alloca %"struct.EA::Thread::MutexParameters", align 1
@@ -1570,7 +1570,7 @@ if.end18:                                         ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -3, 0) i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %job, ptr noundef writeonly %ppThread, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -3, 0) i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %job, ptr noundef writeonly captures(address_is_null) %ppThread, i1 zeroext %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i8, ptr %this, align 8
   %tobool = trunc i8 %1 to i1
@@ -1749,7 +1749,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPNS0_9IRunnableEPvPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPNS0_9IRunnableEPvPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef captures(address_is_null) %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
   %mpRunnable.i = getelementptr inbounds nuw i8, ptr %job, i64 8
@@ -1770,7 +1770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPFlPvES2_PPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPFlPvES2_PPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef captures(address_is_null) %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
   %mpRunnable.i = getelementptr inbounds nuw i8, ptr %job, i64 8

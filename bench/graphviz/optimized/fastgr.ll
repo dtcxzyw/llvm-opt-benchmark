@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @find_fast_edge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @find_fast_edge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
@@ -87,7 +87,7 @@ ffe.exit:                                         ; preds = %32, %.lr.ph.i, %21,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @find_flat_edge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @find_flat_edge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 288
@@ -329,7 +329,7 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @zapinlist(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define void @zapinlist(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -369,7 +369,7 @@ define void @zapinlist(ptr noundef captures(none) %0, ptr noundef readnone %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @delete_fast_edge(ptr noundef readonly %0) local_unnamed_addr #2 {
+define void @delete_fast_edge(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1022,7 +1022,7 @@ define void @flat_edge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 declare ptr @dot_root(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @delete_flat_edge(ptr noundef readonly %0) local_unnamed_addr #2 {
+define void @delete_flat_edge(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1138,7 +1138,7 @@ zapinlist.exit17:                                 ; preds = %62, %zapinlist.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @merge_oneway(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @merge_oneway(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232

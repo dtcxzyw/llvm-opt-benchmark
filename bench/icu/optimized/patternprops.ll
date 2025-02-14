@@ -156,7 +156,7 @@ return:                                           ; preds = %if.else6, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7512PatternProps14skipWhiteSpaceEPKDsi(ptr noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7512PatternProps14skipWhiteSpaceEPKDsi(ptr noundef readonly captures(ret: address, provenance) %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
 entry:
   %cmp6 = icmp sgt i32 %length, 0
   br i1 %cmp6, label %land.rhs, label %while.end
@@ -273,7 +273,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7512PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7512PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly captures(ret: address, provenance) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %length, align 4
   %cmp = icmp slt i32 %0, 1
@@ -408,7 +408,7 @@ return:                                           ; preds = %if.then2.i24, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef readonly captures(address) %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %length, 1
   br i1 %cmp, label %return, label %if.end
@@ -482,7 +482,7 @@ return:                                           ; preds = %do.cond, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7512PatternProps14skipIdentifierEPKDsi(ptr noundef readonly %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7512PatternProps14skipIdentifierEPKDsi(ptr noundef readonly captures(ret: address, provenance) %s, i32 noundef %length) local_unnamed_addr #1 align 2 {
 entry:
   %cmp6 = icmp sgt i32 %length, 0
   br i1 %cmp6, label %land.rhs, label %while.end

@@ -1574,7 +1574,7 @@ declare i32 @proto_is_protocol_enabled_by_default(ptr noundef) local_unnamed_add
 declare void @dissector_all_heur_tables_foreach_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sort_heur_dissector_tables(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) #1 {
+define internal void @sort_heur_dissector_tables(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

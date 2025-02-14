@@ -595,7 +595,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
   %6 = icmp slt i32 %5, 3
   br i1 %6, label %7, label %12
@@ -770,7 +770,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #1 {
   %7 = icmp slt i32 %2, 3
   br i1 %7, label %8, label %13
 
@@ -1180,7 +1180,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca [21 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
@@ -1268,7 +1268,7 @@ define internal fastcc void @dissect_t30_non_standard_cap(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = icmp slt i32 %2, 2
   br i1 %6, label %7, label %12
 
@@ -1308,7 +1308,7 @@ define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %.not = icmp eq i32 %2, 4
   br i1 %.not, label %11, label %6
 

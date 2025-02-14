@@ -113,7 +113,7 @@ define void @png_set_crc_action(ptr noalias noundef %0, i32 noundef %1, i32 noun
 declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_background_fixed(ptr noalias noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @png_set_background_fixed(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %png_rtran_ok.exit.thread, label %6
 
@@ -176,7 +176,7 @@ png_rtran_ok.exit.thread:                         ; preds = %5, %10, %png_rtran_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_background(ptr noalias noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define void @png_set_background(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @png_fixed(ptr noundef %0, double noundef %4, ptr noundef nonnull @.str.2) #11
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %png_set_background_fixed.exit, label %7
@@ -499,7 +499,7 @@ convert_gamma_value.exit:                         ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.png_color_struct, align 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %png_rtran_ok.exit.thread, label %8
@@ -8155,7 +8155,7 @@ png_do_read_swap_alpha.exit:                      ; preds = %.lr.ph.i279, %.lr.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #7 {
+define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #7 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8

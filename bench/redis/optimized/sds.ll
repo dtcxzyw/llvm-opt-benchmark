@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.sdstemplate.7 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_sdsnewlen(ptr noundef readonly %init, i64 noundef %initlen, i32 noundef %trymalloc) local_unnamed_addr #0 {
+define dso_local ptr @_sdsnewlen(ptr noundef readonly captures(address) %init, i64 noundef %initlen, i32 noundef %trymalloc) local_unnamed_addr #0 {
 entry:
   %usable = alloca i64, align 8
   %cmp.i = icmp ult i64 %initlen, 32
@@ -208,14 +208,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnewlen(ptr noundef %init, i64 noundef %initlen) local_unnamed_addr #0 {
+define dso_local ptr @sdsnewlen(ptr noundef captures(address) %init, i64 noundef %initlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_sdsnewlen(ptr noundef %init, i64 noundef %initlen, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdstrynewlen(ptr noundef %init, i64 noundef %initlen) local_unnamed_addr #0 {
+define dso_local ptr @sdstrynewlen(ptr noundef captures(address) %init, i64 noundef %initlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_sdsnewlen(ptr noundef %init, i64 noundef %initlen, i32 noundef 1)
   ret ptr %call
@@ -253,7 +253,7 @@ _sdsnewlen.exit:                                  ; preds = %entry, %if.end26.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsnew(ptr noundef %init) local_unnamed_addr #0 {
+define dso_local ptr @sdsnew(ptr noundef captures(address) %init) local_unnamed_addr #0 {
 entry:
   %usable.i = alloca i64, align 8
   %cmp = icmp eq ptr %init, null
@@ -309,7 +309,7 @@ cond.end:                                         ; preds = %_sdsnewlen.exit, %c
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdsdup(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local ptr @sdsdup(ptr noundef captures(address) %s) local_unnamed_addr #0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1181,7 +1181,7 @@ sdsHdrSize.exit:                                  ; preds = %sdsalloc.exit, %swi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @sdsAllocPtr(ptr noundef readonly %s) local_unnamed_addr #12 {
+define dso_local ptr @sdsAllocPtr(ptr noundef readonly captures(ret: address, provenance) %s) local_unnamed_addr #12 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -3563,7 +3563,7 @@ sdslen.exit28:                                    ; preds = %sdslen.exit, %sw.bb
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdssplitlen(ptr noundef %s, i64 noundef %len, ptr noundef readonly captures(none) %sep, i32 noundef %seplen, ptr noundef writeonly captures(none) %count) local_unnamed_addr #0 {
+define dso_local ptr @sdssplitlen(ptr noundef captures(address) %s, i64 noundef %len, ptr noundef readonly captures(none) %sep, i32 noundef %seplen, ptr noundef writeonly captures(none) %count) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %seplen, 1
   %cmp1 = icmp slt i64 %len, 1
@@ -5710,7 +5710,7 @@ return:                                           ; preds = %while.end135, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @sdsmapchars(ptr noundef returned %s, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i64 noundef %setlen) local_unnamed_addr #21 {
+define dso_local noundef ptr @sdsmapchars(ptr noundef returned captures(ret: address, provenance) %s, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to, i64 noundef %setlen) local_unnamed_addr #21 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1

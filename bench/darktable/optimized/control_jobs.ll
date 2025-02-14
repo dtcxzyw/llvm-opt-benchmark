@@ -4393,7 +4393,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @dt_control_job_add_progress(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dt_control_datetime(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @dt_control_datetime(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !6
   %5 = tail call ptr (ptr, ptr, ...) @dt_control_job_create(ptr noundef nonnull @dt_control_datetime_job_run, ptr noundef nonnull @.str.166) #17
   %.not.i = icmp eq ptr %5, null

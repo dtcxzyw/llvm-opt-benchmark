@@ -295,7 +295,7 @@ define internal i64 @loop_write(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -22, 1) i32 @loop_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #4 {
+define internal range(i32 -22, 1) i32 @loop_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %3
 

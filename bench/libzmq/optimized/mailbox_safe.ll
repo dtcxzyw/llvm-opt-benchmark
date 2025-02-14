@@ -706,7 +706,7 @@ _ZNSt6vectorIPN3zmq10signaler_tESaIS2_EE9push_backERKS2_.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3zmq14mailbox_safe_t15remove_signalerEPNS_10signaler_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readnone %signaler_) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq14mailbox_safe_t15remove_signalerEPNS_10signaler_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readnone captures(address) %signaler_) local_unnamed_addr #7 align 2 {
 entry:
   %_signalers = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184

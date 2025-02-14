@@ -166,7 +166,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.122 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @transport_refs_pushed(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @transport_refs_pushed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -2748,7 +2748,7 @@ declare i32 @repo_config_get_string(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5) unnamed_addr #1 {
+define internal fastcc void @print_one_push_report(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef range(i32 -2147483645, -2147483648) %5) unnamed_addr #1 {
   %7 = alloca %struct.strbuf, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %8, label %14
@@ -3003,7 +3003,7 @@ print_ok_ref_status.exit:                         ; preds = %109, %101, %94, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_ref_status(i8 noundef signext range(i8 32, 89) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef range(i32 -2147483645, -2147483648) %7) unnamed_addr #1 {
+define internal fastcc void @print_ref_status(i8 noundef signext range(i8 32, 89) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef range(i32 -2147483645, -2147483648) %7) unnamed_addr #1 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %9
 

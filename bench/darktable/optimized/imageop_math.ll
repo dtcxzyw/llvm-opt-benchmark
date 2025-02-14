@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dt_iop_flip_and_zoom_8(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #0 {
+define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #0 {
   %10 = and i32 %6, 4
   %.not = icmp eq i32 %10, 0
   %11 = select i1 %.not, i32 %1, i32 %2
@@ -1358,7 +1358,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @dt_iop_clip_and_zoom_mosaic_third_size_xtrans(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #6 {
+define void @dt_iop_clip_and_zoom_mosaic_third_size_xtrans(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #6 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load float, ptr %8, align 4, !tbaa !11
   %10 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %9
@@ -1582,7 +1582,7 @@ FCxtrans.exit82.us.us.us:                         ; preds = %100, %.preheader.us
 declare float @llvm.round.f32(float) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dt_iop_clip_and_zoom_mosaic_third_size_xtrans_f(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define void @dt_iop_clip_and_zoom_mosaic_third_size_xtrans_f(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load float, ptr %8, align 4, !tbaa !11
   %10 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %9
@@ -2983,7 +2983,7 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [4 x float], align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load float, ptr %9, align 4, !tbaa !11

@@ -71,7 +71,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @list_objects_filter__filter_object(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define dso_local i32 @list_objects_filter__filter_object(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %7
 
@@ -101,7 +101,7 @@ define dso_local i32 @list_objects_filter__filter_object(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @list_objects_filter__free(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @list_objects_filter__free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 

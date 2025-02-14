@@ -916,7 +916,7 @@ define void @Amap_ManCreateMuxChoices(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Amap_ManGetLast_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define ptr @Amap_ManGetLast_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !35
   %5 = icmp eq i32 %4, 0

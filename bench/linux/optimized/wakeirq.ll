@@ -353,7 +353,7 @@ define dso_local void @dev_pm_enable_wake_irq_complete(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_pm_arm_wake_irq(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_pm_arm_wake_irq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -395,7 +395,7 @@ define dso_local void @dev_pm_arm_wake_irq(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_pm_disarm_wake_irq(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_pm_disarm_wake_irq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %23, label %3
 

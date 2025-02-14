@@ -1629,7 +1629,7 @@ define dso_local range(i32 0, 2) i32 @_PyLong_FileDescriptor_Converter(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -1745,7 +1745,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnam
 declare void @funlockfile(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @Py_UniversalNewlineFgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @Py_UniversalNewlineFgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %6 = call ptr @_Py_UniversalNewlineFgetsWithSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)

@@ -472,7 +472,7 @@ define dso_local void @unxlate_dev_mem_ptr(i64 noundef %0, ptr noundef %1) local
 declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(none)
-define dso_local zeroext i1 @is_early_ioremap_ptep(ptr noundef readnone %0) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local zeroext i1 @is_early_ioremap_ptep(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 section ".init.text" align 16 {
   %2 = icmp uge ptr %0, @bm_pte
   %3 = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @bm_pte, i64 4096)
   %4 = select i1 %2, i1 %3, i1 false

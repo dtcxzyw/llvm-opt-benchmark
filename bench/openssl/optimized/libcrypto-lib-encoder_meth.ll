@@ -248,7 +248,7 @@ declare ptr @ossl_provider_libctx(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_method_store_remove_all_provided(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_ENCODER_get0_provider(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define ptr @OSSL_ENCODER_get0_provider(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -275,7 +275,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_ENCODER_get0_properties(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define ptr @OSSL_ENCODER_get0_properties(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_encoder_parsed_properties(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define ptr @ossl_encoder_parsed_properties(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -321,7 +321,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_encoder_get_number(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define i32 @ossl_encoder_get_number(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -434,7 +434,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ENCODER_names_do_all(ptr noundef readonly %encoder, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #1 {
+define i32 @OSSL_ENCODER_names_do_all(ptr noundef readonly captures(address_is_null) %encoder, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %encoder, null
   br i1 %cmp, label %return, label %if.end
@@ -460,7 +460,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_ENCODER_gettable_params(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define ptr @OSSL_ENCODER_gettable_params(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -486,7 +486,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ENCODER_get_params(ptr noundef readonly %encoder, ptr noundef %params) local_unnamed_addr #1 {
+define i32 @OSSL_ENCODER_get_params(ptr noundef readonly captures(address_is_null) %encoder, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -507,7 +507,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_ENCODER_settable_ctx_params(ptr noundef readonly %encoder) local_unnamed_addr #1 {
+define ptr @OSSL_ENCODER_settable_ctx_params(ptr noundef readonly captures(address_is_null) %encoder) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %encoder, null
   br i1 %cmp.not, label %return, label %land.lhs.true

@@ -193,7 +193,7 @@ declare ptr @opal_proc_local_get() local_unnamed_addr #1
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_rcache_base_module_destroy(ptr noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_rcache_base_module_destroy(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_base_modules, i64 32), align 8
   br label %3
 

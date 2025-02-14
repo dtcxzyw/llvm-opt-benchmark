@@ -119,7 +119,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #4
 declare void @gtk_widget_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_button_set_paint(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @dtgtk_button_set_paint(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %6, !prof !32
 
@@ -143,7 +143,7 @@ define void @dtgtk_button_set_paint(ptr noundef writeonly %0, ptr noundef %1, i3
 declare void @g_return_if_fail_warning(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dtgtk_button_set_active(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dtgtk_button_set_active(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4, !prof !32
 

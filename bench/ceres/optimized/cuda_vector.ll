@@ -275,7 +275,7 @@ define hidden void @_ZN5ceres8internal10CudaVectorC2EOS1_(ptr noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8internal10CudaVectoraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8internal10CudaVectoraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %10, label %3
 
@@ -1135,7 +1135,7 @@ define hidden void @_ZN5ceres8internal10CudaVector7SetZeroEv(ptr noundef nonnull
 declare void @_ZN5ceres8internal15CudaSetZeroFP64EPdiP11CUstream_st(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal10CudaVector5AxpbyEdRKS1_d(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal10CudaVector5AxpbyEdRKS1_d(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %7 = alloca %"class.google::base::CheckOpMessageBuilder", align 8

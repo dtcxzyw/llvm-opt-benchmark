@@ -2784,7 +2784,7 @@ _ZNK17FileLineSingleton12numberToNameB5cxx11Et.exit: ; preds = %26, %32
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK11V3HierBlock20writeCommandArgsFileEb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK11V3HierBlock20writeCommandArgsFileEb(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(144) %0, i1 noundef zeroext %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3280,7 +3280,7 @@ define linkonce_odr dso_local void @_ZNK9V3Options7makeDirB5cxx11Ev(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23V3HierWriteCommonInputsPK11V3HierBlockPSob(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23V3HierWriteCommonInputsPK11V3HierBlockPSob(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

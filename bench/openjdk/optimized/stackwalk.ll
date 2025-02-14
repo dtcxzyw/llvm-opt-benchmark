@@ -411,7 +411,7 @@ define hidden noundef zeroext i1 @_ZN15BaseFrameStream21cleanup_magic_on_exitE14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15BaseFrameStream16set_continuationE6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN15BaseFrameStream16set_continuationE6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -2491,7 +2491,7 @@ _ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StackWalk15setContinuationE6Handlel14objArrayHandleS0_P10JavaThread(ptr readnone captures(none) %0, i64 noundef %1, ptr readonly %2, ptr readonly %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN9StackWalk15setContinuationE6Handlel14objArrayHandleS0_P10JavaThread(ptr readnone captures(none) %0, i64 noundef %1, ptr readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %9
 

@@ -2600,7 +2600,7 @@ define noundef zeroext i1 @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12uu_dircolors6escape17h0970d982198a26fdE(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN12uu_dircolors6escape17h0970d982198a26fdE(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.0.i = alloca i32, align 4
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8

@@ -6555,7 +6555,7 @@ _ZNK2cv10softdoubleplERKS0_.exit32:               ; preds = %204, %203, %_ZNK2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(address) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softfloat", align 4
   %5 = alloca %"struct.cv::softfloat", align 4
   %6 = alloca %"struct.cv::softfloat", align 4
@@ -7178,7 +7178,7 @@ _ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %87, %100, %113, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(address) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
@@ -9206,7 +9206,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #8 {
+define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #8 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8

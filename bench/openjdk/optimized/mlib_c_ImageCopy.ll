@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond84 = or i1 %4, %3

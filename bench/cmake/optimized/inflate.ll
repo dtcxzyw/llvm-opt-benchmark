@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateResetKeep(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -122,7 +122,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %cm_zlib_inflateResetKeep.exit, label %3
 
@@ -216,7 +216,7 @@ cm_zlib_inflateResetKeep.exit:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateReset2(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %cm_zlib_inflateReset.exit, label %4
 
@@ -399,7 +399,7 @@ cm_zlib_inflateReset.exit:                        ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %38, label %6
 
@@ -475,7 +475,7 @@ declare ptr @cm_zlib_zcalloc(ptr noundef, i32 noundef, i32 noundef) #3
 declare void @cm_zlib_zcfree(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit_(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_inflateInit_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %cm_zlib_inflateInit2_.exit, label %5
 
@@ -547,7 +547,7 @@ cm_zlib_inflateInit2_.exit:                       ; preds = %3, %5, %9, %24, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflatePrime(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -3623,7 +3623,7 @@ declare i32 @cm_zlib_inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr no
 declare void @cm_zlib_inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateEnd(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateEnd(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -3686,7 +3686,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetDictionary(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -3764,7 +3764,7 @@ inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateSetDictionary(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %inflateStateCheck.exit.thread, label %5
 
@@ -3936,7 +3936,7 @@ inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateGetHeader(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -3990,7 +3990,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -5, 1) i32 @cm_zlib_inflateSync(ptr noundef %0) local_unnamed_addr #5 {
+define dso_local range(i32 -5, 1) i32 @cm_zlib_inflateSync(ptr noundef captures(address) %0) local_unnamed_addr #5 {
   %2 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   %3 = icmp eq ptr %0, null
@@ -4241,7 +4241,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %1, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 2) i32 @cm_zlib_inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i32 -2, 2) i32 @cm_zlib_inflateSyncPoint(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -4292,7 +4292,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_inflateCopy(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4427,7 +4427,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -3, -1) i32 @cm_zlib_inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -1) i32 @cm_zlib_inflateUndermine(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4472,7 +4472,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateValidate(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_inflateValidate(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateStateCheck.exit.thread, label %4
 
@@ -4537,7 +4537,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 -140737488355328, 140741783257088) i64 @cm_zlib_inflateMark(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 -140737488355328, 140741783257088) i64 @cm_zlib_inflateMark(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 
@@ -4606,7 +4606,7 @@ inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @cm_zlib_inflateCodesUsed(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @cm_zlib_inflateCodesUsed(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 

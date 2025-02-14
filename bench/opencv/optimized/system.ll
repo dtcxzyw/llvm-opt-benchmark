@@ -1859,7 +1859,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN2cv13redirectErrorEPFiiPKcS1_S1_iPvES2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #21 {
+define noundef ptr @_ZN2cv13redirectErrorEPFiiPKcS1_S1_iPvES2_PS2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #21 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4
 
@@ -1964,7 +1964,7 @@ define noundef double @cvGetTickFrequency() local_unnamed_addr #14 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define ptr @cvRedirectError(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #21 {
+define ptr @cvRedirectError(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN2cv13redirectErrorEPFiiPKcS1_S1_iPvES2_PS2_.exit, label %4
 

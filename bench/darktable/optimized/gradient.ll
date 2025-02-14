@@ -330,7 +330,7 @@ define internal void @_gradient_duplicate_points(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_gradient_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9, ptr noundef captures(none) %10) #0 {
+define internal void @_gradient_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9, ptr noundef captures(none) %10) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %12
 
@@ -453,7 +453,7 @@ define internal void @_gradient_get_distance(float noundef %0, float noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_gradient_get_points_border(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) %5, i32 %6, ptr readnone captures(none) %7) #0 {
+define internal range(i32 0, 2) i32 @_gradient_get_points_border(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = load ptr, ptr %1, align 8, !tbaa !19
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = load float, ptr %10, align 4, !tbaa !27

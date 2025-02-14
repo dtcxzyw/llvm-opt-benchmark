@@ -2565,7 +2565,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue218UTF8ComponentClass11class_emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue218UTF8ComponentClass11class_emptyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
@@ -6244,7 +6244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue218UTF8ComponentClass5firstEv(ptr noalias sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue218UTF8ComponentClass5firstEv(ptr noalias sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %single_pos = getelementptr inbounds nuw i8, ptr %this, i64 128

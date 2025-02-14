@@ -179,7 +179,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___audit_log_
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable___audit_inode_child508, ptr @__UNIQUE_ID___addressable___audit_log_nfcfg515, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched201], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @auditd_test_task(ptr noundef %0) #12
   %5 = icmp eq i32 %4, 0
@@ -2877,7 +2877,7 @@ audit_filter_syscall.exit:                        ; preds = %28, %.loopexit.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__audit_reusename(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__audit_reusename(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1976
@@ -4227,7 +4227,7 @@ define dso_local noundef range(i32 0, 2) i32 @auditsc_get_stamp(ptr noundef capt
 declare dso_local i32 @audit_serial() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @__audit_mq_open(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #5 align 16 {
+define dso_local void @__audit_mq_open(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1976
@@ -4261,7 +4261,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @__audit_mq_sendrecv(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #5 align 16 {
+define dso_local void @__audit_mq_sendrecv(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #5 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1976
@@ -4291,7 +4291,7 @@ define dso_local void @__audit_mq_sendrecv(i32 noundef %0, i64 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @__audit_mq_notify(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 align 16 {
+define dso_local void @__audit_mq_notify(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1976
@@ -4395,7 +4395,7 @@ define dso_local void @__audit_bprm(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @__audit_socketcall(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__audit_socketcall(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !16
   %4 = add i32 %0, -1
   %5 = icmp ult i32 %4, 6
@@ -5128,7 +5128,7 @@ define dso_local ptr @audit_killed_trees() local_unnamed_addr #8 align 16 {
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4, !annotation !5

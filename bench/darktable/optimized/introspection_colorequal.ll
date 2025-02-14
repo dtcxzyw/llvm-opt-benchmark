@@ -4900,7 +4900,7 @@ declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_
 declare void @dt_dev_reprocess_center(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @color_picker_apply(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -5167,7 +5167,7 @@ declare float @llvm.log2.f32(float) #2
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2) local_unnamed_addr #4 {
+define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca [4 x [4 x float]], align 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %6 = load ptr, ptr %5, align 16, !tbaa !58
@@ -5320,7 +5320,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #19
 declare ptr @dt_ioppr_get_pipe_output_profile_info(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @D65_adapt_iccprofile(ptr noundef readonly %0) unnamed_addr #17 {
+define internal fastcc noundef ptr @D65_adapt_iccprofile(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #17 {
   %2 = alloca [4 x float], align 16
   %3 = alloca [4 x float], align 16
   %4 = alloca [4 x [4 x float]], align 64
@@ -7874,7 +7874,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #22 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #22 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.97) #32
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %127, label %4
@@ -8376,7 +8376,7 @@ declare float @llvm.round.f32(float) #2
 declare void @dt_bauhaus_slider_set_offset(ptr noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) unnamed_addr #25 {
+define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #25 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16

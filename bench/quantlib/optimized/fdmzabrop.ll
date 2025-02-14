@@ -943,7 +943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmZabrUnderlyingPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmZabrUnderlyingPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) local_unnamed_addr #6 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %mapT_
@@ -1154,7 +1154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmZabrVolatilityPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib21FdmZabrVolatilityPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) local_unnamed_addr #6 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %mapT_

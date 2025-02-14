@@ -171,7 +171,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_756number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %other) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_756number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %other) local_unnamed_addr #6 align 2 {
 entry:
   %mods = getelementptr inbounds nuw i8, ptr %other, i64 8
   %mods2 = getelementptr inbounds nuw i8, ptr %this, i64 8

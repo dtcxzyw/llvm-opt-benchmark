@@ -224,7 +224,7 @@ define hidden noundef zeroext i1 @_ZNK8ProjNode6is_CFGEv(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8ProjNode9proj_typeEPK4Type(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK8ProjNode9proj_typeEPK4Type(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, label %5

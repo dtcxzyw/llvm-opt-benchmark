@@ -262,7 +262,7 @@ declare dso_local void @unregister_virtio_driver(ptr noundef) local_unnamed_addr
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtnet_cpu_online(i32 %0, ptr noundef %1) #3 align 16 {
+define internal noundef i32 @virtnet_cpu_online(i32 %0, ptr noundef captures(address_is_null) %1) #3 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %1, i64 -216
   %5 = select i1 %3, ptr null, ptr %4
@@ -271,7 +271,7 @@ define internal noundef i32 @virtnet_cpu_online(i32 %0, ptr noundef %1) #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtnet_cpu_down_prep(i32 %0, ptr noundef %1) #3 align 16 {
+define internal noundef i32 @virtnet_cpu_down_prep(i32 %0, ptr noundef captures(address_is_null) %1) #3 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %1, i64 -216
   %5 = select i1 %3, ptr null, ptr %4
@@ -342,7 +342,7 @@ define internal noundef i32 @virtnet_cpu_down_prep(i32 %0, ptr noundef %1) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtnet_cpu_dead(i32 %0, ptr noundef %1) #3 align 16 {
+define internal noundef i32 @virtnet_cpu_dead(i32 %0, ptr noundef captures(address_is_null) %1) #3 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %1, i64 -232
   %5 = select i1 %3, ptr null, ptr %4

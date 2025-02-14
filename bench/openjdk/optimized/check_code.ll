@@ -3516,7 +3516,7 @@ define internal fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %1) unna
 declare zeroext i8 @JVM_IsVMGeneratedMethodIx(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @instruction_length(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #12 {
+define internal fastcc i32 @instruction_length(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #12 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %52 [
     i8 -86, label %4

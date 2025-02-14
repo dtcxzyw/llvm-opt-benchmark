@@ -5281,7 +5281,7 @@ declare i32 @IDAGetConsistentIC(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @IDAAdjReInit(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi13IdasInterface7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2208) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi13IdasInterface7advanceEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2208) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
   %7 = alloca double, align 8
   %8 = tail call noundef ptr @_ZN6casadi13IdasInterface6to_memEPv(ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1744
@@ -6190,7 +6190,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i101, %171, 
 declare noundef zeroext i1 @_ZN6casadi10Integrator8all_zeroEPKdx(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZNK6casadi13IdasInterface16solve_transposedEPNS_10IdasMemoryEdPKdS4_S4_Pd(ptr noundef nonnull align 8 dereferenceable(2208) %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi13IdasInterface16solve_transposedEPNS_10IdasMemoryEdPKdS4_S4_Pd(ptr noundef nonnull align 8 dereferenceable(2208) %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef readnone captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #3 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %10 = load i64, ptr %9, align 8
@@ -8024,7 +8024,7 @@ declare i32 @IDACalcICB(ptr noundef, i32 noundef, double noundef, ptr noundef, p
 declare i32 @IDAGetConsistentICB(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi13IdasInterface7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(2208) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi13IdasInterface7retreatEPNS_16IntegratorMemoryEPKdPdS5_S5_(ptr noundef nonnull align 8 dereferenceable(2208) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #3 align 2 {
   %7 = alloca double, align 8
   %8 = tail call noundef ptr @_ZN6casadi13IdasInterface6to_memEPv(ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1744

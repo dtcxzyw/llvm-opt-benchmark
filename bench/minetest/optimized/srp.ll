@@ -859,7 +859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_Z28srp_verifier_get_session_keyP11SRPVerifierPm(ptr noundef readonly %ver, ptr noundef writeonly %key_length) local_unnamed_addr #12 {
+define dso_local noundef nonnull ptr @_Z28srp_verifier_get_session_keyP11SRPVerifierPm(ptr noundef readonly captures(ret: address, provenance) %ver, ptr noundef writeonly captures(address_is_null) %key_length) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %key_length, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1133,7 +1133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_Z24srp_user_get_session_keyP7SRPUserPm(ptr noundef readonly %usr, ptr noundef writeonly %key_length) local_unnamed_addr #12 {
+define dso_local noundef nonnull ptr @_Z24srp_user_get_session_keyP7SRPUserPm(ptr noundef readonly captures(ret: address, provenance) %usr, ptr noundef writeonly captures(address_is_null) %key_length) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %key_length, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1160,7 +1160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr noundef captures(none) initializes((0, 8)) %bytes_A, ptr noundef writeonly captures(none) initializes((0, 8)) %len_A) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly captures(address_is_null) %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr noundef captures(none) initializes((0, 8)) %bytes_A, ptr noundef writeonly captures(none) initializes((0, 8)) %len_A) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bytes_a, null
   %a1 = getelementptr inbounds nuw i8, ptr %usr, i64 16

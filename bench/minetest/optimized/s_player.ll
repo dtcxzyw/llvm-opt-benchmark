@@ -1005,7 +1005,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15ScriptApiPlayer16on_prejoinplayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ip, ptr noundef %reason) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15ScriptApiPlayer16on_prejoinplayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %ip, ptr noundef captures(address) %reason) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

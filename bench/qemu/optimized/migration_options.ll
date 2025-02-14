@@ -863,7 +863,7 @@ for.end:                                          ; preds = %for.body
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_migrate_set_capabilities(ptr noundef readonly %params, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_migrate_set_capabilities(ptr noundef readonly captures(address_is_null) %params, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %new_caps = alloca [23 x i8], align 16
   %call = tail call ptr @migrate_get_current() #8

@@ -360,7 +360,7 @@ declare i32 @_ZN4llvm14identify_magicENS_9StringRefE(ptr, i64) local_unnamed_add
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm6object12SymbolicFile14isSymbolicFileENS_10file_magicEPKNS_11LLVMContextE(i32 %0, ptr noundef readnone %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm6object12SymbolicFile14isSymbolicFileENS_10file_magicEPKNS_11LLVMContextE(i32 %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #6 align 2 {
   switch i32 %0, label %5 [
     i32 1, label %3
     i32 4, label %6

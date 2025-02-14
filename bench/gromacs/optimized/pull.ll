@@ -1671,7 +1671,7 @@ define void @_Z17clear_pull_forcesP6pull_t(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z32register_external_pull_potentialP6pull_tiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z32register_external_pull_potentialP6pull_tiPKc(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2394,7 +2394,7 @@ _ZL17make_periodic_2piPd.exit:                    ; preds = %.sink.split.i, %34,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15ForceWithVirialE(ptr noundef readonly captures(none) %0, ptr %1, ptr %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15ForceWithVirialE(ptr noundef readonly captures(none) %0, ptr %1, ptr %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca [3 x double], align 16
   %7 = alloca %"class.gmx::ArrayRef.87", align 8
   %8 = alloca double, align 8
@@ -3585,7 +3585,7 @@ _ZL21apply_forces_grp_partRK17pull_group_work_tiiN3gmx8ArrayRefIKfEEPKdiPA3_f.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecddNS2_INS1_11BasicVectorIfEEEESD_SD_PA3_f(ptr noundef %0, ptr %1, ptr %2, ptr noundef nonnull align 4 dereferenceable(384) %3, ptr noundef %4, double noundef %5, double noundef %6, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %7, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %9, ptr noundef %10) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecddNS2_INS1_11BasicVectorIfEEEESD_SD_PA3_f(ptr noundef %0, ptr %1, ptr %2, ptr noundef nonnull align 4 dereferenceable(384) %3, ptr noundef %4, double noundef %5, double noundef %6, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %7, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.93") align 8 captures(none) %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %14 = alloca [3 x double], align 16
@@ -5724,7 +5724,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_Z9init_pullP8_IO_FILEPK13pull_params_tPK10t_inputrecRK10gmx_mtop_tPK9t_commrecPN3gmx19LocalAtomSetManagerEf(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(768) %3, ptr noundef readonly %4, ptr noundef %5, float noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z9init_pullP8_IO_FILEPK13pull_params_tPK10t_inputrecRK10gmx_mtop_tPK9t_commrecPN3gmx19LocalAtomSetManagerEf(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(768) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, float noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca i32, align 4
   %10 = alloca %"class.gmx::LocalAtomSet", align 8

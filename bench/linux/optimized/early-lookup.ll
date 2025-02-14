@@ -485,7 +485,7 @@ declare dso_local ptr @xa_find(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize
-define internal fastcc noundef ptr @bdevt_str(i32 noundef %0, ptr noundef returned writeonly %1) unnamed_addr #6 section ".init.text" align 16 {
+define internal fastcc noundef ptr @bdevt_str(i32 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) unnamed_addr #6 section ".init.text" align 16 {
   %3 = alloca [10 x i8], align 1
   %4 = lshr i32 %0, 20
   %5 = icmp ult i32 %0, 268435456

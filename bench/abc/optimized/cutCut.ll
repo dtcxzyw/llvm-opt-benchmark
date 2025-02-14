@@ -140,7 +140,7 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutDupList(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Cut_CutDupList(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !27
@@ -204,7 +204,7 @@ define void @Cut_CutRecycleList(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Cut_CutCountList(ptr noundef readonly %0) local_unnamed_addr #6 {
+define i32 @Cut_CutCountList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -307,7 +307,7 @@ Cut_CutCompare.exit:                              ; preds = %16, %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cut_CutNumberList(ptr noundef %0) local_unnamed_addr #7 {
+define void @Cut_CutNumberList(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -475,7 +475,7 @@ define void @Cut_CutPrint(ptr noundef readonly captures(none) %0, i32 noundef %1
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Cut_CutPrintList(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -493,7 +493,7 @@ define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
+define void @Cut_CutPrintMerge(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %putchar = tail call i32 @putchar(i32 10)
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 28

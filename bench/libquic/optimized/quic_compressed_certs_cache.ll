@@ -402,7 +402,7 @@ land.end:                                         ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK3net24QuicCompressedCertsCache11CachedCerts15compressed_certB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK3net24QuicCompressedCertsCache11CachedCerts15compressed_certB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
   %compressed_cert_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %compressed_cert_
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN3net24QuicCompressedCertsCache17GetCompressedCertERK13scoped_refptrINS_11ProofSource5ChainEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %chain, ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes, ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN3net24QuicCompressedCertsCache17GetCompressedCertERK13scoped_refptrINS_11ProofSource5ChainEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %chain, ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes, ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uncompressed_certs = alloca %"struct.net::QuicCompressedCertsCache::UncompressedCerts", align 8
   %0 = load ptr, ptr %chain, align 8

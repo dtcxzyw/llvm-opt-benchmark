@@ -114,7 +114,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr @.str.2, ptr %1
   %.not24 = icmp eq ptr %2, null
@@ -189,7 +189,7 @@ define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct._cwd_state, align 8
@@ -276,7 +276,7 @@ define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, p
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %.not.i, ptr @.str.2, ptr %1
   %.not24.i = icmp eq ptr %2, null
@@ -324,7 +324,7 @@ php_open_temporary_fd_ex.exit:                    ; preds = %9, %11, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @php_open_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @php_open_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %1, null
   %spec.store.select.i.i = select i1 %.not.i.i, ptr @.str.2, ptr %1
   %.not24.i.i = icmp eq ptr %2, null

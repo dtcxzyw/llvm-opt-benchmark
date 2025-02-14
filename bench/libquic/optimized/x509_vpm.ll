@@ -121,7 +121,7 @@ if.end25:                                         ; preds = %if.then22, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_VERIFY_PARAM_free(ptr noundef %param) #0 {
+define hidden void @X509_VERIFY_PARAM_free(ptr noundef captures(address_is_null) %param) #0 {
 entry:
   %cmp = icmp eq ptr %param, null
   br i1 %cmp, label %return, label %if.end
@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(address_is_null) %dest, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %src, null
   br i1 %tobool.not, label %return, label %if.end
@@ -539,7 +539,7 @@ return:                                           ; preds = %if.end.i.i71, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef %param, ptr noundef %policies) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures(address_is_null) %param, ptr noundef %policies) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %param, null
   br i1 %tobool.not, label %return, label %if.end
@@ -734,7 +734,7 @@ return:                                           ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef captures(address_is_null) %to, ptr noundef captures(address_is_null) %from) local_unnamed_addr #0 {
 entry:
   %inh_flags = getelementptr inbounds nuw i8, ptr %to, i64 16
   %0 = load i64, ptr %inh_flags, align 8

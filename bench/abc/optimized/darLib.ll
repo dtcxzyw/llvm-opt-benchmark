@@ -1709,7 +1709,7 @@ define void @Dar_LibObjPrint_rec(ptr noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 10732
@@ -1866,7 +1866,7 @@ define void @Dar_LibEvalAssignNums(ptr noundef readonly captures(none) %0, i32 n
 declare ptr @Aig_TableLookupTwo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #10 {
+define range(i32 -2147483647, -2147483648) i32 @Dar_LibEval_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20

@@ -3358,7 +3358,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre4Mesh20ConvertToAssimpSceneEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %dest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre4Mesh20ConvertToAssimpSceneEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef captures(address_is_null) %dest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rootBones = alloca %"class.std::vector.76", align 8
   %cmp = icmp eq ptr %dest, null

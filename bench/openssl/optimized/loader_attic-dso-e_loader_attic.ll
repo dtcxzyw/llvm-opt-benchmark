@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #10
   %0 = load ptr, ptr %fns, align 8
@@ -2277,7 +2277,7 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @try_decode_PKCS12(ptr noundef readnone %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr noundef captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
+define internal ptr @try_decode_PKCS12(ptr noundef readnone captures(address_is_null) %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr noundef captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
 entry:
   %blob.addr = alloca ptr, align 8
   %tpass = alloca [1024 x i8], align 16
@@ -2509,7 +2509,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @try_decode_PKCS8Encrypted(ptr noundef readonly %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
+define internal ptr @try_decode_PKCS8Encrypted(ptr noundef readonly captures(address_is_null) %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
 entry:
   %blob.addr = alloca ptr, align 8
   %kbuf = alloca [1024 x i8], align 16
@@ -2684,7 +2684,7 @@ declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #2
 declare ptr @OSSL_STORE_INFO_new(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @try_decode_X509Certificate(ptr noundef readonly %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr noundef %libctx, ptr noundef %propq) #1 {
+define internal ptr @try_decode_X509Certificate(ptr noundef readonly captures(address_is_null) %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr noundef %libctx, ptr noundef %propq) #1 {
 entry:
   %blob.addr = alloca ptr, align 8
   %cert = alloca ptr, align 8
@@ -2755,7 +2755,7 @@ declare ptr @d2i_X509_AUX(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @try_decode_X509CRL(ptr noundef readonly %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
+define internal ptr @try_decode_X509CRL(ptr noundef readonly captures(address_is_null) %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
 entry:
   %blob.addr = alloca ptr, align 8
   store ptr %blob, ptr %blob.addr, align 8
@@ -2946,7 +2946,7 @@ declare ptr @EVP_PKEY_asn1_get0(i32 noundef) local_unnamed_addr #2
 declare ptr @OSSL_STORE_INFO_new_PARAMS(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @try_decode_PUBKEY(ptr noundef readonly %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
+define internal ptr @try_decode_PUBKEY(ptr noundef readonly captures(address_is_null) %pem_name, ptr readnone captures(none) %pem_header, ptr noundef %blob, i64 noundef %len, ptr readnone captures(none) %pctx, ptr noundef writeonly captures(none) %matchcount, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data, ptr readnone captures(none) %uri, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #1 {
 entry:
   %blob.addr = alloca ptr, align 8
   store ptr %blob, ptr %blob.addr, align 8

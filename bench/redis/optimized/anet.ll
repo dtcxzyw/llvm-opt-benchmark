@@ -62,7 +62,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetSetBlock(ptr noundef %err, i32 noundef %fd, i32 noundef %non_block) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSetBlock(ptr noundef captures(address_is_null) %err, i32 noundef %fd, i32 noundef %non_block) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp = icmp eq i32 %call, -1
@@ -99,7 +99,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @anetSetError(ptr noundef %err, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #4 {
+define internal void @anetSetError(ptr noundef captures(address_is_null) %err, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #4 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp eq ptr %err, null
@@ -119,7 +119,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetNonBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetNonBlock(ptr noundef captures(address_is_null) %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp.i = icmp eq i32 %call.i, -1
@@ -150,7 +150,7 @@ anetSetBlock.exit:                                ; preds = %if.end.i, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetBlock(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetBlock(ptr noundef captures(address_is_null) %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %fd, i32 noundef 3) #10
   %cmp.i = icmp eq i32 %call.i, -1
@@ -222,7 +222,7 @@ return:                                           ; preds = %land.rhs, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetKeepAlive(ptr noundef %err, i32 noundef %fd, i32 noundef %interval) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetKeepAlive(ptr noundef captures(address_is_null) %err, i32 noundef %fd, i32 noundef %interval) local_unnamed_addr #0 {
 entry:
   %val = alloca i32, align 4
   store i32 1, ptr %val, align 4
@@ -269,7 +269,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetEnableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetEnableTcpNoDelay(ptr noundef captures(address_is_null) %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
@@ -292,7 +292,7 @@ anetSetTcpNoDelay.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetDisableTcpNoDelay(ptr noundef %err, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetDisableTcpNoDelay(ptr noundef captures(address_is_null) %err, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
@@ -315,7 +315,7 @@ anetSetTcpNoDelay.exit:                           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetSendTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSendTimeout(ptr noundef captures(address_is_null) %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %div = sdiv i64 %ms, 1000
@@ -341,7 +341,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetRecvTimeout(ptr noundef %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetRecvTimeout(ptr noundef captures(address_is_null) %err, i32 noundef %fd, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %div = sdiv i64 %ms, 1000
@@ -367,7 +367,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef %err, ptr noundef %host, ptr noundef %ipbuf, i64 noundef %ipbuf_len, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetResolve(ptr noundef captures(address_is_null) %err, ptr noundef %host, ptr noundef %ipbuf, i64 noundef %ipbuf_len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %info = alloca ptr, align 8
@@ -430,14 +430,14 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetTcpNonBlockConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port) local_unnamed_addr #0 {
+define dso_local i32 @anetTcpNonBlockConnect(ptr noundef captures(address_is_null) %err, ptr noundef %addr, i32 noundef %port) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @anetTcpGenericConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef null, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anetTcpGenericConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr, i32 noundef range(i32 1, 4) %flags) unnamed_addr #0 {
+define internal fastcc i32 @anetTcpGenericConnect(ptr noundef captures(address_is_null) %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr, i32 noundef range(i32 1, 4) %flags) unnamed_addr #0 {
 entry:
   %yes.i = alloca i32, align 4
   %portstr = alloca [6 x i8], align 1
@@ -633,14 +633,14 @@ return:                                           ; preds = %end, %if.then73, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetTcpNonBlockBestEffortBindConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr) local_unnamed_addr #0 {
+define dso_local i32 @anetTcpNonBlockBestEffortBindConnect(ptr noundef captures(address_is_null) %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @anetTcpGenericConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetUnixGenericConnect(ptr noundef %err, ptr noundef %path, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @anetUnixGenericConnect(ptr noundef captures(address_is_null) %err, ptr noundef %path, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %call = tail call fastcc i32 @anetCreateSocket(ptr noundef %err)
@@ -703,7 +703,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anetCreateSocket(ptr noundef %err) unnamed_addr #0 {
+define internal fastcc i32 @anetCreateSocket(ptr noundef captures(address_is_null) %err) unnamed_addr #0 {
 entry:
   %yes.i = alloca i32, align 4
   %call = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
@@ -749,14 +749,14 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef %backlog) local_unnamed_addr #0 {
+define dso_local i32 @anetTcpServer(ptr noundef captures(address_is_null) %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef %backlog) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef 2, i32 noundef %backlog)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef range(i32 2, 11) %af, i32 noundef %backlog) unnamed_addr #0 {
+define internal fastcc i32 @_anetTcpServer(ptr noundef captures(address_is_null) %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef range(i32 2, 11) %af, i32 noundef %backlog) unnamed_addr #0 {
 entry:
   %yes.i24 = alloca i32, align 4
   %yes.i = alloca i32, align 4
@@ -925,14 +925,14 @@ return:                                           ; preds = %end, %if.then13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetTcp6Server(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef %backlog) local_unnamed_addr #0 {
+define dso_local i32 @anetTcp6Server(ptr noundef captures(address_is_null) %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef %backlog) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef 10, i32 noundef %backlog)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetUnixServer(ptr noundef %err, ptr noundef %path, i32 noundef %perm, i32 noundef %backlog) local_unnamed_addr #0 {
+define dso_local i32 @anetUnixServer(ptr noundef captures(address_is_null) %err, ptr noundef %path, i32 noundef %perm, i32 noundef %backlog) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #12
@@ -992,7 +992,7 @@ return:                                           ; preds = %2, %if.end8.i, %if.
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetTcpAccept(ptr noundef %err, i32 noundef %serversock, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly %port) local_unnamed_addr #0 {
+define dso_local i32 @anetTcpAccept(ptr noundef captures(address_is_null) %err, i32 noundef %serversock, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly captures(address_is_null) %port) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_storage, align 8
   %salen = alloca i32, align 4
@@ -1071,7 +1071,7 @@ return:                                           ; preds = %anetGenericAccept.e
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @anetUnixAccept(ptr noundef %err, i32 noundef %s) local_unnamed_addr #0 {
+define dso_local i32 @anetUnixAccept(ptr noundef captures(address_is_null) %err, i32 noundef %s) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_un, align 2
   %salen = alloca i32, align 4
@@ -1099,7 +1099,7 @@ anetGenericAccept.exit:                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %fd, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly %port, i32 noundef %remote) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetFdToString(i32 noundef %fd, ptr noundef %ip, i64 noundef %ip_len, ptr noundef writeonly captures(address_is_null) %port, i32 noundef %remote) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sockaddr_storage, align 8
   %salen = alloca i32, align 4
@@ -1326,7 +1326,7 @@ declare i32 @pipe2(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pipe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @anetSetSockMarkId(ptr noundef %err, i32 noundef %fd, i32 noundef %id) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @anetSetSockMarkId(ptr noundef captures(address_is_null) %err, i32 noundef %fd, i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %id.addr = alloca i32, align 4
   store i32 %id, ptr %id.addr, align 4

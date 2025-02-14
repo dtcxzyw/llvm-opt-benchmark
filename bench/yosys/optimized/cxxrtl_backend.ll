@@ -47407,7 +47407,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS3_5ConstENS1_8hash_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS2_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEEvT_SI_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS2_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEEvT_SI_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictIPKNS2_5RTLIL4WireENS4_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS3_12hash_ptr_opsEEENS3_8hash_opsIS8_EEE7entry_tEEEvT_SK_.exit, label %.lr.ph.i
 
@@ -47491,7 +47491,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS1_4poolIPKNS0_5RTLIL4WireENS1_8hash_opsISB_EEEENS1_12hash_ptr_opsEE7entry_tEEvT_SJ_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS1_4poolIPKNS0_5RTLIL4WireENS1_8hash_opsISB_EEEENS1_12hash_ptr_opsEE7entry_tEEvT_SJ_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS3_4poolIPKNS2_5RTLIL4WireENS3_8hash_opsISD_EEEENS3_12hash_ptr_opsEE7entry_tEEEvT_SL_.exit, label %.lr.ph.i
 
@@ -49973,7 +49973,7 @@ _ZNK5Yosys7hashlib4dictIPKNS_5RTLIL4WireENS1_IPN12_GLOBAL__N_19FlowGraph4NodeEbN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS2_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tESH_SaISG_EET0_T_SK_SJ_RT1_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS2_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tESH_SaISG_EET0_T_SK_SJ_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not19.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not19.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS2_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEPSG_SG_ET0_T_SL_SK_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -56034,7 +56034,7 @@ _ZNK5Yosys7hashlib4dictIPKNS_5RTLIL4WireENS0_4poolIPN12_GLOBAL__N_19FlowGraph4No
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tESI_SaISH_EET0_T_SL_SK_RT1_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tESI_SaISH_EET0_T_SL_SK_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not19.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not19.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEPSH_SH_ET0_T_SM_SL_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -56191,7 +56191,7 @@ _ZNSt15__new_allocatorIN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLO
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEEvT_SJ_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPKNS0_5RTLIL4WireENS1_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS1_12hash_ptr_opsEEENS1_8hash_opsIS6_EEE7entry_tEEvT_SJ_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictIPKNS2_5RTLIL4WireENS3_4poolIPN12_GLOBAL__N_19FlowGraph4NodeENS3_12hash_ptr_opsEEENS3_8hash_opsIS8_EEE7entry_tEEEvT_SL_.exit, label %.lr.ph.i
 
@@ -57372,7 +57372,7 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS0_4poolIPKNS_5RTLIL4Wi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS1_4poolIPKNS0_5RTLIL4WireENS1_8hash_opsISB_EEEENS1_12hash_ptr_opsEE7entry_tESI_SaISH_EET0_T_SL_SK_RT1_(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS1_4poolIPKNS0_5RTLIL4WireENS1_8hash_opsISB_EEEENS1_12hash_ptr_opsEE7entry_tESI_SaISH_EET0_T_SL_SK_RT1_(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not15.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not15.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeENS1_4poolIPKNS0_5RTLIL4WireENS1_8hash_opsISB_EEEENS1_12hash_ptr_opsEE7entry_tEPSH_SH_ET0_T_SM_SL_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -57732,7 +57732,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %1
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys7hashlib4dictIPKNS_5RTLIL4WireENS1_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_12hash_ptr_opsEEENS0_8hash_opsIS5_EEE2atERKS5_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr readonly %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys7hashlib4dictIPKNS_5RTLIL4WireENS1_IPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_12hash_ptr_opsEEENS0_8hash_opsIS5_EEE2atERKS5_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr readonly captures(address) %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %2, align 8

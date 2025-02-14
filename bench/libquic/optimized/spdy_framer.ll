@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net10SpdyFramerC2ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24SpdyFramerDecoderAdapterESt14default_deleteIS3_EEPS0_E(ptr noundef nonnull align 8 dereferenceable(259) initializes((0, 8), (48, 88), (100, 104)) %this, i32 noundef %version, ptr noundef readonly %adapter_factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net10SpdyFramerC2ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24SpdyFramerDecoderAdapterESt14default_deleteIS3_EEPS0_E(ptr noundef nonnull align 8 dereferenceable(259) initializes((0, 8), (48, 88), (100, 104)) %this, i32 noundef %version, ptr noundef readonly captures(address_is_null) %adapter_factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp7 = alloca %"class.std::unique_ptr.42", align 8
@@ -6381,7 +6381,7 @@ entry:
 declare noundef i64 @_ZN3net13SpdyConstants14GetSettingSizeENS_16SpdyMajorVersionE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE(i32 noundef %spdy_version, ptr noundef readonly %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE(i32 noundef %spdy_version, ptr noundef readonly captures(address) %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %list_.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 56
   %__begin1.sroa.0.07 = load ptr, ptr %list_.i.i, align 8
@@ -6410,7 +6410,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net10SpdyFramer19WriteHeaderBlockToZEPKNS_15SpdyHeaderBlockEP10z_stream_s(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %headers, ptr noundef %z) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net10SpdyFramer19WriteHeaderBlockToZEPKNS_15SpdyHeaderBlockEP10z_stream_s(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %headers, ptr noundef %z) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i192 = alloca [4 x i8], align 1
   %ref.tmp3.i193 = alloca %"class.base::BasicStringPiece", align 8
@@ -7996,7 +7996,7 @@ return:                                           ; preds = %if.end24, %if.then2
 declare void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net10SpdyFramer38SerializeHeaderBlockWithoutCompressionEPNS_16SpdyFrameBuilderERKNS_15SpdyHeaderBlockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(259) %this, ptr noundef nonnull %builder, ptr noundef nonnull readonly align 8 dereferenceable(88) %header_block) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net10SpdyFramer38SerializeHeaderBlockWithoutCompressionEPNS_16SpdyFrameBuilderERKNS_15SpdyHeaderBlockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(259) %this, ptr noundef nonnull %builder, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %header_block) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i = alloca i32, align 4
   %_M_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %header_block, i64 72
@@ -8696,7 +8696,7 @@ invoke.cont57:                                    ; preds = %if.end56
 declare noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(259), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull align 8 dereferenceable(110) %syn_stream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(110) %syn_stream) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %value.addr.i24 = alloca i8, align 1
   %value.addr.i22 = alloca i8, align 1
@@ -8903,7 +8903,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad36
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE(ptr noundef nonnull align 8 captures(none) dereferenceable(259) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE(ptr noundef nonnull align 8 captures(none) dereferenceable(259) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %headers) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %list_.i.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 56
   %__begin1.sroa.0.07.i = load ptr, ptr %list_.i.i.i, align 8
@@ -8945,7 +8945,7 @@ return:                                           ; preds = %_ZN3net10SpdyFramer
 declare noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(259), i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net10SpdyFramer20SerializeHeaderBlockEPNS_16SpdyFrameBuilderERKNS_26SpdyFrameWithHeaderBlockIRE(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(104) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net10SpdyFramer20SerializeHeaderBlockEPNS_16SpdyFrameBuilderERKNS_26SpdyFrameWithHeaderBlockIRE(ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef %builder, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i.i25 = alloca i32, align 4
   %value.addr.i.i = alloca i32, align 4
@@ -9166,7 +9166,7 @@ ehcleanup43:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynReplyIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull align 8 dereferenceable(104) %syn_reply) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net10SpdyFramer17SerializeSynReplyERKNS_14SpdySynReplyIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %syn_reply) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %value.addr.i = alloca i32, align 4
   %builder = alloca %"class.net::SpdyFrameBuilder", align 8
@@ -9384,7 +9384,7 @@ declare noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10Spdy
 declare noundef i32 @_ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net10SpdyFramer17SerializeSettingsERKNS_14SpdySettingsIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull readonly align 8 dereferenceable(58) %settings) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net10SpdyFramer17SerializeSettingsERKNS_14SpdySettingsIRE(ptr noalias sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(58) %settings) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i32 = alloca i32, align 4
   %value.addr.i29 = alloca i16, align 2
@@ -11801,7 +11801,7 @@ declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitSynStreamERKNS_15SpdySynStreamIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(110) %syn_stream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor14VisitSynStreamERKNS_15SpdySynStreamIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(110) %syn_stream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
   %framer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11837,7 +11837,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSynReplyERKNS_14SpdySynReplyIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(104) %syn_reply) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSynReplyERKNS_14SpdySynReplyIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(104) %syn_reply) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
   %framer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11909,7 +11909,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSettingsERKNS_14SpdySettingsIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(58) %settings) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitor13VisitSettingsERKNS_14SpdySettingsIRE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(58) %settings) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.net::SpdySerializedFrame", align 8
   %framer_ = getelementptr inbounds nuw i8, ptr %this, i64 8

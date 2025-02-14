@@ -1587,7 +1587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518TransliteratorSpec3getEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7518TransliteratorSpec3getEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(280) %this) local_unnamed_addr #11 align 2 {
 entry:
   %spec = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %spec

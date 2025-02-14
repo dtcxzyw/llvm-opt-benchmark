@@ -574,7 +574,7 @@ define hidden void @"_ZN104_$LT$alloc..collections..btree..set..Iter$LT$T$GT$$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h53ef8e7c0d1d4e32E"(ptr noundef nonnull readnone captures(none) %0, ptr noundef readnone %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h53ef8e7c0d1d4e32E"(ptr noundef nonnull readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -9916,7 +9916,7 @@ define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf082dfa76f202aa0E.llvm.17757648456425634998"(ptr noundef nonnull readnone captures(none) %0, ptr noundef readnone %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #25 personality ptr @rust_eh_personality {
+define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf082dfa76f202aa0E.llvm.17757648456425634998"(ptr noundef nonnull readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #25 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %.val = load ptr, ptr %2, align 8, !alias.scope !1805, !nonnull !9, !align !34, !noundef !9
@@ -12418,7 +12418,7 @@ define noundef zeroext i1 @"_ZN67_$LT$just..suggestion..Suggestion$u20$as$u20$co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4just5thunk5Thunk4name17h6eaa8d2afa9a41c7E(ptr noalias noundef readonly align 8 dereferenceable(128) %0) unnamed_addr #9 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4just5thunk5Thunk4name17h6eaa8d2afa9a41c7E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(128) %0) unnamed_addr #9 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !1337, !noundef !9
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4just5thunk5Thunk4name17h6eaa8d2afa9a41c7E, i64 0, i64 %1

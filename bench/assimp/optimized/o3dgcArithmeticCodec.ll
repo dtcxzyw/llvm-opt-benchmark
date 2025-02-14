@@ -2031,7 +2031,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %number_of_symbols, ptr noundef readonly %probability) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %number_of_symbols, ptr noundef readonly captures(address_is_null) %probability) local_unnamed_addr #5 align 2 {
 entry:
   %0 = add i32 %number_of_symbols, -2049
   %or.cond = icmp ult i32 %0, -2047

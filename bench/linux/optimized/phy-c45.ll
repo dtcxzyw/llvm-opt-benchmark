@@ -2268,7 +2268,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_plca_get_status(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 2) i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @genphy_c45_eee_is_active(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca [2 x i64], align 16
   %7 = alloca [2 x i64], align 16

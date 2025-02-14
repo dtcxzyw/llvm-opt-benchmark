@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"unexpected EOF\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 section ".init.text" align 16 {
   %8 = alloca %struct.lzma_header, align 1
   %9 = alloca %struct.rc, align 8
   %10 = alloca %struct.writer, align 8

@@ -4040,35 +4040,35 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase14getAllAabbsGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase14getAllAabbsGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %this) unnamed_addr #12 align 2 {
 entry:
   %m_allAabbsGPU1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %m_allAabbsGPU1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN19b3GpuGridBroadphase14getAllAabbsCPUEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN19b3GpuGridBroadphase14getAllAabbsCPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %this) unnamed_addr #12 align 2 {
 entry:
   %m_allAabbsCPU1 = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %m_allAabbsCPU1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getOverlappingPairsGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getOverlappingPairsGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %this) unnamed_addr #12 align 2 {
 entry:
   %m_gpuPairs = getelementptr inbounds nuw i8, ptr %this, i64 328
   ret ptr %m_gpuPairs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getSmallAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getSmallAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %this) unnamed_addr #12 align 2 {
 entry:
   %m_smallAabbsMappingGPU = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %m_smallAabbsMappingGPU
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getLargeAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 dereferenceable(592) %this) unnamed_addr #12 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN19b3GpuGridBroadphase22getLargeAabbIndicesGPUEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(592) %this) unnamed_addr #12 align 2 {
 entry:
   %m_largeAabbsMappingGPU = getelementptr inbounds nuw i8, ptr %this, i64 208
   ret ptr %m_largeAabbsMappingGPU

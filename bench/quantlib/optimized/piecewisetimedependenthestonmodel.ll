@@ -3591,21 +3591,21 @@ ehcleanup67:                                      ; preds = %ehcleanup62, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel8timeGridEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel8timeGridEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
 entry:
   %timeGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %timeGrid_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel13dividendYieldEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel13dividendYieldEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
 entry:
   %dividendYield_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %dividendYield_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel12riskFreeRateEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib33PiecewiseTimeDependentHestonModel12riskFreeRateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #10 align 2 {
 entry:
   %riskFreeRate_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   ret ptr %riskFreeRate_

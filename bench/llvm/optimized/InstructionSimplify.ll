@@ -16833,7 +16833,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNoNaNsEv(ptr noundef nonnu
 declare noundef ptr @_ZN4llvm10ConstantFP3getEPNS_4TypeERKNS_7APFloatE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL26foldMinimumMaximumSharedOpjPN4llvm5ValueES1_(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL26foldMinimumMaximumSharedOpjPN4llvm5ValueES1_(i32 noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 8, !tbaa !3
   %5 = icmp eq i8 %4, 85
   br i1 %5, label %6, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit.thread
@@ -17008,7 +17008,7 @@ define dso_local noundef ptr @_ZN4llvm12simplifyCallEPNS_8CallBaseEPNS_5ValueENS
 declare noundef zeroext i1 @_ZNK4llvm8CallBase14isMustTailCallEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19tryConstantFoldCallPN4llvm8CallBaseEPNS_5ValueENS_8ArrayRefIS3_EERKNS_13SimplifyQueryE(ptr noundef %0, ptr noundef %1, ptr readonly %2, i64 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19tryConstantFoldCallPN4llvm8CallBaseEPNS_5ValueENS_8ArrayRefIS3_EERKNS_13SimplifyQueryE(ptr noundef %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(58) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.441", align 8
   %7 = load i8, ptr %1, align 8, !tbaa !3
   %.not = icmp eq i8 %7, 0
@@ -22215,7 +22215,7 @@ _ZN4llvm12PatternMatch6is_one7isValueERKNS_5APIntE.exit.thread: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11expandBinOpN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_S1_RKNS_13SimplifyQueryEj(i32 noundef range(i32 17, 30) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 13, 31) %3, ptr noundef nonnull align 8 dereferenceable(58) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11expandBinOpN4llvm11Instruction9BinaryOpsEPNS_5ValueES3_S1_RKNS_13SimplifyQueryEj(i32 noundef range(i32 17, 30) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef %2, i32 noundef range(i32 13, 31) %3, ptr noundef nonnull align 8 dereferenceable(58) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::SimplifyQuery", align 8
   %8 = alloca %"struct.llvm::SimplifyQuery", align 8
   %9 = load i8, ptr %1, align 8, !tbaa !3
@@ -27751,7 +27751,7 @@ _ZN4llvm12PatternMatch5matchINS_8ICmpInstENS0_14CmpClass_matchINS0_14specificval
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL33simplifyAndOrOfICmpsWithConstantsPN4llvm8ICmpInstES1_b(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL33simplifyAndOrOfICmpsWithConstantsPN4llvm8ICmpInstES1_b(ptr noundef nonnull readonly captures(ret: address, provenance) %0, ptr noundef nonnull readonly captures(ret: address, provenance) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8
   %6 = alloca %"class.llvm::ConstantRange", align 8
@@ -32039,7 +32039,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit22: ; preds = %_Z
 declare noundef ptr @_ZN4llvm31ConstantFoldCompareInstOperandsEjPNS_8ConstantES1_RKNS_10DataLayoutEPKNS_17TargetLibraryInfoEPKNS_11InstructionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(496), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL12getCompareTyPN4llvm5ValueE(ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL12getCompareTyPN4llvm5ValueE(ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
   %1 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %2 = load i32, ptr %1, align 8
   %3 = and i32 %2, 255
@@ -39412,7 +39412,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE28reserveForParamAndGet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefISt4pairIPNS_5ValueES4_EEEZL23simplifyWithOpsReplacedS4_S6_RKNS_13SimplifyQueryEbPNS_15SmallVectorImplIPNS_11InstructionEEEjE3$_0EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val, ptr noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_8ArrayRefISt4pairIPNS_5ValueES4_EEEZL23simplifyWithOpsReplacedS4_S6_RKNS_13SimplifyQueryEbPNS_15SmallVectorImplIPNS_11InstructionEEEjE3$_0EEbOT_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull readonly captures(address) %0) unnamed_addr #0 {
   %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.335", align 8
   %3 = alloca %class.anon.327, align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.335", align 8
@@ -41235,7 +41235,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_7bind_tyIS2_EES5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL25simplifySelectWithBitTestPN4llvm5ValueES1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL25simplifySelectWithBitTestPN4llvm5ValueES1_S1_(ptr noundef %0, ptr noundef captures(address, ret: address, provenance) %1, ptr noundef captures(address, ret: address, provenance) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::optional.366", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #20
   call void @_ZN4llvm16decomposeBitTestEPNS_5ValueEbb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.366") align 8 %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false) #20
@@ -42127,7 +42127,7 @@ _ZN4llvm12PatternMatch15specific_intvalILb0EE5matchINS_5ValueEEEbPT_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL21simplifySelectBitTestPN4llvm5ValueES1_S1_PKNS_5APIntEb(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL21simplifySelectBitTestPN4llvm5ValueES1_S1_PKNS_5APIntEb(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -44346,7 +44346,7 @@ _ZN4llvm12PatternMatch14BinaryOp_matchINS0_18CastOperator_matchINS0_14specificva
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZL15simplifyGEPInstPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsERKNS_13SimplifyQueryEjE3$_4EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_5ValueEEEZL15simplifyGEPInstPNS_4TypeES3_S4_NS_14GEPNoWrapFlagsERKNS_13SimplifyQueryEjE3$_4EEbOT_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val) unnamed_addr #15 {
   %.idx1 = shl nuw nsw i64 %.8.val, 3
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1
   %.not = icmp ult i64 %.8.val, 4

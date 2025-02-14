@@ -186,7 +186,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_75(ptr noundef %ds, ptr noundef readonly captures(address_is_null) %inData, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %outData, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -263,7 +263,7 @@ return:                                           ; preds = %if.end19, %return.s
 declare void @udata_printError_75(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyAscii_75(ptr noundef %ds, ptr noundef readonly captures(address) %inData, i32 noundef %length, ptr noundef writeonly captures(address) %outData, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -345,7 +345,7 @@ return:                                           ; preds = %while.cond.preheade
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_75(ptr noundef %ds, ptr noundef readonly captures(address_is_null) %inData, i32 noundef %length, ptr noundef writeonly captures(address_is_null) %outData, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -425,7 +425,7 @@ return:                                           ; preds = %if.end27, %return.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly %inData, i32 noundef %length, ptr noundef writeonly %outData, ptr noundef %pErrorCode) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_75(ptr noundef %ds, ptr noundef readonly captures(address) %inData, i32 noundef %length, ptr noundef writeonly captures(address) %outData, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -529,7 +529,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_compareInvAscii_75(ptr noundef readnone captures(none) %ds, ptr noundef readonly %outString, i32 noundef %outLength, ptr noundef %localString, i32 noundef %localLength) local_unnamed_addr #2 {
+define i32 @uprv_compareInvAscii_75(ptr noundef readnone captures(none) %ds, ptr noundef readonly captures(address_is_null) %outString, i32 noundef %outLength, ptr noundef %localString, i32 noundef %localLength) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %outString, null
   %cmp1 = icmp slt i32 %outLength, -1
@@ -636,7 +636,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_compareInvEbcdic_75(ptr noundef readnone captures(none) %ds, ptr noundef readonly %outString, i32 noundef %outLength, ptr noundef %localString, i32 noundef %localLength) local_unnamed_addr #2 {
+define i32 @uprv_compareInvEbcdic_75(ptr noundef readnone captures(none) %ds, ptr noundef readonly captures(address_is_null) %outString, i32 noundef %outLength, ptr noundef %localString, i32 noundef %localLength) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %outString, null
   %cmp1 = icmp slt i32 %outLength, -1
@@ -855,7 +855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_aestrncpy_75(ptr noundef returned writeonly %dst, ptr noundef readonly captures(none) %src, i32 noundef %n) local_unnamed_addr #8 {
+define noundef ptr @uprv_aestrncpy_75(ptr noundef returned writeonly captures(ret: address, provenance) %dst, ptr noundef readonly captures(none) %src, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %n, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -908,7 +908,7 @@ while.end8:                                       ; preds = %while.body5.prehead
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_eastrncpy_75(ptr noundef returned writeonly %dst, ptr noundef readonly captures(none) %src, i32 noundef %n) local_unnamed_addr #8 {
+define noundef ptr @uprv_eastrncpy_75(ptr noundef returned writeonly captures(ret: address, provenance) %dst, ptr noundef readonly captures(none) %src, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %n, -1
   br i1 %cmp, label %if.then, label %if.end

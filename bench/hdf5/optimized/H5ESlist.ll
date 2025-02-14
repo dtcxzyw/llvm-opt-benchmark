@@ -84,7 +84,7 @@ define i32 @H5ES__list_iterate(ptr noundef readonly captures(none) %0, i32 nound
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @H5ES__list_remove(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @H5ES__list_remove(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

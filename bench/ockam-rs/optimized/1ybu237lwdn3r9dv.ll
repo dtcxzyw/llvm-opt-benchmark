@@ -14614,7 +14614,7 @@ define { ptr, i64 } @_ZN19ockam_transport_uds7workers6sender10WorkerPair5paths17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(116) ptr @_ZN19ockam_transport_uds7workers6sender10WorkerPair4peer17he2ebd83c32f9a4beE(ptr noalias noundef readonly align 8 dereferenceable(176) %0) unnamed_addr #7 {
+define noundef nonnull align 4 dereferenceable(116) ptr @_ZN19ockam_transport_uds7workers6sender10WorkerPair4peer17he2ebd83c32f9a4beE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -14713,13 +14713,13 @@ define void @_ZN19ockam_transport_uds7workers6sender13UdsSendWorker3new17hfdeafd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds7workers6sender13UdsSendWorker13internal_addr17h9da4373f67774b27E(ptr noalias noundef readonly align 8 dereferenceable(512) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds7workers6sender13UdsSendWorker13internal_addr17h9da4373f67774b27E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(512) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds7workers6sender13UdsSendWorker7rx_addr17ha84fbf0bb9452f37E(ptr noalias noundef readonly align 8 dereferenceable(512) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN19ockam_transport_uds7workers6sender13UdsSendWorker7rx_addr17ha84fbf0bb9452f37E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(512) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   ret ptr %2
 }

@@ -455,7 +455,7 @@ spl_array_read_dimension_ex.exit:                 ; preds = %100, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4

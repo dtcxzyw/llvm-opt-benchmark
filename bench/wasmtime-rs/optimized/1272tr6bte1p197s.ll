@@ -5887,7 +5887,7 @@ define { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h4d5e1f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9489670abcecce1aE"(ptr align 8 %0, ptr readonly align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9489670abcecce1aE"(ptr align 8 %0, ptr readonly align 1 captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5915,7 +5915,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9489670abcecc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9cbe7f1282974677E"(ptr align 8 %0, ptr readonly align 2 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9cbe7f1282974677E"(ptr align 8 %0, ptr readonly align 2 captures(address_is_null) %1, i64 %2) unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

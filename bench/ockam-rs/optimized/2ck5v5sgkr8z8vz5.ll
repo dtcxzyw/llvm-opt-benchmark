@@ -8055,12 +8055,12 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17h47e1337adc78de76E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17h47e1337adc78de76E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17h73d9d39d4b9680f8E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17h73d9d39d4b9680f8E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -9581,7 +9581,7 @@ define hidden { ptr, ptr } @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h406faa91a15781d0E"(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h406faa91a15781d0E"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -9613,7 +9613,7 @@ define hidden { ptr, ptr } @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hc0ce98521b4047cbE"(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hc0ce98521b4047cbE"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -9623,7 +9623,7 @@ define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFutur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hd8b3d200c1830845E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hd8b3d200c1830845E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -11117,12 +11117,12 @@ define hidden void @_ZN5tokio6future7poll_fn7poll_fn17h0144314353025aaeE() unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5tokio6future7poll_fn7poll_fn17h0de9a579f8fb7627E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5tokio6future7poll_fn7poll_fn17h0de9a579f8fb7627E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5tokio6future7poll_fn7poll_fn17h8a974c7389d17c21E(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5tokio6future7poll_fn7poll_fn17h8a974c7389d17c21E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -11148,7 +11148,7 @@ define hidden { ptr, ptr } @_ZN5tokio6future7poll_fn7poll_fn17hbf1f440a6d1f0f85E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5tokio6future7poll_fn7poll_fn17hd12fb7a584e26217E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5tokio6future7poll_fn7poll_fn17hd12fb7a584e26217E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

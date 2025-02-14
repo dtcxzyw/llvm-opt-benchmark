@@ -1830,7 +1830,7 @@ return:                                           ; preds = %delete.notnull.i.i1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr noalias writeonly sret(%"class.std::unique_ptr.14") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %this, ptr noundef readonly %chunks_head, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %charge) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr noalias writeonly sret(%"class.std::unique_ptr.14") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %this, ptr noundef readonly captures(address_is_null) %chunks_head, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %charge) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %charge, align 8
   %cmp.not13 = icmp eq ptr %chunks_head, null

@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_adjustment) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly captures(address_is_null) %offsets_for_adjustment) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %offsets_for_adjustment, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -180,7 +180,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly %offsets_for_unadjustment) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10AdjustmentESaIS2_EEPS1_ImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %adjustments, ptr noundef readonly captures(address_is_null) %offsets_for_unadjustment) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq ptr %offsets_for_unadjustment, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false

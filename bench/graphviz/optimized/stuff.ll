@@ -146,7 +146,7 @@ gv_calloc.exit22._crit_edge:                      ; preds = %gv_calloc.exit22, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @free_array(ptr noundef %0) local_unnamed_addr #1 {
+define void @free_array(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

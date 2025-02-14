@@ -892,7 +892,7 @@ luaI_openlib.exit:                                ; preds = %for.end.i, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lua_pushstring(ptr noundef %L, ptr noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @lua_pushstring(ptr noundef %L, ptr noundef readonly captures(address_is_null) %s) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %lua_remove.exit, %l
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %idx, ptr noundef writeonly %len) unnamed_addr #0 {
+define internal fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %idx, ptr noundef writeonly captures(address_is_null) %len) unnamed_addr #0 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %cmp.i = icmp sgt i32 %idx, 0
@@ -2703,7 +2703,7 @@ restore_stack_limit.exit:                         ; preds = %luaD_seterrorobj.ex
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @luaF_close(ptr noundef captures(none) %L, ptr noundef readnone %level) unnamed_addr #0 {
+define internal fastcc void @luaF_close(ptr noundef captures(none) %L, ptr noundef readnone captures(address) %level) unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %openupval = getelementptr inbounds nuw i8, ptr %L, i64 152
@@ -8920,7 +8920,7 @@ return:                                           ; preds = %if.then14, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Arith(ptr noundef %L, ptr noundef %ra, ptr noundef readonly %rb, ptr noundef readonly captures(none) %rc, i32 noundef range(i32 5, 12) %op) unnamed_addr #0 {
+define internal fastcc void @Arith(ptr noundef %L, ptr noundef %ra, ptr noundef readonly captures(address) %rb, ptr noundef readonly captures(none) %rc, i32 noundef range(i32 5, 12) %op) unnamed_addr #0 {
 entry:
   %endptr.i.i67 = alloca ptr, align 8
   %temp.i = alloca %struct.lua_TValue, align 8
@@ -12608,7 +12608,7 @@ return:                                           ; preds = %entry, %traversepro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none) %L, ptr noundef %p, i64 noundef range(i64 -3, 41) %count) unnamed_addr #0 {
+define internal fastcc noundef ptr @sweeplist(ptr noundef readonly captures(none) %L, ptr noundef captures(ret: address, provenance) %p, i64 noundef range(i64 -3, 41) %count) unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8
@@ -23391,7 +23391,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef nonnull %seminfo) unnamed_addr #0 {
+define internal fastcc i32 @llex(ptr noundef nonnull %ls, ptr noundef nonnull captures(address_is_null) %seminfo) unnamed_addr #0 {
 entry:
   %size.i295 = alloca i64, align 8
   %size.i280 = alloca i64, align 8
@@ -25109,7 +25109,7 @@ while.end:                                        ; preds = %cond.end22, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr noundef nonnull captures(none) %ls, ptr noundef writeonly %seminfo, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr noundef nonnull captures(none) %ls, ptr noundef writeonly captures(address_is_null) %seminfo, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
 entry:
   %size.i81 = alloca i64, align 8
   %size.i66 = alloca i64, align 8
@@ -32332,7 +32332,7 @@ if.end:                                           ; preds = %if.then, %str_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 9) i32 @singlevaraux(ptr noundef %fs, ptr noundef %n, ptr noundef nonnull captures(none) %var, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
+define internal fastcc range(i32 6, 9) i32 @singlevaraux(ptr noundef captures(address_is_null) %fs, ptr noundef %n, ptr noundef nonnull captures(none) %var, i32 noundef range(i32 0, 2) %base) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %fs, null
   br i1 %cmp, label %if.then, label %if.else
@@ -48346,7 +48346,7 @@ lua_remove.exit:                                  ; preds = %while.body.i, %inde
 declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef ptr @getF(ptr readnone captures(none) %L, ptr noundef %ud, ptr noundef writeonly captures(none) %size) #22 {
+define internal noundef ptr @getF(ptr readnone captures(none) %L, ptr noundef captures(ret: address, provenance) %ud, ptr noundef writeonly captures(none) %size) #22 {
 entry:
   %0 = load i32, ptr %ud, align 8
   %tobool.not = icmp eq i32 %0, 0

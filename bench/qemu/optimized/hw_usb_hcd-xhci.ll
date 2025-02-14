@@ -2539,7 +2539,7 @@ return:                                           ; preds = %xhci_stall_ep.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_set_ep_state(ptr noundef captures(none) %xhci, ptr noundef captures(none) %epctx, ptr noundef readonly %sctx, i32 noundef %state) unnamed_addr #2 {
+define internal fastcc void @xhci_set_ep_state(ptr noundef captures(none) %xhci, ptr noundef captures(none) %epctx, ptr noundef readonly captures(address_is_null) %sctx, i32 noundef %state) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tmp.i43 = alloca [5 x i32], align 16
@@ -3029,7 +3029,7 @@ return:                                           ; preds = %if.then26.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 64) i32 @xhci_ring_fetch(ptr noundef readonly captures(none) %xhci, ptr noundef captures(none) %ring, ptr noundef %trb, ptr noundef writeonly %addr) unnamed_addr #2 {
+define internal fastcc range(i32 0, 64) i32 @xhci_ring_fetch(ptr noundef readonly captures(none) %xhci, ptr noundef captures(none) %ring, ptr noundef %trb, ptr noundef writeonly captures(address_is_null) %addr) unnamed_addr #2 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3258,7 +3258,7 @@ _nocheck__trace_usb_xhci_enforced_limit.exit:     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @xhci_epid_to_usbep(ptr noundef readonly %epctx) unnamed_addr #2 {
+define internal fastcc ptr @xhci_epid_to_usbep(ptr noundef readonly captures(address_is_null) %epctx) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %epctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4422,7 +4422,7 @@ xhci_lookup_port.exit:                            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @xhci_detach(ptr noundef readonly %usbport) #2 {
+define internal void @xhci_detach(ptr noundef readonly captures(address) %usbport) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %usbport, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -4796,7 +4796,7 @@ if.end3:                                          ; preds = %xhci_ep_free_xfer.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_port_update(ptr noundef %port, i32 noundef range(i32 0, 2) %is_detach) unnamed_addr #2 {
+define internal fastcc void @xhci_port_update(ptr noundef captures(address_is_null) %port, i32 noundef range(i32 0, 2) %is_detach) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not = icmp eq ptr %port, null

@@ -922,7 +922,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7518CharStringByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr noundef %result_capacity) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7518CharStringByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone captures(ret: address, provenance) %scratch, i32 noundef %scratch_capacity, ptr noundef %result_capacity) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   %cmp = icmp slt i32 %min_capacity, 1

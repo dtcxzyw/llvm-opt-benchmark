@@ -812,7 +812,7 @@ declare noundef i32 @_Z36alts_tsi_utils_convert_to_tsi_result16grpc_status_code(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z34alts_grpc_handshaker_client_createP19alts_tsi_handshakerP12grpc_channelPKcP16grpc_pollset_setP29grpc_alts_credentials_optionsRK10grpc_slicePFvPvN4absl12lts_202308026StatusEEPFv10tsi_resultSC_PKhmP21tsi_handshaker_resultESC_P29alts_handshaker_client_vtablebmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %channel, ptr noundef readonly %handshaker_service_url, ptr noundef %interested_parties, ptr noundef %options, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %target_name, ptr noundef %grpc_cb, ptr noundef %cb, ptr noundef %user_data, ptr noundef %vtable_for_testing, i1 noundef zeroext %is_client, i64 noundef %max_frame_size, ptr noundef %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z34alts_grpc_handshaker_client_createP19alts_tsi_handshakerP12grpc_channelPKcP16grpc_pollset_setP29grpc_alts_credentials_optionsRK10grpc_slicePFvPvN4absl12lts_202308026StatusEEPFv10tsi_resultSC_PKhmP21tsi_handshaker_resultESC_P29alts_handshaker_client_vtablebmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %channel, ptr noundef readonly captures(address_is_null) %handshaker_service_url, ptr noundef %interested_parties, ptr noundef %options, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %target_name, ptr noundef %grpc_cb, ptr noundef %cb, ptr noundef %user_data, ptr noundef %vtable_for_testing, i1 noundef zeroext %is_client, i64 noundef %max_frame_size, ptr noundef %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %ref.tmp12 = alloca %struct.grpc_slice, align 8
@@ -1061,7 +1061,7 @@ _ZN12_GLOBAL__N_113HandshakeDoneEb.exit:          ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal50alts_handshaker_client_set_grpc_caller_for_testingEP22alts_handshaker_clientPF15grpc_call_errorP9grpc_callPK7grpc_opmP12grpc_closureE(ptr noundef writeonly %c, ptr noundef %caller) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal50alts_handshaker_client_set_grpc_caller_for_testingEP22alts_handshaker_clientPF15grpc_call_errorP9grpc_callPK7grpc_opmP12grpc_closureE(ptr noundef writeonly captures(address_is_null) %c, ptr noundef %caller) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %c, null
   %cmp1 = icmp eq ptr %caller, null
@@ -1079,7 +1079,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core8internal50alts_handshaker_client_get_send_buffer_for_testingEP22alts_handshaker_client(ptr noundef readonly %c) local_unnamed_addr #3 {
+define noundef ptr @_ZN9grpc_core8internal50alts_handshaker_client_get_send_buffer_for_testingEP22alts_handshaker_client(ptr noundef readonly captures(address_is_null) %c) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1095,7 +1095,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9grpc_core8internal55alts_handshaker_client_get_recv_buffer_addr_for_testingEP22alts_handshaker_client(ptr noundef readnone %c) local_unnamed_addr #3 {
+define noundef nonnull ptr @_ZN9grpc_core8internal55alts_handshaker_client_get_recv_buffer_addr_for_testingEP22alts_handshaker_client(ptr noundef readnone captures(address_is_null, ret: address, provenance) %c) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1110,7 +1110,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9grpc_core8internal55alts_handshaker_client_get_initial_metadata_for_testingEP22alts_handshaker_client(ptr noundef readnone %c) local_unnamed_addr #3 {
+define noundef nonnull ptr @_ZN9grpc_core8internal55alts_handshaker_client_get_initial_metadata_for_testingEP22alts_handshaker_client(ptr noundef readnone captures(address_is_null, ret: address, provenance) %c) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1125,7 +1125,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal49alts_handshaker_client_set_recv_bytes_for_testingEP22alts_handshaker_clientP10grpc_slice(ptr noundef writeonly %c, ptr noundef readonly captures(none) %recv_bytes) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal49alts_handshaker_client_set_recv_bytes_for_testingEP22alts_handshaker_clientP10grpc_slice(ptr noundef writeonly captures(address_is_null) %c, ptr noundef readonly captures(none) %recv_bytes) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1150,7 +1150,7 @@ _ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %do.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal45alts_handshaker_client_set_fields_for_testingEP22alts_handshaker_clientP19alts_tsi_handshakerPFv10tsi_resultPvPKhmP21tsi_handshaker_resultES6_P16grpc_byte_bufferb(ptr noundef writeonly %c, ptr noundef %handshaker, ptr noundef %cb, ptr noundef %user_data, ptr noundef %recv_buffer, i1 noundef zeroext %inject_read_failure) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal45alts_handshaker_client_set_fields_for_testingEP22alts_handshaker_clientP19alts_tsi_handshakerPFv10tsi_resultPvPKhmP21tsi_handshaker_resultES6_P16grpc_byte_bufferb(ptr noundef writeonly captures(address_is_null) %c, ptr noundef %handshaker, ptr noundef %cb, ptr noundef %user_data, ptr noundef %recv_buffer, i1 noundef zeroext %inject_read_failure) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1175,7 +1175,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal47alts_handshaker_client_check_fields_for_testingEP22alts_handshaker_clientPFv10tsi_resultPvPKhmP21tsi_handshaker_resultES4_bP10grpc_slice(ptr noundef readonly %c, ptr noundef readnone %cb, ptr noundef readnone %user_data, i1 noundef zeroext %has_sent_start_message, ptr noundef readonly %recv_bytes) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal47alts_handshaker_client_check_fields_for_testingEP22alts_handshaker_clientPFv10tsi_resultPvPKhmP21tsi_handshaker_resultES4_bP10grpc_slice(ptr noundef readonly captures(address_is_null) %c, ptr noundef readnone captures(address) %cb, ptr noundef readnone captures(address) %user_data, i1 noundef zeroext %has_sent_start_message, ptr noundef readonly captures(address_is_null) %recv_bytes) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1238,7 +1238,7 @@ declare i32 @grpc_slice_cmp(ptr noundef byval(%struct.grpc_slice) align 8, ptr n
 declare noundef zeroext i1 @_ZN9grpc_core8internal58alts_tsi_handshaker_get_has_sent_start_message_for_testingEP19alts_tsi_handshaker(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal45alts_handshaker_client_set_vtable_for_testingEP22alts_handshaker_clientP29alts_handshaker_client_vtable(ptr noundef writeonly %c, ptr noundef %vtable) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal45alts_handshaker_client_set_vtable_for_testingEP22alts_handshaker_clientP29alts_handshaker_client_vtable(ptr noundef writeonly captures(address_is_null) %c, ptr noundef %vtable) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.body1
@@ -1261,7 +1261,7 @@ do.end6:                                          ; preds = %do.body1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core8internal49alts_handshaker_client_get_handshaker_for_testingEP22alts_handshaker_client(ptr noundef readonly %c) local_unnamed_addr #3 {
+define noundef ptr @_ZN9grpc_core8internal49alts_handshaker_client_get_handshaker_for_testingEP22alts_handshaker_client(ptr noundef readonly captures(address_is_null) %c) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1277,7 +1277,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal41alts_handshaker_client_set_cb_for_testingEP22alts_handshaker_clientPFv10tsi_resultPvPKhmP21tsi_handshaker_resultE(ptr noundef writeonly %c, ptr noundef %cb) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal41alts_handshaker_client_set_cb_for_testingEP22alts_handshaker_clientPFv10tsi_resultPvPKhmP21tsi_handshaker_resultE(ptr noundef writeonly captures(address_is_null) %c, ptr noundef %cb) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1293,7 +1293,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9grpc_core8internal46alts_handshaker_client_get_closure_for_testingEP22alts_handshaker_client(ptr noundef readnone %c) local_unnamed_addr #3 {
+define noundef nonnull ptr @_ZN9grpc_core8internal46alts_handshaker_client_get_closure_for_testingEP22alts_handshaker_client(ptr noundef readnone captures(address_is_null, ret: address, provenance) %c) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -3082,7 +3082,7 @@ return:                                           ; preds = %if.end7, %if.then10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26handshaker_client_shutdownP22alts_handshaker_client(ptr noundef readonly %c) #3 {
+define internal void @_ZL26handshaker_client_shutdownP22alts_handshaker_client(ptr noundef readonly captures(address_is_null) %c) #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -3106,7 +3106,7 @@ if.end4:                                          ; preds = %if.then2, %do.end
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZL26handshaker_client_destructP22alts_handshaker_client(ptr noundef readonly %c) #14 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL26handshaker_client_destructP22alts_handshaker_client(ptr noundef readonly captures(address_is_null) %c) #14 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

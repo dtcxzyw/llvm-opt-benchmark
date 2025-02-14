@@ -1387,7 +1387,7 @@ define internal fastcc void @__free_pages_ok(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 16 {
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, 4503599627370496
   br i1 %5, label %6, label %.thread
@@ -1703,7 +1703,7 @@ define dso_local void @post_alloc_hook(ptr noundef initializes((40, 48)) %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @move_freepages_block(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @move_freepages_block(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %7, label %6
 
@@ -3259,7 +3259,7 @@ define internal fastcc void @free_unref_page_commit(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_unref_page_list(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @free_unref_page_list(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader12
@@ -4217,7 +4217,7 @@ define dso_local noundef zeroext i1 @gfp_pfmemalloc_allowed(i32 noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 align 16 {
   %7 = icmp ne ptr %5, null
   %8 = icmp sgt i32 %3, 0
   %9 = and i1 %8, %7

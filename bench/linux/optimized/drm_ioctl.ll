@@ -202,7 +202,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_getclient(ptr readnone captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_noop(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
+define dso_local noundef i32 @drm_noop(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -887,7 +887,7 @@ declare dso_local i32 @drm_gem_flink_ioctl(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @drm_gem_open_ioctl(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -95, 1) i32 @drm_getcap(ptr noundef readonly %0, ptr noundef captures(none) initializes((8, 16)) %1, ptr readnone captures(none) %2) #7 align 16 {
+define internal noundef range(i32 -95, 1) i32 @drm_getcap(ptr noundef readonly captures(address) %0, ptr noundef captures(none) initializes((8, 16)) %1, ptr readnone captures(none) %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr %1, align 8

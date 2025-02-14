@@ -458,7 +458,7 @@ declare noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnu
 declare void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model17getDomainElementsENS0_8TypeNodeE(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %tn) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model17getDomainElementsENS0_8TypeNodeE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef readonly captures(none) %tn) local_unnamed_addr #5 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -507,7 +507,7 @@ _ZNKSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EES
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal3smt5Model8getValueENS0_12NodeTemplateILb0EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal3smt5Model8getValueENS0_12NodeTemplateILb0EEE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %n, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -1516,14 +1516,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit26: ; preds = %_ZN4cvc58intern
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model16getDeclaredSortsEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model16getDeclaredSortsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_declareSorts = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %d_declareSorts
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model16getDeclaredTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal3smt5Model16getDeclaredTermsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_declareTerms = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %d_declareTerms

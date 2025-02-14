@@ -163,7 +163,7 @@ dumpByte.exit:                                    ; preds = %dumpHeader.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef readonly captures(none) %f, ptr noundef readnone %psource) unnamed_addr #0 {
+define internal fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef readonly captures(none) %f, ptr noundef readnone captures(address) %psource) unnamed_addr #0 {
 entry:
   %buff.i.i184 = alloca [10 x i8], align 1
   %buff.i.i181.i = alloca [10 x i8], align 1

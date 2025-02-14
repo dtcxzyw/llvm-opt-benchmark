@@ -415,7 +415,7 @@ _find_name_in_env.exit:                           ; preds = %.critedge.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @getenvp(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define ptr @getenvp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -477,7 +477,7 @@ define noundef ptr @env_array_create() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @env_array_merge(ptr noundef %0, ptr noundef readonly %1) #0 {
+define void @env_array_merge(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
@@ -540,7 +540,7 @@ _env_array_entry_splitter.exit.thread:            ; preds = %20, %13, %.lr.ph, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @env_array_copy(ptr noundef %0) #0 {
+define ptr @env_array_copy(ptr noundef captures(address_is_null) %0) #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   call void @env_array_merge(ptr noundef nonnull %2, ptr noundef %0)
@@ -711,7 +711,7 @@ _env_array_entry_splitter.exit.thread:            ; preds = %16, %9, %.lr.ph, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @envcount(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @envcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph.split
 
@@ -2966,7 +2966,7 @@ declare i32 @cpu_freq_set_env(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @xstrdup(ptr noundef nonnull @.str.47) #18
   store ptr %4, ptr %3, align 8
@@ -3038,7 +3038,7 @@ define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly %1) local_u
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @uint32_compressed_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define ptr @uint32_compressed_to_str(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.47) #18
   store ptr %5, ptr %4, align 8
@@ -3091,7 +3091,7 @@ define ptr @uint32_compressed_to_str(i32 noundef %0, ptr noundef readonly %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @env_array_for_job(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @env_array_for_job(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3599,7 +3599,7 @@ declare ptr @slurm_step_layout_create(ptr noundef) local_unnamed_addr #3
 declare i32 @slurm_step_layout_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @env_array_for_batch_job(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @env_array_for_batch_job(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4091,7 +4091,7 @@ uint16_array_to_str.exit:                         ; preds = %164, %._crit_edge.l
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @env_array_for_step(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i16 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define void @env_array_for_step(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4437,7 +4437,7 @@ _extend_env.exit:                                 ; preds = %36, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define void @env_array_set_environment(ptr noundef readonly %0) local_unnamed_addr #0 {
+define void @env_array_set_environment(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
@@ -4501,7 +4501,7 @@ _env_array_putenv.exit:                           ; preds = %.lr.ph, %10, %17, %
 declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @env_array_merge_slurm_spank(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @env_array_merge_slurm_spank(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
@@ -4573,7 +4573,7 @@ _env_array_entry_splitter.exit.thread:            ; preds = %19, %12, %.lr.ph, %
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @env_array_to_file(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @env_array_to_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = select i1 %2, ptr @.str.180, ptr @.str.181
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 193, i32 noundef 384) #18
   %6 = icmp slt i32 %5, 0

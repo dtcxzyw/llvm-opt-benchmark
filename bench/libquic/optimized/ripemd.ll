@@ -1895,7 +1895,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef returned writeonly initializes((0, 20)) %out) local_unnamed_addr #0 {
+define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %out) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RIPEMD160state_st, align 4
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 20

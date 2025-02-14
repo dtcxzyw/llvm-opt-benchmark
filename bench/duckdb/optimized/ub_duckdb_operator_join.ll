@@ -7824,7 +7824,7 @@ _ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15AsOfProbeBuffer11ResolveJoinEPbPm(ptr noundef nonnull align 8 dereferenceable(313) initializes((304, 312)) %this, ptr noundef writeonly %found_match, ptr noundef writeonly %matches) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15AsOfProbeBuffer11ResolveJoinEPbPm(ptr noundef nonnull align 8 dereferenceable(313) initializes((304, 312)) %this, ptr noundef writeonly captures(address_is_null) %found_match, ptr noundef writeonly captures(address_is_null) %matches) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i478 = alloca i64, align 8
   %__dnew.i.i464 = alloca i64, align 8

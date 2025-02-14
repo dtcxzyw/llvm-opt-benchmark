@@ -168,7 +168,7 @@ $_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJE
 @.str.5 = private unnamed_addr constant [9 x i8] c"includes\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22AttachHeaderIncludeGenERNS_12PreprocessorERKNS_23DependencyOutputOptionsEbN4llvm9StringRefEbb(ptr noundef nonnull align 8 captures(none) dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i1 noundef zeroext %2, ptr readonly %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang22AttachHeaderIncludeGenERNS_12PreprocessorERKNS_23DependencyOutputOptionsEbN4llvm9StringRefEbb(ptr noundef nonnull align 8 captures(none) dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i1 noundef zeroext %2, ptr readonly captures(address_is_null) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca %"class.std::error_code", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

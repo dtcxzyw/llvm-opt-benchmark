@@ -21094,7 +21094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN6duckdb11FSSTStorage18FetchStringPointerENS_25StringDictionaryContainerEPhi(i64 %dict.coerce, ptr noundef readnone %baseptr, i32 noundef %dict_offset) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6duckdb11FSSTStorage18FetchStringPointerENS_25StringDictionaryContainerEPhi(i64 %dict.coerce, ptr noundef readnone captures(ret: address, provenance) %baseptr, i32 noundef %dict_offset) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq i32 %dict_offset, 0
   %dict.sroa.1.0.extract.shift = lshr i64 %dict.coerce, 32

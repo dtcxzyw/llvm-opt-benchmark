@@ -3539,7 +3539,7 @@ declare double @log(double noundef) local_unnamed_addr #14
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess2s0Ev(ptr noundef nonnull readnone align 8 dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess2s0Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
 entry:
   %s0_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %s0_
@@ -6411,14 +6411,14 @@ declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noun
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess13dividendYieldEv(ptr noundef nonnull readnone align 8 dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess13dividendYieldEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
 entry:
   %dividendYield_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %dividendYield_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess12riskFreeRateEv(ptr noundef nonnull readnone align 8 dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess12riskFreeRateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(220) %this) local_unnamed_addr #12 align 2 {
 entry:
   %riskFreeRate_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %riskFreeRate_

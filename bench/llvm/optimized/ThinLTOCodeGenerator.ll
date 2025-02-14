@@ -3148,7 +3148,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummaryIndexERNS_8DenseMapImPKNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEE(ptr noundef nonnull readonly align 8 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL23computePrevailingCopiesRKN4llvm18ModuleSummaryIndexERNS_8DenseMapImPKNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !161
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9243,7 +9243,7 @@ declare void @_ZN4llvm13StdThreadPoolD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN4llvm16writeIndexToFileERKNS_18ModuleSummaryIndexERNS_11raw_ostreamEPKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSE_EEEESt4lessIvESaISt4pairIKSB_SK_EEEPKSt13unordered_setISE_St4hashISE_ESt8equal_toISE_ESaISE_EE(ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27computeGUIDPreservedSymbolsRKN4llvm3lto9InputFileERKNS_9StringSetINS_15MallocAllocatorEEERKNS_6TripleERNS_8DenseSetImNS_12DenseMapInfoImvEEEE(ptr readonly %.48.val, ptr readnone %.56.val, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc void @_ZL27computeGUIDPreservedSymbolsRKN4llvm3lto9InputFileERKNS_9StringSetINS_15MallocAllocatorEEERKNS_6TripleERNS_8DenseSetImNS_12DenseMapInfoImvEEEE(ptr readonly captures(address) %.48.val, ptr readnone captures(address) %.56.val, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %4 = alloca %"struct.std::pair.372", align 8
   %5 = alloca i64, align 8
@@ -11088,7 +11088,7 @@ declare void @_ZN4llvm21PipelineTuningOptionsC1Ev(ptr noundef nonnull align 4 de
 declare void @_ZN4llvm15MCTargetOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(249)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbmPKNS_18GlobalValueSummaryEEE11callback_fnIZL24resolvePrevailingInIndexRNS_18ModuleSummaryIndexERNS_9StringMapISt3mapImNS_11GlobalValue12LinkageTypesESt4lessImESaISt4pairIKmSC_EEENS_15MallocAllocatorEEERKNS_8DenseSetImNS_12DenseMapInfoImvEEEERKNS_8DenseMapImS3_SP_NS_6detail12DenseMapPairImS3_EEEEE3$_0EEblmS3_"(i64 noundef %0, i64 noundef %1, ptr noundef readnone %2) #13 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbmPKNS_18GlobalValueSummaryEEE11callback_fnIZL24resolvePrevailingInIndexRNS_18ModuleSummaryIndexERNS_9StringMapISt3mapImNS_11GlobalValue12LinkageTypesESt4lessImESaISt4pairIKmSC_EEENS_15MallocAllocatorEEERKNS_8DenseSetImNS_12DenseMapInfoImvEEEERKNS_8DenseMapImS3_SP_NS_6detail12DenseMapPairImS3_EEEEE3$_0EEblmS3_"(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2) #13 align 2 {
   %4 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %4, align 8, !tbaa !698
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !250
@@ -22685,7 +22685,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm12function_refIFbmPKNS_18GlobalValueSummaryEEE11callback_fnIN12_GLOBAL__N_112IsPrevailingEEEblmS3_(i64 noundef %0, i64 noundef %1, ptr noundef readnone %2) #13 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm12function_refIFbmPKNS_18GlobalValueSummaryEEE11callback_fnIN12_GLOBAL__N_112IsPrevailingEEEblmS3_(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2) #13 align 2 {
   %4 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %4, align 8, !tbaa !1274
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !250

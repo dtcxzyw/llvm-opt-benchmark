@@ -90,7 +90,7 @@ declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @malloc_strtoumax(ptr noalias noundef %nptr, ptr noalias noundef writeonly %endptr, i32 noundef %base) local_unnamed_addr #4 {
+define hidden i64 @malloc_strtoumax(ptr noalias noundef %nptr, ptr noalias noundef writeonly captures(address_is_null) %endptr, i32 noundef %base) local_unnamed_addr #4 {
 entry:
   %cmp1 = icmp eq i32 %base, 1
   %0 = icmp ugt i32 %base, 36
@@ -1874,7 +1874,7 @@ entry:
 }
 
 ; Function Attrs: cold nounwind uwtable
-define hidden void @malloc_vcprintf(ptr noundef readonly %write_cb, ptr noundef %cbopaque, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #8 {
+define hidden void @malloc_vcprintf(ptr noundef readonly captures(address_is_null) %write_cb, ptr noundef %cbopaque, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #8 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %cmp = icmp eq ptr %write_cb, null
@@ -1888,7 +1888,7 @@ entry:
 }
 
 ; Function Attrs: cold nounwind uwtable
-define hidden void @malloc_cprintf(ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef %format, ...) local_unnamed_addr #8 {
+define hidden void @malloc_cprintf(ptr noundef captures(address_is_null) %write_cb, ptr noundef %cbopaque, ptr noundef %format, ...) local_unnamed_addr #8 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)

@@ -105,7 +105,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [1 x %struct.blake2s_param__], align 16
   %7 = alloca [64 x i8], align 16
@@ -369,7 +369,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 declare i32 @blake2s_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.blake2s_param__], align 16
   %8 = alloca [1 x %struct.blake2s_param__], align 16
   %9 = alloca [8 x [32 x i8]], align 16

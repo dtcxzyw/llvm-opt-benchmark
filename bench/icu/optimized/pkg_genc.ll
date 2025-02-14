@@ -637,7 +637,7 @@ for.end:                                          ; preds = %for.body
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @writeAssemblyCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly %optEntryPoint, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity) local_unnamed_addr #1 {
+define void @writeAssemblyCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly captures(address_is_null) %optEntryPoint, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity) local_unnamed_addr #1 {
 entry:
   %bitField.addr.i = alloca i32, align 4
   %bitFieldStr.i = alloca [64 x i8], align 16
@@ -1249,7 +1249,7 @@ declare i32 @T_FileStream_error(ptr noundef) local_unnamed_addr #6
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @writeCCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly %optEntryPoint, ptr noundef readonly %optName, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity) local_unnamed_addr #1 {
+define void @writeCCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly captures(address_is_null) %optEntryPoint, ptr noundef readonly captures(address_is_null) %optName, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity) local_unnamed_addr #1 {
 entry:
   %s.i = alloca [4 x i8], align 1
   %buffer = alloca [4096 x i8], align 16
@@ -1488,7 +1488,7 @@ if.end94:                                         ; preds = %if.end89
 declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @writeObjectCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly %optEntryPoint, ptr noundef %optMatchArch, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity, i8 noundef signext %optWinDllExport) local_unnamed_addr #1 {
+define void @writeObjectCode(ptr noundef %filename, ptr noundef %destdir, ptr noundef readonly captures(address_is_null) %optEntryPoint, ptr noundef %optMatchArch, ptr noundef %optFilename, ptr noundef %outFilePath, i64 noundef %outFilePathCapacity, i8 noundef signext %optWinDllExport) local_unnamed_addr #1 {
 entry:
   %buffer.i = alloca %union.anon.0, align 4
   %buffer = alloca [4096 x i8], align 16

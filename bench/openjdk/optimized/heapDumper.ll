@@ -2334,7 +2334,7 @@ _ZN13DumperSupport10dump_floatEP18AbstractDumpWriterf.exit: ; preds = %_ZN18Abst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN13DumperSupport13instance_sizeEP13InstanceKlassP26DumperClassCacheTableEntry(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN13DumperSupport13instance_sizeEP13InstanceKlassP26DumperClassCacheTableEntry(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.HierarchicalFieldStream, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -9165,7 +9165,7 @@ define hidden noundef zeroext i1 @_ZN13VM_HeapDumper13doit_prologueEv(ptr nounde
 declare noundef zeroext i1 @_ZN15VM_GC_Operation13doit_prologueEv(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13VM_HeapDumper21prepare_parallel_dumpEP13WorkerThreads(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13VM_HeapDumper21prepare_parallel_dumpEP13WorkerThreads(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %5
 

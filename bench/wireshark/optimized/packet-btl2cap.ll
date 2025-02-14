@@ -764,7 +764,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal i32 @dissect_btl2cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [8 x %struct._wmem_tree_key_t], align 16
@@ -3352,7 +3352,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly %6, ptr noundef readonly %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -3703,7 +3703,7 @@ proto_item_set_generated.exit130:                 ; preds = %211, %208, %205, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3912,7 +3912,7 @@ define internal fastcc range(i32 -2147483636, 65551) i32 @dissect_connresponse(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef readonly %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequestresponse(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -5420,7 +5420,7 @@ declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #0
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i32 -2147483640, 65549) %1, ptr noundef %2, i32 noundef range(i32 -6, 65532) %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_options(ptr noundef %0, i32 noundef range(i32 -2147483640, 65549) %1, ptr noundef %2, i32 noundef range(i32 -6, 65532) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %6
 

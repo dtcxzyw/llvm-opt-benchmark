@@ -53,7 +53,7 @@ $_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm42949
 @_ZGVZN19OpenColorIO_v2_4dev8Platform12_GLOBAL__N_120GenerateRandomNumberEvE4dist = internal global i64 0, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN19OpenColorIO_v2_4dev14GetEnvVariableEPKc(ptr noundef readonly %name) local_unnamed_addr #0 {
+define noundef ptr @_ZN19OpenColorIO_v2_4dev14GetEnvVariableEPKc(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN19OpenColorIO_v2_4dev14GetEnvVariableEPKcE5valueB5cxx11 acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -116,7 +116,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %name, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform6GetenvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address_is_null) %name, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -218,7 +218,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev16UnsetEnvVariableEPKc(ptr noundef readonly %name) local_unnamed_addr #5 {
+define void @_ZN19OpenColorIO_v2_4dev16UnsetEnvVariableEPKc(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #5 {
 entry:
   %tobool.not.i = icmp eq ptr %name, null
   br i1 %tobool.not.i, label %_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit, label %lor.lhs.false.i
@@ -237,7 +237,7 @@ _ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc.exit: ; preds = %entry, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc(ptr noundef readonly %name) local_unnamed_addr #5 {
+define hidden void @_ZN19OpenColorIO_v2_4dev8Platform8UnsetenvEPKc(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -256,7 +256,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20IsEnvVariablePresentEPKc(ptr noundef readonly %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev20IsEnvVariablePresentEPKc(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %value.i)
@@ -308,7 +308,7 @@ _ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc.exit: ; preds = %entry, %lor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef readonly %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %name, null

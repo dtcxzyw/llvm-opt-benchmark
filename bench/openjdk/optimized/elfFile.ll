@@ -629,7 +629,7 @@ define hidden void @_ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1814,7 +1814,7 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %._crit_edge, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -3431,7 +3431,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_t
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

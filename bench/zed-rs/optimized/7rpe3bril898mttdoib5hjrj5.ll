@@ -322,7 +322,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$core..option..Option$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$dyn$u20$core..any..Any$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$usize$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$$GT$17hb3a35d02743c29a7E"(ptr %.16.val, ptr readonly %.24.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$core..option..Option$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$dyn$u20$core..any..Any$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$usize$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$$GT$17hb3a35d02743c29a7E"(ptr %.16.val, ptr readonly captures(address_is_null) %.24.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.16.val, null
   br i1 %1, label %"_ZN4core3ptr255drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$dyn$u20$core..any..Any$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..option..Option$LT$usize$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17hd803b8e46b1d965cE.exit", label %2
 
@@ -467,7 +467,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17hd9ccc47867f0f611E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17hd9ccc47867f0f611E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr66drop_in_place$LT$settings..settings_store..DeserializedSetting$GT$17hc5cc6161e4f1f73dE.exit", label %2
 
@@ -1113,7 +1113,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33a61d03fa9025dE.exit.i23: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN8settings14settings_store13SettingsStore17raw_user_settings17hb9db6a9d7e952a5cE(ptr noalias noundef readonly align 8 dereferenceable(328) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN8settings14settings_store13SettingsStore17raw_user_settings17hb9db6a9d7e952a5cE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(328) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }

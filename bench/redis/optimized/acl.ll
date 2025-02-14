@@ -3989,7 +3989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addAuthErrReply(ptr noundef %c, ptr noundef readonly %err) local_unnamed_addr #0 {
+define dso_local void @addAuthErrReply(ptr noundef %c, ptr noundef readonly captures(address_is_null) %err) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @clientHasPendingReplies(ptr noundef %c) #24
   %tobool.not = icmp eq i32 %call, 0
@@ -4508,7 +4508,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly %u, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @ACLUserCheckKeyPerm(ptr noundef readonly captures(address_is_null) %u, ptr noundef %key, i32 noundef %keylen, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp = icmp eq ptr %u, null
@@ -4632,7 +4632,7 @@ return:                                           ; preds = %sdslen.exit, %while
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ACLUserCheckCmdWithUnrestrictedKeyAccess(ptr noundef readonly captures(address_is_null) %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -5044,7 +5044,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readonly %u, ptr noundef %channel, i32 noundef %is_pattern) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLUserCheckChannelPerm(ptr noundef readonly captures(address_is_null) %u, ptr noundef %channel, i32 noundef %is_pattern) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp = icmp eq ptr %u, null
@@ -5212,7 +5212,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly captures(none) %idxptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(address_is_null) %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef writeonly captures(none) %idxptr) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %local_idxptr = alloca i32, align 4
@@ -5307,7 +5307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %new, ptr noundef readonly %original) local_unnamed_addr #0 {
+define dso_local void @ACLKillPubsubClientsIfNeeded(ptr noundef readonly captures(none) %new, ptr noundef readonly captures(address) %original) local_unnamed_addr #0 {
 entry:
   %li.i85 = alloca %struct.listIter, align 8
   %li.i60 = alloca %struct.listIter, align 8
@@ -5790,7 +5790,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 declare void @freeClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef captures(none) initializes((0, 4)) %merged_argc, ptr noundef writeonly %invalid_idx) local_unnamed_addr #0 {
+define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef captures(none) initializes((0, 4)) %merged_argc, ptr noundef writeonly captures(address_is_null) %invalid_idx) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %merged_argc, align 4
   %conv = sext i32 %argc to i64
@@ -5983,7 +5983,7 @@ return:                                           ; preds = %entry, %for.end, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLStringSetUser(ptr noundef %u, ptr noundef %username, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %u, ptr noundef %username, ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %merged_argc = alloca i32, align 4
   %invalid_idx = alloca i32, align 4
@@ -6311,7 +6311,7 @@ return:                                           ; preds = %for.end54, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef %argc_err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef captures(address_is_null) %argc_err) local_unnamed_addr #0 {
 entry:
   %merged_argc = alloca i32, align 4
   %cmp = icmp slt i32 %argc, 2

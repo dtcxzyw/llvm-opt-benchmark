@@ -1167,7 +1167,7 @@ define dso_local void @SimpleLruWritePage(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.FileTag, align 8
   %6 = load ptr, ptr %0, align 8

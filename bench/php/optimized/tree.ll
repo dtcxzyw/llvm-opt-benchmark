@@ -278,7 +278,7 @@ lxb_html_tree_insertion_mode.exit:                ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @lxb_html_tree_ref(ptr noundef returned %0) local_unnamed_addr #2 {
+define hidden noundef ptr @lxb_html_tree_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_html_integration_point(ptr nound
 declare zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly captures(address, ret: address, provenance) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i32 0, ptr %2, align 4
@@ -1279,7 +1279,7 @@ declare ptr @lxb_dom_attr_local_name_append(ptr noundef, ptr noundef, i64 nounde
 declare ptr @lxb_ns_prefix_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lexbor_str_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1324,7 +1324,7 @@ declare ptr @lexbor_str_init(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -2047,7 +2047,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %._crit_edge, %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16

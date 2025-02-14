@@ -3123,7 +3123,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hb019cc3907c6628eE"(ptr %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hb019cc3907c6628eE"(ptr captures(address_is_null) %.8.val, i64 %.16.val, i64 noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = icmp ult i64 %0, %.16.val

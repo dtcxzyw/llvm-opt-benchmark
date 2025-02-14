@@ -1024,7 +1024,7 @@ ph_remove_first.exit:                             ; preds = %entry, %ph_merge_ch
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hpdata_age_heap_remove(ptr noundef captures(none) %ph, ptr noundef readonly %phn) local_unnamed_addr #2 {
+define hidden void @hpdata_age_heap_remove(ptr noundef captures(none) %ph, ptr noundef readonly captures(address) %phn) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ph, align 8
   %cmp1.i = icmp eq ptr %0, %phn

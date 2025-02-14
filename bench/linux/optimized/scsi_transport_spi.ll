@@ -1487,7 +1487,7 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone captures(address) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_target_device(ptr noundef %1) #17
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %40, label %5
@@ -1552,7 +1552,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone captures(address) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_host_device(ptr noundef %1) #17
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %.preheader
@@ -1678,7 +1678,7 @@ define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
   %7 = alloca [6 x i8], align 1
@@ -2290,7 +2290,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @sysfs_update_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 %2) #0 align 16 {
+define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6

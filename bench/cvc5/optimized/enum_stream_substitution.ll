@@ -5798,7 +5798,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIN4cvc5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationState7getVarsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationState7getVarsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret ptr %this
 }
@@ -5806,7 +5806,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation12getVarsClassEj(ptr noundef nonnull readonly align 8 dereferenceable(220) %this, i32 noundef %id) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation12getVarsClassEj(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(220) %this, i32 noundef %id) local_unnamed_addr #9 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -5845,7 +5845,7 @@ _ZNKSt3mapIjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessIjESaIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj(ptr noundef nonnull readonly align 8 dereferenceable(220) %this, i32 noundef %id) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers21EnumStreamPermutation15getVarClassSizeEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(220) %this, i32 noundef %id) local_unnamed_addr #9 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

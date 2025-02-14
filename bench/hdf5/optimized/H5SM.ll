@@ -822,7 +822,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5SM_can_share(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5SM_can_share(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.H5SM_table_cache_ud_t, align 8
   store i64 -1, ptr %6, align 8
@@ -975,7 +975,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare i64 @H5O_msg_raw_size(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca %struct.H5SM_mesg_key_t, align 8
@@ -3189,7 +3189,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr nound
 declare i32 @H5_checksum_lookup3(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SM__find_in_list(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SM__find_in_list(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6
@@ -3948,7 +3948,7 @@ declare i32 @H5HF_insert(ptr noundef, i64 noundef, ptr noundef, ptr noundef) loc
 declare i32 @H5B2_modify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5SM__incr_ref(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5SM__incr_ref(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %22
@@ -4290,7 +4290,7 @@ declare i32 @H5B2_delete(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @H5HF_delete(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5SM__decr_ref(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2) #5 {
+define internal noundef i32 @H5SM__decr_ref(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10

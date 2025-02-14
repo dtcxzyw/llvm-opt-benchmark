@@ -1831,7 +1831,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5alloc3str17join_generic_copy17h654e818c0f35ac5fE(ptr noalias noundef writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN5alloc3str17join_generic_copy17h654e818c0f35ac5fE(ptr noalias noundef writeonly sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, ptr }, i64 }, align 8
   %.idx = mul nsw i64 %2, 24
   %7 = getelementptr inbounds i8, ptr %1, i64 %.idx

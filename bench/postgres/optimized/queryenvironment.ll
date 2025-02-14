@@ -14,7 +14,7 @@ define dso_local ptr @create_queryEnv() local_unnamed_addr #0 {
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @get_visible_ENR_metadata(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @get_visible_ENR_metadata(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %get_ENR.exit, label %4
 
@@ -55,7 +55,7 @@ get_ENR.exit:                                     ; preds = %12, %11, %.lr.ph.i,
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @get_ENR(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @get_ENR(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -106,7 +106,7 @@ define dso_local void @register_ENR(ptr noundef captures(none) %0, ptr noundef %
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @unregister_ENR(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @unregister_ENR(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %get_ENR.exit.thread, label %4
 

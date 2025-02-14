@@ -1980,7 +1980,7 @@ for.end:                                          ; preds = %_ZN3smt19conflict_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt20simple_justification16antecedent2proofERNS_19conflict_resolutionER10ptr_bufferI3appLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(356) %cr, ptr noundef nonnull align 8 dereferenceable(144) %result) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt20simple_justification16antecedent2proofERNS_19conflict_resolutionER10ptr_bufferI3appLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(356) %cr, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %result) local_unnamed_addr #4 align 2 {
 entry:
   %m_num_literals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_num_literals, align 4
@@ -3008,7 +3008,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt24ext_simple_justificationC2ERNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_E(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8), (12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr noundef readonly captures(none) %lits, i32 noundef %num_eqs, ptr noundef readonly %eqs) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt24ext_simple_justificationC2ERNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_E(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8), (12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr noundef readonly captures(none) %lits, i32 noundef %num_eqs, ptr noundef readonly captures(address) %eqs) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %bf.load.i.i = load i8, ptr %m_mark.i.i, align 8
@@ -3217,7 +3217,7 @@ for.end:                                          ; preds = %_ZN3smt19conflict_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt24ext_simple_justification16antecedent2proofERNS_19conflict_resolutionER10ptr_bufferI3appLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(356) %cr, ptr noundef nonnull align 8 dereferenceable(144) %result) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt24ext_simple_justification16antecedent2proofERNS_19conflict_resolutionER10ptr_bufferI3appLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(356) %cr, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %result) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN3smt20simple_justification16antecedent2proofERNS_19conflict_resolutionER10ptr_bufferI3appLj16EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(356) %cr, ptr noundef nonnull align 8 dereferenceable(144) %result)
   %m_num_eqs = getelementptr inbounds nuw i8, ptr %this, i64 24

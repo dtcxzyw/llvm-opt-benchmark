@@ -2279,7 +2279,7 @@ define hidden range(i32 -1, 1) i32 @ssl_data_alloc(ptr noundef writeonly capture
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_data_set(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @ssl_data_set(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 
@@ -2511,7 +2511,7 @@ define hidden void @ssl_change_cipher(ptr noundef captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_generate_pre_master_secret(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
   %9 = alloca %struct._StringInfo, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %11 = load i32, ptr %10, align 8
@@ -3668,7 +3668,7 @@ ssl_data_alloc.exit.thread:                       ; preds = %ssl_md_init.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @prf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca %struct._StringInfo, align 8
   %9 = alloca %struct._StringInfo, align 8
   %10 = alloca %struct._StringInfo, align 8
@@ -4193,7 +4193,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ssl_create_decoder(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc noundef ptr @ssl_create_decoder(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @wmem_file_scope() #23
@@ -6127,7 +6127,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_reset_session(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @ssl_reset_session(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %4
 
@@ -6420,7 +6420,7 @@ copy_address_wmem.exit:                           ; preds = %4, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %addresses_equal.exit, label %4
 
@@ -8001,7 +8001,7 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_set_debug(ptr noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @ssl_set_debug(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.tail, label %sub_0
 
@@ -8371,7 +8371,7 @@ define hidden range(i32 0, 2) i32 @ssl_end_vector(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_dissect_change_cipher_spec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #1 {
+define hidden void @ssl_dissect_change_cipher_spec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
@@ -9012,7 +9012,7 @@ define hidden noundef i32 @ssl_is_valid_handshake_type(i8 noundef zeroext %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #23
   store i16 %6, ptr %3, align 2
   switch i16 %6, label %46 [
@@ -9100,7 +9100,7 @@ define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noun
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @ssl_try_set_version(ptr noundef writeonly captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #7 {
+define hidden void @ssl_try_set_version(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5) local_unnamed_addr #7 {
   %cond.i = icmp eq i8 %2, 22
   br i1 %cond.i, label %ssl_is_authoritative_version_message.exit, label %7
 
@@ -9221,7 +9221,7 @@ define hidden void @ssl_check_record_length(ptr noundef %0, ptr noundef %1, i32 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_dissect_hnd_cli_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef readonly %8) local_unnamed_addr #1 {
+define hidden void @ssl_dissect_hnd_cli_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef readonly captures(address_is_null) %8) local_unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9852,7 +9852,7 @@ declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_add
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc noundef i32 @ssl_dissect_hnd_hello_common(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %10 = load i8, ptr %9, align 2
   %.not = icmp eq ptr %5, null
@@ -9974,7 +9974,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 1, 14) %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 1, 14) %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef captures(address_is_null) %11) unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -13164,7 +13164,7 @@ define hidden void @ssl_dissect_hnd_cert_req(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hash_alg_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %10 = load i32, ptr %9, align 4
@@ -13431,7 +13431,7 @@ ssl_dissect_digitally_signed.exit:                ; preds = %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_dissect_hnd_finished(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6) local_unnamed_addr #1 {
+define hidden void @ssl_dissect_hnd_finished(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %8
 
@@ -14188,7 +14188,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_calculate_handshake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @ssl_calculate_handshake_hash(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %5
 
@@ -14278,7 +14278,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #0
 declare i32 @gcry_md_get_algo(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef range(i32 8, 327) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @tls12_prf(i32 noundef range(i32 8, 327) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %8
 
@@ -14610,7 +14610,7 @@ declare i32 @gnutls_pubkey_get_key_id(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @gnutls_pubkey_deinit(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tls_dissect_signature_algorithm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @tls_dissect_signature_algorithm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15029,7 +15029,7 @@ declare void @quic_add_grease_quic_bit(ptr noundef) local_unnamed_addr #0
 declare void @quic_add_multipath(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #1 {
+define internal fastcc i32 @ssl_dissect_hnd_hello_ext_key_share_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1112

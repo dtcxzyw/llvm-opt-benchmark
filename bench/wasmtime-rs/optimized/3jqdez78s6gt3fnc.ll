@@ -351,7 +351,7 @@ define hidden void @"_ZN101_$LT$core..iter..sources..empty..Empty$LT$T$GT$$u20$a
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN101_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h07bfd050e667240bE.llvm.7808069312437652055"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 {
+define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN101_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h07bfd050e667240bE.llvm.7808069312437652055"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0, i32 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2063,7 +2063,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$wasmparser..readers..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_cranelift..gc..GcCompiler$GT$$GT$17h9a6caae2857b5ddbE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_cranelift..gc..GcCompiler$GT$$GT$17h9a6caae2857b5ddbE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -2108,7 +2108,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.7808069312437652055(ptr noundef readonly %0, ptr readnone %1, ptr noalias noundef align 8 captures(none) dereferenceable(16) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 -1, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.7808069312437652055(ptr noundef readonly captures(address) %0, ptr readnone captures(address) %1, ptr noalias noundef align 8 captures(none) dereferenceable(16) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %.promoted15.i.i = load ptr, ptr %2, align 8, !alias.scope !250, !noalias !251
@@ -2306,7 +2306,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h2b3fcdbc60e65199E(ptr noundef readonly %0, ptr readnone %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h2b3fcdbc60e65199E(ptr noundef readonly captures(address) %0, ptr readnone captures(address) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #11 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !alias.scope !314
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !314
@@ -15757,7 +15757,7 @@ define noundef zeroext i1 @"_ZN118_$LT$wasmtime_cranelift..func_environ..FuncEnv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$as$u20$cranelift_wasm..environ..spec..FuncEnvironment$GT$5heaps17h7997634ded751662E"(ptr noalias noundef readonly returned align 8 dereferenceable(520) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$as$u20$cranelift_wasm..environ..spec..FuncEnvironment$GT$5heaps17h7997634ded751662E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(520) %0) unnamed_addr #1 {
   ret ptr %0
 }
 

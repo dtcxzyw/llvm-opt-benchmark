@@ -727,7 +727,7 @@ __uc_fw_auto_select.exit:                         ; preds = %.thread5.i, %.loope
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.thread12 [
     i32 0, label %4

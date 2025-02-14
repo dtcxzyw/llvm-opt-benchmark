@@ -5007,7 +5007,7 @@ print_data.exit.thread:                           ; preds = %134, %125, %99, %68
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_member_types(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_member_types(i64 noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

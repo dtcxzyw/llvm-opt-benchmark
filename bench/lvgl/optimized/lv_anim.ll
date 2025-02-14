@@ -631,7 +631,7 @@ convert_speed_to_time.exit21:                     ; preds = %convert_speed_to_ti
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonly captures(address) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = icmp eq ptr %3, null
@@ -756,7 +756,7 @@ define i32 @lv_anim_get_playtime(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_anim_delete(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_anim_delete(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #8
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -985,7 +985,7 @@ declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_ll_clear_custom(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_anim_get(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -1489,7 +1489,7 @@ define ptr @lv_anim_get_user_data(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1504,7 +1504,7 @@ define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_anim_custom_get(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 

@@ -2561,7 +2561,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16BlockListBuilder13make_block_atEiP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3078,7 +3078,7 @@ _ZN16BlockListBuilder12is_successorEP10BlockBeginS1_.exit._crit_edge: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16BlockListBuilder10handle_jsrEP10BlockBeginii(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16BlockListBuilder10handle_jsrEP10BlockBeginii(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5301,7 +5301,7 @@ _ZN10ValueStack11store_localEiP11Instruction.exit: ; preds = %67, %57, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN12GraphBuilder8round_fpEP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone returned %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder8round_fpEP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
   ret ptr %1
 }
 
@@ -23139,7 +23139,7 @@ declare noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -31246,7 +31246,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %29, %_ZN22Compilati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK12GraphBuilder22recursive_inline_levelEP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK12GraphBuilder22recursive_inline_levelEP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.07 = load ptr, ptr %4, align 8

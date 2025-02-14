@@ -606,7 +606,7 @@ define dso_local void @nghttp2_stream_promise_fulfilled(ptr noundef captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

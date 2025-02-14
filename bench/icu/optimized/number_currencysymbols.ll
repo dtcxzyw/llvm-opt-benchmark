@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_756number4impl15CurrencySymbols10getIsoCodeEv(ptr noundef nonnull readnone align 8 dereferenceable(232) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK6icu_756number4impl15CurrencySymbols10getIsoCodeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(232) %this) local_unnamed_addr #8 align 2 {
 entry:
   %isoCode.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   ret ptr %isoCode.i

@@ -728,7 +728,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17demodulator_index3delEP9func_decljR7obj_mapIS0_P8uint_setE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly %f, i32 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %map) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN17demodulator_index3delEP9func_decljR7obj_mapIS0_P8uint_setE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(address) %f, i32 noundef %i, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %map) local_unnamed_addr #8 align 2 {
 entry:
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12
   %0 = load i32, ptr %m_hash.i.i.i.i.i.i.i, align 4
@@ -3238,7 +3238,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN22demodulator_simplifier8rewrite1EP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_E(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %args, ptr noundef nonnull align 8 dereferenceable(16) %np) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN22demodulator_simplifier8rewrite1EP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_E(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %args, ptr noundef nonnull align 8 dereferenceable(16) %np) local_unnamed_addr #4 align 2 {
 entry:
   %retval.i5 = alloca %"class.uint_set::iterator", align 8
   %retval.i = alloca %"class.uint_set::iterator", align 8
@@ -3555,7 +3555,7 @@ return:                                           ; preds = %for.body.i.i.i.i, %
 declare noundef zeroext i1 @_ZN23demodulator_match_substclEP3appP4exprPKS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(161), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22demodulator_simplifier20reschedule_processedEP9func_decl(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly %f) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22demodulator_simplifier20reschedule_processedEP9func_decl(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly captures(address) %f) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -4134,7 +4134,7 @@ return:                                           ; preds = %for.body.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly %f, ptr noundef %lhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22demodulator_simplifier23reschedule_demodulatorsEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef readonly captures(address) %f, ptr noundef %lhs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i4 = alloca %"class.uint_set::iterator", align 8
   %retval.i = alloca %"class.uint_set::iterator", align 8

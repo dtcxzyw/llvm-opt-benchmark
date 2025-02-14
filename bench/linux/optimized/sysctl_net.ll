@@ -246,7 +246,7 @@ define internal void @sysctl_net_exit(ptr noundef %0) #2 align 16 {
 declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone %0) #3 align 16 {
+define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone captures(address) %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872

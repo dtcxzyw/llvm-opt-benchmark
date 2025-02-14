@@ -16611,7 +16611,7 @@ _ZN6hermes25FunctionRuntimeStatisticsD2Ev.exit:   ; preds = %_ZNSt10_HashtableIt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_SG_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjN6hermes25FunctionRuntimeStatisticsEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer17dumpFunctionStatsEvE3$_1EEEvT_SG_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #0 {
 entry:
   %__val = alloca %"struct.std::pair.218", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

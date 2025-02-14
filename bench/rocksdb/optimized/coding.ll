@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef writeonly initializes((0, 1)) %dst, i32 noundef %v) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %dst, i32 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %v, 128
   br i1 %cmp, label %if.then, label %if.else
@@ -91,7 +91,7 @@ if.end58:                                         ; preds = %if.then2, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly %p, ptr noundef readnone %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef readonly captures(address, ret: address, provenance) %p, ptr noundef readnone captures(address) %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %cmp113 = icmp ult ptr %p, %limit
   br i1 %cmp113, label %for.body, label %return
@@ -128,7 +128,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly %p, ptr noundef readnone %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
+define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly captures(address, ret: address, provenance) %p, ptr noundef readnone captures(address) %limit, ptr noundef writeonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %cmp113 = icmp ult ptr %p, %limit
   br i1 %cmp113, label %for.body, label %return

@@ -2587,7 +2587,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM17CheckImmediateArgEPNS_8C
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjjENK3$_0clESt16initializer_listIlEi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2, i32 noundef range(i32 4659, 4661) %3) unnamed_addr #5 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang7SemaARM17CheckImmediateArgEPNS_8CallExprEjjjjENK3$_0clESt16initializer_listIlEi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull readonly captures(address) %1, i64 range(i64 2, 5) %2, i32 noundef range(i32 4659, 4661) %3) unnamed_addr #5 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -35377,7 +35377,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM13MveAliasValidEjN4llvm9St
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL17BuiltinAliasValidEjN4llvm9StringRefENS0_8ArrayRefINS_12_GLOBAL__N_112IntrinToNameEEEPKc(i32 noundef %0, ptr readonly captures(none) %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef readonly %5) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL17BuiltinAliasValidEjN4llvm9StringRefENS0_8ArrayRefINS_12_GLOBAL__N_112IntrinToNameEEEPKc(i32 noundef %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #9 {
   %.not.i.i = icmp ult i64 %2, 6
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
@@ -39797,7 +39797,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clangL27checkNewAttrMutualExclusionERNS_4SemaERKNS_10ParsedAttrEPKNS_17FunctionProtoTypeENS_12FunctionType13ArmStateValueEN4llvm9StringRefEENK3$_0clES9_SB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 1, 5) %1, ptr readonly %2, i64 %3) unnamed_addr #5 align 2 {
+define internal fastcc void @"_ZZN5clangL27checkNewAttrMutualExclusionERNS_4SemaERKNS_10ParsedAttrEPKNS_17FunctionProtoTypeENS_12FunctionType13ArmStateValueEN4llvm9StringRefEENK3$_0clES9_SB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 1, 5) %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #5 align 2 {
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca i64, align 8

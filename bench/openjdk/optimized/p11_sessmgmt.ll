@@ -158,7 +158,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @p11ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2) #0 {
+define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %74, label %6

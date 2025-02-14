@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.update = private unnamed_addr constant [7 x i8] c"update\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestSignInit_ex(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %pkey, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestSignInit_ex(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %pkey, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef null, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef null, ptr noundef %pkey, i32 noundef 0, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %ver, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %ver, ptr noundef %params) unnamed_addr #0 {
 entry:
   %tmp_keymgmt = alloca ptr, align 8
   %locmdname = alloca [80 x i8], align 16
@@ -613,21 +613,21 @@ return:                                           ; preds = %if.end339, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %e, ptr noundef %pkey, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestVerifyInit_ex(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %pkey, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit_ex(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef %pkey, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef null, ptr noundef %mdname, ptr noundef %libctx, ptr noundef %props, ptr noundef null, ptr noundef %pkey, i32 noundef 1, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef captures(address_is_null) %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %e, ptr noundef %pkey, i32 noundef 1, ptr noundef null)
   ret i32 %call

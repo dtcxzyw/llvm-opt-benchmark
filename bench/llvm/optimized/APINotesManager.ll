@@ -1320,7 +1320,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %143, %146
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes15APINotesManager24getCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.213") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr readonly %4, i64 %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9api_notes15APINotesManager24getCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.213") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %class.anon.354, align 1
@@ -2334,7 +2334,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12FileEntryRefELb1EE9push_backES2_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager25loadCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager25loadCurrentModuleAPINotesEPNS_6ModuleEbN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::SmallVector.213", align 8
   %8 = alloca %"class.std::unique_ptr.105", align 8
@@ -2559,7 +2559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager35loadCurrentModuleAPINotesFromBufferEN4llvm8ArrayRefINS2_9StringRefEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9api_notes15APINotesManager35loadCurrentModuleAPINotesFromBufferEN4llvm8ArrayRefINS2_9StringRefEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::unique_ptr.105", align 8
   %5 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
   %.not11 = icmp eq i64 %2, 0

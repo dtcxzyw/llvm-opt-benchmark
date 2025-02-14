@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [29 x i8] c"Failed to setup pasid entry\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.iommu_hwpt_vtd_s1, align 8
   %4 = getelementptr i8, ptr %0, i64 -128
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
@@ -263,7 +263,7 @@ define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.iommu_hwpt_vtd_s1_invalidate, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7

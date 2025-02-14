@@ -742,7 +742,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.474 = private unnamed_addr constant [53 x i8] c"Expecting LCAF AFI (%d), found %d, incorrect packet!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i16, align 2
   switch i16 %3, label %55 [
     i16 0, label %7

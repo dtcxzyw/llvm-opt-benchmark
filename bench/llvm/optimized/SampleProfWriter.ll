@@ -3645,7 +3645,7 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_17Sec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof25SampleProfileWriterBinary8addNamesERKNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm10sampleprof25SampleProfileWriterBinary8addNamesERKNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.llvm::MD5", align 4
   %4 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %5 = alloca %"class.llvm::sampleprof::FunctionId", align 8

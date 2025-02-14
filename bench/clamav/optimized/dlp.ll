@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @iin_map = internal unnamed_addr constant [18 x { i32, i32, i8, i8, i8, i8, [4 x i8], ptr }] [{ i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 100000, i32 199999, i8 13, i8 15, i8 0, i8 1, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 222100, i32 272099, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 300000, i32 305999, i8 14, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 309500, i32 309599, i8 14, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 340000, i32 349999, i8 15, i8 15, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 352800, i32 358999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 360000, i32 369999, i8 14, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 370000, i32 379999, i8 15, i8 15, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 380000, i32 399999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 400000, i32 499999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 500000, i32 509999, i8 16, i8 16, i8 0, i8 1, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 510000, i32 559999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 601100, i32 601199, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 622126, i32 622926, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 624000, i32 626999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 628200, i32 628899, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } { i32 644000, i32 659999, i8 16, i8 16, i8 1, i8 1, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, i32, i8, i8, i8, i8, [4 x i8], ptr } zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #10
   %5 = icmp eq ptr %0, null
@@ -409,7 +409,7 @@ contains_cc.exit:                                 ; preds = %24, %28, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1031,7 +1031,7 @@ define range(i32 0, 2) i32 @is_bank_code_valid(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond = or i1 %3, %4
@@ -1095,7 +1095,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond = or i1 %3, %4
@@ -1159,7 +1159,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [9 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #10
   %4 = icmp eq ptr %0, null

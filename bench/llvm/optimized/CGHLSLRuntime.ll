@@ -1871,7 +1871,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC2EPNS_23HLSLResourceBindingAttrE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((4, 5), (8, 12)) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC2EPNS_23HLSLResourceBindingAttrE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) initializes((4, 5), (8, 12)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -3348,7 +3348,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen13CGHLSLRuntime19getConvergenceTokenERN4llvm10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen13CGHLSLRuntime19getConvergenceTokenERN4llvm10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216

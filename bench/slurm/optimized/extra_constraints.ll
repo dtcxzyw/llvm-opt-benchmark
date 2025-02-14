@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._test = private unnamed_addr constant [6 x i8] c"_test\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @extra_constraints_2str(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @extra_constraints_2str(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -44,7 +44,7 @@ define ptr @extra_constraints_2str(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tree2str_recursive(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @_tree2str_recursive(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_element2str.exit, label %5
 
@@ -691,7 +691,7 @@ define void @extra_constraints_set_parsing(i1 noundef zeroext %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @extra_constraints_test(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @extra_constraints_parsing, align 1
   %4 = trunc nuw i8 %3 to i1
   %.not = icmp ne ptr %0, null
@@ -712,7 +712,7 @@ define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_test.exit, label %3
 

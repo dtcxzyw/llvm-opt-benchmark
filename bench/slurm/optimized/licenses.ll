@@ -1305,7 +1305,7 @@ define dso_local void @license_free() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
+define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.assoc_mgr_lock_t, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %7
@@ -2353,7 +2353,7 @@ declare ptr @assoc_mgr_find_tres_rec(ptr noundef) local_unnamed_addr #1
 declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const.license_set_job_tres_cnt.locks, i64 28, i1 false)
   %.b = load i1, ptr @license_set_job_tres_cnt.first_run, align 1

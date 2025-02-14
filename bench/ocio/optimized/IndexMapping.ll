@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK19OpenColorIO_v2_4dev12IndexMapping10getIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK19OpenColorIO_v2_4dev12IndexMapping10getIndicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %m_indices
@@ -480,7 +480,7 @@ for.end:                                          ; preds = %for.cond, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12IndexMappingeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %other) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12IndexMappingeqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %other) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end

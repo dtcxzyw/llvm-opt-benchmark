@@ -749,7 +749,7 @@ declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -832,7 +832,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
@@ -946,7 +946,7 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
@@ -970,7 +970,7 @@ define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
@@ -1590,7 +1590,7 @@ dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null

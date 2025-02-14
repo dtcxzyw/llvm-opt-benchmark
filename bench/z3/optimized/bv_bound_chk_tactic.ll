@@ -475,7 +475,7 @@ _ZN19bv_bound_chk_tacticD2Ev.exit:                ; preds = %entry, %if.end.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19bv_bound_chk_tacticclERK3refI4goalER11sref_bufferIS1_Lj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr noundef nonnull align 8 dereferenceable(144) %result) unnamed_addr #3 align 2 {
+define hidden void @_ZN19bv_bound_chk_tacticclERK3refI4goalER11sref_bufferIS1_Lj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %result) unnamed_addr #3 align 2 {
 entry:
   tail call void @_Z24fail_if_proof_generationPKcRK3refI4goalE(ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %g)
   tail call void @_Z29fail_if_unsat_core_generationPKcRK3refI4goalE(ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %g)

@@ -190,7 +190,7 @@ _ZNSt7__cxx1110_List_baseIPN17grpc_event_engine12experimental12Epoll1PollerESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle12OrphanHandleEPNS0_18PosixEngineClosureEPiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %on_done, ptr noundef writeonly %release_fd, i64 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17Epoll1EventHandle12OrphanHandleEPNS0_18PosixEngineClosureEPiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %on_done, ptr noundef writeonly captures(address_is_null) %release_fd, i64 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %phony_event = alloca %struct.epoll_event, align 1
@@ -946,7 +946,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental12Epoll1Poller8ShutdownEv(ptr noundef nonnull readnone align 8 dereferenceable(1281) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental12Epoll1Poller8ShutdownEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(1281) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i.i = alloca %"class.std::__cxx11::list", align 8
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core4Fork7EnabledEv()

@@ -256,7 +256,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 declare void @zfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @aofInfoDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofInfoDup(ptr noundef readonly captures(address_is_null) %orig) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %orig, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -391,7 +391,7 @@ aofInfoFree.exit:                                 ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @aofListDup(ptr noundef readonly %item) #0 {
+define dso_local noalias noundef ptr @aofListDup(ptr noundef readonly captures(address_is_null) %item) #0 {
 entry:
   %cmp.not.i = icmp eq ptr %item, null
   br i1 %cmp.not.i, label %cond.false.i, label %aofInfoDup.exit
@@ -506,7 +506,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAofManifestAsString(ptr noundef readonly %am) local_unnamed_addr #0 {
+define dso_local ptr @getAofManifestAsString(ptr noundef readonly captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp.not = icmp eq ptr %am, null
@@ -1139,7 +1139,7 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @aofManifestDup(ptr noundef readonly %orig) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @aofManifestDup(ptr noundef readonly captures(address_is_null) %orig) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %orig, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -1218,7 +1218,7 @@ cond.end36:                                       ; preds = %cond.end24
 declare ptr @listDup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getNewBaseFileNameAndMarkPreAsHistory(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local ptr @getNewBaseFileNameAndMarkPreAsHistory(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %am, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -1314,7 +1314,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getLastIncrAofName(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local ptr @getLastIncrAofName(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %am, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -1368,7 +1368,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @listIndex(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @markRewrittenIncrAofAsHistory(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local void @markRewrittenIncrAofAsHistory(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp.not = icmp eq ptr %am, null
@@ -1655,7 +1655,7 @@ declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @persistAofManifest(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @persistAofManifest(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %dirty = getelementptr inbounds nuw i8, ptr %am, i64 40
   %0 = load i32, ptr %dirty, align 8
@@ -1679,7 +1679,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @aofUpgradePrepare(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local void @aofUpgradePrepare(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3912), align 8
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3920), align 8
@@ -2228,7 +2228,7 @@ return:                                           ; preds = %if.end, %do.body, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getAppendOnlyFileSize(ptr noundef %filename, ptr noundef writeonly %status) local_unnamed_addr #0 {
+define dso_local i64 @getAppendOnlyFileSize(ptr noundef %filename, ptr noundef writeonly captures(address_is_null) %status) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3920), align 8
@@ -4806,7 +4806,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare void @freeClient(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @loadAppendOnlyFiles(ptr noundef %am) local_unnamed_addr #0 {
+define dso_local i32 @loadAppendOnlyFiles(ptr noundef captures(address_is_null) %am) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %li = alloca %struct.listIter, align 8
@@ -5109,7 +5109,7 @@ if.end5:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getBaseAndIncrAppendOnlyFilesSize(ptr noundef readonly captures(none) %am, ptr noundef %status) local_unnamed_addr #0 {
+define dso_local i64 @getBaseAndIncrAppendOnlyFilesSize(ptr noundef readonly captures(none) %am, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %am, align 8

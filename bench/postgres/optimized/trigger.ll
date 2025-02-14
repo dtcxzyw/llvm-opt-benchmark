@@ -3521,7 +3521,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CopyTriggerDesc(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @CopyTriggerDesc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -3767,7 +3767,7 @@ define dso_local void @FreeTriggerDesc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @FindTriggerIncompatibleWithInheritance(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local ptr @FindTriggerIncompatibleWithInheritance(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -4280,7 +4280,7 @@ define internal fastcc ptr @ExecCallTriggerFunc(ptr noundef nonnull %0, i32 noun
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecASInsertTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecASInsertTriggers(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4301,7 +4301,7 @@ define dso_local void @ExecASInsertTriggers(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 4) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly %10, i1 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 4) %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly captures(address_is_null) %10, i1 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca %struct.AfterTriggerEventData, align 4
   %14 = alloca %struct.AfterTriggerSharedData, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5200,7 +5200,7 @@ declare zeroext i1 @ExecPartitionCheck(ptr noundef, ptr noundef, ptr noundef, i1
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecARInsertTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @ExecARInsertTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5442,7 +5442,7 @@ define dso_local void @ExecBSDeleteTriggers(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecASDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecASDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5463,7 +5463,7 @@ define dso_local void @ExecASDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.TriggerData, align 8
   %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
@@ -5594,7 +5594,7 @@ define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr no
 declare ptr @ExecGetTriggerOldSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @GetTupleForTrigger(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @GetTupleForTrigger(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca %struct.TM_FailureData, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -5776,7 +5776,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %82
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecARDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local void @ExecARDeleteTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -6038,7 +6038,7 @@ define dso_local void @ExecBSUpdateTriggers(ptr noundef %0, ptr noundef %1) loca
 declare ptr @ExecGetAllUpdatedCols(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecASUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecASUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -6060,7 +6060,7 @@ define dso_local void @ExecASUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecBRUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca %struct.TriggerData, align 8
@@ -6265,7 +6265,7 @@ declare i32 @ExecUpdateLockMode(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @ExecGetUpdateNewTuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecARUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local void @ExecARUpdateTriggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
@@ -6586,7 +6586,7 @@ define dso_local void @ExecASTruncateTriggers(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %145, label %5
 
@@ -7004,7 +7004,7 @@ afterTriggerDeleteHeadEventChunk.exit:            ; preds = %42, %22, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.02653 = load ptr, ptr %0, align 8
   %.not54 = icmp eq ptr %.02653, null
   br i1 %.not54, label %._crit_edge.thread, label %.lr.ph58

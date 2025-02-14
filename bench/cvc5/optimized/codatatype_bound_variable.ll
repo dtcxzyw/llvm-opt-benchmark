@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal23CodatatypeBoundVariable8getIndexEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal23CodatatypeBoundVariable8getIndexEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_index

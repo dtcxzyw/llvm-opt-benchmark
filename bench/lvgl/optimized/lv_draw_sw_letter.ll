@@ -30,7 +30,7 @@ define void @lv_draw_sw_label(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 declare void @lv_draw_label_iterate_characters(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @draw_letter_cb(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @draw_letter_cb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.lv_draw_border_dsc_t, align 8
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct._lv_draw_sw_blend_dsc_t, align 8

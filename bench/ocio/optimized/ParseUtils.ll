@@ -2247,7 +2247,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13StringToFloatEPfPKc(ptr noundef writeonly %fval, ptr noundef %str) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev13StringToFloatEPfPKc(ptr noundef writeonly captures(address_is_null) %fval, ptr noundef %str) local_unnamed_addr #3 {
 entry:
   %endptr.i = alloca ptr, align 8
   %tobool.not = icmp eq ptr %str, null

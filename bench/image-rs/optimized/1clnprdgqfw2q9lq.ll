@@ -35007,7 +35007,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h8e7253cc599553faE.llvm.6924994955228445577"(ptr noalias noundef readonly returned align 2 dereferenceable(1024) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h8e7253cc599553faE.llvm.6924994955228445577"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(1024) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -35454,7 +35454,7 @@ define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h59835460a725351aE"(ptr noalias noundef readonly align 8 dereferenceable(1032) %0) unnamed_addr #17 {
+define hidden noundef nonnull align 2 dereferenceable(1024) ptr @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h59835460a725351aE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1032) %0) unnamed_addr #17 {
   %2 = load i16, ptr %0, align 8, !range !6681, !noundef !4
   %trunc = trunc nuw i16 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -35617,12 +35617,12 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h881c48122848fbccE.llvm.6924994955228445577"(ptr noundef readnone returned %0) unnamed_addr #12 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h881c48122848fbccE.llvm.6924994955228445577"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17hbb07d4716ce7095aE.llvm.6924994955228445577"(ptr noalias noundef readonly align 8 dereferenceable(4280) %0) unnamed_addr #20 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17hbb07d4716ce7095aE.llvm.6924994955228445577"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(4280) %0) unnamed_addr #20 {
   %2 = load i64, ptr %0, align 8, !range !22, !noundef !4
   %3 = icmp eq i64 %2, 0
   tail call void @llvm.assume(i1 %3)
@@ -36918,7 +36918,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb4d26d988a4b38d1E.llvm.6924994955228445577"(ptr noundef nonnull readnone %0, i64 noundef %1) unnamed_addr #12 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hb4d26d988a4b38d1E.llvm.6924994955228445577"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #12 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { { i16, i16 }, [2 x i16], { i64, [8 x i8], i8, [7 x i8] } }, ptr %0, i64 %3
   ret ptr %4

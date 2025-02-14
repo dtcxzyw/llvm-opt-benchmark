@@ -175,7 +175,7 @@ declare dso_local void @console_unlock() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone captures(address) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
@@ -341,7 +341,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__vga_tryget(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__vga_tryget(ptr noundef nonnull captures(address) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = and i32 %1, 4
   %5 = icmp eq i32 %4, 0
@@ -554,7 +554,7 @@ declare dso_local void @remove_wait_queue(ptr noundef, ptr noundef) local_unname
 declare dso_local void @schedule() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vga_put(ptr noundef readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local void @vga_put(ptr noundef readnone captures(address) %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = load ptr, ptr @vga_default, align 8
   %5 = select i1 %3, ptr %4, ptr %0
@@ -707,7 +707,7 @@ define internal fastcc void @__vga_put(ptr noundef captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vga_set_legacy_decoding(ptr noundef readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local void @vga_set_legacy_decoding(ptr noundef readnone captures(address) %0, i32 noundef %1) #1 align 16 {
   %3 = and i32 %1, 3
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   br label %5
@@ -738,7 +738,7 @@ define dso_local void @vga_set_legacy_decoding(ptr noundef readnone %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull readnone captures(address) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = and i32 %1, 3
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   br label %5
@@ -775,7 +775,7 @@ define internal fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @vga_client_register(ptr noundef readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @vga_client_register(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   br label %4
 
@@ -2354,7 +2354,7 @@ sub_13:                                           ; preds = %sub_0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -19, 1) i32 @vga_tryget(ptr noundef nonnull readnone %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @vga_tryget(ptr noundef nonnull readnone captures(address) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #1 align 16 {
   %3 = load i1, ptr @vga_arbiter_used, align 1
   br i1 %3, label %21, label %4
 

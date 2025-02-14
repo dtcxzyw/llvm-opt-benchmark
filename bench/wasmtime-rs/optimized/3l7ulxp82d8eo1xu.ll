@@ -94,7 +94,7 @@ define hidden noundef zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Oper
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr readonly align 8 %0) unnamed_addr #2 {
+define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -128,7 +128,7 @@ define hidden noundef zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands7Oper
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands17OperandKindFields11enum_values17hf19164dad4bd2493E(ptr readonly align 8 %0) unnamed_addr #2 {
+define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands17OperandKindFields11enum_values17hf19164dad4bd2493E(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

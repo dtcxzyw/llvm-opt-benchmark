@@ -533,7 +533,7 @@ define i32 @lv_draw_get_unit_count() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
+define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.lv_area_t, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
   %6 = icmp ult i32 %5, 2

@@ -248,7 +248,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dmar_platfor
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_dmar_free_unused_resources509, ptr @__UNIQUE_ID___addressable_dmar_platform_optin516, ptr @trace_qi_submit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace429, ptr @trace_qi_submit.__UNIQUE_ID___addressable___SCK__tp_func_qi_submit428], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @dmar_alloc_dev_scope(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local noalias ptr @dmar_alloc_dev_scope(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.preheader, label %.thread
@@ -365,7 +365,7 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @dmar_insert_dev_scope(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = load ptr, ptr %0, align 1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -657,7 +657,7 @@ define dso_local noundef range(i32 0, 2) i32 @dmar_remove_dev_scope(ptr noundef 
 declare dso_local void @synchronize_rcu() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dmar_find_matched_drhd_unit(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @dmar_find_matched_drhd_unit(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #20
   %2 = load volatile ptr, ptr @dmar_drhd_units, align 8
   %3 = icmp eq ptr %2, @dmar_drhd_units
@@ -1269,7 +1269,7 @@ define dso_local void @detect_intel_iommu() local_unnamed_addr #4 section ".init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @dmar_validate_one_drhd(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #0 section ".ref.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @dmar_validate_one_drhd(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1) #0 section ".ref.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 1
   %5 = icmp eq i64 %4, 0
@@ -3924,7 +3924,7 @@ define internal noundef range(i32 0, 2) i32 @dmar_pci_bus_notifier(ptr readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dmar_parse_one_drhd(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
   %3 = load volatile ptr, ptr @dmar_drhd_units, align 8
   %4 = icmp eq ptr %3, @dmar_drhd_units
   br i1 %4, label %.thread, label %5

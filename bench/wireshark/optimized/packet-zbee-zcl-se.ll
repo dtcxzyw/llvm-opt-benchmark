@@ -5071,7 +5071,7 @@ define internal void @decode_zcl_se_utc_time(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_price(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_price(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %79, label %7
@@ -5395,7 +5395,7 @@ define internal void @decode_zcl_drlc_average_load_adjustment_percentage(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_drlc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_drlc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %125, label %7
@@ -5608,7 +5608,7 @@ define hidden void @proto_register_zbee_zcl_met() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_met(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_met(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %79, label %7
@@ -5968,7 +5968,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -6149,7 +6149,7 @@ define hidden void @proto_register_zbee_zcl_tun() local_unnamed_addr #0 {
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_tun(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_tun(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %97, label %7
@@ -6414,7 +6414,7 @@ define hidden void @proto_register_zbee_zcl_pp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -6756,7 +6756,7 @@ define hidden void @proto_register_zbee_zcl_energy_management() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_energy_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_energy_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %76, label %7
@@ -6906,7 +6906,7 @@ define hidden void @proto_register_zbee_zcl_calendar() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -7333,7 +7333,7 @@ define hidden void @proto_register_zbee_zcl_daily_schedule() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -7556,7 +7556,7 @@ define hidden void @proto_register_zbee_zcl_device_management() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_device_management(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -7918,7 +7918,7 @@ define hidden void @proto_register_zbee_zcl_events() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_events(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_events(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -8158,7 +8158,7 @@ define hidden void @proto_register_zbee_zcl_mdu_pairing() local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_mdu_pairing(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %67, label %6
 
@@ -8278,7 +8278,7 @@ define hidden void @proto_register_zbee_zcl_sub_ghz() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_sub_ghz(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_sub_ghz(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %45, label %6
 
@@ -8393,7 +8393,7 @@ define hidden void @proto_register_zbee_zcl_ke() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_ke(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_ke(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %66, label %7

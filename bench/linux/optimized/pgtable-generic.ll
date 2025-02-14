@@ -158,7 +158,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__pte_offset_map(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local ptr @__pte_offset_map(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   tail call void @__rcu_read_lock() #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

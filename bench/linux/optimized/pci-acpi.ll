@@ -1133,7 +1133,7 @@ define dso_local zeroext i1 @acpi_pci_power_manageable(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @acpi_pci_bridge_d3(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @acpi_pci_bridge_d3(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   %3 = load i32, ptr @acpi_pci_disabled, align 4
@@ -2011,7 +2011,7 @@ define internal noundef i32 @acpi_pci_init() #7 section ".init.text" align 16 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @program_hpx_type0(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @program_hpx_type0(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #9

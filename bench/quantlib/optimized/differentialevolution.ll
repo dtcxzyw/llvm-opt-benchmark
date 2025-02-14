@@ -2117,7 +2117,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body15,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEENS2_12_GLOBAL__N_112sort_by_costEEvT_SC_SC_T0_(ptr %__first.coerce, ptr %__middle.coerce, ptr readnone %__last.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEENS2_12_GLOBAL__N_112sort_by_costEEvT_SC_SC_T0_(ptr %__first.coerce, ptr %__middle.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp7.i.i1.i = alloca %"struct.QuantLib::DifferentialEvolution::Candidate", align 8
   %agg.tmp7.i.i.i = alloca %"struct.QuantLib::DifferentialEvolution::Candidate", align 8

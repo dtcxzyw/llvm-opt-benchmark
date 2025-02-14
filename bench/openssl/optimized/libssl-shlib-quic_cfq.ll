@@ -1071,7 +1071,7 @@ return:                                           ; preds = %for.inc, %land.rhs,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef readonly %item, i32 noundef %pn_space) local_unnamed_addr #4 {
+define ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef readonly captures(address_is_null) %item, i32 noundef %pn_space) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %item, null
   br i1 %cmp, label %return, label %for.cond

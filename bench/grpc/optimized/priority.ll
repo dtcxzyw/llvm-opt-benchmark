@@ -4354,7 +4354,7 @@ if.end12:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb18ResetBackoffLockedEv(ptr noundef nonnull readonly align 8 dereferenceable(228) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb18ResetBackoffLockedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(228) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %children_.val = load ptr, ptr %0, align 8

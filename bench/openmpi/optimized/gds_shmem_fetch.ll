@@ -1778,7 +1778,7 @@ xfer_sessioninfo.exit:                            ; preds = %301, %159, %98, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fetch_nodeinfo(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @fetch_nodeinfo(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %17

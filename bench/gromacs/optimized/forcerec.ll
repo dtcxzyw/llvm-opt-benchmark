@@ -1005,7 +1005,7 @@ _ZN18ForceHelperBuffers6resizeEi.exit:            ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff(ptr noundef captures(address_is_null) %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.EwaldCorrectionTables, align 8
   %6 = alloca %struct.EwaldCorrectionTables, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 68

@@ -1301,7 +1301,7 @@ _list_node_destroy.exit:                          ; preds = %38, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone %1) #0 {
+define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9

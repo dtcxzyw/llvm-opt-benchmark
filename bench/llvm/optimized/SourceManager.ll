@@ -3203,7 +3203,7 @@ _ZN4llvm16DenseMapIteratorIN5clang12FileEntryRefEPNS1_6SrcMgr12ContentCacheENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %1, ptr noundef %2)
   ret ptr %4
 }
@@ -3609,7 +3609,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang13SourceManager13loadSLocEntryEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8, !tbaa !210
   %6 = sub nsw i32 -2, %1
@@ -6514,7 +6514,7 @@ define dso_local void @_ZNK5clang13SourceManager26getNonBuiltinFilenameForIDENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::optional.2", align 8
   %5 = tail call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1), !noalias !393
   %.not.i = icmp eq ptr %5, null
@@ -7261,7 +7261,7 @@ define dso_local range(i32 0, -2147483648) i32 @_ZNK5clang13SourceManager18getFi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager19isMacroArgExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager19isMacroArgExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %62
 
@@ -8092,7 +8092,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %12, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager34isAtStartOfImmediateMacroExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager34isAtStartOfImmediateMacroExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1)
   %.sroa.09.0.extract.trunc = trunc i64 %5 to i32
@@ -8312,7 +8312,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit35: ; preds = %_ZNK4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager32isAtEndOfImmediateMacroExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang13SourceManager32isAtEndOfImmediateMacroExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = and i32 %1, 2147483647
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -8652,7 +8652,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %9, %_ZNK4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.std::optional.2", align 8
   %6 = tail call i64 @_ZNK5clang13SourceManager24getDecomposedSpellingLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1)
@@ -8929,7 +8929,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager15getColumnNumberENS_6FileIDEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager15getColumnNumberENS_6FileIDEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::optional.2", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
@@ -9079,7 +9079,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -9106,7 +9106,7 @@ _ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager24getExpansionColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager24getExpansionColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -9133,7 +9133,7 @@ _ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager23getPresumedColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager23getPresumedColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::PresumedLoc", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30
   call void @_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::PresumedLoc") align 8 %4, ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i1 noundef zeroext true)
@@ -9653,7 +9653,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit:                 ; preds = %_ZN4llvm13Allocator
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager13getLineNumberENS_6FileIDEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager13getLineNumberENS_6FileIDEjPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::optional.2", align 8
   %7 = icmp eq i32 %1, 0
@@ -9943,7 +9943,7 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11lower_boundIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -9970,7 +9970,7 @@ _ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager22getExpansionLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager22getExpansionLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit, label %5
@@ -9997,7 +9997,7 @@ _ZL9isInvalidIN5clang14SourceLocationEEbT_Pb.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang13SourceManager21getPresumedLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK5clang13SourceManager21getPresumedLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::PresumedLoc", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30
   call void @_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::PresumedLoc") align 8 %4, ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, i1 noundef zeroext true)
@@ -10152,7 +10152,7 @@ select.unfold:                                    ; preds = %_ZN4llvm11upper_bou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang13SourceManager13getBufferNameENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::optional.2", align 8
   %5 = icmp eq i32 %1, 0
   %.not.i = icmp eq ptr %2, null
@@ -10565,14 +10565,14 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread30: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local i32 @_ZNK5clang13SourceManager20translateFileLineColEPKNS_9FileEntryEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i32 @_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1)
   %6 = tail call i32 @_ZNK5clang13SourceManager16translateLineColENS_6FileIDEjj(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 %5, i32 noundef %2, i32 noundef %3)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local i32 @_ZNK5clang13SourceManager13translateFileEPKNS_9FileEntryE(ptr noundef nonnull align 8 captures(none) dereferenceable(696) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8, !tbaa !85
@@ -19186,7 +19186,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr noundef nonnull align 1 captures(address) dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::AlignedCharArrayUnion.478", align 4
   %4 = icmp ugt i32 %1, 16
   br i1 %4, label %5, label %20
@@ -19300,7 +19300,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTransla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #23 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 captures(address) dereferenceable(1) initializes((4, 8)) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #23 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1
   store i32 %5, ptr %0, align 8
@@ -19500,7 +19500,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEjNS_12DenseMapInfoIS5_vE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #24 {
+define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_SI_SI_T0_"(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #24 {
   %.sroa.5.i = alloca [12 x i8], align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64

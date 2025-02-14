@@ -138,7 +138,7 @@ define void @_ZN4LIEF2PE11ContentInfoC2ERKS1_(ptr noundef nonnull align 8 derefe
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF2PE11ContentInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF2PE11ContentInfoaSES1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8

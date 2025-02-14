@@ -1697,7 +1697,7 @@ _ZN3upb5ArenaD2Ev.exit47:                         ; preds = %if.then.i.i45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6XdsApi16CreateLrsRequestESt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ENS0_17ClusterLoadReportESt4lessIS9_ESaIS2_IKS9_SA_EEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly %cluster_load_report_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6XdsApi16CreateLrsRequestESt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ENS0_17ClusterLoadReportESt4lessIS9_ESaIS2_IKS9_SA_EEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef readonly captures(address) %cluster_load_report_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i = alloca ptr, align 8
   %output_length.i = alloca i64, align 8
@@ -2974,7 +2974,7 @@ _ZN3upb5ArenaD2Ev.exit39:                         ; preds = %if.then.i.i37
 declare void @_ZN4absl12lts_2023080216UnavailableErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6XdsApi20AssembleClientConfigERKSt3mapISt17basic_string_viewIcSt11char_traitsIcEES1_INSt7__cxx1112basic_stringIcS4_SaIcEEEPKNS0_16ResourceMetadataESt4lessIS9_ESaISt4pairIKS9_SC_EEESD_IS5_ESaISF_IKS5_SJ_EEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %resource_type_metadata_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6XdsApi20AssembleClientConfigERKSt3mapISt17basic_string_viewIcSt11char_traitsIcEES1_INSt7__cxx1112basic_stringIcS4_SaIcEEEPKNS0_16ResourceMetadataESt4lessIS9_ESaISt4pairIKS9_SC_EEESD_IS5_ESaISF_IKS5_SJ_EEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %resource_type_metadata_map) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i = alloca ptr, align 8
   %value.i167 = alloca %"class.grpc_core::Timestamp", align 8
@@ -3771,7 +3771,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @_upb_Arena_SlowMalloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116PopulateMetadataERKNS0_13XdsApiContextEP22google_protobuf_StructRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %context, ptr noundef captures(none) %metadata_pb, ptr noundef nonnull readonly align 8 dereferenceable(48) %metadata) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116PopulateMetadataERKNS0_13XdsApiContextEP22google_protobuf_StructRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %context, ptr noundef captures(none) %metadata_pb, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %metadata) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %metadata, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8

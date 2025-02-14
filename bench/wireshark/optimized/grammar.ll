@@ -60,7 +60,7 @@ define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DfilterFinalize(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt ptr %3, %2
@@ -114,7 +114,7 @@ DfilterFinalize.exit:                             ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Dfilter(ptr noundef initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

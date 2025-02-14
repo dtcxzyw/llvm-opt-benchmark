@@ -155,7 +155,7 @@ define internal i32 @lv_text_utf8_conv_wc(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
+define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.cont95, label %.cont95.thread
 
@@ -511,7 +511,7 @@ define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -646,7 +646,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_next_line(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #2 {
+define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1020,7 +1020,7 @@ lv_text_get_next_word.exit:                       ; preds = %98, %101, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_width(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @lv_text_get_width(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1122,7 +1122,7 @@ define noundef zeroext i1 @lv_text_is_cmd(ptr noundef captures(none) %0, i32 nou
 declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @lv_text_encoded_letter_next_2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = tail call i32 @lv_text_utf8_next(ptr noundef %0, ptr noundef %3)
   store i32 %5, ptr %1, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0
@@ -1237,7 +1237,7 @@ lv_text_utf8_next.exit:                           ; preds = %59, %.cont68.i, %.c
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_text_get_width_with_flags(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @lv_text_get_width_with_flags(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

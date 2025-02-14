@@ -1425,7 +1425,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4655,7 +4655,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
   call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERKNS_8ImageBufENS_3ROIEi(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
@@ -31888,7 +31888,7 @@ lpad:                                             ; preds = %entry
 declare noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf9has_errorEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiRSt6vectorImSaImEEiffPmS8_NS_3ROIE(ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %histogram, i32 noundef %bins, float noundef %min, float noundef %max, ptr noundef %submin, ptr noundef %supermax, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo9histogramERKNS_8ImageBufEiRSt6vectorImSaImEEiffPmS8_NS_3ROIE(ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %histogram, i32 noundef %bins, float noundef %min, float noundef %max, ptr noundef captures(address_is_null) %submin, ptr noundef captures(address_is_null) %supermax, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 captures(none) %roi) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %ref.tmp.i = alloca i64, align 8

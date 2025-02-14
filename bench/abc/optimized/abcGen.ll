@@ -5258,7 +5258,7 @@ define void @Abc_GenThreshAdder(ptr noundef captures(none) %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenThresh(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #3 {
+define void @Abc_GenThresh(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.38)

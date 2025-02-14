@@ -25383,7 +25383,7 @@ declare void @dt_image_cache_read_release(ptr noundef, ptr noundef) local_unname
 declare void @free(ptr allocptr noundef captures(none)) #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @dt_exif_xmp_encode(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef ptr @dt_exif_xmp_encode(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.277)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
@@ -25420,7 +25420,7 @@ define noundef ptr @dt_exif_xmp_encode(ptr noundef %0, i32 noundef %1, ptr nound
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %36, label %6
@@ -25564,7 +25564,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @dt_exif_xmp_decode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define noundef ptr @dt_exif_xmp_decode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
 sub_0:
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -25720,7 +25720,7 @@ declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loca
 declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, -2147483648) i32 @_Z23_get_max_multi_priorityP6_GListPKc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define noundef range(i32 0, -2147483648) i32 @_Z23_get_max_multi_priorityP6_GListPKc(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
   %.not14 = icmp eq ptr %0, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -40495,7 +40495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @dt_exif_xmp_attach_export(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @dt_exif_xmp_attach_export(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50101,7 +50101,7 @@ declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5Exiv27XmpDataixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16_remove_iptc_keyRN5Exiv28IptcDataEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16_remove_iptc_keyRN5Exiv28IptcDataEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.Exiv2::IptcKey", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50304,7 +50304,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Exiv29IptcdatumaSER
 declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16_remove_xmp_keysRN5Exiv27XmpDataEPKc(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16_remove_xmp_keysRN5Exiv27XmpDataEPKc(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

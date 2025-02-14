@@ -8283,7 +8283,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_optionslsERSoRKNS0_19options_descriptionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly20NestedCommandLineApp12resolveAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(440) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly20NestedCommandLineApp12resolveAliasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(440) %this, ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(32) %name) local_unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !68

@@ -430,7 +430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8keyrangeEPKNS1_10comparisonE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef readonly %cmp_hint) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN4toku8treenode32find_node_with_overlapping_childERKNS_8keyrangeEPKNS1_10comparisonE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef readonly captures(address_is_null) %cmp_hint) local_unnamed_addr #4 align 2 {
 entry:
   %c = alloca i32, align 4
   %tobool.not = icmp eq ptr %cmp_hint, null

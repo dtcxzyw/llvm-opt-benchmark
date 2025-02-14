@@ -930,7 +930,7 @@ ata_acpi_stm.exit:                                ; preds = %42, %42, %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 613566757) i32 @ata_dev_get_GTF(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !6
@@ -1800,7 +1800,7 @@ declare dso_local ptr @acpi_find_child_device(ptr noundef, i64 noundef, i1 nound
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_acpi_handle_hotplug(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_acpi_handle_hotplug(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9032
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 16

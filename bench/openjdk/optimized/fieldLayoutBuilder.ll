@@ -473,7 +473,7 @@ define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %43
 
@@ -586,7 +586,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %42, %39, %49, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AllFieldStream, align 8
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 32, i32 noundef 8) #14
@@ -1034,7 +1034,7 @@ define hidden noundef ptr @_ZN11FieldLayout17first_field_blockEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -1481,7 +1481,7 @@ _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %81, %78, %_ZN11Fiel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -1528,7 +1528,7 @@ define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr noundef nonnul
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 

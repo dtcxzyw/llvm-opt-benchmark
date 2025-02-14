@@ -993,7 +993,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceERKNS_17ParsedInternalKey
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9LookupKeyC2ERKNS_5SliceEmPS2_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %_user_key, i64 noundef %s, ptr noundef readonly %ts) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb9LookupKeyC2ERKNS_5SliceEmPS2_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %_user_key, i64 noundef %s, ptr noundef readonly captures(address_is_null) %ts) unnamed_addr #3 align 2 {
 entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %_user_key, i64 8
   %0 = load i64, ptr %size_.i, align 8

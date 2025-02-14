@@ -1332,7 +1332,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @Abc_NtkCleanCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %.critedge
@@ -1581,7 +1581,7 @@ Abc_ObjGetFaninPath.exit:                         ; preds = %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef captures(address) %0) unnamed_addr #0 {
   %2 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %.critedge

@@ -133,7 +133,7 @@ declare i64 @PageGetHeapFreeSpace(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_page_prune(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @heap_page_prune(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [291 x i16], align 16
   %8 = alloca i32, align 4
   %9 = alloca %struct.PruneState, align 8

@@ -981,7 +981,7 @@ dissect_ice_params.exit.thread78:                 ; preds = %137, %144, %166, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) initializes((0, 4)) %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %6, align 4

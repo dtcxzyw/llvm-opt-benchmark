@@ -188,7 +188,7 @@ _ZNSt10unique_ptrIN6duckdb9ArrowTypeESt14default_deleteIS1_EED2Ev.exit: ; preds 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb14ArrowTableType10GetColumnsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb14ArrowTableType10GetColumnsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   ret ptr %this
 }

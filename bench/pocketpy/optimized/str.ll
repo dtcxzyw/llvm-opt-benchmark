@@ -1586,7 +1586,7 @@ _ZStgeIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy3StrD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3462,7 +3462,7 @@ _ZN4pkpy10pod_vectorIcLi2EE7reserveEi.exit:       ; preds = %2, %6, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEc(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i8 noundef signext %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEc(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i8 noundef signext %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -3505,7 +3505,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIRcEEvOT_.exit: ; preds = %2, %7, %9, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull returned align 8 dereferenceable(20) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %4 = getelementptr inbounds i8, ptr %1, i64 %3
   %.not6.i = icmp eq i64 %3, 0
@@ -3929,7 +3929,7 @@ _ZN4pkpy7SStreamD2Ev.exit46:                      ; preds = %38, %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull returned align 8 dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNS_3StrE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -4999,7 +4999,7 @@ _ZN4pkpy7StrName11_r_internedB5cxx11Ev.exit2:     ; preds = %_ZNSt3mapItNSt7__cx
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
@@ -5062,7 +5062,7 @@ _ZN4pkpy10pod_vectorIcLi2EE6extendEPKcS3_.exit:   ; preds = %_ZN4pkpy10pod_vecto
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i64 %1, ptr readonly %2) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 %1
   %.not6.i = icmp eq i64 %1, 0
   br i1 %.not6.i, label %_ZN4pkpy10pod_vectorIcLi2EE6extendEPKcS3_.exit, label %.lr.ph.i
@@ -5119,7 +5119,7 @@ _ZN4pkpy10pod_vectorIcLi2EE6extendEPKcS3_.exit:   ; preds = %_ZN4pkpy10pod_vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsENS_7StrNameE(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i16 %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsENS_7StrNameE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i16 %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"struct.pkpy::StrName", align 2
   store i16 %1, ptr %3, align 2
   %4 = call { i64, ptr } @_ZNK4pkpy7StrName2svEv(ptr noundef nonnull align 2 dereferenceable(2) %3)
@@ -5253,7 +5253,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEm(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i64 noundef %1)
   %4 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -5405,14 +5405,14 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %46, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEi(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = sext i32 %1 to i64
   %4 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEl(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %3)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEl(ptr noundef nonnull returned align 8 dereferenceable(20) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = add nsw i32 %3, 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5608,7 +5608,7 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %82, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEd(ptr noundef nonnull returned align 8 dereferenceable(20) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(20) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [32 x i8], align 16
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp oeq double %4, 0x7FF0000000000000

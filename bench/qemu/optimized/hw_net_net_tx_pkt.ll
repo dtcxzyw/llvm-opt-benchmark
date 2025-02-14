@@ -309,7 +309,7 @@ return:                                           ; preds = %iov_from_buf.exit18
 declare i32 @iov_crc32c(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_parse(ptr noundef %pkt) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_parse(ptr noundef captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %hdrinfo.i = alloca %struct.eth_ip6_hdr_info_st, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %hdrinfo.i)
@@ -594,7 +594,7 @@ return:                                           ; preds = %net_tx_pkt_parse_he
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
+define dso_local nonnull ptr @net_tx_pkt_get_vhdr(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -608,7 +608,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_build_vheader(ptr noundef %pkt, i1 noundef zeroext %tso_enable, i1 noundef zeroext %csum_enable, i32 noundef %gso_size) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_build_vheader(ptr noundef captures(address_is_null) %pkt, i1 noundef zeroext %tso_enable, i1 noundef zeroext %csum_enable, i32 noundef %gso_size) local_unnamed_addr #0 {
 entry:
   %l4hdr = alloca %struct.tcp_hdr, align 4
   %tobool.not = icmp eq ptr %pkt, null
@@ -767,7 +767,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_setup_vlan_header_ex(ptr noundef %pkt, i16 noundef zeroext %vlan, i16 noundef zeroext %vlan_ethtype) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_setup_vlan_header_ex(ptr noundef captures(address_is_null) %pkt, i16 noundef zeroext %vlan, i16 noundef zeroext %vlan_ethtype) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -793,7 +793,7 @@ if.end:                                           ; preds = %entry
 declare void @eth_setup_vlan_headers(ptr noundef, ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment(ptr noundef %pkt, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment(ptr noundef captures(address_is_null) %pkt, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -837,7 +837,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_tx_pkt_get_packet_type(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local i32 @net_tx_pkt_get_packet_type(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -853,7 +853,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 4294967296) i64 @net_tx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @net_tx_pkt_get_total_len(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -880,7 +880,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_reset(ptr noundef %pkt, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_reset(ptr noundef captures(address_is_null) %pkt, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -969,7 +969,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %pkt, ptr noundef %pci_dev, i64 noundef %pa, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef captures(address_is_null) %pkt, ptr noundef %pci_dev, i64 noundef %pa, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %xlen.i.i = alloca i64, align 8
   %bus_master_as.i.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 576
@@ -1024,7 +1024,7 @@ return:                                           ; preds = %net_tx_pkt_add_raw_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_send(ptr noundef %pkt, ptr noundef %nc) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_send(ptr noundef captures(address_is_null) %pkt, ptr noundef %nc) local_unnamed_addr #0 {
 entry:
   %peer = getelementptr inbounds nuw i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
@@ -1036,7 +1036,7 @@ entry:
 declare zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %offload, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @net_tx_pkt_send_custom(ptr noundef captures(address_is_null) %pkt, i1 noundef zeroext %offload, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %fragment.i = alloca [64 x %struct.iovec], align 16
   %virt_hdr3.i = alloca %struct.virtio_net_hdr, align 2

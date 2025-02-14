@@ -119,7 +119,7 @@ get_error_values.exit:                            ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %inc, i32 noundef range(i32 0, 2) %top, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
+define internal fastcc i32 @get_error_values(i32 noundef range(i32 0, 2) %inc, i32 noundef range(i32 0, 2) %top, ptr noundef writeonly captures(address_is_null) %file, ptr noundef writeonly captures(address_is_null) %line, ptr noundef writeonly captures(address_is_null) %data, ptr noundef writeonly captures(address_is_null) %flags) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #19
   %cmp.i = icmp eq ptr %call.i, null
@@ -257,14 +257,14 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_get_error_line(ptr noundef %file, ptr noundef %line) local_unnamed_addr #0 {
+define hidden i32 @ERR_get_error_line(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_error_values(i32 noundef 1, i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_get_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @ERR_get_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_error_values(i32 noundef 1, i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags)
   ret i32 %call
@@ -310,7 +310,7 @@ get_error_values.exit:                            ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_error_line(ptr noundef writeonly %file, ptr noundef writeonly %line) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_error_line(ptr noundef writeonly captures(address_is_null) %file, ptr noundef writeonly captures(address_is_null) %line) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #19
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -374,7 +374,7 @@ get_error_values.exit:                            ; preds = %if.end.i, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_error_values(i32 noundef 0, i32 noundef 0, ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags)
   ret i32 %call
@@ -418,7 +418,7 @@ get_error_values.exit:                            ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_last_error_line(ptr noundef writeonly %file, ptr noundef writeonly %line) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_last_error_line(ptr noundef writeonly captures(address_is_null) %file, ptr noundef writeonly captures(address_is_null) %line) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @CRYPTO_get_thread_local(i32 noundef 0) #19
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -480,7 +480,7 @@ get_error_values.exit:                            ; preds = %if.end.i, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ERR_peek_last_error_line_data(ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @ERR_peek_last_error_line_data(ptr noundef captures(address_is_null) %file, ptr noundef captures(address_is_null) %line, ptr noundef captures(address_is_null) %data, ptr noundef captures(address_is_null) %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @get_error_values(i32 noundef 0, i32 noundef 1, ptr noundef %file, ptr noundef %line, ptr noundef %data, ptr noundef %flags)
   ret i32 %call
@@ -544,7 +544,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ERR_remove_thread_state(ptr noundef readnone %tid) local_unnamed_addr #0 {
+define hidden void @ERR_remove_thread_state(ptr noundef readnone captures(address_is_null) %tid) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tid, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1377,7 +1377,7 @@ declare ptr @CRYPTO_get_thread_local(i32 noundef) local_unnamed_addr #2
 declare i32 @CRYPTO_set_thread_local(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @err_state_free(ptr noundef %statep) #0 {
+define internal void @err_state_free(ptr noundef captures(address_is_null) %statep) #0 {
 entry:
   %cmp = icmp eq ptr %statep, null
   br i1 %cmp, label %return, label %for.body

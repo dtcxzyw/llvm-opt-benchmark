@@ -112,7 +112,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_ecc_set_curve(ptr noundef %key, i32 noundef %keysize, i32 noundef %curve_id) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_ecc_set_curve(ptr noundef captures(address_is_null) %key, i32 noundef %keysize, i32 noundef %curve_id) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1939,7 +1939,7 @@ return:                                           ; preds = %for.inc.i, %if.end
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @wc_ecc_get_curve_idx_from_name(ptr noundef readonly %curveName) local_unnamed_addr #6 {
+define i32 @wc_ecc_get_curve_idx_from_name(ptr noundef readonly captures(address_is_null) %curveName) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %curveName, null
   br i1 %cmp, label %return, label %for.body
@@ -1976,7 +1976,7 @@ return:                                           ; preds = %for.inc, %return.lo
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @wc_ecc_get_curve_size_from_name(ptr noundef readonly %curveName) local_unnamed_addr #6 {
+define i32 @wc_ecc_get_curve_size_from_name(ptr noundef readonly captures(address_is_null) %curveName) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %curveName, null
   br i1 %cmp, label %return, label %for.body.i
@@ -2012,7 +2012,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @wc_ecc_get_curve_id_from_name(ptr noundef readonly %curveName) local_unnamed_addr #6 {
+define i32 @wc_ecc_get_curve_id_from_name(ptr noundef readonly captures(address_is_null) %curveName) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %curveName, null
   br i1 %cmp, label %return, label %for.body.i
@@ -2192,7 +2192,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wc_ecc_get_curve_id_from_dp_params(ptr noundef readonly %dp) local_unnamed_addr #8 {
+define i32 @wc_ecc_get_curve_id_from_dp_params(ptr noundef readonly captures(address_is_null) %dp) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %dp, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2351,7 +2351,7 @@ return:                                           ; preds = %for.inc, %entry, %l
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wc_ecc_get_curve_id_from_oid(ptr noundef readonly %oid, i32 noundef %len) local_unnamed_addr #8 {
+define i32 @wc_ecc_get_curve_id_from_oid(ptr noundef readonly captures(address_is_null) %oid, i32 noundef %len) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %oid, null
   br i1 %cmp, label %return, label %if.end
@@ -2410,7 +2410,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret(ptr noundef %private_key, ptr noundef %public_key, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret(ptr noundef %private_key, ptr noundef %public_key, ptr noundef %out, ptr noundef captures(address_is_null) %outlen) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %private_key, null
   %cmp1 = icmp eq ptr %public_key, null
@@ -2472,7 +2472,7 @@ return:                                           ; preds = %if.end, %if.end22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret_ex(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret_ex(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef captures(address_is_null) %outlen) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %private_key, null
   %cmp1 = icmp eq ptr %point, null
@@ -2646,7 +2646,7 @@ errout:                                           ; preds = %errout.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -173, 1) i32 @wc_ecc_curve_load(ptr noundef %dp, ptr %pCurve.0.val, i8 noundef zeroext range(i8 8, 60) %load_mask) unnamed_addr #2 {
+define internal fastcc range(i32 -173, 1) i32 @wc_ecc_curve_load(ptr noundef %dp, ptr captures(address_is_null) %pCurve.0.val, i8 noundef zeroext range(i8 8, 60) %load_mask) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %dp, null
   br i1 %cmp, label %return, label %if.end
@@ -2892,7 +2892,7 @@ return:                                           ; preds = %if.end53, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wc_ecc_curve_free(ptr noundef %curve) unnamed_addr #2 {
+define internal fastcc void @wc_ecc_curve_free(ptr noundef captures(address_is_null) %curve) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %curve, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3019,7 +3019,7 @@ declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #3
 declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -173, 2) i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly %p) local_unnamed_addr #10 {
+define range(i32 -173, 2) i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly captures(address_is_null) %p) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %if.end
@@ -3657,7 +3657,7 @@ wc_ecc_init_ex.exit:                              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_ecc_set_flags(ptr noundef %key, i32 noundef %flags) local_unnamed_addr #11 {
+define range(i32 -173, 1) i32 @wc_ecc_set_flags(ptr noundef captures(address_is_null) %key, i32 noundef %flags) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -4131,7 +4131,7 @@ for.end:                                          ; preds = %do.body, %if.end102
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ecc_projective_add_point_safe(ptr noundef %A, ptr noundef %B, ptr noundef %R, ptr readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp, ptr noundef writeonly %infinity) local_unnamed_addr #2 {
+define i32 @ecc_projective_add_point_safe(ptr noundef %A, ptr noundef %B, ptr noundef %R, ptr readnone captures(none) %a, ptr noundef %modulus, i64 noundef %mp, ptr noundef writeonly captures(address_is_null) %infinity) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %A, align 8
   %cmp = icmp eq i32 %0, 0
@@ -4956,7 +4956,7 @@ do.end:                                           ; preds = %entry, %if.end99
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_verify_hash(ptr noundef %sig, i32 noundef %siglen, ptr noundef %hash, i32 noundef %hashlen, ptr noundef %res, ptr noundef %key) local_unnamed_addr #2 {
+define i32 @wc_ecc_verify_hash(ptr noundef %sig, i32 noundef %siglen, ptr noundef %hash, i32 noundef %hashlen, ptr noundef captures(address_is_null) %res, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %cond.end25, label %lor.lhs.false
@@ -5118,7 +5118,7 @@ cleanup:                                          ; preds = %cond.end197, %cond.
 declare i32 @DecodeECC_DSA_Sig_Ex(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_verify_hash_ex(ptr noundef %r, ptr noundef %s, ptr noundef %hash, i32 noundef %hashlen, ptr noundef writeonly %res, ptr noundef %key) local_unnamed_addr #2 {
+define i32 @wc_ecc_verify_hash_ex(ptr noundef %r, ptr noundef %s, ptr noundef %hash, i32 noundef %hashlen, ptr noundef writeonly captures(address_is_null) %res, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %spec_ints.i = alloca [160 x i8], align 16
   %curve_lcl.i = alloca %struct.ecc_curve_spec, align 8
@@ -5572,7 +5572,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_point_der_ex(i32 noundef %curve_idx, ptr noundef %point, ptr noundef %out, ptr noundef %outLen, i32 noundef %compressed) local_unnamed_addr #2 {
+define i32 @wc_ecc_export_point_der_ex(i32 noundef %curve_idx, ptr noundef %point, ptr noundef captures(address_is_null) %out, ptr noundef captures(address_is_null) %outLen, i32 noundef %compressed) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %compressed, 0
   br i1 %cmp, label %if.then, label %return
@@ -5587,7 +5587,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_point_der(i32 noundef %curve_idx, ptr noundef %point, ptr noundef writeonly %out, ptr noundef %outLen) local_unnamed_addr #2 {
+define i32 @wc_ecc_export_point_der(i32 noundef %curve_idx, ptr noundef %point, ptr noundef writeonly captures(address_is_null) %out, ptr noundef captures(address_is_null) %outLen) local_unnamed_addr #2 {
 entry:
   %buf = alloca [257 x i8], align 16
   %narrow.i = icmp ugt i32 %curve_idx, 4
@@ -5677,7 +5677,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_x963(ptr noundef %key, ptr noundef writeonly %out, ptr noundef %outLen) local_unnamed_addr #2 {
+define i32 @wc_ecc_export_x963(ptr noundef %key, ptr noundef writeonly captures(address_is_null) %out, ptr noundef captures(address_is_null) %outLen) local_unnamed_addr #2 {
 entry:
   %buf = alloca [257 x i8], align 16
   %cmp = icmp ne ptr %key, null
@@ -5790,7 +5790,7 @@ return:                                           ; preds = %if.end64, %if.end40
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_export_x963_ex(ptr noundef %key, ptr noundef %out, ptr noundef %outLen, i32 noundef %compressed) local_unnamed_addr #2 {
+define i32 @wc_ecc_export_x963_ex(ptr noundef %key, ptr noundef captures(address_is_null) %out, ptr noundef captures(address_is_null) %outLen, i32 noundef %compressed) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %compressed, 0
   br i1 %cmp, label %if.then, label %return
@@ -5805,7 +5805,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_is_point(ptr noundef %ecp, ptr noundef readnone %a, ptr noundef %b, ptr noundef %prime) local_unnamed_addr #2 {
+define i32 @wc_ecc_is_point(ptr noundef %ecp, ptr noundef readnone captures(address_is_null) %a, ptr noundef %b, ptr noundef %prime) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ne ptr %ecp, null
   %cmp1 = icmp ne ptr %a, null
@@ -6856,7 +6856,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_import_raw(ptr noundef %key, ptr noundef %qx, ptr noundef %qy, ptr noundef %d, ptr noundef readonly %curveName) local_unnamed_addr #2 {
+define i32 @wc_ecc_import_raw(ptr noundef %key, ptr noundef %qx, ptr noundef %qy, ptr noundef %d, ptr noundef readonly captures(address_is_null) %curveName) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %qx, null
@@ -6901,7 +6901,7 @@ return:                                           ; preds = %for.cond, %entry, %
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @wc_ecc_size(ptr noundef readonly %key) local_unnamed_addr #13 {
+define i32 @wc_ecc_size(ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #13 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6932,7 +6932,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483642, -2147483648) i32 @wc_ecc_sig_size(ptr noundef readonly %key) local_unnamed_addr #2 {
+define range(i32 -2147483642, -2147483648) i32 @wc_ecc_sig_size(ptr noundef readonly captures(address_is_null) %key) local_unnamed_addr #2 {
 entry:
   %spec_ints.i = alloca [160 x i8], align 16
   %curve_lcl.i = alloca %struct.ecc_curve_spec, align 8
@@ -6996,7 +6996,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_ecc_set_rng(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #14 {
+define range(i32 -173, 1) i32 @wc_ecc_set_rng(ptr noundef writeonly captures(address_is_null) %key, ptr noundef %rng) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.end, label %if.else
@@ -7012,7 +7012,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @wc_ecc_get_oid(i32 noundef %oidSum, ptr noundef writeonly %oid, ptr noundef writeonly %oidSz) local_unnamed_addr #15 {
+define i32 @wc_ecc_get_oid(i32 noundef %oidSum, ptr noundef writeonly captures(address_is_null) %oid, ptr noundef writeonly captures(address_is_null) %oidSz) local_unnamed_addr #15 {
 entry:
   %cmp = icmp eq i32 %oidSum, 0
   br i1 %cmp, label %return, label %for.body

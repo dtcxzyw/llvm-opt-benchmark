@@ -227,7 +227,7 @@ st_add.exit8:                                     ; preds = %st_add.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_ref_cache(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @free_ref_cache(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -283,7 +283,7 @@ clear_ref_dir.exit:                               ; preds = %9, %1, %4
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @search_ref_dir(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @search_ref_dir(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %bsearch.exit.thread, label %5
 
@@ -455,7 +455,7 @@ is_dup_ref.exit.thread:                           ; preds = %18, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_ref_entry(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @find_ref_entry(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @find_containing_dir(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %search_ref_dir.exit.thread, label %4
@@ -539,7 +539,7 @@ search_ref_dir.exit.thread:                       ; preds = %28, %7, %4, %search
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_containing_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @find_containing_dir(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #12
   %.not22 = icmp eq ptr %3, null
   br i1 %.not22, label %search_for_subdir.exit.thread, label %.lr.ph
@@ -777,7 +777,7 @@ st_mult.exit:                                     ; preds = %28
 declare ptr @empty_ref_iterator_begin() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prime_ref_dir(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @prime_ref_dir(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge

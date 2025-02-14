@@ -10201,7 +10201,7 @@ define void @_ZN5Moves6RewardEii(ptr noundef nonnull align 8 captures(none) dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataEi(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataEi(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
 .preheader24:
   %2 = sext i32 %1 to i64
   %.idx = mul nsw i64 %2, 220

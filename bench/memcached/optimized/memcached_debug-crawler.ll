@@ -1150,7 +1150,7 @@ declare void @thread_setname(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lru_crawler_start(ptr noundef readonly %ids, i32 noundef %remaining, i32 noundef %type, ptr noundef %data, ptr noundef %c, i32 noundef %sfd) local_unnamed_addr #0 {
+define dso_local i32 @lru_crawler_start(ptr noundef readonly captures(address_is_null) %ids, i32 noundef %remaining, i32 noundef %type, ptr noundef %data, ptr noundef %c, i32 noundef %sfd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_crawler_lock) #17
   tail call void @STATS_LOCK() #17

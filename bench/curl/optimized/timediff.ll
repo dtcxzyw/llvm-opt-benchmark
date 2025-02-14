@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @curlx_mstotv(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @curlx_mstotv(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %3 = icmp slt i64 %1, 0
   %or.cond = or i1 %.not, %3

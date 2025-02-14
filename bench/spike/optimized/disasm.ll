@@ -20411,7 +20411,7 @@ define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(6144) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14disassembler_tD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(6144) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %._crit_edge

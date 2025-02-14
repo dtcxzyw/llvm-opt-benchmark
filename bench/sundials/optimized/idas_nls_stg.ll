@@ -258,7 +258,7 @@ declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -41, 12) i32 @idaNlsResidualSensStg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal range(i32 -41, 12) i32 @idaNlsResidualSensStg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -330,7 +330,7 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensStg(ptr noundef readon
 declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -20, 903) i32 @idaNlsConvTestSensStg(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -20, 903) i32 @idaNlsConvTestSensStg(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10

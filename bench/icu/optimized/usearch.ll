@@ -740,7 +740,7 @@ declare void @ucol_closeElements_75(ptr noundef) local_unnamed_addr #1
 declare void @ubrk_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @usearch_setOffset_75(ptr noundef readonly %strsrch, i32 noundef %position, ptr noundef %status) local_unnamed_addr #0 {
+define void @usearch_setOffset_75(ptr noundef readonly captures(address_is_null) %strsrch, i32 noundef %position, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -784,7 +784,7 @@ if.end8:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, -2147483648) i32 @usearch_getOffset_75(ptr noundef readonly %strsrch) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @usearch_getOffset_75(ptr noundef readonly captures(address_is_null) %strsrch) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -809,7 +809,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @ucol_getOffset_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @usearch_setAttribute_75(ptr noundef readonly %strsrch, i32 noundef %attribute, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #4 {
+define void @usearch_setAttribute_75(ptr noundef readonly captures(address_is_null) %strsrch, i32 noundef %attribute, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -875,7 +875,7 @@ if.end19:                                         ; preds = %if.end16.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @usearch_getAttribute_75(ptr noundef readonly %strsrch, i32 noundef %attribute) local_unnamed_addr #5 {
+define range(i32 -32768, 32768) i32 @usearch_getAttribute_75(ptr noundef readonly captures(address_is_null) %strsrch, i32 noundef %attribute) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -919,7 +919,7 @@ return:                                           ; preds = %sw.bb6, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @usearch_getMatchedStart_75(ptr noundef readonly %strsrch) local_unnamed_addr #5 {
+define i32 @usearch_getMatchedStart_75(ptr noundef readonly captures(address_is_null) %strsrch) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %strsrch, null
   br i1 %cmp, label %return, label %if.end
@@ -936,7 +936,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @usearch_getMatchedText_75(ptr noundef readonly %strsrch, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef %status) local_unnamed_addr #0 {
+define i32 @usearch_getMatchedText_75(ptr noundef readonly captures(address_is_null) %strsrch, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1004,7 +1004,7 @@ declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @usearch_getMatchedLength_75(ptr noundef readonly %strsrch) local_unnamed_addr #5 {
+define i32 @usearch_getMatchedLength_75(ptr noundef readonly captures(address_is_null) %strsrch) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1021,7 +1021,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @usearch_setBreakIterator_75(ptr noundef readonly %strsrch, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
+define void @usearch_setBreakIterator_75(ptr noundef readonly captures(address_is_null) %strsrch, ptr noundef %breakiter, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1049,7 +1049,7 @@ if.end6:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @usearch_getBreakIterator_75(ptr noundef readonly %strsrch) local_unnamed_addr #5 {
+define ptr @usearch_getBreakIterator_75(ptr noundef readonly captures(address_is_null) %strsrch) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1066,7 +1066,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @usearch_setText_75(ptr noundef readonly %strsrch, ptr noundef %text, i32 noundef %textlength, ptr noundef %status) local_unnamed_addr #0 {
+define void @usearch_setText_75(ptr noundef readonly captures(address_is_null) %strsrch, ptr noundef %text, i32 noundef %textlength, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -1142,7 +1142,7 @@ if.end28:                                         ; preds = %if.then6, %if.then2
 declare void @ucol_setText_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @usearch_getText_75(ptr noundef readonly %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #7 {
+define ptr @usearch_getText_75(ptr noundef readonly captures(address_is_null) %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1271,7 +1271,7 @@ if.end38:                                         ; preds = %if.end, %if.end24, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @usearch_getCollator_75(ptr noundef readonly %strsrch) local_unnamed_addr #8 {
+define ptr @usearch_getCollator_75(ptr noundef readonly captures(address_is_null) %strsrch) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1333,7 +1333,7 @@ if.end12:                                         ; preds = %if.then2, %if.end8,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @usearch_getPattern_75(ptr noundef readonly %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #9 {
+define ptr @usearch_getPattern_75(ptr noundef readonly captures(address_is_null) %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -3031,7 +3031,7 @@ if.end43:                                         ; preds = %if.end34, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @usearch_search_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly %matchStart, ptr noundef writeonly %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @usearch_search_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly captures(address_is_null) %matchStart, ptr noundef writeonly captures(address_is_null) %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i234 = alloca i32, align 4
   %status.i200 = alloca i32, align 4
@@ -4511,7 +4511,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(1576) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1576) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %this, i64 1536
   %0 = load ptr, ptr %buf, align 8
@@ -4534,7 +4534,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @usearch_searchBackwards_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly %matchStart, ptr noundef writeonly %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @usearch_searchBackwards_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly captures(address_is_null) %matchStart, ptr noundef writeonly captures(address_is_null) %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i242 = alloca i32, align 4
   %status.i201 = alloca i32, align 4

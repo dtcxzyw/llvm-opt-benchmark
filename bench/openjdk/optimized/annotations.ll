@@ -297,7 +297,7 @@ _ZN11Annotations13free_contentsEP15ClassLoaderDataP5ArrayIPS2_IhEE.exit22: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11Annotations15make_java_arrayEP5ArrayIhEP10JavaThread(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11Annotations15make_java_arrayEP5ArrayIhEP10JavaThread(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

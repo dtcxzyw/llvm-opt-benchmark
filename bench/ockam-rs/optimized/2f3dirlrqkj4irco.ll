@@ -1934,7 +1934,7 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17h3d23cf35126cf136E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17he70aa2ba008c60c1E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17he70aa2ba008c60c1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

@@ -35,7 +35,7 @@ define void @memory_usage_component_register(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @memory_register_num, align 4
   %.not = icmp ult i32 %0, %3
   br i1 %.not, label %4, label %14
@@ -108,7 +108,7 @@ define internal i64 @linux_get_total_mem_used_by_app() #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @linux_get_memory(ptr noundef writeonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @linux_get_memory(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

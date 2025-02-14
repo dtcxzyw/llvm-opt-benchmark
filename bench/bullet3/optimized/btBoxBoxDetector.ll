@@ -1790,7 +1790,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull readonly captures(none) %h, ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull %ret) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull readonly captures(none) %h, ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull captures(address) %ret) unnamed_addr #6 {
 entry:
   %buffer = alloca [16 x float], align 16
   br label %for.cond1.preheader

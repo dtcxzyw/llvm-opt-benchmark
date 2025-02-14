@@ -367,7 +367,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca [2 x i32], align 4
   %or.cond = icmp ult i32 %7, 42
   br i1 %or.cond, label %.preheader, label %14
@@ -1145,7 +1145,7 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr noundef nonnull readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %or.cond = icmp ult i32 %7, 42
   br i1 %or.cond, label %.preheader, label %13

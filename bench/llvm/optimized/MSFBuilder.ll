@@ -706,7 +706,7 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder11setUnknown1Ej(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8ArrayRefIjEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8ArrayRefIjEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(152) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !77
@@ -1363,7 +1363,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf10MSFBuilder9addStreamEjNS_8ArrayRefIjEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.17") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf10MSFBuilder9addStreamEjNS_8ArrayRefIjEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.17") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"struct.std::pair", align 8

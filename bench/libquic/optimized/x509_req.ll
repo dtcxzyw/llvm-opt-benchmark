@@ -94,7 +94,7 @@ declare i32 @X509_REQ_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly %req) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_null) %req) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -118,7 +118,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_check_private_key(ptr noundef readonly %x, ptr noundef %k) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_check_private_key(ptr noundef readonly captures(address_is_null) %x, ptr noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %x, null
   br i1 %cmp.i, label %X509_REQ_get_pubkey.exit, label %lor.lhs.false.i
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly %req) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address_is_null) %req) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp eq ptr %req, null

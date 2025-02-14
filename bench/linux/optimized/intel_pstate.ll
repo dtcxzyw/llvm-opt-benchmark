@@ -515,7 +515,7 @@ define internal i32 @intel_pstate_init() #3 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @intel_pstate_setup(ptr noundef readonly %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_pstate_setup(ptr noundef readonly captures(address_is_null) %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %35, label %3
 

@@ -5144,7 +5144,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit2: ; preds = %_ZN32pxrInte
 declare { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction13ComposeOffsetERKNS_14SdfLayerOffsetE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpMapFunction") align 8 initializes((32, 37)) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction13ComposeOffsetERKNS_14SdfLayerOffsetE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpMapFunction") align 8 initializes((32, 37)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
@@ -12051,7 +12051,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit4: ; preds = %_ZN32pxrI
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair", align 4
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -14958,7 +14958,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_T0_(ptr %0, ptr readnone %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_T0_(ptr %0, ptr readnone captures(address) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair", align 4
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit19, label %.preheader

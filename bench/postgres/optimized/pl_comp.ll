@@ -2279,7 +2279,7 @@ define internal noundef ptr @plpgsql_pre_column_ref(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
+define internal noundef ptr @plpgsql_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3284,7 +3284,7 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @plpgsql_build_datatype_arrayof(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3497,7 +3497,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @plpgsql_add_initdatums(ptr noundef %0) local_unnamed_addr #0 {
+define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @datums_last, align 4
   %3 = load i32, ptr @plpgsql_nDatums, align 4
   %4 = icmp slt i32 %2, %3

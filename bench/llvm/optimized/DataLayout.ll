@@ -4713,7 +4713,7 @@ _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_10DataLayout13PrimitiveSpecELj6EEERj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(496) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DataLayoutD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(496) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = icmp eq ptr %3, null
@@ -6266,7 +6266,7 @@ _ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE.exit: ; preds = %_ZNK4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm10DataLayout22getIndexedOffsetInTypeEPNS_4TypeENS_8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK4llvm10DataLayout22getIndexedOffsetInTypeEPNS_4TypeENS_8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8

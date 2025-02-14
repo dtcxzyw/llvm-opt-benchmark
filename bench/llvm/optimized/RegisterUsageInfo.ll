@@ -324,7 +324,7 @@ define dso_local void @_ZN4llvm25PhysicalRegisterUsageInfo16setTargetMachineERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm25PhysicalRegisterUsageInfo16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(841) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm25PhysicalRegisterUsageInfo16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !69
@@ -1303,7 +1303,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_29PhysicalRegisterUsageAnalysisEEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29PhysicalRegisterUsageAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PhysicalRegisterUsageInfo") align 8 initializes((0, 20), (24, 32)) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(841) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm29PhysicalRegisterUsageAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PhysicalRegisterUsageInfo") align 8 initializes((0, 20), (24, 32)) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8, !tbaa !64
@@ -2305,7 +2305,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_SN_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 {
+define internal fastcc void @"_ZSt16__insertion_sortIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_SN_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 

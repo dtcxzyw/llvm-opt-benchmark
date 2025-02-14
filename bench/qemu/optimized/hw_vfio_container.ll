@@ -113,7 +113,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [40 x i8] c"vfio_put_base_device close vdev->fd=%d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_dma_unmap(ptr noundef %container, i64 noundef %iova, i64 noundef %size, ptr noundef readonly %iotlb) local_unnamed_addr #0 {
+define dso_local i32 @vfio_dma_unmap(ptr noundef %container, i64 noundef %iova, i64 noundef %size, ptr noundef readonly captures(address_is_null) %iotlb) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %blocks.i.i.i = alloca [3 x ptr], align 16
@@ -992,7 +992,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @vfio_get_info_dma_avail(ptr noundef %info, ptr noundef writeonly %avail) local_unnamed_addr #0 {
+define dso_local zeroext i1 @vfio_get_info_dma_avail(ptr noundef %info, ptr noundef writeonly captures(address_is_null) %avail) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %info, i64 4
   %0 = load i32, ptr %flags.i, align 4

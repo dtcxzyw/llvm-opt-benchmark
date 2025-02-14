@@ -981,7 +981,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2cm10IntoStringIPcE11into_stringEPKc(ptr dead_on_unwind noalias writable sret(%"class.cm::String") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2cm10IntoStringIPcE11into_stringEPKc(ptr dead_on_unwind noalias writable sret(%"class.cm::String") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %1, null

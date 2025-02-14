@@ -171,7 +171,7 @@ end:                                              ; preds = %lor.lhs.false2, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @do_handshake_internal(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr noundef readonly captures(none) %test_ctx, ptr noundef %extra, ptr noundef %session_in, ptr noundef %serv_sess_in, ptr noundef writeonly %session_out, ptr noundef writeonly %serv_sess_out) unnamed_addr #0 {
+define internal fastcc noundef ptr @do_handshake_internal(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr noundef readonly captures(none) %test_ctx, ptr noundef %extra, ptr noundef %session_in, ptr noundef %serv_sess_in, ptr noundef writeonly captures(address_is_null) %session_out, ptr noundef writeonly captures(address_is_null) %serv_sess_out) unnamed_addr #0 {
 entry:
   %name.i.i176 = alloca [80 x i8], align 16
   %name_len.i.i177 = alloca i64, align 8

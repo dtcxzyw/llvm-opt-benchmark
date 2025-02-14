@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dtls1_write_change_cipher_spec.kChangeCipherSpec = internal constant [1 x i8] c"\01", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @dtls1_hm_fragment_free(ptr noundef %frag) local_unnamed_addr #0 {
+define hidden void @dtls1_hm_fragment_free(ptr noundef captures(address_is_null) %frag) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %frag, null
   br i1 %cmp, label %return, label %if.end

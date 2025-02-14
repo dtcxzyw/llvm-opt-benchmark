@@ -232,7 +232,7 @@ declare zeroext i8 @OGLSD_InitOGLWindow(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @OGLSD_MakeOGLContextCurrent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_ResetClip(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLContext_ResetClip(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -251,7 +251,7 @@ define hidden void @OGLContext_ResetClip(ptr noundef readnone %0) local_unnamed_
 declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_SetRectClip(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @OGLContext_SetRectClip(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %0, null
   %or.cond3 = or i1 %8, %7
@@ -289,7 +289,7 @@ define hidden void @OGLContext_SetRectClip(ptr noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_BeginShapeClip(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLContext_BeginShapeClip(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -322,7 +322,7 @@ define hidden void @OGLContext_BeginShapeClip(ptr noundef readnone %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_EndShapeClip(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @OGLContext_EndShapeClip(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -360,7 +360,7 @@ define hidden void @OGLContext_SetExtraAlpha(float noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_ResetComposite(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @OGLContext_ResetComposite(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -395,7 +395,7 @@ define hidden void @OGLContext_ResetComposite(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @OGLContext_SetAlphaComposite(ptr noundef captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %29, label %6
 
@@ -451,7 +451,7 @@ define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_SetXorComposite(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @OGLContext_SetXorComposite(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -488,7 +488,7 @@ define hidden void @OGLContext_SetXorComposite(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_ResetTransform(ptr noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @OGLContext_ResetTransform(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -505,7 +505,7 @@ define hidden void @OGLContext_ResetTransform(ptr noundef readnone %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_SetTransform(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define hidden void @OGLContext_SetTransform(ptr noundef captures(address_is_null) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %31, label %9
 
@@ -653,7 +653,7 @@ define hidden void @OGLContext_DestroyContextResources(ptr noundef %0) local_unn
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -981,7 +981,7 @@ sub_1:                                            ; preds = %sub_0
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsVersionSupported(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsVersionSupported(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

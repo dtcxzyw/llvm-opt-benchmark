@@ -5833,7 +5833,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr readonly captures(address_is_null) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %.0.val, null
@@ -6445,7 +6445,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi(ptr readonly captures(address_is_null) %.0.val, i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not10 = icmp eq ptr %.0.val, null
@@ -7309,7 +7309,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %25, %44, %57, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @cvGetWindowName(ptr noundef readnone %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @cvGetWindowName(ptr noundef readnone captures(address) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %0, null
@@ -8503,7 +8503,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #5
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL13icvOnKeyPressP10_GtkWidgetP12_GdkEventKeyPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL13icvOnKeyPressP10_GtkWidgetP12_GdkEventKeyPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9235,7 +9235,7 @@ _ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit: ; preds = %22, %.noexc13, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #13 {
+define internal noundef i32 @_ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #13 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -9555,7 +9555,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL10icvOnCloseP10_GtkWidgetP9_GdkEventPv(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL10icvOnCloseP10_GtkWidgetP9_GdkEventPv(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address) %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -10782,7 +10782,7 @@ declare void @gtk_box_pack_start(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare void @gtk_range_set_value(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13icvOnTrackbarP10_GtkWidgetPv(ptr noundef %0, ptr noundef %1) #13 {
+define internal void @_ZL13icvOnTrackbarP10_GtkWidgetPv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #13 {
   %3 = tail call i64 @gtk_range_get_type() #27
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3)
   %5 = tail call double @gtk_range_get_value(ptr noundef %4)

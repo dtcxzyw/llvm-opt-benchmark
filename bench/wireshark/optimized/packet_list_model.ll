@@ -6748,7 +6748,7 @@ _ZN5QListIP16PacketListRecordEixEx.exit:          ; preds = %_ZNK17QArrayDataPoi
 declare void @_ZN16PacketListRecord15ensureColorizedEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(37), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK15PacketListModel14visibleIndexOfEP11_frame_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK15PacketListModel14visibleIndexOfEP11_frame_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !noalias !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80

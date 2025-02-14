@@ -5398,7 +5398,7 @@ return:                                           ; preds = %entry, %land.rhs.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(249) %this, ptr noundef readonly %r) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(249) %this, ptr noundef readonly captures(address) %r) local_unnamed_addr #5 align 2 {
 entry:
   %m_parents.i.i = getelementptr inbounds nuw i8, ptr %r, i64 56
   %0 = load ptr, ptr %m_parents.i.i, align 8
@@ -5478,7 +5478,7 @@ return:                                           ; preds = %for.inc14, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base19collect_shared_varsER7sbufferIiLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(249) %this, ptr noundef nonnull align 8 dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt17theory_array_base19collect_shared_varsER7sbufferIiLj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(249) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %to_unmark = alloca %class.ptr_buffer.344, align 8
   %m_initial_buffer.i.i = getelementptr inbounds nuw i8, ptr %to_unmark, i64 16
@@ -8582,7 +8582,7 @@ if.end:                                           ; preds = %_ZN6vectorIP13ptr_h
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base33propagate_select_to_store_parentsEPNS_5enodeES2_R7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef readonly %r, ptr noundef %sel, ptr noundef nonnull align 8 dereferenceable(8) %todo) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt17theory_array_base33propagate_select_to_store_parentsEPNS_5enodeES2_R7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef readonly captures(address) %r, ptr noundef %sel, ptr noundef nonnull align 8 dereferenceable(8) %todo) local_unnamed_addr #3 align 2 {
 entry:
   %tmp.i = alloca ptr, align 8
   %sel.addr = alloca ptr, align 8
@@ -8762,7 +8762,7 @@ for.end37:                                        ; preds = %for.inc36, %if.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(8) %todo) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt17theory_array_base34propagate_selects_to_store_parentsEPNS_5enodeER7svectorISt4pairIS2_S2_EjE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef captures(address) %r, ptr noundef nonnull align 8 dereferenceable(8) %todo) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3smt17theory_array_base14get_select_setEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %r)
   %0 = load ptr, ptr %call, align 8

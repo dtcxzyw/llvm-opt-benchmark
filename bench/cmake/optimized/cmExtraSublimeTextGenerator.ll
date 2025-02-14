@@ -896,7 +896,7 @@ define dso_local void @_ZN27cmExtraSublimeTextGeneratorC2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27cmExtraSublimeTextGenerator8GenerateEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27cmExtraSublimeTextGenerator8GenerateEv(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
@@ -3461,7 +3461,7 @@ declare void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 derefer
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile21GetRequiredDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27cmExtraSublimeTextGenerator12AppendTargetER21cmGeneratedFileStreamRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorP17cmGeneratorTargetPKcPK10cmMakefileSF_RSt3mapIS7_St6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIS8_SM_EEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(348) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext %9) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27cmExtraSublimeTextGenerator12AppendTargetER21cmGeneratedFileStreamRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorP17cmGeneratorTargetPKcPK10cmMakefileSF_RSt3mapIS7_St6vectorIS7_SaIS7_EESt4lessIS7_ESaISt4pairIS8_SM_EEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(348) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull align 8 dereferenceable(48) %8, i1 noundef zeroext %9) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8

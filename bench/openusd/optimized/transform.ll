@@ -45,7 +45,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfTransform3SetERKNS_7GfVec3dERKNS_10GfRotationES6_S3_S3_(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((0, 136)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfTransform3SetERKNS_7GfVec3dERKNS_10GfRotationES6_S3_S3_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(136) initializes((0, 136)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -139,7 +139,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d15ExtractRotatio
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfTransform11SetIdentityEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((0, 136)) %0) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfTransform11SetIdentityEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(136) initializes((0, 136)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -475,7 +475,7 @@ __redisReaderSetError.exit:                       ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly captures(address_is_null) %reply) local_unnamed_addr #0 {
 entry:
   %cbuf.i = alloca [8 x i8], align 1
   %sbuf.i = alloca [128 x i8], align 16

@@ -692,7 +692,7 @@ define internal void @clocksource_verify_one_cpu(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clocksource_start_suspend_timing(ptr noundef readnone %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @clocksource_start_suspend_timing(ptr noundef readnone captures(address) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @suspend_clocksource, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5
@@ -741,7 +741,7 @@ define dso_local void @clocksource_start_suspend_timing(ptr noundef readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone captures(address) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @suspend_clocksource, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %42, label %5
@@ -868,7 +868,7 @@ define dso_local void @clocksource_touch_watchdog() local_unnamed_addr #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local range(i64 0, -9223372036854775808) i64 @clocks_calc_max_nsecs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @clocks_calc_max_nsecs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 align 16 {
   %6 = add i32 %2, %0
   %7 = zext i32 %6 to i64
   %8 = udiv i64 -1, %7

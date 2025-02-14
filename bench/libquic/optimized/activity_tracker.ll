@@ -379,7 +379,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity4TypeERKNS0_12ActivityDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity4TypeERKNS0_12ActivityDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %this, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8

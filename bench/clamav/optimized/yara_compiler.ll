@@ -184,7 +184,7 @@ define ptr @yr_compiler_get_current_file_name(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @yr_compiler_get_error_message(ptr noundef %0, ptr noundef returned writeonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define noundef ptr @yr_compiler_get_error_message(ptr noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !25
   switch i32 %5, label %79 [

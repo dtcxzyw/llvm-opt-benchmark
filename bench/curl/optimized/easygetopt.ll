@@ -85,7 +85,7 @@ lookup.exit:                                      ; preds = %5, %9, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @curl_easy_option_next(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @curl_easy_option_next(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 

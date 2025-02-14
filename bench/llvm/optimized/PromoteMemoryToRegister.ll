@@ -288,7 +288,7 @@ $_ZN4llvm8DenseMapISt4pairIjjEPNS_7PHINodeENS_12DenseMapInfoIS2_vEENS_6detail12D
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm18isAllocaPromotableEPKNS_10AllocaInstE(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm18isAllocaPromotableEPKNS_10AllocaInstE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.078.096 = load ptr, ptr %2, align 8, !tbaa !3
   %.not8497 = icmp eq ptr %.sroa.078.096, null

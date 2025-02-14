@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 16, ptr noundef nonnull @.str) #4

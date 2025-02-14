@@ -165,7 +165,7 @@ define dso_local void @_ZNK5clang17ExternalASTSource20getMemoryBufferSizesERNS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang17ExternalASTSource19incrementGenerationERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN5clang17ExternalASTSource19incrementGenerationERNS_10ASTContextE(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 18200

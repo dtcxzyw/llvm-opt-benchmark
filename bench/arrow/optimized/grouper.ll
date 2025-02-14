@@ -6849,7 +6849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow7compute12_GLOBAL__N_116BaseRowSegmenter9key_typesEv(ptr noundef nonnull readnone align 8 dereferenceable(32) %this) unnamed_addr #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow7compute12_GLOBAL__N_116BaseRowSegmenter9key_typesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %this) unnamed_addr #10 align 2 {
 entry:
   %key_types_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %key_types_
@@ -22508,7 +22508,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute12_GLOBAL__N_111GrouperImplD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute12_GLOBAL__N_111GrouperImplD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow7compute12_GLOBAL__N_111GrouperImplE, i64 16), ptr %this, align 8
   %encoders_ = getelementptr inbounds nuw i8, ptr %this, i64 128

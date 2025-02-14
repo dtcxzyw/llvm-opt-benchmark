@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hs_scratch_free = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_alloc_scratch(ptr noundef %db, ptr noundef %scratch) local_unnamed_addr #0 {
+define dso_local i32 @hs_alloc_scratch(ptr noundef %db, ptr noundef captures(address_is_null) %scratch) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %db, null
   %tobool1 = icmp ne ptr %scratch, null
@@ -581,7 +581,7 @@ return:                                           ; preds = %for.body160, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly %dest) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly captures(address_is_null) %dest) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %dest, null
   %tobool1 = icmp ne ptr %src, null
@@ -650,7 +650,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @hs_scratch_size(ptr noundef %scratch, ptr noundef writeonly %size) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @hs_scratch_size(ptr noundef %scratch, ptr noundef writeonly captures(address_is_null) %size) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %size, null
   %tobool1 = icmp ne ptr %scratch, null

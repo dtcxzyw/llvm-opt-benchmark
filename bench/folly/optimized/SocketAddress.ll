@@ -459,7 +459,7 @@ lpad:                                             ; preds = %return.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef readonly %info) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %this, ptr noundef readonly captures(address_is_null) %info) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.not15 = icmp ne ptr %info, null
   tail call void @llvm.assume(i1 %cmp.not15)
@@ -914,7 +914,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr noundef readonly captures(none) %address, ptr noundef readnone %defaultResult) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr noundef readonly captures(none) %address, ptr noundef readnone captures(ret: address, provenance) %defaultResult) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i16, ptr %address, align 2, !tbaa !56
   switch i16 %0, label %sw.default [
@@ -1430,7 +1430,7 @@ if.end18:                                         ; preds = %if.else, %if.end5, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(22) ptr @_ZNK5folly13SocketAddress12getIPAddressEv(ptr noundef nonnull readonly returned align 8 dereferenceable(27) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(22) ptr @_ZNK5folly13SocketAddress12getIPAddressEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(27) %this) local_unnamed_addr #0 align 2 {
 entry:
   %external_.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %0 = load i8, ptr %external_.i, align 2, !tbaa !7, !range !13, !noundef !14

@@ -5594,7 +5594,7 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31InlineCostAnnotationPrinterPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm31InlineCostAnnotationPrinterPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::optional.270", align 8
   %6 = alloca %"class.std::optional.270", align 8
   %7 = alloca i8, align 1
@@ -11637,7 +11637,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112CallAnalyzer12analyzeBlockEPN4llvm10BasicBlockERNS1_15SmallPtrSetImplIPKNS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(21) %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112CallAnalyzer12analyzeBlockEPN4llvm10BasicBlockERNS1_15SmallPtrSetImplIPKNS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(21) %2) unnamed_addr #1 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %"struct.llvm::SimplifyQuery", align 8
   %6 = alloca ptr, align 8
@@ -16416,7 +16416,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockES3_NS_12DenseMapInfoIS3_vEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112CallAnalyzer14findDeadBlocksEPN4llvm10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112CallAnalyzer14findDeadBlocksEPN4llvm10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 align 2 {
   %4 = alloca %class.anon.522, align 8
   %5 = alloca %"class.llvm::SmallVector.524", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
@@ -22711,7 +22711,7 @@ define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzerD0Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer15onBlockAnalyzedEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 captures(none) dereferenceable(736) %0, ptr noundef readonly %1) unnamed_addr #24 align 2 {
+define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer15onBlockAnalyzedEPKN4llvm10BasicBlockE(ptr noundef nonnull align 8 captures(none) dereferenceable(736) %0, ptr noundef readonly captures(address) %1) unnamed_addr #24 align 2 {
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !301

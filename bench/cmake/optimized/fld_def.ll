@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @default_field = internal global { i16, i16, i16, i16, i16, [2 x i8], i32, i32, i32, i32, i16, i16, i16, i16, i32, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 0, i16 0, i16 0, i16 0, [2 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, i16 0, i16 0, i16 0, i16 0, i32 32, i32 0, i32 0, i32 1023, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_nc_Make_Argument(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @_nc_Make_Argument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret27, label %4
 
@@ -135,7 +135,7 @@ common.ret31:                                     ; preds = %3, %4, %27, %25, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_nc_Free_Argument(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_nc_Free_Argument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret15, label %3
 
@@ -435,7 +435,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @free_field(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 

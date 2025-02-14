@@ -2410,7 +2410,7 @@ declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #5
 declare i32 @H5E_dump_api_stack() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5_libinit_g, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1
@@ -2561,7 +2561,7 @@ define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Sselect_elements(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Sselect_elements(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5_libinit_g, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1

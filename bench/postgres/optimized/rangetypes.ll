@@ -7839,7 +7839,7 @@ declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.StringInfoData, align 8
   %7 = load i8, ptr %1, align 1
   switch i8 %7, label %8 [

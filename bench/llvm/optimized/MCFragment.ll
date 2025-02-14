@@ -28,7 +28,7 @@ define dso_local void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN4llvm10MCFragment7destroyEv(ptr noundef nonnull readonly align 8 dereferenceable(30) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm10MCFragment7destroyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(30) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4, !tbaa !3
   switch i8 %3, label %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EED2Ev.exit [

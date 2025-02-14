@@ -228,7 +228,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core22XdsCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %request, ptr readnone captures(none) %0, ptr noundef captures(none) %sync_status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core22XdsCertificateVerifier6VerifyEP42grpc_tls_custom_verification_check_requestSt8functionIFvN4absl12lts_202308026StatusEEEPS6_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly captures(address_is_null) %request, ptr readnone captures(none) %0, ptr noundef captures(none) %sync_status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp9 = alloca %"class.std::vector", align 8

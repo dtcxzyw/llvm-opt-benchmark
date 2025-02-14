@@ -2796,7 +2796,7 @@ declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64LoadStoreOpt20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull readonly align 8 dereferenceable(1065) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64LoadStoreOpt20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1065) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !145
   %4 = tail call noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(136) %3) #21
   br i1 %4, label %.loopexit, label %5
@@ -10664,7 +10664,7 @@ define internal fastcc noundef zeroext i1 @_ZL22isPreLdStPairCandidateRN4llvm12M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i32 0, 131072) i32 @_ZL31findRenameRegForSameLdStRegPairSt8optionalIbERN4llvm12MachineInstrES3_NS1_8RegisterERNS1_12LiveRegUnitsES6_RNS1_15SmallPtrSetImplIPKNS1_19TargetRegisterClassEEEPKNS1_18TargetRegisterInfoE(i16 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull readnone align 8 dereferenceable(70) %2, i32 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131072) i32 @_ZL31findRenameRegForSameLdStRegPairSt8optionalIbERN4llvm12MachineInstrES3_NS1_8RegisterERNS1_12LiveRegUnitsES6_RNS1_15SmallPtrSetImplIPKNS1_19TargetRegisterClassEEEPKNS1_18TargetRegisterInfoE(i16 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(70) %2, i32 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::concat_iterator", align 8
   %10 = alloca %"class.llvm::concat_iterator", align 8
   %11 = alloca %"class.llvm::concat_iterator", align 8
@@ -12069,7 +12069,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %6, %50, %43, %
 declare noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isLdStPairSuppressedERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc noundef range(i32 -1, 7385) i32 @_ZL24getMatchingNonSExtOpcodejPb(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #15 {
+define internal fastcc noundef range(i32 -1, 7385) i32 @_ZL24getMatchingNonSExtOpcodejPb(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #15 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

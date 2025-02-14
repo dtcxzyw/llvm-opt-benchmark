@@ -3491,7 +3491,7 @@ define i32 @prefs_modules_foreach(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @prefs_modules_foreach_submodules(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_modules_foreach_submodules(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.call_foreach_t, align 8
   %.not = icmp eq ptr %0, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3565,7 +3565,7 @@ define internal noundef zeroext i1 @call_apply_cb(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prefs_apply(ptr noundef %0) local_unnamed_addr #1 {
+define void @prefs_apply(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %call_apply_cb.exit, label %2
 
@@ -3607,7 +3607,7 @@ call_apply_cb.exit:                               ; preds = %15, %12, %5, %2, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @prefs_find_preference(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @prefs_find_preference(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = icmp eq ptr %0, null
@@ -3649,7 +3649,7 @@ prefs_find_preference_with_submodule.exit:        ; preds = %2, %11, %14, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @prefs_find_preference_with_submodule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc ptr @prefs_find_preference_with_submodule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread21, label %6
@@ -4048,7 +4048,7 @@ prefs_get_effect_flags.exit22:                    ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @prefs_get_effect_flags(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @prefs_get_effect_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5145,7 +5145,7 @@ define range(i32 0, 2) i32 @prefs_set_color_value(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @prefs_get_color_value(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @prefs_get_color_value(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #1 {
   switch i32 %1, label %10 [
     i32 0, label %3
     i32 1, label %5
@@ -5341,7 +5341,7 @@ define void @prefs_register_obsolete_preference(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prefs_set_preference_effect_fields(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_preference_effect_fields(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = icmp eq ptr %0, null
@@ -5394,7 +5394,7 @@ prefs_set_effect_flags.exit:                      ; preds = %prefs_find_preferen
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prefs_set_effect_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_effect_flags(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -5417,7 +5417,7 @@ define void @prefs_set_effect_flags(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @prefs_get_preference_obsolete(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @prefs_get_preference_obsolete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -5434,7 +5434,7 @@ define hidden range(i32 0, 2) i32 @prefs_get_preference_obsolete(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @prefs_set_preference_obsolete(ptr noundef %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 3) i32 @prefs_set_preference_obsolete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7045,7 +7045,7 @@ define i32 @read_prefs_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) #1 {
+define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -9099,7 +9099,7 @@ define i32 @prefs_get_uint_base(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @prefs_is_capture_device_hidden(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @prefs_is_capture_device_hidden(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 328), align 8
   %3 = icmp ne ptr %2, null
   %4 = icmp ne ptr %0, null
@@ -9143,7 +9143,7 @@ define range(i32 0, 2) i32 @prefs_is_capture_device_hidden(ptr noundef readonly 
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @prefs_capture_device_monitor_mode(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @prefs_capture_device_monitor_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 336), align 8
   %3 = icmp ne ptr %2, null
   %4 = icmp ne ptr %0, null
@@ -9289,7 +9289,7 @@ define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @prefs_pref_type_name(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @prefs_pref_type_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -9388,7 +9388,7 @@ define ptr @prefs_pref_type_name(ptr noundef readonly %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prefs_set_effect_flags_by_name(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @prefs_set_effect_flags_by_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = icmp eq ptr %0, null
@@ -9448,7 +9448,7 @@ prefs_set_effect_flags.exit:                      ; preds = %prefs_find_preferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @prefs_get_module_effect_flags(ptr noundef readonly %0) local_unnamed_addr #0 {
+define i32 @prefs_get_module_effect_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -9463,7 +9463,7 @@ define i32 @prefs_get_module_effect_flags(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prefs_set_module_effect_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_module_effect_flags(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -9486,7 +9486,7 @@ define void @prefs_set_module_effect_flags(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @prefs_pref_type_description(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @prefs_pref_type_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -9925,7 +9925,7 @@ define ptr @prefs_pref_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 declare ptr @range_convert_range(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @write_prefs(ptr noundef writeonly %0) local_unnamed_addr #1 {
+define i32 @write_prefs(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.call_foreach_t, align 8
   %3 = alloca %struct.write_gui_pref_arg_t, align 8
   %4 = alloca ptr, align 8

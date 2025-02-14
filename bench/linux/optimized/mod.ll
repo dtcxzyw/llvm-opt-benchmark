@@ -228,7 +228,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @v9fs_put_trans(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @v9fs_put_trans(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

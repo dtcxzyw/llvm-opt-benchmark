@@ -203,7 +203,7 @@ while.end:                                        ; preds = %if.end35, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdict_extract_subqdict(ptr noundef %src, ptr noundef %dst, ptr noundef %start) local_unnamed_addr #0 {
+define dso_local void @qdict_extract_subqdict(ptr noundef %src, ptr noundef captures(address_is_null) %dst, ptr noundef %start) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %tobool.not = icmp eq ptr %dst, null

@@ -289,7 +289,7 @@ declare void @cpu_list_unlock() local_unnamed_addr #1
 declare void @end_exclusive() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_cpu_is_self(ptr noundef readnone %cpu) local_unnamed_addr #3 {
+define dso_local zeroext i1 @qemu_cpu_is_self(ptr noundef readnone captures(address) %cpu) local_unnamed_addr #3 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8

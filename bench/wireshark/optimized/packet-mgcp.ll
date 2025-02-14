@@ -2317,7 +2317,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #11
   store i32 0, ptr %4, align 4

@@ -435,14 +435,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5arrow12ScalarEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5arrow12ScalarEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull align 8 dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull align 8 dereferenceable(24) %options, i1 noundef zeroext false)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull readonly align 8 dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options, i1 noundef zeroext %floating_approximate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options, i1 noundef zeroext %floating_approximate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %visitor = alloca %"class.arrow::(anonymous namespace)::ScalarEqualsVisitor", align 8
@@ -1078,7 +1078,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5arrow18ScalarApproxEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5arrow18ScalarApproxEqualsERKNS_6ScalarES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 captures(address) dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %options) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_112ScalarEqualsERKNS_6ScalarES3_RKNS_12EqualOptionsEb(ptr noundef nonnull align 8 dereferenceable(41) %left, ptr noundef nonnull align 8 dereferenceable(41) %right, ptr noundef nonnull align 8 dereferenceable(24) %options, i1 noundef zeroext true)
   ret i1 %call

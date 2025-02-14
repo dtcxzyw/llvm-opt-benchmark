@@ -450,14 +450,14 @@ unreachable:                                      ; preds = %invoke.cont14
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib26EscrowedDividendAdjustment12riskFreeRateEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib26EscrowedDividendAdjustment12riskFreeRateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #7 align 2 {
 entry:
   %rTS_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %rTS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib26EscrowedDividendAdjustment13dividendYieldEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib26EscrowedDividendAdjustment13dividendYieldEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #7 align 2 {
 entry:
   %qTS_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %qTS_

@@ -180,7 +180,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.H5S_select_deserialize = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_none, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_point, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_hyper, i64 48), ptr getelementptr inbounds nuw (i8, ptr @H5S_sel_all, i64 48)], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5S_select_offset(ptr noundef captures(none) initializes((88, 89)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @H5S_select_offset(ptr noundef captures(none) initializes((88, 89)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -210,7 +210,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -2359,7 +2359,7 @@ define range(i32 -1, -2147483648) i32 @H5Sselect_intersect_block(i64 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca [32 x i64], align 16
   %8 = alloca i64, align 8
@@ -3740,7 +3740,7 @@ define range(i32 -1, 1) i32 @H5Ssel_iter_get_seq_list(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_select_contig_block(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5S_select_contig_block(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

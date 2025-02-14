@@ -494,7 +494,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 4) i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly %fillIn, i32 noundef %capacity, ptr noundef captures(none) %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 4) i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly captures(address_is_null) %fillIn, i32 noundef %capacity, ptr noundef captures(none) %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %internalErrorCode = alloca i32, align 4
   %likely = alloca %"class.icu_75::CharString", align 8

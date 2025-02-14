@@ -1186,7 +1186,7 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17hd009677e447c6990E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream6stream9StreamExt4next17hd009677e447c6990E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

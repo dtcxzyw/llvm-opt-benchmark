@@ -94,7 +94,7 @@ define dso_local range(i32 -127, 128) i32 @cmp_complex(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -65535, 65536) i32 @cmp_idx(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define dso_local range(i32 -65535, 65536) i32 @cmp_idx(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %14
 
@@ -744,7 +744,7 @@ core_list_mergesort.exit131._crit_edge:           ; preds = %core_list_mergesort
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @core_list_find(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define dso_local ptr @core_list_find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !25
   %5 = icmp sgt i16 %4, -1
@@ -1222,7 +1222,7 @@ core_list_mergesort.exit:                         ; preds = %._crit_edge80.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @core_list_insert_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone %4, ptr noundef readnone %5) local_unnamed_addr #5 {
+define dso_local ptr @core_list_insert_new(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(address) %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #5 {
   %7 = load ptr, ptr %2, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.not = icmp ult ptr %8, %4

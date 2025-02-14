@@ -19559,7 +19559,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$9from_iter28_$u7b$$u7b$closur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8sum_tree3sum17h1d1d21a824071d3bE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull readnone %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8sum_tree3sum17h1d1d21a824071d3bE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [200 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
   call void @"_ZN64_$LT$text..FragmentSummary$u20$as$u20$core..default..Default$GT$7default17he2d1d70fb81acf29E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %4)

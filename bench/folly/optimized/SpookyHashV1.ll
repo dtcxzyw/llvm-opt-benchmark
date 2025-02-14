@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly captures(address) %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %rem = and i64 %length, 31
   %0 = load i64, ptr %hash1, align 8, !tbaa !7
@@ -333,7 +333,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef captures(address) %message, i64 noundef %length, ptr noundef captures(none) %hash1, ptr noundef captures(none) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [12 x i64], align 16
   %cmp = icmp ult i64 %length, 192
@@ -696,7 +696,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly %message, i64 noundef %length) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly captures(address) %message, i64 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %m_remainder = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load i8, ptr %m_remainder, align 8, !tbaa !19
@@ -1111,7 +1111,7 @@ cleanup:                                          ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef captures(none) initializes((0, 8)) %hash1, ptr noundef captures(none) initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(297) %this, ptr noundef captures(none) initializes((0, 8)) %hash1, ptr noundef captures(none) initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %m_length = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i64, ptr %m_length, align 8, !tbaa !17

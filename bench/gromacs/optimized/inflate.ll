@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @fixedtables.distfix = internal constant [32 x %struct.code] [%struct.code { i8 16, i8 5, i16 1 }, %struct.code { i8 23, i8 5, i16 257 }, %struct.code { i8 19, i8 5, i16 17 }, %struct.code { i8 27, i8 5, i16 4097 }, %struct.code { i8 17, i8 5, i16 5 }, %struct.code { i8 25, i8 5, i16 1025 }, %struct.code { i8 21, i8 5, i16 65 }, %struct.code { i8 29, i8 5, i16 16385 }, %struct.code { i8 16, i8 5, i16 3 }, %struct.code { i8 24, i8 5, i16 513 }, %struct.code { i8 20, i8 5, i16 33 }, %struct.code { i8 28, i8 5, i16 8193 }, %struct.code { i8 18, i8 5, i16 9 }, %struct.code { i8 26, i8 5, i16 2049 }, %struct.code { i8 22, i8 5, i16 129 }, %struct.code { i8 64, i8 5, i16 0 }, %struct.code { i8 16, i8 5, i16 2 }, %struct.code { i8 23, i8 5, i16 385 }, %struct.code { i8 19, i8 5, i16 25 }, %struct.code { i8 27, i8 5, i16 6145 }, %struct.code { i8 17, i8 5, i16 7 }, %struct.code { i8 25, i8 5, i16 1537 }, %struct.code { i8 21, i8 5, i16 97 }, %struct.code { i8 29, i8 5, i16 24577 }, %struct.code { i8 16, i8 5, i16 4 }, %struct.code { i8 24, i8 5, i16 769 }, %struct.code { i8 20, i8 5, i16 49 }, %struct.code { i8 28, i8 5, i16 12289 }, %struct.code { i8 18, i8 5, i16 13 }, %struct.code { i8 26, i8 5, i16 3073 }, %struct.code { i8 22, i8 5, i16 193 }, %struct.code { i8 64, i8 5, i16 0 }], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @inflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflateResetKeep(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %30, label %3
 
@@ -90,7 +90,7 @@ define range(i32 -2, 1) i32 @inflateResetKeep(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @inflateReset(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflateReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateResetKeep.exit, label %3
 
@@ -163,7 +163,7 @@ inflateResetKeep.exit:                            ; preds = %23, %7, %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @inflateReset2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @inflateReset2(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %inflateReset.exit, label %4
 
@@ -297,7 +297,7 @@ inflateReset.exit:                                ; preds = %49, %33, %28, %sele
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %89, label %6
 
@@ -486,13 +486,13 @@ declare ptr @zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
 declare void @zcfree(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @inflateInit_(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -6, 1) i32 @inflateInit_(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @inflateInit2_(ptr noundef %0, i32 noundef 15, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %31, label %5
 
@@ -3440,7 +3440,7 @@ declare i32 @inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, p
 declare void @inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @inflateEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -3485,7 +3485,7 @@ define range(i32 -2, 1) i32 @inflateEnd(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @inflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflateGetDictionary(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %34, label %5
 
@@ -3539,7 +3539,7 @@ define range(i32 -2, 1) i32 @inflateGetDictionary(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %83, label %5
 
@@ -3689,7 +3689,7 @@ updatewindow.exit:                                ; preds = %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @inflateGetHeader(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -3719,7 +3719,7 @@ define range(i32 -2, 1) i32 @inflateGetHeader(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -5, 1) i32 @inflateSync(ptr noundef %0) local_unnamed_addr #4 {
+define range(i32 -5, 1) i32 @inflateSync(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = alloca [4 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %107, label %4
@@ -3947,7 +3947,7 @@ inflateReset.exit:                                ; preds = %75, %80, %94
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2, 2) i32 @inflateSyncPoint(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 -2, 2) i32 @inflateSyncPoint(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -3975,7 +3975,7 @@ define range(i32 -2, 2) i32 @inflateSyncPoint(ptr noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @inflateCopy(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -4, 1) i32 @inflateCopy(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -4097,7 +4097,7 @@ define range(i32 -4, 1) i32 @inflateCopy(ptr noundef writeonly %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -3, -1) i32 @inflateUndermine(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 -3, -1) i32 @inflateUndermine(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -4118,7 +4118,7 @@ define range(i32 -3, -1) i32 @inflateUndermine(ptr noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -140737488355328, 140741783257088) i64 @inflateMark(ptr noundef readonly %0) local_unnamed_addr #5 {
+define range(i64 -140737488355328, 140741783257088) i64 @inflateMark(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 

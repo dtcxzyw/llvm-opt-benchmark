@@ -1648,7 +1648,7 @@ return:                                           ; preds = %_ZN7msdfgenL14skipE
 declare noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeEPKciPNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef %filename, i32 noundef %pathIndex, ptr noundef writeonly %dimensions) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeEPKciPNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef %filename, i32 noundef %pathIndex, ptr noundef writeonly captures(address_is_null) %dimensions) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i13 = alloca ptr, align 8
   %end.i = alloca ptr, align 8

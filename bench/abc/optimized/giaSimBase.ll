@@ -740,7 +740,7 @@ Vec_WrdFree.exit:                                 ; preds = %.critedge4, %149
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManSimPatSimIn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #4 {
+define noalias noundef ptr @Gia_ManSimPatSimIn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val81 = load i32, ptr %5, align 4, !tbaa !37
   %6 = getelementptr i8, ptr %0, i64 24
@@ -5399,7 +5399,7 @@ Vec_WrdFree.exit47:                               ; preds = %Vec_WrdFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManSimPatHashPatterns(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define i32 @Gia_ManSimPatHashPatterns(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
   %6 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #35
   store i32 %1, ptr %6, align 8, !tbaa !128
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13380,7 +13380,7 @@ define i32 @Gia_RsbRemovalCost(ptr noundef readonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Gia_RsbFindNodeToRemove(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
+define i32 @Gia_RsbFindNodeToRemove(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !263
   %5 = getelementptr i8, ptr %4, i64 4

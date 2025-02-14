@@ -1552,7 +1552,7 @@ define noundef i32 @select_p_step_finish(ptr noundef readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_p_select_nodeinfo_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @select_p_select_nodeinfo_pack(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %0, null

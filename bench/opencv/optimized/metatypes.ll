@@ -574,12 +574,12 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_20CommConsumerCallbackE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_20CommConsumerCallbackE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_20CommProducerCallbackE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_20CommProducerCallbackE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -604,7 +604,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_10FinalizersE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4metalsERSoRKNS0_10FinalizersE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 {
   ret ptr %0
 }
 

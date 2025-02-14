@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @wcsncat(ptr noundef returned %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @wcsncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @wcslen(ptr noundef %0) #2
   %5 = getelementptr inbounds i32, ptr %0, i64 %4
   %.not12 = icmp eq i64 %2, 0

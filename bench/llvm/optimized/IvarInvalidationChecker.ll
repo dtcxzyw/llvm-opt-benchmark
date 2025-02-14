@@ -7684,7 +7684,7 @@ _ZNK12_GLOBAL__N_127IvarInvalidationCheckerImpl13MethodCrawler6isZeroEPKN5clang4
 declare noundef zeroext i1 @_ZNK5clang4Expr14isObjCSelfExprEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl13MethodCrawler15markInvalidatedEPKN5clang12ObjCIvarDeclE(ptr captures(none) %.0.val, ptr readnone %.40.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_127IvarInvalidationCheckerImpl13MethodCrawler15markInvalidatedEPKN5clang12ObjCIvarDeclE(ptr captures(none) %.0.val, ptr readnone captures(address) %.40.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %.val3 = load ptr, ptr %.0.val, align 8, !tbaa !115
   %2 = getelementptr i8, ptr %.0.val, i64 16
   %.val4 = load i32, ptr %2, align 8, !tbaa !116

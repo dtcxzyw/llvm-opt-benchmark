@@ -76,7 +76,7 @@ entry:
 declare noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef readonly %pScene) unnamed_addr #7 align 2 {
+define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef readonly captures(address_is_null) %pScene) unnamed_addr #7 align 2 {
 entry:
   %pos = alloca %class.aiVector3t, align 4
   %scale = alloca %class.aiVector3t, align 4

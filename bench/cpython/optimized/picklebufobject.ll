@@ -75,7 +75,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyPickleBuffer_GetBuffer(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @PyPickleBuffer_GetBuffer(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %2, align 8, !tbaa !26
   %.not = icmp eq ptr %.val6, @PyPickleBuffer_Type

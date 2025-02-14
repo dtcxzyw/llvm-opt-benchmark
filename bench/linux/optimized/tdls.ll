@@ -759,7 +759,7 @@ define internal fastcc void @iee80211_tdls_recalc_chanctx(ptr %.1256.val, ptr %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iee80211_tdls_recalc_ht_protection(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @iee80211_tdls_recalc_ht_protection(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3648
   %5 = load i32, ptr %4, align 8
@@ -1866,7 +1866,7 @@ declare void @llvm.assume(i1 noundef) #9
 declare dso_local i32 @__SCT__tp_func_drv_return_void(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i8 noundef zeroext %9, ptr noundef readonly %10) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i8 noundef zeroext %9, ptr noundef readonly captures(address_is_null) %10) unnamed_addr #0 align 16 {
   %12 = alloca i8, align 1
   %13 = alloca %struct.ieee80211_sta_ht_cap, align 2
   %14 = alloca %struct.ieee80211_sta_vht_cap, align 4
@@ -3702,7 +3702,7 @@ declare dso_local i32 @__SCT__tp_func_drv_tdls_cancel_channel_switch(ptr noundef
 declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_tdls_ch_sw_resp_tmpl_get(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_tdls_ch_sw_resp_tmpl_get(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca [6 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8

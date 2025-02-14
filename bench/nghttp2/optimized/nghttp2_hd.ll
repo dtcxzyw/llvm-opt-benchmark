@@ -441,7 +441,7 @@ hd_context_free.exit:                             ; preds = %hd_ringbuf_get.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef initializes((48, 56), (1104, 1105)) %deflater, i64 noundef %settings_max_dynamic_table_size) local_unnamed_addr #0 {
+define noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef captures(address_is_null) initializes((48, 56), (1104, 1105)) %deflater, i64 noundef %settings_max_dynamic_table_size) local_unnamed_addr #0 {
 entry:
   %deflate_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 1088
   %0 = load i64, ptr %deflate_hd_table_bufsize_max, align 8
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hd_context_shrink_table_size(ptr noundef captures(none) %context, ptr noundef %map) unnamed_addr #0 {
+define internal fastcc void @hd_context_shrink_table_size(ptr noundef captures(none) %context, ptr noundef captures(address_is_null) %map) unnamed_addr #0 {
 entry:
   %mem1 = getelementptr inbounds nuw i8, ptr %context, i64 32
   %0 = load ptr, ptr %mem1, align 8
@@ -730,7 +730,7 @@ return:                                           ; preds = %if.else4, %hd_ringb
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef %deflater, ptr noundef %bufs, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
+define hidden i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef captures(address_is_null) %deflater, ptr noundef %bufs, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
 entry:
   %sb.i.i = alloca [16 x i8], align 16
   %hd_nv.i = alloca %struct.nghttp2_hd_nv, align 8
@@ -1451,7 +1451,7 @@ return:                                           ; preds = %for.cond, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @nghttp2_hd_deflate_hd(ptr noundef %deflater, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
+define i64 @nghttp2_hd_deflate_hd(ptr noundef captures(address_is_null) %deflater, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
 entry:
   %bufs = alloca %struct.nghttp2_bufs, align 8
   %mem1 = getelementptr inbounds nuw i8, ptr %deflater, i64 32
@@ -1492,7 +1492,7 @@ declare i64 @nghttp2_bufs_len(ptr noundef) local_unnamed_addr #2
 declare void @nghttp2_bufs_wrap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @nghttp2_hd_deflate_hd_vec(ptr noundef %deflater, ptr noundef %vec, i64 noundef %veclen, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
+define i64 @nghttp2_hd_deflate_hd_vec(ptr noundef captures(address_is_null) %deflater, ptr noundef %vec, i64 noundef %veclen, ptr noundef readonly captures(none) %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
 entry:
   %bufs = alloca %struct.nghttp2_bufs, align 8
   %mem1 = getelementptr inbounds nuw i8, ptr %deflater, i64 32
@@ -4111,7 +4111,7 @@ return:                                           ; preds = %sw.bb355, %sw.bb346
 declare i32 @nghttp2_rcbuf_new2(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noundef captures(none) %context, ptr noundef nonnull readonly captures(none) %nv, ptr noundef %map, i32 noundef %hash) unnamed_addr #0 {
+define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noundef captures(none) %context, ptr noundef nonnull readonly captures(none) %nv, ptr noundef captures(address_is_null) %map, i32 noundef %hash) unnamed_addr #0 {
 entry:
   %mem1 = getelementptr inbounds nuw i8, ptr %context, i64 32
   %0 = load ptr, ptr %mem1, align 8

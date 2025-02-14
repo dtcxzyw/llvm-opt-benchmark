@@ -1439,7 +1439,7 @@ applyattrs.exit:                                  ; preds = %36, %.lr.ph.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 

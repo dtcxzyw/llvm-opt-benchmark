@@ -1835,7 +1835,7 @@ create_filter.exit:                               ; preds = %.tail.thread, %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @apply_subsystem_event_filter(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @apply_subsystem_event_filter(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

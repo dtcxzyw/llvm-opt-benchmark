@@ -50,7 +50,7 @@ declare ptr @avifAlloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.aom_codec_dec_cfg, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

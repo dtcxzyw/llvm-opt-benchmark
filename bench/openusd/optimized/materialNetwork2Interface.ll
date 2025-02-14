@@ -246,7 +246,7 @@ $_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7TfTokenEEENS_16
 @_ZTIv = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
@@ -579,7 +579,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface16_GetOrCreateNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface16_GetOrCreateNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.10", align 1
@@ -1057,7 +1057,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface11GetNodeTypeERKNS_7TfTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface11GetNodeTypeERKNS_7TfTokenE(ptr dead_on_unwind noalias writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split, label %5
@@ -1103,7 +1103,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface29GetAuthoredNodeParameterNamesERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface29GetAuthoredNodeParameterNamesERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %.loopexit.split-lp
@@ -1220,7 +1220,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface21GetNodeParameterValueERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface21GetNodeParameterValueERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
@@ -1249,7 +1249,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface20GetNodeParameterDataERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdMaterialNetworkInterface::NodeParamData") align 8 initializes((8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface20GetNodeParameterDataERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdMaterialNetworkInterface::NodeParamData") align 8 initializes((8, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1675,7 +1675,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface27GetNodeInputConnectionNamesERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface27GetNodeInputConnectionNamesERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %.loopexit.split-lp
@@ -1792,7 +1792,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface22GetNodeInputConnectionERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector") align 8 initializes((64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface22GetNodeInputConnectionERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector") align 8 initializes((64, 72)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(40) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdMaterialNetworkInterface::InputConnection", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %6, align 8
@@ -2184,7 +2184,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %30, %32, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface11SetNodeTypeERKNS_7TfTokenES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface11SetNodeTypeERKNS_7TfTokenES3_(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface16_GetOrCreateNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.not = icmp eq ptr %4, null
   %.not.i = icmp eq ptr %2, %4
@@ -2237,7 +2237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %_ZNK32pxr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface21SetNodeParameterValueERKNS_7TfTokenES3_RKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface21SetNodeParameterValueERKNS_7TfTokenES3_RKNS_7VtValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface16_GetOrCreateNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit, label %6
@@ -2402,7 +2402,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface20SetNodeParameterDataERKNS_7TfTokenES3_RKNS_26HdMaterialNetworkInterface13NodeParamDataE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface20SetNodeParameterDataERKNS_7TfTokenES3_RKNS_26HdMaterialNetworkInterface13NodeParamDataE(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -2569,7 +2569,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface19DeleteNodeParameterERKNS_7TfTokenES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface19DeleteNodeParameterERKNS_7TfTokenES3_(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -2587,7 +2587,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface22SetNodeInputConnectionERKNS_7TfTokenES3_RKNS_13TfSmallVectorINS_26HdMaterialNetworkInterface15InputConnectionELj4EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 dereferenceable(72) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface22SetNodeInputConnectionERKNS_7TfTokenES3_RKNS_13TfSmallVectorINS_26HdMaterialNetworkInterface15InputConnectionELj4EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.30", align 8
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdMaterialConnection2", align 8
   %7 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface16_GetOrCreateNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -3498,7 +3498,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface25DeleteNodeInputConnectionERKNS_7TfTokenES3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface25DeleteNodeInputConnectionERKNS_7TfTokenES3_(ptr noundef nonnull align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface8_GetNodeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5

@@ -659,7 +659,7 @@ if.end47:                                         ; preds = %if.end30, %if.end20
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_start_irqfd_injection(ptr noundef %sbdev, ptr noundef readnone %irq) #0 {
+define internal void @vfio_start_irqfd_injection(ptr noundef %sbdev, ptr noundef readnone captures(address) %irq) #0 {
 entry:
   %err.i.i = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #15

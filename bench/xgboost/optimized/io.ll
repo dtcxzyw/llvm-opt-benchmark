@@ -1072,13 +1072,13 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4dmlc10InputSplit6CreateEPKcjjS2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZN4dmlc10InputSplit6CreateEPKcjjS2_(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = tail call noundef ptr @_ZN4dmlc10InputSplit6CreateEPKcS2_jjS2_bimb(ptr noundef %0, ptr noundef null, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext false, i32 noundef 0, i64 noundef 256, i1 noundef zeroext false)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN4dmlc10InputSplit6CreateEPKcS2_jjS2_bimb(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN4dmlc10InputSplit6CreateEPKcS2_jjS2_bimb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca %"class.dmlc::io::URISpec", align 8

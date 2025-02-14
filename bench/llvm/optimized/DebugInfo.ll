@@ -3359,7 +3359,7 @@ _ZNK4llvm10DIVariable7getTypeEv.exit:             ; preds = %38, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DebugInfoFinder15processLocationERKNS_6ModuleEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15DebugInfoFinder15processLocationERKNS_6ModuleEPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -4651,7 +4651,7 @@ declare void @_ZN4llvm11Instruction11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr 
 declare void @_ZN4llvm11Instruction14dropDbgRecordsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm14StripDebugInfoERNS_6ModuleE(ptr noundef nonnull readonly align 8 dereferenceable(841) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm14StripDebugInfoERNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(841) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5776,7 +5776,7 @@ _ZN12_GLOBAL__N_120DebugTypeInfoRemoval8traverseEPN4llvm6MDNodeE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval7mapNodeEPN4llvm8MetadataE(ptr readonly %.0.val, i32 %.16.val, ptr noundef %0) unnamed_addr #5 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval7mapNodeEPN4llvm8MetadataE(ptr readonly captures(address) %.0.val, i32 %.16.val, ptr noundef %0) unnamed_addr #5 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit, label %2
 
@@ -6122,7 +6122,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %12, %_ZN4llvm13Trac
 declare noundef ptr @_ZN4llvm10DILocation17getMergedLocationEPS0_S1_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11Instruction15mergeDIAssignIDENS_8ArrayRefIPKS0_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11Instruction15mergeDIAssignIDENS_8ArrayRefIPKS0_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.212", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6635,7 +6635,7 @@ _ZN4llvm33getDebugMetadataVersionFromModuleERKNS_6ModuleE.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMStripModuleDebugInfo(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMStripModuleDebugInfo(ptr noundef nonnull captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call noundef zeroext i1 @_ZN4llvm14StripDebugInfoERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(841) %0)
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -7265,7 +7265,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %_ZNK4llvm6MDNode14g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMDIScopeGetFile(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @LLVMDIScopeGetFile(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 4, !tbaa !102
   %3 = icmp eq i8 %2, 16
   br i1 %3, label %_ZNK4llvm7DIScope7getFileEv.exit, label %4
@@ -8506,7 +8506,7 @@ _ZN4llvm11SmallVectorIPNS_17DbgVariableRecordELj6EED2Ev.exit: ; preds = %72, %76
 declare void @_ZN4llvm9DbgRecord15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2at9deleteAllEPNS_8FunctionE(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2at9deleteAllEPNS_8FunctionE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallVector.690", align 8
   %3 = alloca %"class.llvm::SmallVector.692", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #17
@@ -9650,7 +9650,7 @@ define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_10A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2at16trackAssignmentsENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_10BasicBlockELb0ELb0EvLb0EvEELb0ELb0EEES6_RKNS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS0_9VarRecordELj2EEENS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SD_EEEERKNS_10DataLayoutEb(ptr %0, ptr readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(496) %3, i1 zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2at16trackAssignmentsENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_10BasicBlockELb0ELb0EvLb0EvEELb0ELb0EEES6_RKNS_8DenseMapIPKNS_10AllocaInstENS_14SmallSetVectorINS0_9VarRecordELj2EEENS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SD_EEEERKNS_10DataLayoutEb(ptr %0, ptr readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(496) %3, i1 zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -14927,7 +14927,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataES3_NS_12DenseMapInfoIS3_vEENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr readonly %.0.val, i32 %.16.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr readonly captures(address) %.0.val, i32 %.16.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -15144,7 +15144,7 @@ _ZNK4llvm6MDNode10getContextEv.exit36:            ; preds = %103, %104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval20getReplacementMDNodeEPN4llvm6MDNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval20getReplacementMDNodeEPN4llvm6MDNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.831", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

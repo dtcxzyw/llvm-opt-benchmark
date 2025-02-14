@@ -8600,7 +8600,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %58, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 align 2 {
 ._crit_edge.i.i:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #22
@@ -35015,7 +35015,7 @@ define void @_ZN7glslang13TParseContext20memberQualifierCheckERNS_11TPublicTypeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext23globalQualifierFixCheckERKNS_10TSourceLocERNS_10TQualifierEbPKNS_11TPublicTypeE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %2, i1 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext23globalQualifierFixCheckERKNS_10TSourceLocERNS_10TQualifierEbPKNS_11TPublicTypeE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
@@ -39239,7 +39239,7 @@ _ZN7glslang13TParseContext22arraySizeRequiredCheckERKNS_10TSourceLocERKNS_11TArr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext24arrayOfArrayVersionCheckERKNS_10TSourceLocEPKNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext24arrayOfArrayVersionCheckERKNS_10TSourceLocEPKNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %18, label %5
 
@@ -48055,7 +48055,7 @@ declare noundef zeroext i1 @_ZN7glslang13TIntermediate17addUsedConstantIdEi(ptr 
 declare void @_ZN7glslang14TParseVersions12requireStageERKNS_10TSourceLocE15EShLanguageMaskPKc(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext30layoutMemberLocationArrayCheckERKNS_10TSourceLocEbPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp ne ptr %3, null
   %or.cond = and i1 %2, %5
   br i1 %or.cond, label %6, label %66
@@ -51169,7 +51169,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang13TParseContext29vkRelaxedRemapUniformVariableERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_11TPublicTypeEPNS_11TArraySizesEPNS_12TIntermTypedERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(248) %3, ptr readnone captures(none) %4, ptr noundef readnone %5, ptr noundef nonnull align 8 dereferenceable(152) %6) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang13TParseContext29vkRelaxedRemapUniformVariableERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_11TPublicTypeEPNS_11TArraySizesEPNS_12TIntermTypedERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(248) %3, ptr readnone captures(none) %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull align 8 dereferenceable(152) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.anon.500, align 8
   %9 = alloca %class.anon.272, align 8
   %10 = load ptr, ptr %6, align 8
@@ -60094,7 +60094,7 @@ define void @_ZN7glslang13TParseContext22fixBlockUniformOffsetsERNS_10TQualifier
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext27fixBlockUniformLayoutMatrixERNS_10TQualifierEPNS_7TVectorINS_8TTypeLocEEES6_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext27fixBlockUniformLayoutMatrixERNS_10TQualifierEPNS_7TVectorINS_8TTypeLocEEES6_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.glslang::TMap.444", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -60373,7 +60373,7 @@ define void @_ZN7glslang13TParseContext27fixBlockUniformLayoutMatrixERNS_10TQual
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext28fixBlockUniformLayoutPackingERNS_10TQualifierEPNS_7TVectorINS_8TTypeLocEEES6_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext28fixBlockUniformLayoutPackingERNS_10TQualifierEPNS_7TVectorINS_8TTypeLocEEES6_(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.glslang::TMap.444", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16

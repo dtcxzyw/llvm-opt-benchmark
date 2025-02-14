@@ -3651,7 +3651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN7httplib6detail4trimEPKcS2_mm(ptr noundef readonly %b, ptr noundef readnone %e, i64 noundef %left, i64 noundef %right) local_unnamed_addr #9 {
+define { i64, i64 } @_ZN7httplib6detail4trimEPKcS2_mm(ptr noundef readonly captures(address) %b, ptr noundef readnone captures(address) %e, i64 noundef %left, i64 noundef %right) local_unnamed_addr #9 {
 entry:
   %add.ptr9 = getelementptr inbounds i8, ptr %b, i64 %left
   %cmp10 = icmp ult ptr %add.ptr9, %e
@@ -7733,7 +7733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc(ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %id, ptr noundef readnone %def) local_unnamed_addr #5 {
+define noundef ptr @_ZN7httplib6detail16get_header_valueERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_2ciESaISt4pairIKS7_S7_EEERSA_mPKc(ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %id, ptr noundef readnone captures(ret: address, provenance) %def) local_unnamed_addr #5 {
 entry:
   %call.i = tail call { ptr, ptr } @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN7httplib6detail2ciESaIS8_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(32) %key)
   %0 = extractvalue { ptr, ptr } %call.i, 0
@@ -8554,7 +8554,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7httplib6detail13write_headersERNS_6StreamERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_2ciESaISt4pairIKS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull readonly align 8 dereferenceable(48) %headers) #5 {
+define noundef i64 @_ZN7httplib6detail13write_headersERNS_6StreamERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_2ciESaISt4pairIKS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %headers) #5 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp6 = alloca ptr, align 8
@@ -8870,7 +8870,7 @@ return:                                           ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6detail19params_to_query_strERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %params) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6detail19params_to_query_strERKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #39
@@ -9370,7 +9370,7 @@ return:                                           ; preds = %if.then.i.i.i.i, %c
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6detail8to_lowerB5cxx11EPKcS2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly %beg, ptr noundef readnone %end) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6detail8to_lowerB5cxx11EPKcS2_(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef readonly captures(address) %beg, ptr noundef readnone captures(address) %end) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #39
   %cmp.not3 = icmp eq ptr %beg, %end
@@ -15776,7 +15776,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare i32 @__res_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib19append_query_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib19append_query_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__what.i.i = alloca %"class.std::__cxx11::match_results", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18352,7 +18352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7httplib6detail12BufferStream10get_bufferB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7httplib6detail12BufferStream10get_bufferB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) local_unnamed_addr #8 align 2 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %buffer
@@ -21481,7 +21481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_file_request_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_file_request_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.156", align 8
@@ -21536,7 +21536,7 @@ _ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEaSEOS7_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_error_handlerESt8functionIFNS0_15HandlerResponseERKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_error_handlerESt8functionIFNS0_15HandlerResponseERKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.169", align 8
@@ -21591,7 +21591,7 @@ _ZNSt8functionIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_error_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef %handler) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_error_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef %handler) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.169", align 8
@@ -21736,7 +21736,7 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server21set_exception_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseENSt15__exception_ptr13exception_ptrEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server21set_exception_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseENSt15__exception_ptr13exception_ptrEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.172", align 8
@@ -21791,7 +21791,7 @@ _ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseENSt15__exception_ptr13except
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server23set_pre_routing_handlerESt8functionIFNS0_15HandlerResponseERKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server23set_pre_routing_handlerESt8functionIFNS0_15HandlerResponseERKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.169", align 8
@@ -21846,7 +21846,7 @@ _ZNSt8functionIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_post_routing_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_post_routing_handlerESt8functionIFvRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.156", align 8
@@ -21901,7 +21901,7 @@ _ZNSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEaSEOS7_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server10set_loggerESt8functionIFvRKNS_7RequestERKNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %logger) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server10set_loggerESt8functionIFvRKNS_7RequestERKNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %logger) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.177", align 8
@@ -21956,7 +21956,7 @@ _ZNSt8functionIFvRKN7httplib7RequestERKNS0_8ResponseEEEaSEOS8_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server31set_expect_100_continue_handlerESt8functionIFiRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server31set_expect_100_continue_handlerESt8functionIFiRKNS_7RequestERNS_8ResponseEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %handler) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.174", align 8
@@ -22011,7 +22011,7 @@ _ZNSt8functionIFiRKN7httplib7RequestERNS0_8ResponseEEEaSEOS7_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server18set_address_familyEi(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((696, 700)) %this, i32 noundef %family) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server18set_address_familyEi(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((696, 700)) %this, i32 noundef %family) local_unnamed_addr #3 align 2 {
 entry:
   %address_family_ = getelementptr inbounds nuw i8, ptr %this, i64 696
   store i32 %family, ptr %address_family_, align 8
@@ -22019,7 +22019,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server15set_tcp_nodelayEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((700, 701)) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server15set_tcp_nodelayEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((700, 701)) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %on to i8
   %tcp_nodelay_ = getelementptr inbounds nuw i8, ptr %this, i64 700
@@ -22028,7 +22028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server18set_socket_optionsESt8functionIFviEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef captures(none) %socket_options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server18set_socket_optionsESt8functionIFviEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef captures(none) %socket_options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.17", align 8
@@ -22140,7 +22140,7 @@ _ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N7httplib6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_header_writerERKSt8functionIFlRNS_6StreamERSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_6detail2ciESaISt4pairIKSA_SA_EEEEE(ptr noundef nonnull returned align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %writer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_header_writerERKSt8functionIFlRNS_6StreamERSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_6detail2ciESaISt4pairIKSA_SA_EEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %writer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.180", align 8
@@ -22221,7 +22221,7 @@ _ZNSt8functionIFlRN7httplib6StreamERSt8multimapINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_keep_alive_max_countEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((48, 56)) %this, i64 noundef %count) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server24set_keep_alive_max_countEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((48, 56)) %this, i64 noundef %count) local_unnamed_addr #3 align 2 {
 entry:
   %keep_alive_max_count_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %count, ptr %keep_alive_max_count_, align 8
@@ -22229,7 +22229,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server22set_keep_alive_timeoutEl(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((56, 64)) %this, i64 noundef %sec) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server22set_keep_alive_timeoutEl(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((56, 64)) %this, i64 noundef %sec) local_unnamed_addr #3 align 2 {
 entry:
   %keep_alive_timeout_sec_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 %sec, ptr %keep_alive_timeout_sec_, align 8
@@ -22237,7 +22237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server16set_read_timeoutEll(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((64, 80)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server16set_read_timeoutEll(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((64, 80)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
 entry:
   %read_timeout_sec_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %sec, ptr %read_timeout_sec_, align 8
@@ -22247,7 +22247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_write_timeoutEll(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((80, 96)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_write_timeoutEll(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((80, 96)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
 entry:
   %write_timeout_sec_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 %sec, ptr %write_timeout_sec_, align 8
@@ -22257,7 +22257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_idle_intervalEll(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((96, 112)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server17set_idle_intervalEll(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((96, 112)) %this, i64 noundef %sec, i64 noundef %usec) local_unnamed_addr #3 align 2 {
 entry:
   %idle_interval_sec_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 %sec, ptr %idle_interval_sec_, align 8
@@ -22267,7 +22267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server22set_payload_max_lengthEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(816) initializes((112, 120)) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(816) ptr @_ZN7httplib6Server22set_payload_max_lengthEm(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(816) initializes((112, 120)) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
 entry:
   %payload_max_length_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 %length, ptr %payload_max_length_, align 8
@@ -43684,7 +43684,7 @@ _ZNSt8functionIFbRKN7httplib8ResponseEEED2Ev.exit42: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.55", align 8
   %path_with_query = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43836,7 +43836,7 @@ return:                                           ; preds = %_ZNSt8functionIFbmm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.50", align 8
   %agg.tmp2 = alloca %"class.std::function.58", align 8
@@ -44033,7 +44033,7 @@ _ZNSt8functionIFbRKN7httplib8ResponseEEED2Ev.exit56: ; preds = %ehcleanup8, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbRKNS_8ResponseEEESN_IFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %response_handler, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbRKNS_8ResponseEEESN_IFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %response_handler, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.50", align 8
   %agg.tmp2 = alloca %"class.std::function.58", align 8
@@ -45028,7 +45028,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::multimap", align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -45066,7 +45066,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %query = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46752,7 +46752,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::multimap", align 8
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -46790,7 +46790,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %query = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -53380,7 +53380,7 @@ _ZNSt8functionIFbRKN7httplib8ResponseEEED2Ev.exit41: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.55", align 8
   %0 = load ptr, ptr %this, align 8
@@ -53469,7 +53469,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.58", align 8
   %agg.tmp2 = alloca %"class.std::function.55", align 8
@@ -53631,7 +53631,7 @@ terminate.lpad.i.i39:                             ; preds = %if.then.i.i37
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbRKNS_8ResponseEEESN_IFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %response_handler, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6Client3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEERKS9_IS6_S6_NS_6detail2ciESE_ESt8functionIFbRKNS_8ResponseEEESN_IFbPKcmEESN_IFbmmEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef %response_handler, ptr noundef %content_receiver, ptr noundef %progress) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.50", align 8
   %agg.tmp2 = alloca %"class.std::function.58", align 8
@@ -54319,7 +54319,7 @@ _ZNSt8functionIFbmRN7httplib8DataSinkEEED2Ev.exit7: ; preds = %lpad, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6Client4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::multimap", align 8
   %0 = load ptr, ptr %this, align 8
@@ -54360,7 +54360,7 @@ _ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 {
+define void @_ZN7httplib6Client4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN7httplib10ClientImpl4PostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params)
@@ -54815,7 +54815,7 @@ _ZNSt8functionIFbmRN7httplib8DataSinkEEED2Ev.exit7: ; preds = %lpad, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7httplib6Client3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::multimap", align 8
   %0 = load ptr, ptr %this, align 8
@@ -54856,7 +54856,7 @@ _ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7httplib6Client3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 align 2 {
+define void @_ZN7httplib6Client3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr noalias sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %params) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN7httplib10ClientImpl3PutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8multimapIS6_S6_NS_6detail2ciESaISt4pairIS7_S6_EEERKS9_IS6_S6_St4lessIS6_ESE_E(ptr sret(%"class.httplib::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(48) %headers, ptr noundef nonnull align 8 dereferenceable(48) %params)
@@ -96207,7 +96207,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %trailer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %trailer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %payload = alloca %"class.std::__cxx11::basic_string", align 8
@@ -96711,7 +96711,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_SR_E3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(48) %__args) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSB_SR_E3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %__args) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNS_6Server27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_E3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_RNS_5ErrorEENKUlPKSt8multimapISF_SF_NS0_2ciESaISt4pairISG_SF_EEEE_clES15_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef nonnull align 8 dereferenceable(48) %__args)
@@ -102190,7 +102190,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %trailer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %trailer) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %payload = alloca %"class.std::__cxx11::basic_string", align 8
@@ -102694,7 +102694,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SQ_EUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(48) %__args) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail2ciESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSL_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SQ_EUlSG_E_E9_M_invokeERKSt9_Any_dataSG_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %__args) #5 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   tail call fastcc void @"_ZZN7httplib6detail21write_content_chunkedIZNKS_10ClientImpl27write_content_with_providerERNS_6StreamERKNS_7RequestERNS_5ErrorEE3$_0NS0_10compressorEEEbS4_RKSt8functionIFbmmRNS_8DataSinkEEERKT_RT0_S9_ENKUlPKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS0_2ciESaISt4pairIKSU_SU_EEEE_clES12_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %call.val, ptr noundef nonnull align 8 dereferenceable(48) %__args)

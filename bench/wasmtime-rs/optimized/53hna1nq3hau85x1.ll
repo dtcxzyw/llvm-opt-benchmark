@@ -2366,7 +2366,7 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$$LP$usize$C$hashbro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17he3b227bbc5006c12E.llvm.8691256130968402882"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17he3b227bbc5006c12E.llvm.8691256130968402882"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

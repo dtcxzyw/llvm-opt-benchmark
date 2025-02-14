@@ -4039,7 +4039,7 @@ declare ptr @RelationGetIndexList(ptr noundef) local_unnamed_addr #1
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4699,7 +4699,7 @@ declare ptr @untransformRelOptions(i64 noundef) local_unnamed_addr #1
 declare i64 @get_attoptions(i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformIndexStmt(i32 noundef %0, ptr noundef returned %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformIndexStmt(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 111
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -4819,7 +4819,7 @@ declare ptr @transformExpr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @free_parsestate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformStatsStmt(i32 noundef %0, ptr noundef returned %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformStatsStmt(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -5258,7 +5258,7 @@ declare ptr @getInsertSelectQuery(ptr noundef, ptr noundef) local_unnamed_addr #
 declare zeroext i1 @rangeTableEntry_used(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr noundef returned %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformAlterTableStmt(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.CreateStmtContext, align 8
   %7 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 0) #8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -5908,7 +5908,7 @@ declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @makeTypeNameFromOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @generateSerialExtraStmts(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
   %9 = zext i1 %4 to i8
   %10 = tail call ptr @list_copy(ptr noundef %3) #8
   %.not = icmp eq ptr %10, null
@@ -6180,7 +6180,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @transformCreateSchemaStmtElements(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @transformCreateSchemaStmtElements(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -6756,7 +6756,7 @@ define internal fastcc ptr @transformPartitionBoundValue(ptr noundef %0, ptr nou
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformPartitionRangeBounds(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @transformPartitionRangeBounds(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @RelationGetPartitionKey(ptr noundef %2) #8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %validateInfiniteBounds.exit, label %.lr.ph

@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ssl_add_cert_to_wpacket = private unnamed_addr constant [24 x i8] c"ssl_add_cert_to_wpacket\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_statem_set_mutator(ptr noundef %s, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_statem_set_mutator(ptr noundef captures(address_is_null) %s, ptr noundef %mutate_handshake_cb, ptr noundef %finish_mutate_handshake_cb, ptr noundef %mutatearg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -592,7 +592,7 @@ declare i32 @ssl3_init_finished_mac(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 4)) %min_version, ptr noundef writeonly captures(none) %max_version, ptr noundef writeonly %real_max) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 4)) %min_version, ptr noundef writeonly captures(none) %max_version, ptr noundef writeonly captures(address_is_null) %real_max) local_unnamed_addr #1 {
 entry:
   %method2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %method2, align 8
@@ -2344,7 +2344,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_process_rpk(ptr noundef %sc, ptr noundef captures(none) %pkt, ptr noundef writeonly %peer_rpk) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_process_rpk(ptr noundef %sc, ptr noundef captures(none) %pkt, ptr noundef writeonly captures(address_is_null) %peer_rpk) local_unnamed_addr #1 {
 entry:
   %rawexts = alloca ptr, align 8
   %extensions = alloca %struct.PACKET, align 8
@@ -2682,7 +2682,7 @@ declare i32 @tls_parse_all_extensions(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @tls_output_rpk(ptr noundef %sc, ptr noundef %pkt, ptr noundef readonly %cpk) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @tls_output_rpk(ptr noundef %sc, ptr noundef %pkt, ptr noundef readonly captures(address_is_null) %cpk) local_unnamed_addr #1 {
 entry:
   %pdata = alloca ptr, align 8
   store ptr null, ptr %pdata, align 8
@@ -2850,7 +2850,7 @@ declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unna
 declare i32 @tls_construct_extensions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @ssl3_output_cert_chain(ptr noundef %s, ptr noundef %pkt, ptr noundef readonly %cpk, i32 noundef %for_comp) local_unnamed_addr #1 {
+define range(i64 0, 2) i64 @ssl3_output_cert_chain(ptr noundef %s, ptr noundef %pkt, ptr noundef readonly captures(address_is_null) %cpk, i32 noundef %for_comp) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 3) #11
   %tobool.not = icmp eq i32 %call, 0
@@ -3789,7 +3789,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ssl_security(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_version_supported(ptr noundef %s, i32 noundef %version, ptr noundef writeonly %meth) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_version_supported(ptr noundef %s, i32 noundef %version, ptr noundef writeonly captures(address_is_null) %meth) local_unnamed_addr #1 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %method, align 8
@@ -5057,7 +5057,7 @@ return:                                           ; preds = %for.end.i, %sw.epil
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @check_in_list(ptr noundef %s, i16 noundef zeroext %group_id, ptr noundef readonly %groups, i64 noundef %num_groups, i32 noundef %checkallow) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @check_in_list(ptr noundef %s, i16 noundef zeroext %group_id, ptr noundef readonly captures(address_is_null) %groups, i64 noundef %num_groups, i32 noundef %checkallow) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %groups, null
   %cmp1 = icmp eq i64 %num_groups, 0

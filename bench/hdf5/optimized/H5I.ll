@@ -301,7 +301,7 @@ define range(i32 -1, 2) i32 @H5Itype_exists(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1

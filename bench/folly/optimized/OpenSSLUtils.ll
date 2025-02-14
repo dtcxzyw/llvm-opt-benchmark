@@ -622,7 +622,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrj(ptr noundef %cert, ptr noundef readonly %addr, i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrj(ptr noundef %cert, ptr noundef readonly captures(address_is_null) %addr, i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.google::LogMessage", align 8
   %ref.tmp16 = alloca %"class.google::LogMessageFatal", align 8

@@ -202,7 +202,7 @@ define range(i32 -1, 1) i32 @H5T__conv_noop(ptr noundef readnone captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 8
   switch i32 %10, label %129 [
     i32 0, label %11
@@ -429,7 +429,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 8
   switch i32 %10, label %972 [
     i32 0, label %11

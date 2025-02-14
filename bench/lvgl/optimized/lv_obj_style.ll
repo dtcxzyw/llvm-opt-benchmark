@@ -236,7 +236,7 @@ style_has_flag.exit.thread:                       ; preds = %29, %17, %25, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @trans_delete(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readnone %3) unnamed_addr #0 {
+define internal fastcc void @trans_delete(ptr noundef readonly captures(address) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 {
   %5 = tail call ptr @lv_ll_get_tail(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 48)) #9
   %.not41 = icmp eq ptr %5, null
   %6 = icmp eq ptr %5, %3
@@ -387,7 +387,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_remove_style(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_obj_remove_style(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i32 %2 to i16
   %5 = and i32 %2, 16711680
   %.not88 = icmp eq ptr %1, null
@@ -876,7 +876,7 @@ lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i32 %3 to i16
   %6 = and i32 %3, 16711680
   %7 = icmp eq ptr %0, null
@@ -1103,7 +1103,7 @@ define void @lv_obj_remove_style_all(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_report_style_change(ptr noundef %0) local_unnamed_addr #0 {
+define void @lv_obj_report_style_change(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !45, !range !46, !noundef !47
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %.loopexit
@@ -1148,7 +1148,7 @@ define void @lv_obj_report_style_change(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_style_change_core(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @report_style_change_core(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 4
@@ -1568,7 +1568,7 @@ define void @lv_obj_enable_style_refresh(i1 noundef zeroext %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_obj_get_style_prop(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @lv_obj_get_style_prop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
@@ -1718,7 +1718,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
 declare ptr @lv_style_prop_get_default(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_has_style_prop(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
+define zeroext i1 @lv_obj_has_style_prop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = alloca %union.lv_style_value_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
@@ -2730,7 +2730,7 @@ declare void @lv_anim_set_user_data(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_obj_style_apply_color_filter(ptr noundef readonly %0, i32 noundef %1, ptr %2) local_unnamed_addr #0 {
+define ptr @lv_obj_style_apply_color_filter(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   %6 = icmp eq ptr %0, null
@@ -3247,7 +3247,7 @@ lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @lv_obj_calculate_style_text_align(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @lv_obj_calculate_style_text_align(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = alloca %union.lv_style_value_t, align 8
   %.not.i.i = icmp eq ptr %0, null
@@ -3572,7 +3572,7 @@ declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @lv_style_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3
@@ -3633,7 +3633,7 @@ lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3
@@ -3692,7 +3692,7 @@ lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3

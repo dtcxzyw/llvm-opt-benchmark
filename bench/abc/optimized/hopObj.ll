@@ -711,7 +711,7 @@ tailrecurse:                                      ; preds = %20, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @Hop_ObjRepr(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noundef ptr @Hop_ObjRepr(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #3 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse, %1
@@ -727,7 +727,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Hop_ObjCreateChoice(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Hop_ObjCreateChoice(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #4 {
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %2

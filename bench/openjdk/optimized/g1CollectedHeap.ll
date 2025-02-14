@@ -3139,7 +3139,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 declare noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amountERb(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15G1CollectedHeap6expandEmP13WorkerThreadsPd(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN15G1CollectedHeap6expandEmP13WorkerThreadsPd(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i64 @_ZN13ReservedSpace18page_align_size_upEm(i64 noundef %1) #23
   %6 = load i64, ptr @_ZN12G1HeapRegion10GrainBytesE, align 8
   %7 = add i64 %5, -1
@@ -9107,7 +9107,7 @@ define hidden void @_ZN15G1CollectedHeap23clear_bitmap_for_regionEP12G1HeapRegio
 declare void @_ZN16G1ConcurrentMark23clear_bitmap_for_regionEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(1849), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1CollectedHeap11free_regionEP12G1HeapRegionP16G1FreeRegionList(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1488) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1CollectedHeap11free_regionEP12G1HeapRegionP16G1FreeRegionList(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1488) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12G1HeapRegion8hr_clearEb(ptr noundef nonnull align 8 dereferenceable(136) %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = load ptr, ptr %4, align 8
@@ -9273,7 +9273,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 declare void @_ZN25G1CollectionSetCandidates28add_retained_region_unsortedEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1CollectedHeap21free_humongous_regionEP12G1HeapRegionP16G1FreeRegionList(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1488) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1CollectedHeap21free_humongous_regionEP12G1HeapRegionP16G1FreeRegionList(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1488) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12G1HeapRegion15clear_humongousEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #23
   tail call void @_ZN15G1CollectedHeap11free_regionEP12G1HeapRegionP16G1FreeRegionList(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull %1, ptr noundef %2)
   ret void

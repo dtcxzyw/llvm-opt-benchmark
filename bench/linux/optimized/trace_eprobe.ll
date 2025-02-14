@@ -936,7 +936,7 @@ define internal noundef range(i32 -16, 1) i32 @eprobe_dyn_event_release(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @eprobe_dyn_event_match(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal zeroext i1 @eprobe_dyn_event_match(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr i8, ptr %4, i64 -32
   %7 = icmp eq ptr %0, null
   br i1 %7, label %16, label %8
@@ -2227,7 +2227,7 @@ declare dso_local i32 @traceprobe_define_arg_fields(ptr noundef, i64 noundef, pt
 declare dso_local i32 @trace_probe_add_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @disable_eprobe(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @disable_eprobe(ptr noundef readonly captures(address) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

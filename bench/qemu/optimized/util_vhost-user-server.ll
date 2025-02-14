@@ -934,7 +934,7 @@ if.end28:                                         ; preds = %land.rhs.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @remove_watch(ptr noundef %vu_dev, i32 noundef %fd) #0 {
+define internal void @remove_watch(ptr noundef captures(address_is_null) %vu_dev, i32 noundef %fd) #0 {
 entry:
   %tobool.not = icmp eq ptr %vu_dev, null
   br i1 %tobool.not, label %if.else, label %do.body1

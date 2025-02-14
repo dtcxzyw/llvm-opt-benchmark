@@ -2425,7 +2425,7 @@ define dso_local i64 @_ZNK4llvm22AArch64GenRegisterInfo37reverseComposeSubRegInd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %21, label %4
 
@@ -2457,7 +2457,7 @@ define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getSubClassWith
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(308) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %21, label %4
 
@@ -3344,7 +3344,7 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit18: ; preds = %51, %57
 declare void @_ZN4llvm19MachineRegisterInfo18setCalleeSavedRegsENS_8ArrayRefItEE(ptr noundef nonnull align 8 dereferenceable(504), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, @_ZN4llvm7AArch6416GPR32allRegClassE
   %5 = icmp eq i32 %2, 9
   %or.cond = and i1 %4, %5
@@ -5248,7 +5248,7 @@ define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo18getPointer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo20getCrossCopyRegClassEPKNS_19TargetRegisterClassE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo20getCrossCopyRegClassEPKNS_19TargetRegisterClassE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address, ret: address, provenance) %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, @_ZN4llvm7AArch6411CCRRegClassE
   %_ZN4llvm7AArch6413GPR64RegClassE. = select i1 %3, ptr @_ZN4llvm7AArch6413GPR64RegClassE, ptr %1
   ret ptr %_ZN4llvm7AArch6413GPR64RegClassE.

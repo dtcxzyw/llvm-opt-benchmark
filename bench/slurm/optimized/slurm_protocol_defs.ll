@@ -3224,7 +3224,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @slurm_msg_set_r_uid(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_add_slash_to_quotes(ptr noundef readonly %0) local_unnamed_addr #1 {
+define ptr @slurm_add_slash_to_quotes(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -3348,7 +3348,7 @@ define range(i32 0, 2) i32 @slurm_find_char_in_list(ptr noundef %0, ptr noundef 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @slurm_find_ptr_in_list(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @slurm_find_ptr_in_list(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   %. = zext i1 %3 to i32
   ret i32 %.
@@ -4631,7 +4631,7 @@ declare i32 @get_log_level() local_unnamed_addr #5
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @slurm_copy_resource_allocation_response_msg(ptr noundef readonly %0) local_unnamed_addr #1 {
+define noundef ptr @slurm_copy_resource_allocation_response_msg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %86, label %2
 
@@ -10547,7 +10547,7 @@ slurm_destroy_priority_factors.exit:              ; preds = %4, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_copy_priority_factors(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @slurm_copy_priority_factors(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -12184,7 +12184,7 @@ define range(i32 0, 32) i32 @slurm_bb_str2flags(ptr noundef %0) local_unnamed_ad
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_free_assoc_mgr_info_request_members(ptr noundef %0) local_unnamed_addr #1 {
+define void @slurm_free_assoc_mgr_info_request_members(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -12328,7 +12328,7 @@ define noundef nonnull ptr @parse_part_enforce_type_2str(i16 noundef zeroext %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @cluster_in_federation(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define noundef zeroext i1 @cluster_in_federation(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -12600,7 +12600,7 @@ define noundef ptr @slurm_get_selected_step_id(ptr noundef returned %0, i32 noun
 declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -12837,7 +12837,7 @@ declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #
 declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_array64_to_value_reps(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
+define void @slurm_array64_to_value_reps(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -12932,7 +12932,7 @@ define void @slurm_array64_to_value_reps(ptr noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_array16_to_value_reps(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
+define void @slurm_array16_to_value_reps(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %6
 

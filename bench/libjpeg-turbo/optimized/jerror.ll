@@ -138,7 +138,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.130 = private unnamed_addr constant [98 x i8] c"Invalid restart interval %d; must be an integer multiple of the number of MCUs in an MCU row (%d)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @jpeg_std_error(ptr noundef returned writeonly initializes((0, 168)) %0) local_unnamed_addr #0 {
+define noundef ptr @jpeg_std_error(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 168)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %2, i8 0, i64 128, i1 false)
   store ptr @error_exit, ptr %0, align 8

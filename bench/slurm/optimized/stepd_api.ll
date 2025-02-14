@@ -1536,7 +1536,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) #0 {
+define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3546,7 +3546,7 @@ define void @xfree_struct_passwd(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) #0 {
+define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -4985,7 +4985,7 @@ define void @xfree_struct_group_array(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, ptr noundef readonly %3) #0 {
+define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6932,7 +6932,7 @@ define i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4022, ptr %4, align 4
@@ -7313,7 +7313,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11107,7 +11107,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

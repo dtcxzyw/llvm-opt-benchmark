@@ -1975,7 +1975,7 @@ define dso_local noundef ptr @_ZN4Luau12Anyification5cleanEPKNS_11TypePackVarE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau12Anyification14ignoreChildrenEPKNS_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau12Anyification14ignoreChildrenEPKNS_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #5 align 2 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %6, label %3
 

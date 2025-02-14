@@ -822,7 +822,7 @@ define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.SpinDelayStatus, align 8
   %4 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %4, align 4
@@ -5200,7 +5200,7 @@ BufTagMatchesRelFileLocator.exit38.thread:        ; preds = %78, %84, %131, %Buf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @local_buffer_write_error_callback(ptr noundef readonly %0) #0 {
+define internal void @local_buffer_write_error_callback(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -8824,7 +8824,7 @@ declare void @CheckpointWriteDelay(i32 noundef, double noundef) local_unnamed_ad
 declare void @binaryheap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #8 {
+define internal fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #8 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = icmp ult i32 %4, %5
@@ -9038,7 +9038,7 @@ ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %10
 declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @shared_buffer_write_error_callback(ptr noundef readonly %0) #0 {
+define internal void @shared_buffer_write_error_callback(ptr noundef readonly captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -9082,7 +9082,7 @@ declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_a
 declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @sort_pending_writebacks_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #8 {
+define internal fastcc ptr @sort_pending_writebacks_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #8 {
   %4 = load i64, ptr %0, align 4
   %5 = getelementptr i8, ptr %0, i64 8
   %.val.i.i = load i32, ptr %5, align 4

@@ -13381,7 +13381,7 @@ _ZN12_GLOBAL__N_115MachineVerifier27visitMachineBasicBlockAfterEPKN4llvm17Machin
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifierD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(776) %0) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineVerifierD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8

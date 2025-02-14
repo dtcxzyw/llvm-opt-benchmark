@@ -1154,7 +1154,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull writeonly align 2 %3, i64 noundef %4) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_to_utf1617h52055ecad77ed56aE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull writeonly align 2 captures(address) %3, i64 noundef %4) unnamed_addr #9 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -4136,7 +4136,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime9co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime9component17ComponentInstance14resource_types17hdd1ee89ed5b7114eE(ptr noalias noundef readonly align 16 dereferenceable(144) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime9component17ComponentInstance14resource_types17hdd1ee89ed5b7114eE(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -4914,7 +4914,7 @@ _ZN16wasmtime_runtime9component17ComponentInstance15resource_tables17hcc0f621f12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN16wasmtime_runtime9component18VMComponentContext8instance17h25c189060c52cb90E(ptr noalias noundef nonnull readonly align 16 %0) unnamed_addr #10 {
+define noundef nonnull ptr @_ZN16wasmtime_runtime9component18VMComponentContext8instance17h25c189060c52cb90E(ptr noalias noundef nonnull readonly align 16 captures(ret: address, provenance) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -144
   ret ptr %2
 }

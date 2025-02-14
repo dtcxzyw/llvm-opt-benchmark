@@ -2768,7 +2768,7 @@ declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #17
 declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5faiss21fvecs_maybe_subsampleEmPmmPKfbl(i64 noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef readonly captures(ret: address, provenance) %3, i1 noundef zeroext %4, i64 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = load i64, ptr %1, align 8
   %.not = icmp ugt i64 %7, %2
   br i1 %.not, label %8, label %_ZNSt6vectorIiSaIiEED2Ev.exit36

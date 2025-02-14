@@ -554,7 +554,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512ICUDataTableC2EPKcRKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this, ptr noundef readonly %path, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512ICUDataTableC2EPKcRKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this, ptr noundef readonly captures(address_is_null) %path, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %locale3 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -635,7 +635,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_7512ICUDataTable9getLocaleEv(ptr noundef nonnull readnone align 8 dereferenceable(232) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_7512ICUDataTable9getLocaleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(232) %this) local_unnamed_addr #10 align 2 {
 entry:
   %locale = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %locale
@@ -1708,7 +1708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(217) ptr @_ZNK6icu_7522LocaleDisplayNamesImpl9getLocaleEv(ptr noundef nonnull readnone align 8 dereferenceable(1206) %this) unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(217) ptr @_ZNK6icu_7522LocaleDisplayNamesImpl9getLocaleEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1206) %this) unnamed_addr #10 align 2 {
 entry:
   %locale = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %locale

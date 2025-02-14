@@ -3911,7 +3911,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h048d13e78877c60bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h048d13e78877c60bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !range !1174, !alias.scope !1175, !noundef !4
   %5 = and i32 %4, 1073741822
@@ -3921,7 +3921,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core3ops8fun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf5f537fceb08282eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf5f537fceb08282eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !range !1174, !alias.scope !1178, !noundef !4
   %5 = and i32 %4, 1073741822
@@ -7602,7 +7602,7 @@ define noundef i64 @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ran
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hfc34080c85187e4eE"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hfc34080c85187e4eE"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull writeonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
@@ -7684,7 +7684,7 @@ define void @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17h1b3a34b8743ca428E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull writeonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17h1b3a34b8743ca428E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull writeonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2388)
@@ -7768,7 +7768,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN11wasi_common5sched4Poll23earliest_clock_deadline28_$u7b$$u7b$closure$u7d$$u7d$17hcad1a4e8a746ebb6E.llvm.4732387629674352047"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #9 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN11wasi_common5sched4Poll23earliest_clock_deadline28_$u7b$$u7b$closure$u7d$$u7d$17hcad1a4e8a746ebb6E.llvm.4732387629674352047"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !range !1174, !noundef !4
   %5 = and i32 %4, 1073741822
@@ -7813,7 +7813,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN11wasi_common5sched4Poll23earliest
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN11wasi_common5sched4Poll16rw_subscriptions28_$u7b$$u7b$closure$u7d$$u7d$17hdf37aa054c7cadd4E.llvm.4732387629674352047"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #9 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN11wasi_common5sched4Poll16rw_subscriptions28_$u7b$$u7b$closure$u7d$$u7d$17hdf37aa054c7cadd4E.llvm.4732387629674352047"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !range !1174, !noundef !4
   %5 = and i32 %4, 1073741822

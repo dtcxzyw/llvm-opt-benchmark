@@ -130,7 +130,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Min_ManFromGia(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Min_ManFromGia(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val72 = load i32, ptr %3, align 8, !tbaa !31
   %4 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #25
@@ -1962,7 +1962,7 @@ Min_ManCleanVisitedValL.exit:                     ; preds = %11, %5
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Min_TargGenerateCexes(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
+define noalias noundef ptr @Min_TargGenerateCexes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #27
@@ -3202,7 +3202,7 @@ Vec_IntFree.exit:                                 ; preds = %Hsh_VecManStop.exit
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @Min_ManTest3(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Min_ManTest3(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
@@ -4483,7 +4483,7 @@ define i32 @Min_ManCountSize(ptr noundef readonly captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Min_ManComputeCexes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define noalias noundef ptr @Min_ManComputeCexes(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8

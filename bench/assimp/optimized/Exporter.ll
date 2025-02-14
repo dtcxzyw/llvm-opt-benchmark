@@ -5876,7 +5876,7 @@ _ZNSt8functionIFPvS0_EED2Ev.exit13:               ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties19HasPropertyCallbackEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties19HasPropertyCallbackEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -6179,7 +6179,7 @@ _Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6Assimp16ExportProperties18GetPropertyIntegerEPKci(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName, i32 noundef %iErrorReturn) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6Assimp16ExportProperties18GetPropertyIntegerEPKci(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName, i32 noundef %iErrorReturn) local_unnamed_addr #1 align 2 {
 entry:
   %iErrorReturn.addr = alloca i32, align 4
   store i32 %iErrorReturn, ptr %iErrorReturn.addr, align 4
@@ -6222,7 +6222,7 @@ _Z18GetGenericPropertyIiERKT_RKSt3mapIjS0_St4lessIjESaISt4pairIKjS0_EEEPKcS2_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZNK6Assimp16ExportProperties16GetPropertyFloatEPKcf(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName, float noundef %iErrorReturn) local_unnamed_addr #1 align 2 {
+define noundef float @_ZNK6Assimp16ExportProperties16GetPropertyFloatEPKcf(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName, float noundef %iErrorReturn) local_unnamed_addr #1 align 2 {
 entry:
   %iErrorReturn.addr = alloca float, align 4
   store float %iErrorReturn, ptr %iErrorReturn.addr, align 4
@@ -6267,7 +6267,7 @@ _Z18GetGenericPropertyIfERKT_RKSt3mapIjS0_St4lessIjESaISt4pairIKjS0_EEEPKcS2_.ex
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK6Assimp16ExportProperties17GetPropertyMatrixEPKcRK12aiMatrix4x4tIfE(ptr noalias writeonly sret(%class.aiMatrix4x4t) align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %iErrorReturn) local_unnamed_addr #1 align 2 {
+define void @_ZNK6Assimp16ExportProperties17GetPropertyMatrixEPKcRK12aiMatrix4x4tIfE(ptr noalias writeonly sret(%class.aiMatrix4x4t) align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %iErrorReturn) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -6311,7 +6311,7 @@ _Z18GetGenericPropertyI12aiMatrix4x4tIfEERKT_RKSt3mapIjS2_St4lessIjESaISt4pairIK
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties18HasPropertyIntegerEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties18HasPropertyIntegerEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6351,7 +6351,7 @@ _Z18HasGenericPropertyIiEbRKSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties15HasPropertyBoolEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties15HasPropertyBoolEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6391,7 +6391,7 @@ _Z18HasGenericPropertyIiEbRKSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties16HasPropertyFloatEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties16HasPropertyFloatEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -6431,7 +6431,7 @@ _Z18HasGenericPropertyIfEbRKSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties17HasPropertyStringEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties17HasPropertyStringEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -6471,7 +6471,7 @@ _Z18HasGenericPropertyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp16ExportProperties17HasPropertyMatrixEPKc(ptr noundef nonnull readonly align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp16ExportProperties17HasPropertyMatrixEPKc(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #1 align 2 {
 entry:
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160

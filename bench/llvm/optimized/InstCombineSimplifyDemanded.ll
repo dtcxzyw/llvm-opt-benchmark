@@ -19492,7 +19492,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_8ArrayRefIiEEZNS_16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS6_jbE3$_2EEbOT_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val) unnamed_addr #9 {
   %.idx1 = shl nuw nsw i64 %.8.val, 2
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1
   %.not = icmp ult i64 %.8.val, 4

@@ -141,7 +141,7 @@ define void @PQ_free(ptr noundef %0) local_unnamed_addr #0 {
 declare hidden void @tm_fiboTreeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %0, %3

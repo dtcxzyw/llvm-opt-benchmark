@@ -273,7 +273,7 @@ declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_openlib(ptr noundef %L, ptr noundef %libname, ptr noundef readonly %l, i32 noundef %nup) local_unnamed_addr #0 {
+define dso_local void @luaL_openlib(ptr noundef %L, ptr noundef %libname, ptr noundef readonly captures(address_is_null) %l, i32 noundef %nup) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %libname, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -377,7 +377,7 @@ for.end6:                                         ; preds = %for.cond1.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_register(ptr noundef %L, ptr noundef %libname, ptr noundef readonly %l) local_unnamed_addr #0 {
+define dso_local void @luaL_register(ptr noundef %L, ptr noundef %libname, ptr noundef readonly captures(address_is_null) %l) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %libname, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i

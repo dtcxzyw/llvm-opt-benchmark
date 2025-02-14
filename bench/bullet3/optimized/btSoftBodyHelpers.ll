@@ -3198,7 +3198,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8drawTreeP12btIDebugDrawPK10btDbvtNodeiRK9btVector3S6_ii(ptr noundef %idraw, ptr noundef readonly %node, i32 noundef %depth, ptr noundef nonnull align 4 dereferenceable(16) %ncolor, ptr noundef nonnull align 4 dereferenceable(16) %lcolor, i32 noundef %mindepth, i32 noundef %maxdepth) unnamed_addr #3 {
+define internal fastcc void @_ZL8drawTreeP12btIDebugDrawPK10btDbvtNodeiRK9btVector3S6_ii(ptr noundef %idraw, ptr noundef readonly captures(address_is_null) %node, i32 noundef %depth, ptr noundef nonnull align 4 dereferenceable(16) %ncolor, ptr noundef nonnull align 4 dereferenceable(16) %lcolor, i32 noundef %mindepth, i32 noundef %maxdepth) unnamed_addr #3 {
 entry:
   %c.i = alloca [8 x %class.btVector3], align 16
   %tobool.not = icmp eq ptr %node, null
@@ -4386,7 +4386,7 @@ return:                                           ; preds = %for.cond75.for.inc1
 declare void @_ZN10btSoftBody10appendFaceEiiiPNS_8MaterialE(ptr noundef nonnull align 8 dereferenceable(2064), i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN17btSoftBodyHelpers13CreatePatchUVER19btSoftBodyWorldInfoRK9btVector3S4_S4_S4_iiibPf(ptr noundef nonnull align 8 dereferenceable(128) %worldInfo, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner00, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner10, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner01, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner11, i32 noundef %resx, i32 noundef %resy, i32 noundef %fixeds, i1 noundef zeroext %gendiags, ptr noundef writeonly %tex_coords) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN17btSoftBodyHelpers13CreatePatchUVER19btSoftBodyWorldInfoRK9btVector3S4_S4_S4_iiibPf(ptr noundef nonnull align 8 dereferenceable(128) %worldInfo, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner00, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner10, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner01, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %corner11, i32 noundef %resx, i32 noundef %resy, i32 noundef %fixeds, i1 noundef zeroext %gendiags, ptr noundef writeonly captures(address_is_null) %tex_coords) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp slt i32 %resx, 2
   %cmp1 = icmp slt i32 %resy, 2
@@ -5650,7 +5650,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN17btSoftBodyHelpers20CreateFromTetGenDataER19btSoftBodyWorldInfoPKcS3_S3_bbb(ptr noundef nonnull align 8 dereferenceable(128) %worldInfo, ptr noundef readonly %ele, ptr noundef readnone captures(none) %face, ptr noundef readonly captures(none) %node, i1 noundef zeroext %bfacelinks, i1 noundef zeroext %btetralinks, i1 noundef zeroext %bfacesfromtetras) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN17btSoftBodyHelpers20CreateFromTetGenDataER19btSoftBodyWorldInfoPKcS3_S3_bbb(ptr noundef nonnull align 8 dereferenceable(128) %worldInfo, ptr noundef readonly captures(address_is_null) %ele, ptr noundef readnone captures(none) %face, ptr noundef readonly captures(none) %node, i1 noundef zeroext %bfacelinks, i1 noundef zeroext %btetralinks, i1 noundef zeroext %bfacesfromtetras) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca %class.btAlignedObjectArray.8, align 8
   %nnode = alloca i32, align 4

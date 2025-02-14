@@ -240,7 +240,7 @@ png_malloc_array_checked.exit:                    ; preds = %7, %9, %15, %17
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp eq i64 %4, 0
   %or.cond = or i1 %6, %7
@@ -383,7 +383,7 @@ png_malloc_base.exit.thread:                      ; preds = %3, %png_malloc_base
 declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @png_free_default(ptr noalias noundef readnone %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @png_free_default(ptr noalias noundef readnone captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -401,7 +401,7 @@ define hidden void @png_free_default(ptr noalias noundef readnone %0, ptr nounde
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @png_set_mem_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
+define hidden void @png_set_mem_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
 
@@ -419,7 +419,7 @@ define hidden void @png_set_mem_fn(ptr noalias noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @png_get_mem_ptr(ptr noalias noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @png_get_mem_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

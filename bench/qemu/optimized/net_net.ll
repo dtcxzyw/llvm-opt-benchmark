@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_get_nic(ptr noundef readonly %nc) local_unnamed_addr #12 {
+define dso_local ptr @qemu_get_nic(ptr noundef readonly captures(ret: address, provenance) %nc) local_unnamed_addr #12 {
 entry:
   %queue_index = getelementptr inbounds nuw i8, ptr %nc, i64 336
   %0 = load i32, ptr %queue_index, align 8
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_get_peer(ptr noundef readonly %nc, i32 noundef %queue_index) local_unnamed_addr #0 {
+define dso_local ptr @qemu_get_peer(ptr noundef readonly captures(address_is_null) %nc, i32 noundef %queue_index) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %nc, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1003,7 +1003,7 @@ for.end51:                                        ; preds = %qemu_cleanup_net_cl
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @qemu_find_net_clients_except(ptr noundef readonly %id, ptr noundef writeonly captures(none) %ncs, i32 noundef %type, i32 noundef %max) local_unnamed_addr #13 {
+define dso_local i32 @qemu_find_net_clients_except(ptr noundef readonly captures(address_is_null) %id, ptr noundef writeonly captures(none) %ncs, i32 noundef %type, i32 noundef %max) local_unnamed_addr #13 {
 entry:
   %nc.09 = load ptr, ptr @net_clients, align 8
   %tobool.not10 = icmp eq ptr %nc.09, null
@@ -2136,7 +2136,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #4
 declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr noundef readonly captures(none) %models) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qemu_show_nic_models(ptr noundef readonly captures(address_is_null) %arg, ptr noundef readonly captures(none) %models) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

@@ -1177,7 +1177,7 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @snb_pcode_write_p(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @hwm_attributes_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 %2) #4 align 16 {
+define internal zeroext i16 @hwm_attributes_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 %2) #4 align 16 {
   %4 = icmp eq ptr %1, @sensor_dev_attr_power1_max_interval
   br i1 %4, label %5, label %14
 

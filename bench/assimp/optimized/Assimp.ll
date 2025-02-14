@@ -1383,7 +1383,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
 declare void @_ZNK6Assimp8Importer16GetExtensionListER8aiString(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(1028)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @aiGetMemoryRequirements(ptr noundef readonly %pIn, ptr noundef %in) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @aiGetMemoryRequirements(ptr noundef readonly captures(address_is_null) %pIn, ptr noundef %in) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %pIn, null
   br i1 %cmp.i, label %if.then, label %_ZN6Assimp9ScenePrivEPK7aiScene.exit
@@ -1824,7 +1824,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiSetImportPropertyMatrix(ptr noundef %p, ptr noundef %szName, ptr noundef readonly %mat) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @aiSetImportPropertyMatrix(ptr noundef %p, ptr noundef %szName, ptr noundef readonly captures(address_is_null) %mat) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5.i = alloca %"struct.std::pair.101", align 4
   %tobool.not = icmp eq ptr %mat, null
@@ -2755,7 +2755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @aiGetImporterDesc(ptr noundef readonly %extension) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @aiGetImporterDesc(ptr noundef readonly captures(address_is_null) %extension) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::vector.30", align 8
   %cmp = icmp eq ptr %extension, null
@@ -6460,7 +6460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -6547,7 +6547,7 @@ return:                                           ; preds = %assimp_stbi_load_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6620,7 +6620,7 @@ if.end:                                           ; preds = %if.then, %_ZL16stbi
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -6767,7 +6767,7 @@ return:                                           ; preds = %if.end6, %_ZL19stbi
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6837,7 +6837,7 @@ if.end:                                           ; preds = %if.then, %_ZL16stbi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL32stbi__load_and_postprocess_16bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL32stbi__load_and_postprocess_16bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -6983,7 +6983,7 @@ return:                                           ; preds = %if.end6, %_ZL19stbi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -7070,7 +7070,7 @@ return:                                           ; preds = %assimp_stbi_load_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7094,7 +7094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7149,7 +7149,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7173,7 +7173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_load_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_load_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7228,7 +7228,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @assimp_stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @assimp_stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7252,7 +7252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @_ZL16stbi__loadf_mainP13stbi__contextPiS1_S1_i(ptr noundef nonnull %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef %s, ptr noundef %x, ptr noundef %y, ptr noundef %comp, i32 noundef %req_comp)
   %tobool.not = icmp eq ptr %call, null
@@ -7398,7 +7398,7 @@ return:                                           ; preds = %if.end43.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7453,7 +7453,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
@@ -7525,7 +7525,7 @@ return:                                           ; preds = %assimp_stbi_loadf_f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
+define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(address_is_null) %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7639,7 +7639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize(ptr noundef %buffer, i32 noundef %len, i32 noundef %initial_size, ptr noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize(ptr noundef %buffer, i32 noundef %len, i32 noundef %initial_size, ptr noundef writeonly captures(address_is_null) %outlen) local_unnamed_addr #0 {
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
@@ -8969,7 +8969,7 @@ _ZL16stbi__parse_zlibP10stbi__zbufi.exit:         ; preds = %_ZL14stbi__zreceive
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @assimp_stbi_zlib_decode_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden ptr @assimp_stbi_zlib_decode_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly captures(address_is_null) %outlen) local_unnamed_addr #0 {
 entry:
   %a.i = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %a.i)
@@ -9021,7 +9021,7 @@ assimp_stbi_zlib_decode_malloc_guesssize.exit:    ; preds = %entry, %if.then2.if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %buffer, i32 noundef %len, i32 noundef %initial_size, ptr noundef writeonly %outlen, i32 noundef %parse_header) local_unnamed_addr #0 {
+define hidden ptr @assimp_stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %buffer, i32 noundef %len, i32 noundef %initial_size, ptr noundef writeonly captures(address_is_null) %outlen, i32 noundef %parse_header) local_unnamed_addr #0 {
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %conv = sext i32 %initial_size to i64
@@ -9095,7 +9095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @assimp_stbi_zlib_decode_noheader_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden ptr @assimp_stbi_zlib_decode_noheader_malloc(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly captures(address_is_null) %outlen) local_unnamed_addr #0 {
 entry:
   %a = alloca %struct.stbi__zbuf, align 8
   %call.i = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #47
@@ -9202,7 +9202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr noundef readonly captures(none) %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr noundef readonly captures(none) %filename, ptr noundef captures(address_is_null) %x, ptr noundef captures(address_is_null) %y, ptr noundef captures(address_is_null) %comp) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
@@ -9224,7 +9224,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_file(ptr noundef %f, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_file(ptr noundef %f, ptr noundef writeonly captures(address_is_null) %x, ptr noundef writeonly captures(address_is_null) %y, ptr noundef writeonly captures(address_is_null) %comp) local_unnamed_addr #3 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -9447,7 +9447,7 @@ _ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL16stbi__start_fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef writeonly captures(address_is_null) %x, ptr noundef writeonly captures(address_is_null) %y, ptr noundef writeonly captures(address_is_null) %comp) local_unnamed_addr #3 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -9530,7 +9530,7 @@ _ZL15stbi__info_mainP13stbi__contextPiS1_S1_.exit: ; preds = %_ZL14stbi__png_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @assimp_stbi_info_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user, ptr noundef writeonly captures(address_is_null) %x, ptr noundef writeonly captures(address_is_null) %y, ptr noundef writeonly captures(address_is_null) %comp) local_unnamed_addr #3 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -11468,7 +11468,7 @@ declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #25
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %ri) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly captures(address_is_null) %comp, i32 noundef %req_comp, ptr noundef nonnull writeonly captures(none) initializes((0, 12)) %ri) unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.stbi__png, align 8
   store i32 8, ptr %ri, align 4

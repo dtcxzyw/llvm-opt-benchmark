@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @crypto_onetimeauth_poly1305_sse2_implementation = hidden local_unnamed_addr global %struct.crypto_onetimeauth_poly1305_implementation { ptr @crypto_onetimeauth_poly1305_sse2, ptr @crypto_onetimeauth_poly1305_sse2_verify, ptr @crypto_onetimeauth_poly1305_sse2_init, ptr @crypto_onetimeauth_poly1305_sse2_update, ptr @crypto_onetimeauth_poly1305_sse2_final }, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_sse2(ptr noundef writeonly captures(none) initializes((0, 16)) %out, ptr noundef %m, i64 noundef %inlen, ptr noundef readonly captures(none) %key) #0 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_sse2(ptr noundef writeonly captures(none) initializes((0, 16)) %out, ptr noundef captures(address) %m, i64 noundef %inlen, ptr noundef readonly captures(none) %key) #0 {
 entry:
   %st = alloca %struct.poly1305_state_internal_t, align 64
   call fastcc void @poly1305_init_ext(ptr noundef nonnull %st, ptr noundef %key, i64 noundef %inlen)
@@ -32,7 +32,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @crypto_onetimeauth_poly1305_sse2_verify(ptr noundef %h, ptr noundef %in, i64 noundef %inlen, ptr noundef readonly captures(none) %k) #0 {
+define internal i32 @crypto_onetimeauth_poly1305_sse2_verify(ptr noundef %h, ptr noundef captures(address) %in, i64 noundef %inlen, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %st.i = alloca %struct.poly1305_state_internal_t, align 64
   %correct = alloca [16 x i8], align 16
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen) #1 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef captures(address) %state, ptr noundef captures(address) %in, i64 noundef %inlen) #1 {
 entry:
   %leftover.i = getelementptr inbounds nuw i8, ptr %state, i64 128
   %0 = load i64, ptr %leftover.i, align 8
@@ -315,7 +315,7 @@ for.end:                                          ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %st, ptr noundef readonly %m, i64 noundef range(i64 1, -31) %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %st, ptr noundef readonly captures(address) %m, i64 noundef range(i64 1, -31) %bytes) unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %st, i64 120
   %0 = load i64, ptr %flags, align 8

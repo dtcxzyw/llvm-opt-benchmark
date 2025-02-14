@@ -3235,7 +3235,7 @@ define internal i64 @pattern_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pattern_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal ptr @pattern_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val34 = load ptr, ptr %4, align 8, !tbaa !22
   %5 = tail call ptr @PyType_GetModule(ptr noundef %.val34) #14
@@ -5322,7 +5322,7 @@ _sre_SRE_Pattern_scanner_impl.exit:               ; preds = %Py_INCREF.exit.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_sre_SRE_Pattern___copy__(ptr noundef returned %0, ptr readnone captures(none) %1) #5 {
+define internal noundef ptr @_sre_SRE_Pattern___copy__(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !20
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_sre_SRE_Pattern___copy___impl.exit, label %5
@@ -5337,7 +5337,7 @@ _sre_SRE_Pattern___copy___impl.exit:              ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_sre_SRE_Pattern___deepcopy__(ptr noundef returned %0, ptr readnone captures(none) %1) #5 {
+define internal noundef ptr @_sre_SRE_Pattern___deepcopy__(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !20
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -23626,7 +23626,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @match_getslice_by_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @match_getslice_by_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(ret: address, provenance) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -24748,7 +24748,7 @@ _sre_SRE_Match_expand_impl.exit:                  ; preds = %26, %23, %20, %.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_sre_SRE_Match___copy__(ptr noundef returned %0, ptr readnone captures(none) %1) #5 {
+define internal noundef ptr @_sre_SRE_Match___copy__(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !20
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_sre_SRE_Match___copy___impl.exit, label %5
@@ -24763,7 +24763,7 @@ _sre_SRE_Match___copy___impl.exit:                ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_sre_SRE_Match___deepcopy__(ptr noundef returned %0, ptr readnone captures(none) %1) #5 {
+define internal noundef ptr @_sre_SRE_Match___deepcopy__(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 8, !tbaa !20
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -25136,7 +25136,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sre_SRE_Scanner_match(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @_sre_SRE_Scanner_match(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -25263,7 +25263,7 @@ _sre_SRE_Scanner_match_impl.exit:                 ; preds = %55, %44, %22, %scan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sre_SRE_Scanner_search(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
+define internal ptr @_sre_SRE_Scanner_search(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

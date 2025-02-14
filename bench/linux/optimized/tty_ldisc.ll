@@ -77,7 +77,7 @@ define dso_local void @tty_unregister_ldisc(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @tty_ldiscs_seq_start(ptr readnone captures(none) %0, ptr noundef readonly %1) #2 align 16 {
+define internal ptr @tty_ldiscs_seq_start(ptr readnone captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #2 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp slt i64 %3, 31
   %5 = select i1 %4, ptr %1, ptr null
@@ -90,7 +90,7 @@ define internal void @tty_ldiscs_seq_stop(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal ptr @tty_ldiscs_seq_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #4 align 16 {
+define internal ptr @tty_ldiscs_seq_next(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(ret: address, provenance) %2) #4 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

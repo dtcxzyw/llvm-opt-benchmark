@@ -204,7 +204,7 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #1
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @rb_getnameinfo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @rb_getnameinfo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = zext i32 %1 to i64
   %10 = add nuw nsw i64 %9, 160
@@ -497,7 +497,7 @@ make_ipaddr0.exit:                                ; preds = %2
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noalias noundef nonnull ptr @rsock_getaddrinfo(i64 noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -949,7 +949,7 @@ rb_getaddrinfo.exit:                              ; preds = %165, %166
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @host_str(i64 noundef %0, ptr noundef nonnull captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i64, align 8
@@ -1089,7 +1089,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %33, %43, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %0, null
@@ -5470,7 +5470,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @make_inetaddr(i32 noundef %0, ptr noundef nonnull captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_in, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i16 2, ptr %3, align 4
@@ -5755,7 +5755,7 @@ rb_num2int_inline.exit14:                         ; preds = %33, %35
 declare i64 @rb_str_equal(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @make_inspectname(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [1025 x i8], align 16
   %6 = alloca [32 x i8], align 16

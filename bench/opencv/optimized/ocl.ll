@@ -183,7 +183,7 @@ define void @_ZN2cv3ocl6DeviceC2ERKS1_(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6DeviceaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6DeviceaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -194,7 +194,7 @@ define void @_ZN2cv3ocl6DeviceC2EOS1_(ptr noundef nonnull writeonly align 8 capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6DeviceaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6DeviceaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -705,7 +705,7 @@ define void @_ZN2cv3ocl7ContextC2ERKS1_(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ContextaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ContextaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -716,7 +716,7 @@ define void @_ZN2cv3ocl7ContextC2EOS1_(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ContextaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ContextaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -862,7 +862,7 @@ define void @_ZN2cv3ocl8PlatformC2ERKS1_(ptr noundef nonnull writeonly align 8 c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8PlatformaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8PlatformaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -873,7 +873,7 @@ define void @_ZN2cv3ocl8PlatformC2EOS1_(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8PlatformaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8PlatformaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -951,7 +951,7 @@ define void @_ZN2cv3ocl5QueueC2ERKS1_(ptr nonnull readnone align 8 captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5QueueaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5QueueaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -962,7 +962,7 @@ define void @_ZN2cv3ocl5QueueC2EOS1_(ptr noundef nonnull writeonly align 8 captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5QueueaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5QueueaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1076,7 +1076,7 @@ define void @_ZN2cv3ocl6KernelC2ERKS1_(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6KernelaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6KernelaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1087,7 +1087,7 @@ define void @_ZN2cv3ocl6KernelC2EOS1_(ptr noundef nonnull writeonly align 8 capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6KernelaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6KernelaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1199,7 +1199,7 @@ define void @_ZN2cv3ocl7ProgramC2ERKS1_(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ProgramaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ProgramaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1210,7 +1210,7 @@ define void @_ZN2cv3ocl7ProgramC2EOS1_(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ProgramaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7ProgramaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1302,7 +1302,7 @@ define void @_ZN2cv3ocl13ProgramSourceC2ERKS1_(ptr noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl13ProgramSourceaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl13ProgramSourceaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1313,7 +1313,7 @@ define void @_ZN2cv3ocl13ProgramSourceC2EOS1_(ptr noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl13ProgramSourceaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl13ProgramSourceaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1366,7 +1366,7 @@ define void @_ZN2cv3ocl12PlatformInfoC2ERKS1_(ptr noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl12PlatformInfoaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl12PlatformInfoaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1377,7 +1377,7 @@ define void @_ZN2cv3ocl12PlatformInfoC2EOS1_(ptr noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl12PlatformInfoaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl12PlatformInfoaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1502,7 +1502,7 @@ define void @_ZN2cv3ocl7Image2DD2Ev(ptr nonnull readnone align 8 captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Image2DaSERKS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Image2DaSERKS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 
@@ -1513,7 +1513,7 @@ define void @_ZN2cv3ocl7Image2DC2EOS1_(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Image2DaSEOS1_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Image2DaSEOS1_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   ret ptr %0
 }
 

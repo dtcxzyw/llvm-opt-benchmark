@@ -3467,7 +3467,7 @@ declare void @touchWatchedKey(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @trackingInvalidateKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scanDatabaseForDeletedKeys(ptr noundef %emptied, ptr noundef readonly %replaced_with) local_unnamed_addr #0 {
+define dso_local void @scanDatabaseForDeletedKeys(ptr noundef %emptied, ptr noundef readonly captures(address_is_null) %replaced_with) local_unnamed_addr #0 {
 entry:
   %blocking_keys = getelementptr inbounds nuw i8, ptr %emptied, i64 16
   %0 = load ptr, ptr %blocking_keys, align 8
@@ -4816,7 +4816,7 @@ return:                                           ; preds = %land.lhs.true, %for
 declare ptr @moduleTypeLookupModuleByNameIgnoreCase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getObjectTypeName(ptr noundef readonly %o) local_unnamed_addr #0 {
+define dso_local ptr @getObjectTypeName(ptr noundef readonly captures(address_is_null) %o) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %o, null
   br i1 %cmp, label %return, label %land.end
@@ -5558,7 +5558,7 @@ declare ptr @listCreate() local_unnamed_addr #1
 declare void @sdsfree(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dbScan(ptr noundef readonly captures(none) %db, i32 noundef %keyType, i64 noundef %v, i32 noundef %onlyslot, ptr noundef %fn, ptr noundef readonly %dictScanValidFunction, ptr noundef %privdata) local_unnamed_addr #0 {
+define dso_local i64 @dbScan(ptr noundef readonly captures(none) %db, i32 noundef %keyType, i64 noundef %v, i32 noundef %onlyslot, ptr noundef %fn, ptr noundef readonly captures(address_is_null) %dictScanValidFunction, ptr noundef %privdata) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5172), align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -6707,7 +6707,7 @@ return:                                           ; preds = %getKeySlot.exit38, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setExpire(ptr noundef readonly %c, ptr noundef %db, ptr noundef %key, i64 noundef %when) local_unnamed_addr #0 {
+define dso_local void @setExpire(ptr noundef readonly captures(address_is_null) %c, ptr noundef %db, ptr noundef %key, i64 noundef %when) local_unnamed_addr #0 {
 entry:
   %existing = alloca ptr, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -9154,7 +9154,7 @@ return:                                           ; preds = %if.else5, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getKeysFreeResult(ptr noundef readonly %result) local_unnamed_addr #0 {
+define dso_local void @getKeysFreeResult(ptr noundef readonly captures(address) %result) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %result, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true

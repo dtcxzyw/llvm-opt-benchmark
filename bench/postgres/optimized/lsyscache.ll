@@ -288,7 +288,7 @@ declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 nound
 declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_equality_op_for_ordering_op(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @get_equality_op_for_ordering_op(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %3, i64 noundef 0, i64 noundef 0) #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -511,7 +511,7 @@ define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_add
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -820,7 +820,7 @@ get_opfamily_member.exit49:                       ; preds = %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_op_hash_functions(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_op_hash_functions(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -4107,7 +4107,7 @@ get_typcollation.exit:                            ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %3) #8
   %.not = icmp eq ptr %4, null
@@ -4149,7 +4149,7 @@ define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getSubscriptingRoutines(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @getSubscriptingRoutines(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %3) #8
   %.not.i = icmp eq ptr %4, null

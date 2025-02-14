@@ -10,7 +10,7 @@ define dso_local void @nghttp2_queue_init(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_queue_free(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @nghttp2_queue_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

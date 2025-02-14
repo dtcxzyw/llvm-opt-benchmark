@@ -2662,7 +2662,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22SubchannelStreamClient9CallState15CallEndedLockedEb(ptr noundef nonnull readonly align 8 dereferenceable(3648) %this, i1 noundef zeroext %retry) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClient9CallState15CallEndedLockedEb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(3648) %this, i1 noundef zeroext %retry) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %subchannel_stream_client_ = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -41,7 +41,7 @@ define i32 @Llb_ManCountEntries(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 

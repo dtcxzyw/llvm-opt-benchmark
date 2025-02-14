@@ -126,7 +126,7 @@ return:                                           ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_gen_set_template(ptr noundef %genctx, ptr noundef %templ) #0 {
+define internal range(i32 0, 2) i32 @ec_gen_set_template(ptr noundef captures(address_is_null) %genctx, ptr noundef %templ) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp eq i32 %call, 0
@@ -491,7 +491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @ec_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp eq i32 %call, 0
@@ -1321,7 +1321,7 @@ return:                                           ; preds = %if.end.i, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_gen(ptr noundef %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
+define internal ptr @sm2_gen(ptr noundef captures(address_is_null) %genctx, ptr readnone captures(none) %osslcb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %lor.lhs.false

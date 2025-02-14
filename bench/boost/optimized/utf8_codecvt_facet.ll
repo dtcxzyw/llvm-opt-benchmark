@@ -54,7 +54,7 @@ define void @_ZN5boost7archive6detail18utf8_codecvt_facetD0Ev(ptr noundef nonnul
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone captures(address) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
   %9 = icmp ne ptr %2, %3
   %10 = icmp ne ptr %5, %6
   %11 = and i1 %9, %10
@@ -186,7 +186,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone captures(address) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #5 align 2 {
   %9 = icmp ne ptr %2, %3
   %10 = icmp ne ptr %5, %6
   %11 = and i1 %9, %10

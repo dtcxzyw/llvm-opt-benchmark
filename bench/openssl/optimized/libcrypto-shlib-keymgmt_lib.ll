@@ -212,7 +212,7 @@ declare ptr @EVP_PKEY_new() local_unnamed_addr #1
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_util_export(ptr noundef readonly %pk, i32 noundef %selection, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_util_export(ptr noundef readonly captures(address_is_null) %pk, i32 noundef %selection, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pk, null
   %cmp1 = icmp eq ptr %export_cb, null
@@ -416,7 +416,7 @@ return:                                           ; preds = %if.end3, %land.lhs.
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @evp_keymgmt_util_find_operation_cache(ptr noundef readonly captures(none) %pk, ptr noundef readnone %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
+define noundef ptr @evp_keymgmt_util_find_operation_cache(ptr noundef readonly captures(none) %pk, ptr noundef readnone captures(address) %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %operation_cache = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %0 = load ptr, ptr %operation_cache, align 8
@@ -454,7 +454,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_keymgmt_util_clear_operation_cache(ptr noundef %pk) local_unnamed_addr #0 {
+define noundef i32 @evp_keymgmt_util_clear_operation_cache(ptr noundef captures(address_is_null) %pk) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pk, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -619,7 +619,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @evp_keymgmt_has(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_util_match(ptr noundef %pk1, ptr noundef %pk2, i32 noundef %selection) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %pk1, ptr noundef captures(address_is_null) %pk2, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pk1, null
   %cmp1 = icmp eq ptr %pk2, null
@@ -741,7 +741,7 @@ return:                                           ; preds = %if.end61, %if.end54
 declare i32 @evp_keymgmt_match(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %to, ptr noundef readonly %from, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_copy(ptr noundef %to, ptr noundef readonly captures(address_is_null) %from, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8
   %keymgmt = getelementptr inbounds nuw i8, ptr %to, i64 96

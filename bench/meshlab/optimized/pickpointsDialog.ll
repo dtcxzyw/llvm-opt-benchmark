@@ -8494,7 +8494,7 @@ _ZNSt12_Vector_baseI7QStringSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP7QSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16PickPointsDialog34getPickedPointTreeWidgetItemVectorEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #20 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16PickPointsDialog34getPickedPointTreeWidgetItemVectorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(464) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   ret ptr %2
 }

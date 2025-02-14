@@ -1324,7 +1324,7 @@ declare ptr @ggml_gallocr_new() local_unnamed_addr #1
 declare ptr @ggml_tallocr_new_measure_from_backend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_sched_free(ptr noundef %sched) local_unnamed_addr #0 {
+define void @ggml_backend_sched_free(ptr noundef captures(address_is_null) %sched) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sched, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -3131,7 +3131,7 @@ sched_reset.exit:                                 ; preds = %for.body.i10, %sche
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ggml_backend_sched_get_tallocr(ptr noundef readonly captures(none) %sched, ptr noundef readnone %backend) local_unnamed_addr #13 {
+define ptr @ggml_backend_sched_get_tallocr(ptr noundef readonly captures(none) %sched, ptr noundef readnone captures(address) %backend) local_unnamed_addr #13 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
@@ -3168,7 +3168,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_backend_sched_get_buffer(ptr noundef readonly captures(none) %sched, ptr noundef readnone %backend) local_unnamed_addr #0 {
+define ptr @ggml_backend_sched_get_buffer(ptr noundef readonly captures(none) %sched, ptr noundef readnone captures(address) %backend) local_unnamed_addr #0 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
@@ -3208,7 +3208,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
 declare ptr @ggml_tallocr_get_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_sched_set_node_backend(ptr noundef readonly captures(none) %sched, ptr noundef %node, ptr noundef readnone %backend) local_unnamed_addr #0 {
+define void @ggml_backend_sched_set_node_backend(ptr noundef readonly captures(none) %sched, ptr noundef %node, ptr noundef readnone captures(address) %backend) local_unnamed_addr #0 {
 entry:
   %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16

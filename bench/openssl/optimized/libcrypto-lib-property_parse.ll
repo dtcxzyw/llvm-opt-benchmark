@@ -1409,7 +1409,7 @@ declare i32 @ossl_property_name(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i32 @ossl_property_value(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_property_list_to_string(ptr noundef %ctx, ptr noundef readonly %list, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #0 {
+define i64 @ossl_property_list_to_string(ptr noundef %ctx, ptr noundef readonly captures(address_is_null) %list, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %buf.addr = alloca ptr, align 8
   %bufsize.addr = alloca i64, align 8

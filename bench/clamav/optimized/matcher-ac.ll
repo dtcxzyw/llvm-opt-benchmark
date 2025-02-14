@@ -434,7 +434,7 @@ insert_list.exit:                                 ; preds = %105, %.thread, %81,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_ac_buildtrie(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_ac_buildtrie(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ac_maketrans.exit, label %2
 
@@ -1821,7 +1821,7 @@ declare noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef rea
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -2276,7 +2276,7 @@ define i32 @cli_ac_caloff(ptr noundef readonly captures(none) %0, ptr noundef ca
 declare i32 @cli_caloff(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @cli_ac_freedata(ptr noundef %0) local_unnamed_addr #0 {
+define void @cli_ac_freedata(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %2
 
@@ -2754,7 +2754,7 @@ define range(i32 0, 21) i32 @cli_ac_chkmacro(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @cli_ac_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @cli_ac_scanbuff(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #19
@@ -3751,7 +3751,7 @@ ac_findmatch.exit.thread:                         ; preds = %.critedge542, %131,
 declare zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @ac_addtype(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 65536) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef readonly %3) unnamed_addr #13 {
+define internal fastcc range(i32 0, 21) i32 @ac_addtype(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 65536) %1, i64 noundef range(i64 0, 4294967296) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #13 {
   %5 = icmp eq i32 %1, 563
   %6 = load ptr, ptr %0, align 8, !tbaa !142
   br i1 %5, label %7, label %20
@@ -3839,7 +3839,7 @@ define internal fastcc range(i32 0, 21) i32 @ac_addtype(ptr noundef nonnull capt
 declare i32 @cli_append_virus(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef readonly %12, i32 noundef %13) local_unnamed_addr #0 {
+define i32 @cli_ac_addsig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef readonly captures(address_is_null) %12, i32 noundef %13) local_unnamed_addr #0 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %.not = icmp eq ptr %0, null

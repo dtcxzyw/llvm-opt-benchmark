@@ -1025,7 +1025,7 @@ declare i32 @H5F_cwfs_find_free_heap(ptr noundef, i64 noundef, ptr noundef) loca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @H5HG_read(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define noundef ptr @H5HG_read(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address, ret: address, provenance) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 -1, ptr %5, align 8
   call void @H5AC_tag(i64 noundef 6, ptr noundef nonnull %5) #7

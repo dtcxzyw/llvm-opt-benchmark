@@ -19,7 +19,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_fib_metri
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_ip_fib_metrics_init905], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [16 x i8], align 16
   %7 = icmp eq ptr %1, null

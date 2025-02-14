@@ -1482,7 +1482,7 @@ declare void @_ZN8QuantLib18TripleBandLinearOp5axpybERKNS_5ArrayERKS0_S5_S3_(ptr
 declare void @_ZNK8QuantLib18TripleBandLinearOp4multERKNS_5ArrayE(ptr dead_on_unwind writable sret(%"class.QuantLib::TripleBandLinearOp") align 8, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib16FdmCIREquityPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib16FdmCIREquityPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(296) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %mapT_
@@ -1936,7 +1936,7 @@ _ZN8QuantLib5ArrayD2Ev.exit18:                    ; preds = %ehcleanup10, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib15FdmCIRRatesPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK8QuantLib15FdmCIRRatesPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %mapT_
@@ -2510,7 +2510,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #12
 declare void @_ZN8QuantLib17NinePointLinearOp4swapERS0_(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(176) ptr @_ZNK8QuantLib15FdmCIRMixedPart6getMapEv(ptr noundef nonnull readnone align 8 dereferenceable(392) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(176) ptr @_ZNK8QuantLib15FdmCIRMixedPart6getMapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(392) %this) local_unnamed_addr #11 align 2 {
 entry:
   %mapT_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   ret ptr %mapT_

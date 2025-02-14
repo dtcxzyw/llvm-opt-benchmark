@@ -23328,7 +23328,7 @@ declare { ptr, i8 } @_ZN4Luau12Substitution10substituteEPKNS_4TypeE(ptr noundef 
 declare noundef ptr @_ZN4Luau12getTableTypeEPKNS_4TypeE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_"(ptr %0, ptr %1, ptr readnone %.0.val) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_"(ptr %0, ptr %1, ptr readnone captures(address) %.0.val) unnamed_addr #6 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4

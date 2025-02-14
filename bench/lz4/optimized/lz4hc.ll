@@ -5466,7 +5466,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @LZ4_freeStreamHC(ptr noundef %LZ4_streamHCPtr) local_unnamed_addr #9 {
+define noundef i32 @LZ4_freeStreamHC(ptr noundef captures(address_is_null) %LZ4_streamHCPtr) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %LZ4_streamHCPtr, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6483,7 +6483,7 @@ return:                                           ; preds = %entry, %LZ4HC_init_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @LZ4_freeHC(ptr noundef %LZ4HC_Data) local_unnamed_addr #9 {
+define noundef i32 @LZ4_freeHC(ptr noundef captures(address_is_null) %LZ4HC_Data) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %LZ4HC_Data, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15511,7 +15511,7 @@ if.end462:                                        ; preds = %entry, %if.then461
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @LZ4HC_countPattern(ptr noundef %ip, ptr noundef readnone %iEnd, i32 noundef %pattern32) unnamed_addr #14 {
+define internal fastcc i32 @LZ4HC_countPattern(ptr noundef %ip, ptr noundef readnone captures(address) %iEnd, i32 noundef %pattern32) unnamed_addr #14 {
 entry:
   %iEnd32 = ptrtoint ptr %iEnd to i64
   %conv = zext i32 %pattern32 to i64

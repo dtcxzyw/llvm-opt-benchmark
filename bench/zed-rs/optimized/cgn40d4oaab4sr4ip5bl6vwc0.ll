@@ -135,7 +135,7 @@ define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_proce
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_process7Command4args17hb39b9fc8e62230d7E(ptr noalias noundef returned align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_process7Command4args17hb39b9fc8e62230d7E(ptr noalias noundef returned align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZN3std7process7Command4args17hea77e80c68a9d904E.exit, label %.lr.ph.i
@@ -1405,7 +1405,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$even
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.2466579738287709844"(ptr noundef readnone %0) unnamed_addr #1 {
+define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.2466579738287709844"(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1418,7 +1418,7 @@ define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18pre
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hb90ac80e0eac663cE.llvm.2466579738287709844"(ptr noundef readnone %0) unnamed_addr #2 {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hb90ac80e0eac663cE.llvm.2466579738287709844"(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   ret ptr %2
 }

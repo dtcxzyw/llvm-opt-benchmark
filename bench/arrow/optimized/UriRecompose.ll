@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringCharsRequiredA(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringCharsRequiredA(ptr noundef %uri, ptr noundef captures(address_is_null) %charsRequired) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly captures(address_is_null) %charsWritten, ptr noundef captures(address_is_null) %charsRequired) unnamed_addr #0 {
 entry:
   %text = alloca [4 x i8], align 1
   %cmp = icmp eq ptr %uri, null
@@ -1035,21 +1035,21 @@ return:                                           ; preds = %if.end674.thread545
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringA(ptr noundef captures(address_is_null) %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef captures(address_is_null) %charsWritten) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriToStringEngineA(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringCharsRequiredW(ptr noundef %uri, ptr noundef %charsRequired) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringCharsRequiredW(ptr noundef %uri, ptr noundef captures(address_is_null) %charsRequired) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef null, ptr noundef %uri, i32 noundef 2147483647, ptr noundef null, ptr noundef %charsRequired)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef writeonly %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly %charsWritten, ptr noundef %charsRequired) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef writeonly captures(address_is_null) %charsWritten, ptr noundef captures(address_is_null) %charsRequired) unnamed_addr #0 {
 entry:
   %text = alloca [4 x i32], align 16
   %cmp = icmp eq ptr %uri, null
@@ -2102,7 +2102,7 @@ return:                                           ; preds = %if.end674.thread555
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriToStringW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @uriToStringW(ptr noundef captures(address_is_null) %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef captures(address_is_null) %charsWritten) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uriToStringEngineW(ptr noundef %dest, ptr noundef %uri, i32 noundef %maxChars, ptr noundef %charsWritten, ptr noundef null)
   ret i32 %call

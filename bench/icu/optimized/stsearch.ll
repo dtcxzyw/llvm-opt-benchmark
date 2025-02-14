@@ -1148,7 +1148,7 @@ if.end:                                           ; preds = %_ZNK6icu_7513Unicod
 declare void @usearch_setPattern_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512StringSearch10getPatternEv(ptr noundef nonnull readnone align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512StringSearch10getPatternEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_pattern_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %m_pattern_

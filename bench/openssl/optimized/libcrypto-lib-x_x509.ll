@@ -115,7 +115,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_set0_libctx(ptr noundef captures(address_is_null) %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -394,7 +394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_get0_signature(ptr noundef writeonly %psig, ptr noundef writeonly %palg, ptr noundef %x) local_unnamed_addr #3 {
+define void @X509_get0_signature(ptr noundef writeonly captures(address_is_null) %psig, ptr noundef writeonly captures(address_is_null) %palg, ptr noundef %x) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %psig, null
   br i1 %tobool.not, label %if.end, label %if.then

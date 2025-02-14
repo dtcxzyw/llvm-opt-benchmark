@@ -1016,7 +1016,7 @@ determine_best_coding_triple.exit229:             ; preds = %173, %175
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12, ptr noundef writeonly %13) unnamed_addr #0 {
+define internal fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #0 {
   %15 = alloca i32, align 4
   store i32 0, ptr %15, align 4
   %.not = icmp eq ptr %13, null
@@ -2440,7 +2440,7 @@ determine_best_coding_stop_bits.exit209:          ; preds = %166, %168
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly %12) unnamed_addr #0 {
+define internal fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly captures(address_is_null) %12) unnamed_addr #0 {
   %14 = alloca i32, align 4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge129, label %.critedge
@@ -3180,7 +3180,7 @@ readbufferfix.exit107:                            ; preds = %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3232,7 +3232,7 @@ readbufferfix.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress_float(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress_float(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3284,7 +3284,7 @@ readbufferfix.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define i32 @tng_compress_uncompress_int(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -3596,7 +3596,7 @@ declare double @llvm.floor.f64(double) #8
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
+define internal fastcc i32 @tng_compress_uncompress_pos_gen(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6
@@ -4614,7 +4614,7 @@ define internal fastcc void @unquantize_inter_differences_int(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
+define internal fastcc i32 @tng_compress_uncompress_vel_gen(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %6

@@ -469,7 +469,7 @@ _ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly %values, i32 noundef %valuesLength, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr noundef writeonly %offsets, i32 noundef %offsetsLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(address_is_null) %values, i32 noundef %valuesLength, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr noundef writeonly captures(address_is_null) %offsets, i32 noundef %offsetsLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1044,7 +1044,7 @@ return:                                           ; preds = %if.end46, %if.end46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515SimpleFormatter16formatAndReplaceEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly %values, i32 noundef %valuesLength, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef writeonly %offsets, i32 noundef %offsetsLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515SimpleFormatter16formatAndReplaceEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readonly captures(address_is_null) %values, i32 noundef %valuesLength, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef writeonly captures(address_is_null) %offsets, i32 noundef %offsetsLength, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resultCopy = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %errorCode, align 4

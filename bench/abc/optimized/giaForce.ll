@@ -2353,7 +2353,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Frc_ManCrossCutTest(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Frc_ManCrossCutTest(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 

@@ -4189,7 +4189,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit: ; preds = %cond.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK3ue213RoseBuildImpl13getSuccGroupsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly %start.coerce0, i64 %start.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK3ue213RoseBuildImpl13getSuccGroupsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr readonly captures(address) %start.coerce0, i64 %start.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %m_header.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %start.coerce0, i64 352
   %__begin1.sroa.0.09 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8

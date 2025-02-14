@@ -30103,7 +30103,7 @@ if.end38:                                         ; preds = %if.then13.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings9RegExpOpr16isPairNodesInSetERSt3setISt4pairINS0_12NodeTemplateILb1EEES7_ESt4lessIS8_ESaIS8_EES7_S7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(544) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %s, ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(none) %n2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings9RegExpOpr16isPairNodesInSetERSt3setISt4pairINS0_12NodeTemplateILb1EEES7_ESt4lessIS8_ESaIS8_EES7_S7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(544) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %s, ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(none) %n2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8

@@ -95,7 +95,7 @@ _ZNK17GrowableArrayViewIN13ReplacedNodes12ReplacedNodeEE4findERKS1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13ReplacedNodes15has_target_nodeEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK13ReplacedNodes15has_target_nodeEP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -501,7 +501,7 @@ _ZNK13ReplacedNodes8is_emptyEv.exit.thread:       ; preds = %17, %3, %_ZNK13Repl
 declare noundef i32 @_ZN4Node12replace_edgeEPS_S0_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReplacedNodes5applyEP7CompileP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReplacedNodes5applyEP7CompileP4Node(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Node_Stack, align 8
   %5 = alloca %class.Unique_Node_List, align 8
   %6 = alloca %class.VectorSet, align 8
@@ -1901,7 +1901,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13ReplacedNodes12is_dominatorEPK4NodePS0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13ReplacedNodes12is_dominatorEPK4NodePS0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   br label %4
 
 4:                                                ; preds = %5, %3

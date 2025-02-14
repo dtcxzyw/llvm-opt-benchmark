@@ -428,7 +428,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, -1) i32 @_ZNK6spacer10model_node15index_in_parentEv(ptr noundef nonnull readonly align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK6spacer10model_node15index_in_parentEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_parent = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_parent, align 8
@@ -561,7 +561,7 @@ while.end:                                        ; preds = %for.body, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6spacer10model_node6detachERPS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %qhead) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6spacer10model_node6detachERPS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(49) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %qhead) local_unnamed_addr #7 align 2 {
 entry:
   %m_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_next, align 8
@@ -715,7 +715,7 @@ _ZN6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE5resetEv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer12model_search14erase_childrenERNS_10model_nodeEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(49) %n, i1 noundef zeroext %backtrack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer12model_search14erase_childrenERNS_10model_nodeEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(49) %n, i1 noundef zeroext %backtrack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.251", align 1
@@ -3302,7 +3302,7 @@ _ZN15ref_buffer_coreIN6spacer3pobE21ref_unmanaged_wrapperIS1_ELj16EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer7context26gpdr_create_split_childrenERNS_3pobERKN7datalog4ruleEP4exprR5modelR11sref_bufferIS1_Lj16EE(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(152) %n, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef %trans, ptr noundef nonnull align 8 dereferenceable(160) %mdl, ptr noundef nonnull align 8 dereferenceable(144) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6spacer7context26gpdr_create_split_childrenERNS_3pobERKN7datalog4ruleEP4exprR5modelR11sref_bufferIS1_Lj16EE(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(152) %n, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef %trans, ptr noundef nonnull align 8 dereferenceable(160) %mdl, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %preds = alloca %class.ptr_vector.161, align 8
   %ppts = alloca %class.ptr_vector.165, align 8

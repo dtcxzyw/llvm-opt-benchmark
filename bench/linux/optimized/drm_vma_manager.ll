@@ -286,7 +286,7 @@ vma_node_allow.exit:                              ; preds = %.preheader.i, %21, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_vma_node_revoke(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
+define dso_local void @drm_vma_node_revoke(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef %0) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
@@ -333,7 +333,7 @@ declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef %0) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8

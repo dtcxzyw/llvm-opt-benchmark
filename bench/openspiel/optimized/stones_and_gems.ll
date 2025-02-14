@@ -946,7 +946,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly captures(address) %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [20 x i8], align 4
   %5 = getelementptr inbounds nuw %"struct.std::pair.57", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8
@@ -1449,7 +1449,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly captures(address) %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [32 x i8], align 4
   %5 = getelementptr inbounds nuw %"struct.std::pair.69", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8

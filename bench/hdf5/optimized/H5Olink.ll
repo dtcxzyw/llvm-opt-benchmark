@@ -1092,7 +1092,7 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__link_reset(ptr noundef %0) #0 {
+define internal noundef i32 @H5O__link_reset(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 

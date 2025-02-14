@@ -459,7 +459,7 @@ declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 declare void @ESS_CERT_ID_V2_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef readonly %ss, ptr noundef readonly %ssv2, ptr noundef %chain, i32 noundef %require_signing_cert) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef readonly captures(address_is_null) %ss, ptr noundef readonly captures(address_is_null) %ssv2, ptr noundef %chain, i32 noundef %require_signing_cert) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ss, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -543,7 +543,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find(ptr noundef readonly %cid, ptr noundef readonly %cid_v2, i32 noundef range(i32 -2147483648, 2147483647) %index, ptr noundef %certs) unnamed_addr #0 {
+define internal fastcc i32 @find(ptr noundef readonly captures(address_is_null) %cid, ptr noundef readonly captures(address_is_null) %cid_v2, i32 noundef range(i32 -2147483648, 2147483647) %index, ptr noundef %certs) unnamed_addr #0 {
 entry:
   %name = alloca [50 x i8], align 16
   %cert_digest = alloca [64 x i8], align 16

@@ -1092,7 +1092,7 @@ define hidden range(i32 0, 4) i32 @rb_METHOD_ENTRY_VISI(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16) i32 @rb_get_cme_def_type(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 16) i32 @rb_get_cme_def_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -1948,7 +1948,7 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 21) i64 @rb_yjit_splat_varg_checks(ptr noundef readnone %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
+define hidden range(i64 0, 21) i64 @rb_yjit_splat_varg_checks(ptr noundef readnone captures(address) %0, i64 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8192

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @adler32_z(i64 noundef %adler, ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
+define i64 @adler32_z(i64 noundef %adler, ptr noundef readonly captures(address_is_null) %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %adler, 16
   %and = and i64 %shr, 65535
@@ -321,7 +321,7 @@ return:                                           ; preds = %if.end11, %if.end18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @adler32(i64 noundef %adler, ptr noundef readonly %buf, i32 noundef %len) local_unnamed_addr #0 {
+define i64 @adler32(i64 noundef %adler, ptr noundef readonly captures(address_is_null) %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %len to i64
   %call = tail call i64 @adler32_z(i64 noundef %adler, ptr noundef %buf, i64 noundef %conv)

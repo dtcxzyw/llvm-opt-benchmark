@@ -547,12 +547,12 @@ define noundef zeroext i1 @_ZNK2cv18GStreamingCompiled4Priv7isEmptyEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv18GStreamingCompiled4Priv5metasEv(ptr noundef nonnull readnone returned align 8 dereferenceable(104) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv18GStreamingCompiled4Priv5metasEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(104) %0) local_unnamed_addr #6 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv18GStreamingCompiled4Priv8outMetasEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv18GStreamingCompiled4Priv8outMetasEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }

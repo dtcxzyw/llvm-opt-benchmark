@@ -1301,7 +1301,7 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @arkRelaxDestroy(ptr noundef %0) local_unnamed_addr #3 {
+define noundef i32 @arkRelaxDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

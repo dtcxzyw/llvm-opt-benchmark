@@ -517,7 +517,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @not_found(ptr noundef %0, ptr noundef readonly %1, ...) unnamed_addr #5 {
+define internal void @not_found(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef 404, ptr noundef nonnull @.str.118) #19
@@ -1155,7 +1155,7 @@ define internal noundef i32 @show_head_ref(ptr noundef %0, ptr readnone captures
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @forbidden(ptr noundef %0, ptr noundef readonly %1, ...) unnamed_addr #5 {
+define internal void @forbidden(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef 403, ptr noundef nonnull @.str.47) #19

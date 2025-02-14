@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [14 x i8] c"\22;~&|()<>[]*?\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define ptr @fmtquote(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %3
   %6 = shl i64 %3, 2
   %7 = add i64 %6, 4
@@ -378,14 +378,14 @@ declare ptr @fmtbuf(i64 noundef) local_unnamed_addr #2
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesq(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @fmtesq(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %4 = tail call ptr @fmtquote(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, i64 noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fmtesc(ptr noundef %0) local_unnamed_addr #0 {
+define ptr @fmtesc(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = tail call ptr @fmtquote(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %2)
   ret ptr %3

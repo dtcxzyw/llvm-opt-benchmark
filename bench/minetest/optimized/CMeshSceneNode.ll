@@ -1301,7 +1301,7 @@ cleanup:                                          ; preds = %_ZN3irr5video9SMate
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene14CMeshSceneNode11removeChildEPNS0_10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(477) %this, ptr noundef %child) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene14CMeshSceneNode11removeChildEPNS0_10ISceneNodeE(ptr noundef nonnull align 8 captures(address) dereferenceable(477) %this, ptr noundef %child) unnamed_addr #0 align 2 {
 entry:
   %Parent.i = getelementptr inbounds nuw i8, ptr %child, i64 192
   %0 = load ptr, ptr %Parent.i, align 8, !tbaa !22
@@ -1409,7 +1409,7 @@ return:                                           ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene14CMeshSceneNode14getBoundingBoxEv(ptr noundef nonnull readonly align 8 dereferenceable(477) %this) unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene14CMeshSceneNode14getBoundingBoxEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(477) %this) unnamed_addr #0 align 2 {
 entry:
   %Mesh = getelementptr inbounds nuw i8, ptr %this, i64 464
   %0 = load ptr, ptr %Mesh, align 8, !tbaa !69

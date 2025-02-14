@@ -217,7 +217,7 @@ declare dso_local void @acpi_tb_uninstall_table(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
@@ -297,7 +297,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare dso_local void @acpi_os_unmap_memory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_get_table(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @acpi_get_table(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
@@ -354,7 +354,7 @@ define dso_local i32 @acpi_get_table(ptr noundef readonly %0, i32 noundef %1, pt
 declare dso_local i32 @acpi_tb_get_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_put_table(ptr noundef readnone %0) #0 align 16 {
+define dso_local void @acpi_put_table(ptr noundef readnone captures(address) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -457,7 +457,7 @@ define dso_local i32 @acpi_install_table_handler(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_remove_table_handler(ptr noundef readnone %0) #0 align 16 {
+define dso_local i32 @acpi_remove_table_handler(ptr noundef readnone captures(address) %0) #0 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 3) #6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %13

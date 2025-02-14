@@ -46,7 +46,7 @@ $_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5En
 @_ZN9grpc_core8EventLogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core8EventLogD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8EventLogD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8EventLogD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr @_ZN9grpc_core8EventLog11g_instance_E acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr

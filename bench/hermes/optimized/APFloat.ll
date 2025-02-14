@@ -372,7 +372,7 @@ entry:
 declare void @_ZN4llvh5APInt8tcAssignEPmPKmj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN4llvh6detail9IEEEFloat16significandPartsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN4llvh6detail9IEEEFloat16significandPartsEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %precision.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK4llvh6detail9IEEEFloat16significandPartsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK4llvh6detail9IEEEFloat16significandPartsEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %precision.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -623,7 +623,7 @@ if.end6:                                          ; preds = %if.then.i7, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh6detail9IEEEFloataSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((16, 18)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh6detail9IEEEFloataSEOS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(24) initializes((16, 18)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %precision.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1402,7 +1402,7 @@ return:                                           ; preds = %if.then69, %_ZNK4ll
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK4llvh6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK4llvh6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %rhs
   br i1 %cmp, label %return, label %if.end
@@ -7145,7 +7145,7 @@ sw.epilog:                                        ; preds = %sw.bb28, %if.end23,
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZNK4llvh6detail9IEEEFloat24convertNormalToHexStringEPcjbNS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef initializes((0, 2)) %dst, i32 noundef %hexDigits, i1 noundef zeroext %upperCase, i32 noundef %rounding_mode) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK4llvh6detail9IEEEFloat24convertNormalToHexStringEPcjbNS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef captures(ret: address, provenance) initializes((0, 2)) %dst, i32 noundef %hexDigits, i1 noundef zeroext %upperCase, i32 noundef %rounding_mode) local_unnamed_addr #2 align 2 {
 entry:
   %buff.i6.i = alloca [40 x i8], align 16
   %buff.i.i = alloca [40 x i8], align 16
@@ -9307,7 +9307,7 @@ if.end42:                                         ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef readnone %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %api) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef readnone captures(address) %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %api) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq ptr %Sem, @_ZN4llvhL11semIEEEhalfE
   br i1 %cmp, label %if.then, label %if.end
@@ -9688,7 +9688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 4 dereferenceable(12) %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %API) unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 4 captures(address) dereferenceable(12) %Sem, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %API) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN4llvh6detail9IEEEFloat13initFromAPIntEPKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Sem, ptr noundef nonnull align 8 dereferenceable(12) %API)
   ret void
@@ -12678,7 +12678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %RHS) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh6detail13DoubleAPFloataSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %RHS) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
@@ -14909,7 +14909,7 @@ return:                                           ; preds = %if.then24.i.i, %lor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(16) %LHS, ptr noundef nonnull align 8 dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %Out, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %LHS, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %Out, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %A = alloca %"class.llvh::APFloat", align 8
   %AA = alloca %"class.llvh::APFloat", align 8
@@ -15200,14 +15200,14 @@ _ZN4llvh7APFloat7makeNaNEbbPKNS_5APIntE.exit:     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat3addERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat3addERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %RM)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8subtractERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8subtractERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN4llvh6detail13DoubleAPFloat10changeSignEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat14addWithSpecialERKS1_S3_RS1_NS_11APFloatBase12roundingModeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %RM)
@@ -15256,7 +15256,7 @@ if.then.i7:                                       ; preds = %_ZN4llvh7APFloat10c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8multiplyERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat8multiplyERKS1_NS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %RHS, i32 noundef %RM) local_unnamed_addr #2 align 2 {
 entry:
   %A = alloca %"class.llvh::APFloat", align 8
   %B = alloca %"class.llvh::APFloat", align 8
@@ -19321,7 +19321,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh7APFloat7StorageC2ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 16)) %this, ptr noundef captures(none) %F, ptr noundef nonnull readnone align 4 dereferenceable(12) %Semantics) unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh7APFloat7StorageC2ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 16)) %this, ptr noundef captures(none) %F, ptr noundef nonnull readnone align 4 captures(address) dereferenceable(12) %Semantics) unnamed_addr #2 align 2 {
 entry:
   %cmp.i.not = icmp eq ptr %Semantics, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not, label %_ZN4llvh7APFloatC2ENS_6detail9IEEEFloatERKNS_12fltSemanticsE.exit, label %if.then

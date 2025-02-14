@@ -740,7 +740,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(11616) ptr @_ZNK3smt18quantifier_manager11get_contextEv(ptr noundef nonnull align 8 dereferenceable(13)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt13model_checker17get_term_from_ctxEP4expr(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef readonly %val) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt13model_checker17get_term_from_ctxEP4expr(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef readonly captures(address) %val) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"struct.obj_map<expr, expr *>::key_data", align 8
   %m_value2expr.i = getelementptr inbounds nuw i8, ptr %this, i64 96

@@ -1636,7 +1636,7 @@ declare void @png_do_check_palette_indexes(ptr noundef, ptr noundef) local_unnam
 declare void @png_write_find_filter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_flush(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_flush(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -1679,7 +1679,7 @@ declare void @png_compress_IDAT(ptr noundef, ptr noundef, i64 noundef, i32 nound
 declare void @png_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_destroy_write_struct(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @png_destroy_write_struct(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %3
 
@@ -1914,7 +1914,7 @@ define void @png_set_filter_heuristics_fixed(ptr noalias noundef readnone captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_compression_level(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_compression_level(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -1928,7 +1928,7 @@ define void @png_set_compression_level(ptr noalias noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_compression_mem_level(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_compression_mem_level(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -1942,7 +1942,7 @@ define void @png_set_compression_mem_level(ptr noalias noundef writeonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_compression_strategy(ptr noalias noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @png_set_compression_strategy(ptr noalias noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -2011,7 +2011,7 @@ define void @png_set_compression_method(ptr noalias noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_text_compression_level(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_text_compression_level(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2025,7 +2025,7 @@ define void @png_set_text_compression_level(ptr noalias noundef writeonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_text_compression_mem_level(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_text_compression_mem_level(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2039,7 +2039,7 @@ define void @png_set_text_compression_mem_level(ptr noalias noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_text_compression_strategy(ptr noalias noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @png_set_text_compression_strategy(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2104,7 +2104,7 @@ define void @png_set_text_compression_method(ptr noalias noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_write_status_fn(ptr noalias noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @png_set_write_status_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2118,7 +2118,7 @@ define void @png_set_write_status_fn(ptr noalias noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_write_user_transform_fn(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @png_set_write_user_transform_fn(ptr noalias noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -2324,7 +2324,7 @@ declare void @png_set_packswap(ptr noundef) local_unnamed_addr #1
 declare void @png_set_invert_alpha(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalias noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.png_image_write_control, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %9
@@ -3394,7 +3394,7 @@ png_set_compression_level.exit:                   ; preds = %456, %416
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.png_image_write_control, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %8

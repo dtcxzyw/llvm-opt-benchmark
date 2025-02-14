@@ -30,7 +30,7 @@ define void @_ZN21TriangulationTriangleC2Ev(ptr noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 dereferenceable(1064) initializes((1048, 1064)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 dereferenceable(1064) initializes((1048, 1064)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i64 0, ptr %4, align 8
   %5 = sext i32 %2 to i64

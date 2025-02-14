@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qstring_is_equal(ptr noundef readonly %x, ptr noundef readonly %y) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qstring_is_equal(ptr noundef readonly captures(address_is_null) %x, ptr noundef readonly captures(address_is_null) %y) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp ne ptr %x, null
   tail call void @llvm.assume(i1 %tobool.not.i)

@@ -759,7 +759,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen30getBytecodeTypeName_DEPRECATEDEh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 noundef zeroext %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @_ZN4Luau7CodeGen19getBytecodeTypeNameEhPKPKc(i8 noundef zeroext %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = and i8 %0, 96
   %or.cond = icmp eq i8 %3, 64
   br i1 %or.cond, label %4, label %10
@@ -1323,7 +1323,7 @@ _ZN4Luau7CodeGen30getBytecodeTypeName_DEPRECATEDEh.exit87: ; preds = %_ZN4Luau7C
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define dso_local void @_ZN4Luau7CodeGen8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_13BytecodeTypesEPKPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = load i8, ptr %1, align 1
   %5 = and i8 %4, 96
   %or.cond.i = icmp eq i8 %5, 64

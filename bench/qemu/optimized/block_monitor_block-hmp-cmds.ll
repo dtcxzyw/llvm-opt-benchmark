@@ -1256,7 +1256,7 @@ return:                                           ; preds = %for.end, %for.end49
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_block_info(ptr noundef %mon, ptr noundef readonly %info, ptr noundef readonly %inserted, i1 noundef zeroext %verbose) unnamed_addr #0 {
+define internal fastcc void @print_block_info(ptr noundef %mon, ptr noundef readonly captures(address_is_null) %info, ptr noundef readonly captures(address) %inserted, i1 noundef zeroext %verbose) unnamed_addr #0 {
 entry:
   %tobool.not104 = icmp eq ptr %info, null
   br i1 %tobool.not104, label %if.else16, label %lor.lhs.false

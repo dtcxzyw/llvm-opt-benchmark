@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_encapsulate(ptr noundef readonly %ctx, ptr noundef %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_encapsulate(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -435,7 +435,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_decapsulate(ptr noundef readonly %ctx, ptr noundef %secret, ptr noundef %secretlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_decapsulate(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef %secret, ptr noundef %secretlen, ptr noundef %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %in, null
@@ -857,7 +857,7 @@ entry:
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_KEM_is_a(ptr noundef readonly %kem, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEM_is_a(ptr noundef readonly captures(address_is_null) %kem, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %kem, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -931,7 +931,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEM_gettable_ctx_params(ptr noundef readonly %kem) local_unnamed_addr #0 {
+define ptr @EVP_KEM_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %kem) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %kem, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -958,7 +958,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_KEM_settable_ctx_params(ptr noundef readonly %kem) local_unnamed_addr #0 {
+define ptr @EVP_KEM_settable_ctx_params(ptr noundef readonly captures(address_is_null) %kem) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %kem, null
   br i1 %cmp, label %return, label %lor.lhs.false

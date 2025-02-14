@@ -240,7 +240,7 @@ Vec_PtrFree.exit37:                               ; preds = %.thread, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_PtrFree(ptr noundef %0) local_unnamed_addr #0 {
+define void @Bac_PtrFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %.preheader
 
@@ -285,7 +285,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Bac_PtrMemoryArray(ptr noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Bac_PtrMemoryArray(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
@@ -344,7 +344,7 @@ Bac_PtrMemoryArray.exit:                          ; preds = %5, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Bac_PtrMemoryNtk(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Bac_PtrMemoryNtk(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
@@ -474,7 +474,7 @@ Bac_PtrMemoryArrayArray.exit25:                   ; preds = %Bac_PtrMemoryArray.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Bac_PtrMemory(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Bac_PtrMemory(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Vec_PtrMemory.exit, label %2
 
@@ -1506,7 +1506,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformBox(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformBox(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val13 = load i32, ptr %3, align 4, !tbaa !15
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1633,7 +1633,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %3, align 4, !tbaa !15
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1740,7 +1740,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val18 = load ptr, ptr %3, align 8, !tbaa !3
   %4 = load ptr, ptr %.val18, align 8, !tbaa !9

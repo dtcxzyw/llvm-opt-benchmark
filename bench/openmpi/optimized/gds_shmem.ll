@@ -4378,7 +4378,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @server_mark_modex_complete(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #2 {
+define internal noundef i32 @server_mark_modex_complete(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 240

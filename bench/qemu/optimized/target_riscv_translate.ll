@@ -88815,7 +88815,7 @@ declare void @tcg_gen_mb(i32 noundef) local_unnamed_addr #1
 declare void @tcg_gen_call2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith_imm_fn(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(address_is_null) %f128) unnamed_addr #2 {
 entry:
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd, align 4
@@ -89633,7 +89633,7 @@ entry:
 declare void @tcg_gen_shl_i64(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 2) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith_imm_tl(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 2) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly captures(address_is_null) %f128) unnamed_addr #2 {
 entry:
   %rd = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %rd, align 4
@@ -91363,7 +91363,7 @@ entry:
 declare void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @gen_arith(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 3) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly %f128) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @gen_arith(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, i32 noundef range(i32 0, 3) %ext, ptr noundef readonly captures(none) %func, ptr noundef readonly captures(address_is_null) %f128) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -116152,7 +116152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_th_mac(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %accumulate_func, ptr noundef readonly %extend_operand_func) unnamed_addr #2 {
+define internal fastcc void @gen_th_mac(ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly captures(none) %a, ptr noundef readonly captures(none) %accumulate_func, ptr noundef readonly captures(address_is_null) %extend_operand_func) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %a, align 4
   %cmp.i = icmp eq i32 %0, 0

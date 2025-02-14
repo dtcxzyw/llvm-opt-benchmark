@@ -79,7 +79,7 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit:
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE(ptr readonly %.80.val, ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(185) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL23promoteMemoryToRegisterRN4llvm8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE(ptr readonly captures(address_is_null) %.80.val, ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(185) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %.80.val, null
   %4 = getelementptr inbounds i8, ptr %.80.val, i64 -24
   %5 = select i1 %3, ptr null, ptr %4

@@ -393,7 +393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr readonly %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr readonly captures(address) %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   %add.ptr.i = getelementptr inbounds i32, ptr %algorithms.coerce0, i64 %algorithms.coerce1

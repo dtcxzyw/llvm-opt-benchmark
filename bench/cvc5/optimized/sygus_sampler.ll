@@ -10145,7 +10145,7 @@ return:                                           ; preds = %if.then13.i.i34, %i
 declare void @_ZN4cvc58internal6theory11quantifiers8LazyTrie3addENS0_12NodeTemplateILb1EEEPNS2_17LazyTrieEvaluatorEjjb(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12SygusSampler12isContiguousENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(800) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12SygusSampler12isContiguousENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(800) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fvs = alloca %"class.std::vector.35", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -10480,7 +10480,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler20computeFreeVariablesENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(800) %this, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 dereferenceable(24) %fvs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler20computeFreeVariablesENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(800) %this, ptr noundef readonly captures(none) %n, ptr noundef nonnull align 8 dereferenceable(24) %fvs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %visited = alloca %"class.std::unordered_set", align 8
@@ -12101,7 +12101,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS6_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12SygusSampler21containsFreeVariablesENS0_12NodeTemplateILb1EEES5_b(ptr noundef nonnull align 8 dereferenceable(800) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i1 noundef zeroext %strict) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12SygusSampler21containsFreeVariablesENS0_12NodeTemplateILb1EEES5_b(ptr noundef nonnull align 8 captures(address) dereferenceable(800) %this, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i1 noundef zeroext %strict) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %fvs = alloca %"class.std::vector.35", align 8

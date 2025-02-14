@@ -142,7 +142,7 @@ define noundef i32 @Kit_PlaGetVarNum(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Kit_PlaGetCubeNum(ptr noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Kit_PlaGetCubeNum(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

@@ -126,7 +126,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN14gmx_multisim_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN14gmx_multisim_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20buildMultiSimulationP10tmpi_comm_N3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef readnone captures(none) %1, ptr readnone %2, ptr readnone %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z20buildMultiSimulationP10tmpi_comm_N3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef readnone captures(none) %1, ptr readnone captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::NotImplementedError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -655,7 +655,7 @@ define void @_Z13gmx_sumli_simiPlPK14gmx_multisim_t(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unwind noalias writable sret(%"class.std::vector.15") align 8 initializes((0, 24)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unwind noalias writable sret(%"class.std::vector.15") align 8 initializes((0, 24)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %4
@@ -820,7 +820,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not = icmp eq ptr %0, null
@@ -1061,7 +1061,7 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca [255 x i8], align 16
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -1198,7 +1198,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z24findIsSimulationMainRankPK14gmx_multisim_tP10tmpi_comm_(ptr noundef readnone captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z24findIsSimulationMainRankPK14gmx_multisim_tP10tmpi_comm_(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %5 = icmp eq ptr %1, %4
@@ -1217,7 +1217,7 @@ define noundef zeroext i1 @_Z24findIsSimulationMainRankPK14gmx_multisim_tP10tmpi
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z9isMainSimPK14gmx_multisim_t(ptr noundef readonly %0) local_unnamed_addr #16 {
+define noundef zeroext i1 @_Z9isMainSimPK14gmx_multisim_t(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1233,7 +1233,7 @@ define noundef zeroext i1 @_Z9isMainSimPK14gmx_multisim_t(ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z17isMainSimMainRankPK14gmx_multisim_tb(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #16 {
+define noundef zeroext i1 @_Z17isMainSimMainRankPK14gmx_multisim_tb(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #16 {
   br i1 %1, label %3, label %_Z9isMainSimPK14gmx_multisim_t.exit
 
 3:                                                ; preds = %2
@@ -1252,7 +1252,7 @@ _Z9isMainSimPK14gmx_multisim_t.exit:              ; preds = %4, %3, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24logInitialMultisimStatusPK14gmx_multisim_tPK9t_commrecRKN3gmx8MDLoggerEbii(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z24logInitialMultisimStatusPK14gmx_multisim_tPK9t_commrecRKN3gmx8MDLoggerEbii(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.gmx::LogEntryWriter", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.gmx::LogEntryWriter", align 8
@@ -1369,7 +1369,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit14: ; preds = %_ZN3gmx14Log
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gmx_multisim_tl(ptr noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gmx_multisim_tl(ptr noundef readonly captures(address_is_null) %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 

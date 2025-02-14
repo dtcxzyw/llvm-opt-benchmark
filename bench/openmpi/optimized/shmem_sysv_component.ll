@@ -41,7 +41,7 @@ define internal noundef i32 @sysv_register() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sysv_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
+define internal noundef i32 @sysv_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(address_is_null) %2) #2 {
   %4 = alloca %struct.shmid_ds, align 8
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8

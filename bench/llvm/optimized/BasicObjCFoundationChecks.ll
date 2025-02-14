@@ -8417,7 +8417,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang4ento5check8PostStmtINS_
 declare noundef zeroext i1 @_ZN5clang4ento10ExprEngine16hasMoreIterationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_21ObjCForCollectionStmtEPKNS_15LocationContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL38alreadyExecutedAtLeastOneLoopIterationPKN5clang4ento12ExplodedNodeEPKNS_21ObjCForCollectionStmtE(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL38alreadyExecutedAtLeastOneLoopIterationPKN5clang4ento12ExplodedNodeEPKNS_21ObjCForCollectionStmtE(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

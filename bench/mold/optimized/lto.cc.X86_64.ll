@@ -6558,7 +6558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v2INS0_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v2INS0_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly captures(address) %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6682,7 +6682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v3INS0_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v3INS0_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly captures(address) %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18

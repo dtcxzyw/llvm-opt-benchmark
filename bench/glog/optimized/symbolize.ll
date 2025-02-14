@@ -1041,7 +1041,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %255, label %.loopexit144.i.i, label %256
 
 256:                                              ; preds = %251
-  %257 = load i8, ptr %253, align 1, !noalias !8
+  %257 = load i8, ptr %253, align 1
   %.not48.i.i = icmp eq i8 %257, 32
   br i1 %.not48.i.i, label %.preheader.i.i, label %.loopexit144.i.i
 
@@ -1059,7 +1059,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 .lr.ph197.i.i:                                    ; preds = %266, %.lr.ph197.preheader.i.i
   %storemerge49196.i.i = phi ptr [ %storemerge49.i.i, %266 ], [ %storemerge49194.i.i, %.lr.ph197.preheader.i.i ]
   %.0195.i.i = phi i32 [ %.1.i.i, %266 ], [ 0, %.lr.ph197.preheader.i.i ]
-  %260 = load i8, ptr %storemerge49196.i.i, align 1, !noalias !8
+  %260 = load i8, ptr %storemerge49196.i.i, align 1
   %261 = icmp eq i8 %260, 32
   br i1 %261, label %262, label %264
 
@@ -1092,7 +1092,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %.not136.i.i, label %271, label %273
 
 271:                                              ; preds = %270
-  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef range(i64 0, -1) %35) #21, !noalias !8
+  %272 = call ptr @strncpy(ptr noundef nonnull %34, ptr noundef nonnull %storemerge49.lcssa.i.i, i64 noundef range(i64 0, -1) %35) #21
   store i8 0, ptr %32, align 1, !noalias !8
   br label %274
 
@@ -1752,7 +1752,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #11 {
+define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #11 {
   store i64 0, ptr %2, align 8
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph.preheader, label %switch.early.test._crit_edge

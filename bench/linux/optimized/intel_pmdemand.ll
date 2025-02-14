@@ -133,7 +133,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmdemand_update_phys_mask(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pmdemand_update_phys_mask(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %6 = load i16, ptr %5, align 8
   %7 = icmp ult i16 %6, 14
@@ -961,7 +961,7 @@ define dso_local void @intel_pmdemand_pre_plane_update(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pmdemand_program_params(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   tail call void @mutex_lock(ptr noundef nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7368

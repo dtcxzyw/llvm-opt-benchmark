@@ -3841,7 +3841,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((8, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
@@ -9626,7 +9626,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
+define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   switch i32 %4, label %.loopexit [
     i32 6, label %35
     i32 3, label %44

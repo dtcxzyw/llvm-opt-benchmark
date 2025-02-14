@@ -38,7 +38,7 @@ $_ZTIN9grpc_core10RefCountedINS_8internal23ServerRetryThrottleDataENS_19Polymorp
 @_ZN9grpc_core8internal23ServerRetryThrottleDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core8internal23ServerRetryThrottleDataD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core8internal23ServerRetryThrottleDataC2EmmPS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %this, i64 noundef %max_milli_tokens, i64 noundef %milli_token_ratio, ptr noundef %old_throttle_data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8internal23ServerRetryThrottleDataC2EmmPS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %this, i64 noundef %max_milli_tokens, i64 noundef %milli_token_ratio, ptr noundef captures(address_is_null) %old_throttle_data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8

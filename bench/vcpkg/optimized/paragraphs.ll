@@ -953,7 +953,7 @@ _ZN12_GLOBAL__N_113append_errorsERN5vcpkg15LocalizedStringERKSt6vectorIS1_SaIS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119append_field_errorsERN5vcpkg15LocalizedStringENS0_10StringViewERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISA_NS0_10TextRowColEESt4lessIvESaISB_IKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119append_field_errorsERN5vcpkg15LocalizedStringENS0_10StringViewERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISA_NS0_10TextRowColEESt4lessIvESaISB_IKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::format_arg_store.186", align 16
   %6 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8

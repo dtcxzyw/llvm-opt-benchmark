@@ -612,7 +612,7 @@ lv_font_manager_get_freetype_font.exit.thread:    ; preds = %21, %14, %lv_font_m
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_font_manager_delete_font(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -649,7 +649,7 @@ lv_font_manager_delete_font_family.exit:          ; preds = %.preheader11, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lv_font_manager_delete_font_single(ptr noundef nonnull %0, ptr noundef nonnull readnone %1) unnamed_addr #0 {
+define internal fastcc void @lv_font_manager_delete_font_single(ptr noundef nonnull %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, @lv_font_montserrat_14
   br i1 %3, label %28, label %4
 

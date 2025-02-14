@@ -3748,7 +3748,7 @@ define { ptr, i64 } @"_ZN89_$LT$git..repository..RepoPath$u20$as$u20$core..conve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..repository..RepoPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h158a8847de1e0e93E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

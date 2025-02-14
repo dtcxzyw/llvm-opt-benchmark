@@ -1129,7 +1129,7 @@ declare i32 @g_int_equal(ptr noundef, ptr noundef) #1
 declare void @qht_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @plugin_dyn_cb_arr_cmp(ptr noundef readnone %ap, ptr noundef readnone %bp) #5 {
+define internal noundef zeroext i1 @plugin_dyn_cb_arr_cmp(ptr noundef readnone captures(address) %ap, ptr noundef readnone captures(address) %bp) #5 {
 entry:
   %cmp = icmp eq ptr %ap, %bp
   ret i1 %cmp

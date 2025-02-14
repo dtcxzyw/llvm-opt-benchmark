@@ -640,7 +640,7 @@ define hidden noundef nonnull ptr @hb_font_funcs_get_empty() local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @hb_font_funcs_reference(ptr noundef returned %0) local_unnamed_addr #6 {
+define hidden noundef ptr @hb_font_funcs_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL19hb_object_referenceI15hb_font_funcs_tEPT_S2_.exit, label %2
 
@@ -659,7 +659,7 @@ _ZL19hb_object_referenceI15hb_font_funcs_tEPT_S2_.exit: ; preds = %1, %2, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_funcs_destroy(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @hb_font_funcs_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread, label %2
 
@@ -1166,7 +1166,7 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2,
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %6
 
@@ -1220,7 +1220,7 @@ _ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #8 {
+define hidden ptr @hb_font_funcs_get_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %3
 
@@ -6370,7 +6370,7 @@ define hidden noundef nonnull ptr @hb_font_get_empty() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @hb_font_reference(ptr noundef returned %0) local_unnamed_addr #6 {
+define hidden noundef ptr @hb_font_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL19hb_object_referenceI9hb_font_tEPT_S2_.exit, label %2
 
@@ -6497,7 +6497,7 @@ _ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_destroy(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @hb_font_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %common.ret12, label %2
 
@@ -6653,7 +6653,7 @@ _ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @hb_font_get_user_data(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #8 {
+define hidden ptr @hb_font_get_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit, label %3
 
@@ -6998,7 +6998,7 @@ define hidden void @hb_font_set_scale(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_scale(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
+define hidden void @hb_font_get_scale(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -7056,7 +7056,7 @@ define hidden void @hb_font_set_ppem(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_ppem(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #13 {
+define hidden void @hb_font_get_ppem(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -7159,7 +7159,7 @@ define hidden void @hb_font_set_synthetic_bold(ptr noundef %0, float noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_font_get_synthetic_bold(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
+define hidden void @hb_font_get_synthetic_bold(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -7968,7 +7968,7 @@ _ZNK2OT10AxisRecord22unnormalize_axis_valueEi.exit: ; preds = %3, %89, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_font_get_var_coords_normalized(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define hidden ptr @hb_font_get_var_coords_normalized(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -7985,7 +7985,7 @@ define hidden ptr @hb_font_get_var_coords_normalized(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_font_get_var_coords_design(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define hidden ptr @hb_font_get_var_coords_design(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 

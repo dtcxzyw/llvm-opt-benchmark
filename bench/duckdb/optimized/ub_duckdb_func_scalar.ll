@@ -1083,7 +1083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb14StrfTimeFormat18GetSpecifierLengthENS_16StrTimeSpecifierENS_6date_tENS_7dtime_tEiPKc(i8 noundef zeroext %specifier, i32 %date.coerce, i64 %time.coerce, i32 noundef %utc_offset, ptr noundef readonly %tz_name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN6duckdb14StrfTimeFormat18GetSpecifierLengthENS_16StrTimeSpecifierENS_6date_tENS_7dtime_tEiPKc(i8 noundef zeroext %specifier, i32 %date.coerce, i64 %time.coerce, i32 noundef %utc_offset, ptr noundef readonly captures(address_is_null) %tz_name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hour = alloca i32, align 4
   %min = alloca i32, align 4
@@ -1368,7 +1368,7 @@ declare noundef i32 @_ZN6duckdb4Date10ExtractDayENS_6date_tE(i32) local_unnamed_
 declare noundef i32 @_ZN6duckdb4Date19ExtractDayOfTheYearENS_6date_tE(i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb14StrfTimeFormat9GetLengthENS_6date_tENS_7dtime_tEiPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, i32 %date.coerce, i64 %time.coerce, i32 noundef %utc_offset, ptr noundef %tz_name) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN6duckdb14StrfTimeFormat9GetLengthENS_6date_tENS_7dtime_tEiPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, i32 %date.coerce, i64 %time.coerce, i32 noundef %utc_offset, ptr noundef captures(address_is_null) %tz_name) local_unnamed_addr #0 align 2 {
 entry:
   %constant_size = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %constant_size, align 8, !tbaa !16
@@ -1395,7 +1395,7 @@ if.end:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6duckdb14StrfTimeFormat11WriteStringEPcRKNS_8string_tE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly %target, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %str) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6duckdb14StrfTimeFormat11WriteStringEPcRKNS_8string_tE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly captures(ret: address, provenance) %target, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %str) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %str, align 8, !tbaa !14
   %conv.i = zext i32 %0 to i64
@@ -1410,7 +1410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat6Write2EPch(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly initializes((0, 1)) %target, i8 noundef zeroext %value) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat6Write2EPch(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %target, i8 noundef zeroext %value) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i8 %value, 9
   br i1 %cmp, label %if.then, label %if.else
@@ -1443,7 +1443,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat12WritePadded2EPcj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly initializes((0, 2)) %target, i32 noundef %value) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat12WritePadded2EPcj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 2)) %target, i32 noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %mul = shl i32 %value, 1
   %idxprom = zext i32 %mul to i64
@@ -1461,7 +1461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat12WritePadded3EPcj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly initializes((0, 3)) %target, i32 noundef %value) local_unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZN6duckdb14StrfTimeFormat12WritePadded3EPcj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 3)) %target, i32 noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i32 %value, 99
   br i1 %cmp, label %if.then, label %if.else
@@ -1507,7 +1507,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @_ZN6duckdb14StrfTimeFormat11WritePaddedEPcjm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly %target, i32 noundef %value, i64 noundef %padding) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZN6duckdb14StrfTimeFormat11WritePaddedEPcjm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %this, ptr noundef writeonly captures(ret: address, provenance) %target, i32 noundef %value, i64 noundef %padding) local_unnamed_addr #11 align 2 {
 entry:
   %rem = and i64 %padding, 1
   %tobool.not = icmp eq i64 %rem, 0
@@ -1601,7 +1601,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb14StrfTimeFormat18WriteDateSpecifierENS_16StrTimeSpecifierENS_6date_tEPc(ptr nonnull readnone align 8 captures(none) %this, i8 noundef zeroext %specifier, i32 %date.coerce, ptr noundef writeonly %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6duckdb14StrfTimeFormat18WriteDateSpecifierENS_16StrTimeSpecifierENS_6date_tEPc(ptr nonnull readnone align 8 captures(none) %this, i8 noundef zeroext %specifier, i32 %date.coerce, ptr noundef writeonly captures(ret: address, provenance) %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp62 = alloca %"class.std::allocator.2", align 1
@@ -1916,7 +1916,7 @@ declare noundef i32 @_ZN6duckdb4Date20ExtractISOWeekNumberENS_6date_tE(i32) loca
 declare noundef i32 @_ZN6duckdb4Date20ExtractISOYearNumberENS_6date_tE(i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb14StrfTimeFormat22WriteStandardSpecifierENS_16StrTimeSpecifierEPiPKcmPc(ptr nonnull readnone align 8 captures(none) %this, i8 noundef zeroext %specifier, ptr noundef readonly captures(none) %data, ptr noundef readonly %tz_name, i64 noundef %tz_len, ptr noundef writeonly %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6duckdb14StrfTimeFormat22WriteStandardSpecifierENS_16StrTimeSpecifierEPiPKcmPc(ptr nonnull readnone align 8 captures(none) %this, i8 noundef zeroext %specifier, ptr noundef readonly captures(none) %data, ptr noundef readonly captures(address_is_null) %tz_name, i64 noundef %tz_len, ptr noundef writeonly %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp124 = alloca %"class.std::allocator.2", align 1
@@ -2733,7 +2733,7 @@ unreachable:                                      ; preds = %invoke.cont126
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14StrfTimeFormat12FormatStringENS_6date_tEPiPKcPc(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 %date.coerce, ptr noundef readonly captures(none) %data, ptr noundef %tz_name, ptr noundef %target) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb14StrfTimeFormat12FormatStringENS_6date_tEPiPKcPc(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 %date.coerce, ptr noundef readonly captures(none) %data, ptr noundef captures(address_is_null) %tz_name, ptr noundef %target) local_unnamed_addr #0 align 2 {
 entry:
   %specifiers = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -11162,7 +11162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6duckdb14StrpTimeFormat12TryParseDateENS_8string_tERNS_6date_tERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 8 dereferenceable(32) %error_message) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6duckdb14StrpTimeFormat12TryParseDateENS_8string_tERNS_6date_tERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error_message) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parse_result = alloca %"struct.duckdb::StrpTimeFormat::ParseResult", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11365,7 +11365,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6duckdb14StrpTimeFormat17TryParseTimestampENS_8string_tERNS_11timestamp_tERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %result, ptr noundef nonnull align 8 dereferenceable(32) %error_message) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6duckdb14StrpTimeFormat17TryParseTimestampENS_8string_tERNS_11timestamp_tERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %result, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error_message) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %date.i = alloca %"struct.duckdb::date_t", align 4
   %parse_result = alloca %"struct.duckdb::StrpTimeFormat::ParseResult", align 8

@@ -8686,7 +8686,7 @@ _ZNSt6vectorIN4Luau15ConstraintBlockESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

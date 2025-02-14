@@ -3748,7 +3748,7 @@ define internal void @gen11_dsi_get_config(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen11_dsi_sync_state(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define internal void @gen11_dsi_sync_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %32, label %5

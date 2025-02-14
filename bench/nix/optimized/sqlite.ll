@@ -2930,7 +2930,7 @@ define void @_ZN3nix10SQLiteStmt3UseD2Ev(ptr noundef nonnull readonly align 8 ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull returned align 8 dereferenceable(12) %0, i64 %1, ptr %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, i64 %1, ptr %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.4", align 1
   br i1 %3, label %7, label %25
@@ -2988,7 +2988,7 @@ define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3Usec
 declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3Use4bindEv(ptr noundef nonnull returned align 8 dereferenceable(12) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3Use4bindEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.4", align 1
   %4 = load ptr, ptr %0, align 8
@@ -3037,7 +3037,7 @@ define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3Use4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclEPKhmb(ptr noundef nonnull returned align 8 dereferenceable(12) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclEPKhmb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.4", align 1
   br i1 %3, label %7, label %26
@@ -3096,7 +3096,7 @@ define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3Usec
 declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclElb(ptr noundef nonnull returned align 8 dereferenceable(12) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(12) ptr @_ZN3nix10SQLiteStmt3UseclElb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.4", align 1
   br i1 %2, label %6, label %24

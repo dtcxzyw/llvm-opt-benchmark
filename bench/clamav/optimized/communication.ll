@@ -166,7 +166,7 @@ define dso_local void @onas_recvlninit(ptr noundef initializes((5128, 5140)) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.fd_set, align 8
@@ -369,7 +369,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5144
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5152

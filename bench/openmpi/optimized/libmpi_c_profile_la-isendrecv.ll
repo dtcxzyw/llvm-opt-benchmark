@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Isendrecv = weak alias i32 (ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, ptr, ptr), ptr @PMPI_Isendrecv
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Isendrecv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef writeonly %11) #0 {
+define i32 @PMPI_Isendrecv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef writeonly captures(address_is_null) %11) #0 {
   %13 = load i8, ptr @ompi_mpi_param_check, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %103

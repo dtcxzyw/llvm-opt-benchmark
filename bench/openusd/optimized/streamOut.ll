@@ -120,7 +120,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8), double) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1, ptr %2, ptr readonly captures(none) %3) local_unnamed_addr #0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address) %1, ptr %2, ptr readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData", align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %.ptr, align 8

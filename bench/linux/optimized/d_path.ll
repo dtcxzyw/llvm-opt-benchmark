@@ -553,7 +553,7 @@ define internal fastcc void @prepend(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef ptr @dynamic_dname(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #3 align 16 {
+define dso_local noundef ptr @dynamic_dname(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #3 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9

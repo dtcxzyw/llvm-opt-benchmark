@@ -657,7 +657,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
 entry:
   %range = alloca [3 x i32], align 4
   %cmp.i = icmp slt i32 %start, 0
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.then.i, %if.end5
 declare void @_ZN6icu_7513UnicodeFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UnicodeSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(200) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510UnicodeSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UnicodeSetE, i64 16), ptr %this, align 8
@@ -848,7 +848,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSetaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %o) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSetaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %o) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %o, i8 noundef signext 0)
   ret ptr %this
@@ -1052,7 +1052,7 @@ if.end30:                                         ; preds = %call5.i.noexc, %cal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %newLen) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6icu_7510UnicodeSet14ensureCapacityEi(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, i32 noundef %newLen) local_unnamed_addr #1 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %newLen, i32 1114113)
   %capacity = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1455,7 +1455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet8copyFromERKS0_a(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 dereferenceable(200) %o, i8 noundef signext %asThawed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet8copyFromERKS0_a(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %o, i8 noundef signext %asThawed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %cmp = icmp eq ptr %this, %o
@@ -3619,7 +3619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7510UnicodeSet13addMatchSetToERS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7510UnicodeSet13addMatchSetToERS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %toUnionTo) unnamed_addr #1 align 2 {
 entry:
   %len.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %len.i, align 4
@@ -3682,7 +3682,7 @@ _ZN6icu_7510UnicodeSet6addAllERKS0_.exit:         ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %c, i64 28
   %0 = load i32, ptr %len, align 4
@@ -3745,7 +3745,7 @@ if.end14:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_NK6icu_7510UnicodeSet13addMatchSetToERS0_(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #15 align 2 {
+define void @_ZThn8_NK6icu_7510UnicodeSet13addMatchSetToERS0_(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(200) %toUnionTo) unnamed_addr #15 align 2 {
 entry:
   %len.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %len.i.i, align 4
@@ -3896,7 +3896,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3setEii(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3setEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   %bmpSet.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -4000,7 +4000,7 @@ _ZN6icu_7510UnicodeSet10complementEii.exit:       ; preds = %_ZN6icu_7510Unicode
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull returned align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(200) %this) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -4049,7 +4049,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEii(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
 entry:
   %range = alloca [3 x i32], align 4
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -4108,7 +4108,7 @@ return:                                           ; preds = %if.then.i, %if.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UnicodeSet3addEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510UnicodeSet3addEPKiia(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef readonly captures(address_is_null) %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -4458,7 +4458,7 @@ return:                                           ; preds = %if.then.i, %loop_en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEi(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp slt i32 %c, 0
   %spec.select = tail call i32 @llvm.umin.i32(i32 %c, i32 1114111)
@@ -4674,7 +4674,7 @@ return:                                           ; preds = %if.then.i, %if.end7
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -4981,7 +4981,7 @@ _ZNK6icu_7513UnicodeString7compareERKS0_.exit:    ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %fLength.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -5015,7 +5015,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9retainAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9retainAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set)
@@ -5130,7 +5130,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9retainAllERKS0_(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9retainAllERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -5190,7 +5190,7 @@ return:                                           ; preds = %if.end, %_ZNK6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet13complementAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet13complementAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set)
@@ -5252,7 +5252,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet13complementAllERKS0_(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet13complementAllERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -5321,7 +5321,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9removeAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9removeAllERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set)
@@ -5432,7 +5432,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9removeAllERKS0_(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet9removeAllERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %c) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -5488,7 +5488,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet16removeAllStringsEv(ptr noundef nonnull returned align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet16removeAllStringsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(200) %this) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -5604,7 +5604,7 @@ if.end:                                           ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainEii(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
 entry:
   %range = alloca [3 x i32], align 4
   %cmp.i = icmp sgt i32 %start, -1
@@ -5676,7 +5676,7 @@ if.end:                                           ; preds = %if.end4.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510UnicodeSet6retainEPKiia(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef readonly captures(none) %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -5952,7 +5952,7 @@ return:                                           ; preds = %if.then.i, %loop_en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainEi(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
@@ -5972,7 +5972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6retainERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6109,7 +6109,7 @@ return:                                           ; preds = %_ZN6icu_7510Unicode
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEii(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEii(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %start, i32 noundef %end) unnamed_addr #1 align 2 {
 entry:
   %range = alloca [3 x i32], align 4
   %cmp.i = icmp sgt i32 %start, -1
@@ -6138,7 +6138,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEi(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
@@ -6158,7 +6158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6removeERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6252,7 +6252,7 @@ return:                                           ; preds = %if.then.i, %if.then
 declare noundef signext i8 @_ZN6icu_757UVector13removeElementEPv(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(none) %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, ptr noundef readonly captures(none) %other, i32 noundef %otherLen, i8 noundef signext %polarity) local_unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -6400,7 +6400,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEi(ptr noundef nonnull returned align 8 dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEi(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %range.i)
@@ -6450,7 +6450,7 @@ _ZN6icu_7510UnicodeSet10complementEii.exit:       ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEv(ptr noundef nonnull returned align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementEv(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this) unnamed_addr #1 align 2 {
 entry:
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -6527,7 +6527,7 @@ return:                                           ; preds = %if.then.i, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet10complementERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
   %range.i = alloca [3 x i32], align 4
   %bmpSet.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6771,7 +6771,7 @@ return:                                           ; preds = %if.end40, %land.lhs
 declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UnicodeSetC2EPKtiNS0_14ESerializationER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this, ptr noundef readonly %data, i32 noundef %dataLen, i32 noundef %serialization, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %ec) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510UnicodeSetC2EPKtiNS0_14ESerializationER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this, ptr noundef readonly captures(address_is_null) %data, i32 noundef %dataLen, i32 noundef %serialization, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %ec) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510UnicodeSetE, i64 16), ptr %this, align 8
@@ -6976,7 +6976,7 @@ return:                                           ; preds = %_ZN6icu_7510Unicode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483647, 32770) i32 @_ZNK6icu_7510UnicodeSet9serializeEPtiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %ec) local_unnamed_addr #17 align 2 {
+define noundef range(i32 -2147483647, 32770) i32 @_ZNK6icu_7510UnicodeSet9serializeEPtiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %ec) local_unnamed_addr #17 align 2 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -7183,7 +7183,7 @@ return:                                           ; preds = %if.else3, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7510UnicodeSet20ensureBufferCapacityEi(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %newLen) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6icu_7510UnicodeSet20ensureBufferCapacityEi(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %this, i32 noundef %newLen) local_unnamed_addr #1 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %newLen, i32 1114113)
   %bufferCapacity = getelementptr inbounds nuw i8, ptr %this, i64 56

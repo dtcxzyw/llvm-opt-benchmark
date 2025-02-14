@@ -2776,12 +2776,12 @@ define void @"_ZN9mitm_node15tcp_interceptor9transport9lifecycle73_$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(240) ptr @"_ZN9mitm_node15tcp_interceptor9transport9lifecycle73_$LT$impl$u20$mitm_node..tcp_interceptor..transport..TcpMitmTransport$GT$3ctx17h849245d4737ca620E"(ptr noalias noundef readonly returned align 8 dereferenceable(248) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(240) ptr @"_ZN9mitm_node15tcp_interceptor9transport9lifecycle73_$LT$impl$u20$mitm_node..tcp_interceptor..transport..TcpMitmTransport$GT$3ctx17h849245d4737ca620E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(248) %0) unnamed_addr #11 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9mitm_node15tcp_interceptor9transport9lifecycle73_$LT$impl$u20$mitm_node..tcp_interceptor..transport..TcpMitmTransport$GT$8registry17h343620b3a268d1e1E"(ptr noalias noundef readonly align 8 dereferenceable(248) %0) unnamed_addr #11 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9mitm_node15tcp_interceptor9transport9lifecycle73_$LT$impl$u20$mitm_node..tcp_interceptor..transport..TcpMitmTransport$GT$8registry17h343620b3a268d1e1E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(248) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   ret ptr %2
 }

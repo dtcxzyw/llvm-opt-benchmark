@@ -156,7 +156,7 @@ if.end111:                                        ; preds = %if.then2, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes34convertUTF16ToUTF8WithReplacementsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEEm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr readonly %input.coerce0, i64 %input.coerce1, i64 noundef %maxCharacters) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN6hermes34convertUTF16ToUTF8WithReplacementsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEEm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr readonly captures(address) %input.coerce0, i64 %input.coerce1, i64 noundef %maxCharacters) local_unnamed_addr #1 {
 entry:
   %buff = alloca [6 x i8], align 1
   %ptr = alloca ptr, align 8
@@ -247,7 +247,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes38convertUTF16ToUTF8WithSingleSurrogatesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(32) %dest, ptr readonly %input.coerce0, i64 %input.coerce1) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes38convertUTF16ToUTF8WithSingleSurrogatesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(32) %dest, ptr readonly captures(address) %input.coerce0, i64 %input.coerce1) local_unnamed_addr #1 {
 entry:
   %buff = alloca [6 x i8], align 1
   %ptr = alloca ptr, align 8

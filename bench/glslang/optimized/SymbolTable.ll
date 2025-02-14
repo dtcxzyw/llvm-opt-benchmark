@@ -11247,7 +11247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK7glslang17TSymbolTableLevel4dumpER9TInfoSinkb(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK7glslang17TSymbolTableLevel4dumpER9TInfoSinkb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(101) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11397,7 +11397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang9TFunctionD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(340) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN7glslang9TFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -11769,7 +11769,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i69.i.i.i: ; preds = %64
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11943,7 +11943,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang17TSymbolTableLevel21setFunctionExtensionsEPKciPKS2_(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang17TSymbolTableLevel21setFunctionExtensionsEPKciPKS2_(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -12113,7 +12113,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang17TSymbolTableLevel27setSingleFunctionExtensionsEPKciPKS2_(ptr noundef nonnull readonly align 8 dereferenceable(101) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang17TSymbolTableLevel27setSingleFunctionExtensionsEPKciPKS2_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(101) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -12273,7 +12273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang17TSymbolTableLevel8readOnlyEv(ptr noundef nonnull readonly align 8 dereferenceable(101) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang17TSymbolTableLevel8readOnlyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(101) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13236,7 +13236,7 @@ define noalias noundef ptr @_ZNK7glslang11TAnonMember5cloneEv(ptr nonnull readno
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK7glslang17TSymbolTableLevel5cloneEv(ptr noundef nonnull readonly align 8 dereferenceable(101) %0) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK7glslang17TSymbolTableLevel5cloneEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(101) %0) local_unnamed_addr #0 align 2 {
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES8_ENS6_IS9_EEE5clearEv.exit:
   %1 = alloca %"struct.std::pair", align 8
   %2 = alloca %"struct.std::pair.20", align 8

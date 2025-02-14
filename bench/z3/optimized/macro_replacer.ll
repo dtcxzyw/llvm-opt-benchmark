@@ -895,7 +895,7 @@ terminate.lpad:                                   ; preds = %if.then6.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN14macro_replacer9has_macroEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %f, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %head, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %dep) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN14macro_replacer9has_macroEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %head, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %def, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %dep) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 48
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12

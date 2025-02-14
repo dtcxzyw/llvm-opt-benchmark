@@ -1587,7 +1587,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4llvm4json5ValueE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = load i16, ptr %0, align 8, !tbaa !32
   switch i16 %2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit [
     i16 8, label %39
@@ -5129,7 +5129,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser10parseErrorEPKc.exit198: ; preds = %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %0, i64 %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %0, i64 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not13.i = icmp samesign eq i64 %1, 0
@@ -6006,7 +6006,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm4jsonL5quoteERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm4jsonL5quoteERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

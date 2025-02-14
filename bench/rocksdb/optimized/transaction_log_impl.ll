@@ -1155,7 +1155,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImpl11OpenLogFileEPKNS_7LogFileEPSt10unique_ptrINS_20SequentialFileReaderESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %log_file, ptr noundef captures(none) %file_reader) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImpl11OpenLogFileEPKNS_7LogFileEPSt10unique_ptrINS_20SequentialFileReaderESt14default_deleteIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %log_file, ptr noundef captures(none) %file_reader) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fs = alloca %"class.rocksdb::FileSystemPtr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.60", align 8
@@ -3374,7 +3374,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7LogFileE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %log_file) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7LogFileE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %log_file) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file = alloca %"class.std::unique_ptr.87", align 8
   %s = alloca %"class.rocksdb::Status", align 8

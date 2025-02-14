@@ -424,7 +424,7 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #5 {
   %5 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
   %.not = icmp eq ptr %3, null
@@ -606,7 +606,7 @@ define dso_local range(i32 0, 2) i32 @cbuf_is_empty(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %7
 
@@ -774,7 +774,7 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp slt i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -875,7 +875,7 @@ cbuf_reader.exit:                                 ; preds = %14, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp slt i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -991,7 +991,7 @@ cbuf_reader.exit.thread:                          ; preds = %14, %cbuf_reader.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp slt i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -1169,7 +1169,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %3, null
@@ -1223,7 +1223,7 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cbuf_writer(ptr noundef captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @cbuf_writer(ptr noundef captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
@@ -1576,7 +1576,7 @@ cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -1745,7 +1745,7 @@ cbuf_find_unread_line.exit.thread:                ; preds = %._crit_edge.i, %20,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -1926,7 +1926,7 @@ cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
@@ -2131,7 +2131,7 @@ define dso_local i32 @cbuf_rewind_line(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2764,7 +2764,7 @@ cbuf_replayer.exit:                               ; preds = %.loopexit.i, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
   %.not = icmp eq ptr %3, null
@@ -2859,7 +2859,7 @@ define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -2977,7 +2977,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cbuf_copier(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @cbuf_copier(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
@@ -3207,7 +3207,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 

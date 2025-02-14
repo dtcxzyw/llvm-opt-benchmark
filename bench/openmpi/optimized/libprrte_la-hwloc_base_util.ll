@@ -1132,7 +1132,7 @@ declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #2
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @prte_hwloc_base_get_obj_idx(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @prte_hwloc_base_output, align 4
   %or.cond = icmp ult i32 %3, 64
   br i1 %or.cond, label %4, label %10

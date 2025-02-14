@@ -226,14 +226,14 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
+define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %.preheader
 
@@ -300,7 +300,7 @@ define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define zeroext i1 @opal_str_to_bool(ptr noundef %0) local_unnamed_addr #8 {
+define zeroext i1 @opal_str_to_bool(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = alloca i8, align 1
   %3 = call fastcc i32 @opal_str_to_bool_impl(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load i8, ptr %2, align 1

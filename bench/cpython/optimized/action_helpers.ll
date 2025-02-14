@@ -1005,7 +1005,7 @@ declare ptr @_Py_asdl_generic_seq_new(i64 noundef, ptr noundef) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_seq_insert_in_front(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_seq_insert_in_front(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %11
 
@@ -1062,7 +1062,7 @@ _PyPegen_singleton_seq.exit:                      ; preds = %23, %17, %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_seq_append_to_end(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_seq_append_to_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %11
 
@@ -1125,7 +1125,7 @@ _PyPegen_singleton_seq.exit:                      ; preds = %8, %4, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_seq_flatten(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_seq_flatten(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_get_flattened_seq_size.exit.thread29, label %4
 
@@ -1234,7 +1234,7 @@ _get_flattened_seq_size.exit.thread:              ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_PyPegen_seq_last_item(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @_PyPegen_seq_last_item(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1330,7 +1330,7 @@ declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @_PyAST_Name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyPegen_seq_count_dots(ptr noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @_PyPegen_seq_count_dots(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %._crit_edge, label %3
 
@@ -1404,7 +1404,7 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #3
 declare ptr @_PyAST_alias(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_map_names_to_ids(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_map_names_to_ids(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1466,7 +1466,7 @@ define hidden ptr @_PyPegen_cmpop_expr_pair(ptr noundef readonly captures(none) 
 declare ptr @_PyArena_Malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_cmpops(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_cmpops(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1508,7 +1508,7 @@ define hidden ptr @_PyPegen_get_cmpops(ptr noundef readonly captures(none) %0, p
 declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1551,7 +1551,7 @@ define hidden ptr @_PyPegen_get_exprs(ptr noundef readonly captures(none) %0, pt
 declare ptr @_Py_asdl_expr_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !60
   switch i32 %4, label %common.ret32 [
     i32 24, label %5
@@ -1761,7 +1761,7 @@ define hidden ptr @_PyPegen_key_value_pair(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1801,7 +1801,7 @@ define hidden ptr @_PyPegen_get_keys(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_values(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_values(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1860,7 +1860,7 @@ define hidden ptr @_PyPegen_key_pattern_pair(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_pattern_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_pattern_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1900,7 +1900,7 @@ define hidden ptr @_PyPegen_get_pattern_keys(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_get_patterns(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_get_patterns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -1943,7 +1943,7 @@ define hidden ptr @_PyPegen_get_patterns(ptr noundef readonly captures(none) %0,
 declare ptr @_Py_asdl_pattern_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_name_default_pair(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_name_default_pair(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = tail call ptr @_PyArena_Malloc(ptr noundef %6, i64 noundef 16) #11
@@ -1962,7 +1962,7 @@ define hidden ptr @_PyPegen_name_default_pair(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_add_type_comment_to_arg(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_add_type_comment_to_arg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_PyPegen_new_type_comment.exit.thread, label %5
 
@@ -2061,7 +2061,7 @@ define hidden ptr @_PyPegen_star_etc(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_join_sequences(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_join_sequences(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 
@@ -2144,7 +2144,7 @@ define hidden ptr @_PyPegen_join_sequences(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_make_arguments(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_make_arguments(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %7, label %_make_posonlyargs.exit.thread92
 
@@ -2917,7 +2917,7 @@ define hidden ptr @_PyPegen_keyword_or_starred(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_seq_extract_starred_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_seq_extract_starred_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_seq_number_of_starred_exprs.exit.thread, label %4
 
@@ -2997,7 +2997,7 @@ _seq_number_of_starred_exprs.exit.thread:         ; preds = %37, %22, %2, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -3084,7 +3084,7 @@ define hidden ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef readonly captur
 declare ptr @_Py_asdl_keyword_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyPegen_ensure_imaginary(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden noundef ptr @_PyPegen_ensure_imaginary(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8, !tbaa !60
   %.not = icmp eq i32 %3, 20
   br i1 %.not, label %4, label %8
@@ -3137,7 +3137,7 @@ define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyPegen_ensure_real(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden noundef ptr @_PyPegen_ensure_real(ptr noundef %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8, !tbaa !60
   %.not = icmp eq i32 %3, 20
   br i1 %.not, label %4, label %8
@@ -3583,7 +3583,7 @@ result_token_with_metadata.exit:                  ; preds = %30, %72, %66, %65, 
 declare ptr @_PyAST_JoinedStr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = icmp eq ptr %1, null
   br i1 %9, label %.thread317.thread, label %10
@@ -4226,7 +4226,7 @@ _PyPegen_seq_last_item.exit:                      ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_collect_call_seqs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_collect_call_seqs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = icmp eq ptr %1, null
   br i1 %9, label %12, label %10
 
@@ -4456,7 +4456,7 @@ _PyPegen_seq_delete_starred_exprs.exit:           ; preds = %81, %63, %.split21.
 declare ptr @_PyAST_Call(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.split.us, label %.lr.ph
 
@@ -4617,7 +4617,7 @@ define hidden ptr @_PyPegen_arguments_parsing_error(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyPegen_nonparen_genexp_in_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @_PyPegen_nonparen_genexp_in_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %5, null
@@ -4697,7 +4697,7 @@ _PyPegen_get_last_comprehension_item.exit16:      ; preds = %_PyPegen_get_last_c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_joined_str(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_joined_str(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %._crit_edge, label %6
 
@@ -5182,7 +5182,7 @@ declare i32 @_Pypegen_raise_decode_error(ptr noundef) local_unnamed_addr #3
 declare ptr @_PyPegen_new_identifier(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_formatted_value(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
+define hidden ptr @_PyPegen_formatted_value(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %57, label %12
 

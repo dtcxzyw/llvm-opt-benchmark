@@ -1279,7 +1279,7 @@ decode_ascii.exit:                                ; preds = %54, %48, %47, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @decode_current_locale(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @decode_current_locale(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.__mbstate_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   switch i32 %4, label %get_surrogateescape.exit [
@@ -1892,13 +1892,13 @@ get_inheritable.exit:                             ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_Py_set_inheritable(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_Py_set_inheritable(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @set_inheritable(i32 noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_inheritable(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inheritable(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   %6 = icmp ne i32 %1, 0
   %or.cond = or i1 %6, %5
@@ -2017,7 +2017,7 @@ get_inheritable.exit:                             ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_Py_set_inheritable_async_safe(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_Py_set_inheritable_async_safe(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   %5 = icmp ne i32 %1, 0
   %or.cond.i = or i1 %5, %4
@@ -3661,7 +3661,7 @@ declare i64 @mbstowcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @mbrtowc(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca [2 x i32], align 4
   %8 = tail call i64 @wcslen(ptr noundef %0) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17

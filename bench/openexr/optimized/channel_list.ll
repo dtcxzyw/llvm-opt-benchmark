@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [54 x i8] c"Attempt to add duplicate channel '%s' to channel list\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_chlist_init(ptr noundef %ctxt, ptr noundef writeonly %clist, i32 noundef %nchans) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_chlist_init(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %clist, i32 noundef %nchans) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -82,7 +82,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_chlist_add(ptr noundef %ctxt, ptr noundef %clist, ptr noundef %name, i32 noundef %ptype, i32 noundef %islinear, i32 noundef %xsamp, i32 noundef %ysamp) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_chlist_add(ptr noundef %ctxt, ptr noundef captures(address_is_null) %clist, ptr noundef %name, i32 noundef %ptype, i32 noundef %islinear, i32 noundef %xsamp, i32 noundef %ysamp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %entry.split, label %if.then.split
@@ -122,7 +122,7 @@ if.end:                                           ; preds = %if.end3.i, %if.then
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %ctxt, ptr noundef %clist, ptr noundef %name, i32 noundef %namelen, i32 noundef %ptype, i32 noundef %islinear, i32 noundef %xsamp, i32 noundef %ysamp) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %ctxt, ptr noundef captures(address_is_null) %clist, ptr noundef %name, i32 noundef %namelen, i32 noundef %ptype, i32 noundef %islinear, i32 noundef %xsamp, i32 noundef %ysamp) local_unnamed_addr #0 {
 entry:
   %nent = alloca %struct.exr_attr_chlist_entry_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nent, i8 0, i64 32, i1 false)
@@ -357,7 +357,7 @@ declare i32 @exr_attr_string_create_with_length(ptr noundef, ptr noundef, ptr no
 declare i32 @exr_attr_string_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_chlist_duplicate(ptr noundef %ctxt, ptr noundef %chl, ptr noundef readonly %srcchl) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_chlist_duplicate(ptr noundef %ctxt, ptr noundef captures(address_is_null) %chl, ptr noundef readonly captures(address_is_null) %srcchl) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %chl, null
   %tobool1 = icmp ne ptr %srcchl, null
@@ -485,7 +485,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_chlist_destroy(ptr noundef %ctxt, ptr noundef %clist) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_chlist_destroy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %clist) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

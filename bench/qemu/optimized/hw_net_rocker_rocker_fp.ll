@@ -194,7 +194,7 @@ entry:
 declare ptr @world_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @fp_port_check_world(ptr noundef readonly captures(none) %port, ptr noundef readnone %world) local_unnamed_addr #0 {
+define dso_local zeroext i1 @fp_port_check_world(ptr noundef readonly captures(none) %port, ptr noundef readnone captures(address) %world) local_unnamed_addr #0 {
 entry:
   %world1 = getelementptr inbounds nuw i8, ptr %port, i64 8
   %0 = load ptr, ptr %world1, align 8

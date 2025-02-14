@@ -420,7 +420,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %51
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @opal_mem_hooks_unregister_release(ptr noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_mem_hooks_unregister_release(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
   %.b = load i1, ptr @is_initialized, align 4
   br i1 %.b, label %2, label %47
 

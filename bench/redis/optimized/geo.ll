@@ -276,7 +276,7 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %radius) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly captures(address_is_null) %conversion, ptr noundef writeonly captures(address_is_null) %radius) local_unnamed_addr #0 {
 entry:
   %distance = alloca double, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -344,7 +344,7 @@ return:                                           ; preds = %extractUnitOrReply.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly %conversion, ptr noundef writeonly %width, ptr noundef writeonly %height) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %c, ptr noundef readonly captures(none) %argv, ptr noundef writeonly captures(address_is_null) %conversion, ptr noundef writeonly captures(address_is_null) %width, ptr noundef writeonly captures(address_is_null) %height) local_unnamed_addr #0 {
 entry:
   %h = alloca double, align 8
   %w = alloca double, align 8

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_utf8_table4 = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp ne i32 %1, 0
   %4 = icmp slt i32 %2, 0
   br label %5

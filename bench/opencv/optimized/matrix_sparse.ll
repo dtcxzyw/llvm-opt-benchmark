@@ -974,7 +974,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv9SparseMataSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv9SparseMataSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %26, label %3
 
@@ -1041,7 +1041,7 @@ _ZN2cv9SparseMat7releaseEv.exit:                  ; preds = %8, %11, %14, %_ZN2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv9SparseMataSERKNS_3MatE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv9SparseMataSERKNS_3MatE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::SparseMat", align 8
   call void @_ZN2cv9SparseMatC1ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %.not.i = icmp eq ptr %0, %3
@@ -1110,7 +1110,7 @@ _ZN2cv9SparseMataSERKS0_.exit:                    ; preds = %_ZN2cv9SparseMat7re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv9SparseMat8assignToERS0_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv9SparseMat8assignToERS0_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %29
 
@@ -1185,7 +1185,7 @@ _ZN2cv9SparseMataSERKS0_.exit:                    ; preds = %_ZN2cv9SparseMat7re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv9SparseMat9convertToERS0_id(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv9SparseMat9convertToERS0_id(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2963,7 +2963,7 @@ _ZN2cv3Mat3ptrEPKi.exit54:                        ; preds = %124, %_ZNK2cv22Spar
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv9SparseMat3ptrEibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN2cv9SparseMat3ptrEibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = alloca [1 x i32], align 4
@@ -3077,7 +3077,7 @@ define noundef ptr @_ZN2cv9SparseMat3ptrEibPm(ptr noundef nonnull readonly align
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv9SparseMat3ptrEiibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN2cv9SparseMat3ptrEiibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.5", align 1
   %8 = alloca [2 x i32], align 4
@@ -3202,7 +3202,7 @@ define noundef ptr @_ZN2cv9SparseMat3ptrEiibPm(ptr noundef nonnull readonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv9SparseMat3ptrEiiibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN2cv9SparseMat3ptrEiiibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.5", align 1
   %9 = alloca [3 x i32], align 4
@@ -3338,7 +3338,7 @@ define noundef ptr @_ZN2cv9SparseMat3ptrEiiibPm(ptr noundef nonnull readonly ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv9SparseMat3ptrEPKibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN2cv9SparseMat3ptrEPKibPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3509,7 +3509,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %22, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9SparseMat5eraseEiiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9SparseMat5eraseEiiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3694,7 +3694,7 @@ define void @_ZN2cv9SparseMat10removeNodeEmmm(ptr noundef nonnull readonly align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9SparseMat5eraseEiiiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9SparseMat5eraseEiiiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.5", align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3844,7 +3844,7 @@ _ZN2cv9SparseMat10removeNodeEmmm.exit:            ; preds = %66, %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9SparseMat5eraseEPKiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9SparseMat5eraseEPKiPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.5", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4812,7 +4812,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9minMaxLocERKNS_9SparseMatEPdS3_PiS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9minMaxLocERKNS_9SparseMatEPdS3_PiS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::utils::trace::details::Region", align 8
   %7 = alloca %"class.cv::SparseMatConstIterator", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5216,7 +5216,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %151
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9normalizeERKNS_9SparseMatERS0_di(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9normalizeERKNS_9SparseMatERS0_di(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.5", align 1

@@ -41,7 +41,7 @@ define i32 @Ptngc_find_magic_index(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ptngc_pack_array_xtc2(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+define ptr @Ptngc_pack_array_xtc2(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [19 x i32], align 16
   %5 = alloca [19 x i32], align 16
   %6 = alloca [19 x i32], align 16

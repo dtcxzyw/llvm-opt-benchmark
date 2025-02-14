@@ -341,21 +341,21 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_0(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_0(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 0, i32 noundef 9, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_1(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_1(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.10, i32 noundef 0, i32 noundef 1, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_2(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_2(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
@@ -370,7 +370,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_3(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_3(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
@@ -385,14 +385,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_4(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_4(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.12, i32 noundef 5, i32 noundef 4, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_5(ptr noundef readonly captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_5(ptr noundef readonly captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %sas_addr = getelementptr inbounds nuw i8, ptr %s, i64 3440
   %0 = load i64, ptr %sas_addr, align 16
@@ -401,42 +401,42 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_6(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_6(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 6, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_7(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_7(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.15, i32 noundef 0, i32 noundef 7, i32 noundef 9, i32 noundef 8)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_8(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_8(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 8, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_9(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_9(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 9, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_manufacturing_10(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_manufacturing_10(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 10, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_io_unit_0(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_io_unit_0(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %devfn = getelementptr inbounds nuw i8, ptr %call.i, i64 208
@@ -449,14 +449,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_io_unit_1(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_io_unit_1(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.17, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 65)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_io_unit_2(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_io_unit_2(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
   %devfn1 = getelementptr inbounds nuw i8, ptr %call.i, i64 208
@@ -467,21 +467,21 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_io_unit_3(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_io_unit_3(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.19, i32 noundef 1, i32 noundef 3, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_io_unit_4(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_io_unit_4(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_0(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_0(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
@@ -508,49 +508,49 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_1(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_1(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.22, i32 noundef 3, i32 noundef 1, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_2(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_2(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.23, i32 noundef 4, i32 noundef 2, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_3(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_3(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 3, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_4(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_4(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 4, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_5(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_5(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 5, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_ioc_6(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_ioc_6(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack(ptr noundef %data, ptr noundef nonnull @.str.26, i32 noundef 1, i32 noundef 6, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_io_unit_0(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_sas_io_unit_0(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.27, i32 noundef 4, i32 noundef 0, i32 noundef 15, i32 noundef 16, i32 noundef 8)
   %tobool.not = icmp eq ptr %data, null
@@ -583,7 +583,7 @@ if.end8:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_io_unit_1(ptr noundef %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_sas_io_unit_1(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.31, i32 noundef 7, i32 noundef 1, i32 noundef 15, i32 noundef 16, i32 noundef 8)
   %tobool.not = icmp eq ptr %data, null
@@ -613,21 +613,21 @@ if.end6:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_io_unit_2(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_sas_io_unit_2(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.33, i32 noundef 6, i32 noundef 2, i32 noundef 15, i32 noundef 16)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_io_unit_3(ptr readnone captures(none) %s, ptr noundef %data, i32 %address) #0 {
+define internal i64 @mptsas_config_sas_io_unit_3(ptr readnone captures(none) %s, ptr noundef captures(address_is_null) %data, i32 %address) #0 {
 entry:
   %call = tail call i64 (ptr, ptr, ...) @mptsas_config_pack_ext(ptr noundef %data, ptr noundef nonnull @.str.34, i32 noundef 6, i32 noundef 3, i32 noundef 15, i32 noundef 16)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_phy_0(ptr noundef %s, ptr noundef %data, i32 noundef %address) #0 {
+define internal i64 @mptsas_config_phy_0(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 noundef %address) #0 {
 entry:
   %_now.i.i13 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -736,7 +736,7 @@ return:                                           ; preds = %trace_mptsas_config
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_phy_1(ptr noundef %s, ptr noundef %data, i32 noundef %address) #0 {
+define internal i64 @mptsas_config_phy_1(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 noundef %address) #0 {
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -841,7 +841,7 @@ return:                                           ; preds = %trace_mptsas_config
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_device_0(ptr noundef %s, ptr noundef %data, i32 noundef %address) #0 {
+define internal i64 @mptsas_config_sas_device_0(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 noundef %address) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp.i = icmp ult i32 %address, 268435456
@@ -949,7 +949,7 @@ return:                                           ; preds = %trace_mptsas_config
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_device_1(ptr noundef %s, ptr noundef %data, i32 noundef %address) #0 {
+define internal i64 @mptsas_config_sas_device_1(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 noundef %address) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp.i = icmp ult i32 %address, 268435456
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %trace_mptsas_config
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_sas_device_2(ptr noundef %s, ptr noundef %data, i32 noundef %address) #0 {
+define internal i64 @mptsas_config_sas_device_2(ptr noundef %s, ptr noundef captures(address_is_null) %data, i32 noundef %address) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp.i = icmp ult i32 %address, 268435456
@@ -1165,7 +1165,7 @@ return:                                           ; preds = %trace_mptsas_config
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_pack(ptr noundef %data, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #0 {
+define internal i64 @mptsas_config_pack(ptr noundef captures(address_is_null) %data, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #0 {
 entry:
   %ap2.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -1436,7 +1436,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mptsas_config_pack_ext(ptr noundef %data, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #0 {
+define internal i64 @mptsas_config_pack_ext(ptr noundef captures(address_is_null) %data, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #0 {
 entry:
   %ap2.i = alloca [1 x %struct.__va_list_tag], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16

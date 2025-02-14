@@ -258,7 +258,7 @@ define dso_local ptr @pci_find_bus(i32 noundef %0, i32 noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_find_next_bus(ptr noundef readonly %0) #0 align 16 {
+define dso_local ptr @pci_find_next_bus(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #6
   %2 = icmp eq ptr %0, null
   %3 = select i1 %2, ptr @pci_root_buses, ptr %0
@@ -270,7 +270,7 @@ define dso_local ptr @pci_find_next_bus(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @pci_do_find_bus(ptr noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @pci_do_find_bus(ptr noundef readonly captures(address, ret: address, provenance) %0, i8 noundef zeroext %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, %1
@@ -303,7 +303,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @pci_get_slot(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @pci_get_slot(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
@@ -554,7 +554,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 0, 2) i32 @match_pci_dev_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @match_pci_dev_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #5 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %10, label %5

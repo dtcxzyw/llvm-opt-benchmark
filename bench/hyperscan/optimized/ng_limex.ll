@@ -11026,7 +11026,7 @@ return:                                           ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15expandCbsByTopsERKSt3mapIjNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEESA_IjESaISt4pairIKjSD_EEESL_RKS0_IS9_NS1_IjSE_SaIjEEESB_SaISF_IKS9_SN_EEERSN_RSD_(ptr noundef nonnull readonly align 8 dereferenceable(48) %unhandled_top_succs, ptr noundef nonnull readonly align 8 dereferenceable(48) %top_succs, ptr noundef nonnull readonly align 8 dereferenceable(48) %succ_tops, ptr noundef nonnull align 8 dereferenceable(32) %picked_tops, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %picked_succs) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L15expandCbsByTopsERKSt3mapIjNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEESA_IjESaISt4pairIKjSD_EEESL_RKS0_IS9_NS1_IjSE_SaIjEEESB_SaISF_IKS9_SN_EEERSN_RSD_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %unhandled_top_succs, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %top_succs, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %succ_tops, ptr noundef nonnull align 8 dereferenceable(32) %picked_tops, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %picked_succs) unnamed_addr #2 {
 entry:
   %t = alloca i32, align 4
   %tmp = alloca %"struct.std::pair.273", align 8
@@ -11359,7 +11359,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16expandCbsBySuccsERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_8flat_setIjSt4lessIjESaIjEEESA_IS8_ESaISt4pairIKS8_SD_EEERKS0_IjNS9_IS8_SE_SaIS8_EEESB_SaISF_IKjSN_EEESL_RSD_RSN_(ptr noundef nonnull readonly align 8 dereferenceable(48) %unhandled_succ_tops, ptr noundef nonnull readonly align 8 dereferenceable(48) %top_succs, ptr noundef nonnull readonly align 8 dereferenceable(48) %succ_tops, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %picked_tops, ptr noundef nonnull align 8 dereferenceable(40) %picked_succs) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L16expandCbsBySuccsERKSt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_8flat_setIjSt4lessIjESaIjEEESA_IS8_ESaISt4pairIKS8_SD_EEERKS0_IjNS9_IS8_SE_SaIS8_EEESB_SaISF_IKjSN_EEESL_RSD_RSN_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %unhandled_succ_tops, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %top_succs, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %succ_tops, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %picked_tops, ptr noundef nonnull align 8 dereferenceable(40) %picked_succs) unnamed_addr #2 {
 entry:
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %tmp = alloca %"struct.std::pair.330", align 8
@@ -13603,7 +13603,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3ue2L20reverseStateOrderingERSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEEENK3$_0clES8_S8_"(ptr readonly captures(none) %this.0.val, ptr readnone %a.coerce0, i64 %a.coerce1, ptr readnone %b.coerce0, i64 %b.coerce1) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN3ue2L20reverseStateOrderingERSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEEENK3$_0clES8_S8_"(ptr readonly captures(none) %this.0.val, ptr readnone captures(address) %a.coerce0, i64 %a.coerce1, ptr readnone captures(address) %b.coerce0, i64 %b.coerce1) unnamed_addr #2 align 2 {
 entry:
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8
@@ -13764,7 +13764,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L20reverseStateOrderingERSt13unordered_mapISA_jSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEEE3$_0EEEvT_SV_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr readonly captures(none) %__comp.coerce) unnamed_addr #2 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L20reverseStateOrderingERSt13unordered_mapISA_jSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEEE3$_0EEEvT_SV_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce, ptr readonly captures(none) %__comp.coerce) unnamed_addr #2 {
 entry:
   %__val = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

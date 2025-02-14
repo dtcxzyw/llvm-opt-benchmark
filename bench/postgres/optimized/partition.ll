@@ -245,7 +245,7 @@ declare ptr @build_attrmap_by_name(ptr noundef, ptr noundef, i1 noundef zeroext)
 declare ptr @map_variable_attnos(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit, label %6

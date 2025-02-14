@@ -437,7 +437,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514SearchIterator7getTextEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514SearchIterator7getTextEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_text_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %m_text_

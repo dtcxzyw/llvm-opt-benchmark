@@ -1149,7 +1149,7 @@ if.end17:                                         ; preds = %if.then13, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull readnone align 8 dereferenceable(328) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZNK3zmq6pipe_t14get_routing_idEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(328) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_router_socket_routing_id = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %_router_socket_routing_id
@@ -2223,7 +2223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq6pipe_t17get_endpoint_pairEv(ptr noundef nonnull readnone align 8 dereferenceable(328) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq6pipe_t17get_endpoint_pairEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(328) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_endpoint_pair = getelementptr inbounds nuw i8, ptr %this, i64 192
   ret ptr %_endpoint_pair

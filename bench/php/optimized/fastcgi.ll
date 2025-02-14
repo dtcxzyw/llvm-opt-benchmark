@@ -713,7 +713,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fcgi_set_allowed_clients(ptr noundef readonly %0) local_unnamed_addr #3 {
+define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %2
 
@@ -3137,7 +3137,7 @@ fcgi_end.exit:                                    ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly %0) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -3154,7 +3154,7 @@ define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #23 {
+define hidden ptr @fcgi_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_get.exit, label %4
 
@@ -3280,7 +3280,7 @@ fcgi_hash_get.exit:                               ; preds = %24, %4, %21
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_putenv(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #21 {
+define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_del.exit, label %5
 
@@ -3597,7 +3597,7 @@ fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #21 {
+define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   br i1 %6, label %8, label %36

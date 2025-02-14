@@ -193,7 +193,7 @@ do.end5:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4node4quic3CIDeqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4node4quic3CIDeqERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %other) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4node4quic3CIDneERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4node4quic3CIDneERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %other) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %other
   br i1 %cmp.i, label %_ZNK4node4quic3CIDeqERKS1_.exit, label %lor.lhs.false.i

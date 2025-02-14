@@ -706,7 +706,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @intel_ddi_level(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 16
@@ -1179,7 +1179,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 

@@ -1806,7 +1806,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16CompactionPicker34GetCompactionInputsFromFileNumbersEPSt6vectorINS_20CompactionInputFilesESaIS2_EEPSt13unordered_setImSt4hashImESt8equal_toImESaImEEPKNS_18VersionStorageInfoERKNS_17CompactionOptionsE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %this, ptr noundef %input_files, ptr noundef %input_set, ptr noundef readonly captures(none) %vstorage, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16CompactionPicker34GetCompactionInputsFromFileNumbersEPSt6vectorINS_20CompactionInputFilesESaIS2_EEPSt13unordered_setImSt4hashImESt8equal_toImESaImEEPKNS_18VersionStorageInfoERKNS_17CompactionOptionsE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %this, ptr noundef %input_files, ptr noundef captures(address) %input_set, ptr noundef readonly captures(none) %vstorage, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8

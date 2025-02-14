@@ -633,7 +633,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4base9CloseFileEP8_IO_FILE(ptr noundef %file) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4base9CloseFileEP8_IO_FILE(ptr noundef captures(address_is_null) %file) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -795,7 +795,7 @@ declare void @_ZN4base4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(50))
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4base12TruncateFileEP8_IO_FILE(ptr noundef %file) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_ZN4base12TruncateFileEP8_IO_FILE(ptr noundef captures(address_is_null) %file) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define void @Abc_SortMerge(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp ult ptr %0, %1
   %7 = icmp ult ptr %2, %3
   %8 = and i1 %6, %7
@@ -303,7 +303,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMergeCost2(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @Abc_SortMergeCost2(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %0, %1
   %8 = icmp ult ptr %2, %3
   %9 = and i1 %7, %8
@@ -597,7 +597,7 @@ define void @Abc_MergeSortCost2(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMergeCost2Reverse(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @Abc_SortMergeCost2Reverse(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %0, %1
   %8 = icmp ult ptr %2, %3
   %9 = and i1 %7, %8
@@ -891,7 +891,7 @@ define void @Abc_MergeSortCost2Reverse(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_MergeSortCostMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define void @Abc_MergeSortCostMerge(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp ult ptr %0, %1
   %7 = icmp ult ptr %2, %3
   %8 = and i1 %6, %7

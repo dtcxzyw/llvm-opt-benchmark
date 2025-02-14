@@ -1069,7 +1069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @xptable_free(ptr noundef %p) #6 {
+define internal void @xptable_free(ptr noundef captures(address_is_null) %p) #6 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %if.end8, label %if.end
@@ -1351,7 +1351,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
+define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly captures(address_is_null) %akid) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %akid, null
   br i1 %tobool.not, label %return, label %if.end

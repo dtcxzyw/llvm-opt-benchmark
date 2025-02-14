@@ -376,7 +376,7 @@ if.end7:                                          ; preds = %_ZNSt6vectorIPN10OD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ODDLParser7DDLNode12detachParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10ODDLParser7DDLNode12detachParentEv(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_parent = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_parent, align 8
@@ -527,7 +527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10ODDLParser7DDLNode16getChildNodeListEv(ptr noundef nonnull readnone align 8 dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK10ODDLParser7DDLNode16getChildNodeListEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_children = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %m_children
@@ -543,7 +543,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getTypeB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getTypeB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
 entry:
   ret ptr %this
 }
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %m_name

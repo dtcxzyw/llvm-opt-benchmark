@@ -964,7 +964,7 @@ ReorderBufferCheckMemoryLimit.exit:               ; preds = %164, %148, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   store i32 %1, ptr %7, align 4
@@ -1176,7 +1176,7 @@ declare void @TeardownHistoricSnapshot(i1 noundef zeroext) local_unnamed_addr #1
 declare void @pg_re_throw() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly %0) local_unnamed_addr #6 {
+define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1189,7 +1189,7 @@ define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2896,7 +2896,7 @@ dclist_push_tail.exit16:                          ; preds = %28, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load i32, ptr %3, align 8
@@ -3171,7 +3171,7 @@ declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.LogicalRewriteMappingData, align 4
   %9 = alloca %struct.ReorderBufferTupleCidKey, align 4
@@ -5999,7 +5999,7 @@ declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #1
 declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr noundef readonly captures(none) %0, ptr noundef initializes((128, 132)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr noundef readonly captures(none) %0, ptr noundef captures(address) initializes((128, 132)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 46
@@ -6093,7 +6093,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %9, %._crit_edge.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferTruncateTXN(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferTruncateTXN(ptr noundef captures(none) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -6233,7 +6233,7 @@ define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = load i64, ptr %4, align 8

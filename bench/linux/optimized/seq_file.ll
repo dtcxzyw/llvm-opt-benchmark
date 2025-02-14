@@ -973,7 +973,7 @@ define dso_local void @seq_bprintf(ptr noundef captures(none) %0, ptr noundef %1
 declare dso_local i32 @bstr_printf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local ptr @mangle_path(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #7 align 16 {
+define dso_local ptr @mangle_path(ptr noundef writeonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly %2) #7 align 16 {
   %4 = icmp ugt ptr %0, %1
   br i1 %4, label %.thread, label %.lr.ph
 
@@ -1732,7 +1732,7 @@ declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ull_width(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @seq_put_decimal_ull_width(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 2
@@ -1828,13 +1828,13 @@ define dso_local void @seq_put_decimal_ull_width(ptr noundef captures(none) %0, 
 declare dso_local i32 @num_to_str(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ull(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @seq_put_decimal_ull(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) #0 align 16 {
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @seq_put_hex_ll(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 16 {
+define dso_local void @seq_put_hex_ll(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #15 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %40, label %6
 
@@ -1947,7 +1947,7 @@ define dso_local void @seq_put_hex_ll(ptr noundef captures(none) %0, ptr noundef
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @seq_put_decimal_ll(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local void @seq_put_decimal_ll(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 3
@@ -2272,7 +2272,7 @@ define dso_local void @seq_hex_dump(ptr noundef captures(none) %0, ptr noundef %
 declare dso_local i32 @hex_dump_to_buffer(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @seq_list_start(ptr noundef readonly %0, i64 noundef %1) #18 align 16 {
+define dso_local ptr @seq_list_start(ptr noundef readonly captures(address) %0, i64 noundef %1) #18 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.loopexit, label %.preheader
@@ -2295,7 +2295,7 @@ define dso_local ptr @seq_list_start(ptr noundef readonly %0, i64 noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @seq_list_start_head(ptr noundef readonly %0, i64 noundef %1) #18 align 16 {
+define dso_local ptr @seq_list_start_head(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1) #18 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -2322,7 +2322,7 @@ define dso_local ptr @seq_list_start_head(ptr noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @seq_list_next(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #10 align 16 {
+define dso_local ptr @seq_list_next(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) #10 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -2383,7 +2383,7 @@ define dso_local ptr @seq_list_start_head_rcu(ptr noundef %0, i64 noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @seq_list_next_rcu(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) #10 align 16 {
+define dso_local ptr @seq_list_next_rcu(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) #10 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
@@ -2444,7 +2444,7 @@ define dso_local ptr @seq_hlist_start_head(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @seq_hlist_next(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #20 align 16 {
+define dso_local ptr @seq_hlist_next(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #20 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

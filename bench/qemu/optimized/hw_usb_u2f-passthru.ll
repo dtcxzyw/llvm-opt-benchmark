@@ -185,7 +185,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @u2f_passthru_recv_from_guest(ptr noundef %base, ptr noundef %packet) #0 {
+define internal void @u2f_passthru_recv_from_guest(ptr noundef %base, ptr noundef captures(address_is_null) %packet) #0 {
 entry:
   %host_packet = alloca [65 x i8], align 16
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %base, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 335, ptr noundef nonnull @__func__.u2f_passthru_recv_from_guest) #8
@@ -279,7 +279,7 @@ declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @u2f_transaction_add(ptr noundef %key, i32 noundef %cid, ptr noundef readonly %nonce) unnamed_addr #0 {
+define internal fastcc void @u2f_transaction_add(ptr noundef %key, i32 noundef %cid, ptr noundef readonly captures(address_is_null) %nonce) unnamed_addr #0 {
 entry:
   %current_transactions_num = getelementptr inbounds nuw i8, ptr %key, i64 8006
   %0 = load i8, ptr %current_transactions_num, align 2

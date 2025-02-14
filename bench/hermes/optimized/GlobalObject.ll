@@ -1677,7 +1677,7 @@ return:                                           ; preds = %if.then.i.i276, %cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes2vmL8isPrefixENS0_10StringViewES1_(ptr readonly %str1.coerce0, i64 %str1.coerce1, ptr readonly %str2.coerce0, i64 %str2.coerce1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes2vmL8isPrefixENS0_10StringViewES1_(ptr readonly captures(address) %str1.coerce0, i64 %str1.coerce1, ptr readonly captures(address) %str2.coerce0, i64 %str2.coerce1) unnamed_addr #0 {
 entry:
   %str1.sroa.5.8.extract.trunc = trunc i64 %str1.coerce1 to i32
   %str1.sroa.10.8.extract.shift = lshr i64 %str1.coerce1, 32

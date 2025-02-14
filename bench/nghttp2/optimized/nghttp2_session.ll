@@ -223,7 +223,7 @@ session_terminate_session.exit:                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_terminate_session_with_reason(ptr noundef %session, i32 noundef %error_code, ptr noundef readonly %reason) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_terminate_session_with_reason(ptr noundef %session, i32 noundef %error_code, ptr noundef readonly captures(address_is_null) %reason) local_unnamed_addr #1 {
 entry:
   %last_proc_stream_id = getelementptr inbounds nuw i8, ptr %session, i64 2756
   %0 = load i32, ptr %last_proc_stream_id, align 4
@@ -337,7 +337,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef captures(address_is_null) %option, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %session = alloca ptr, align 8
   %call = call fastcc i32 @session_new(ptr noundef %session, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef %option, ptr noundef %mem)
@@ -356,7 +356,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef captures(address_is_null) %option) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -377,7 +377,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initializes((0, 8)) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly %option, ptr noundef %mem) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initializes((0, 8)) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly captures(address_is_null) %option, ptr noundef %mem) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %mem, null
   br i1 %cmp, label %if.then, label %if.end
@@ -922,7 +922,7 @@ nghttp2_session_server_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef captures(address_is_null) %option, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %session = alloca ptr, align 8
   %call = call fastcc i32 @session_new(ptr noundef %session, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef %option, ptr noundef %mem)
@@ -941,7 +941,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef captures(address_is_null) %option) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -5965,7 +5965,7 @@ return:                                           ; preds = %session_is_new_peer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %session, ptr noundef %frame, i32 noundef range(i32 1, 0) %lib_error_code, ptr noundef readonly %reason) unnamed_addr #1 {
+define internal fastcc i32 @session_handle_invalid_connection(ptr noundef %session, ptr noundef %frame, i32 noundef range(i32 1, 0) %lib_error_code, ptr noundef readonly captures(address_is_null) %reason) unnamed_addr #1 {
 entry:
   %on_invalid_frame_recv_callback = getelementptr inbounds nuw i8, ptr %session, i64 2368
   %0 = load ptr, ptr %on_invalid_frame_recv_callback, align 8
@@ -13923,7 +13923,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @nghttp2_session_get_root_stream(ptr noundef readnone %session) local_unnamed_addr #0 {
+define nonnull ptr @nghttp2_session_get_root_stream(ptr noundef readnone captures(ret: address, provenance) %session) local_unnamed_addr #0 {
 entry:
   %root = getelementptr inbounds nuw i8, ptr %session, i64 32
   ret ptr %root
@@ -14579,7 +14579,7 @@ return:                                           ; preds = %if.end2.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -530, 1) i32 @session_predicate_response_headers_send(ptr noundef %session, ptr noundef readonly %stream) unnamed_addr #1 {
+define internal fastcc range(i32 -530, 1) i32 @session_predicate_response_headers_send(ptr noundef %session, ptr noundef readonly captures(address_is_null) %stream) unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %stream, null
   br i1 %cmp.i, label %return, label %if.end.i

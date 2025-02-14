@@ -3024,7 +3024,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9GUIButton9isHoveredEv(ptr noundef nonnull readonly align 8 dereferenceable(7452) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9GUIButton9isHoveredEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(7452) %this) local_unnamed_addr #3 align 2 {
 entry:
   %Environment = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %Environment, align 8, !tbaa !61

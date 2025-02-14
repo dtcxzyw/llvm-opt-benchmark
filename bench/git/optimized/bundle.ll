@@ -1579,7 +1579,7 @@ declare void @object_array_clear(ptr noundef) local_unnamed_addr #4
 declare void @release_revisions(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unbundle(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @unbundle(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca %struct.child_process, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) @__const.write_pack_data.pack_objects, i64 120, i1 false)

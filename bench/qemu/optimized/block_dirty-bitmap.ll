@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_find_dirty_bitmap(ptr noundef readonly captures(none) %bs, ptr noundef readonly %name) local_unnamed_addr #0 {
+define dso_local ptr @bdrv_find_dirty_bitmap(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -540,7 +540,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @bdrv_reclaim_dirty_bitmap_locked(ptr noundef %parent, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @bdrv_reclaim_dirty_bitmap_locked(ptr noundef captures(ret: address, provenance) %parent, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %successor1 = getelementptr inbounds nuw i8, ptr %parent, i64 24
   %0 = load ptr, ptr %successor1, align 8
@@ -636,7 +636,7 @@ if.end14:                                         ; preds = %do.body, %if.then8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @bdrv_reclaim_dirty_bitmap(ptr noundef %parent, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef ptr @bdrv_reclaim_dirty_bitmap(ptr noundef captures(ret: address, provenance) %parent, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %parent, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1213,7 +1213,7 @@ bdrv_reset_dirty_bitmap_locked.exit:              ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_clear_dirty_bitmap(ptr noundef captures(none) %bitmap, ptr noundef writeonly %out) local_unnamed_addr #0 {
+define dso_local void @bdrv_clear_dirty_bitmap(ptr noundef captures(none) %bitmap, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #0 {
 entry:
   %readonly.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 56
   %0 = load i8, ptr %readonly.i, align 8
@@ -1677,7 +1677,7 @@ entry:
 declare zeroext i1 @hbitmap_status(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef captures(none) %dest, ptr noundef readonly captures(none) %src, ptr noundef %backup, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef captures(none) %dest, ptr noundef readonly captures(none) %src, ptr noundef captures(address_is_null) %backup, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dest, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1794,7 +1794,7 @@ if.end23:                                         ; preds = %if.then21, %out
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_dirty_bitmap_merge_internal(ptr noundef captures(none) %dest, ptr noundef readonly captures(none) %src, ptr noundef %backup, i1 noundef zeroext %lock) local_unnamed_addr #0 {
+define dso_local void @bdrv_dirty_bitmap_merge_internal(ptr noundef captures(none) %dest, ptr noundef readonly captures(none) %src, ptr noundef captures(address_is_null) %backup, i1 noundef zeroext %lock) local_unnamed_addr #0 {
 entry:
   %readonly.i = getelementptr inbounds nuw i8, ptr %dest, i64 56
   %0 = load i8, ptr %readonly.i, align 8

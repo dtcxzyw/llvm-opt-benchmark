@@ -260,7 +260,7 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7runImplRKN4llvm17TargetLibraryInfoERNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7runImplRKN4llvm17TargetLibraryInfoERNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::ArrayRef.201", align 8
   %4 = alloca %"class.llvm::IRBuilder", align 8
   %5 = alloca %"class.llvm::SmallVector.202", align 8

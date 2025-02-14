@@ -1503,7 +1503,7 @@ entry:
 declare ptr @_ZN4cvc58internal6theory9Valuation8factsEndENS1_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory11TheoryState12getValuationEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory11TheoryState12getValuationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(80) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_valuation = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_valuation

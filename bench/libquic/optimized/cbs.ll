@@ -459,7 +459,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_any_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_tag, ptr noundef writeonly %out_header_len) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_any_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, ptr noundef writeonly captures(address_is_null) %out_tag, ptr noundef writeonly captures(address_is_null) %out_header_len) local_unnamed_addr #9 {
 entry:
   %header.sroa.7.0.cbs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %header.sroa.7.0.copyload.i = load i64, ptr %header.sroa.7.0.cbs.sroa_idx.i, align 8
@@ -569,7 +569,7 @@ cbs_get_any_asn1_element.exit:                    ; preds = %entry, %if.end4.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_any_ber_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_tag, ptr noundef writeonly %out_header_len) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_any_ber_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, ptr noundef writeonly captures(address_is_null) %out_tag, ptr noundef writeonly captures(address_is_null) %out_header_len) local_unnamed_addr #9 {
 entry:
   %header.sroa.7.0.cbs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %header.sroa.7.0.copyload.i = load i64, ptr %header.sroa.7.0.cbs.sroa_idx.i, align 8
@@ -713,7 +713,7 @@ cbs_get_any_asn1_element.exit:                    ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_asn1(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, i32 noundef %tag_value) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_asn1(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %tag_value) local_unnamed_addr #9 {
 entry:
   %cmp.i = icmp eq ptr %out, null
   %header.sroa.7.0.cbs.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
@@ -825,7 +825,7 @@ cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, i32 noundef %tag_value) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_asn1_element(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %tag_value) local_unnamed_addr #9 {
 entry:
   %cmp.i = icmp eq ptr %out, null
   %header.sroa.7.0.cbs.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
@@ -1076,7 +1076,7 @@ return:                                           ; preds = %for.body, %if.end28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_present, i32 noundef %tag) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, ptr noundef writeonly captures(address_is_null) %out_present, i32 noundef %tag) local_unnamed_addr #9 {
 entry:
   %len.i.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i, align 8
@@ -1198,7 +1198,7 @@ return:                                           ; preds = %CBS_get_any_asn1_el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_octet_string(ptr noundef captures(none) %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_present, i32 noundef %tag) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @CBS_get_optional_asn1_octet_string(ptr noundef captures(none) %cbs, ptr noundef writeonly captures(address_is_null) %out, ptr noundef writeonly captures(address_is_null) %out_present, i32 noundef %tag) local_unnamed_addr #9 {
 entry:
   %len.i.i.i = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8

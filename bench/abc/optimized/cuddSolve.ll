@@ -249,7 +249,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_VerifySol(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Cudd_VerifySol(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -2

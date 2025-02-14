@@ -65,7 +65,7 @@ define void @Extra_MmFixedPrint(ptr noundef readonly captures(none) %0) local_un
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_MmFixedStop(ptr noundef %0) local_unnamed_addr #4 {
+define void @Extra_MmFixedStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %.preheader
 
@@ -364,7 +364,7 @@ define void @Extra_MmFlexPrint(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_MmFlexStop(ptr noundef %0) local_unnamed_addr #4 {
+define void @Extra_MmFlexStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %.preheader
 

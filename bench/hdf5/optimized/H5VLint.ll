@@ -700,7 +700,7 @@ H5VL_conn_free.exit:                              ; preds = %8, %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_conn_free(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_conn_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -979,7 +979,7 @@ declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #1
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_conn_copy(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_conn_copy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %3
@@ -1663,7 +1663,7 @@ H5VL_cmp_connector_cls.exit:                      ; preds = %18, %21, %33, %36, 
 declare i32 @H5VL_introspect_get_conn_cls(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5VL_cmp_connector_cls(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #7 {
+define noundef i32 @H5VL_cmp_connector_cls(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %.sink.split, label %5
 
@@ -1952,7 +1952,7 @@ declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #1
 declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5VL__register_connector_by_class(ptr noundef readonly %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @H5VL__register_connector_by_class(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5VL_get_connector_ud_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %9
@@ -2789,7 +2789,7 @@ declare i32 @H5CX_get_vol_wrap_ctx(ptr noundef) local_unnamed_addr #1
 declare i32 @H5CX_set_vol_wrap_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_inc_vol_wrapper(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_inc_vol_wrapper(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 

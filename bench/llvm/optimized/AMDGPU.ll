@@ -5349,7 +5349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc { i64, i64 } @"_ZZN5clang6driver24RocmInstallationDetector29getInstallationPathCandidatesEvENK3$_2clEN4llvm9StringRefE"(ptr readonly %0, i64 %1) unnamed_addr #3 align 2 {
+define internal fastcc { i64, i64 } @"_ZZN5clang6driver24RocmInstallationDetector29getInstallationPathCandidatesEvENK3$_2clEN4llvm9StringRefE"(ptr readonly captures(address_is_null) %0, i64 %1) unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.llvm::VersionTuple", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11651,7 +11651,7 @@ define hidden noundef zeroext i1 @_ZN5clang6driver10toolchains15AMDGPUToolChain3
 declare noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i16 0, 258) i16 @_ZNK5clang6driver10toolchains15AMDGPUToolChain29getDefaultDenormalModeForTypeERKN4llvm3opt7ArgListERKNS0_9JobActionEPKNS3_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden range(i16 0, 258) i16 @_ZNK5clang6driver10toolchains15AMDGPUToolChain29getDefaultDenormalModeForTypeERKN4llvm3opt7ArgListERKNS0_9JobActionEPKNS3_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %5
 
@@ -14066,7 +14066,7 @@ declare { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(i32 nound
 declare noundef i32 @_ZN5clang6driver5tools26getAMDGPUCodeObjectVersionERKNS0_6DriverERKN4llvm3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(1224), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang6driver24RocmInstallationDetector22checkCommonBitcodeLibsEN4llvm9StringRefES3_NS0_19DeviceLibABIVersionE(ptr noundef nonnull readonly align 8 dereferenceable(1090) %0, ptr %1, i64 %2, ptr readnone captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang6driver24RocmInstallationDetector22checkCommonBitcodeLibsEN4llvm9StringRefES3_NS0_19DeviceLibABIVersionE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1090) %0, ptr %1, i64 %2, ptr readnone captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -15100,7 +15100,7 @@ _ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.349") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(1090) %1, ptr nonnull readnone align 8 captures(none) %2, ptr readonly %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 %11, ptr noundef nonnull align 8 dereferenceable(337) %12, i1 noundef zeroext %13) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.349") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1090) %1, ptr nonnull readnone align 8 captures(none) %2, ptr readonly captures(address_is_null) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 %11, ptr noundef nonnull align 8 dereferenceable(337) %12, i1 noundef zeroext %13) local_unnamed_addr #0 align 2 {
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8

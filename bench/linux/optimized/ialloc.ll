@@ -1302,7 +1302,7 @@ declare dso_local i32 @ext4_itable_unused_count(ptr noundef, ptr noundef) local_
 declare dso_local void @ext4_itable_unused_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 align 16 {
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca i64, align 8
@@ -2592,7 +2592,7 @@ define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef nonnull
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.dx_hash_info, align 8
   %7 = getelementptr i8, ptr %1, i64 -224
   %8 = load i32, ptr %7, align 8

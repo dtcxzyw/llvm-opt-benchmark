@@ -194,7 +194,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ccid_handle_data = private unnamed_addr constant [19 x ptr] [ptr @.str.77, ptr @.str.71, ptr @.str.72, ptr @.str.61, ptr @.str.73, ptr @.str.61, ptr @.str.61, ptr @.str.61, ptr @.str.81, ptr @.str.80, ptr @.str.78, ptr @.str.75, ptr @.str.76, ptr @.str.79, ptr @.str.74, ptr @.str.61, ptr @.str.82, ptr @.str.83, ptr @.str.84], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ccid_card_send_apdu_to_guest(ptr noundef %card, ptr noundef %apdu, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @ccid_card_send_apdu_to_guest(ptr noundef %card, ptr noundef captures(address_is_null) %apdu, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -570,7 +570,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_data_block(ptr noundef %s, i8 noundef zeroext %slot, i8 noundef zeroext %seq, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc void @ccid_write_data_block(ptr noundef captures(address) %s, i8 noundef zeroext %slot, i8 noundef zeroext %seq, ptr noundef readonly captures(address_is_null) %data, i32 noundef %len) unnamed_addr #0 {
 entry:
   %conv = zext i32 %len to i64
   %0 = trunc i32 %len to i16
@@ -1634,7 +1634,7 @@ declare i32 @usb_desc_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @usb_packet_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_slot_status(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_slot_status(ptr noundef captures(address) %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %0 = load i8, ptr %debug.i, align 1
@@ -1737,7 +1737,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_data_block_atr(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_data_block_atr(ptr noundef captures(address) %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -1844,7 +1844,7 @@ sw.epilog:                                        ; preds = %if.then25, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_on_apdu_from_guest(ptr noundef %s, ptr noundef %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_on_apdu_from_guest(ptr noundef captures(address) %s, ptr noundef %recv) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 75008
   %s.val.i = load i8, ptr %0, align 8
@@ -1954,7 +1954,7 @@ if.end37:                                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ccid_write_parameters(ptr noundef %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
+define internal fastcc void @ccid_write_parameters(ptr noundef captures(address) %s, ptr noundef readonly captures(none) %recv) unnamed_addr #0 {
 entry:
   %ulProtocolDataStructureSize = getelementptr inbounds nuw i8, ptr %s, i64 75000
   %0 = load i32, ptr %ulProtocolDataStructureSize, align 8

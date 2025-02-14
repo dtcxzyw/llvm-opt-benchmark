@@ -194,7 +194,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5cmsys4GlobD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(82) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys4GlobD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(82) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %40, label %4

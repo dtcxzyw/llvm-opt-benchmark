@@ -617,7 +617,7 @@ define dso_local void @slurmscriptd_flush() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_send_to_slurmscriptd(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @_send_to_slurmscriptd(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.slurmscriptd_msg_t, align 8
   %7 = tail call ptr @init_buf(i32 noundef 0) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -951,7 +951,7 @@ define internal noalias noundef ptr @_async_send_to_slurmscriptd(ptr noundef %0)
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurmscriptd_run_mail(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @slurmscriptd_run_mail(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.run_script_msg_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   store i32 %1, ptr %7, align 8
@@ -1110,7 +1110,7 @@ declare i32 @env_array_append(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @env_array_append_fmt(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 256) i32 @slurmscriptd_run_bb_lua(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @slurmscriptd_run_bb_lua(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.run_script_msg_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   store i32 %2, ptr %9, align 8
@@ -3271,7 +3271,7 @@ declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
 declare i32 @slurmscriptd_pack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 %1, ptr %4, align 4

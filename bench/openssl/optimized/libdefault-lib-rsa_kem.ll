@@ -34,14 +34,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsakem_encapsulate_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsakem_encapsulate_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @rsakem_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 4096)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @rsakem_generate(ptr noundef readonly captures(none) %vprsactx, ptr noundef %out, ptr noundef writeonly %outlen, ptr noundef %secret, ptr noundef writeonly %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @rsakem_generate(ptr noundef readonly captures(none) %vprsactx, ptr noundef %out, ptr noundef writeonly captures(address_is_null) %outlen, ptr noundef %secret, ptr noundef writeonly captures(address_is_null) %secretlen) #0 {
 entry:
   %op = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   %0 = load i32, ptr %op, align 8
@@ -165,7 +165,7 @@ return:                                           ; preds = %return.critedge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsakem_decapsulate_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsakem_decapsulate_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @rsakem_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef 8192)
   ret i32 %call
@@ -263,7 +263,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsakem_get_ctx_params(ptr noundef readnone %vprsactx, ptr readnone captures(none) %params) #1 {
+define internal range(i32 0, 2) i32 @rsakem_get_ctx_params(ptr noundef readnone captures(address_is_null) %vprsactx, ptr readnone captures(none) %params) #1 {
 entry:
   %cmp = icmp ne ptr %vprsactx, null
   %conv = zext i1 %cmp to i32
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsakem_set_ctx_params(ptr noundef writeonly %vprsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @rsakem_set_ctx_params(ptr noundef writeonly captures(address_is_null) %vprsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -329,7 +329,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsakem_init(ptr noundef %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 4096, 8193) %operation) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsakem_init(ptr noundef captures(address_is_null) %vprsactx, ptr noundef %vrsa, ptr noundef %params, i32 noundef range(i32 4096, 8193) %operation) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %vprsactx, null
   %cmp1 = icmp eq ptr %vrsa, null

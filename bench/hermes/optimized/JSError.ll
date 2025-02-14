@@ -180,7 +180,7 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm7JSError23getErrorFromStackTargetERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly %targetHandle.coerce) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN6hermes2vm7JSError23getErrorFromStackTargetERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly captures(ret: address, provenance) %targetHandle.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8

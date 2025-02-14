@@ -166,7 +166,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__PRETTY_FUNCTION__.parseString = private unnamed_addr constant [71 x i8] c"int parseString(yystype *, yyscan_t, const char, enum tokenizer_state)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_js_parse_done(ptr noundef %0) local_unnamed_addr #0 {
+define void @cli_js_parse_done(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca [6 x ptr], align 16
   %3 = alloca %struct.decode_result, align 8
   %4 = alloca %struct.tokens, align 8
@@ -3509,7 +3509,7 @@ declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @cli_js_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define void @cli_js_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %2
 
@@ -3664,7 +3664,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare ptr @cli_unescape(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @replace_token_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @replace_token_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = icmp ne ptr %3, null
   br i1 %5, label %6, label %9
 

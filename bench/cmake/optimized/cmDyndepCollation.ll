@@ -15285,7 +15285,7 @@ _ZNSt12_Vector_baseISt4pairISt10unique_ptrI21cmGeneratedFileStreamSt14default_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN17cmDyndepCollation15IsObjectPrivateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK21cmCxxModuleExportInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(400) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN17cmDyndepCollation15IsObjectPrivateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK21cmCxxModuleExportInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(400) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -15374,7 +15374,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16CxxModuleFileSe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN17cmDyndepCollation9IsBmiOnlyERK21cmCxxModuleExportInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN17cmDyndepCollation9IsBmiOnlyERK21cmCxxModuleExportInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56

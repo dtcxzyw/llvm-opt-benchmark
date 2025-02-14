@@ -177,7 +177,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @net_rx_pkt_get_vhdr(ptr noundef readnone returned %pkt) local_unnamed_addr #0 {
+define dso_local nonnull ptr @net_rx_pkt_get_vhdr(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -420,7 +420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_set_packet_type(ptr noundef writeonly %pkt, i32 noundef %packet_type) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_set_packet_type(ptr noundef writeonly captures(address_is_null) %pkt, i32 noundef %packet_type) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -436,7 +436,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_rx_pkt_get_packet_type(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local i32 @net_rx_pkt_get_packet_type(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -452,7 +452,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 4294967296) i64 @net_rx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @net_rx_pkt_get_total_len(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -494,7 +494,7 @@ if.end:                                           ; preds = %entry
 declare void @eth_get_protocols(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_get_protocols(ptr noundef readonly %pkt, ptr noundef writeonly captures(none) %hasip4, ptr noundef writeonly captures(none) %hasip6, ptr noundef writeonly captures(none) %l4hdr_proto) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_get_protocols(ptr noundef readonly captures(address_is_null) %pkt, ptr noundef writeonly captures(none) %hasip4, ptr noundef writeonly captures(none) %hasip6, ptr noundef writeonly captures(none) %l4hdr_proto) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -519,7 +519,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @net_rx_pkt_get_l3_hdr_offset(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local i64 @net_rx_pkt_get_l3_hdr_offset(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -535,7 +535,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @net_rx_pkt_get_l4_hdr_offset(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local i64 @net_rx_pkt_get_l4_hdr_offset(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -551,7 +551,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @net_rx_pkt_get_l5_hdr_offset(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local i64 @net_rx_pkt_get_l5_hdr_offset(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -567,14 +567,14 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @net_rx_pkt_get_ip6_info(ptr noundef readnone %pkt) local_unnamed_addr #4 {
+define dso_local nonnull ptr @net_rx_pkt_get_ip6_info(ptr noundef readnone captures(ret: address, provenance) %pkt) local_unnamed_addr #4 {
 entry:
   %ip6hdr_info = getelementptr inbounds nuw i8, ptr %pkt, i64 96
   ret ptr %ip6hdr_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @net_rx_pkt_get_ip4_info(ptr noundef readnone %pkt) local_unnamed_addr #4 {
+define dso_local nonnull ptr @net_rx_pkt_get_ip4_info(ptr noundef readnone captures(ret: address, provenance) %pkt) local_unnamed_addr #4 {
 entry:
   %ip4hdr_info = getelementptr inbounds nuw i8, ptr %pkt, i64 192
   ret ptr %ip4hdr_info
@@ -1593,7 +1593,7 @@ _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i16 @net_rx_pkt_get_ip_id(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @net_rx_pkt_get_ip_id(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1620,7 +1620,7 @@ return:                                           ; preds = %if.end, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_rx_pkt_is_tcp_ack(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local zeroext i1 @net_rx_pkt_is_tcp_ack(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1648,7 +1648,7 @@ return:                                           ; preds = %if.end, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_rx_pkt_has_tcp_data(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local zeroext i1 @net_rx_pkt_has_tcp_data(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %if.end, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @net_rx_pkt_get_iovec(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local ptr @net_rx_pkt_get_iovec(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1691,7 +1691,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @net_rx_pkt_get_iovec_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local zeroext i16 @net_rx_pkt_get_iovec_len(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1707,7 +1707,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_set_vhdr(ptr noundef writeonly %pkt, ptr noundef readonly captures(none) %vhdr) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_set_vhdr(ptr noundef writeonly captures(address_is_null) %pkt, ptr noundef readonly captures(none) %vhdr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1758,7 +1758,7 @@ iov_to_buf.exit:                                  ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_unset_vhdr(ptr noundef writeonly %pkt) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_unset_vhdr(ptr noundef writeonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1776,7 +1776,7 @@ if.end:                                           ; preds = %entry
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @net_rx_pkt_is_vlan_stripped(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local zeroext i1 @net_rx_pkt_is_vlan_stripped(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1793,7 +1793,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @net_rx_pkt_get_vlan_tag(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local zeroext i16 @net_rx_pkt_get_vlan_tag(ptr noundef readonly captures(address_is_null) %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end

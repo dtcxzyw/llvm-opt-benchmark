@@ -337,7 +337,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_dlt = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16], align 4
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden i32 @dlt_ecu_id_to_gint32(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @dlt_ecu_id_to_gint32(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

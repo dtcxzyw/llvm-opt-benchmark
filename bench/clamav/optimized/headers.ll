@@ -187,7 +187,7 @@ _ZN5ArrayIhE5AllocEm.exit.thread:                 ; preds = %_ZN5ArrayIhE5ResetE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 72)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 captures(address) dereferenceable(112) initializes((0, 72)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.MainHeader, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)

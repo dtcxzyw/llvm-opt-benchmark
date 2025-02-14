@@ -124,7 +124,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9struct_pb8compiler15StructGenerator8GenerateEPKN6google8protobuf14FileDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS3_8compiler16GeneratorContextEPSC_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(32) %parameter, ptr noundef %generator_context, ptr noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK9struct_pb8compiler15StructGenerator8GenerateEPKN6google8protobuf14FileDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS3_8compiler16GeneratorContextEPSC_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(32) %parameter, ptr noundef %generator_context, ptr noundef captures(address) %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i89 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i79 = alloca %"class.std::allocator.0", align 1

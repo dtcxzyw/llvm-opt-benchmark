@@ -13436,7 +13436,7 @@ declare ptr @_ZN5clang6Parser24ParseExternalDeclarationERNS_16ParsedAttributesES
 declare ptr @_ZN5clang8SemaObjC29ActOnFinishObjCImplementationEPNS_4DeclEN4llvm8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser23ObjCImplParsingDataRAIID2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser23ObjCImplParsingDataRAIID2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(105) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::DiagnosticBuilder", align 8
   %3 = alloca %"class.clang::FixItHint", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8

@@ -1623,7 +1623,7 @@ _ZN12_GLOBAL__N_121AppleAccelTableWriterD2Ev.exit: ; preds = %_ZNK12_GLOBAL__N_1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20emitDWARF5AccelTableEPNS_10AsmPrinterERNS_16DWARF5AccelTableERKNS_10DwarfDebugENS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS9_EEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5876) %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm20emitDWARF5AccelTableEPNS_10AsmPrinterERNS_16DWARF5AccelTableERKNS_10DwarfDebugENS_8ArrayRefISt10unique_ptrINS_16DwarfCompileUnitESt14default_deleteIS9_EEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5876) %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.158", align 8
   %7 = alloca %"class.llvm::SmallVector.168", align 8
   %8 = alloca %"class.llvm::DenseMap.170", align 8

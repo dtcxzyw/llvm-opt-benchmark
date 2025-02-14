@@ -152,7 +152,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN23DecoratePluginContainer19eraseDecoratePluginEP14DecoratePlugin(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone %1) local_unnamed_addr #12 align 2 {
+define void @_ZN23DecoratePluginContainer19eraseDecoratePluginEP14DecoratePlugin(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

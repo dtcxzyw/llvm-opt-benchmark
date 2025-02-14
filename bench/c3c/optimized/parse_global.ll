@@ -900,7 +900,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare zeroext i1 @context_set_module(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -3551,7 +3551,7 @@ declare ptr @expr_new(i32 noundef, i64) local_unnamed_addr #1
 declare ptr @parse_constant_expr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = add i32 %5, -3
   %9 = icmp ult i32 %8, 2
@@ -4875,7 +4875,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef %3)

@@ -412,7 +412,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal void @_ZL5usagePKcz(ptr noundef readonly %msg, ...) unnamed_addr #3 {
+define internal void @_ZL5usagePKcz(ptr noundef readonly captures(address_is_null) %msg, ...) unnamed_addr #3 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %cmp.not = icmp eq ptr %msg, null

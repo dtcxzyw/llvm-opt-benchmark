@@ -2317,7 +2317,7 @@ lor.end:                                          ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(none) %set_configs, ptr noundef readonly captures(none) %old_values, i32 noundef range(i32 -2147483647, 1073741823) %count, ptr noundef readonly %apply_fns, ptr noundef %module_configs) unnamed_addr #2 {
+define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(none) %set_configs, ptr noundef readonly captures(none) %old_values, i32 noundef range(i32 -2147483647, 1073741823) %count, ptr noundef readonly captures(address_is_null) %apply_fns, ptr noundef %module_configs) unnamed_addr #2 {
 entry:
   %value.addr.i = alloca ptr, align 8
   %argc.i = alloca i32, align 4
@@ -3373,7 +3373,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rewriteConfigStringOption(ptr noundef captures(none) %state, ptr noundef %option, ptr noundef %value, ptr noundef readonly %defvalue) local_unnamed_addr #2 {
+define dso_local void @rewriteConfigStringOption(ptr noundef captures(none) %state, ptr noundef %option, ptr noundef %value, ptr noundef readonly captures(address_is_null) %defvalue) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3418,7 +3418,7 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %state, ptr noundef %option, ptr noundef %value, ptr noundef readonly %defvalue) local_unnamed_addr #2 {
+define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %state, ptr noundef %option, ptr noundef %value, ptr noundef readonly captures(address_is_null) %defvalue) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %if.end
@@ -7692,7 +7692,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr readnone captures(none) %config, ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
+define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr readnone captures(none) %config, ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef writeonly captures(address_is_null) %err) #2 {
 entry:
   %hard_err.i = alloca i32, align 4
   %soft_err.i = alloca i32, align 4
@@ -7849,7 +7849,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readnone captures(none) %config, ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef writeonly %err) #2 {
+define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readnone captures(none) %config, ptr noundef readonly captures(none) %argv, i32 noundef %argc, ptr noundef writeonly captures(address_is_null) %err) #2 {
 entry:
   %values = alloca [3 x i32], align 4
   %eptr = alloca ptr, align 8

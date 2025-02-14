@@ -641,7 +641,7 @@ _ZNK10Dictionary10table_sizeEv.exit:              ; preds = %_ZN13GlobalCounter2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK15DictionaryEntry26is_in_package_access_cacheEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15DictionaryEntry26is_in_package_access_cacheEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
@@ -1422,7 +1422,7 @@ _ZNK19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE10get_bucketEm.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZN10Dictionary9get_entryEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN15DictionaryEntry31has_package_access_been_grantedE6Handle.exit, label %6

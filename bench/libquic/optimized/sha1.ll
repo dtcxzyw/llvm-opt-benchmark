@@ -29,7 +29,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %out) local_unnamed_addr #2 {
 entry:
   %ctx = alloca %struct.sha_state_st, align 4
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 20

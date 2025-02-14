@@ -32,13 +32,13 @@ entry:
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn allocsize(1) memory(none) uwtable
-define dso_local noundef ptr @extend_to_usable(ptr noundef readnone returned %ptr, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local noundef ptr @extend_to_usable(ptr noundef readnone returned captures(ret: address, provenance) %ptr, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   ret ptr %ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztrymalloc_usable(i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @ztrymalloc_usable(i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ugt i64 %size, 9223372036854775806
   br i1 %cmp.i, label %ztrymalloc_usable_internal.exit, label %if.end.i
@@ -121,7 +121,7 @@ ztrymalloc_usable_internal.exit:                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zmalloc_usable(i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @zmalloc_usable(i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ugt i64 %size, 9223372036854775806
   br i1 %cmp.i, label %if.then, label %if.end.i
@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @je_dallocx(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztrycalloc_usable(i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @ztrycalloc_usable(i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ugt i64 %size, 9223372036854775806
   br i1 %cmp.i, label %ztrycalloc_usable_internal.exit, label %if.end.i
@@ -336,7 +336,7 @@ ztrycalloc_usable_internal.exit:                  ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zcalloc_usable(i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @zcalloc_usable(i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ugt i64 %size, 9223372036854775806
   br i1 %cmp.i, label %if.then, label %if.end.i
@@ -373,7 +373,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ztryrealloc_usable(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @ztryrealloc_usable(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %usable_size = alloca i64, align 8
   store i64 0, ptr %usable_size, align 8
@@ -391,7 +391,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ztryrealloc_usable_internal(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly %usable) unnamed_addr #3 {
+define internal fastcc ptr @ztryrealloc_usable_internal(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %size, 0
   %cmp1 = icmp ne ptr %ptr, null
@@ -493,7 +493,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zrealloc_usable(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly %usable) local_unnamed_addr #3 {
+define dso_local ptr @zrealloc_usable(ptr noundef %ptr, i64 noundef %size, ptr noundef writeonly captures(address_is_null) %usable) local_unnamed_addr #3 {
 entry:
   %usable_size.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %usable_size.i)

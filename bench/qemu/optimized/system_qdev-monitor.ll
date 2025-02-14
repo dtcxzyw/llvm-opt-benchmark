@@ -1387,7 +1387,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qbus_find_recursive(ptr noundef %bus, ptr noundef %name, ptr noundef %bus_typename) unnamed_addr #0 {
+define internal fastcc ptr @qbus_find_recursive(ptr noundef %bus, ptr noundef captures(address_is_null) %name, ptr noundef %bus_typename) unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %name, null
   %tobool1 = icmp ne ptr %bus_typename, null

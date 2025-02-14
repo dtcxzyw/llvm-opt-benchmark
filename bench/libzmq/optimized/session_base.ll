@@ -1059,7 +1059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 dereferenceable(1624) %this, ptr noundef readnone %pipe_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1624) %this, ptr noundef readnone captures(address) %pipe_) unnamed_addr #0 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
@@ -1145,7 +1145,7 @@ if.end23:                                         ; preds = %if.then9, %if.then1
 declare noundef zeroext i1 @_ZN3zmq6pipe_t10check_readEv(ptr noundef nonnull align 8 dereferenceable(328)) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZThn1464_N3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef %this, ptr noundef %pipe_) unnamed_addr #12 align 2 {
+define void @_ZThn1464_N3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef captures(address) %this, ptr noundef captures(address) %pipe_) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1464
   tail call void @_ZN3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1624) %0, ptr noundef %pipe_)
@@ -1153,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 dereferenceable(1624) %this, ptr noundef readnone %pipe_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1624) %this, ptr noundef readnone captures(address) %pipe_) unnamed_addr #0 align 2 {
 entry:
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_pipe, align 8
@@ -1216,7 +1216,7 @@ if.end10:                                         ; preds = %if.then3, %_ZNKSt3s
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef readonly %this, ptr noundef readnone %pipe_) unnamed_addr #12 align 2 {
+define void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef readonly captures(address) %this, ptr noundef readnone captures(address) %pipe_) unnamed_addr #12 align 2 {
 entry:
   %_pipe.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_pipe.i, align 8

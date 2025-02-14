@@ -67025,7 +67025,7 @@ _ZNSt11_Tuple_implILm5EJN5clang12ast_matchers8internal7MatcherINS0_4StmtEEES5_S5
 declare void @_ZN5clang12ast_matchers11MatchFinder5matchERKNS_12DynTypedNodeERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23216) %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #1 {
+define internal fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23216) %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #1 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.std::tuple.2057", align 8
@@ -77337,7 +77337,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2, i64 %3, i8 %4) unnamed_addr #1 {
+define internal fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 %3, i8 %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::optional.2134", align 8

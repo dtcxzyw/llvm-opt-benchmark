@@ -567,7 +567,7 @@ check_role_for_policy.exit88:                     ; preds = %143, %.preheader.i8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -694,7 +694,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_with_check_options(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @add_with_check_options(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph

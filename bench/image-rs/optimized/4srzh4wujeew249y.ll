@@ -8588,7 +8588,7 @@ _ZN12jpeg_decoder7read_u817h354cb4f0ba47111dE.exit48: ; preds = %21, %"_ZN82_$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11read_marker17h902b9ae4f8d5a637E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr %.216.val, ptr readonly %.224.val) unnamed_addr #2 {
+define internal fastcc void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11read_marker17h902b9ae4f8d5a637E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr %.216.val, ptr readonly captures(address_is_null) %.224.val) unnamed_addr #2 {
   %2 = alloca [1 x i8], align 1
   %3 = alloca [1 x i8], align 1
   %4 = alloca [1 x i8], align 1
@@ -23208,7 +23208,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$image..codecs..pnm..header..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hc37df40fed51534eE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$17hc37df40fed51534eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !14, !nonnull !14
@@ -29014,7 +29014,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 4 dereferenceable_or_null(12) ptr @_ZN5image6codecs3pnm6header9PnmHeader9as_bitmap17h28affa51229820d0E(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #8 {
+define noundef align 4 dereferenceable_or_null(12) ptr @_ZN5image6codecs3pnm6header9PnmHeader9as_bitmap17h28affa51229820d0E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3395, !noundef !14
   %4 = icmp eq i64 %3, -9223372036854775801
@@ -29024,7 +29024,7 @@ define noundef align 4 dereferenceable_or_null(12) ptr @_ZN5image6codecs3pnm6hea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6header9PnmHeader10as_graymap17h8522fa6d8c4003d1E(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #8 {
+define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6header9PnmHeader10as_graymap17h8522fa6d8c4003d1E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3395, !noundef !14
   %4 = icmp eq i64 %3, -9223372036854775800
@@ -29034,7 +29034,7 @@ define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6hea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6header9PnmHeader9as_pixmap17h61cd21bf4888a069E(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #8 {
+define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6header9PnmHeader9as_pixmap17h61cd21bf4888a069E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3395, !noundef !14
   %4 = icmp eq i64 %3, -9223372036854775799
@@ -29044,7 +29044,7 @@ define noundef align 4 dereferenceable_or_null(16) ptr @_ZN5image6codecs3pnm6hea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(40) ptr @_ZN5image6codecs3pnm6header9PnmHeader12as_arbitrary17h5c4b5a0b635dc07eE(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #8 {
+define noundef align 8 dereferenceable_or_null(40) ptr @_ZN5image6codecs3pnm6header9PnmHeader12as_arbitrary17h5c4b5a0b635dc07eE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3395, !noundef !14
   %4 = icmp ult i64 %3, -9223372036854775801

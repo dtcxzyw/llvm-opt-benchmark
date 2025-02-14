@@ -353,7 +353,7 @@ return:                                           ; preds = %while.end223, %cond
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b64_read(ptr noundef %b, ptr noundef writeonly %out, i32 noundef %outl) #2 {
+define internal i32 @b64_read(ptr noundef %b, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outl) #2 {
 entry:
   %num = alloca i32, align 4
   %cmp = icmp eq ptr %out, null

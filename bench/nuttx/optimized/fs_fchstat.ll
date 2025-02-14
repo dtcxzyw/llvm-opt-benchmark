@@ -241,7 +241,7 @@ fchstat.exit:                                     ; preds = %10, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null

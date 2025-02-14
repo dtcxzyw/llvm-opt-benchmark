@@ -7592,7 +7592,7 @@ switch.lookup:                                    ; preds = %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9actix_web4http6header15accept_encoding22is_identity_acceptable17h223645ac3a61b276E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #25 {
+define noundef zeroext i1 @_ZN9actix_web4http6header15accept_encoding22is_identity_acceptable17h223645ac3a61b276E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #25 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 

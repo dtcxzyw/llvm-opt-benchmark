@@ -1362,7 +1362,7 @@ declare i32 @opal_hash_table_get_value_uint32(ptr noundef, i32 noundef, ptr noun
 declare i32 @opal_output_get_verbosity(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_tcp_proc_remove(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @mca_btl_tcp_proc_remove(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %3
 

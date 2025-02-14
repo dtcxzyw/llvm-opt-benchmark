@@ -1942,7 +1942,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvh11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12genArrayExprEPNS_6ESTree19ArrayExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %Expr) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12genArrayExprEPNS_6ESTree19ArrayExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef captures(address) %Expr) local_unnamed_addr #0 align 2 {
 entry:
   %_elements = getelementptr inbounds nuw i8, ptr %Expr, i64 48
   %call = tail call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genArrayFromElementsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %_elements)
@@ -1950,7 +1950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %Expr) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %Expr) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i289 = alloca %"class.std::allocator.222", align 1
   %ref.tmp.i = alloca %"class.std::allocator.222", align 1
@@ -3526,7 +3526,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvh11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen15genSequenceExprEPNS_6ESTree22SequenceExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %Sq) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen15genSequenceExprEPNS_6ESTree22SequenceExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %Sq) local_unnamed_addr #0 align 2 {
 entry:
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #16
@@ -3550,7 +3550,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen22genTemplateLiteralExprEPNS_6ESTree19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %Expr) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen22genTemplateLiteralExprEPNS_6ESTree19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %Expr) local_unnamed_addr #0 align 2 {
 entry:
   %argList = alloca %"class.llvh::SmallVector.199", align 8
   %_quasis = getelementptr inbounds nuw i8, ptr %Expr, i64 48
@@ -4415,7 +4415,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_1
 declare void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genArrayFromElementsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen20genArrayFromElementsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %list) local_unnamed_addr #0 align 2 {
 entry:
   %elements = alloca %"class.llvh::SmallVector.185", align 8
   %codeGenOpts = alloca %"struct.hermes::CodeGenerationSettings", align 8
@@ -5001,7 +5001,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder26createStoreOwnPropertyInstEPNS_5Value
 declare noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_N4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen15genCallEvalExprEPNS_6ESTree18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %call) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes5irgen11ESTreeIRGen15genCallEvalExprEPNS_6ESTree18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %call) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp12 = alloca %"class.llvh::Twine", align 8

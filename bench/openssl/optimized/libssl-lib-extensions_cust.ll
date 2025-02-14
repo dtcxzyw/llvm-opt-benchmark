@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.custom_ext_add = private unnamed_addr constant [15 x i8] c"custom_ext_add\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %exts, i32 noundef %role, i32 noundef %ext_type, ptr noundef writeonly %idx) local_unnamed_addr #0 {
+define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %exts, i32 noundef %role, i32 noundef %ext_type, ptr noundef writeonly captures(address_is_null) %idx) local_unnamed_addr #0 {
 entry:
   %meths_count = getelementptr inbounds nuw i8, ptr %exts, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -782,7 +782,7 @@ custom_ext_find.exit:                             ; preds = %land.lhs.true.i, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef %exts, i32 noundef %role, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef captures(address_is_null) %exts, i32 noundef %role, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %add_cb, null
   %cmp1 = icmp ne ptr %free_cb, null

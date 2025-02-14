@@ -1516,7 +1516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef readonly %colObj, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %frictionDirection, i32 noundef %frictionMode) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i(ptr noundef readonly captures(address_is_null) %colObj, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %frictionDirection, i32 noundef %frictionMode) local_unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %colObj, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true

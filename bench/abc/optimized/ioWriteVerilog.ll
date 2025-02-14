@@ -88,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [72 x i8] c"Io_WriteVerilog(): Can produce Verilog for mapped or AIG netlists only.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteVerilog(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_WriteVerilog(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   switch i32 %6, label %Abc_NtkIsMappedNetlist.exit.thread [

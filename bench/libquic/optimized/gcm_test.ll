@@ -360,7 +360,7 @@ if.end6:                                          ; preds = %if.then4, %for.end
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull writeonly captures(none) %out_len, ptr noundef readonly %in, i32 noundef %test_num, ptr noundef %description) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull writeonly captures(none) %out_len, ptr noundef readonly captures(address_is_null) %in, i32 noundef %test_num, ptr noundef %description) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %if.end

@@ -7347,7 +7347,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb10FileSystem13GetFileSystemERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb15ExtensionHelper17CreateSuggestionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_(ptr noundef nonnull align 8 dereferenceable(32) %extension_name, ptr noundef nonnull align 8 dereferenceable(32) %message) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb15ExtensionHelper17CreateSuggestionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_(ptr noundef nonnull align 8 dereferenceable(32) %extension_name, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %message) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %candidates = alloca %"class.duckdb::vector.242", align 8
@@ -14714,7 +14714,7 @@ _ZNSt10unique_ptrIN14duckdb_httplib8ResponseESt14default_deleteIS1_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb15ExtensionHelper14TryInitialLoadERNS_8DBConfigERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_19ExtensionInitResultERSA_NS_12optional_ptrIKNS_12ClientConfigEEE(ptr noundef nonnull align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull align 8 dereferenceable(72) %result, ptr noundef nonnull align 8 dereferenceable(32) %error, ptr readnone captures(none) %client_config.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb15ExtensionHelper14TryInitialLoadERNS_8DBConfigERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_19ExtensionInitResultERSA_NS_12optional_ptrIKNS_12ClientConfigEEE(ptr noundef nonnull align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull align 8 dereferenceable(72) %result, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %error, ptr readnone captures(none) %client_config.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i1312 = alloca i64, align 8
   %__dnew.i.i.i1263 = alloca i64, align 8
@@ -18978,7 +18978,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24ComputeSHA256FileSegmentEPNS_10FileHandleEmmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handle, i64 noundef %start, i64 noundef %end, ptr noundef %res) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24ComputeSHA256FileSegmentEPNS_10FileHandleEmmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handle, i64 noundef %start, i64 noundef %end, ptr noundef captures(address) %res) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %state = alloca %"class.duckdb_mbedtls::MbedTlsWrapper::SHA256State", align 8
   %to_hash = alloca %"class.std::__cxx11::basic_string", align 8

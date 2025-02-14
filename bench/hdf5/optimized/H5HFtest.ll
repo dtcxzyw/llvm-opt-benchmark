@@ -360,7 +360,7 @@ define noundef i32 @H5HF_get_tiny_info_test(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_huge_info_test(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #7 {
+define noundef i32 @H5HF_get_huge_info_test(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
 

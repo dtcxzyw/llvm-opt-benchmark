@@ -2076,7 +2076,7 @@ define dso_local void @_ZN4Luau6detail6mkNameERKNS_16AstStatTypeAliasE(ptr dead_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6detail6mkNameEPNS_7AstStatE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6detail6mkNameEPNS_7AstStatE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::detail::Identifier", align 8
   %4 = alloca %"struct.Luau::detail::Identifier", align 8
   %5 = alloca %"struct.Luau::detail::Identifier", align 8
@@ -2301,7 +2301,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau6detail17isBlockTerminatorERKNS_7As
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau6detail5pruneEPNS0_4NodeE(ptr noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6detail5pruneEPNS0_4NodeE(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2412,7 +2412,7 @@ _ZNSt3setIPN4Luau6detail4NodeESt4lessIS3_ESaIS3_EE4findERKS3_.exit25: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6detail5drainERNSt7__cxx114listISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EEERSt6vectorIPNS_7AstStatESaISD_EEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6detail5drainERNSt7__cxx114listISt10unique_ptrINS0_4NodeESt14default_deleteIS4_EESaIS7_EEERSt6vectorIPNS_7AstStatESaISD_EEPS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef captures(address) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<Luau::detail::Node *, std::pair<Luau::detail::Node *const, Luau::detail::Arcs>, std::_Select1st<std::pair<Luau::detail::Node *const, Luau::detail::Arcs>>, std::less<Luau::detail::Node *>>::_Auto_node", align 8
   %5 = alloca %"class.std::tuple.92", align 8
   %6 = alloca %"class.std::tuple.95", align 1

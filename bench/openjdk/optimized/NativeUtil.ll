@@ -1291,7 +1291,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @resetGSSBuffer(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @resetGSSBuffer(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1448,7 +1448,7 @@ gssThrowOutOfMemoryError.exit:                    ; preds = %21, %17, %2, %45, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @deleteGSSOID(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @deleteGSSOID(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1464,7 +1464,7 @@ define hidden void @deleteGSSOID(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getJavaOID(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @getJavaOID(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   %4 = icmp eq ptr %1, null
   br i1 %4, label %51, label %5
@@ -1604,7 +1604,7 @@ define hidden void @deleteGSSOIDSet(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getJavaOIDArray(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @getJavaOIDArray(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 

@@ -4547,7 +4547,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -4609,7 +4609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserclEPKcmNS_8TimeUnit4typeEPlPb(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %s, i64 noundef %length, i32 noundef %out_unit, ptr noundef writeonly captures(none) %out, ptr noundef writeonly %out_zone_offset_present) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserclEPKcmNS_8TimeUnit4typeEPlPb(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %s, i64 noundef %length, i32 noundef %out_unit, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(address_is_null) %out_zone_offset_present) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clean_copy.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -4850,7 +4850,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -4895,7 +4895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %s, i64 noundef %length, i32 noundef %out_unit, ptr noundef writeonly captures(none) %out, ptr noundef writeonly %out_zone_offset_present) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %s, i64 noundef %length, i32 noundef %out_unit, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(address_is_null) %out_zone_offset_present) unnamed_addr #0 align 2 {
 entry:
   %ymd.i.i = alloca %"class.arrow_vendored::date::year_month_day", align 2
   %zone_offset.i = alloca %"class.std::chrono::duration", align 8

@@ -1946,7 +1946,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %31, %34
 declare void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @cvMoments(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @cvMoments(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"class.cv::Mat", align 8
@@ -2160,7 +2160,7 @@ declare void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_un
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define double @cvGetSpatialMoment(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define double @cvGetSpatialMoment(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2242,7 +2242,7 @@ define double @cvGetSpatialMoment(ptr noundef readonly %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @cvGetCentralMoment(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define double @cvGetCentralMoment(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2337,7 +2337,7 @@ define double @cvGetCentralMoment(ptr noundef readonly %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress uwtable
-define double @cvGetNormalizedCentralMoment(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define double @cvGetNormalizedCentralMoment(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = add nsw i32 %2, %1
   %5 = tail call double @cvGetCentralMoment(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2361,7 +2361,7 @@ define double @cvGetNormalizedCentralMoment(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGetHuMoments(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @cvGetHuMoments(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = icmp ne ptr %0, null

@@ -135,7 +135,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12fin
 declare noundef ptr @_ZNK6Assimp8Importer12GetIOHandlerEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp20EmbedTexturesProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %pScene) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp20EmbedTexturesProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef captures(address_is_null) %pScene) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path = alloca %struct.aiString, align 4
   %embeddedTexturesCount = alloca i32, align 4

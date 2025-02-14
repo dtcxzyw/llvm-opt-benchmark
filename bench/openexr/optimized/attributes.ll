@@ -87,7 +87,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef %list) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %list) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -209,7 +209,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %sw
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_compute_size(ptr noundef %ctxt, ptr noundef readonly %list, ptr noundef writeonly %out) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_compute_size(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %list, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #2 {
 entry:
   %sz = alloca i32, align 4
   %tobool.not = icmp eq ptr %ctxt, null
@@ -523,7 +523,7 @@ return:                                           ; preds = %if.then102, %entry,
 declare i32 @exr_attr_opaquedata_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_find_by_name(ptr noundef %ctxt, ptr noundef readonly %list, ptr noundef readonly %name, ptr noundef writeonly %out) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_find_by_name(ptr noundef %ctxt, ptr noundef readonly captures(address_is_null) %list, ptr noundef readonly captures(address_is_null) %name, ptr noundef writeonly captures(address_is_null) %out) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -624,7 +624,7 @@ return:                                           ; preds = %if.end15, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_by_type(ptr noundef %ctxt, ptr noundef %list, ptr noundef %name, ptr noundef %type, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef %attr) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_add_by_type(ptr noundef %ctxt, ptr noundef captures(address_is_null) %list, ptr noundef %name, ptr noundef %type, i32 noundef %data_len, ptr noundef captures(address_is_null) %data_ptr, ptr noundef captures(address_is_null) %attr) local_unnamed_addr #2 {
 entry:
   %nattr = alloca ptr, align 8
   store ptr null, ptr %nattr, align 8
@@ -775,7 +775,7 @@ return:                                           ; preds = %if.then79, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %ctxt, ptr noundef readonly %list, ptr noundef %name, i32 noundef %data_len, ptr noundef writeonly %data_ptr, ptr noundef writeonly %attr) unnamed_addr #2 {
+define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %ctxt, ptr noundef readonly captures(address_is_null) %list, ptr noundef %name, i32 noundef %data_len, ptr noundef writeonly captures(address_is_null) %data_ptr, ptr noundef writeonly captures(address_is_null) %attr) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -915,7 +915,7 @@ return:                                           ; preds = %if.end15.i, %land.l
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_attr_block(ptr noundef nonnull %pctxt, ptr noundef nonnull writeonly captures(none) %attr, i64 noundef %dblocksize, i32 noundef %data_len, ptr noundef writeonly %data_ptr, ptr noundef readonly captures(none) %name, i32 noundef range(i32 0, 256) %nlen, ptr noundef readonly captures(none) %type, i32 noundef range(i32 0, 256) %tlen) unnamed_addr #2 {
+define internal fastcc i32 @create_attr_block(ptr noundef nonnull %pctxt, ptr noundef nonnull writeonly captures(none) %attr, i64 noundef %dblocksize, i32 noundef %data_len, ptr noundef writeonly captures(address_is_null) %data_ptr, ptr noundef readonly captures(none) %name, i32 noundef range(i32 0, 256) %nlen, ptr noundef readonly captures(none) %type, i32 noundef range(i32 0, 256) %tlen) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %nlen, 0
   %narrow = add nuw nsw i32 %nlen, 33
@@ -1533,7 +1533,7 @@ if.end6:                                          ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add(ptr noundef %ctxt, ptr noundef %list, ptr noundef %name, i32 noundef %type, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef %attr) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_add(ptr noundef %ctxt, ptr noundef captures(address_is_null) %list, ptr noundef %name, i32 noundef %type, i32 noundef %data_len, ptr noundef captures(address_is_null) %data_ptr, ptr noundef captures(address_is_null) %attr) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1725,7 +1725,7 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef %list, ptr noundef %name, i32 noundef %type, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef %attr) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef captures(address_is_null) %list, ptr noundef %name, i32 noundef %type, i32 noundef %data_len, ptr noundef captures(address_is_null) %data_ptr, ptr noundef captures(address_is_null) %attr) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1891,7 +1891,7 @@ return:                                           ; preds = %if.then50, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_list_remove(ptr noundef %ctxt, ptr noundef %list, ptr noundef %attr) local_unnamed_addr #2 {
+define hidden i32 @exr_attr_list_remove(ptr noundef %ctxt, ptr noundef captures(address_is_null) %list, ptr noundef %attr) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

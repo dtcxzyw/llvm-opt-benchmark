@@ -176,7 +176,7 @@ declare dso_local void @fpu__drop(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ret_from_fork(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local void @ret_from_fork(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @schedule_tail(ptr noundef %0) #19
   %5 = icmp eq ptr %2, null
   br i1 %5, label %9, label %6, !prof !8
@@ -1871,7 +1871,7 @@ define dso_local void @arch_post_acpi_subsys_init() local_unnamed_addr #14 secti
 declare dso_local void @mark_tsc_unstable(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef range(i32 -22, 1) i32 @idle_setup(ptr noundef readonly %0) #14 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @idle_setup(ptr noundef readonly captures(address_is_null) %0) #14 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 

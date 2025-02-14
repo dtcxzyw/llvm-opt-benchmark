@@ -130,7 +130,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13fin
 declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19print_date_and_timeP8_IO_FILEiPKcd(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @_Z19print_date_and_timeP8_IO_FILEiPKcd(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq ptr %0, null
@@ -150,7 +150,7 @@ define void @_Z19print_date_and_timeP8_IO_FILEiPKcd(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11print_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingPKc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @_Z11print_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingPKc(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca [4096 x i8], align 16

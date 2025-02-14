@@ -1056,7 +1056,7 @@ declare noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull a
 declare ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN19CDSProtectionDomain28get_package_entry_from_classEP13InstanceKlass6Handle(ptr noundef %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN19CDSProtectionDomain28get_package_entry_from_classEP13InstanceKlass6Handle(ptr noundef %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

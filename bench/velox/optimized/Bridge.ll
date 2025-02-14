@@ -11975,7 +11975,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_118releaseArrowSchemaEP11ArrowSchema(ptr noundef %arrowSchema) #0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_118releaseArrowSchemaEP11ArrowSchema(ptr noundef captures(address_is_null) %arrowSchema) #0 {
 entry:
   %tobool.not = icmp eq ptr %arrowSchema, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -15151,7 +15151,7 @@ sw.epilog:                                        ; preds = %"_ZZN8facebook5velo
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_117releaseArrowArrayEP10ArrowArray(ptr noundef %arrowArray) #0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_117releaseArrowArrayEP10ArrowArray(ptr noundef captures(address_is_null) %arrowArray) #0 {
 entry:
   %tobool.not = icmp eq ptr %arrowArray, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -199429,7 +199429,7 @@ define internal void @"_ZNSt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velox12_GLOBAL__N_119importFromArrowImplERS0_R10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_1SaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZNSt19_Sp_counted_deleterIP11ArrowSchemaZN8facebook5velox12_GLOBAL__N_119importFromArrowImplERS0_R10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_1SaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
@@ -199509,7 +199509,7 @@ define internal void @"_ZNSt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNSt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaRS0_PNS3_6memory10MemoryPoolEbE3$_2SaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZNSt19_Sp_counted_deleterIP10ArrowArrayZN8facebook5velox12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaRS0_PNS3_6memory10MemoryPoolEbE3$_2SaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__ti) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8

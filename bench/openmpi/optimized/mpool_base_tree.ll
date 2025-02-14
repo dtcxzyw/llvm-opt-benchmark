@@ -56,7 +56,7 @@ define internal void @opal_mca_mpool_base_tree_constructor(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -1, 2) i32 @mca_mpool_base_tree_node_compare(ptr noundef readnone %0, ptr noundef readnone %1) #1 {
+define range(i32 -1, 2) i32 @mca_mpool_base_tree_node_compare(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #1 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ugt ptr %0, %1
   %. = zext i1 %4 to i32

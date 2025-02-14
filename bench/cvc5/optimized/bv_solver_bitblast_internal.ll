@@ -2475,7 +2475,7 @@ declare void @_ZNK4cvc58internal7IntegerplERKS1_(ptr sret(%"class.cvc5::internal
 declare void @_ZN4cvc58internal6theory2bv5utils7mkConstEjRNS0_7IntegerE(ptr sret(%"class.cvc5::internal::NodeTemplate.348") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2bv24BVSolverBitblastInternal15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory2bv24BVSolverBitblastInternal15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_checker = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %d_checker

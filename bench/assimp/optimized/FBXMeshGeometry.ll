@@ -1164,7 +1164,7 @@ _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6Assimp3FBX8Geometry14GetBlendShapesEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6Assimp3FBX8Geometry14GetBlendShapesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
 entry:
   %blendShapes = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %blendShapes
@@ -2411,42 +2411,42 @@ _ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_normals = getelementptr inbounds nuw i8, ptr %this, i64 264
   ret ptr %m_normals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetTangentsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetTangentsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_tangents = getelementptr inbounds nuw i8, ptr %this, i64 216
   ret ptr %m_tangents
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry12GetBinormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry12GetBinormalsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_binormals = getelementptr inbounds nuw i8, ptr %this, i64 240
   ret ptr %m_binormals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetFaceIndexCountsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetFaceIndexCountsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_faces = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %m_faces
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry16GetTextureCoordsEj(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry16GetTextureCoordsEj(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK6Assimp3FBX12MeshGeometry16GetTextureCoordsEjE5empty acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -2535,7 +2535,7 @@ cleanup.action4:                                  ; preds = %lpad.body.thread6, 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry15GetVertexColorsEj(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry15GetVertexColorsEj(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK6Assimp3FBX12MeshGeometry15GetVertexColorsEjE5empty acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -2562,7 +2562,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_materials = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %m_materials
@@ -8151,21 +8151,21 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_normals = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %m_normals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 168
   ret ptr %m_indices
@@ -8410,14 +8410,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %m_indices

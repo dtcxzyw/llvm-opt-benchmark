@@ -2790,7 +2790,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull writeonly align 8 dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(240) %this) local_unnamed_addr #7 align 2 {
 entry:
   %is_triggered_ = getelementptr inbounds nuw i8, ptr %this, i64 233
   store atomic i8 1, ptr %is_triggered_ monotonic, align 1

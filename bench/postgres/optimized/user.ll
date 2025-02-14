@@ -1147,7 +1147,7 @@ define internal fastcc void @check_role_membership_authorization(i32 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
+define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x i8], align 1
   %10 = alloca [7 x i8], align 1
@@ -1620,7 +1620,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @superuser() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @roleSpecsToIds(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @roleSpecsToIds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2476,7 +2476,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca [7 x i64], align 16
   %10 = alloca [7 x i8], align 1
   %11 = alloca [7 x i8], align 1

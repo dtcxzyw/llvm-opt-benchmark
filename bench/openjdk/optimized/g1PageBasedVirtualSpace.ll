@@ -878,7 +878,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8pretouchEmmP13WorkerThreads(ptr
 declare void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace8containsEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace8containsEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp ule ptr %3, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

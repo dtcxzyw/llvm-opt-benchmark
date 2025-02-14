@@ -6104,7 +6104,7 @@ if.end17:                                         ; preds = %if.then15, %_ZSt18u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_"(ptr %this.0.val, ptr noundef readonly %buf_ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_"(ptr %this.0.val, ptr noundef readonly captures(ret: address, provenance) %buf_ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %buf_ptr, align 1
   %1 = lshr i8 %0, 3

@@ -20473,7 +20473,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_122SchemaValidatorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_122SchemaValidatorContextD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21456,7 +21456,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !973
@@ -81320,7 +81320,7 @@ _ZNSt12_Vector_baseISt4pairIN5boost11basic_regexIcNS1_12regex_traitsIcNS1_16cpp_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISA_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISA_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i.i = load ptr, ptr %0, align 8, !tbaa !699
@@ -81387,7 +81387,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(104) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %additionalPropertyValidator_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %additionalPropertyValidator_, align 8, !tbaa !22
@@ -84419,7 +84419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348: ; preds = %if
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidatorD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %typeStr_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %typeStr_, align 8, !tbaa !46
@@ -85514,7 +85514,7 @@ ehcleanup32:                                      ; preds = %lpad22, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr %this.0.val, ptr readnone %this.8.val) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev(ptr %this.0.val, ptr readnone captures(address) %this.8.val) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not3.i.i.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i

@@ -1477,7 +1477,7 @@ return:                                           ; preds = %entry, %if.end19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementERNS_13UnicodeStringERKS1_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementERNS_13UnicodeStringERKS1_R10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %replacementText = alloca %struct.UText, align 8
   %resultText = alloca %struct.UText, align 8
@@ -1516,7 +1516,7 @@ if.end10:                                         ; preds = %if.end, %entry
 declare ptr @utext_openUnicodeString_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementEP5UTextS2_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, ptr noundef %dest, ptr noundef %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher17appendReplacementEP5UTextS2_R10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, ptr noundef %dest, ptr noundef %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lengthStatus = alloca i32, align 4
   %offset = alloca i32, align 4
@@ -10420,7 +10420,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((64, 128), (130, 131), (136, 170), (268, 276)) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) initializes((64, 128), (130, 131), (136, 170), (268, 276)) %this) unnamed_addr #7 align 2 {
 entry:
   %fRegionStart = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart, align 8
@@ -15450,7 +15450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i64 noundef %regionStart, i64 noundef %regionLimit, i64 noundef %startIndex, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionElllR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, i64 noundef %regionStart, i64 noundef %regionLimit, i64 noundef %startIndex, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -15589,7 +15589,7 @@ return:                                           ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i64 noundef %start, i64 noundef %limit, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher6regionEllR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, i64 noundef %start, i64 noundef %limit, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -16162,7 +16162,7 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i64 noundef %position, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetElR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, i64 noundef %position, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -16222,7 +16222,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(336) %this, ptr noundef %input, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) %this, ptr noundef %input, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -17253,7 +17253,7 @@ _ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((80, 88), (129, 130)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) initializes((80, 88), (129, 130)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
 entry:
   %fAnchoringBounds = getelementptr inbounds nuw i8, ptr %this, i64 129
   store i8 %b, ptr %fAnchoringBounds, align 1
@@ -17272,7 +17272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((96, 104), (128, 129)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(336) initializes((96, 104), (128, 129)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
 entry:
   %fTransparentBounds = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 %b, ptr %fTransparentBounds, align 8

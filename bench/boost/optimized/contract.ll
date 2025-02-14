@@ -1193,7 +1193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost8contract17assertion_failure4initEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract17assertion_failure4initEv(ptr noundef nonnull align 8 captures(address) dereferenceable(72) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8

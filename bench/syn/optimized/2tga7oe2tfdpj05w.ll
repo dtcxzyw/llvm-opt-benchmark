@@ -1814,7 +1814,7 @@ common.resume:                                    ; preds = %21, %89
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN3syn9lookahead12is_delimiter17haa9c8e4cc9f048c4E(ptr noundef %0, ptr noundef readnone %1, i8 noundef %2) unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN3syn9lookahead12is_delimiter17haa9c8e4cc9f048c4E(ptr noundef %0, ptr noundef readnone captures(address) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { { [2 x i32], i32 }, { {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   %.not.i = icmp eq i8 %2, 3

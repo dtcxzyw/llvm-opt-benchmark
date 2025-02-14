@@ -5862,7 +5862,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, %0
   br i1 %3, label %16, label %4
 

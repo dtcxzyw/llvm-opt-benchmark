@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_NAME_set(ptr noundef %xn, ptr noundef %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_NAME_set(ptr noundef captures(address_is_null) %xn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %xn, null
   %tobool1 = icmp ne ptr %name, null
@@ -198,7 +198,7 @@ return:                                           ; preds = %if.end14, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @x509_name_ex_free(ptr noundef %pval, ptr readnone captures(none) %it) #0 {
+define internal void @x509_name_ex_free(ptr noundef captures(address_is_null) %pval, ptr readnone captures(none) %it) #0 {
 entry:
   %tobool.not = icmp eq ptr %pval, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -375,7 +375,7 @@ return:                                           ; preds = %entry, %if.end37, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %val, ptr noundef %out, ptr readnone captures(none) %it, i32 %tag, i32 %aclass) #0 {
+define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %val, ptr noundef captures(address_is_null) %out, ptr readnone captures(none) %it, i32 %tag, i32 %aclass) #0 {
 entry:
   %intname.i = alloca %union.anon.1, align 8
   %p.i = alloca ptr, align 8

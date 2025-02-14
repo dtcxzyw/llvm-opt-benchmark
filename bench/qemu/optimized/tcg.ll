@@ -6648,7 +6648,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_remove_ops_after(ptr noundef readnone %op) local_unnamed_addr #0 {
+define dso_local void @tcg_remove_ops_after(ptr noundef readnone captures(address) %op) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8

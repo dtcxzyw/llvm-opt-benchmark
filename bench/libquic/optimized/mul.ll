@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_mul(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -750,7 +750,7 @@ return:                                           ; preds = %if.end2, %if.end12,
 declare i64 @bn_mul_words(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_sqr(ptr noundef %r, ptr noundef readonly captures(address) %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8

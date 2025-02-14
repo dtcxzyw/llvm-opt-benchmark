@@ -1355,7 +1355,7 @@ define { ptr, ptr } @_ZN3syn8generics8Generics16const_params_mut17hc03bf06efd409
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3syn8generics8Generics17make_where_clause17hbc9185909256d7f4E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3syn8generics8Generics17make_where_clause17hbc9185909256d7f4E(ptr noalias noundef align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   %3 = load i64, ptr %2, align 8, !range !48, !alias.scope !365, !noundef !5

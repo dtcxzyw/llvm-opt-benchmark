@@ -14354,7 +14354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @"_ZNK5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0E11get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 dereferenceable(26) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) unnamed_addr #11 align 2 {
+define internal noundef ptr @"_ZNK5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0E11get_deleterERKSt9type_info"(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(26) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type) unnamed_addr #11 align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %type, i64 8
   %0 = load ptr, ptr %__name.i, align 8

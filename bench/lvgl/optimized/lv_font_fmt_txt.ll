@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opa4_table = internal unnamed_addr constant [16 x i8] c"\00\11\223DUfw\88\99\AA\BB\CC\DD\EE\FF", align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10

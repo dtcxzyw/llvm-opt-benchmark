@@ -9656,7 +9656,7 @@ ehcleanup45:                                      ; preds = %ehcleanup44, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList8moveItemEjPS_jjbPb(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i, ptr noundef %dest, i32 noundef %dest_i, i32 noundef %count, i1 noundef zeroext %swap_if_needed, ptr noundef writeonly %did_swap) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList8moveItemEjPS_jjbPb(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %this, i32 noundef %i, ptr noundef captures(address) %dest, i32 noundef %dest_i, i32 noundef %count, i1 noundef zeroext %swap_if_needed, ptr noundef writeonly captures(address_is_null) %did_swap) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ItemStack, align 8
   %ref.tmp5 = alloca %struct.ItemStack, align 8
@@ -10732,7 +10732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9InventoryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(33) initializes((0, 24), (32, 33)) %this, ptr noundef nonnull align 8 dereferenceable(33) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9InventoryC2ERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(33) initializes((0, 24), (32, 33)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(33) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %m_dirty = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10759,7 +10759,7 @@ _ZNSt6vectorIP13InventoryListSaIS1_EED2Ev.exit:   ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN9InventoryaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(33) %this, ptr noundef nonnull readonly align 8 dereferenceable(33) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN9InventoryaSERKS_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(33) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %this, %other
   br i1 %cmp.not, label %if.end, label %if.then

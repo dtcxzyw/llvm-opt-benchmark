@@ -339,7 +339,7 @@ _ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf211prologueX64EjjbSt16initializer_listINS0_3X6411RegisterX64EERKSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, ptr readonly %4, i64 %5, ptr nonnull readnone align 8 captures(none) %6) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf211prologueX64EjjbSt16initializer_listINS0_3X6411RegisterX64EERKSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, ptr readonly captures(address) %4, i64 %5, ptr nonnull readnone align 8 captures(none) %6) unnamed_addr #4 align 2 {
   br i1 %3, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %18
 
 _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %7

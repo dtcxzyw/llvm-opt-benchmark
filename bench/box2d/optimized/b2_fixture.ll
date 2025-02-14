@@ -355,7 +355,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN12b2BroadPhase9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9b2Fixture13SetFilterDataERK8b2Filter(ptr noundef nonnull align 8 dereferenceable(80) initializes((60, 66)) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %filter) local_unnamed_addr #1 align 2 {
+define void @_ZN9b2Fixture13SetFilterDataERK8b2Filter(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((60, 66)) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %filter) local_unnamed_addr #1 align 2 {
 entry:
   %m_filter = getelementptr inbounds nuw i8, ptr %this, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %m_filter, ptr noundef nonnull align 2 dereferenceable(6) %filter, i64 6, i1 false)
@@ -435,7 +435,7 @@ _ZN9b2Fixture8RefilterEv.exit:                    ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9b2Fixture8RefilterEv(ptr noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN9b2Fixture8RefilterEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_body = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_body, align 8

@@ -2562,7 +2562,7 @@ define linkonce_odr void @_ZN3nix8SysErrorC2IJA15_cEEEDpRKT_(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10runProgramENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS0_4listIS5_SaIS5_EEERKSt8optionalIS5_Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10runProgramENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS0_4listIS5_SaIS5_EEERKSt8optionalIS5_Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair", align 8
   %8 = alloca %"struct.nix::RunOptions", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

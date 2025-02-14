@@ -674,7 +674,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hostdev_receive(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
+define internal void @hostdev_receive(ptr noundef captures(address) %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %rx_pending = getelementptr inbounds nuw i8, ptr %opaque, i64 73
@@ -790,7 +790,7 @@ if.end33:                                         ; preds = %update_irq.exit, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hostdev_event(ptr noundef %opaque, i32 noundef %event) #0 {
+define internal void @hostdev_event(ptr noundef captures(address) %opaque, i32 noundef %event) #0 {
 entry:
   %zero = alloca i8, align 1
   %cond1 = icmp eq i32 %event, 0

@@ -713,7 +713,7 @@ declare noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull
 declare noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr readonly %1, i64 %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %.not27 = icmp samesign eq i64 %2, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
 
@@ -751,7 +751,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format28IntegerLiteralSeparatorF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang6format28IntegerLiteralSeparatorFixer6formatB5cxx11EN4llvm9StringRefEiib(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1, ptr readonly %2, i64 %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang6format28IntegerLiteralSeparatorFixer6formatB5cxx11EN4llvm9StringRefEiib(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1, ptr readonly captures(address) %2, i64 %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !302
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

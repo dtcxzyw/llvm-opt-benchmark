@@ -1076,7 +1076,7 @@ common.ret:                                       ; preds = %54, %31
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN3url13path_segments15PathSegmentsMut6extend17h0ddaf5f2ee07ee3cE(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN3url13path_segments15PathSegmentsMut6extend17h0ddaf5f2ee07ee3cE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, i64, i64, i8, i8, [6 x i8] } }, {} }, ptr, ptr }, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1

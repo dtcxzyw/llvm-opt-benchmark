@@ -1062,7 +1062,7 @@ for.end45:                                        ; preds = %for.inc43, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue211GoughSSAVarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211GoughSSAVarD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1171,7 +1171,7 @@ _ZN3ue211GoughSSAVar13clear_outputsEv.exit:       ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue214GoughSSAVarMin12clear_inputsEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214GoughSSAVarMin12clear_inputsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inputs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %inputs, align 8, !noalias !60
@@ -1247,7 +1247,7 @@ for.end:                                          ; preds = %_ZN3ue28flat_setIPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214GoughSSAVarMin13replace_inputEPNS_11GoughSSAVarES2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %old_v, ptr noundef %new_v) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214GoughSSAVarMin13replace_inputEPNS_11GoughSSAVarES2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef captures(address) %old_v, ptr noundef %new_v) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_v.addr = alloca ptr, align 8
   %tmp = alloca %"struct.std::pair.90", align 8
@@ -1995,7 +1995,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit57:                  ; preds = %for.end44, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue214GoughSSAVarMin16remove_input_rawEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef readnone %v) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214GoughSSAVarMin16remove_input_rawEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef readnone captures(address) %v) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inputs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %inputs, align 8, !noalias !181
@@ -2060,7 +2060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZNK3ue215GoughSSAVarJoin9get_inputERKN5boost6detail14edge_desc_implINS1_17bidirectional_tagEmEE(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %prev) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK3ue215GoughSSAVarJoin9get_inputERKN5boost6detail14edge_desc_implINS1_17bidirectional_tagEmEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %prev) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -2126,7 +2126,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSSAVarJoin19get_edges_for_inputEPNS_11GoughSSAVarE(ptr noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef readnone %input) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSSAVarJoin19get_edges_for_inputEPNS_11GoughSSAVarE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(128) %this, ptr noundef readnone captures(address) %input) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -2167,7 +2167,7 @@ _ZNKSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSSAVarJoin13get_input_mapEv(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSSAVarJoin13get_input_mapEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(128) %this) local_unnamed_addr #8 align 2 {
 entry:
   %input_map = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %input_map
@@ -2772,7 +2772,7 @@ return:                                           ; preds = %lor.rhs, %_ZN5boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215GoughSSAVarJoin16remove_input_rawEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef readnone %v) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215GoughSSAVarJoin16remove_input_rawEPNS_11GoughSSAVarE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef readnone captures(address) %v) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input_map = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -16835,7 +16835,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports_in, ptr noundef nonnull captures(none) %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %reports_in, ptr noundef nonnull captures(none) %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %reports_in, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -20856,7 +20856,7 @@ for.end:                                          ; preds = %invoke.cont11, %inv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc ptr @_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %__x) unnamed_addr #9 align 2 {
+define internal fastcc ptr @_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %__x) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load ptr, ptr %0, align 8
@@ -21005,7 +21005,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Sel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %__k) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %__k) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Alloc_node", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16

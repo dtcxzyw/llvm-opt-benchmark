@@ -17225,7 +17225,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13RowOperations16HeapScatterVDataERNS_19UnifiedVectorFormatENS_12PhysicalTypeERKNS_15SelectionVectorEmmPPhS8_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %vdata, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_idx, ptr noundef captures(none) %key_locations, ptr noundef readonly %validitymask_locations, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13RowOperations16HeapScatterVDataERNS_19UnifiedVectorFormatENS_12PhysicalTypeERKNS_15SelectionVectorEmmPPhS8_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %vdata, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_idx, ptr noundef captures(none) %key_locations, ptr noundef readonly captures(address_is_null) %validitymask_locations, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator.20", align 1
@@ -18828,7 +18828,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21HeapScatterListVectorERNS_6VectorEmRKNS_15SelectionVectorEmmPPhS6_m(ptr noundef nonnull align 8 dereferenceable(104) %v, i64 noundef %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_no, ptr noundef captures(none) %key_locations, ptr noundef readonly %validitymask_locations, i64 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21HeapScatterListVectorERNS_6VectorEmRKNS_15SelectionVectorEmmPPhS6_m(ptr noundef nonnull align 8 dereferenceable(104) %v, i64 noundef %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_no, ptr noundef captures(none) %key_locations, ptr noundef readonly captures(address_is_null) %validitymask_locations, i64 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %vdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -19652,7 +19652,7 @@ ehcleanup147:                                     ; preds = %ehcleanup141, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL22HeapScatterArrayVectorERNS_6VectorEmRKNS_15SelectionVectorEmmPPhS6_m(ptr noundef nonnull align 8 dereferenceable(104) %v, i64 noundef %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_idx, ptr noundef captures(none) %key_locations, ptr noundef readonly %validitymask_locations, i64 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL22HeapScatterArrayVectorERNS_6VectorEmRKNS_15SelectionVectorEmmPPhS6_m(ptr noundef nonnull align 8 dereferenceable(104) %v, i64 noundef %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, i64 noundef %ser_count, i64 noundef %col_idx, ptr noundef captures(none) %key_locations, ptr noundef readonly captures(address_is_null) %validitymask_locations, i64 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vdata.i = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %child_type = alloca %"struct.duckdb::LogicalType", align 8
@@ -20769,7 +20769,7 @@ ehcleanup136:                                     ; preds = %ehcleanup134, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13RowOperations10HeapGatherERNS_6VectorERKmRKNS_15SelectionVectorES4_PPhS9_(ptr noundef nonnull align 8 dereferenceable(104) %v, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %col_no, ptr noundef captures(none) %key_locations, ptr noundef readonly %validitymask_locations) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13RowOperations10HeapGatherERNS_6VectorERKmRKNS_15SelectionVectorES4_PPhS9_(ptr noundef nonnull align 8 dereferenceable(104) %v, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %vcount, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sel, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %col_no, ptr noundef captures(none) %key_locations, ptr noundef readonly captures(address_is_null) %validitymask_locations) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vcount.addr.i = alloca i64, align 8
   %struct_validitymask_locations.i = alloca [2048 x ptr], align 16

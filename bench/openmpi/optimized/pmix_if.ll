@@ -923,7 +923,7 @@ define zeroext i1 @pmix_ifislocal(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
+define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i32], align 16
   %6 = alloca ptr, align 8

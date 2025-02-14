@@ -6675,7 +6675,7 @@ define hidden void @_ZN8GraphKit14replace_in_mapEP4NodeS1_(ptr noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit17null_check_commonEP4Node9BasicTypebPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit17null_check_commonEP4Node9BasicTypebPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.BuildCutout, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -14174,17 +14174,17 @@ define hidden void @_ZN8GraphKit22round_double_argumentsEP8ciMethod(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN8GraphKit18precision_roundingEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef readnone returned %1) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN8GraphKit18precision_roundingEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN8GraphKit19dprecision_roundingEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef readnone returned %1) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN8GraphKit19dprecision_roundingEP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(84) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef captures(address_is_null) initializes((0, 8)) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 744
@@ -17866,7 +17866,7 @@ _ZN8GraphKit7stoppedEv.exit.thread:               ; preds = %4, %30, %85, %25, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8GraphKit16seems_never_nullEP4NodeP11ProfileDataRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8GraphKit16seems_never_nullEP4NodeP11ProfileDataRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -20023,7 +20023,7 @@ _ZN8GraphKit14replace_in_mapEP4NodeS1_.exit:      ; preds = %566, %542, %539, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit13gen_checkcastEP4NodeS1_PS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit13gen_checkcastEP4NodeS1_PS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   tail call void @_ZN8GraphKit16kill_dead_localsEv(ptr noundef nonnull align 8 dereferenceable(84) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -23763,7 +23763,7 @@ _ZN4NodenwEm.exit94:                              ; preds = %520, %522
 declare noundef ptr @_ZN7Compile10alias_typeEP7ciField(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit12new_instanceEP4NodeS1_PS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit12new_instanceEP4NodeS1_PS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = call noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %8 = icmp eq ptr %7, null
@@ -24069,7 +24069,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %166, %168
 declare void @_ZN12AllocateNodeC1EP7CompilePK8TypeFuncP4NodeS6_S6_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(131), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca %class.BuildCutout, align 8
   %9 = call noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %7)

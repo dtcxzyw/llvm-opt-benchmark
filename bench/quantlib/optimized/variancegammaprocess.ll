@@ -2183,21 +2183,21 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess2s0Ev(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess2s0Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
 entry:
   %s0_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %s0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess13dividendYieldEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
 entry:
   %dividendYield_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   ret ptr %dividendYield_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib20VarianceGammaProcess12riskFreeRateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %this) local_unnamed_addr #12 align 2 {
 entry:
   %riskFreeRate_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   ret ptr %riskFreeRate_

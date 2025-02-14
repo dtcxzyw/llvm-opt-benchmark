@@ -631,7 +631,7 @@ define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hc6fc221205e9c040E"(ptr noalias noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
+define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hc6fc221205e9c040E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(424) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -1228,7 +1228,7 @@ _ZN12aho_corasick3nfa10contiguous5State9match_len17hd21b541d2068b2cbE.exit: ; pr
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17h2d7d23ef9ce4aba1E"(ptr noalias noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
+define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17h2d7d23ef9ce4aba1E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(384) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
@@ -1644,7 +1644,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E.exit: ; preds = 
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hf2350c1b17f389b9E"(ptr noalias noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
+define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hf2350c1b17f389b9E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(440) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null

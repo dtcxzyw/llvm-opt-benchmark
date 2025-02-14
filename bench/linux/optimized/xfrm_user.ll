@@ -2839,7 +2839,7 @@ declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noali
 declare dso_local i32 @xfrm_get_acqseq() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_newpolicy_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_newpolicy_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %4 = load i8, ptr %3, align 1
   %5 = icmp ult i8 %4, 4
@@ -2945,7 +2945,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_newpolicy_info(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @validate_tmpl(i32 noundef range(i32 -33554435, 33554430) %0, ptr noundef captures(none) %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 256) %3, ptr noundef writeonly %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @validate_tmpl(i32 noundef range(i32 -33554435, 33554430) %0, ptr noundef captures(none) %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 256) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #2 align 16 {
   %6 = icmp sgt i32 %0, 6
   br i1 %6, label %34, label %7
 
@@ -3230,7 +3230,7 @@ define internal void @xfrm_user_net_pre_exit(ptr noundef %0) #10 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xfrm_user_net_exit(ptr noundef readonly %0) #2 align 16 {
+define internal void @xfrm_user_net_exit(ptr noundef readonly captures(address) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader
@@ -4336,7 +4336,7 @@ define internal i32 @xfrm_add_sa(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_del_sa(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal i32 @xfrm_del_sa(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.km_event, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -4741,7 +4741,7 @@ define internal noundef i32 @xfrm_dump_sa_done(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #2 align 16 {
+define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.km_event, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4858,7 +4858,7 @@ define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_get_policy(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal i32 @xfrm_get_policy(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.xfrm_dump_info, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.km_event, align 8
@@ -5375,7 +5375,7 @@ define internal i32 @xfrm_alloc_userspi(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #2 align 16 {
+define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -5531,7 +5531,7 @@ define internal i32 @xfrm_add_acquire(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @xfrm_add_sa_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @xfrm_add_sa_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -5622,7 +5622,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_add_sa_expire(ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_add_pol_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal i32 @xfrm_add_pol_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.xfrm_mark, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5856,7 +5856,7 @@ define internal noundef range(i32 -2, -3) i32 @xfrm_flush_sa(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, -3) i32 @xfrm_flush_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal noundef range(i32 -2, -3) i32 @xfrm_flush_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.km_event, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -5920,7 +5920,7 @@ define internal noundef range(i32 -2, -3) i32 @xfrm_flush_policy(ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @xfrm_new_ae(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @xfrm_new_ae(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = alloca %struct.km_event, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -6499,7 +6499,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_get_sadinfo(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -7064,7 +7064,7 @@ declare dso_local void @km_state_notify(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @llvm.bswap.i32(i32) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead(ptr %.144.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead(ptr captures(address_is_null) %.144.val, ptr noundef writeonly captures(address_is_null) %0) unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %.144.val, null
   br i1 %2, label %18, label %3
 
@@ -7100,7 +7100,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_aead(ptr %.144.val,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc(ptr %.160.val, ptr noundef writeonly %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc(ptr captures(address_is_null) %.160.val, ptr noundef writeonly captures(address_is_null) %0) unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %.160.val, null
   br i1 %2, label %18, label %3
 
@@ -7136,7 +7136,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_auth_trunc(ptr %.16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_one_alg(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 4) %1, ptr noundef writeonly %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_one_alg(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 4) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 align 16 {
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr ptr, ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -7175,7 +7175,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_one_alg(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len(ptr readonly %.64.val, ptr noundef writeonly %0) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len(ptr readonly captures(address_is_null) %.64.val, ptr noundef writeonly captures(address_is_null) %0) unnamed_addr #12 align 16 {
   %2 = icmp eq ptr %.64.val, null
   br i1 %2, label %19, label %3
 
@@ -7211,7 +7211,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_sec_ctx_len(ptr rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @verify_replay(ptr noundef readonly captures(none) %0, ptr readonly %.184.val, ptr noundef writeonly %1) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @verify_replay(ptr noundef readonly captures(none) %0, ptr readonly captures(address_is_null) %.184.val, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #12 align 16 {
   %3 = icmp eq ptr %.184.val, null
   br i1 %3, label %4, label %10
 
@@ -7293,7 +7293,7 @@ declare dso_local ptr @xfrm_state_alloc(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -38, 1) i32 @attach_auth(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -38, 1) i32 @attach_auth(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 align 16 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %38, label %6
 
@@ -7352,7 +7352,7 @@ define internal fastcc noundef range(i32 -38, 1) i32 @attach_auth(ptr noundef wr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -38, 1) i32 @attach_one_algo(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -38, 1) i32 @attach_one_algo(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 align 16 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %27, label %6
 
@@ -7403,7 +7403,7 @@ declare dso_local ptr @xfrm_calg_get_byname(ptr noundef, i32 noundef) local_unna
 declare dso_local i32 @__xfrm_init_state(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @xfrm_alloc_replay_state_esn(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @xfrm_alloc_replay_state_esn(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %24, label %5
 
@@ -7656,7 +7656,7 @@ declare dso_local i32 @xfrm_state_walk(ptr noundef, ptr noundef, ptr noundef, pt
 declare dso_local void @xfrm_state_walk_done(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xfrm_policy_construct(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc ptr @xfrm_policy_construct(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 align 16 {
   %6 = tail call ptr @xfrm_policy_alloc(ptr noundef %0, i32 noundef 3264) #16
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9

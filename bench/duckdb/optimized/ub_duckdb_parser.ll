@@ -1794,14 +1794,14 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb16ColumnDefinition4TypeEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb16ColumnDefinition4TypeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %type
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16ColumnDefinition11TypeMutableEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16ColumnDefinition11TypeMutableEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %type
@@ -1907,7 +1907,7 @@ _ZN6duckdb11LogicalTypeaSERKS0_.exit:             ; preds = %if.end9.i.i.i.i, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb16ColumnDefinition4NameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb16ColumnDefinition4NameB5cxx11Ev(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %this
 }
@@ -1920,7 +1920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6duckdb16ColumnDefinition15CompressionTypeEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6duckdb16ColumnDefinition15CompressionTypeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %compression_type = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %compression_type
@@ -1935,7 +1935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb16ColumnDefinition10StorageOidEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb16ColumnDefinition10StorageOidEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %storage_oid = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %storage_oid
@@ -1966,7 +1966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb16ColumnDefinition3OidEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb16ColumnDefinition3OidEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %oid = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %oid
@@ -1981,7 +1981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6duckdb16ColumnDefinition8CategoryEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6duckdb16ColumnDefinition8CategoryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) local_unnamed_addr #4 align 2 {
 entry:
   %category = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %category

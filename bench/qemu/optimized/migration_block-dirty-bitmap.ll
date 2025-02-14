@@ -105,7 +105,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.59, ptr @.str.60, i32 38, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_unref, ptr @.str.61, ptr @.str.62, i32 238, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_counted_string, ptr @.str.59, ptr @.str.60, i32 164, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_nb_sectors, ptr @.str.59, ptr @.str.63, i32 82, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @check_dirty_bitmap_mig_alias_map(ptr noundef %bbm, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_dirty_bitmap_mig_alias_map(ptr noundef captures(address_is_null) %bbm, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @construct_alias_map(ptr noundef %bbm, i1 noundef zeroext true, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call, null
@@ -127,7 +127,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @construct_alias_map(ptr noundef readonly %bbm, i1 noundef zeroext %name_to_alias, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc ptr @construct_alias_map(ptr noundef readonly captures(address_is_null) %bbm, i1 noundef zeroext %name_to_alias, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @free_alias_map_inner_node) #11
   %tobool.not101 = icmp eq ptr %bbm, null

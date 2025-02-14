@@ -314,7 +314,7 @@ _ZN13GrowableArrayIP6MethodED2Ev.exit:            ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11klassVtable22needs_new_vtable_entryEP6MethodPK5Klass6HandleP6Symbol11AccessFlagst(ptr noundef %0, ptr noundef %1, ptr readonly %2, ptr noundef %3, i32 %4, i16 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN11klassVtable22needs_new_vtable_entryEP6MethodPK5Klass6HandleP6Symbol11AccessFlagst(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr noundef %3, i32 %4, i16 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %.fr60 = freeze ptr %2
   %7 = and i32 %4, 512
   %.not52 = icmp eq i32 %7, 0
@@ -995,7 +995,7 @@ _ZN11klassVtable25add_new_mirandas_to_listsEP13GrowableArrayIP6MethodES4_P5Array
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11klassVtable21initialize_from_superEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN11klassVtable21initialize_from_superEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN11klassVtable14copy_vtable_toEP11vtableEntry.exit, label %4
 
@@ -1191,7 +1191,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %2, %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11klassVtable17initialize_vtableEP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11klassVtable17initialize_vtableEP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.methodHandle, align 8
   %4 = alloca %class.methodHandle, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1666,7 +1666,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11klassVtable23update_inherited_vtableEP6ThreadRK12methodHandleiiP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN11klassVtable23update_inherited_vtableEP6ThreadRK12methodHandleiiP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.HandleMark, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = icmp slt i32 %4, 0
@@ -2200,7 +2200,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %66, %68
 declare noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11klassVtable24find_transitive_overrideEP13InstanceKlassRK12methodHandlei6HandleP6Symbol(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr nonnull readnone align 8 captures(none) %2, i32 noundef %3, ptr readonly %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN11klassVtable24find_transitive_overrideEP13InstanceKlassRK12methodHandlei6HandleP6Symbol(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr nonnull readnone align 8 captures(none) %2, i32 noundef %3, ptr readonly captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %.fr27 = freeze ptr %4
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %.critedge, label %.lr.ph
@@ -2680,7 +2680,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
 declare noundef ptr @_ZNK13InstanceKlass31lookup_method_in_all_interfacesEP6SymbolS1_N5Klass18DefaultsLookupModeE(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -4, 2147483647) i32 @_ZN11klassVtable16index_of_mirandaEP6SymbolS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -4, 2147483647) i32 @_ZN11klassVtable16index_of_mirandaEP6SymbolS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -3067,7 +3067,7 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE6appendERKS1_.exit2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN11klassVtable21adjust_default_methodEiP6MethodS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN11klassVtable21adjust_default_methodEiP6MethodS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -3578,7 +3578,7 @@ define hidden void @_ZN11klassItableC2EP13InstanceKlass(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11klassItable17initialize_itableEP13GrowableArrayIP6MethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11klassItable17initialize_itableEP13GrowableArrayIP6MethodE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %5 = load i32, ptr %4, align 4
@@ -3791,7 +3791,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread: ; preds = %12, %7, 
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11klassItable31initialize_itable_for_interfaceEiP13InstanceKlassP13GrowableArrayIP6MethodEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11klassItable31initialize_itable_for_interfaceEiP13InstanceKlassP13GrowableArrayIP6MethodEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
 _ZN11klassItable26method_count_for_interfaceEP13InstanceKlass.exit:
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %6 = load ptr, ptr %5, align 8

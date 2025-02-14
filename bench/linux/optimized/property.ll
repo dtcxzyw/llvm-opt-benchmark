@@ -918,7 +918,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @acpi_tie_nondev_subnodes(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @acpi_tie_nondev_subnodes(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %3
 
@@ -955,7 +955,7 @@ define internal fastcc noundef zeroext i1 @acpi_tie_nondev_subnodes(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_untie_nondev_subnodes(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_untie_nondev_subnodes(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1134,7 +1134,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #4 align 16 {
+define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #4 align 16 {
   %5 = icmp eq ptr %0, null
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %5, %.not
@@ -1216,7 +1216,7 @@ define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %6 = or i1 %4, %5
@@ -1332,7 +1332,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address) %4) #0 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1922,7 +1922,7 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_acpi_device_node(ptr noundef readonly %0) #6 align 16 {
+define dso_local zeroext i1 @is_acpi_device_node(ptr noundef readonly captures(address) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -1964,7 +1964,7 @@ define internal noundef range(i32 0, 2) i32 @stop_on_next(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_acpi_data_node(ptr noundef readonly %0) #6 align 16 {
+define dso_local zeroext i1 @is_acpi_data_node(ptr noundef readonly captures(address) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2055,7 +2055,7 @@ define internal i32 @acpi_fwnode_device_get_dma_attr(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0, ptr noundef readonly %1) #5 align 16 {
+define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %5 = or i1 %3, %4
@@ -2141,7 +2141,7 @@ define internal noundef zeroext i1 @acpi_fwnode_property_present(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #5 align 16 {
+define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) #5 align 16 {
   switch i32 %2, label %12 [
     i32 1, label %9
     i32 2, label %6
@@ -2169,7 +2169,7 @@ define internal i32 @acpi_fwnode_property_read_int_array(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i32 @acpi_fwnode_property_read_string_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #5 align 16 {
+define internal i32 @acpi_fwnode_property_read_string_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) #5 align 16 {
   %5 = tail call fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef %1, i32 noundef 4, ptr noundef %2, i64 noundef %3)
   ret i32 %5
 }
@@ -2241,7 +2241,7 @@ define internal noundef nonnull ptr @acpi_fwnode_get_name_prefix(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @acpi_node_get_parent(ptr noundef readonly %0) #6 align 16 {
+define internal ptr @acpi_node_get_parent(ptr noundef readonly captures(address) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2329,7 +2329,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address) %5) #0 align 16 {
   %7 = zext i32 %4 to i64
   %8 = zext i32 %3 to i64
   %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !32
@@ -2592,7 +2592,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly %0) #6 align 16 {
+define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly captures(address) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2797,7 +2797,7 @@ declare dso_local zeroext i1 @acpi_dma_supported(ptr noundef) local_unnamed_addr
 declare dso_local i32 @acpi_get_dma_attr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 5) %2, ptr noundef writeonly %3, i64 noundef %4) unnamed_addr #5 align 16 {
+define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 5) %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) unnamed_addr #5 align 16 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %8 = or i1 %6, %7

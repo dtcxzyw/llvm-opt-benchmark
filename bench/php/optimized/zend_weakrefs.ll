@@ -1182,7 +1182,7 @@ zend_weakmap_read_dimension.exit.thread:          ; preds = %33, %23, %13, %zend
 declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_weakmap_read_dimension(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
+define internal ptr @zend_weakmap_read_dimension(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1296,7 +1296,7 @@ define hidden void @zim_WeakMap_offsetSet(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_write_dimension(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
+define internal void @zend_weakmap_write_dimension(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7

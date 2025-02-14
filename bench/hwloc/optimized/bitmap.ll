@@ -87,7 +87,7 @@ hwloc_bitmap_alloc.exit.thread:                   ; preds = %0, %6, %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @hwloc_bitmap_free(ptr noundef %0) local_unnamed_addr #3 {
+define void @hwloc_bitmap_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -103,7 +103,7 @@ define void @hwloc_bitmap_free(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @hwloc_bitmap_tma_dup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define hidden ptr @hwloc_bitmap_tma_dup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %34, label %3
 
@@ -178,7 +178,7 @@ hwloc_tma_malloc.exit25:                          ; preds = %7, %14
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @hwloc_bitmap_dup(ptr noundef readonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @hwloc_bitmap_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %hwloc_bitmap_tma_dup.exit, label %2
 

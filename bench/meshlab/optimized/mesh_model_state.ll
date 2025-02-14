@@ -1785,7 +1785,7 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN14MeshModelState5applyEP9MeshModel(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %0, ptr noundef readnone %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN14MeshModelState5applyEP9MeshModel(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, %4

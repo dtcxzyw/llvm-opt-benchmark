@@ -45773,7 +45773,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPPKN4llvm20CodeGenRegi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPPKN4llvm20CodeGenRegisterClassEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119RegisterInfoEmitter13runTargetDescERNS0_11raw_ostreamEE17BaseClassOrderingEEEvT_SE_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIPPKN4llvm20CodeGenRegisterClassEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119RegisterInfoEmitter13runTargetDescERNS0_11raw_ostreamEE17BaseClassOrderingEEEvT_SE_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -47107,7 +47107,7 @@ _ZSt21__move_merge_adaptiveIPPKN4llvm20CodeGenRegisterClassES4_S4_N9__gnu_cxx5__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt12__move_mergeIPPKN4llvm20CodeGenRegisterClassES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119RegisterInfoEmitter13runTargetDescERNS0_11raw_ostreamEE17BaseClassOrderingEEET0_T_SF_SF_SF_SE_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @_ZSt12__move_mergeIPPKN4llvm20CodeGenRegisterClassES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119RegisterInfoEmitter13runTargetDescERNS0_11raw_ostreamEE17BaseClassOrderingEEET0_T_SF_SF_SF_SE_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #1 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7

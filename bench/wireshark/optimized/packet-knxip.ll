@@ -2182,7 +2182,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i8 noundef signext range(i8 0, 59) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i8 noundef signext range(i8 0, 59) %6, ptr noundef captures(address_is_null) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
   %12 = alloca [32 x i8], align 16
@@ -5287,7 +5287,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 6) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 129) %6) unnamed_addr #0 {
+define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 6) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef range(i32 0, 129) %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) @__const.knxip_tree_add_bit.format, i64 32, i1 false)
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #9
@@ -5462,7 +5462,7 @@ define internal fastcc ptr @decrypt_secure_wrapper(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @make_key_info(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @make_key_info(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 

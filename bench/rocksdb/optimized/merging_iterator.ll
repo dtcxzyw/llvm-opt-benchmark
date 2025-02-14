@@ -5318,7 +5318,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15MergingIterator25AddToMaxHeapOrCheckStatusEPNS0_8HeapItemE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef %child) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15MergingIterator25AddToMaxHeapOrCheckStatusEPNS0_8HeapItemE(ptr noundef nonnull align 8 captures(address) dereferenceable(344) %this, ptr noundef %child) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::unique_ptr", align 8
   %child.addr = alloca ptr, align 8
@@ -8617,7 +8617,7 @@ if.end40:                                         ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb20MergeIteratorBuilder6FinishEPNS_18ArenaWrappedDBIterE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly %db_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb20MergeIteratorBuilder6FinishEPNS_18ArenaWrappedDBIterE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef writeonly captures(address_is_null) %db_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %use_merging_iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %use_merging_iter, align 8

@@ -7491,7 +7491,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp11XGLImporter12ReadVerticesERN4pugi8xml_nodeENS0_8TempMeshEPNS0_8TempFaceEPbjRNS0_9TempScopeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %child, ptr noundef %t, ptr noundef writeonly captures(none) %tf, ptr noundef writeonly captures(none) %has, i32 noundef %mid, ptr noundef nonnull align 8 dereferenceable(152) %scope) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN6Assimp11XGLImporter12ReadVerticesERN4pugi8xml_nodeENS0_8TempMeshEPNS0_8TempFaceEPbjRNS0_9TempScopeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %child, ptr noundef captures(address) %t, ptr noundef writeonly captures(none) %tf, ptr noundef writeonly captures(none) %has, i32 noundef %mid, ptr noundef nonnull align 8 dereferenceable(152) %scope) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i49 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -7944,7 +7944,7 @@ _ZNSt3mapIj10aiVector3tIfESt4lessIjESaISt4pairIKjS1_EEED2Ev.exit5: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XGLImporter18AppendOutputMeshesESt3mapIjNS0_16TempMaterialMeshESt4lessIjESaISt4pairIKjS2_EEERNS0_9TempScopeEj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %bymat, ptr noundef nonnull align 8 dereferenceable(152) %scope, i32 noundef %mesh_id) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporter18AppendOutputMeshesESt3mapIjNS0_16TempMaterialMeshESt4lessIjESaISt4pairIKjS2_EEERNS0_9TempScopeEj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %bymat, ptr noundef nonnull align 8 dereferenceable(152) %scope, i32 noundef %mesh_id) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %bymat, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -8152,7 +8152,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN6Assimp11XGLImporter16TempMaterialMeshEESt10_Select1s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XGLImporter14ReadFaceVertexERN4pugi8xml_nodeERKNS0_8TempMeshERNS0_8TempFaceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, ptr noundef nonnull readonly align 8 dereferenceable(144) %t, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(34) %out) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporter14ReadFaceVertexERN4pugi8xml_nodeERKNS0_8TempMeshERNS0_8TempFaceE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(144) %t, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(34) %out) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i123 = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %agg.tmp.i118 = alloca %"class.Assimp::Formatter::basic_formatter", align 8

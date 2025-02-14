@@ -33,7 +33,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mc146818_set
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_mc146818_avoid_UIP389, ptr @__UNIQUE_ID___addressable_mc146818_does_rtc_work390, ptr @__UNIQUE_ID___addressable_mc146818_get_time391, ptr @__UNIQUE_ID___addressable_mc146818_set_time392], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @mc146818_avoid_UIP(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @mc146818_avoid_UIP(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %.loopexit
 

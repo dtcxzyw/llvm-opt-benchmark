@@ -258,7 +258,7 @@ generate_recursion_path.exit:                     ; preds = %115, %121
 declare void @setup_simple_rel_arrays(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, ptr noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, ptr noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -1041,7 +1041,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #0 {
+define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #0 {
   store i8 1, ptr %7, align 1
   %.not = icmp eq ptr %0, null
   %.not84 = icmp eq ptr %1, null
@@ -1270,7 +1270,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_append_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc ptr @generate_append_tlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit, label %6
 

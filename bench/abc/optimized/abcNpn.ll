@@ -349,7 +349,7 @@ define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unn
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_TruthNpnPrint(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   %5 = icmp sgt i32 %2, 0

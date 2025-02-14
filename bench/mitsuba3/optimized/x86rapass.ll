@@ -5215,7 +5215,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8BaseNodeES4_(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8BaseNodeES4_(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asmjit::_abi_1_10::Label", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !47

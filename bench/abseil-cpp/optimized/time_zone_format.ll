@@ -2452,7 +2452,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_(ptr noundef readonly %dp, i32 noundef range(i32 0, 3) %width, i32 noundef range(i32 0, 2) %min, i32 noundef range(i32 6, 1025) %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIiEEPKcS6_iT_S7_PS7_(ptr noundef readonly captures(address, ret: address, provenance) %dp, i32 noundef range(i32 0, 3) %width, i32 noundef range(i32 0, 2) %min, i32 noundef range(i32 6, 1025) %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %dp, null
   br i1 %cmp.not, label %if.end52, label %if.then
@@ -3747,7 +3747,7 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIlEEPKcS6_iT_S7_PS7_(ptr noundef nonnull readonly %dp, i32 noundef range(i32 0, 5) %width, i64 noundef %min, i64 noundef %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18ParseIntIlEEPKcS6_iT_S7_PS7_(ptr noundef nonnull readonly captures(address, ret: address, provenance) %dp, i32 noundef range(i32 0, 5) %width, i64 noundef %min, i64 noundef %max, ptr noundef nonnull writeonly captures(none) %vp) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dp, align 1
   %cmp1 = icmp eq i8 %0, 45
@@ -4158,7 +4158,7 @@ if.end60:                                         ; preds = %if.end60.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef nonnull readonly %dp, ptr noundef nonnull writeonly captures(none) %subseconds) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef nonnull readonly captures(address, ret: address, provenance) %dp, ptr noundef nonnull writeonly captures(none) %subseconds) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %dp, align 1
   %conv12 = sext i8 %0 to i32

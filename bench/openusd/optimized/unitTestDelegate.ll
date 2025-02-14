@@ -2212,7 +2212,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate14SetRefineLevelEi(ptr noundef nonnull align 8 dereferenceable(768) initializes((660, 664)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate14SetRefineLevelEi(ptr noundef nonnull align 8 captures(address) dereferenceable(768) initializes((660, 664)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2278,7 +2278,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapINS_7SdfPathEiSt4lessIS2
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker14MarkRprimDirtyERKNS_7SdfPathEj(ptr noundef nonnull align 8 dereferenceable(3328), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate13SetVisibilityEb(ptr noundef nonnull align 8 dereferenceable(768) initializes((664, 665)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate13SetVisibilityEb(ptr noundef nonnull align 8 captures(address) dereferenceable(768) initializes((664, 665)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i8 %3, ptr %4, align 8
@@ -8467,7 +8467,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12_FindPrimvarERKNS_7SdfPathERKNS_7TfTokenEPN9__gnu_cxx17__normal_iteratorIPNS0_8_PrimvarESt6vectorIS9_SaIS9_EEEE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate12_FindPrimvarERKNS_7SdfPathERKNS_7TfTokenEPN9__gnu_cxx17__normal_iteratorIPNS0_8_PrimvarESt6vectorIS9_SaIS9_EEEE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10573,7 +10573,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapINS_7SdfPathENS_18HdUnit
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate23UpdateInstancerPrimvarsEf(ptr noundef nonnull readonly align 8 dereferenceable(768) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate23UpdateInstancerPrimvarsEf(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfRotation", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -10646,7 +10646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapINS_7SdfPathENS_18HdUnit
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEixEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate25UpdateInstancerPrototypesEf(ptr noundef nonnull readonly align 8 dereferenceable(768) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate25UpdateInstancerPrototypesEf(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(768) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -24475,7 +24475,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit137: ; preds = %_ZN32pxrIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate16SetCurveWrapModeERKNS_7SdfPathERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate16SetCurveWrapModeERKNS_7SdfPathERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88

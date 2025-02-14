@@ -330,7 +330,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #3
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define noundef zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = load i32, ptr @show_load_errors, align 4
   switch i32 %3, label %5 [
     i32 0, label %.loopexit

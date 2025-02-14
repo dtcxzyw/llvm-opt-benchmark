@@ -817,7 +817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN12GUIModalMenu12canTakeFocusEPN3irr3gui11IGUIElementE(ptr noundef nonnull readonly align 8 dereferenceable(384) %this, ptr noundef readonly %e) local_unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZN12GUIModalMenu12canTakeFocusEPN3irr3gui11IGUIElementE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(384) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #14 align 2 {
 entry:
   %tobool.not = icmp eq ptr %e, null
   br i1 %tobool.not, label %lor.rhs, label %land.lhs.true

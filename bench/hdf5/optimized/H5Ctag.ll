@@ -806,7 +806,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5C__untag_entry(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define noundef i32 @H5C__untag_entry(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1053,7 +1053,7 @@ define range(i32 -1, 1) i32 @H5C__iter_tagged_entries(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr readonly %.524728.val, i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr readonly captures(address_is_null) %.524728.val, i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %.not = icmp eq ptr %.524728.val, null

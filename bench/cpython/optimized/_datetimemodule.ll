@@ -1311,7 +1311,7 @@ traverse_state.exit:                              ; preds = %5, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_clear(ptr noundef readonly %0) #0 {
+define internal noundef i32 @module_clear(ptr noundef readonly captures(address) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 32
@@ -1412,7 +1412,7 @@ clear_current_module.exit:                        ; preds = %32, %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @module_free(ptr noundef %0) #0 {
+define internal void @module_free(ptr noundef captures(address) %0) #0 {
   %2 = tail call i32 @module_clear(ptr noundef %0)
   ret void
 }
@@ -2161,7 +2161,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare ptr @PyInterpreterState_Get() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_current_module(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc ptr @get_current_module(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
@@ -3060,7 +3060,7 @@ define internal noalias noundef ptr @tzinfo_dst(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tzinfo_fromutc(ptr noundef readnone %0, ptr noundef %1) #0 {
+define internal ptr @tzinfo_fromutc(ptr noundef readnone captures(address) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !51
   %.not.i68 = icmp eq ptr %.val, @PyDateTime_DateTimeType
@@ -15063,7 +15063,7 @@ Py_INCREF.exit:                                   ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @pep495_eq_exception(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @pep495_eq_exception(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @get_flip_fold_offset(ptr noundef %0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Py_DECREF.exit, label %7
@@ -17891,7 +17891,7 @@ declare i32 @PyTime_Time(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyTime_AsTimevalTime_t(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @datetime_from_timet_and_us(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #18
   %7 = call i32 %1(i64 noundef %2, ptr noundef nonnull %6) #18, !callees !89
@@ -18749,7 +18749,7 @@ Py_DECREF.exit:                                   ; preds = %17, %14, %12, %Py_D
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_repr(ptr noundef readonly %0) #0 {
+define internal ptr @timezone_repr(ptr noundef readonly captures(address) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -18825,7 +18825,7 @@ delta_hash.exit:                                  ; preds = %1, %7, %15, %18, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_str(ptr noundef readonly %0) #0 {
+define internal ptr @timezone_str(ptr noundef readonly captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   %.not = icmp eq ptr %3, null
@@ -19063,7 +19063,7 @@ define internal ptr @timezone_new(ptr readnone captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_tzname(ptr noundef %0, ptr noundef readonly %1) #0 {
+define internal ptr @timezone_tzname(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %3, label %11, label %4
 
@@ -19096,7 +19096,7 @@ _timezone_check_argument.exit:                    ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @timezone_utcoffset(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 {
+define internal noundef ptr @timezone_utcoffset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %3, label %11, label %4
 
@@ -19137,7 +19137,7 @@ _Py_NewRef.exit:                                  ; preds = %16, %11, %_timezone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @timezone_dst(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
+define internal noundef ptr @timezone_dst(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #0 {
   %3 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %3, label %_timezone_check_argument.exit.thread, label %4
 
@@ -19166,7 +19166,7 @@ _timezone_check_argument.exit.thread:             ; preds = %4, %2, %PyObject_Ty
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_fromutc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 {
+define internal ptr @timezone_fromutc(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !51
   %.not.i = icmp eq ptr %.val, @PyDateTime_DateTimeType

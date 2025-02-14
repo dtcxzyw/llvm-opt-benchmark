@@ -178,7 +178,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #6
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
   %.not7 = icmp eq i32 %0, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -217,7 +217,7 @@ define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @walker_fetch(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.tree_desc, align 8
   %7 = alloca %struct.name_entry, align 8
   %8 = alloca ptr, align 8

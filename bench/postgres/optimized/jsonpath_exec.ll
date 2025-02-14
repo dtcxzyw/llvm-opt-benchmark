@@ -613,7 +613,7 @@ define dso_local i64 @jsonb_path_query_first_tz(ptr noundef captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeJsonPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeJsonPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct.JsonPathExecContext, align 8
   %8 = alloca %struct.JsonPathItem, align 8
   %9 = alloca %struct.JsonbValue, align 8
@@ -824,7 +824,7 @@ declare zeroext i1 @JsonbExtractScalar(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -833,7 +833,7 @@ define internal fastcc range(i32 0, 3) i32 @executeItem(ptr noundef nonnull %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.JsonbValue, align 8
   %8 = alloca %struct.JsonbValue, align 8
@@ -3538,7 +3538,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct.JsonPathItem, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %8
@@ -3893,7 +3893,7 @@ executePredicate.exit:                            ; preds = %97, %JsonValueListI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeBinaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeBinaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonValueList, align 8
   %8 = alloca %struct.JsonValueList, align 8
@@ -4057,7 +4057,7 @@ declare ptr @numeric_div_opt_error(ptr noundef, ptr noundef, ptr noundef) #1
 declare ptr @numeric_mod_opt_error(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeUnaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeUnaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonValueList, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -4280,7 +4280,7 @@ define internal fastcc range(i32 19, 18) i32 @JsonbType(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItemUnwrapTargetArray(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItemUnwrapTargetArray(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %6, 18
   br i1 %.not, label %11, label %7
@@ -4312,7 +4312,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.JsonbValue, align 8
   tail call void @check_stack_depth() #11
@@ -4716,7 +4716,7 @@ declare ptr @jspOperationName(i32 noundef) local_unnamed_addr #1
 declare ptr @int64_to_numeric(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeNumericItemMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeNumericItemMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca %struct.JsonPathItem, align 8
   %.pre = load i32, ptr %2, align 8
   br i1 %3, label %8, label %JsonbType.exit.thread26
@@ -4858,7 +4858,7 @@ declare double @float8in_internal(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i64 @float8_numeric(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeKeyValueMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeKeyValueMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonPathItem, align 8
   %6 = alloca %struct.JsonbValue, align 8
   %7 = alloca %struct.JsonbValue, align 8

@@ -194,13 +194,13 @@ define noundef ptr @_ZN5boost7process2v211environment6detail18load_native_handle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN5boost7process2v211environment6detail4nextEPKPKc(ptr noundef readnone %0) local_unnamed_addr #10 {
+define noundef nonnull ptr @_ZN5boost7process2v211environment6detail4nextEPKPKc(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5boost7process2v211environment6detail8find_endEPKPKc(ptr noundef readonly %0) local_unnamed_addr #11 {
+define noundef ptr @_ZN5boost7process2v211environment6detail8find_endEPKPKc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #11 {
   br label %2
 
 2:                                                ; preds = %2, %1

@@ -178,7 +178,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_log_unset(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
+define dso_local void @nf_log_unset(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   br label %4
@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_log_register(i8 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_log_unregister(ptr noundef readonly %0) #0 align 16 {
+define dso_local void @nf_log_unregister(ptr noundef readonly captures(address) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
@@ -806,7 +806,7 @@ define internal noundef range(i32 -12, 1) i32 @nf_log_net_init(ptr noundef %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_log_net_exit(ptr noundef readonly %0) #0 align 16 {
+define internal void @nf_log_net_exit(ptr noundef readonly captures(address) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %3 = load ptr, ptr %2, align 32
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -838,7 +838,7 @@ declare dso_local ptr @proc_create_net_data(ptr noundef, i16 noundef zeroext, pt
 declare dso_local void @remove_proc_entry(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @seq_start(ptr readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
+define internal ptr @seq_start(ptr readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #16
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 10
@@ -853,7 +853,7 @@ define internal void @seq_stop(ptr readnone captures(none) %0, ptr readnone capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal ptr @seq_next(ptr readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #11 align 16 {
+define internal ptr @seq_next(ptr readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(ret: address, provenance) %2) #11 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

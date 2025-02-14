@@ -692,7 +692,7 @@ $_ZTVN5clang4Sema18BoundTypeDiagnoserIJiEEE = comdat any
 @switch.table._ZL38handleNonBlockingNonAllocatingTypeAttrRN12_GLOBAL__N_119TypeProcessingStateERN5clang10ParsedAttrERNS2_8QualTypeERNS_21FunctionTypeUnwrapperE.265 = private unnamed_addr constant [12 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationENS_10QualifiersEPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i64 %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationENS_10QualifiersEPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i64 %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %.not.i.i = icmp ult i64 %1, 16
@@ -1119,7 +1119,7 @@ declare void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind 
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationEjPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema18BuildQualifiedTypeENS_8QualTypeENS_14SourceLocationEjPKNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, i32 %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %.not.i.i = icmp ult i64 %1, 16
   br i1 %.not.i.i, label %49, label %6
 
@@ -14817,7 +14817,7 @@ _ZL28deduceOpenCLPointeeAddrSpaceRN5clang4SemaENS_8QualTypeE.exit: ; preds = %_Z
 declare i64 @_ZNK5clang10ASTContext19getBlockPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr %0, ptr noundef writeonly %1) local_unnamed_addr #8 align 2 {
+define dso_local i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 align 2 {
   %.not.i.i = icmp ult ptr %0, inttoptr (i64 16 to ptr)
   br i1 %.not.i.i, label %3, label %4
 
@@ -32998,7 +32998,7 @@ _ZN5clang20ParsedAttributesViewD2Ev.exit:         ; preds = %_ZL30GetTypeSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TypeProcessingStateD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(266) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TypeProcessingStateD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(266) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !47
@@ -50669,7 +50669,7 @@ _ZN5clanglsIA9_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE(ptr noundef nonnull align 8 dereferenceable(266) initializes((264, 265)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE(ptr noundef nonnull align 8 dereferenceable(266) initializes((264, 265)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -62510,7 +62510,7 @@ declare void @_ZN5clang4Sema26translateTemplateArgumentsERKN4llvm15MutableArrayR
 declare i64 @_ZNK5clang10ASTContext11getAutoTypeENS_8QualTypeENS_15AutoTypeKeywordEbbPNS_11ConceptDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(23216), i64, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef byval(%"class.llvm::ArrayRef.1816") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL14getImageAccessRKN5clang20ParsedAttributesViewE(ptr readonly %.8.val, i32 %.16.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14getImageAccessRKN5clang20ParsedAttributesViewE(ptr readonly captures(address) %.8.val, i32 %.16.val) unnamed_addr #0 {
   %1 = zext i32 %.16.val to i64
   %2 = getelementptr inbounds nuw ptr, ptr %.8.val, i64 %1
   %.not56 = icmp eq i32 %.16.val, 0
@@ -76786,7 +76786,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang14ParsedAttrIn
 declare noundef i32 @_ZN5clang19AttributeCommonInfo13getParsedKindEPKNS_14IdentifierInfoES3_NS0_6SyntaxE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_3clERKNS2_20ParsedAttributesViewE"(ptr readonly %.8.val, i32 %.16.val) unnamed_addr #16 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL24GetFullTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateEN5clang8QualTypeEPNS2_14TypeSourceInfoEENK3$_3clERKNS2_20ParsedAttributesViewE"(ptr readonly captures(address) %.8.val, i32 %.16.val) unnamed_addr #16 align 2 {
   %1 = zext i32 %.16.val to i64
   %.idx3.i.i = shl nuw nsw i64 %1, 3
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx3.i.i
@@ -82397,7 +82397,7 @@ _ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSource
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller22VisitAttributedTypeLocEN5clang17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller22VisitAttributedTypeLocEN5clang17AttributedTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address) %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 8, !tbaa !12
   %5 = ptrtoint ptr %2 to i64

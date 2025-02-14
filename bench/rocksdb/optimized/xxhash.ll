@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @ROCKSDB_XXH32(ptr noundef readonly %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
+define i32 @ROCKSDB_XXH32(ptr noundef readonly captures(address) %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %input, null
   br i1 %cmp.i, label %while.cond6.preheader.thread.i.i, label %if.end3.i
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH32_reset(ptr noundef writeonly %statePtr, i32 noundef %seed) local_unnamed_addr #5 {
+define noundef i32 @ROCKSDB_XXH32_reset(ptr noundef writeonly captures(address_is_null) %statePtr, i32 noundef %seed) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %statePtr, null
   tail call void @llvm.assume(i1 %cmp)
@@ -2296,7 +2296,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ROCKSDB_XXH3_freeState(ptr noundef %statePtr) local_unnamed_addr #3 {
+define noundef i32 @ROCKSDB_XXH3_freeState(ptr noundef captures(address_is_null) %statePtr) local_unnamed_addr #3 {
 entry:
   %cmp.not.i = icmp eq ptr %statePtr, null
   br i1 %cmp.not.i, label %_ZL15XXH_alignedFreePv.exit, label %if.then.i

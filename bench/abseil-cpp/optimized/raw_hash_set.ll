@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm(ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #4 {
+define dso_local void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm(ptr noundef captures(address) %ctrl, i64 noundef %capacity) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ctrl, i64 %capacity
   %cmp10 = icmp sgt i64 %capacity, 0

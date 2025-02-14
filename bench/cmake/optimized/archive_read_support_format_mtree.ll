@@ -181,7 +181,7 @@ define internal range(i32 -1, 49) i32 @mtree_bid(ptr noundef %0, i32 %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -20, 1) i32 @archive_read_format_mtree_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #5 {
+define internal range(i32 -20, 1) i32 @archive_read_format_mtree_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = load ptr, ptr %5, align 8, !tbaa !36
@@ -1652,7 +1652,7 @@ declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 33) i32 @detect_form(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %4 = icmp ne ptr %1, null
@@ -2510,7 +2510,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @parse_escapes(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #12 {
+define internal fastcc void @parse_escapes(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #12 {
   %.not50 = icmp eq ptr %1, null
   %.pre54 = load i8, ptr %0, align 1, !tbaa !38
   br i1 %.not50, label %.thread57, label %sub_0

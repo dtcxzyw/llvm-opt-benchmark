@@ -575,7 +575,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 declare i64 @sdsAllocSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getMaxmemoryState(ptr noundef writeonly %total, ptr noundef writeonly %logical, ptr noundef writeonly %tofree, ptr noundef writeonly %level) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getMaxmemoryState(ptr noundef writeonly captures(address_is_null) %total, ptr noundef writeonly captures(address_is_null) %logical, ptr noundef writeonly captures(address_is_null) %tofree, ptr noundef writeonly captures(address_is_null) %level) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @zmalloc_used_memory() #14
   %tobool.not = icmp eq ptr %total, null

@@ -140,7 +140,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = icmp ne ptr %1, null

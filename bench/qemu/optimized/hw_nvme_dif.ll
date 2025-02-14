@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_dif_pract_generate_dif(ptr noundef readonly captures(none) %ns, ptr noundef readonly %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i16 noundef zeroext %apptag, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
+define dso_local void @nvme_dif_pract_generate_dif(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(address) %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i16 noundef zeroext %apptag, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -569,7 +569,7 @@ return:                                           ; preds = %for.inc.i33, %for.i
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 16770) i16 @nvme_dif_check(ptr noundef readonly captures(none) %ns, ptr noundef readonly %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 16770) i16 @nvme_dif_check(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(address) %buf, i64 noundef %len, ptr noundef captures(none) %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr noundef captures(none) %reftag) local_unnamed_addr #1 {
 entry:
   %_now.i.i79.i.i = alloca %struct.timeval, align 8
   %_now.i.i63.i.i = alloca %struct.timeval, align 8
@@ -1277,7 +1277,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 7) i16 @nvme_dif_mangle_mdata(ptr noundef readonly captures(none) %ns, ptr noundef writeonly %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 7) i16 @nvme_dif_mangle_mdata(ptr noundef readonly captures(none) %ns, ptr noundef writeonly captures(address) %mbuf, i64 noundef %mlen, i64 noundef %slba) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8

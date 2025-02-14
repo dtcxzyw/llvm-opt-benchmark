@@ -122,7 +122,7 @@ define hidden void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #11, !noalias !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80

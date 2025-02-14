@@ -2968,7 +2968,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ir_const(ptr noundef, i64, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %7

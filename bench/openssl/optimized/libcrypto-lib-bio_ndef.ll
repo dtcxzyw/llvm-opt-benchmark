@@ -115,7 +115,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_asn1_set_prefix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %b, ptr noundef captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %b, ptr noundef captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly captures(address_is_null) %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %cmp = icmp eq ptr %parg, null
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end8, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly captures(address_is_null) %parg) #0 {
 entry:
   %cmp = icmp eq ptr %parg, null
   br i1 %cmp, label %return, label %if.end
@@ -192,7 +192,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @BIO_asn1_set_suffix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef readonly captures(address_is_null) %parg) #0 {
 entry:
   %p = alloca ptr, align 8
   %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 8
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end18, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef %parg) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr readnone captures(none) %b, ptr noundef writeonly captures(none) %pbuf, ptr noundef writeonly captures(none) %plen, ptr noundef captures(address_is_null) %parg) #0 {
 entry:
   %cmp.i = icmp eq ptr %parg, null
   br i1 %cmp.i, label %return, label %if.end.i

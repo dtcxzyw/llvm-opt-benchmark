@@ -1789,7 +1789,7 @@ declare void @socket_timeout(i32 noundef) #1
 declare void @trace_log_message(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly %rdb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly captures(address_is_null) %rdb) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %cmp.not = icmp eq ptr %rdb, null
@@ -2240,7 +2240,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef nonnull %out, ptr noundef nonnull %bs, ptr noundef readnone %req, ptr noundef nonnull %names, ptr noundef nonnull %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef nonnull %out, ptr noundef nonnull %bs, ptr noundef readnone captures(address_is_null) %req, ptr noundef nonnull %names, ptr noundef nonnull %ids, i64 noundef %nsec, i64 noundef %maxage) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %reason = alloca i32, align 4

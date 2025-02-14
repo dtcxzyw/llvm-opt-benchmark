@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Add_error_class = weak alias i32 (ptr), ptr @PMPI_Add_error_class
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Add_error_class(ptr noundef writeonly %0) #0 {
+define i32 @PMPI_Add_error_class(ptr noundef writeonly captures(address_is_null) %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %15

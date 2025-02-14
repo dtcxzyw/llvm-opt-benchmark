@@ -5126,7 +5126,7 @@ define hidden void @_ZN4util21log_error_with_caller17h45c18ea9934f4777E(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h88d41d84bc6cf64cE.llvm.1961593388339247133"(ptr noalias noundef readonly returned align 4 dereferenceable(8) %0) unnamed_addr #9 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h88d41d84bc6cf64cE.llvm.1961593388339247133"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -11732,7 +11732,7 @@ common.resume:                                    ; preds = %.body, %170
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as$u20$workspace..status_bar..StatusItemView$GT$20set_active_pane_item17h15f8bb55ab6d3b5fE"(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noundef align 1 %1, ptr readonly %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as$u20$workspace..status_bar..StatusItemView$GT$20set_active_pane_item17h15f8bb55ab6d3b5fE"(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noundef align 1 %1, ptr readonly captures(address_is_null) %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [608 x i8], align 8
   %6 = alloca [608 x i8], align 8
   %7 = alloca [608 x i8], align 8

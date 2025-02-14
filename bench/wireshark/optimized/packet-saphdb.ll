@@ -1477,7 +1477,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i8 noundef zeroext %5, ptr noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i8 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = icmp sgt i16 %4, 0
   br i1 %8, label %.lr.ph139, label %.critedge
 

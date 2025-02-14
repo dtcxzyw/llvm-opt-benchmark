@@ -300,7 +300,7 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManCexFirstFlopPi(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManCexRefine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef %10) local_unnamed_addr #2 {
+define ptr @Saig_ManCexRefine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef %10) local_unnamed_addr #2 {
   %12 = alloca %struct.Pdr_Par_t_, align 8
   %13 = alloca %struct.Saig_ParBbr_t_, align 4
   store i32 -1, ptr %9, align 4, !tbaa !45

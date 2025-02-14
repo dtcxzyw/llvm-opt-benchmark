@@ -2129,7 +2129,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit24: ; preds = %252, %254
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN3gmx12_GLOBAL__N_115InsertMolecules11getTopologyEb(ptr noundef nonnull readnone align 8 dereferenceable(1056) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
+define internal noundef nonnull ptr @_ZN3gmx12_GLOBAL__N_115InsertMolecules11getTopologyEb(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1056) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   ret ptr %3
 }
@@ -2140,7 +2140,7 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_115InsertMolecules12getAtomCoun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn8_N3gmx12_GLOBAL__N_115InsertMolecules11getTopologyEb(ptr noundef readnone %0, i1 zeroext %1) unnamed_addr #0 align 2 {
+define internal noundef nonnull ptr @_ZThn8_N3gmx12_GLOBAL__N_115InsertMolecules11getTopologyEb(ptr noundef readnone captures(ret: address, provenance) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   ret ptr %3
 }
@@ -3835,7 +3835,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writable sret(%struct.t_atoms) align 8, ptr noundef nonnull align 8 dereferenceable(768)) local_unnamed_addr #4
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr %.0.val, ptr %.8.val, i32 noundef %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly captures(none) %13, i32 noundef %14) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11insert_molsiiiffP7t_atomsP8t_symtabPSt6vectorIN3gmx11BasicVectorIfEESaIS6_EERKSt3setIiSt4lessIiESaIiEERKS_NS4_8ArrayRefIS6_EE7PbcTypePA3_fRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKf12RotationType(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(72) %9, ptr %.0.val, ptr %.8.val, i32 noundef %10, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly captures(none) %13, i32 noundef %14) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.gmx::AnalysisNeighborhoodPositions", align 8
   %17 = alloca %"class.gmx::AnalysisNeighborhoodPairSearch", align 8
   %18 = alloca %"class.gmx::AnalysisNeighborhoodPair", align 4

@@ -44976,7 +44976,7 @@ _ZNSt4pairISt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EEmED2Ev.exit._crit_edge: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEEN6ChecksD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEEN6ChecksD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i8, ptr %3, align 8
@@ -65774,7 +65774,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_1clERKZNS0_12checkOutputsESH_E6ChecksENKUlRKSt8optionalINS2_4listIS7_SaIS7_EEEEbbE_clESS_bb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZZN3nix19LocalDerivationGoal12checkOutputsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ValidPathInfoESt4lessIS7_ESaISt4pairIKS7_S8_EEEENK3$_1clERKZNS0_12checkOutputsESH_E6ChecksENKUlRKSt8optionalINS2_4listIS7_SaIS7_EEEEbbE_clESS_bb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8

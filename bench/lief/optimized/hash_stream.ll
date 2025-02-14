@@ -910,7 +910,7 @@ declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #6
 declare i32 @mbedtls_md_starts(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream3putEh(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream3putEh(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -947,7 +947,7 @@ _ZN4LIEF10hashstream5writeEPKhm.exit:             ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEPKhm(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEPKhm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -978,7 +978,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstr
 declare i32 @mbedtls_md_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeERKSt6vectorIhSaIhEE(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeERKSt6vectorIhSaIhEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -1018,7 +1018,7 @@ _ZN4LIEF10hashstream5writeEPKhm.exit:             ; preds = %2, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -1059,7 +1059,7 @@ _ZN4LIEF10hashstream5writeEPKhm.exit:             ; preds = %2, %13
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEmh(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5writeEmh(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -1146,7 +1146,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit10:                  ; preds = %24, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream15write_sized_intEmm(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream15write_sized_intEmm(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -1211,7 +1211,7 @@ _ZN4LIEF10hashstream5flushEv.exit:                ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5flushEv(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4LIEF10hashstream5flushEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1348,7 +1348,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 declare i32 @mbedtls_md_finish(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF10hashstream3rawEv(ptr noundef nonnull readonly returned align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF10hashstream3rawEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)

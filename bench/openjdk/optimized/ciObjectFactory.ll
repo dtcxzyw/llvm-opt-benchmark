@@ -2411,7 +2411,7 @@ _ZN15ciObjectFactory15insert_non_permERPNS_13NonPermObjectEP7oopDescP8ciObject.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN15ciObjectFactory13find_non_permEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN15ciObjectFactory13find_non_permEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseCompressedClassPointers, align 1
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2832,7 +2832,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN15ciObjectFactory16metadata_compa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN15ciObjectFactory15cached_metadataEP8Metadata(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(652) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN15ciObjectFactory15cached_metadataEP8Metadata(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(652) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not21.i = icmp slt i32 %4, 1

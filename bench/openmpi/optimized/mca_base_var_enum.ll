@@ -268,7 +268,7 @@ sub_126:                                          ; preds = %sub_025
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @mca_base_var_enum_bool_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #3 {
+define internal noundef i32 @mca_base_var_enum_bool_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #3 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %4
 
@@ -418,7 +418,7 @@ define internal range(i32 -18, 1) i32 @mca_base_var_enum_auto_bool_vfs(ptr readn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @mca_base_var_enum_auto_bool_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #3 {
+define internal noundef i32 @mca_base_var_enum_auto_bool_sfv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #3 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %.sink.split
 
@@ -463,7 +463,7 @@ define internal noundef i32 @enum_get_count(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #1 {
+define internal i32 @enum_get_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -621,7 +621,7 @@ define internal range(i32 -18, 1) i32 @mca_base_var_enum_verbose_sfv(ptr readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %5 = icmp eq ptr %0, null
@@ -1067,7 +1067,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %5
@@ -1197,7 +1197,7 @@ define internal void @mca_base_var_enum_flag_destructor(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #1 {
+define internal i32 @enum_get_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -1399,7 +1399,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #1 {
+define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -1510,7 +1510,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly captures(address_is_null) %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -1654,7 +1654,7 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #1 {
+define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8

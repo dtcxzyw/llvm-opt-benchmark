@@ -77,7 +77,7 @@ define dso_local range(i32 0, 2) i32 @is_empty_ref_iterator(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @ref_iterator_select(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @ref_iterator_select(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not20 = and i1 %4, %5
@@ -181,7 +181,7 @@ define dso_local noundef ptr @overlay_ref_iterator_begin(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 7) i32 @overlay_iterator_select(ptr noundef readonly %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #7 {
+define internal range(i32 -1, 7) i32 @overlay_iterator_select(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2) #7 {
   %.not = icmp eq ptr %1, null
   %.not10 = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6

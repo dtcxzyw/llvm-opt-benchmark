@@ -688,7 +688,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local ptr @build_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %9, null
@@ -1195,7 +1195,7 @@ define dso_local ptr @min_join_parameterization(ptr noundef readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readonly %.32.val.8.val, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @build_joinrel_tlist(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address_is_null) %.32.val.8.val, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1538,7 +1538,7 @@ declare ptr @bms_del_members(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @has_relevant_eclass_joinclause(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_joinrel_partition_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @build_joinrel_partition_info(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca [32 x i8], align 16
   %8 = load i8, ptr @enable_partitionwise_join, align 1
   %9 = trunc i8 %8 to i1

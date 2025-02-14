@@ -107,7 +107,7 @@ define dso_local void @list_aliases(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @quote_cmdline(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @quote_cmdline(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !18
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %._crit_edge, label %.lr.ph

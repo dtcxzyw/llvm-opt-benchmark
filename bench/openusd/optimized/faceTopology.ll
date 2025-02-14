@@ -304,7 +304,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
 declare void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21ConnectUnOrderedFacesEPKi(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology5printEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(944) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology5printEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(944) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

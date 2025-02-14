@@ -282,7 +282,7 @@ define internal fastcc void @chdir_or_fail(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @create_file_or_fail(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ...) unnamed_addr #0 {
+define internal void @create_file_or_fail(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %8

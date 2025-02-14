@@ -320,7 +320,7 @@ declare i64 @_ZN4llvm9sandboxir7Context27registerCreateInstrCallbackESt8function
 declare i64 @_ZN4llvm9sandboxir7Context26registerEraseInstrCallbackESt8functionIFvPNS0_11InstructionEEE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9sandboxir6RegionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9sandboxir6RegionD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104

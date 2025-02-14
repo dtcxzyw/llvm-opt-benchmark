@@ -49,7 +49,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdh_init(ptr noundef %vpecdhctx, ptr noundef %vecdh, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_init(ptr noundef captures(address_is_null) %vpecdhctx, ptr noundef %vecdh, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %ecdh_X9_63_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdh_set_peer(ptr noundef %vpecdhctx, ptr noundef %vecdh) #0 {
+define internal range(i32 0, 2) i32 @ecdh_set_peer(ptr noundef captures(address_is_null) %vpecdhctx, ptr noundef %vecdh) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool = icmp eq i32 %call, 0
@@ -399,7 +399,7 @@ return:                                           ; preds = %if.else31, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdh_set_ctx_params(ptr noundef %vpecdhctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_set_ctx_params(ptr noundef captures(address_is_null) %vpecdhctx, ptr noundef %params) #0 {
 entry:
   %name = alloca [80 x i8], align 16
   %str = alloca ptr, align 8
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdh_get_ctx_params(ptr noundef readonly %vpecdhctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ecdh_get_ctx_params(ptr noundef readonly captures(address_is_null) %vpecdhctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpecdhctx, null
   br i1 %cmp, label %return, label %if.end

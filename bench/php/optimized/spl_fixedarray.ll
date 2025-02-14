@@ -2521,7 +2521,7 @@ declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unn
 declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28

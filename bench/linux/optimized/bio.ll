@@ -5104,7 +5104,7 @@ declare dso_local ptr @xa_store(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare dso_local i32 @__cpuhp_state_add_instance(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bio_cpu_dead(i32 noundef %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef i32 @bio_cpu_dead(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %1, i64 -232
   %5 = select i1 %3, ptr null, ptr %4

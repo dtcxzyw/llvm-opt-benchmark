@@ -101,7 +101,7 @@ TidRangeQualFromRestrictInfoList.exit.thread:     ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %.lr.ph74
@@ -500,7 +500,7 @@ IsCTIDVar.exit:                                   ; preds = %29, %5, %8, %11, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

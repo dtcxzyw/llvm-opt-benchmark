@@ -47656,7 +47656,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt8functionIFdRZ24test_submodule_callbac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEEaSIRPS5_EENSt9enable_ifIXsrNS6_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES6_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS4_EEEE5valueERS6_E4typeEOSC_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFdRZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBaseEEaSIRPS5_EENSt9enable_ifIXsrNS6_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES6_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS4_EEEE5valueERS6_E4typeEOSC_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function.632", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -48692,7 +48692,7 @@ declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #6
 declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module_EE13MovableObjectJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module_EE13MovableObjectJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE13MovableObject, ptr %4, align 8
@@ -54454,7 +54454,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt8functionIFvRZ24test_submodule_callbac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEEaSIRPS5_EENSt9enable_ifIXsrNS6_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES6_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS4_EEEE5valueERS6_E4typeEOSC_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8functionIFvRZ24test_submodule_callbacksRN8pybind117module_EE13MovableObjectEEaSIRPS5_EENSt9enable_ifIXsrNS6_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES6_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS4_EEEE5valueERS6_E4typeEOSC_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function.684", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -55156,7 +55156,7 @@ _ZNSt14_Function_base13_Base_managerIZN8pybind116detail11type_casterISt8function
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module_EE18CppBoundMethodTestJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ24test_submodule_callbacksRNS_7module_EE18CppBoundMethodTestJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE18CppBoundMethodTest, ptr %4, align 8

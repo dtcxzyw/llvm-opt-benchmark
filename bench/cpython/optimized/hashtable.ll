@@ -13,7 +13,7 @@ define dso_local noundef i64 @_Py_hashtable_hash_ptr(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @_Py_hashtable_compare_direct(ptr noundef readnone %0, ptr noundef readnone %1) #0 {
+define dso_local range(i32 0, 2) i32 @_Py_hashtable_compare_direct(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #0 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -409,7 +409,7 @@ define dso_local i32 @_Py_hashtable_foreach(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_Py_hashtable_new_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #2 {
+define dso_local ptr @_Py_hashtable_new_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %8, label %7
 

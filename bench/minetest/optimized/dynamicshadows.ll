@@ -1021,28 +1021,28 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight13getViewMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight13getViewMatrixEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
   %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 156
   ret ptr %ViewMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getProjectionMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getProjectionMatrixEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
   %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 92
   ret ptr %ProjOrthMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getFutureViewMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getFutureViewMatrixEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
   %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 332
   ret ptr %ViewMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight25getFutureProjectionMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight25getFutureProjectionMatrixEv(ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
   %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 268
   ret ptr %ProjOrthMat

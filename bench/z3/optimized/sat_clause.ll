@@ -206,7 +206,7 @@ _ZN3sat6clause13update_approxEv.exit:             ; preds = %for.body.i.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat6clause8containsENS_7literalE(ptr noundef nonnull readonly align 4 dereferenceable(20) %this, i32 %l.coerce) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat6clause8containsENS_7literalE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %this, i32 %l.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -236,7 +236,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat6clause8containsEj(ptr noundef nonnull readonly align 4 dereferenceable(20) %this, i32 noundef %v) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat6clause8containsEj(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %this, i32 noundef %v) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lbooljE(ptr noundef nonnull readonly align 4 dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lbooljE(ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %m) local_unnamed_addr #7 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4

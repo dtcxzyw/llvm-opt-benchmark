@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7rocksdb28InMemoryStatsHistoryIterator11GetStatsMapB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7rocksdb28InMemoryStatsHistoryIterator11GetStatsMapB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #5 align 2 {
 entry:
   %stats_map_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %stats_map_

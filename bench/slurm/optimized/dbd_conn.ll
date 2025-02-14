@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [28 x i8] c"Sending PersistInit msg: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @dbd_conn_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define ptr @dbd_conn_open(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 143, ptr noundef nonnull @__func__.dbd_conn_open) #6
   %.not = icmp eq ptr %0, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -319,7 +319,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dbd_conn_close(ptr noundef %0) local_unnamed_addr #0 {
+define void @dbd_conn_close(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.dbd_fini_msg, align 2
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %59, label %3
@@ -562,7 +562,7 @@ declare ptr @slurm_persist_recv_msg(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_unpack_slurmdbd_msg(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @dbd_conn_send_recv_rc_comment_msg(i16 noundef zeroext %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @dbd_conn_send_recv_rc_comment_msg(i16 noundef zeroext %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.persist_msg_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = tail call zeroext i1 @slurm_running_in_slurmctld() #6

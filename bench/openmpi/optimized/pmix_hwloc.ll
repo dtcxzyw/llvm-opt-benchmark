@@ -2894,7 +2894,7 @@ declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none),
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1366, 1) i32 @pmix_hwloc_generate_cpuset_string(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1366, 1) i32 @pmix_hwloc_generate_cpuset_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5

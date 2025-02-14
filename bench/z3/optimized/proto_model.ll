@@ -2655,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11proto_model9is_finiteEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef readonly %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11proto_model9is_finiteEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(177) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_info.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i, align 8
@@ -3049,7 +3049,7 @@ for.end:                                          ; preds = %.loopexit.i, %entry
 declare void @_ZN11func_interp8compressEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11proto_model21complete_partial_funcEP9func_declb(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr noundef readonly %f, i1 noundef zeroext %use_fresh) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11proto_model21complete_partial_funcEP9func_declb(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr noundef readonly captures(address) %f, i1 noundef zeroext %use_fresh) local_unnamed_addr #3 align 2 {
 entry:
   %m_finterp.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 12

@@ -1358,7 +1358,7 @@ return:                                           ; preds = %do.body, %do.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %t, ptr noundef readonly %key) local_unnamed_addr #6 {
+define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(address) %key) local_unnamed_addr #6 {
 entry:
   %sid = getelementptr inbounds nuw i8, ptr %key, i64 12
   %0 = load i32, ptr %sid, align 4

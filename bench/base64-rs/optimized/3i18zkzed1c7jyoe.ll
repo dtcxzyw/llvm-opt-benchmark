@@ -1243,7 +1243,7 @@ _ZN6base646engine15general_purpose6decode13decode_helper17hd7378cfdb209d740E.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h5501eaddeb27cdd9E"(ptr noalias noundef readonly returned align 1 dereferenceable(323) %0) unnamed_addr #2 {
+define noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u20$base64..engine..Engine$GT$6config17h5501eaddeb27cdd9E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(323) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

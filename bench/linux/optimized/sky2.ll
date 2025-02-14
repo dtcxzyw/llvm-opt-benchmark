@@ -994,7 +994,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @sky2_name(i8 noundef zeroext %0, ptr noundef returned writeonly %1) unnamed_addr #8 align 16 {
+define internal fastcc noundef ptr @sky2_name(i8 noundef zeroext %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) unnamed_addr #8 align 16 {
   %3 = zext i8 %0 to i32
   %4 = add i8 %0, 77
   %5 = icmp ult i8 %4, 12
@@ -5025,7 +5025,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local i32 @device_set_wakeup_enable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sky2_set_multicast(ptr noundef readonly %0) #2 align 16 {
+define internal void @sky2_set_multicast(ptr noundef readonly captures(address) %0) #2 align 16 {
   %2 = alloca [8 x i8], align 8
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 64

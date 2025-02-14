@@ -386,7 +386,7 @@ return:                                           ; preds = %lor.lhs.false27, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pkey_rsa_verify_recover(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %out, ptr noundef captures(none) %out_len, ptr noundef %sig, i64 noundef %sig_len) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_verify_recover(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(address_is_null) %out, ptr noundef captures(none) %out_len, ptr noundef %sig, i64 noundef %sig_len) #1 {
 entry:
   %asn1_prefix = alloca ptr, align 8
   %asn1_prefix_len = alloca i64, align 8

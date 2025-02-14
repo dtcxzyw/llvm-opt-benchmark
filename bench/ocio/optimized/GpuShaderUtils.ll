@@ -328,7 +328,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef %str) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef %str) local_unnamed_addr #5 align 2 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEf(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, float noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEf(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, float noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
@@ -424,7 +424,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEd(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, double noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEd(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, double noundef %value) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
@@ -495,7 +495,7 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEj(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEj(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ossLine = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -506,7 +506,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEi(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEi(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ossLine = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -517,7 +517,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ossLine = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %rhs) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineaSERKS1_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %rhs
   br i1 %cmp.not, label %if.end, label %if.then

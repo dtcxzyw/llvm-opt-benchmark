@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.md4_ctx = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_md4it(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_md4it(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md4_ctx, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -31,37 +31,36 @@ define dso_local noundef i32 @Curl_md4it(ptr noundef writeonly captures(none) in
   %16 = and i64 %11, 4294967232
   %17 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %16)
   %18 = and i64 %11, 63
-  %.pre.pre = load i32, ptr %4, align 4, !tbaa !12
+  %.pre = load i32, ptr %4, align 4, !tbaa !12
   br label %MD4_Update.exit
 
 MD4_Update.exit:                                  ; preds = %3, %15
-  %.pre = phi i32 [ %.pre.pre, %15 ], [ %12, %3 ]
+  %19 = phi i32 [ %.pre, %15 ], [ %12, %3 ]
   %.239.i = phi i64 [ %18, %15 ], [ %11, %3 ]
   %.2.i = phi ptr [ %17, %15 ], [ %1, %3 ]
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 1 %.2.i, i64 %.239.i, i1 false)
-  %20 = and i32 %.pre, 63
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = add nuw nsw i64 %21, 1
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %21
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr align 1 %.2.i, i64 %.239.i, i1 false)
+  %21 = and i32 %19, 63
+  %22 = zext nneg i32 %21 to i64
+  %23 = add nuw nsw i64 %22, 1
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %22
   store i8 -128, ptr %24, align 1, !tbaa !14
-  %25 = xor i64 %21, 63
+  %25 = xor i64 %22, 63
   %26 = icmp samesign ult i64 %25, 8
   br i1 %26, label %27, label %MD4_Final.exit
 
 27:                                               ; preds = %MD4_Update.exit
-  %28 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %23
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %25, i1 false)
-  %29 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
+  %29 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef 64)
   %.pre.i = load i32, ptr %4, align 4, !tbaa !12
   br label %MD4_Final.exit
 
 MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %27
-  %30 = phi i32 [ %.pre.i, %27 ], [ %.pre, %MD4_Update.exit ]
+  %30 = phi i32 [ %.pre.i, %27 ], [ %19, %MD4_Update.exit ]
   %.064.i = phi i64 [ 0, %27 ], [ %23, %MD4_Update.exit ]
   %.0.i = phi i64 [ 64, %27 ], [ %25, %MD4_Update.exit ]
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %.064.i
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %.064.i
   %32 = add nsw i64 %.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %32, i1 false)
   %33 = shl i32 %30, 3
@@ -71,156 +70,138 @@ MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %2
   %36 = call zeroext i8 @curlx_ultouc(i64 noundef %35) #7
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 %36, ptr %37, align 4, !tbaa !14
-  %38 = load i32, ptr %4, align 4, !tbaa !12
-  %39 = lshr i32 %38, 8
-  %40 = and i32 %39, 255
-  %41 = zext nneg i32 %40 to i64
-  %42 = call zeroext i8 @curlx_ultouc(i64 noundef %41) #7
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 81
-  store i8 %42, ptr %43, align 1, !tbaa !14
-  %44 = load i32, ptr %4, align 4, !tbaa !12
-  %45 = lshr i32 %44, 16
-  %46 = and i32 %45, 255
-  %47 = zext nneg i32 %46 to i64
-  %48 = call zeroext i8 @curlx_ultouc(i64 noundef %47) #7
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 82
-  store i8 %48, ptr %49, align 2, !tbaa !14
-  %50 = load i32, ptr %4, align 4, !tbaa !12
-  %51 = lshr i32 %50, 24
-  %52 = zext nneg i32 %51 to i64
-  %53 = call zeroext i8 @curlx_ultouc(i64 noundef %52) #7
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 83
-  store i8 %53, ptr %54, align 1, !tbaa !14
-  %55 = load i32, ptr %9, align 4, !tbaa !13
-  %56 = and i32 %55, 255
-  %57 = zext nneg i32 %56 to i64
-  %58 = call zeroext i8 @curlx_ultouc(i64 noundef %57) #7
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  store i8 %58, ptr %59, align 4, !tbaa !14
-  %60 = load i32, ptr %9, align 4, !tbaa !13
-  %61 = lshr i32 %60, 8
-  %62 = and i32 %61, 255
-  %63 = zext nneg i32 %62 to i64
-  %64 = call zeroext i8 @curlx_ultouc(i64 noundef %63) #7
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 85
-  store i8 %64, ptr %65, align 1, !tbaa !14
-  %66 = load i32, ptr %9, align 4, !tbaa !13
-  %67 = lshr i32 %66, 16
-  %68 = and i32 %67, 255
-  %69 = zext nneg i32 %68 to i64
-  %70 = call zeroext i8 @curlx_ultouc(i64 noundef %69) #7
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 86
-  store i8 %70, ptr %71, align 2, !tbaa !14
-  %72 = load i32, ptr %9, align 4, !tbaa !13
-  %73 = lshr i32 %72, 24
+  %38 = lshr i32 %33, 8
+  %39 = and i32 %38, 255
+  %40 = zext nneg i32 %39 to i64
+  %41 = call zeroext i8 @curlx_ultouc(i64 noundef %40) #7
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 81
+  store i8 %41, ptr %42, align 1, !tbaa !14
+  %43 = lshr i32 %33, 16
+  %44 = and i32 %43, 255
+  %45 = zext nneg i32 %44 to i64
+  %46 = call zeroext i8 @curlx_ultouc(i64 noundef %45) #7
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 82
+  store i8 %46, ptr %47, align 2, !tbaa !14
+  %48 = lshr i32 %33, 24
+  %49 = zext nneg i32 %48 to i64
+  %50 = call zeroext i8 @curlx_ultouc(i64 noundef %49) #7
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 83
+  store i8 %50, ptr %51, align 1, !tbaa !14
+  %52 = load i32, ptr %9, align 4, !tbaa !13
+  %53 = and i32 %52, 255
+  %54 = zext nneg i32 %53 to i64
+  %55 = call zeroext i8 @curlx_ultouc(i64 noundef %54) #7
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  store i8 %55, ptr %56, align 4, !tbaa !14
+  %57 = lshr i32 %52, 8
+  %58 = and i32 %57, 255
+  %59 = zext nneg i32 %58 to i64
+  %60 = call zeroext i8 @curlx_ultouc(i64 noundef %59) #7
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 85
+  store i8 %60, ptr %61, align 1, !tbaa !14
+  %62 = lshr i32 %52, 16
+  %63 = and i32 %62, 255
+  %64 = zext nneg i32 %63 to i64
+  %65 = call zeroext i8 @curlx_ultouc(i64 noundef %64) #7
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 86
+  store i8 %65, ptr %66, align 2, !tbaa !14
+  %67 = lshr i32 %52, 24
+  %68 = zext nneg i32 %67 to i64
+  %69 = call zeroext i8 @curlx_ultouc(i64 noundef %68) #7
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 87
+  store i8 %69, ptr %70, align 1, !tbaa !14
+  %71 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef 64)
+  %72 = load i32, ptr %5, align 4, !tbaa !4
+  %73 = and i32 %72, 255
   %74 = zext nneg i32 %73 to i64
   %75 = call zeroext i8 @curlx_ultouc(i64 noundef %74) #7
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 87
-  store i8 %75, ptr %76, align 1, !tbaa !14
-  %77 = call fastcc ptr @my_md4_body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
-  %78 = load i32, ptr %5, align 4, !tbaa !4
-  %79 = and i32 %78, 255
-  %80 = zext nneg i32 %79 to i64
-  %81 = call zeroext i8 @curlx_ultouc(i64 noundef %80) #7
-  store i8 %81, ptr %0, align 1, !tbaa !14
-  %82 = load i32, ptr %5, align 4, !tbaa !4
-  %83 = lshr i32 %82, 8
-  %84 = and i32 %83, 255
-  %85 = zext nneg i32 %84 to i64
-  %86 = call zeroext i8 @curlx_ultouc(i64 noundef %85) #7
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %86, ptr %87, align 1, !tbaa !14
-  %88 = load i32, ptr %5, align 4, !tbaa !4
-  %89 = lshr i32 %88, 16
-  %90 = and i32 %89, 255
-  %91 = zext nneg i32 %90 to i64
-  %92 = call zeroext i8 @curlx_ultouc(i64 noundef %91) #7
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %92, ptr %93, align 1, !tbaa !14
-  %94 = load i32, ptr %5, align 4, !tbaa !4
-  %95 = lshr i32 %94, 24
-  %96 = zext nneg i32 %95 to i64
-  %97 = call zeroext i8 @curlx_ultouc(i64 noundef %96) #7
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %97, ptr %98, align 1, !tbaa !14
-  %99 = load i32, ptr %6, align 4, !tbaa !9
-  %100 = and i32 %99, 255
-  %101 = zext nneg i32 %100 to i64
-  %102 = call zeroext i8 @curlx_ultouc(i64 noundef %101) #7
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %102, ptr %103, align 1, !tbaa !14
-  %104 = load i32, ptr %6, align 4, !tbaa !9
-  %105 = lshr i32 %104, 8
-  %106 = and i32 %105, 255
-  %107 = zext nneg i32 %106 to i64
-  %108 = call zeroext i8 @curlx_ultouc(i64 noundef %107) #7
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %108, ptr %109, align 1, !tbaa !14
-  %110 = load i32, ptr %6, align 4, !tbaa !9
-  %111 = lshr i32 %110, 16
-  %112 = and i32 %111, 255
-  %113 = zext nneg i32 %112 to i64
-  %114 = call zeroext i8 @curlx_ultouc(i64 noundef %113) #7
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %114, ptr %115, align 1, !tbaa !14
-  %116 = load i32, ptr %6, align 4, !tbaa !9
-  %117 = lshr i32 %116, 24
-  %118 = zext nneg i32 %117 to i64
-  %119 = call zeroext i8 @curlx_ultouc(i64 noundef %118) #7
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %119, ptr %120, align 1, !tbaa !14
-  %121 = load i32, ptr %7, align 4, !tbaa !10
-  %122 = and i32 %121, 255
-  %123 = zext nneg i32 %122 to i64
-  %124 = call zeroext i8 @curlx_ultouc(i64 noundef %123) #7
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %124, ptr %125, align 1, !tbaa !14
-  %126 = load i32, ptr %7, align 4, !tbaa !10
-  %127 = lshr i32 %126, 8
-  %128 = and i32 %127, 255
-  %129 = zext nneg i32 %128 to i64
-  %130 = call zeroext i8 @curlx_ultouc(i64 noundef %129) #7
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %130, ptr %131, align 1, !tbaa !14
-  %132 = load i32, ptr %7, align 4, !tbaa !10
-  %133 = lshr i32 %132, 16
+  store i8 %75, ptr %0, align 1, !tbaa !14
+  %76 = lshr i32 %72, 8
+  %77 = and i32 %76, 255
+  %78 = zext nneg i32 %77 to i64
+  %79 = call zeroext i8 @curlx_ultouc(i64 noundef %78) #7
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %79, ptr %80, align 1, !tbaa !14
+  %81 = lshr i32 %72, 16
+  %82 = and i32 %81, 255
+  %83 = zext nneg i32 %82 to i64
+  %84 = call zeroext i8 @curlx_ultouc(i64 noundef %83) #7
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %84, ptr %85, align 1, !tbaa !14
+  %86 = lshr i32 %72, 24
+  %87 = zext nneg i32 %86 to i64
+  %88 = call zeroext i8 @curlx_ultouc(i64 noundef %87) #7
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 %88, ptr %89, align 1, !tbaa !14
+  %90 = load i32, ptr %6, align 4, !tbaa !9
+  %91 = and i32 %90, 255
+  %92 = zext nneg i32 %91 to i64
+  %93 = call zeroext i8 @curlx_ultouc(i64 noundef %92) #7
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %93, ptr %94, align 1, !tbaa !14
+  %95 = lshr i32 %90, 8
+  %96 = and i32 %95, 255
+  %97 = zext nneg i32 %96 to i64
+  %98 = call zeroext i8 @curlx_ultouc(i64 noundef %97) #7
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  store i8 %98, ptr %99, align 1, !tbaa !14
+  %100 = lshr i32 %90, 16
+  %101 = and i32 %100, 255
+  %102 = zext nneg i32 %101 to i64
+  %103 = call zeroext i8 @curlx_ultouc(i64 noundef %102) #7
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  store i8 %103, ptr %104, align 1, !tbaa !14
+  %105 = lshr i32 %90, 24
+  %106 = zext nneg i32 %105 to i64
+  %107 = call zeroext i8 @curlx_ultouc(i64 noundef %106) #7
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  store i8 %107, ptr %108, align 1, !tbaa !14
+  %109 = load i32, ptr %7, align 4, !tbaa !10
+  %110 = and i32 %109, 255
+  %111 = zext nneg i32 %110 to i64
+  %112 = call zeroext i8 @curlx_ultouc(i64 noundef %111) #7
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %112, ptr %113, align 1, !tbaa !14
+  %114 = lshr i32 %109, 8
+  %115 = and i32 %114, 255
+  %116 = zext nneg i32 %115 to i64
+  %117 = call zeroext i8 @curlx_ultouc(i64 noundef %116) #7
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %117, ptr %118, align 1, !tbaa !14
+  %119 = lshr i32 %109, 16
+  %120 = and i32 %119, 255
+  %121 = zext nneg i32 %120 to i64
+  %122 = call zeroext i8 @curlx_ultouc(i64 noundef %121) #7
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %122, ptr %123, align 1, !tbaa !14
+  %124 = lshr i32 %109, 24
+  %125 = zext nneg i32 %124 to i64
+  %126 = call zeroext i8 @curlx_ultouc(i64 noundef %125) #7
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 %126, ptr %127, align 1, !tbaa !14
+  %128 = load i32, ptr %8, align 4, !tbaa !11
+  %129 = and i32 %128, 255
+  %130 = zext nneg i32 %129 to i64
+  %131 = call zeroext i8 @curlx_ultouc(i64 noundef %130) #7
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 %131, ptr %132, align 1, !tbaa !14
+  %133 = lshr i32 %128, 8
   %134 = and i32 %133, 255
   %135 = zext nneg i32 %134 to i64
   %136 = call zeroext i8 @curlx_ultouc(i64 noundef %135) #7
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %136, ptr %137, align 1, !tbaa !14
-  %138 = load i32, ptr %7, align 4, !tbaa !10
-  %139 = lshr i32 %138, 24
+  %138 = lshr i32 %128, 16
+  %139 = and i32 %138, 255
   %140 = zext nneg i32 %139 to i64
   %141 = call zeroext i8 @curlx_ultouc(i64 noundef %140) #7
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %141, ptr %142, align 1, !tbaa !14
-  %143 = load i32, ptr %8, align 4, !tbaa !11
-  %144 = and i32 %143, 255
-  %145 = zext nneg i32 %144 to i64
-  %146 = call zeroext i8 @curlx_ultouc(i64 noundef %145) #7
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %146, ptr %147, align 1, !tbaa !14
-  %148 = load i32, ptr %8, align 4, !tbaa !11
-  %149 = lshr i32 %148, 8
-  %150 = and i32 %149, 255
-  %151 = zext nneg i32 %150 to i64
-  %152 = call zeroext i8 @curlx_ultouc(i64 noundef %151) #7
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %152, ptr %153, align 1, !tbaa !14
-  %154 = load i32, ptr %8, align 4, !tbaa !11
-  %155 = lshr i32 %154, 16
-  %156 = and i32 %155, 255
-  %157 = zext nneg i32 %156 to i64
-  %158 = call zeroext i8 @curlx_ultouc(i64 noundef %157) #7
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %158, ptr %159, align 1, !tbaa !14
-  %160 = load i32, ptr %8, align 4, !tbaa !11
-  %161 = lshr i32 %160, 24
-  %162 = zext nneg i32 %161 to i64
-  %163 = call zeroext i8 @curlx_ultouc(i64 noundef %162) #7
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %163, ptr %164, align 1, !tbaa !14
+  %143 = lshr i32 %128, 24
+  %144 = zext nneg i32 %143 to i64
+  %145 = call zeroext i8 @curlx_ultouc(i64 noundef %144) #7
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 %145, ptr %146, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #7
   ret i32 0
 }
@@ -237,7 +218,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @my_md4_body(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #4 {
+define internal fastcc nonnull ptr @my_md4_body(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12

@@ -92,14 +92,14 @@ _ZNSt10shared_ptrIN7rocksdb16BytesXOROperatorEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb16BytesXOROperator5MergeERKNS_5SliceEPS2_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef captures(address_is_null) %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef %existing_value, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %new_value)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value) local_unnamed_addr #0 align 2 {
+define void @_ZNK7rocksdb16BytesXOROperator3XOREPKNS_5SliceERS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address_is_null) %existing_value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %new_value) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %existing_value, null
   %size_.i = getelementptr inbounds nuw i8, ptr %value, i64 8

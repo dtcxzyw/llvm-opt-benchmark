@@ -5818,7 +5818,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeArray(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @freeArray(ptr noundef captures(address_is_null) %0, i32 noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %.preheader
 

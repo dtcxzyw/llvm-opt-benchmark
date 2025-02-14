@@ -834,7 +834,7 @@ define dso_local zeroext i1 @current_cpuset_is_being_rebound() local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @cpuset_css_alloc(ptr noundef readnone %0) #2 align 16 {
+define internal noundef ptr @cpuset_css_alloc(ptr noundef readnone captures(address_is_null) %0) #2 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -3238,7 +3238,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @update_flag(i32 noundef ra
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr noundef %0, i32 noundef range(i32 -1, 5) %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr noundef %0, i32 noundef range(i32 -1, 5) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -4734,7 +4734,7 @@ define internal fastcc void @update_tasks_cpumask(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_sibling_cpumasks(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @update_sibling_cpumasks(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #19
   %4 = tail call ptr @css_next_child(ptr noundef null, ptr noundef %0) #19
   %5 = icmp eq ptr %4, null
@@ -4906,7 +4906,7 @@ define internal fastcc void @update_sibling_cpumasks(ptr noundef %0, ptr noundef
 declare dso_local i32 @cpus_read_trylock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @partition_is_populated(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #13 align 16 {
+define internal fastcc zeroext i1 @partition_is_populated(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #13 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %5 = load i32, ptr %4, align 4
@@ -5019,7 +5019,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 declare dso_local i32 @workqueue_unbound_exclude_cpumask(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @compute_partition_effective_cpumask(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @compute_partition_effective_cpumask(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 align 16 {
   %3 = tail call fastcc zeroext i1 @partition_is_populated(ptr noundef %0, ptr noundef null)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8

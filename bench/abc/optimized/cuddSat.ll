@@ -448,7 +448,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @freePathPair(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #4 {
+define internal noundef i32 @freePathPair(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 

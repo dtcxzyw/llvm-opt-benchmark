@@ -429,7 +429,7 @@ define internal fastcc i32 @split_fs_names(ptr noundef %0) unnamed_addr #0 secti
 declare dso_local i32 @list_bdev_fs_names(ptr noundef, i64 noundef) local_unnamed_addr #7 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %18, label %6
 

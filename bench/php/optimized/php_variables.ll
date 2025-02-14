@@ -234,7 +234,7 @@ define hidden void @_php_load_environment_variables(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @php_register_variable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -289,7 +289,7 @@ php_register_variable_safe.exit:                  ; preds = %7, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @php_register_variable_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = icmp ugt i64 %2, 1
   br i1 %6, label %7, label %16
@@ -344,7 +344,7 @@ define void @php_register_variable_safe(ptr noundef readonly captures(none) %0, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @php_register_variable_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1251,7 +1251,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #5
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_std_post_handler(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @php_std_post_handler(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.post_var_data, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8
@@ -1384,7 +1384,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #5
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr noundef nonnull captures(none) initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1575,7 +1575,7 @@ add_post_var.exit.thread:                         ; preds = %22, %add_post_var.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_default_input_filter(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #8 {
+define noundef i32 @php_default_input_filter(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -1920,7 +1920,7 @@ define hidden noundef zeroext i1 @php_std_auto_global_callback(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @php_build_argv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8

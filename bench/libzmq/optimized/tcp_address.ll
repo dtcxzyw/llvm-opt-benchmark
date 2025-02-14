@@ -37,7 +37,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13tcp_address_tC2EPK8sockaddrj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(57) initializes((0, 57)) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
+define void @_ZN3zmq13tcp_address_tC2EPK8sockaddrj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(57) initializes((0, 57)) %this, ptr noundef readonly captures(address_is_null) %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
 entry:
   %_has_src_addr = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %_has_src_addr, align 4
@@ -635,7 +635,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockaddrj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this, ptr noundef readonly %ss_, i32 noundef %ss_len_) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockaddrj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address_is_null) %ss_, i32 noundef %ss_len_) local_unnamed_addr #2 align 2 {
 entry:
   %_address_mask = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_address_mask, align 4

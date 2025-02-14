@@ -908,7 +908,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN4absl12lts_2023080220UnauthenticatedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z31grpc_fill_alpn_protocol_stringsPm(ptr noundef %num_alpn_protocols) local_unnamed_addr #4 {
+define noundef ptr @_Z31grpc_fill_alpn_protocol_stringsPm(ptr noundef captures(address_is_null) %num_alpn_protocols) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %num_alpn_protocols, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -2085,7 +2085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) #5 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

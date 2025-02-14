@@ -280,7 +280,7 @@ declare i32 @H5PL__find_plugin_in_cache(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @H5PL__find_plugin_in_path_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 1)) %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 1)) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = alloca %union.H5PL_key_t, align 8
   store i8 0, ptr %3, align 1
   store ptr null, ptr %5, align 8

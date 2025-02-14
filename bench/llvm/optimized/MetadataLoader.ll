@@ -14498,7 +14498,7 @@ _ZN4llvm11SmallVectorImLj64EED2Ev.exit:           ; preds = %.critedge15, %104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14MetadataLoaderaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14MetadataLoaderaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !880
   store ptr null, ptr %1, align 8, !tbaa !880
   %4 = load ptr, ptr %0, align 8, !tbaa !880
@@ -20761,7 +20761,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_125BitcodeReaderMetadataList19resolveTypeRefArrayEPN4llvm8MetadataE(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef readonly %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_125BitcodeReaderMetadataList19resolveTypeRefArrayEPN4llvm8MetadataE(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::SmallVector.386", align 8
   %.not.i.i = icmp eq ptr %1, null

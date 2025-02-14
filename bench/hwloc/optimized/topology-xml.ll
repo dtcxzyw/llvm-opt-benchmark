@@ -3364,7 +3364,7 @@ hwloc__xml_export_object_contents.exit:           ; preds = %.critedge.i, %373, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @hwloc__xml_export_diff(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define void @hwloc__xml_export_diff(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca %struct.hwloc__xml_export_state_s, align 8
   %4 = alloca [255 x i8], align 16
   %.not19 = icmp eq ptr %1, null

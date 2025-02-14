@@ -700,7 +700,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511PluralRulesE, i64 16), ptr %this, align 8
   %mRules = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -719,7 +719,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(28) ptr @_ZN6icu_7511PluralRulesaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(28) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(28) ptr @_ZN6icu_7511PluralRulesaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(28) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(28) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::LocalPointer.3", align 8
   %ref.tmp33 = alloca %"class.icu_75::StandardPluralRanges", align 8
@@ -3438,7 +3438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7511PluralRules10getSamplesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7511PluralRules10getSamplesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef captures(address_is_null) %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3606,7 +3606,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_75L20getSamplesFromStringERKNS_13UnicodeStringEPdPNS_6number4impl15DecimalQuantityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %samples, ptr noundef writeonly %destDbl, ptr noundef %destDq, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN6icu_75L20getSamplesFromStringERKNS_13UnicodeStringEPdPNS_6number4impl15DecimalQuantityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %samples, ptr noundef writeonly captures(address_is_null) %destDbl, ptr noundef %destDq, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
@@ -4374,7 +4374,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7511PluralRuleseqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull readonly align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6icu_7511PluralRuleseqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(28) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -10161,7 +10161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7533PluralAvailableLocalesEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef writeonly %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7533PluralAvailableLocalesEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef writeonly captures(address_is_null) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

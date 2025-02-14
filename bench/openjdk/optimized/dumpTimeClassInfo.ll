@@ -533,7 +533,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DumpTimeClassInfo25record_linking_constraintEP6Symbol6HandleS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr readonly %2, ptr readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DumpTimeClassInfo25record_linking_constraintEP6Symbol6HandleS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2, ptr readonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

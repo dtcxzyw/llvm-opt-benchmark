@@ -1984,7 +1984,7 @@ declare i64 @gnu_dev_makedev(i32 noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @mknod(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
@@ -2471,7 +2471,7 @@ define hidden void @zif_posix_getgrgid(ptr noundef %0, ptr noundef %1) #0 {
 declare ptr @getgrgid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @php_posix_passwd_to_array(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @php_posix_passwd_to_array(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

@@ -3639,7 +3639,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28textFileFormatYy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL28textFileFormatYy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = tail call ptr @__errno_location() #34
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq ptr %0, null
@@ -3871,7 +3871,7 @@ define noalias noundef ptr @_Z21textFileFormatYyallocmPv(i64 noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define void @_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -3920,7 +3920,7 @@ define void @_Z20textFileFormatYyfreePvS_(ptr noundef captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
+define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -4513,7 +4513,7 @@ define void @_Z24textFileFormatYyset_lvalPN32pxrInternal_v0_24__pxrReserved__17S
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_Z24textFileFormatYylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_Z24textFileFormatYylex_initPPv(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4541,7 +4541,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_Z30textFileFormatYylex_init_extraPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextEPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_Z30textFileFormatYylex_init_extraPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextEPPv(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

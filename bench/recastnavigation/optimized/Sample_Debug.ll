@@ -353,7 +353,7 @@ define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMinEv(ptr noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMinEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(276) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -387,7 +387,7 @@ define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMinEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMaxEv(ptr noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #10 align 2 {
+define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMaxEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(276) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

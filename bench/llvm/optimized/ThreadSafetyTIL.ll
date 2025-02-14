@@ -484,7 +484,7 @@ _ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE7reserveEmNS1_12MemRegionR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5clang12threadSafety3til15getCanonicalValEPKNS1_5SExprE(ptr noundef readonly %0) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN5clang12threadSafety3til15getCanonicalValEPKNS1_5SExprE(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1
@@ -526,7 +526,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til15getCanonicalValEPKNS1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE(ptr noundef captures(address, ret: address, provenance) %0) local_unnamed_addr #4 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -582,7 +582,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til22simplifyToCanonicalVa
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef initializes((2, 4)) %0) local_unnamed_addr #4 {
+define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef captures(address) initializes((2, 4)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %2, align 2, !tbaa !50
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

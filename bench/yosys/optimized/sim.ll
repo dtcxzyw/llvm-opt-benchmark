@@ -15265,7 +15265,7 @@ define internal void @_ZN12_GLOBAL__N_19VCDWriterD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_19VCDWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_19VCDWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, bool>, std::_Select1st<std::pair<const int, bool>>, std::less<int>>::_Alloc_node", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
@@ -21758,7 +21758,7 @@ _ZN12_GLOBAL__N_19FSTWriterD2Ev.exit:             ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_19FSTWriter5writeERSt3mapIibSt4lessIiESaISt4pairIKibEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, bool>, std::_Select1st<std::pair<const int, bool>>, std::less<int>>::_Alloc_node", align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::function", align 8
@@ -51367,7 +51367,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5ConstESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Dest
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS1_8hash_opsIS4_EEE7entry_tESC_SaISB_EET0_T_SF_SE_RT1_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS1_8hash_opsIS4_EEE7entry_tESC_SaISB_EET0_T_SF_SE_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not93.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not93.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS1_8hash_opsIS4_EEE7entry_tEPSB_SB_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -51808,7 +51808,7 @@ _ZNSt15__new_allocatorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS1_8hash_opsIS4_EEE7entry_tEEvT_SD_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS1_8hash_opsIS4_EEE7entry_tEEvT_SD_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictINS2_5RTLIL8IdStringEN12_GLOBAL__N_111SimInstance11mem_state_tENS3_8hash_opsIS6_EEE7entry_tEEEvT_SF_.exit, label %.lr.ph.i
 
@@ -55744,7 +55744,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit44:                 ; preds = %319, %_ZN5Yosys5RTL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS1_8hash_opsIS5_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS1_8hash_opsIS5_EEE7entry_tESD_SaISC_EET0_T_SG_SF_RT1_(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not35.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not35.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS1_8hash_opsIS5_EEE7entry_tEPSC_SC_ET0_T_SH_SG_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -55980,7 +55980,7 @@ _ZNSt15__new_allocatorIN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111Si
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS1_8hash_opsIS5_EEE7entry_tEEvT_SE_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN5Yosys7hashlib4dictIPNS0_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS1_8hash_opsIS5_EEE7entry_tEEvT_SE_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN5Yosys7hashlib4dictIPNS2_5RTLIL4CellEN12_GLOBAL__N_111SimInstance10ff_state_tENS3_8hash_opsIS7_EEE7entry_tEEEvT_SG_.exit, label %.lr.ph.i
 
@@ -58400,7 +58400,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringENS2_IijNS1_8hash_op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_111SimInstance13print_state_tES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN12_GLOBAL__N_111SimInstance13print_state_tES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not69.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not69.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN12_GLOBAL__N_111SimInstance13print_state_tEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -58774,7 +58774,7 @@ _ZNSt15__new_allocatorIN12_GLOBAL__N_111SimInstance13print_state_tEE7destroyIS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_111SimInstance13print_state_tEEvT_S4_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_111SimInstance13print_state_tEEvT_S4_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_111SimInstance13print_state_tEEEvT_S6_.exit, label %.lr.ph.i
 
@@ -60874,7 +60874,7 @@ _ZSt4swapIN12_GLOBAL__N_111SimInstance13print_state_tEENSt9enable_ifIXsr6__and_I
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111SimInstance13print_state_tESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %0, ptr readnone %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111SimInstance13print_state_tESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %0, ptr readnone captures(address) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.(anonymous namespace)::SimInstance::print_state_t", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit25, label %.preheader
@@ -100438,7 +100438,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit75:                 ; preds = %_ZN5Yosys5RTLIL8Sig
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker13set_yw_clocksERKN5Yosys11ReadWitnessERKNS0_11YwHierarchyEb(ptr %.32.val, ptr readnone %.40.val, ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker13set_yw_clocksERKN5Yosys11ReadWitnessERKNS0_11YwHierarchyEb(ptr %.32.val, ptr readnone captures(address) %.40.val, ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigChunk", align 8
@@ -106903,7 +106903,7 @@ _ZNK5Yosys7hashlib4dictINS_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS0_8h
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tESB_SaISA_EET0_T_SE_SD_RT1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(address, ret: address, provenance) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not17.i.i.i.i = icmp eq ptr %0, %1
   br i1 %.not17.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5Yosys7hashlib4dictINS0_6IdPathEN12_GLOBAL__N_19SimWorker11FoundYWPathENS1_8hash_opsIS3_EEE7entry_tEPSA_SA_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
@@ -117922,7 +117922,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker13define_signalB5cxx11EP
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker11signal_listB5cxx11ERSt3mapIPN5Yosys5RTLIL4WireEjSt4lessIS5_ESaISt4pairIKS5_jEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker11signal_listB5cxx11ERSt3mapIPN5Yosys5RTLIL4WireEjSt4lessIS5_ESaISt4pairIKS5_jEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

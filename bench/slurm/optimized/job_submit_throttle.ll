@@ -78,7 +78,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2051) i32 @job_submit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2051) i32 @job_submit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr @last_reset, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %_get_config.exit

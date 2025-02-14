@@ -231,7 +231,7 @@ declare void @_ZNK4llvm6MCExpr5printERNS_11raw_ostreamEPKNS_9MCAsmInfoEb(ptr nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm11RISCVMCExpr15getPCRelHiFixupEPPKNS_10MCFragmentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK4llvm11RISCVMCExpr15getPCRelHiFixupEPPKNS_10MCFragmentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MCValue", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)

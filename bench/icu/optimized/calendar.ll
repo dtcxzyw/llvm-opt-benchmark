@@ -1761,7 +1761,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 8), (248, 256)) %this, ptr noundef nonnull align 8 dereferenceable(618) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 8), (248, 256)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(618) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fZone = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -1780,7 +1780,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(618) %this, ptr noundef nonnull readonly align 8 dereferenceable(618) %right) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(618) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(618) %right) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %right
   br i1 %cmp.not, label %if.end44, label %if.then

@@ -52,7 +52,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onas_free_ht(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @onas_free_ht(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %2
 
@@ -190,7 +190,7 @@ define dso_local noalias noundef ptr @onas_element_init(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onas_free_element(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @onas_free_element(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -238,7 +238,7 @@ onas_free_hashnode.exit:                          ; preds = %2, %onas_free_dirli
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onas_free_hashnode(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @onas_free_hashnode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -276,7 +276,7 @@ onas_free_dirlist.exit:                           ; preds = %onas_free_listnode.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 3) i32 @onas_ht_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define dso_local range(i32 0, 3) i32 @onas_ht_insert(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -402,7 +402,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #8 {
+define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -496,7 +496,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #10 {
+define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.not23 = or i1 %5, %6
@@ -695,7 +695,7 @@ onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @onas_free_dirlist(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @onas_free_dirlist(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %onas_free_listnode.exit
 
@@ -715,7 +715,7 @@ onas_free_listnode.exit:                          ; preds = %1, %onas_free_listn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @onas_free_listnode(ptr noundef %0) local_unnamed_addr #11 {
+define dso_local void @onas_free_listnode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -756,7 +756,7 @@ define dso_local range(i32 0, 3) i32 @onas_add_listnode(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 35) i32 @onas_rm_listnode(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 35) i32 @onas_rm_listnode(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -829,7 +829,7 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #13
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @onas_ht_rm_child(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @onas_ht_rm_child(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond.not24.not28.not34 = or i1 %6, %7
@@ -1002,7 +1002,7 @@ onas_ht_get.exit.thread:                          ; preds = %61, %71, %77, %onas
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 21) i32 @onas_ht_add_child(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #7 {
+define dso_local range(i32 0, 21) i32 @onas_ht_add_child(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond.not24.not28.not34 = or i1 %6, %7
@@ -1146,7 +1146,7 @@ onas_add_hashnode_child.exit:                     ; preds = %61, %57, %onas_hash
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -1488,7 +1488,7 @@ onas_free_hashnode.exit98:                        ; preds = %onas_free_hashnode.
 declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond.not54 = or i1 %5, %6

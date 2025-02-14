@@ -2193,7 +2193,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readnone %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readnone captures(address) %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %options_, align 8
@@ -5771,7 +5771,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readnone %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readnone captures(address) %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %options_, align 8

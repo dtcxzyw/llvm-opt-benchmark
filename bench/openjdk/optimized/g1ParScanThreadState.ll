@@ -1869,7 +1869,7 @@ _ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit: ; preds = %_ZN15G1PLA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, i24 %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, ptr noundef readnone %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, i24 %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, ptr noundef readnone captures(address) %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %.sroa.1.0.extract.shift = lshr i24 %1, 8
   %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104

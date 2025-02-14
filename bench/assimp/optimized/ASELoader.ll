@@ -6074,7 +6074,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes, ptr noundef %pcParent, ptr noundef %szName) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes, ptr noundef %pcParent, ptr noundef captures(address_is_null) %szName) local_unnamed_addr #2 align 2 {
 entry:
   %m = alloca %class.aiMatrix4x4t, align 4
   store float 1.000000e+00, ptr %m, align 4
@@ -6095,7 +6095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes, ptr noundef %pcParent, ptr noundef readonly %szName, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %mat) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11ASEImporter8AddNodesERKSt6vectorIPNS_3ASE8BaseNodeESaIS4_EEP6aiNodePKcRK12aiMatrix4x4tIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %nodes, ptr noundef %pcParent, ptr noundef readonly captures(address_is_null) %szName, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %mat) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mParentAdjust = alloca %class.aiMatrix4x4t, align 4
   %ref.tmp74 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6657,7 +6657,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit90:         ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef readnone %snode, ptr noundef captures(none) %node) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %this, ptr noundef readnone captures(address) %snode, ptr noundef captures(none) %node) local_unnamed_addr #8 align 2 {
 entry:
   %m = alloca %class.aiMatrix4x4t, align 4
   %pcScene = getelementptr inbounds nuw i8, ptr %this, i64 88

@@ -39,7 +39,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dev_load: ; 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_dev_load743, ptr @__UNIQUE_ID___addressable_dev_set_hwtstamp_phylib738, ptr @__UNIQUE_ID___addressable_generic_hwtstamp_get_lower739, ptr @__UNIQUE_ID___addressable_generic_hwtstamp_set_lower740], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dev_ifconf(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dev_ifconf(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_ifconf, align 8
   %4 = alloca %struct.ifconf, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !6
@@ -536,7 +536,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dev_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef initializes((15, 16)) %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dev_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef initializes((15, 16)) %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %8, label %7
 

@@ -2207,7 +2207,7 @@ _ZN6icu_7510MemoryPoolINS_7MeasureELi8EED2Ev.exit: ; preds = %for.end.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_755units11UnitsRouter14getOutputUnitsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(176) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK6icu_755units11UnitsRouter14getOutputUnitsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #8 align 2 {
 entry:
   ret ptr %this
 }

@@ -803,7 +803,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
 declare dso_local ptr @drm_property_create_enum(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %5 = and i1 %3, %4

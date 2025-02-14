@@ -172,7 +172,7 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef writeonly captures(address_is_null) %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef captures(address_is_null) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %cipher = alloca %struct.evp_cipher_info_st, align 8
   %nm = alloca ptr, align 8
@@ -851,7 +851,7 @@ return:                                           ; preds = %if.end76, %if.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr noundef captures(none) %plen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr noundef captures(none) %plen, ptr noundef readonly captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %j = alloca i32, align 4
@@ -933,7 +933,7 @@ return:                                           ; preds = %if.end6, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %callback, ptr noundef %u) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #11
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #11
@@ -956,7 +956,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly captures(address_is_null) %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.evp_cipher_ctx_st, align 8
   %i = alloca i32, align 4
@@ -1125,7 +1125,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @EVP_CIPHER_iv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @PEM_def_callback(ptr noundef %buf, i32 noundef %size, i32 %rwflag, ptr noundef readonly %userdata) local_unnamed_addr #5 {
+define hidden i32 @PEM_def_callback(ptr noundef %buf, i32 noundef %size, i32 %rwflag, ptr noundef readonly captures(address_is_null) %userdata) local_unnamed_addr #5 {
 entry:
   %tobool = icmp ne ptr %buf, null
   %tobool1 = icmp ne ptr %userdata, null

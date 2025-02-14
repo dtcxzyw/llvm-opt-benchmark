@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [5 x i8] c"VP8L\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
+define hidden i32 @WebPParseHeaders(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
@@ -55,7 +55,7 @@ define hidden i32 @WebPParseHeaders(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
@@ -358,7 +358,7 @@ ParseRIFF.exit.thread:                            ; preds = %49, %47, %45, %Pars
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPResetDecParams(ptr noundef writeonly %0) local_unnamed_addr #1 {
+define hidden void @WebPResetDecParams(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -800,7 +800,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @WebPDecodeRGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
@@ -874,7 +874,7 @@ Decode.exit:                                      ; preds = %4, %WebPGetInfo.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @WebPDecodeRGBA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
@@ -948,7 +948,7 @@ Decode.exit:                                      ; preds = %4, %WebPGetInfo.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @WebPDecodeARGB(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
@@ -1022,7 +1022,7 @@ Decode.exit:                                      ; preds = %4, %WebPGetInfo.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @WebPDecodeBGR(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
@@ -1096,7 +1096,7 @@ Decode.exit:                                      ; preds = %4, %WebPGetInfo.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @WebPDecodeBGRA(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = alloca %struct.WebPDecParams, align 8
   %7 = alloca %struct.WebPDecBuffer, align 8
@@ -1170,7 +1170,7 @@ Decode.exit:                                      ; preds = %4, %WebPGetInfo.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #0 {
+define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.WebPBitstreamFeatures, align 4
   %10 = alloca %struct.WebPDecParams, align 8
   %11 = alloca %struct.WebPDecBuffer, align 8
@@ -1277,7 +1277,7 @@ Decode.exit:                                      ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPGetInfo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WebPGetInfo(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
   %6 = icmp eq ptr %0, null
   br i1 %6, label %GetFeatures.exit.thread, label %GetFeatures.exit
@@ -1467,7 +1467,7 @@ define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0, ptr noundef captures(none) initializes((116, 120)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((116, 120)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8

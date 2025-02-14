@@ -945,7 +945,7 @@ return:                                           ; preds = %if.end.i, %land.lhs
 declare hidden i32 @lj_opt_cse(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly %J) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly captures(address) %J) local_unnamed_addr #0 {
 entry:
   %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
@@ -1019,7 +1019,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captures(none) %J, ptr noundef readonly %refa, ptr noundef readonly %refb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(address) %refa, ptr noundef readonly captures(address) %refb) unnamed_addr #0 {
 entry:
   %op21 = getelementptr inbounds nuw i8, ptr %refb, i64 2
   %0 = load i16, ptr %op21, align 2
@@ -3471,7 +3471,7 @@ declare hidden i32 @lj_ir_knum_u64(ptr noundef, i64 noundef) local_unnamed_addr 
 declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %J, ptr noundef readonly %ir) unnamed_addr #3 {
+define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(ret: address, provenance) %ir) unnamed_addr #3 {
 entry:
   %o12 = getelementptr inbounds nuw i8, ptr %ir, i64 5
   %0 = load i8, ptr %o12, align 1

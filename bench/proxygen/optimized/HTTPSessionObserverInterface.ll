@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC1ERNS1_13BuilderFieldsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC2ERNS1_13BuilderFieldsE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
@@ -62,7 +62,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212stead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder10setHeadersERKNS_11HTTPHeadersE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %headersIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder10setHeadersERKNS_11HTTPHeadersE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %headersIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
@@ -207,7 +207,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder21setPendingEgressBytesERKm(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %pendingEgressBytesIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder21setPendingEgressBytesERKm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %pendingEgressBytesIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
@@ -225,7 +225,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
@@ -371,7 +371,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder5setIdERKm(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %IdIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder5setIdERKm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %IdIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
@@ -389,7 +389,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8

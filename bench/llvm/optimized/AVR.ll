@@ -2165,7 +2165,7 @@ define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains12AVRToolChain11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang6driver10toolchains12AVRToolChain13getCompilerRTB5cxx11ERKN4llvm3opt7ArgListENS3_9StringRefENS0_9ToolChain8FileTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5032) %1, ptr nonnull readnone align 8 captures(none) %2, ptr readonly %3, i64 %4, i32 %5) unnamed_addr #0 align 2 {
+define hidden void @_ZNK5clang6driver10toolchains12AVRToolChain13getCompilerRTB5cxx11ERKN4llvm3opt7ArgListENS3_9StringRefENS0_9ToolChain8FileTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5032) %1, ptr nonnull readnone align 8 captures(none) %2, ptr readonly captures(address_is_null) %3, i64 %4, i32 %5) unnamed_addr #0 align 2 {
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i:
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

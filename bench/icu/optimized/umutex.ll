@@ -166,7 +166,7 @@ _ZN6icu_756UMutex4lockEv.exit:                    ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @umtx_unlock_75(ptr noundef readonly %mutex) local_unnamed_addr #3 {
+define void @umtx_unlock_75(ptr noundef readonly captures(address_is_null) %mutex) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %mutex, null
   %spec.store.select = select i1 %cmp, ptr @_ZN6icu_7512_GLOBAL__N_111globalMutexE, ptr %mutex

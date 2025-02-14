@@ -810,7 +810,7 @@ define dso_local ptr @inode_to_bdi(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @I_BDEV(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local nonnull ptr @bdi_dev_name(ptr noundef readonly %0) #6 align 16 {
+define dso_local nonnull ptr @bdi_dev_name(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

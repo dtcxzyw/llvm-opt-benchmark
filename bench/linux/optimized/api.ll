@@ -1114,7 +1114,7 @@ define dso_local ptr @crypto_clone_tfm(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @crypto_find_alg(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @crypto_find_alg(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %17, label %6
 
@@ -1139,7 +1139,7 @@ define dso_local ptr @crypto_find_alg(ptr noundef %0, ptr noundef readonly %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp eq ptr %1, null
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48

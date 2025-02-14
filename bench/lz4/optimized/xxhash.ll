@@ -10,7 +10,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @LZ4_XXH32(ptr noundef readonly %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
+define i32 @LZ4_XXH32(ptr noundef readonly captures(address) %input, i64 noundef %len, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %cmp.i17 = icmp ugt i64 %len, 15
   br i1 %cmp.i17, label %if.then.i24, label %if.else.i18

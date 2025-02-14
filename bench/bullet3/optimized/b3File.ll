@@ -82,7 +82,7 @@ $_ZN20b3AlignedObjectArrayIiE7reserveEi = comdat any
 @_ZN6bParse5bFileD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6bParse5bFileD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z12getCleanNamePKcPc(ptr noundef readonly captures(none) %memName, ptr noundef returned writeonly %buffer) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Z12getCleanNamePKcPc(ptr noundef readonly captures(none) %memName, ptr noundef returned writeonly captures(ret: address, provenance) %buffer) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %memName) #29
   %conv = trunc i64 %call to i32
@@ -3108,7 +3108,7 @@ return:                                           ; preds = %if.end20, %if.then
 declare noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull align 8 dereferenceable(420), i16 noundef signext) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6bParse5bFile14getFileElementEPsPcS2_S2_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %firstStruct, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef readnone %data, ptr noundef writeonly %foundPos) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN6bParse5bFile14getFileElementEPsPcS2_S2_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %firstStruct, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef readnone captures(ret: address, provenance) %data, ptr noundef writeonly captures(address_is_null) %foundPos) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %firstStruct, i64 2
   %0 = load i16, ptr %arrayidx, align 2
@@ -3199,7 +3199,7 @@ return:                                           ; preds = %if.end19, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef readonly captures(none) %dna_addr, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef %strcData, ptr noundef %data, i1 noundef zeroext %fixupPointers) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef readonly captures(none) %dna_addr, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef %strcData, ptr noundef captures(address_is_null) %data, i1 noundef zeroext %fixupPointers) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %dna_addr, i64 2
   %0 = load i16, ptr %arrayidx, align 2
@@ -3491,7 +3491,7 @@ if.end30:                                         ; preds = %for.body17, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef writeonly %dst, ptr noundef readonly %src) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef writeonly captures(address_is_null) %dst, ptr noundef readonly captures(address_is_null) %src) local_unnamed_addr #2 align 2 {
 entry:
   %tobool = icmp ne ptr %src, null
   %tobool2 = icmp ne ptr %dst, null

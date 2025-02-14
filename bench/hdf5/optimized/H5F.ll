@@ -1851,7 +1851,7 @@ define range(i32 -1, 1) i32 @H5Fflush(i64 noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__flush_api_common(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__flush_api_common(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5VL_file_specific_args_t, align 8
   %6 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   switch i32 %6, label %7 [
@@ -3822,7 +3822,7 @@ define range(i32 -1, 1) i32 @H5Fget_mdc_hit_rate(i64 noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Fget_mdc_size(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Fget_mdc_size(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5VL_optional_args_t, align 8
   %7 = alloca %union.H5VL_native_file_optional_args_t, align 8
   %8 = alloca i32, align 4

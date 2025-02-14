@@ -138,7 +138,7 @@ return:                                           ; preds = %while.cond, %if.end
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEP8_IO_FILERNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEP8_IO_FILERNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly captures(address_is_null) %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %locColorsSpec = alloca i8, align 1
   %p = alloca %"struct.msdfgen::Vector2", align 8
@@ -302,7 +302,7 @@ return:                                           ; preds = %for.body, %if.end33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly captures(address_is_null) %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca [4 x %"struct.msdfgen::Vector2"], align 16
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
@@ -659,7 +659,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addC
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEPKcRNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEPKcRNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly captures(address_is_null) %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i = alloca ptr, align 8
   %input.addr = alloca ptr, align 8
@@ -877,7 +877,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef nonnull captures(none) %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef nonnull captures(none) %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly captures(address_is_null) %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i90 = alloca ptr, align 8
   %end.i10.i = alloca ptr, align 8

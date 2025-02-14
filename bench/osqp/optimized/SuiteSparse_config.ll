@@ -111,7 +111,7 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #5 {
+define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #5 {
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %spec.store.select2 = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %spec.store.select1 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
@@ -193,7 +193,7 @@ define noundef double @SuiteSparse_time() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SuiteSparse_version(ptr noundef writeonly %0) local_unnamed_addr #4 {
+define noundef i32 @SuiteSparse_version(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

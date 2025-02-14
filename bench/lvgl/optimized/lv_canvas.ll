@@ -720,7 +720,7 @@ declare zeroext i16 @lv_color_to_u16(i24) local_unnamed_addr #2
 declare i32 @lv_color_to_u32(i24) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_canvas_init_layer(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @lv_canvas_init_layer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

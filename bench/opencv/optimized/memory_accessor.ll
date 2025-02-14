@@ -347,7 +347,7 @@ _ZNSt6vectorIPN3ade21IMemoryAccessListenerESaIS2_EE9push_backERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade14MemoryAccessor14removeListenerEPNS_21IMemoryAccessListenerE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ade14MemoryAccessor14removeListenerEPNS_21IMemoryAccessListenerE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -529,7 +529,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN3ade21IMemoryAccessListenerESt6vecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ade14MemoryAccessor22abandonListenerHandlesEPNS_21IMemoryAccessListenerE(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3ade14MemoryAccessor22abandonListenerHandlesEPNS_21IMemoryAccessListenerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.05.08 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %.sroa.05.08, %3
@@ -705,7 +705,7 @@ _ZN3ade14MemoryAccessor17abandonAllHandlesEv.exit: ; preds = %_ZN3ade14MemoryAcc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryAccessListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3ade14MemoryAccessor12SavedHandles7abandonEPNS_21IMemoryAccessListenerE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %7

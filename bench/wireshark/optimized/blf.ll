@@ -268,7 +268,7 @@ define hidden noalias ptr @blf_get_xml_channel_name(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond.not55 = and i1 %6, %7
@@ -4168,7 +4168,7 @@ blf_find_next_logcontainer.exit.thread:           ; preds = %26, %blf_find_next_
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %9

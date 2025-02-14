@@ -453,7 +453,7 @@ out:                                              ; preds = %entry, %if.end10
 declare void @qmp_expire_password(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_change_vnc(ptr noundef %mon, ptr noundef readnone captures(none) %device, ptr noundef readonly captures(none) %target, ptr noundef %arg, ptr noundef readnone %read_only, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @hmp_change_vnc(ptr noundef %mon, ptr noundef readnone captures(none) %device, ptr noundef readonly captures(none) %target, ptr noundef %arg, ptr noundef readnone captures(address_is_null) %read_only, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %read_only, null
   br i1 %tobool.not, label %if.end, label %if.then

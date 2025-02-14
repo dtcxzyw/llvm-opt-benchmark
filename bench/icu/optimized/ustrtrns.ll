@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [17 x i8] c" 000000000000\1000\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef readonly %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef readonly captures(address) %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly captures(address_is_null) %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -300,14 +300,14 @@ return:                                           ; preds = %entry, %if.end99, %
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF32_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF32_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef captures(address_is_null) %pDestLength, ptr noundef captures(address) %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @u_strFromUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef -1, ptr noundef null, ptr noundef %pErrorCode)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef readonly %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef readonly captures(address) %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly captures(address_is_null) %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -575,14 +575,14 @@ return:                                           ; preds = %entry, %if.end88, %
 declare i32 @u_terminateUChar32s_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF32_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF32_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef captures(address_is_null) %pDestLength, ptr noundef captures(address) %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @u_strToUTF32WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef -1, ptr noundef null, ptr noundef %pErrorCode)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly captures(address_is_null) %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %i178 = alloca i32, align 4
@@ -1417,14 +1417,14 @@ return:                                           ; preds = %entry, %if.end503, 
 declare i32 @utf8_nextCharSafeBody_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef captures(address_is_null) %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @u_strFromUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef -1, ptr noundef null, ptr noundef %pErrorCode)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromUTF8Lenient_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromUTF8Lenient_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1908,7 +1908,7 @@ return:                                           ; preds = %entry, %if.end308, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %pSrc, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef %pSrc, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly captures(address_is_null) %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %dest, null
   %idx.ext = sext i32 %destCapacity to i64
@@ -2849,14 +2849,14 @@ return:                                           ; preds = %entry, %if.end476, 
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %pSrc, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strToUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef captures(address_is_null) %pDestLength, ptr noundef %pSrc, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @u_strToUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pDestLength, ptr noundef %pSrc, i32 noundef %srcLength, i32 noundef -1, ptr noundef null, ptr noundef %pErrorCode)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strFromJavaModifiedUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strFromJavaModifiedUTF8WithSub_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef %src, i32 noundef %srcLength, i32 noundef %subchar, ptr noundef writeonly captures(address_is_null) %pNumSubstitutions, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %0 = load i32, ptr %pErrorCode, align 4
@@ -3444,7 +3444,7 @@ return:                                           ; preds = %entry, %if.end324, 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @u_strToJavaModifiedUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @u_strToJavaModifiedUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address_is_null) %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

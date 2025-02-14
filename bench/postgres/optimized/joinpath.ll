@@ -2244,7 +2244,7 @@ try_partial_nestloop_path.exit66:                 ; preds = %90, %92, %104, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef %1, ptr readonly %.56.val, ptr noundef readonly captures(none) %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %.56.val, ptr noundef readonly captures(none) %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %.56.val, i64 4
   %.not = icmp eq ptr %.56.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2291,7 +2291,7 @@ declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef nonnull captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef nonnull captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1

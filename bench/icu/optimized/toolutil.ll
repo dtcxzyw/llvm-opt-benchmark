@@ -146,7 +146,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare ptr @gmtime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @getLongPathname(ptr noundef readnone returned %pathname) local_unnamed_addr #8 {
+define noundef ptr @getLongPathname(ptr noundef readnone returned captures(ret: address, provenance) %pathname) local_unnamed_addr #8 {
 entry:
   ret ptr %pathname
 }

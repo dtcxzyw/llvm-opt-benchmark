@@ -114,7 +114,7 @@ PQbucket.exit:                                    ; preds = %24, %27
 declare void @ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PQdelete(ptr noundef %0) local_unnamed_addr #0 {
+define void @PQdelete(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

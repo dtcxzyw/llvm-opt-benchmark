@@ -120,7 +120,7 @@ define internal void @evdev_event(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @evdev_events(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal void @evdev_events(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -287,7 +287,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 declare dso_local ptr @input_get_timestamp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #2 align 16 {
+define internal fastcc void @evdev_pass_values(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4, !range !9, !noundef !10
   %7 = icmp eq i8 %6, 0
@@ -2108,7 +2108,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local i32 @input_ff_erase(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef range(i32 0, 16384) %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly captures(address_is_null) %.320.val, i32 noundef range(i32 0, 16384) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
   %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #14, !srcloc !40
   %5 = extractvalue { ptr, i32, i64 } %4, 0

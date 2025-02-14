@@ -10846,7 +10846,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -11034,7 +11034,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -11803,7 +11803,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -11991,7 +11991,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -14699,7 +14699,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -14887,7 +14887,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -15295,7 +15295,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -15543,7 +15543,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -16389,7 +16389,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -16637,7 +16637,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -17139,7 +17139,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -17387,7 +17387,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -17889,7 +17889,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -18137,7 +18137,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -18639,7 +18639,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -18830,7 +18830,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -19280,7 +19280,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -19471,7 +19471,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -19882,7 +19882,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -20073,7 +20073,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -20484,7 +20484,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -20734,7 +20734,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -21240,7 +21240,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -21490,7 +21490,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -21996,7 +21996,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -22246,7 +22246,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -22752,7 +22752,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -23002,7 +23002,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EjLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -23508,7 +23508,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -23696,7 +23696,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -24142,7 +24142,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -24330,7 +24330,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -24738,7 +24738,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -24926,7 +24926,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -25334,7 +25334,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -25582,7 +25582,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -26084,7 +26084,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -26332,7 +26332,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -26834,7 +26834,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -27082,7 +27082,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -27584,7 +27584,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE1EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -27832,7 +27832,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE1EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -28334,7 +28334,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -28525,7 +28525,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE0EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -28977,7 +28977,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -29168,7 +29168,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE1EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -29579,7 +29579,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -29770,7 +29770,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE2EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr noundef %6, ptr noundef readnone captures(address) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -30181,7 +30181,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -30431,7 +30431,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE3EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -30937,7 +30937,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -31187,7 +31187,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE4EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -31693,7 +31693,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -31943,7 +31943,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE5EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -32449,7 +32449,7 @@ define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE0EE18readCoverageHeaderEPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.438") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::MD5", align 4
   %7 = alloca %"struct.llvm::MD5::MD5Result", align 8
@@ -32699,7 +32699,7 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %_ZSt5equalIN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VersionedCovMapFuncRecordReaderILN4llvm8coverage13CovMapVersionE6EmLNS1_10endiannessE0EE19readFunctionRecordsEPKcS7_St8optionalI13FilenameRangeES7_S7_(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 %4, i8 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %10 = alloca %"class.llvm::coverage::RawCoverageMappingDummyChecker", align 8
   %11 = alloca %"class.llvm::Twine", align 8

@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef readonly %vuc) local_unnamed_addr #2 {
+define dso_local noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef readonly captures(address_is_null) %vuc) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %vuc, null
   br i1 %cmp.not, label %return, label %if.then

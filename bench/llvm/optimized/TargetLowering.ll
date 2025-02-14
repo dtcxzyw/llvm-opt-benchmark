@@ -1528,7 +1528,7 @@ _ZNK4llvm8CallBase21getParamStructRetTypeEj.exit: ; preds = %142, %144, %147, %_
 declare noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm14TargetLowering11makeLibCallERNS_12SelectionDAGENS_5RTLIB7LibcallENS_3EVTENS_8ArrayRefINS_7SDValueEEENS0_18MakeLibCallOptionsERKNS_5SDLocES7_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.306") align 8 %0, ptr noundef nonnull align 8 dereferenceable(412423) %1, ptr noundef nonnull align 8 dereferenceable(952) %2, i32 noundef %3, i16 %4, ptr %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6, ptr noundef readonly byval(%"struct.llvm::TargetLowering::MakeLibCallOptions") align 8 captures(none) %7, ptr noundef nonnull readonly align 8 dereferenceable(12) %8, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm14TargetLowering11makeLibCallERNS_12SelectionDAGENS_5RTLIB7LibcallENS_3EVTENS_8ArrayRefINS_7SDValueEEENS0_18MakeLibCallOptionsERKNS_5SDLocES7_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.306") align 8 %0, ptr noundef nonnull align 8 dereferenceable(412423) %1, ptr noundef nonnull align 8 dereferenceable(952) %2, i32 noundef %3, i16 %4, ptr %5, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %6, ptr noundef readonly byval(%"struct.llvm::TargetLowering::MakeLibCallOptions") align 8 captures(none) %7, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(12) %8, ptr noundef byval(%"class.llvm::SDValue") align 8 captures(none) %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"struct.llvm::EVT", align 8
   %12 = alloca %"struct.llvm::EVT", align 8
   %13 = alloca %"struct.llvm::TargetLowering::CallLoweringInfo", align 8
@@ -27281,7 +27281,7 @@ declare void @_ZN4llvm9KnownBits3mulERKS0_S2_b(ptr dead_on_unwind writable sret(
 declare void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind writable sret(%"struct.llvm::KnownBits") align 8, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefINS_5SDUseEEEZNKS_14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES8_RNS_9KnownBitsERNS4_17TargetLoweringOptEjbE3$_3EEbOT_T0_"(ptr readonly %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefINS_5SDUseEEEZNKS_14TargetLowering20SimplifyDemandedBitsENS_7SDValueERKNS_5APIntES8_RNS_9KnownBitsERNS4_17TargetLoweringOptEjbE3$_3EEbOT_T0_"(ptr readonly captures(address) %.0.val, i64 %.8.val) unnamed_addr #8 {
   %.idx1 = mul nuw nsw i64 %.8.val, 40
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx1
   %2 = ashr i64 %.8.val, 2
@@ -92217,7 +92217,7 @@ declare noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 d
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL24foldSetCCWithFunnelShiftN4llvm3EVTENS_7SDValueES1_NS_3ISD8CondCodeERKNS_5SDLocERNS_12SelectionDAGEENK3$_0clES1_S1_"(ptr writeonly captures(none) %.0.val, ptr writeonly captures(none) %.8.val, ptr %0, i32 %1, ptr readnone %2, i32 %3) unnamed_addr #7 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL24foldSetCCWithFunnelShiftN4llvm3EVTENS_7SDValueES1_NS_3ISD8CondCodeERKNS_5SDLocERNS_12SelectionDAGEENK3$_0clES1_S1_"(ptr writeonly captures(none) %.0.val, ptr writeonly captures(none) %.8.val, ptr %0, i32 %1, ptr readnone captures(address) %2, i32 %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !242
   %.not = icmp eq i32 %6, 187
@@ -94350,7 +94350,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPSt4pairIN4llvm9Strin
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #24 {
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #24 {
   %.sroa.0.i = alloca %"class.llvm::StringRef", align 8
   %.sroa.0 = alloca %"class.llvm::StringRef", align 8
   %3 = icmp eq ptr %0, %1

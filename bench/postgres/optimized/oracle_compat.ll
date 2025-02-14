@@ -993,7 +993,7 @@ define dso_local noundef i64 @byteatrim(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp eq i8 %5, 1

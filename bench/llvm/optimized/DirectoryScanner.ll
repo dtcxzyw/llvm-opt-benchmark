@@ -136,7 +136,7 @@ $_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112ba
 @.str.20 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10installapi16DirectoryScanner10getHeadersEN4llvm8ArrayRefINS0_7LibraryEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10installapi16DirectoryScanner10getHeadersEN4llvm8ArrayRefINS0_7LibraryEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw %"class.clang::installapi::Library", ptr %1, i64 %2
   %.not9 = icmp eq i64 %2, 0

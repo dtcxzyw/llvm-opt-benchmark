@@ -5275,7 +5275,7 @@ define internal i32 @ieee80211_set_wiphy_params(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @ieee80211_set_tx_power(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_set_tx_power(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !10
 
@@ -6863,7 +6863,7 @@ define internal noundef i32 @ieee80211_set_noack_map(ptr readnone captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -67, 1) i32 @ieee80211_cfg_get_channel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
+define internal noundef range(i32 -67, 1) i32 @ieee80211_cfg_get_channel(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !10
 
@@ -7031,7 +7031,7 @@ define internal void @ieee80211_end_cac(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @ieee80211_set_qos_map(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ieee80211_set_qos_map(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %10, label %5
 
@@ -8045,7 +8045,7 @@ define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr readnone cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ieee80211_get_txq_stats(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ieee80211_get_txq_stats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -9170,7 +9170,7 @@ declare dso_local void @ieee80211_wake_vif_queues(ptr noundef, ptr noundef, i32 
 declare dso_local void @cfg80211_ch_switch_notify(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 456

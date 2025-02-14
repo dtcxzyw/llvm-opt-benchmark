@@ -317,7 +317,7 @@ define dso_local void @set_sigpipe_trap_state(i1 noundef zeroext %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.winsize, align 2
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %48, label %4

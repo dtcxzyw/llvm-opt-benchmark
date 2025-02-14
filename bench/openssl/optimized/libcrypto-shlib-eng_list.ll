@@ -141,7 +141,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @engine_remove_dynamic_id(ptr noundef %e, i32 noundef %not_locked) local_unnamed_addr #0 {
+define void @engine_remove_dynamic_id(ptr noundef captures(address) %e, i32 noundef %not_locked) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %if.end29, label %lor.lhs.false
@@ -898,7 +898,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_ctrl_cmd_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ENGINE_up_ref(ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_up_ref(ptr noundef captures(address_is_null) %e) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %if.then, label %if.end

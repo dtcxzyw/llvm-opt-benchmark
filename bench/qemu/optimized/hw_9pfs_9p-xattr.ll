@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pt_listxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly %value, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pt_listxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly captures(address_is_null) %value, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
   %tobool.not = icmp eq ptr %value, null

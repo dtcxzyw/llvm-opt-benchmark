@@ -1815,7 +1815,7 @@ define hidden noundef zeroext i16 @de_time_zone(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define hidden zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %10 = load i32, ptr @ett_bc_oct_3, align 4
@@ -2332,14 +2332,14 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @de_bearer_cap_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define hidden zeroext i16 @de_bearer_cap_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   store i1 true, ptr @is_uplink, align 4
   %8 = tail call zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6)
   ret i16 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define hidden noundef zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_cld_party_bcd_num, align 4
   call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
@@ -3050,7 +3050,7 @@ default.unreachable:                              ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_cld_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_cld_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
@@ -3070,7 +3070,7 @@ define internal noundef zeroext i16 @de_cld_party_sub_addr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_clg_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_clg_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_clg_party_bcd_num, align 4
   call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
@@ -3091,7 +3091,7 @@ define internal noundef zeroext i16 @de_clg_party_bcd_num(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_clg_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_clg_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
@@ -3111,7 +3111,7 @@ define internal noundef zeroext i16 @de_clg_party_sub_addr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal zeroext i16 @de_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_extension, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %10 = load i32, ptr @hf_gsm_a_dtap_de_cause_coding_standard, align 4
@@ -3447,7 +3447,7 @@ switch.early.test:                                ; preds = %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_conn_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_conn_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_conn_num, align 4
   call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
@@ -3468,7 +3468,7 @@ define internal noundef zeroext i16 @de_conn_num(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_conn_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_conn_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
@@ -3539,7 +3539,7 @@ define internal noundef zeroext i16 @de_hlc(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_keypad_facility(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_keypad_facility(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %.fr = freeze i8 %8
   %9 = and i8 %.fr, 127
@@ -3675,7 +3675,7 @@ define internal noundef zeroext i16 @de_recall_type(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_red_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_red_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_red_party_bcd_num, align 4
   call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
@@ -3696,7 +3696,7 @@ define internal noundef zeroext i16 @de_red_party_bcd_num(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_red_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_red_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
@@ -3828,7 +3828,7 @@ define internal noundef zeroext i16 @de_allowed_act(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_stream_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_stream_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = zext i8 %8 to i32
   %10 = icmp eq i8 %8, 0
@@ -3891,7 +3891,7 @@ define internal noundef zeroext i16 @de_nw_call_ctrl_cap(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_ca_of_no_cli(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_ca_of_no_cli(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = load i32, ptr @hf_gsm_a_dtap_cause_of_no_cli, align 4
   %10 = zext i8 %8 to i32
@@ -3934,7 +3934,7 @@ define internal noundef zeroext i16 @de_cp_user_data(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_cp_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
+define internal noundef zeroext i16 @de_cp_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = zext i8 %8 to i32
   %10 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @gsm_a_dtap_cp_cause_values, ptr noundef nonnull @.str.931) #6
@@ -4796,7 +4796,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

@@ -856,7 +856,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory2uf18FunctionEnumeratorppEv(ptr noundef nonnull readonly returned align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory2uf18FunctionEnumeratorppEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %d_arrayEnum = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_arrayEnum, align 8

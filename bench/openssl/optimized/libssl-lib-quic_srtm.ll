@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end, %entry, %sr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(none) %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly %opaque, ptr noundef writeonly %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(none) %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly captures(address_is_null) %opaque, ptr noundef writeonly captures(address_is_null) %seq_num) local_unnamed_addr #0 {
 entry:
   %outl.i = alloca i32, align 4
   %key = alloca %struct.srtm_item_st, align 8

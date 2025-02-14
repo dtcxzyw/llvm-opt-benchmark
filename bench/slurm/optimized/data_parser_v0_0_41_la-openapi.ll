@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [7 x i8] c"string\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define void @_set_ref(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

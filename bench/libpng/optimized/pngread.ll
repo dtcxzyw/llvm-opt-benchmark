@@ -981,7 +981,7 @@ declare void @png_do_read_transformations(ptr noundef, ptr noundef) local_unname
 declare void @png_do_read_interlace(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_read_rows(ptr noalias noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @png_read_rows(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
 
@@ -1418,7 +1418,7 @@ declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @png_crc_finish(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @png_destroy_read_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @png_destroy_read_struct(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 
@@ -1516,7 +1516,7 @@ declare void @png_destroy_info_struct(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @png_destroy_png_struct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_read_status_fn(ptr noalias noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @png_set_read_status_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -2018,7 +2018,7 @@ png_image_format.exit:                            ; preds = %16, %18
 declare i32 @png_image_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 

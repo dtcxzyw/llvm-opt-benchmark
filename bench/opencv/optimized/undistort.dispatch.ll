@@ -5035,7 +5035,7 @@ define hidden void @cvInitUndistortRectifyMap(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @cvUndistortPoints(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define hidden void @cvUndistortPoints(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = alloca %"class.cv::TermCriteria", align 8
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -5047,7 +5047,7 @@ define hidden void @cvUndistortPoints(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25cvUndistortPointsInternalPK5CvMatPS_S1_S1_S1_S1_N2cv12TermCriteriaE(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly byval(%"class.cv::TermCriteria") align 8 captures(none) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL25cvUndistortPointsInternalPK5CvMatPS_S1_S1_S1_S1_N2cv12TermCriteriaE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly byval(%"class.cv::TermCriteria") align 8 captures(none) %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::Matx.22", align 8
   %9 = alloca %"class.cv::Matx.22", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

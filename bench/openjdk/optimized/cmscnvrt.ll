@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.BlackPreservingKPlaneIntents = private unnamed_addr constant [6 x i32] [i32 0, i32 1, i32 2, i32 0, i32 1, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocIntentsPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocIntentsPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsIntentsPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -429,7 +429,7 @@ declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_u
 declare i32 @cmsGetEncodedICCversion(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 10) #7
   %.not37 = icmp eq ptr %2, null
   %.not38 = icmp eq ptr %3, null
@@ -608,13 +608,13 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsGetSupportedIntents(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @cmsGetSupportedIntents(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @cmsGetSupportedIntentsTHR(ptr noundef null, i32 noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterRenderingIntentPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterRenderingIntentPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 10) #7
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5

@@ -117,7 +117,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19StringArrayArgument3addEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19StringArrayArgument3addEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %28, label %4
 
@@ -554,7 +554,7 @@ define hidden void @_ZN12DCmdArgumentIPcE10init_valueEP10JavaThread(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 
@@ -743,7 +743,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE13destroy_valueEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN19StringArrayArgument3addEPKcm.exit, label %5
 
@@ -883,7 +883,7 @@ _ZN19StringArrayArgumentD2Ev.exit:                ; preds = %._crit_edge.i, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 

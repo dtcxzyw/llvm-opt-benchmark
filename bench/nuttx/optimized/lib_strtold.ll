@@ -8,14 +8,14 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.decfloat.p10s = private unnamed_addr constant [8 x i64] [i64 10, i64 100, i64 1000, i64 10000, i64 100000, i64 1000000, i64 10000000, i64 100000000], align 16
 
 ; Function Attrs: nounwind uwtable
-define float @strtof(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define float @strtof(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %4 = fptrunc x86_fp80 %3 to float
   ret float %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
+define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %switch = icmp eq i32 %2, 1
   %.70.neg = select i1 %switch, i64 149, i64 1074
   br label %4
@@ -895,14 +895,14 @@ hexfloat.exit:                                    ; preds = %.lr.ph.split.i.i75,
 }
 
 ; Function Attrs: nounwind uwtable
-define double @strtod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define double @strtod(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   %4 = fptrunc x86_fp80 %3 to double
   ret double %4
 }
 
 ; Function Attrs: nounwind uwtable
-define x86_fp80 @strtold(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define x86_fp80 @strtold(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef %1, i32 noundef 3)
   ret x86_fp80 %3
 }

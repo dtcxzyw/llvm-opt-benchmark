@@ -153,7 +153,7 @@ define internal fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0) unnamed
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8fastFreeEPv(ptr noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8fastFreeEPv(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit, !prof !4
@@ -212,7 +212,7 @@ define noundef ptr @cvAlloc(i64 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvFree_(ptr noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @cvFree_(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i, !prof !4

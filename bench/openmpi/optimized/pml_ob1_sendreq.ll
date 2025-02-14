@@ -958,7 +958,7 @@ ompi_request_complete.exit:                       ; preds = %115, %opal_thread_s
 declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_rndv_completion(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
+define internal void @mca_pml_ob1_rndv_completion(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -1706,7 +1706,7 @@ ompi_request_complete.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_match_completion_free(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
+define internal void @mca_pml_ob1_match_completion_free(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -3271,7 +3271,7 @@ send_request_pml_complete_check.exit:             ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_send_ctl_completion(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
+define internal void @mca_pml_ob1_send_ctl_completion(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq i32 %3, 0
@@ -3952,7 +3952,7 @@ opal_thread_add_fetch_32.exit90:                  ; preds = %190, %192
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_frag_completion(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
+define internal void @mca_pml_ob1_frag_completion(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -4926,7 +4926,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_send_request_put(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @mca_pml_ob1_send_request_put(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1

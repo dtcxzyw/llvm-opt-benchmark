@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PKCS5_pbe2_set_iv(ptr noundef %cipher, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef readonly %aiv, i32 noundef %prf_nid) local_unnamed_addr #0 {
+define hidden ptr @PKCS5_pbe2_set_iv(ptr noundef %cipher, i32 noundef %iter, ptr noundef captures(address_is_null) %salt, i32 noundef %saltlen, ptr noundef readonly captures(address_is_null) %aiv, i32 noundef %prf_nid) local_unnamed_addr #0 {
 entry:
   %prf_nid.addr = alloca i32, align 4
   %ctx = alloca %struct.evp_cipher_ctx_st, align 8
@@ -274,7 +274,7 @@ declare i32 @EVP_CIPHER_key_length(ptr noundef) local_unnamed_addr #1
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PKCS5_pbkdf2_set(i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, i32 noundef %prf_nid, i32 noundef %keylen) local_unnamed_addr #0 {
+define hidden ptr @PKCS5_pbkdf2_set(i32 noundef %iter, ptr noundef readonly captures(address_is_null) %salt, i32 noundef %saltlen, i32 noundef %prf_nid, i32 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @PBKDF2PARAM_it) #4
   %tobool.not = icmp eq ptr %call.i, null
@@ -402,7 +402,7 @@ declare ptr @X509_ALGOR_new() local_unnamed_addr #1
 declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PKCS5_pbe2_set(ptr noundef %cipher, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen) local_unnamed_addr #0 {
+define hidden ptr @PKCS5_pbe2_set(ptr noundef %cipher, i32 noundef %iter, ptr noundef captures(address_is_null) %salt, i32 noundef %saltlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS5_pbe2_set_iv(ptr noundef %cipher, i32 noundef %iter, ptr noundef %salt, i32 noundef %saltlen, ptr noundef null, i32 noundef -1)
   ret ptr %call
@@ -418,7 +418,7 @@ declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @PKCS5_v2_PBE_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr noundef readnone captures(none) %unused, ptr noundef readnone captures(none) %unused2, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden i32 @PKCS5_v2_PBE_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly captures(address_is_null) %param, ptr noundef readnone captures(none) %unused, ptr noundef readnone captures(none) %unused2, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %cmp = icmp eq ptr %param, null
@@ -513,7 +513,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_get_cipherbynid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PKCS5_v2_PBKDF2_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly %param, ptr noundef readonly captures(none) %iv, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc i32 @PKCS5_v2_PBKDF2_keyivgen(ptr noundef %ctx, ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef readonly captures(address_is_null) %param, ptr noundef readonly captures(none) %iv, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %key = alloca [64 x i8], align 16

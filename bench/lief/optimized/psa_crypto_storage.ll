@@ -264,7 +264,7 @@ define hidden range(i32 -153, 1) i32 @psa_parse_key_data_from_storage(ptr nounde
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_save_persistent_key(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @psa_save_persistent_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.psa_storage_info_t, align 4
   %5 = alloca %struct.psa_storage_info_t, align 4
   %6 = icmp eq ptr %1, null

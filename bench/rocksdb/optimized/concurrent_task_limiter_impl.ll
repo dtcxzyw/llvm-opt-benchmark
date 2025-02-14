@@ -57,7 +57,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7rocksdb25ConcurrentTaskLimiterImpl7GetNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7rocksdb25ConcurrentTaskLimiterImpl7GetNameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %this) unnamed_addr #5 align 2 {
 entry:
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %name_

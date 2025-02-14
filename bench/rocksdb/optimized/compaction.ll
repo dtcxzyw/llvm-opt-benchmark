@@ -5197,7 +5197,7 @@ return:                                           ; preds = %if.end, %for.inc30,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZNK7rocksdb10Compaction17InputLevelSummaryEPNS0_23InputLevelSummaryBufferE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4788) %this, ptr noundef returned writeonly %scratch) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK7rocksdb10Compaction17InputLevelSummaryEPNS0_23InputLevelSummaryBufferE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4788) %this, ptr noundef returned writeonly captures(ret: address, provenance) %scratch) local_unnamed_addr #12 align 2 {
 entry:
   %inputs_ = getelementptr inbounds nuw i8, ptr %this, i64 4376
   %0 = load ptr, ptr %inputs_, align 8

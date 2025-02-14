@@ -40,7 +40,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10num_occurs7processEP4exprR13ast_fast_markILj1EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(144) %visited) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10num_occurs7processEP4exprR13ast_fast_markILj1EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %t, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %visited) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i.i.i109 = alloca %"struct.obj_map<expr, unsigned int>::key_data", align 8
   %et.i.i110 = alloca ptr, align 8

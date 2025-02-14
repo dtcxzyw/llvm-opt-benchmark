@@ -651,7 +651,7 @@ _ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 dereferenceable(336) %this, i32 noundef %ltype) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this, i32 noundef %ltype) local_unnamed_addr #5 align 2 {
 entry:
   switch i32 %ltype, label %sw.epilog [
     i32 0, label %return
@@ -861,7 +861,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 dereferenceable(336) %this, i32 noundef %ltype) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %this, i32 noundef %ltype) local_unnamed_addr #5 align 2 {
 entry:
   switch i32 %ltype, label %sw.epilog [
     i32 0, label %return

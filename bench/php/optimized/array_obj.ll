@@ -12,7 +12,7 @@ define hidden ptr @lexbor_array_obj_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 8) i32 @lexbor_array_obj_init(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 8) i32 @lexbor_array_obj_init(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -45,7 +45,7 @@ define hidden range(i32 0, 8) i32 @lexbor_array_obj_init(ptr noundef writeonly %
 declare ptr @lexbor_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_array_obj_clean(ptr noundef writeonly %0) local_unnamed_addr #2 {
+define hidden void @lexbor_array_obj_clean(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

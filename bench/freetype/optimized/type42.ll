@@ -969,7 +969,7 @@ T42_Open_Face.exit:                               ; preds = %t42_loader_done.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @T42_Face_Done(ptr noundef %0) #0 {
+define internal void @T42_Face_Done(ptr noundef captures(address_is_null) %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %2
 

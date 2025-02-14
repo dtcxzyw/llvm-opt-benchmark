@@ -30,7 +30,7 @@ define void @BrotliSharedDictionaryDestroyInstance(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BrotliSharedDictionaryAttach(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BrotliSharedDictionaryAttach(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp ne ptr %0, null
   %5 = icmp eq i32 %1, 0
   %or.cond = and i1 %.not, %5

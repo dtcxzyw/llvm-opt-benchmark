@@ -585,7 +585,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @rule_set_alert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
+define hidden void @rule_set_alert(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -1873,7 +1873,7 @@ define internal noundef i32 @delete_string_entry(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @get_rule(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @get_rule(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -1929,7 +1929,7 @@ get_rule.exit.thread:                             ; preds = %6, %get_rule.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @reset_global_rule_stats(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @reset_global_rule_stats(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

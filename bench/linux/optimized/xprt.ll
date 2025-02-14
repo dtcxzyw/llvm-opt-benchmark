@@ -1730,7 +1730,7 @@ define dso_local void @xprt_conditional_disconnect(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @xprt_lock_connect(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @xprt_lock_connect(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -1758,7 +1758,7 @@ define dso_local noundef zeroext i1 @xprt_lock_connect(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xprt_unlock_connect(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
+define dso_local void @xprt_unlock_connect(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   tail call void @_raw_spin_lock(ptr noundef nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1232

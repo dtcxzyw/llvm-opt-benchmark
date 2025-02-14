@@ -429,7 +429,7 @@ define void @_ZN3gmx12AnalysisData17finishFrameSerialEi(ptr noundef nonnull read
 declare void @_ZN3gmx19AnalysisDataStorage17finishFrameSerialEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readnone %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr readnone captures(address) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

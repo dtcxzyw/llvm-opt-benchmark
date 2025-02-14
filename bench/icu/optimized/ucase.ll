@@ -1252,7 +1252,7 @@ if.end279:                                        ; preds = %do.end275, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_75(ptr noundef readonly captures(address_is_null) %s, i32 noundef %length, ptr noundef readonly captures(none) %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   %0 = add i32 %length, -4
@@ -2179,7 +2179,7 @@ return:                                           ; preds = %if.end354, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_toFullLower_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc) local_unnamed_addr #0 {
+define i32 @ucase_toFullLower_75(i32 noundef %c, ptr noundef captures(address_is_null) %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296
@@ -2745,7 +2745,7 @@ return:                                           ; preds = %for.body.i106, %_ZL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %iter, ptr noundef %context, i8 noundef signext range(i8 -1, 2) %dir) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly captures(address_is_null) %iter, ptr noundef %context, i8 noundef signext range(i8 -1, 2) %dir) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %iter, null
   br i1 %cmp, label %return, label %for.cond
@@ -2825,14 +2825,14 @@ return:                                           ; preds = %for.cond, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullUpper_75(i32 noundef %c, ptr noundef captures(address_is_null) %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc, i8 noundef signext range(i8 0, 2) %upperNotTitle) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef readonly captures(address_is_null) %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %loc, i8 noundef signext range(i8 0, 2) %upperNotTitle) unnamed_addr #0 {
 entry:
   store ptr null, ptr %pString, align 8
   %cmp = icmp ult i32 %c, 55296
@@ -3180,7 +3180,7 @@ return:                                           ; preds = %_ZL10getDotTypei.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
+define noundef i32 @ucase_toFullTitle_75(i32 noundef %c, ptr noundef captures(address_is_null) %iter, ptr noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %pString, i32 noundef %caseLocale) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef %iter, ptr noundef %context, ptr noundef %pString, i32 noundef %caseLocale, i8 noundef signext 0)
   ret i32 %call

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"Unsupported interpolation (%d->%d channels)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocInterpPluginChunk(ptr noundef captures(none) initializes((56, 64)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocInterpPluginChunk(ptr noundef captures(none) initializes((56, 64)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -35,7 +35,7 @@ define hidden void @_cmsAllocInterpPluginChunk(ptr noundef captures(none) initia
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5

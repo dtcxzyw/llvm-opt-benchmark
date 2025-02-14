@@ -1096,7 +1096,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef captures(address_is_null) %10) local_unnamed_addr #0 {
   %12 = alloca %struct.PQExpBufferData, align 8
   %13 = alloca %struct.PQExpBufferData, align 8
   %14 = alloca i32, align 4

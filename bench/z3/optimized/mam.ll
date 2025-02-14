@@ -5113,7 +5113,7 @@ _ZN12_GLOBAL__N_111interpreter26get_min_max_top_generationERjS1_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl9is_sharedEPN3smt5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98976) %this, ptr noundef readonly %n) unnamed_addr #6 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl9is_sharedEPN3smt5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98976) %this, ptr noundef readonly captures(address) %n) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 98948
   %0 = load i32, ptr %m_size.i, align 4
@@ -5744,13 +5744,13 @@ _ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i: ; preds = %if.then
   %15 = load i32, ptr %arrayidx.i.i.i, align 4
   %16 = zext i32 %15 to i64
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.val.i, i64 %16
-  %cmp.not26.i = icmp eq i32 %15, 0
-  br i1 %cmp.not26.i, label %lor.lhs.false.i16.i, label %for.body.i35
+  %cmp.not27.i = icmp eq i32 %15, 0
+  br i1 %cmp.not27.i, label %lor.lhs.false.i16.i, label %for.body.i35
 
 for.body.i35:                                     ; preds = %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i, %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
-  %found.028.i = phi i1 [ %27, %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i ], [ false, %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i ]
-  %__begin2.027.i = phi ptr [ %incdec.ptr.i, %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i ], [ %call.val.i, %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i ]
-  %17 = load ptr, ptr %__begin2.027.i, align 8
+  %found.029.i = phi i1 [ %27, %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i ], [ false, %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i ]
+  %__begin2.028.i = phi ptr [ %incdec.ptr.i, %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i ], [ %call.val.i, %_ZN6vectorIPN12_GLOBAL__N_14pathELb0EjE3endEv.exit.i ]
+  %17 = load ptr, ptr %__begin2.028.i, align 8
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %for.body.i35
@@ -5792,7 +5792,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false8.i.i
   br i1 %brmerge.demorgan.i.i, label %_ZN12_GLOBAL__N_18is_equalEPKNS_4pathES2_.exit.i, label %for.cond.i.i, !llvm.loop !34
 
 _ZN12_GLOBAL__N_18is_equalEPKNS_4pathES2_.exit.i: ; preds = %if.end.i.i, %lor.lhs.false8.i.i, %lor.lhs.false5.i.i, %lor.lhs.false.i.i, %for.cond.i.i
-  %27 = phi i1 [ true, %if.end.i.i ], [ %found.028.i, %lor.lhs.false8.i.i ], [ %found.028.i, %lor.lhs.false5.i.i ], [ %found.028.i, %lor.lhs.false.i.i ], [ %found.028.i, %for.cond.i.i ]
+  %27 = phi i1 [ true, %if.end.i.i ], [ %found.029.i, %lor.lhs.false8.i.i ], [ %found.029.i, %lor.lhs.false5.i.i ], [ %found.029.i, %lor.lhs.false.i.i ], [ %found.029.i, %for.cond.i.i ]
   %28 = load ptr, ptr %17, align 8
   %29 = load ptr, ptr %call.i, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl12update_plblsEP9func_decl(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %28)
@@ -6341,7 +6341,7 @@ invoke.cont84.i.i:                                ; preds = %if.then.i.i56.i.i, 
   br label %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
 
 _ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i: ; preds = %if.end.i.i14.i, %invoke.cont84.i.i, %if.then52.i.i, %invoke.cont.i.i, %if.then12.i.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.027.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.028.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i35
 
@@ -14055,7 +14055,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly %n, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sz, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %num_unbound_vars) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly captures(address) %n, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sz, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %num_unbound_vars) unnamed_addr #17 align 2 {
 entry:
   %0 = load i32, ptr %sz, align 4
   %inc = add i32 %0, 1
@@ -24702,7 +24702,7 @@ return:                                           ; preds = %entry, %_ZN12_GLOBA
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIPN12_GLOBAL__N_19path_treeELb0EjE9push_backERKS2_(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr %elem.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIPN12_GLOBAL__N_19path_treeELb0EjE9push_backERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr %elem.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.333", align 1

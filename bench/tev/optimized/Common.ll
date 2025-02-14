@@ -1663,7 +1663,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev8toStringERKNSt3__14__fs10filesystem4pathE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev8toStringERKNSt3__14__fs10filesystem4pathE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %4 = load i8, ptr %1, align 8, !noalias !12
@@ -1800,7 +1800,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEED2Ev.exit4: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev5splitENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev5splitENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::allocator.9", align 1
   %5 = alloca %"class.std::__1::allocator.9", align 1
   %6 = alloca %"class.std::__1::basic_string.2", align 8
@@ -1999,7 +1999,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local void @_ZN3tev7toLowerENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::basic_string.2") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev7toLowerENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::basic_string.2") align 8 captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   %.not.i.i.i = icmp eq i8 %4, 0
@@ -2034,7 +2034,7 @@ define dso_local void @_ZN3tev7toLowerENSt3__112basic_stringIcNS0_11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local void @_ZN3tev7toUpperENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::basic_string.2") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev7toUpperENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::basic_string.2") align 8 captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   %.not.i.i.i = icmp eq i8 %4, 0
@@ -2069,7 +2069,7 @@ define dso_local void @_ZN3tev7toUpperENSt3__112basic_stringIcNS0_11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3tev12matchesFuzzyENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEES6_Pm(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3tev12matchesFuzzyENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEES6_Pm(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string.2", align 8
   %5 = alloca %"class.std::__1::basic_string.2", align 8
   %6 = alloca %"class.std::__1::basic_string.2", align 8

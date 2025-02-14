@@ -2688,7 +2688,7 @@ eh.resume:                                        ; preds = %lpad36, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30UnitOfMeasureConversionManager12directLookupERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::UnitOfMeasureConversion") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30UnitOfMeasureConversionManager12directLookupERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::UnitOfMeasureConversion") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3331,7 +3331,7 @@ _ZN5boost10shared_ptrIN8QuantLib23UnitOfMeasureConversion4DataEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30UnitOfMeasureConversionManager11smartLookupERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_NSt7__cxx114listINS7_12basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::UnitOfMeasureConversion") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target, ptr noundef %forbidden) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30UnitOfMeasureConversionManager11smartLookupERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_NSt7__cxx114listINS7_12basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::UnitOfMeasureConversion") align 8 %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %source, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target, ptr noundef %forbidden) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tail = alloca %"class.QuantLib::UnitOfMeasureConversion", align 8
   %agg.tmp27 = alloca %"class.std::__cxx11::list.2", align 8

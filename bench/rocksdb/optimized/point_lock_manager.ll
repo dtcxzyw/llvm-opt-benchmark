@@ -2087,7 +2087,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i.i25
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb16PointLockManager18AcquireWithTimeoutEPNS_22PessimisticTransactionEPNS_7LockMapEPNS_13LockMapStripeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvElRKNS_8LockInfoE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr noundef captures(none) %lock_map, ptr noundef %stripe, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, i64 noundef %timeout, ptr noundef nonnull align 8 dereferenceable(120) %lock_info) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PointLockManager18AcquireWithTimeoutEPNS_22PessimisticTransactionEPNS_7LockMapEPNS_13LockMapStripeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvElRKNS_8LockInfoE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr noundef captures(none) %lock_map, ptr noundef %stripe, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, i64 noundef %timeout, ptr noundef nonnull align 8 dereferenceable(120) %lock_info) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %column_family_id.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -3627,7 +3627,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont71, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb16PointLockManager16IncrementWaitersEPKNS_22PessimisticTransactionERKNS_10autovectorImLm8EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr noundef nonnull readonly align 8 dereferenceable(104) %wait_ids, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %cf_id, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %exclusive, ptr noundef %env) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb16PointLockManager16IncrementWaitersEPKNS_22PessimisticTransactionERKNS_10autovectorImLm8EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %wait_ids, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %cf_id, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %exclusive, ptr noundef %env) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i239 = alloca %"class.rocksdb::autovector<std::pair<unsigned long, rocksdb::TrackedTrxInfo>, 1>::iterator_impl", align 8
   %agg.tmp2.i.i.i240 = alloca %"class.rocksdb::autovector<std::pair<unsigned long, rocksdb::TrackedTrxInfo>, 1>::iterator_impl", align 8

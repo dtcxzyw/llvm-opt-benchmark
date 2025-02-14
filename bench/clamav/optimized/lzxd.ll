@@ -159,7 +159,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @lzxd_set_reference_data(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @lzxd_set_reference_data(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %5
 
@@ -220,7 +220,7 @@ define range(i32 0, 4) i32 @lzxd_set_reference_data(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lzxd_set_output_length(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @lzxd_set_output_length(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp sgt i64 %1, 0
   %or.cond = and i1 %3, %4

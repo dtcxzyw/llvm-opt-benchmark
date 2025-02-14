@@ -583,7 +583,7 @@ _ZN5frameC2EPlS0_S0_PhP8CodeBlobPK15ImmutableOopMapb.exit: ; preds = %_ZN5frame5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK19ContinuationWrapper21find_chunk_by_addressEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK19ContinuationWrapper21find_chunk_by_addressEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null

@@ -464,7 +464,7 @@ define internal void @inetpeer_free_rcu(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local zeroext i1 @inet_peer_xrlim_allow(ptr noundef %0, i32 noundef %1) #7 align 16 {
+define dso_local zeroext i1 @inet_peer_xrlim_allow(ptr noundef captures(address_is_null) %0, i32 noundef %1) #7 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 

@@ -108,7 +108,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.buildRelationAliases = private unnamed_addr constant [21 x i8] c"buildRelationAliases\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -470,7 +470,7 @@ declare i32 @LookupNamespaceNoError(ptr noundef) local_unnamed_addr #1
 declare i32 @get_relname_relid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @scanNameSpaceForCTE(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define dso_local ptr @scanNameSpaceForCTE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %.not28 = icmp eq ptr %0, null
   br i1 %.not28, label %.loopexit, label %.lr.ph34
 
@@ -536,7 +536,7 @@ define dso_local zeroext i1 @scanNameSpaceForENR(ptr noundef %0, ptr noundef %1)
 declare zeroext i1 @name_matches_visible_ENR(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @checkNameSpaceConflicts(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @checkNameSpaceConflicts(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph48
 
@@ -1023,7 +1023,7 @@ markVarForSelectPriv.exit:                        ; preds = %.lr.ph.i70, %markNu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scanRTEForColumn(ptr noundef %0, ptr noundef %1, ptr readonly %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @scanRTEForColumn(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
   %.not = icmp eq ptr %.16.val, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -1685,7 +1685,7 @@ declare void @setup_parser_errposition_callback(ptr noundef, ptr noundef, i32 no
 declare ptr @table_openrv_extended(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @isFutureCTE(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @isFutureCTE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %.not25.not = icmp eq ptr %0, null
   br i1 %.not25.not, label %.loopexit, label %.lr.ph29
 
@@ -1988,7 +1988,7 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %121, %list_length.e
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @isLockedRefname(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @isLockedRefname(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -2085,7 +2085,7 @@ define dso_local noundef zeroext i1 @isLockedRefname(ptr noundef readonly captur
 declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @buildRelationAliases(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @buildRelationAliases(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
@@ -2576,7 +2576,7 @@ declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @buildNSItemFromLists(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @buildNSItemFromLists(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit, label %list_length.exit.thread
 
@@ -2690,7 +2690,7 @@ list_length.exit.split.split.split:               ; preds = %list_length.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @addRangeTableEntryForFunction(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local noundef ptr @addRangeTableEntryForFunction(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -4305,7 +4305,7 @@ define dso_local void @addNSItemToQuery(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expandRTE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @expandRTE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
@@ -5000,7 +5000,7 @@ list_head.exit316.split:                          ; preds = %list_head.exit316, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expandTupleDesc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @expandTupleDesc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
@@ -5160,7 +5160,7 @@ declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expandNSItemVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @expandNSItemVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -5787,7 +5787,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 declare ptr @get_expr_result_tupdesc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_tle_by_resno(ptr noundef readonly %0, i16 noundef signext %1) local_unnamed_addr #5 {
+define dso_local ptr @get_tle_by_resno(ptr noundef readonly captures(address_is_null) %0, i16 noundef signext %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
@@ -6984,7 +6984,7 @@ define internal zeroext i1 @isQueryUsingTempRelation_walker(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getRTEPermissionInfo(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local ptr @getRTEPermissionInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

@@ -90,7 +90,7 @@ declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #2
 declare void @strmap_partial_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pool_diff_free_filepair(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @pool_diff_free_filepair(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -132,7 +132,7 @@ free_filespec_data.exit5:                         ; preds = %15, %free_filespec_
 declare void @diff_free_filepair(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.hashmap_iter, align 8
   %8 = alloca %struct.hashmap_iter, align 8
   %9 = alloca %struct.string_list, align 8

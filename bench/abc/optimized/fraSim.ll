@@ -3068,7 +3068,7 @@ define noalias noundef ptr @Fra_SmlStart(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Fra_SmlStop(ptr noundef %0) local_unnamed_addr #14 {
+define void @Fra_SmlStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

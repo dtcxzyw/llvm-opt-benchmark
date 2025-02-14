@@ -1044,7 +1044,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10AtForkList6removeEPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readnone %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10AtForkList6removeEPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readnone captures(address) %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %handle, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1206,7 +1206,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly10AtForkList8containsEPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readnone %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly10AtForkList8containsEPKv(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef readnone captures(address) %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %handle, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2188,7 +2188,7 @@ if.end.i.i45:                                     ; preds = %_ZN5folly8FunctionI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6AtFork17unregisterHandlerEPKv(ptr noundef captures(address) %handle) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

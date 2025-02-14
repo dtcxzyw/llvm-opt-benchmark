@@ -13855,7 +13855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal5DType15getConstructorsEv(ptr noundef nonnull readnone align 8 dereferenceable(448) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal5DType15getConstructorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(448) %this) local_unnamed_addr #10 align 2 {
 entry:
   %d_constructors = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %d_constructors

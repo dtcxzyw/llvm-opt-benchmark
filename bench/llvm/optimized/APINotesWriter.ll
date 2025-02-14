@@ -18593,7 +18593,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca i64, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(904) ptr @_Znwm(i64 noundef 904) #22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -34512,7 +34512,7 @@ _ZN5clang9api_notes14CommonTypeInfoD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.237", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -38960,7 +38960,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.255", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -39935,7 +39935,7 @@ define internal fastcc void @_ZN5clang9api_notes12_GLOBAL__N_116emitVariableInfo
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZN4llvm24SpecificBumpPtrAllocatorINS_31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4ItemEE10DestroyAllEvENKUlPcS9_E_clES9_S9_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #12 align 2 {
+define internal fastcc void @_ZZN4llvm24SpecificBumpPtrAllocatorINS_31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_119ObjCMethodTableInfoEE4ItemEE10DestroyAllEvENKUlPcS9_E_clES9_S9_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %.not1 = icmp ugt ptr %3, %1
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -43330,7 +43330,7 @@ _ZNSt22_Optional_payload_baseIN5clang9api_notes9ParamInfoEE8_M_resetEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.257", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -44197,7 +44197,7 @@ _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit34: ; preds = %.l
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZZN4llvm24SpecificBumpPtrAllocatorINS_31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4ItemEE10DestroyAllEvENKUlPcS9_E_clES9_S9_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #12 align 2 {
+define internal fastcc void @_ZZN4llvm24SpecificBumpPtrAllocatorINS_31OnDiskChainedHashTableGeneratorIN5clang9api_notes12_GLOBAL__N_118CXXMethodTableInfoEE4ItemEE10DestroyAllEvENKUlPcS9_E_clES9_S9_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.not1 = icmp ugt ptr %3, %1
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -46446,7 +46446,7 @@ _ZSt11__push_heapIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.274", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -49922,7 +49922,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.276", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -53683,7 +53683,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.286", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -57581,7 +57581,7 @@ _ZN5clang9api_notes12FunctionInfoD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.288", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -61121,7 +61121,7 @@ _ZN5clang9api_notes16CommonEntityInfoD2Ev.exit:   ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.290", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -66649,7 +66649,7 @@ define linkonce_odr void @_ZSt4swapIN5clang9api_notes7TagInfoEENSt9enable_ifIXsr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.292", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -69691,7 +69691,7 @@ _ZN5clang9api_notes14CommonTypeInfoD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_12_GLOBAL__N_117emitVersionedInfoIS5_EEvRNS1_11raw_ostreamERNS1_15SmallVectorImplIS0_IS2_T_EEENS1_12function_refIFvSE_RKNSB_13MakeDependentISG_E4TypeEEEEEUlRKS6_ST_E_EEEvSG_SG_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::pair.302", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader

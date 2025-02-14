@@ -1598,7 +1598,7 @@ freedfa.exit:                                     ; preds = %92, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shortest(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc ptr @shortest(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %3, %9
@@ -2010,7 +2010,7 @@ dfa_backref.exit.thread:                          ; preds = %157, %.thread179, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @longest(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @longest(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %3, %7

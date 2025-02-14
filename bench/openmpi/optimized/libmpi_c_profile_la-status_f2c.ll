@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Status_f2c = weak alias i32 (ptr, ptr), ptr @PMPI_Status_f2c
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Status_f2c(ptr noundef readonly %0, ptr noundef writeonly %1) #0 {
+define i32 @PMPI_Status_f2c(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %.preheader

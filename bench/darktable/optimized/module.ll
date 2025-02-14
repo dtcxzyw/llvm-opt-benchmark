@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c".so\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, i8 0, i64 4096, i1 false)

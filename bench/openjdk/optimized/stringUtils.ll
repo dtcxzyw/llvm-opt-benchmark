@@ -121,7 +121,7 @@ define hidden noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.critedge, label %.preheader26
@@ -175,7 +175,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
 declare i32 @tolower(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca [1000 x i8], align 16
   %4 = alloca [1000 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef %0) #11

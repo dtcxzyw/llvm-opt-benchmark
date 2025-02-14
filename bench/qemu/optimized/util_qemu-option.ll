@@ -178,7 +178,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_opts_print_help(ptr noundef readonly %list, i1 noundef zeroext %print_caption) local_unnamed_addr #0 {
+define dso_local void @qemu_opts_print_help(ptr noundef readonly captures(address) %list, i1 noundef zeroext %print_caption) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_ptr_array_new() #20
   %tobool.not = icmp eq ptr %list, null
@@ -363,7 +363,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_opt_get(ptr noundef readonly %opts, ptr noundef readonly captures(none) %name) local_unnamed_addr #5 {
+define dso_local ptr @qemu_opt_get(ptr noundef readonly captures(address_is_null) %opts, ptr noundef readonly captures(none) %name) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %opts, null
   br i1 %cmp, label %return, label %for.cond.i
@@ -491,7 +491,7 @@ cond.end11:                                       ; preds = %cond.end11.critedge
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_opt_get_del(ptr noundef readonly %opts, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
+define dso_local ptr @qemu_opt_get_del(ptr noundef readonly captures(address_is_null) %opts, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %opts, null
   br i1 %cmp, label %return, label %for.cond.i
@@ -642,14 +642,14 @@ return:                                           ; preds = %entry.tail.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef %name, i1 noundef zeroext %defval) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qemu_opt_get_bool(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i1 noundef zeroext %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i1 @qemu_opt_get_bool_helper(ptr noundef %opts, ptr noundef %name, i1 noundef zeroext %defval, i1 noundef zeroext false)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @qemu_opt_get_bool_helper(ptr noundef readonly %opts, ptr noundef %name, i1 noundef zeroext %defval, i1 noundef zeroext %del) unnamed_addr #0 {
+define internal fastcc zeroext i1 @qemu_opt_get_bool_helper(ptr noundef readonly captures(address_is_null) %opts, ptr noundef %name, i1 noundef zeroext %defval, i1 noundef zeroext %del) unnamed_addr #0 {
 entry:
   %ret = alloca i8, align 1
   %frombool = zext i1 %defval to i8
@@ -789,21 +789,21 @@ return:                                           ; preds = %for.cond.i.i, %find
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_opt_get_bool_del(ptr noundef %opts, ptr noundef %name, i1 noundef zeroext %defval) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qemu_opt_get_bool_del(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i1 noundef zeroext %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc zeroext i1 @qemu_opt_get_bool_helper(ptr noundef %opts, ptr noundef %name, i1 noundef zeroext %defval, i1 noundef zeroext true)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
+define dso_local i64 @qemu_opt_get_number(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @qemu_opt_get_number_helper(ptr noundef %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qemu_opt_get_number_helper(ptr noundef readonly %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext %del) unnamed_addr #0 {
+define internal fastcc i64 @qemu_opt_get_number_helper(ptr noundef readonly captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext %del) unnamed_addr #0 {
 entry:
   %number.i = alloca i64, align 8
   %cmp = icmp eq ptr %opts, null
@@ -956,21 +956,21 @@ return:                                           ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_opt_get_number_del(ptr noundef %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
+define dso_local i64 @qemu_opt_get_number_del(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @qemu_opt_get_number_helper(ptr noundef %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext true)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_opt_get_size(ptr noundef %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
+define dso_local i64 @qemu_opt_get_size(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @qemu_opt_get_size_helper(ptr noundef %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qemu_opt_get_size_helper(ptr noundef readonly %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext %del) unnamed_addr #0 {
+define internal fastcc i64 @qemu_opt_get_size_helper(ptr noundef readonly captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext %del) unnamed_addr #0 {
 entry:
   %size.i = alloca i64, align 8
   %cmp = icmp eq ptr %opts, null
@@ -1124,7 +1124,7 @@ return:                                           ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_opt_get_size_del(ptr noundef %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
+define dso_local i64 @qemu_opt_get_size_del(ptr noundef captures(address_is_null) %opts, ptr noundef %name, i64 noundef %defval) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i64 @qemu_opt_get_size_helper(ptr noundef %opts, ptr noundef %name, i64 noundef %defval, i1 noundef zeroext true)
   ret i64 %call
@@ -1477,7 +1477,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @qemu_opts_find(ptr noundef readonly captures(none) %list, ptr noundef readonly %id) local_unnamed_addr #5 {
+define dso_local noundef ptr @qemu_opts_find(ptr noundef readonly captures(none) %list, ptr noundef readonly captures(address_is_null) %id) local_unnamed_addr #5 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %list, i64 24
   %opts.010 = load ptr, ptr %head, align 8
@@ -1942,7 +1942,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly %help_wanted, ptr noundef nonnull captures(none) initializes((0, 8)) %name, ptr noundef nonnull captures(none) %value) unnamed_addr #0 {
+define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly captures(address_is_null) %help_wanted, ptr noundef nonnull captures(none) initializes((0, 8)) %name, ptr noundef nonnull captures(none) %value) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strcspn(ptr noundef %params, ptr noundef nonnull @.str.42) #19
   %arrayidx = getelementptr i8, ptr %params, i64 %call
@@ -2184,7 +2184,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @opts_do_parse(ptr noundef %opts, ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @opts_do_parse(ptr noundef %opts, ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef captures(address_is_null) %help_wanted, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %option = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -2344,7 +2344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @opts_parse(ptr noundef %list, ptr noundef %params, i1 noundef zeroext %permit_abbrev, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @opts_parse(ptr noundef %list, ptr noundef %params, i1 noundef zeroext %permit_abbrev, i1 noundef zeroext %warn_on_flag, ptr noundef captures(address_is_null) %help_wanted, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %name.i = alloca ptr, align 8
   %value.i = alloca ptr, align 8
@@ -2640,7 +2640,7 @@ return:                                           ; preds = %if.then, %if.end9, 
 declare void @qdict_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_opts_to_qdict_filtered(ptr noundef readonly captures(none) %opts, ptr noundef %qdict, ptr noundef readonly %list, i1 noundef zeroext %del) local_unnamed_addr #0 {
+define dso_local ptr @qemu_opts_to_qdict_filtered(ptr noundef readonly captures(none) %opts, ptr noundef %qdict, ptr noundef readonly captures(address_is_null) %list, i1 noundef zeroext %del) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %qdict, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3074,7 +3074,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_opts_append(ptr noundef %dst, ptr noundef readonly %list) local_unnamed_addr #0 {
+define dso_local ptr @qemu_opts_append(ptr noundef %dst, ptr noundef readonly captures(address) %list) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %if.end

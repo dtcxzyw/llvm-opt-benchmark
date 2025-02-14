@@ -395,7 +395,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uv_os_free_passwd(ptr noundef %pwd) local_unnamed_addr #0 {
+define void @uv_os_free_passwd(ptr noundef captures(address_is_null) %pwd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pwd, null
   br i1 %cmp, label %return, label %if.end
@@ -417,7 +417,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uv_os_free_group(ptr noundef %grp) local_unnamed_addr #0 {
+define void @uv_os_free_group(ptr noundef captures(address_is_null) %grp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %grp, null
   br i1 %cmp, label %return, label %if.end
@@ -1304,7 +1304,7 @@ uv__strdup.exit:                                  ; preds = %entry, %uv__malloc.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @uv_strerror_r(i32 noundef %err, ptr noundef returned writeonly %buf, i64 noundef %buflen) local_unnamed_addr #8 {
+define noundef ptr @uv_strerror_r(i32 noundef %err, ptr noundef returned writeonly captures(ret: address, provenance) %buf, i64 noundef %buflen) local_unnamed_addr #8 {
 entry:
   switch i32 %err, label %sw.default [
     i32 -7, label %sw.bb
@@ -2407,7 +2407,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr noundef readonly captures(none) %handle, ptr noundef readonly %addr) local_unnamed_addr #11 {
+define hidden range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr noundef readonly captures(none) %handle, ptr noundef readonly captures(address_is_null) %addr) local_unnamed_addr #11 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
@@ -2653,14 +2653,14 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uv_print_all_handles(ptr noundef %loop, ptr noundef %stream) local_unnamed_addr #0 {
+define void @uv_print_all_handles(ptr noundef captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__print_handles(ptr noundef %loop, i32 noundef 0, ptr noundef %stream)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__print_handles(ptr noundef readonly %loop, i32 noundef range(i32 0, 2) %only_active, ptr noundef %stream) unnamed_addr #0 {
+define internal fastcc void @uv__print_handles(ptr noundef readonly captures(address) %loop, i32 noundef range(i32 0, 2) %only_active, ptr noundef captures(address_is_null) %stream) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %loop, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2787,7 +2787,7 @@ for.end:                                          ; preds = %for.inc, %sw.epilog
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uv_print_active_handles(ptr noundef %loop, ptr noundef %stream) local_unnamed_addr #0 {
+define void @uv_print_active_handles(ptr noundef captures(address) %loop, ptr noundef captures(address_is_null) %stream) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @uv__print_handles(ptr noundef %loop, i32 noundef 1, ptr noundef %stream)
   ret void

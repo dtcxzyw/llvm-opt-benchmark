@@ -62,7 +62,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm20StrCmpOptionPrefixesENS_8ArrayRefINS_9StringRefEEES2_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4llvm20StrCmpOptionPrefixesENS_8ArrayRefINS_9StringRefEEES2_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %0, i64 %1
   %7 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %2, i64 %3

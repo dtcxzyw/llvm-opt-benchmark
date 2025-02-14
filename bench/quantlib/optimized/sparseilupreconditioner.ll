@@ -3407,13 +3407,13 @@ ehcleanup24:                                      ; preds = %if.then.i45, %ehcle
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZNK8QuantLib23SparseILUPreconditioner1LEv(ptr noundef nonnull readnone returned align 8 dereferenceable(272) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZNK8QuantLib23SparseILUPreconditioner1LEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZNK8QuantLib23SparseILUPreconditioner1UEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZNK8QuantLib23SparseILUPreconditioner1UEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(272) %this) local_unnamed_addr #10 align 2 {
 entry:
   %U_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %U_

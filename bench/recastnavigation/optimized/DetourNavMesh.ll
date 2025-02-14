@@ -393,7 +393,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh4initEPhii(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca [32 x ptr], align 16
   %8 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %8, 1145979222
@@ -878,7 +878,7 @@ _ZNK9dtNavMesh9getTileAtEiii.exit:                ; preds = %74, %80, %261, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(100) %0) local_unnamed_addr #8 align 2 {
   ret ptr %0
 }
 
@@ -1211,7 +1211,7 @@ define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 align 2 {
+define void @_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #11 align 2 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -1352,7 +1352,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [8 x float], align 16
   %.not = icmp eq ptr %1, null
@@ -2145,7 +2145,7 @@ _Z9allocLinkP10dtMeshTile.exit61:                 ; preds = %74, %63, %87, %49, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPolyPKfPf(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPolyPKfPf(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca float, align 4
   %8 = alloca [18 x float], align 16
@@ -2449,7 +2449,7 @@ declare noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef, ptr noundef
 declare noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 12)) %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) initializes((0, 12)) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -3663,7 +3663,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [32 x ptr], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %285, label %6
@@ -4244,7 +4244,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483636, -2147483648) i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(100) %0, ptr noundef readonly %1) local_unnamed_addr #14 align 2 {
+define noundef range(i32 -2147483636, -2147483648) i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(100) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 

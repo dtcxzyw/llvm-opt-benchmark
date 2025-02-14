@@ -824,7 +824,7 @@ _ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15FileTraceWriter5WriteERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceWriter5WriteERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %file_writer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -893,7 +893,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18NewFileTraceReaderEPNS_3EnvERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_11TraceReaderESt14default_deleteISE_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(32) %trace_filename, ptr noundef captures(none) %trace_reader) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18NewFileTraceReaderEPNS_3EnvERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_11TraceReaderESt14default_deleteISE_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(32) %trace_filename, ptr noundef captures(none) %trace_reader) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_reader = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -1149,7 +1149,7 @@ _ZN7rocksdb9IOOptionsD2Ev.exit:                   ; preds = %_ZNSt10_HashtableIN
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18NewFileTraceWriterEPNS_3EnvERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_11TraceWriterESt14default_deleteISE_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(32) %trace_filename, ptr noundef captures(none) %trace_writer) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18NewFileTraceWriterEPNS_3EnvERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_11TraceWriterESt14default_deleteISE_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) %agg.result, ptr noundef nonnull %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %env_options, ptr noundef nonnull align 8 dereferenceable(32) %trace_filename, ptr noundef captures(none) %trace_writer) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_writer = alloca %"class.std::unique_ptr.31", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8

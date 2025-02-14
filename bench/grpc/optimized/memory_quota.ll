@@ -1429,7 +1429,7 @@ arraydestroy.done15:                              ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16BasicMemoryQuota4TakeEPNS_23GrpcMemoryAllocatorImplEm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator, i64 noundef %amount) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16BasicMemoryQuota4TakeEPNS_23GrpcMemoryAllocatorImplEm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef captures(address_is_null) %allocator, i64 noundef %amount) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::Waker", align 8
   %cmp = icmp eq i64 %amount, 0
@@ -2976,7 +2976,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23GrpcMemoryAllocatorImpl9ReplenishEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core23GrpcMemoryAllocatorImpl9ReplenishEv(ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(136) %this) local_unnamed_addr #4 align 2 {
 entry:
   %taken_bytes_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %taken_bytes_ monotonic, align 8
@@ -8822,7 +8822,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE8StepLoopEv"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE8StepLoopEv"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(232) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i31 = alloca %"class.grpc_core::promise_detail::Seq", align 8
   %agg.tmp.i = alloca %"class.grpc_core::promise_detail::Seq", align 8

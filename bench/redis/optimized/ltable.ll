@@ -934,7 +934,7 @@ return:                                           ; preds = %if.else8, %land.lhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @luaH_getstr(ptr noundef readonly captures(none) %t, ptr noundef readonly %key) local_unnamed_addr #4 {
+define hidden ptr @luaH_getstr(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(address) %key) local_unnamed_addr #4 {
 entry:
   %node = getelementptr inbounds nuw i8, ptr %t, i64 40
   %0 = load ptr, ptr %node, align 8, !tbaa !13

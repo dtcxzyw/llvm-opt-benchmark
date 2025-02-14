@@ -25,7 +25,7 @@ define hidden { ptr, i64 } @"_ZN4core3str74_$LT$impl$u20$core..convert..AsRef$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h394ef0777c2b9105E.llvm.14566882133875253305"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h394ef0777c2b9105E.llvm.14566882133875253305"(ptr noalias noundef readonly returned align 2 captures(ret: address, provenance) dereferenceable(2) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

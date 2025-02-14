@@ -11845,12 +11845,12 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config29print_misformatte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(848) ptr @_ZN15rustfmt_nightly6config6Config3set17h88ef1193a867beedE(ptr noalias noundef readnone returned align 8 dereferenceable(848) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(848) ptr @_ZN15rustfmt_nightly6config6Config3set17h88ef1193a867beedE(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(848) %0) unnamed_addr #10 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @_ZN15rustfmt_nightly6config6Config7was_set17he22b07c8576e5dcfE(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #10 {
+define noundef nonnull align 8 ptr @_ZN15rustfmt_nightly6config6Config7was_set17he22b07c8576e5dcfE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
   ret ptr %0
 }
 

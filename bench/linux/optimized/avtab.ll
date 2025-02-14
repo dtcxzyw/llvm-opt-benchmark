@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [21 x i8] c"avtab_extended_perms\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @avtab_insert_nonunique(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %125, label %5
 
@@ -225,7 +225,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread9, label %4
 
@@ -351,7 +351,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread8, label %4
 
@@ -429,7 +429,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @avtab_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %32, label %3
 
@@ -1069,7 +1069,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %131, label %6
 

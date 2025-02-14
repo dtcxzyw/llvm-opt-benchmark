@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @jent_apt_cutoff_permanent_lookup = internal unnamed_addr constant [15 x i32] [i32 355, i32 447, i32 479, i32 494, i32 502, i32 507, i32 510, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -1, 1) i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @jent_read_entropy(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -252,7 +252,7 @@ define dso_local void @jent_entropy_collector_free(ptr noundef %0) local_unnamed
 declare dso_local void @jent_kvzfree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon, align 4
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

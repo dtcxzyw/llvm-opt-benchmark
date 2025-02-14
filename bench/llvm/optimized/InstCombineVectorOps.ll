@@ -299,7 +299,7 @@ $_ZN4llvm8DenseMapIPNS_4TypeEPNS_5ValueENS_12DenseMapInfoIS2_vEENS_6detail12Dens
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4llvm16InstCombinerImpl12scalarizePHIERNS_18ExtractElementInstEPNS_7PHINodeE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN4llvm16InstCombinerImpl12scalarizePHIERNS_18ExtractElementInstEPNS_7PHINodeE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.197", align 8
   %5 = alloca %"struct.std::pair.201", align 8
   %6 = alloca %"class.llvm::SmallVector", align 8
@@ -3400,7 +3400,7 @@ declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5Valu
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jb(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12)) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12)) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -14257,7 +14257,7 @@ declare noundef zeroext i1 @_ZN4llvm25isGuaranteedNotToBePoisonEPKNS_5ValueEPNS_
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl13foldOpIntoPhiERNS_11InstructionEPNS_7PHINodeEb(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19canEvaluateShuffledPN4llvm5ValueENS_8ArrayRefIiEEj(ptr noundef readonly %0, ptr %1, i64 %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19canEvaluateShuffledPN4llvm5ValueENS_8ArrayRefIiEEj(ptr noundef readonly captures(address) %0, ptr %1, i64 %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::ArrayRef.136", align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -17049,7 +17049,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %.loopexit, %136
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL28collectSingleShuffleElementsPN4llvm5ValueES1_S1_RNS_15SmallVectorImplIiEE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL28collectSingleShuffleElementsPN4llvm5ValueES1_S1_RNS_15SmallVectorImplIiEE(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32

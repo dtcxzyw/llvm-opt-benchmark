@@ -1321,7 +1321,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions47computeRequestedRenderingDataCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29MLPoliciesStandAloneFunctions42setPerViewGLOptionsAccordindToWireModalityEP9MeshModelR15MLRenderingData(ptr noundef readonly %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29MLPoliciesStandAloneFunctions42setPerViewGLOptionsAccordindToWireModalityEP9MeshModelR15MLRenderingData(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.MLPerViewGLOptions, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %212, label %5
@@ -3617,7 +3617,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMIT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define void @_ZN29MLPoliciesStandAloneFunctions19setBestWireModalityEP9MeshModelR15MLRenderingData(ptr noundef readonly %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29MLPoliciesStandAloneFunctions19setBestWireModalityEP9MeshModelR15MLRenderingData(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
@@ -4451,7 +4451,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions38filterUselessUdpateAccordingToM
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 5) i32 @_ZN29MLPoliciesStandAloneFunctions36bestPrimitiveModalityAccordingToMeshEPK9MeshModel(ptr noundef readonly %0) local_unnamed_addr #18 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN29MLPoliciesStandAloneFunctions36bestPrimitiveModalityAccordingToMeshEPK9MeshModel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

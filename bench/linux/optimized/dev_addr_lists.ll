@@ -259,7 +259,7 @@ define dso_local void @__hw_addr_unsync(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__hw_addr_sync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #0 align 16 {
+define dso_local i32 @__hw_addr_sync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.loopexit8, label %7
@@ -412,7 +412,7 @@ define dso_local i32 @__hw_addr_sync_dev(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__hw_addr_ref_sync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #0 align 16 {
+define dso_local i32 @__hw_addr_ref_sync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.loopexit10, label %7
@@ -562,7 +562,7 @@ define dso_local i32 @__hw_addr_ref_sync_dev(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__hw_addr_ref_unsync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local void @__hw_addr_ref_unsync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %6
@@ -675,7 +675,7 @@ define dso_local void @__hw_addr_ref_unsync_dev(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__hw_addr_unsync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local void @__hw_addr_unsync_dev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %6

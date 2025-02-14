@@ -2047,7 +2047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6duckdbL23ArenaAllocateReallocateEPNS_20PrivateAllocatorDataEPhmm(ptr noundef readonly captures(none) %private_data, ptr noundef readonly %pointer, i64 noundef %old_size, i64 noundef %size) #0 {
+define internal noundef ptr @_ZN6duckdbL23ArenaAllocateReallocateEPNS_20PrivateAllocatorDataEPhmm(ptr noundef readonly captures(none) %private_data, ptr noundef readonly captures(address, ret: address, provenance) %pointer, i64 noundef %old_size, i64 noundef %size) #0 {
 entry:
   %allocator = getelementptr inbounds nuw i8, ptr %private_data, i64 16
   %0 = load ptr, ptr %allocator, align 8, !tbaa !40
@@ -2209,7 +2209,7 @@ if.end22:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb14ArenaAllocator10ReallocateEPhmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly %pointer, i64 noundef %old_size, i64 noundef %size) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6duckdb14ArenaAllocator10ReallocateEPhmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(address, ret: address, provenance) %pointer, i64 noundef %old_size, i64 noundef %size) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i64 %old_size, %size
   br i1 %cmp, label %return, label %if.end
@@ -2264,7 +2264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6duckdb14ArenaAllocator17ReallocateAlignedEPhmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly %pointer, i64 noundef %old_size, i64 noundef %size) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6duckdb14ArenaAllocator17ReallocateAlignedEPhmm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(address, ret: address, provenance) %pointer, i64 noundef %old_size, i64 noundef %size) local_unnamed_addr #0 align 2 {
 entry:
   %add.i = add i64 %size, 7
   %div1.i = and i64 %add.i, -8
@@ -20694,7 +20694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb9DataTable24FinalizeOptimisticWriterERNS_13ClientContextERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(16) %writer) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb9DataTable24FinalizeOptimisticWriterERNS_13ClientContextERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %writer) local_unnamed_addr #0 align 2 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %db, align 8, !tbaa !480
@@ -20707,7 +20707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12LocalStorage24FinalizeOptimisticWriterERNS_9DataTableERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(105) %table, ptr noundef nonnull align 8 dereferenceable(16) %writer) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb12LocalStorage24FinalizeOptimisticWriterERNS_9DataTableERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(105) %table, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %writer) local_unnamed_addr #0 align 2 {
 entry:
   %table_manager = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN6duckdb17LocalTableManager18GetOrCreateStorageERNS_9DataTableE(ptr noundef nonnull align 8 dereferenceable(96) %table_manager, ptr noundef nonnull align 8 dereferenceable(105) %table)
@@ -33254,7 +33254,7 @@ _ZN6duckdb10unique_ptrINS_20OptimisticDataWriterESt14default_deleteIS1_ELb1EE13A
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17LocalTableStorage24FinalizeOptimisticWriterERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull readnone align 8 dereferenceable(16) %writer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17LocalTableStorage24FinalizeOptimisticWriterERNS_20OptimisticDataWriterE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(16) %writer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %owned_writer = alloca %"class.duckdb::unique_ptr.1395", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34637,7 +34637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb12LocalStorage11CommitStateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12LocalStorage11CommitStateD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !1069
@@ -35811,7 +35811,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb10FileSystem3G
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb14StorageManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14StorageManagerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb14StorageManagerE, i64 16), ptr %this, align 8, !tbaa !26
   %wal = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -45538,7 +45538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb21StandardBufferManager18GetBufferAllocatorEv(ptr noundef nonnull readnone align 8 dereferenceable(152) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb21StandardBufferManager18GetBufferAllocatorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(152) %this) unnamed_addr #7 align 2 {
 entry:
   %buffer_allocator = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %buffer_allocator
@@ -46395,7 +46395,7 @@ ehcleanup:                                        ; preds = %if.then.i.i16, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb13WriteAheadLogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13WriteAheadLogD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6duckdb13WriteAheadLogE, i64 16), ptr %this, align 8, !tbaa !26
   %wal_path = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -51900,7 +51900,7 @@ _ZN6duckdb10unique_ptrINS_12PartialBlockESt14default_deleteIS1_ELb1EE13AssertNot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6duckdb19PartialBlockManager18HasBlockAllocationEj(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %segment_size) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN6duckdb19PartialBlockManager18HasBlockAllocationEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %this, i32 noundef %segment_size) local_unnamed_addr #10 align 2 {
 entry:
   %max_partial_block_size = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i32, ptr %max_partial_block_size, align 8, !tbaa !1396

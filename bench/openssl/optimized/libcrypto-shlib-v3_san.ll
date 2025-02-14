@@ -1212,7 +1212,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #0
 declare i32 @OPENSSL_sk_reserve(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef nonnull %gens, i32 noundef range(i32 0, 2) %move_p) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly captures(address_is_null) %ctx, ptr noundef nonnull %gens, i32 noundef range(i32 0, 2) %move_p) unnamed_addr #1 {
 entry:
   %cond19 = icmp eq ptr %ctx, null
   br i1 %cond19, label %if.then6, label %land.lhs.true

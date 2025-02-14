@@ -76,7 +76,7 @@ declare dso_local i32 @netlbl_domhsh_remove_af4(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @netlbl_domhsh_remove_af6(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2336, i64 noundef 64) #14
   %8 = icmp eq ptr %7, null
@@ -309,7 +309,7 @@ define dso_local void @netlbl_cfg_cipsov4_del(i32 noundef %0, ptr noundef %1) lo
 declare dso_local i32 @cipso_v4_doi_remove(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call ptr @cipso_v4_doi_getdef(i32 noundef %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %70, label %8
@@ -452,7 +452,7 @@ define dso_local void @netlbl_cfg_calipso_del(i32 noundef %0, ptr noundef %1) lo
 declare dso_local i32 @calipso_doi_remove(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call ptr @calipso_doi_getdef(i32 noundef %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %85, label %8
@@ -596,7 +596,7 @@ declare dso_local ptr @calipso_doi_getdef(i32 noundef) local_unnamed_addr #1
 declare dso_local void @calipso_doi_putdef(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1) #3 align 16 {
+define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -696,7 +696,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -865,7 +865,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 63
   %6 = icmp eq i32 %5, 0

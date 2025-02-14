@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5Tget_array_dims1 = private unnamed_addr constant [19 x i8] c"H5Tget_array_dims1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create2(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create2(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1
@@ -387,7 +387,7 @@ define i32 @H5T__get_array_ndims(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Tget_array_dims2(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5Tget_array_dims2(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -499,7 +499,7 @@ H5T__get_array_dims.exit.thread:                  ; preds = %.preheader.i, %H5T_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -533,7 +533,7 @@ define i32 @H5T__get_array_dims(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5_libinit_g, align 1
   %6 = trunc i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1
@@ -670,7 +670,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tarray_create1(i64 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @H5Tget_array_dims1(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5_libinit_g, align 1
   %5 = trunc i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1

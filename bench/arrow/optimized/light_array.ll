@@ -8983,7 +8983,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute16ExecBatchBuilder14AppendSelectedEPNS_10MemoryPoolERKNS0_9ExecBatchEiPKtiPKi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %batch, i32 noundef %num_rows_to_append, ptr noundef %row_ids, i32 noundef %num_cols, ptr noundef readonly %col_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute16ExecBatchBuilder14AppendSelectedEPNS_10MemoryPoolERKNS0_9ExecBatchEiPKtiPKi(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pool, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %batch, i32 noundef %num_rows_to_append, ptr noundef %row_ids, i32 noundef %num_cols, ptr noundef readonly captures(address_is_null) %col_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %cmp = icmp eq i32 %num_rows_to_append, 0

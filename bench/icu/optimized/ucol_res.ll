@@ -2537,7 +2537,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @uenum_openCharStringsEnumeration_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getKeywordValues_75(ptr noundef readonly %keyword, ptr noundef %status) local_unnamed_addr #1 {
+define ptr @ucol_getKeywordValues_75(ptr noundef readonly captures(address_is_null) %keyword, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

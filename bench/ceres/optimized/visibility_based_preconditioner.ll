@@ -1562,7 +1562,7 @@ _ZNSt10unique_ptrIN5ceres8internal29BlockRandomAccessSparseMatrixESt14default_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner14InitEliminatorERKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner14InitEliminatorERKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 captures(address) dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   store i32 2, ptr %3, align 8
@@ -5553,7 +5553,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal29VisibilityBasedPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKd(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal29VisibilityBasedPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKd(ptr noundef nonnull align 8 captures(address) dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
@@ -5860,7 +5860,7 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffDiagonalCellsEv(ptr noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffDiagonalCellsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(272) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Eigen::internal::evaluator", align 8
   %3 = alloca %"struct.Eigen::internal::evaluator.312", align 8
   %4 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel", align 8

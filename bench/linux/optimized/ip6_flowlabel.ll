@@ -270,7 +270,7 @@ define internal fastcc void @fl_release(ptr noundef initializes((80, 88)) %0) un
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @fl6_merge_options(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #3 align 16 {
+define dso_local ptr @fl6_merge_options(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null, ret: address, provenance) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %2, null
@@ -1378,7 +1378,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr noundef captu
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fl_lookup(ptr noundef readnone %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @fl_lookup(ptr noundef readnone captures(address) %0, i32 noundef %1) unnamed_addr #1 align 16 {
   tail call void @__rcu_read_lock() #13
   %3 = lshr i32 %1, 24
   %4 = zext nneg i32 %3 to i64
@@ -1548,7 +1548,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @mem_check(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fl_intern(ptr noundef readnone %0, ptr noundef nonnull initializes((8, 12)) %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0, ptr noundef nonnull initializes((8, 12)) %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = and i32 %2, -61696
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %4, ptr %5, align 8
@@ -1716,7 +1716,7 @@ define internal range(i32 -12, 1) i32 @ip6_flowlabel_proc_init(ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip6_flowlabel_net_exit(ptr noundef readonly %0) #1 align 16 {
+define internal void @ip6_flowlabel_net_exit(ptr noundef readonly captures(address) %0) #1 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_fl_lock) #13
   br label %2
 

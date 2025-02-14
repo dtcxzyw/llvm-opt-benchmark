@@ -1433,7 +1433,7 @@ define noundef zeroext i1 @_ZN10serde_json5value5Value9is_object17h3c71bbd1b11a2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value9as_object17h5fbc068bc450f204E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value9as_object17h5fbc068bc450f204E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1442,7 +1442,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Va
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value13as_object_mut17hdedeeb6511ccfacdE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value13as_object_mut17hdedeeb6511ccfacdE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1458,7 +1458,7 @@ define noundef zeroext i1 @_ZN10serde_json5value5Value8is_array17hd3d8e037690945
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value8as_array17he94350ec22611c7bE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value8as_array17he94350ec22611c7bE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1467,7 +1467,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Va
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value12as_array_mut17hc7639a96b66050c1E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN10serde_json5value5Value12as_array_mut17hc7639a96b66050c1E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1505,7 +1505,7 @@ define noundef zeroext i1 @_ZN10serde_json5value5Value9is_number17hc6e90ca71c29b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(16) ptr @_ZN10serde_json5value5Value9as_number17h2073e068f53d1eb3E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef align 8 dereferenceable_or_null(16) ptr @_ZN10serde_json5value5Value9as_number17h2073e068f53d1eb3E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1850,7 +1850,7 @@ define void @"_ZN10serde_json5value2de114_$LT$impl$u20$serde..de..IntoDeserializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN10serde_json5value2de118_$LT$impl$u20$serde..de..IntoDeserializer$LT$serde_json..error..Error$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$17into_deserializer17h39a3022ea5f2f7f2E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN10serde_json5value2de118_$LT$impl$u20$serde..de..IntoDeserializer$LT$serde_json..error..Error$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$17into_deserializer17h39a3022ea5f2f7f2E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

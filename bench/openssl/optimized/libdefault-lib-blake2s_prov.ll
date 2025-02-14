@@ -1565,7 +1565,7 @@ do.end3593:                                       ; preds = %for.end3591
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2s_final(ptr noundef %md, ptr noundef initializes((40, 44)) %c) local_unnamed_addr #5 {
+define noundef i32 @ossl_blake2s_final(ptr noundef captures(address) %md, ptr noundef initializes((40, 44)) %c) local_unnamed_addr #5 {
 entry:
   %outbuffer = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %outbuffer, i8 0, i64 32, i1 false)

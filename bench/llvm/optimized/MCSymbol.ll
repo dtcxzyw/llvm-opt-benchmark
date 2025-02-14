@@ -20,7 +20,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Allo
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_MCSymbol.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryINS_18MCSymbolTableValueEEERNS_9MCContextE(i64 noundef %0, ptr noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(2432) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryINS_18MCSymbolTableValueEEERNS_9MCContextE(i64 noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(2432) %2) local_unnamed_addr #0 align 2 {
   %.not = icmp ne ptr %1, null
   %4 = select i1 %.not, i64 8, i64 0
   %5 = add i64 %4, %0

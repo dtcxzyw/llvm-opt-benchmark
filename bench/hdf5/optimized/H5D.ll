@@ -1930,7 +1930,7 @@ define range(i32 -1, 1) i32 @H5Dread(i64 noundef %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %.not = icmp eq ptr %8, null
   %11 = icmp eq i64 %0, 0
@@ -2223,7 +2223,7 @@ define range(i32 -1, 1) i32 @H5Dread_async(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dread_multi(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dread_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i8, ptr @H5_libinit_g, align 1
   %9 = trunc i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1
@@ -2369,7 +2369,7 @@ define range(i32 -1, 1) i32 @H5Dread_multi_async(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dread_chunk(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dread_chunk(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5VL_optional_args_t, align 8
   %7 = alloca %union.H5VL_native_dataset_optional_args_t, align 8
   %8 = load i8, ptr @H5_libinit_g, align 1
@@ -2570,7 +2570,7 @@ define range(i32 -1, 1) i32 @H5Dwrite(i64 noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %.not = icmp eq ptr %8, null
   %11 = icmp eq i64 %0, 0
@@ -2863,7 +2863,7 @@ define range(i32 -1, 1) i32 @H5Dwrite_async(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dwrite_multi(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dwrite_multi(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i8, ptr @H5_libinit_g, align 1
   %9 = trunc i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1
@@ -3154,7 +3154,7 @@ define range(i32 -1, 1) i32 @H5Dwrite_chunk(i64 noundef %0, i64 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dscatter(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dscatter(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   store ptr null, ptr %6, align 8
@@ -3400,7 +3400,7 @@ declare i32 @H5S_select_iter_release(ptr noundef) local_unnamed_addr #1
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Dgather(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Dgather(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i8, ptr @H5_libinit_g, align 1
   %9 = trunc i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1
@@ -4078,7 +4078,7 @@ define range(i32 -1, 1) i32 @H5Dset_extent(i64 noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__set_extent_api_common(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__set_extent_api_common(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5VL_dataset_specific_args_t, align 8
   %.not = icmp eq ptr %3, null
   %6 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 5) #6

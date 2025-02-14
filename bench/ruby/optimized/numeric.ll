@@ -5227,7 +5227,7 @@ define dso_local i64 @rb_num2ulong(i64 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_num2ulong_internal(i64 noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
+define internal fastcc i64 @rb_num2ulong_internal(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = alloca [24 x i8], align 16
   %4 = icmp eq i64 %0, 4
   br i1 %4, label %._crit_edge, label %.lr.ph

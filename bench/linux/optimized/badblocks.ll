@@ -1798,7 +1798,7 @@ define dso_local noundef range(i32 -12, 1) i32 @badblocks_init(ptr noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @devm_init_badblocks(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @devm_init_badblocks(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %21, label %4
 
@@ -1844,7 +1844,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_init_badblocks(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @badblocks_exit(ptr noundef %0) #0 align 16 {
+define dso_local void @badblocks_exit(ptr noundef captures(address_is_null) %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 

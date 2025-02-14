@@ -883,12 +883,12 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h2e3c77b3e1fa0085E.llvm.16950135292325605555"(ptr noundef readnone returned %0) unnamed_addr #1 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h2e3c77b3e1fa0085E.llvm.16950135292325605555"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17h91fc2a752bfd7befE.llvm.16950135292325605555"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17h91fc2a752bfd7befE.llvm.16950135292325605555"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8, !range !113, !noundef !4
   %3 = icmp eq i64 %2, 0
   tail call void @llvm.assume(i1 %3)

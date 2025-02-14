@@ -1345,7 +1345,7 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
+define void @gui_changed(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -1930,7 +1930,7 @@ declare ptr @dtgtk_togglebutton_new(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dtgtk_cairo_paint_alignment(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_alignment_callback(ptr noundef readnone %0, ptr noundef %1) #1 {
+define internal void @_alignment_callback(ptr noundef readnone captures(address) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !192
@@ -1993,7 +1993,7 @@ declare void @dt_bauhaus_slider_set_digits(ptr noundef, i32 noundef) local_unnam
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_module_remove_callback(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #1 {
+define internal void @_module_remove_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) #1 {
   %.not = icmp ne ptr %1, null
   %.not8 = icmp eq ptr %1, %2
   %or.cond = and i1 %.not, %.not8
@@ -2020,7 +2020,7 @@ define internal void @_module_remove_callback(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_signal_image_changed(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
+define internal void @_signal_image_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2095,7 +2095,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.14) #24
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %59, label %4

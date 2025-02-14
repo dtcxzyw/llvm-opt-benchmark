@@ -1505,7 +1505,7 @@ llvm_emit_body.exit:                              ; preds = %419, %424
 declare ptr @type_get_resolved_prototype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x ptr], align 16
   %4 = alloca [3 x ptr], align 16
   %5 = alloca ptr, align 8

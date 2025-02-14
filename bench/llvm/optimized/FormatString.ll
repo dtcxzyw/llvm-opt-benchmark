@@ -145,7 +145,7 @@ define dso_local void @_ZN5clang21analyze_format_string19FormatStringHandlerD0Ev
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr dead_on_unwind noalias writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone %2) local_unnamed_addr #3 {
+define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr dead_on_unwind noalias writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = ptrtoint ptr %4 to i64
   %.not35 = icmp eq ptr %4, %2
@@ -531,7 +531,7 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit40: ; preds = %.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFieldWidthERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_Pj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFieldWidthERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_Pj(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 {
   %7 = alloca %"class.clang::analyze_format_string::OptionalAmount", align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %33, label %8
@@ -822,7 +822,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLengthModifierERNS0_15FormatSpecifierERPKcS4_RKNS_11LangOptionsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %3, i1 noundef zeroext %4) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLengthModifierERNS0_15FormatSpecifierERPKcS4_RKNS_11LangOptionsEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %3, i1 noundef zeroext %4) local_unnamed_addr #6 {
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = load i8, ptr %6, align 1, !tbaa !8
   switch i8 %7, label %70 [
@@ -1004,7 +1004,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.not = icmp ult ptr %4, %1
   br i1 %.not, label %5, label %14

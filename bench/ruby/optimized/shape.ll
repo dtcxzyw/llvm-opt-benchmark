@@ -1613,7 +1613,7 @@ redblack_red_p.exit.i:                            ; preds = %17
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #11 {
+define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #11 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %22
 

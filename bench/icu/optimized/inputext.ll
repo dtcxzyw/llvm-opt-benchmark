@@ -109,7 +109,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, ptr noundef readonly %encoding, i32 noundef %len) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, ptr noundef readonly captures(address_is_null) %encoding, i32 noundef %len) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %encoding, null
   br i1 %tobool.not, label %if.end9, label %if.then

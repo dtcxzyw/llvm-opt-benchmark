@@ -98,7 +98,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN3gmx11EnergyFrameC1ERK10t_enxframeRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN3gmx11EnergyFrameC2ERK10t_enxframeRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx11EnergyFrameC2ERK10t_enxframeRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx11EnergyFrameC2ERK10t_enxframeRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::InternalError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1426,7 +1426,7 @@ define ptr @_ZNK3gmx11EnergyFrame5beginB5cxx11Ev(ptr noundef nonnull readonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK3gmx11EnergyFrame3endB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(64) %0) local_unnamed_addr #13 align 2 {
+define nonnull ptr @_ZNK3gmx11EnergyFrame3endB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(64) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

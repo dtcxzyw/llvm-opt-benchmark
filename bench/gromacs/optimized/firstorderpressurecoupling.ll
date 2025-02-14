@@ -649,7 +649,7 @@ _ZNRSt8optionalIN3gmx14CheckpointDataILNS0_23CheckpointDataOperationE0EEEE5value
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx26FirstOrderPressureCoupling8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(240) %0) unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx26FirstOrderPressureCoupling8clientIDB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(240) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   ret ptr %2
 }
@@ -760,7 +760,7 @@ _ZN3gmx26FirstOrderPressureCoupling22restoreCheckpointStateESt8optionalINS_14Che
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn8_N3gmx26FirstOrderPressureCoupling8clientIDB5cxx11Ev(ptr noundef readnone %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZThn8_N3gmx26FirstOrderPressureCoupling8clientIDB5cxx11Ev(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   ret ptr %2
 }

@@ -98,7 +98,7 @@ define hidden i32 @hb_segment_properties_hash(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_segment_properties_overlay(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @hb_segment_properties_overlay(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1869,7 +1869,7 @@ define hidden void @hb_buffer_reset(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @hb_buffer_reference(ptr noundef returned %0) local_unnamed_addr #12 {
+define hidden noundef ptr @hb_buffer_reference(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #12 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL19hb_object_referenceI11hb_buffer_tEPT_S2_.exit, label %2
 
@@ -1888,7 +1888,7 @@ _ZL19hb_object_referenceI11hb_buffer_tEPT_S2_.exit: ; preds = %1, %2, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_buffer_destroy(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @hb_buffer_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread, label %2
 
@@ -1952,7 +1952,7 @@ _ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread: ; preds = %1, %5, %2, %25
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_buffer_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @hb_buffer_set_user_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_set_user_dataI11hb_buffer_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %6
 
@@ -2006,7 +2006,7 @@ _ZL23hb_object_set_user_dataI11hb_buffer_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @hb_buffer_get_user_data(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define hidden ptr @hb_buffer_get_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL23hb_object_get_user_dataIK11hb_buffer_tEPvPT_P18hb_user_data_key_t.exit, label %3
 
@@ -2515,7 +2515,7 @@ define hidden i32 @hb_buffer_get_length(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @hb_buffer_get_glyph_infos(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define hidden ptr @hb_buffer_get_glyph_infos(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -2532,7 +2532,7 @@ define hidden ptr @hb_buffer_get_glyph_infos(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @hb_buffer_get_glyph_positions(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
+define hidden ptr @hb_buffer_get_glyph_positions(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 

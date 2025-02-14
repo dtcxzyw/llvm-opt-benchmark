@@ -3230,7 +3230,7 @@ _ZN4llvm21AppleAcceleratorTable8Iterator21prepareNextEntryOrEndEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm21AppleAcceleratorTable11equal_rangeENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(149) %1, ptr readonly %2, i64 %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm21AppleAcceleratorTable11equal_rangeENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(149) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %class.anon.215, align 1
@@ -10799,7 +10799,7 @@ _ZN4llvm15DWARFDebugNames13ValueIterator6setEndEv.exit: ; preds = %_ZNSt7__cxx11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKS0_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1, ptr readonly %2, i64 %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKS0_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !56
@@ -10866,7 +10866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKNS0_9NameIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr readonly %2, i64 %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKNS0_9NameIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::DWARFDebugNames::ValueIterator", align 8
   %6 = alloca i64, align 8
   store ptr %1, ptr %0, align 8, !tbaa !942

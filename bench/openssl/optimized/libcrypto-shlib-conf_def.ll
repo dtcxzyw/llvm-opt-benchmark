@@ -80,7 +80,7 @@ if.end4:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @def_init_default(ptr noundef writeonly %conf) #2 {
+define internal range(i32 0, 2) i32 @def_init_default(ptr noundef writeonly captures(address_is_null) %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -130,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly %line) #1 {
+define internal range(i32 0, 2) i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly captures(address_is_null) %line) #1 {
 entry:
   %btmp = alloca [24 x i8], align 16
   %section = alloca ptr, align 8
@@ -1388,7 +1388,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef %line) #1 {
+define internal range(i32 0, 2) i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef captures(address_is_null) %line) #1 {
 entry:
   %call = tail call ptr @BIO_new_file(ptr noundef %name, ptr noundef nonnull @.str.24) #13
   %cmp = icmp eq ptr %call, null
@@ -1537,7 +1537,7 @@ declare void @BIO_vfree(ptr noundef) local_unnamed_addr #4
 declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @eat_alpha_numeric(ptr noundef readonly captures(none) %conf, ptr noundef readonly %p) unnamed_addr #8 {
+define internal fastcc noundef ptr @eat_alpha_numeric(ptr noundef readonly captures(none) %conf, ptr noundef readonly captures(ret: address, provenance) %p) unnamed_addr #8 {
 entry:
   %flag_dollarid51 = getelementptr inbounds nuw i8, ptr %conf, i64 24
   %0 = load i8, ptr %p, align 1
@@ -2073,7 +2073,7 @@ declare ptr @_CONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @trim_ws(ptr noundef readonly captures(none) %conf, ptr noundef %start) unnamed_addr #9 {
+define internal fastcc void @trim_ws(ptr noundef readonly captures(none) %conf, ptr noundef captures(address) %start) unnamed_addr #9 {
 entry:
   %meth_data.i = getelementptr inbounds nuw i8, ptr %conf, i64 8
   br label %while.cond
@@ -2293,7 +2293,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare i64 @ERR_peek_last_error() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @def_init_WIN32(ptr noundef writeonly %conf) #2 {
+define internal range(i32 0, 2) i32 @def_init_WIN32(ptr noundef writeonly captures(address_is_null) %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Luau::ParseOptions" = type { i8, i8 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsPm(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsPm(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::CompileOptions", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

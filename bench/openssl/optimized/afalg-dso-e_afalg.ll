@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly captures(address_is_null) %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %kver.i.i = alloca [3 x i32], align 4
   %ut.i.i = alloca %struct.utsname, align 1
@@ -509,7 +509,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @afalg_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @afalg_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly captures(address_is_null) %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end

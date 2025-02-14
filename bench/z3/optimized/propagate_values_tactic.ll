@@ -865,7 +865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticclERK3refI4goalER11sref_bufferIS2_Lj16EE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %in, ptr noundef nonnull align 8 dereferenceable(144) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticclERK3refI4goalER11sref_bufferIS2_Lj16EE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %in, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %report.i = alloca %class.tactic_report, align 8
   %new_curr.i = alloca %class.obj_ref, align 8

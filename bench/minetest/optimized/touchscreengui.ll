@@ -9284,7 +9284,7 @@ cleanup.cont:                                     ; preds = %if.then65, %_ZSt4fi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14TouchScreenGUID2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14TouchScreenGUID2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(1120) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !121, !range !81, !noundef !82
   %tobool.not = icmp eq i8 %0, 0

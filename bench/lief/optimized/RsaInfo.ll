@@ -86,7 +86,7 @@ define void @_ZN4LIEF2PE7RsaInfoC2EOS1_(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PE7RsaInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PE7RsaInfoaSES1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8

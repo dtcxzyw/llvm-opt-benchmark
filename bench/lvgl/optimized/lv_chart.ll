@@ -1121,7 +1121,7 @@ define i32 @lv_chart_get_point_count(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_chart_get_x_start_point(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i32 @lv_chart_get_x_start_point(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1135,7 +1135,7 @@ define i32 @lv_chart_get_x_start_point(ptr noundef readnone captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1489,7 +1489,7 @@ define void @lv_chart_remove_series(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_hide_series(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @lv_chart_hide_series(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1508,7 +1508,7 @@ define void @lv_chart_hide_series(ptr noundef %0, ptr noundef %1, i1 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_series_color(ptr noundef %0, ptr noundef writeonly %1, i24 %2) local_unnamed_addr #0 {
+define void @lv_chart_set_series_color(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i24 %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1523,7 +1523,7 @@ define void @lv_chart_set_series_color(ptr noundef %0, ptr noundef writeonly %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i24 @lv_chart_get_series_color(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i24 @lv_chart_get_series_color(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1537,7 +1537,7 @@ define i24 @lv_chart_get_series_color(ptr noundef readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_chart_set_x_start_point(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @lv_chart_set_x_start_point(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1612,7 +1612,7 @@ declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_cursor_pos(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define void @lv_chart_set_cursor_pos(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1631,7 +1631,7 @@ define void @lv_chart_set_cursor_pos(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_cursor_point(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_chart_set_cursor_point(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1662,7 +1662,7 @@ define void @lv_chart_set_cursor_point(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @lv_chart_get_cursor_point(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i64 @lv_chart_get_cursor_point(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1675,7 +1675,7 @@ define i64 @lv_chart_get_cursor_point(ptr noundef readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_all_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_chart_set_all_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %.preheader10
 
@@ -1711,7 +1711,7 @@ define void @lv_chart_set_all_value(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_next_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_chart_set_next_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1883,7 +1883,7 @@ define internal fastcc void @invalidate_point(ptr noundef %0, i32 noundef %1) un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_next_value2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_chart_set_next_value2(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1924,7 +1924,7 @@ define void @lv_chart_set_next_value2(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_value_by_id(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_chart_set_value_by_id(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %5
 
@@ -1951,7 +1951,7 @@ define void @lv_chart_set_value_by_id(ptr noundef %0, ptr noundef readonly %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_value_by_id2(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @lv_chart_set_value_by_id2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %6
 
@@ -1988,7 +1988,7 @@ define void @lv_chart_set_value_by_id2(ptr noundef %0, ptr noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_ext_y_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_chart_set_ext_y_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -2024,7 +2024,7 @@ define void @lv_chart_set_ext_y_array(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_chart_set_ext_x_array(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_chart_set_ext_x_array(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -2058,7 +2058,7 @@ define void @lv_chart_set_ext_x_array(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_chart_get_y_array(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @lv_chart_get_y_array(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2072,7 +2072,7 @@ define ptr @lv_chart_get_y_array(ptr noundef readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_chart_get_x_array(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @lv_chart_get_x_array(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %3
 

@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @pflash_cfi01_get_memory(ptr noundef readnone %fl) local_unnamed_addr #4 {
+define dso_local nonnull ptr @pflash_cfi01_get_memory(ptr noundef readnone captures(ret: address, provenance) %fl) local_unnamed_addr #4 {
 entry:
   %mem = getelementptr inbounds nuw i8, ptr %fl, i64 960
   ret ptr %mem

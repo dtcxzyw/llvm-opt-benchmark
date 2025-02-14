@@ -780,7 +780,7 @@ declare i64 @tls12_get_psigalgs(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare i32 @tls12_copy_sigalgs(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef readnone %x, i64 noundef %chainidx) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef readnone captures(address_is_null) %x, i64 noundef %chainidx) local_unnamed_addr #0 {
 entry:
   %idbytes = alloca ptr, align 8
   %extbytes = alloca ptr, align 8
@@ -1150,7 +1150,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef readnone %x, i64 noundef %chainidx) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @tls_construct_ctos_sct(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef readnone captures(address_is_null) %x, i64 noundef %chainidx) local_unnamed_addr #0 {
 entry:
   %ct_validation_callback = getelementptr inbounds nuw i8, ptr %s, i64 2760
   %0 = load ptr, ptr %ct_validation_callback, align 8

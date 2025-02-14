@@ -294,7 +294,7 @@ define internal void @cff_driver_done(ptr readnone captures(none) %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cff_get_interface(ptr noundef readonly %0, ptr noundef %1) #4 {
+define internal ptr @cff_get_interface(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #4 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @cff_services, ptr noundef %1) #19
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %15
@@ -4108,7 +4108,7 @@ define internal i32 @cff_get_cmap_info(ptr noundef %0, ptr noundef %1) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @cff_get_ros(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 0, 7) i32 @cff_get_ros(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %.not = icmp eq ptr %6, null
@@ -4267,7 +4267,7 @@ define internal noundef i32 @cff_get_is_cid(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 7) i32 @cff_get_cid_from_glyph_index(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 0, 7) i32 @cff_get_cid_from_glyph_index(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %.not = icmp eq ptr %5, null
@@ -4625,7 +4625,7 @@ define internal zeroext range(i8 0, 2) i8 @cff_blend_check_vector(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_blend_build_vector(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #4 {
+define internal i32 @cff_blend_build_vector(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
   store i32 0, ptr %5, align 4, !tbaa !59
@@ -5211,7 +5211,7 @@ declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #9
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr noundef readonly captures(none) %0, ptr %.0.val) unnamed_addr #4 {
+define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr noundef readonly captures(none) %0, ptr captures(address) %.0.val) unnamed_addr #4 {
   %2 = load i8, ptr %.0.val, align 1, !tbaa !167
   switch i8 %2, label %25 [
     i8 30, label %3
@@ -6290,7 +6290,7 @@ cff_blend_doBlend.exit:                           ; preds = %39, %65, %._crit_ed
 declare hidden zeroext i8 @FT_Matrix_Check(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef readnone %1, i64 noundef range(i64 0, 4) %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef range(i64 0, 4) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader307, label %5
 
@@ -6671,7 +6671,7 @@ declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #9
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_fixed(ptr noundef readonly captures(none) %0, ptr %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
+define internal fastcc i64 @do_fixed(ptr noundef readonly captures(none) %0, ptr captures(address) %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
   %3 = load i8, ptr %.0.val, align 1, !tbaa !167
   switch i8 %3, label %40 [
     i8 30, label %4
@@ -6954,7 +6954,7 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden void @ft_synthesize_vertical_metrics(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_index_access_element(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
+define internal fastcc i32 @cff_index_access_element(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   %.not = icmp eq ptr %0, null
@@ -7939,7 +7939,7 @@ declare hidden void @FT_Matrix_Multiply_Scaled(ptr noundef, ptr noundef, i64 nou
 declare hidden void @FT_Vector_Transform_Scaled(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cff_index_get_name(ptr noundef %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #4 {
+define internal fastcc ptr @cff_index_get_name(ptr noundef captures(address_is_null) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -8094,7 +8094,7 @@ define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(n
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @remove_style(ptr noundef %0, ptr noundef nonnull readonly %1) unnamed_addr #16 {
+define internal fastcc void @remove_style(ptr noundef captures(address) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #16 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
@@ -8283,7 +8283,7 @@ thread-pre-split.thread:                          ; preds = %19, %.thread, %thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_index_get_pointers(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @cff_index_get_pointers(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
@@ -8637,7 +8637,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
+define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.CFF_ParserRec_, align 8
   %11 = alloca ptr, align 8

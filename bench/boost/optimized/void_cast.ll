@@ -716,7 +716,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail11voi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(40) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt3setIPKNS0_16void_cast_detail11void_casterENS4_19void_caster_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !31, !range !32, !noundef !33
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %.loopexit, label %4

@@ -340,7 +340,7 @@ $_ZTI14QFutureWatcherIP15QTreeWidgetItemE = comdat any
 @_ZN29DisplayFilterExpressionDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN29DisplayFilterExpressionDialogD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { i64, i64 }, align 8
@@ -7227,7 +7227,7 @@ declare void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29DisplayFilterExpressionDialog17fillEnumIntValuesEPK13_value_stringi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29DisplayFilterExpressionDialog17fillEnumIntValuesEPK13_value_stringi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QVariant, align 8
@@ -7392,7 +7392,7 @@ _ZN7QStringD2Ev.exit35:                           ; preds = %62, %_ZN17QArrayDat
 declare void @_Z14int_to_qstringxii(ptr dead_on_unwind writable sret(%class.QString) align 8, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29DisplayFilterExpressionDialog19fillEnumInt64ValuesEPK13_val64_stringi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29DisplayFilterExpressionDialog19fillEnumInt64ValuesEPK13_val64_stringi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QVariant, align 8

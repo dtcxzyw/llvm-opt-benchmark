@@ -2286,7 +2286,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv14NodeBitblaster18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(6112) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 dereferenceable(48) %relevantTerms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv14NodeBitblaster18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(6112) %this, ptr noundef %m, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %relevantTerms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %const_value = alloca %"class.cvc5::internal::NodeTemplate.298", align 8

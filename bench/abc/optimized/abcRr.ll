@@ -2745,7 +2745,7 @@ Abc_Clock.exit20:                                 ; preds = %Abc_Clock.exit, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_NtkRRUpdate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @Abc_NtkRRUpdate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8, !tbaa !52
   %5 = getelementptr i8, ptr %1, i64 32
   %.val30 = load ptr, ptr %5, align 8, !tbaa !54

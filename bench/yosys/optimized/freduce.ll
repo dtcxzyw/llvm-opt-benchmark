@@ -58591,7 +58591,7 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tES
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %0, ptr readnone %1) unnamed_addr #19 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111equiv_bit_tESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %0, ptr readnone captures(address) %1) unnamed_addr #19 {
   %3 = alloca %"struct.(anonymous namespace)::equiv_bit_t", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -59658,7 +59658,7 @@ _ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit9: ; preds = %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i32 %3, ptr %4, i32 %5) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FreduceWorker16find_bit_in_coneERSt3setIPN5Yosys5RTLIL4CellESt4lessIS5_ESaIS5_EENS3_6SigBitESB_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr captures(address) %2, i32 %3, ptr %4, i32 %5) unnamed_addr #4 align 2 {
   %7 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %.fr25.i.i.i = freeze ptr %4
   %.sroa.4.8.extract.trunc = trunc i32 %3 to i8

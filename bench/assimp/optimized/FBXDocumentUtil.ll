@@ -218,7 +218,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly %element) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX4Util8DOMErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly captures(address_is_null) %element) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %element, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -340,7 +340,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX4Util10DOMWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly %element) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX4Util10DOMWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef readonly captures(address_is_null) %element) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %tobool.not = icmp eq ptr %element, null

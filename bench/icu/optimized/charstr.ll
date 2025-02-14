@@ -648,7 +648,7 @@ return:                                           ; preds = %if.end17, %if.then4
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull readonly align 8 dereferenceable(60) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(60) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(60) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -862,7 +862,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i32 noundef %newLength) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8truncateEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, i32 noundef %newLength) local_unnamed_addr #9 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %newLength, i32 0)
   %len = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -883,7 +883,7 @@ if.end5:                                          ; preds = %if.then3, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i8 noundef signext %c, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, i8 noundef signext %c, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
@@ -1066,7 +1066,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString12appendNumberEiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, i32 noundef %number, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString12appendNumberEiR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, i32 noundef %number, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %number, 0
   br i1 %cmp, label %if.then, label %if.end4
@@ -1266,7 +1266,7 @@ return:                                           ; preds = %if.end27, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -1338,7 +1338,7 @@ _ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef %uchars, i32 noundef %ucharsLen, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, ptr noundef %uchars, i32 noundef %ucharsLen, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1445,7 +1445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString27ensureEndsWithFileSeparatorER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString27ensureEndsWithFileSeparatorER10UErrorCode(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0

@@ -1670,7 +1670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport16client_transportEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) unnamed_addr #15 align 2 {
+define internal noundef nonnull ptr @_ZN9grpc_core12_GLOBAL__N_121InprocClientTransport16client_transportEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) unnamed_addr #15 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr
@@ -2107,7 +2107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN9grpc_core12_GLOBAL__N_121InprocServerTransport16server_transportEv(ptr noundef nonnull readnone align 16 dereferenceable(176) %this) unnamed_addr #15 align 2 {
+define internal noundef nonnull ptr @_ZN9grpc_core12_GLOBAL__N_121InprocServerTransport16server_transportEv(ptr noundef nonnull readnone align 16 captures(ret: address, provenance) dereferenceable(176) %this) unnamed_addr #15 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %add.ptr
@@ -2412,7 +2412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn16_N9grpc_core12_GLOBAL__N_121InprocServerTransport16server_transportEv(ptr noundef readnone %this) unnamed_addr #15 align 2 {
+define internal noundef nonnull ptr @_ZThn16_N9grpc_core12_GLOBAL__N_121InprocServerTransport16server_transportEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #15 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr.i

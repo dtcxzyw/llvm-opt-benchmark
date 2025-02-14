@@ -651,7 +651,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert(i64 noundef %0, ptr noundef
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3) #3 {
+define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load i64, ptr %3, align 8
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %17

@@ -1123,7 +1123,7 @@ define void @Abc_NtkTimeSetOutputLoad(ptr noundef captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkTimeInitialize(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @Abc_NtkTimeInitialize(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %4, null
@@ -2651,7 +2651,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 declare i32 @Abc_NtkGetTotalFanins(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Abc_NtkDelayTraceCritPath_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %1, i64 20
   %.val41 = load i32, ptr %5, align 4
   %6 = and i32 %.val41, 15
@@ -3066,7 +3066,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeDelayTraceArrival(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
+define void @Abc_NodeDelayTraceArrival(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %.val98 = load ptr, ptr %0, align 8, !tbaa !24
   %3 = getelementptr i8, ptr %0, i64 16
   %.val99 = load i32, ptr %3, align 8, !tbaa !27

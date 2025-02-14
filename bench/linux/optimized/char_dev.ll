@@ -912,7 +912,7 @@ define internal i32 @chrdev_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 declare dso_local i32 @kobj_map(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef ptr @exact_match(i32 %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2) #3 align 16 {
+define internal noundef ptr @exact_match(i32 %0, ptr readnone captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #3 align 16 {
   ret ptr %2
 }
 

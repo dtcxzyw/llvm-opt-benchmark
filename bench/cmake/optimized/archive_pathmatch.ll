@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly captures(address) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -95,7 +95,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @pm(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pm(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1, !tbaa !4
   %5 = icmp eq i8 %4, 46
   br i1 %5, label %6, label %pm_slashskip.exit
@@ -529,7 +529,7 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly captures(address) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -620,7 +620,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @pm_w(ptr noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @pm_w(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 46
   br i1 %5, label %6, label %pm_slashskip_w.exit

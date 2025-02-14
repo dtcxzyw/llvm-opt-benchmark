@@ -37,12 +37,12 @@ define void @"_ZN97_$LT$tokio_stream..wrappers..interval..IntervalStream$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN128_$LT$tokio_stream..wrappers..interval..IntervalStream$u20$as$u20$core..convert..AsRef$LT$tokio..time..interval..Interval$GT$$GT$6as_ref17hc3a04b8b6d3d08f1E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN128_$LT$tokio_stream..wrappers..interval..IntervalStream$u20$as$u20$core..convert..AsRef$LT$tokio..time..interval..Interval$GT$$GT$6as_ref17hc3a04b8b6d3d08f1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN128_$LT$tokio_stream..wrappers..interval..IntervalStream$u20$as$u20$core..convert..AsMut$LT$tokio..time..interval..Interval$GT$$GT$6as_mut17h3f3838829898e6edE"(ptr noalias noundef readnone returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN128_$LT$tokio_stream..wrappers..interval..IntervalStream$u20$as$u20$core..convert..AsMut$LT$tokio..time..interval..Interval$GT$$GT$6as_mut17h3f3838829898e6edE"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 

@@ -33,7 +33,7 @@ define void @asn1_ctx_init(ptr noundef writeonly captures(none) initializes((0, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -360,7 +360,7 @@ define void @rose_ctx_init(ptr noundef writeonly captures(none) initializes((0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly %0) local_unnamed_addr #2 {
+define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -384,7 +384,7 @@ define void @rose_ctx_clean_data(ptr noundef writeonly captures(none) initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @get_asn1_ctx(ptr noundef readonly %0) local_unnamed_addr #2 {
+define noundef ptr @get_asn1_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %asn1_ctx_check_signature.exit.thread, label %asn1_ctx_check_signature.exit
 
@@ -401,7 +401,7 @@ asn1_ctx_check_signature.exit.thread:             ; preds = %asn1_ctx_check_sign
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @get_rose_ctx(ptr noundef readonly %0) local_unnamed_addr #7 {
+define ptr @get_rose_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %rose_ctx_check_signature.exit.thread, label %asn1_ctx_check_signature.exit
 

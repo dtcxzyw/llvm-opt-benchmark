@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"RF4CE GDP\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @keypair_context_init(ptr noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @keypair_context_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -259,7 +259,7 @@ nwk_key_storage_add_entry.exit:                   ; preds = %72, %nwk_key_storag
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rf4ce_addr_table_get_addr_entry_by_ieee(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %.loopexit, label %.lr.ph.split
 
@@ -383,7 +383,7 @@ nwk_key_storage_get_entry_by_key.exit.thread:     ; preds = %13, %nwk_key_storag
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #5 {
+define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge17, label %.preheader18
 
@@ -438,7 +438,7 @@ define hidden void @rf4ce_addr_table_add_addrs(ptr noundef readonly %0, i16 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -567,7 +567,7 @@ define hidden i32 @key_exchange_context_is_procedure_started() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -581,7 +581,7 @@ define hidden void @key_exchange_context_set_rand_a(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -595,7 +595,7 @@ define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -609,7 +609,7 @@ define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

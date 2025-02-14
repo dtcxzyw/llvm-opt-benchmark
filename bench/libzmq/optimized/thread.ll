@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %this, ptr noundef %tfn_, ptr noundef %arg_, ptr noundef readonly %name_) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %this, ptr noundef %tfn_, ptr noundef %arg_, ptr noundef readonly captures(address_is_null) %name_) local_unnamed_addr #1 align 2 {
 entry:
   store ptr %tfn_, ptr %this, align 8
   %_arg = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq8thread_t25applySchedulingParametersEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %policy = alloca i32, align 4
   %param = alloca %struct.sched_param, align 4

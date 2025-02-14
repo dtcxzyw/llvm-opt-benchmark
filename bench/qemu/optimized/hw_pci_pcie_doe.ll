@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_doe_set_rsp(ptr noundef captures(none) %doe_cap, ptr noundef readonly %rsp) local_unnamed_addr #5 {
+define dso_local void @pcie_doe_set_rsp(ptr noundef captures(none) %doe_cap, ptr noundef readonly captures(address_is_null) %rsp) local_unnamed_addr #5 {
 entry:
   %tobool.not.i = icmp eq ptr %rsp, null
   br i1 %tobool.not.i, label %pcie_doe_get_obj_len.exit, label %if.end.i
@@ -170,7 +170,7 @@ pcie_doe_get_obj_len.exit:                        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 262145) i32 @pcie_doe_get_obj_len(ptr noundef readonly %obj) local_unnamed_addr #4 {
+define dso_local range(i32 0, 262145) i32 @pcie_doe_get_obj_len(ptr noundef readonly captures(address_is_null) %obj) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %return, label %if.end

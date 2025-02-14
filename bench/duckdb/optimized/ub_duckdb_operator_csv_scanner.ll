@@ -26611,7 +26611,7 @@ unreachable:                                      ; preds = %invoke.cont212, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb16CSVReaderOptions13SetBaseOptionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef nonnull align 8 dereferenceable(32) %loption, ptr noundef nonnull align 8 dereferenceable(64) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb16CSVReaderOptions13SetBaseOptionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ValueE(ptr noundef nonnull align 8 captures(address) dereferenceable(928) %this, ptr noundef nonnull align 8 dereferenceable(32) %loption, ptr noundef nonnull align 8 dereferenceable(64) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i172 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -36076,7 +36076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %if.
 declare noundef zeroext i1 @_ZN6duckdb12BooleanValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16CSVReaderOptions17ToNamedParametersERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEE(ptr noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 8 dereferenceable(56) %named_params) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16CSVReaderOptions17ToNamedParametersERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(928) %this, ptr noundef nonnull align 8 dereferenceable(56) %named_params) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1035 = alloca i64, align 8
   %__dnew.i.i.i949 = alloca i64, align 8

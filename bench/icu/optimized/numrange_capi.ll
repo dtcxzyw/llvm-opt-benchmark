@@ -656,7 +656,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @unumrf_resultAsValue_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
+define ptr @unumrf_resultAsValue_75(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -707,7 +707,7 @@ delete.end:                                       ; preds = %if.end2.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_756number4impl29validateUFormattedNumberRangeEPK21UFormattedNumberRangeR10UErrorCode(ptr noundef readonly %uresult, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 {
+define noundef ptr @_ZN6icu_756number4impl29validateUFormattedNumberRangeEPK21UFormattedNumberRangeR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %uresult, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1108,7 +1108,7 @@ return:                                           ; preds = %return.sink.split.i
 declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @unumrf_resultGetIdentityResult_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
+define i32 @unumrf_resultGetIdentityResult_75(ptr noundef readonly captures(address_is_null) %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1

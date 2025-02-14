@@ -620,7 +620,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers4inst20CandidateGeneratorQE5resetENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef readonly captures(none) %eqc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers4inst20CandidateGeneratorQE5resetENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this, ptr noundef readonly captures(none) %eqc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -757,7 +757,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers4inst20CandidateGeneratorQE16resetForOperatorENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull align 8 dereferenceable(136) initializes((56, 72)) %this, ptr noundef readonly captures(none) %eqc, ptr noundef readonly captures(none) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers4inst20CandidateGeneratorQE16resetForOperatorENS0_12NodeTemplateILb1EEES6_(ptr noundef nonnull align 8 captures(address) dereferenceable(136) initializes((56, 72)) %this, ptr noundef readonly captures(none) %eqc, ptr noundef readonly captures(none) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.432", align 8
   %agg.tmp15 = alloca %"class.cvc5::internal::NodeTemplate.432", align 8
@@ -5676,7 +5676,7 @@ eh.resume:                                        ; preds = %ehcleanup52, %lpad
 declare void @_ZN4cvc58internal6theory9datatypes17DatatypesRewriter19expandApplySelectorENS0_12NodeTemplateILb1EEEb(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers4inst26CandidateGeneratorSelector5resetENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef readonly captures(none) %eqc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers4inst26CandidateGeneratorSelector5resetENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(144) %this, ptr noundef readonly captures(none) %eqc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp6 = alloca %"class.cvc5::internal::NodeTemplate", align 8

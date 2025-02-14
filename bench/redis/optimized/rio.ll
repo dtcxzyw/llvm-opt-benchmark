@@ -64,7 +64,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @sdsclear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioFreeConn(ptr noundef captures(none) %r, ptr noundef writeonly %remaining) local_unnamed_addr #2 {
+define dso_local void @rioFreeConn(ptr noundef captures(none) %r, ptr noundef writeonly captures(address_is_null) %remaining) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %remaining, null
   br i1 %tobool.not, label %if.end17.critedge, label %land.lhs.true

@@ -1961,7 +1961,7 @@ return:                                           ; preds = %entry, %if.end8, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @bundle_write_xml(ptr noundef %bundle, ptr noundef %outputDir, ptr noundef %outputEnc, ptr noundef %filename, ptr noundef %writtenFilename, i32 noundef %writtenFilenameLen, ptr noundef readonly %language, ptr noundef readonly %outFileName, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @bundle_write_xml(ptr noundef %bundle, ptr noundef %outputDir, ptr noundef %outputEnc, ptr noundef %filename, ptr noundef %writtenFilename, i32 noundef %writtenFilenameLen, ptr noundef readonly captures(address_is_null) %language, ptr noundef readonly captures(address_is_null) %outFileName, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i135 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp.i125 = alloca %"class.icu_75::UnicodeString", align 8
@@ -3408,7 +3408,7 @@ if.end34:                                         ; preds = %invoke.cont32, %_ZL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr %pDest.0.val, i32 noundef range(i32 0, -2147483648) %destCap, ptr noundef nonnull writeonly captures(none) %destLength, ptr noundef readonly %src, i32 noundef %srcLen, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr %pDest.0.val, i32 noundef range(i32 0, -2147483648) %destCap, ptr noundef nonnull writeonly captures(none) %destLength, ptr noundef readonly captures(address_is_null) %src, i32 noundef %srcLen, ptr noundef captures(address_is_null) %status) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3912,7 +3912,7 @@ return:                                           ; preds = %for.end, %if.then12
 declare noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef readonly captures(none) %id, ptr noundef readonly %curKey) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef readonly captures(none) %id, ptr noundef readonly captures(address_is_null) %curKey) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %curKey, null
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id) #15
@@ -3964,7 +3964,7 @@ declare i32 @getDescription(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 declare i32 @getTranslate(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef %src, i32 noundef range(i32 1, -2147483648) %srcLen, ptr noundef %tagStart, ptr noundef %tagEnd, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef captures(address_is_null) %src, i32 noundef range(i32 1, -2147483648) %srcLen, ptr noundef %tagStart, ptr noundef %tagEnd, ptr noundef captures(address_is_null) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %bufLen = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8

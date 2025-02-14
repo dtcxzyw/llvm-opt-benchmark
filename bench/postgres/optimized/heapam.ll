@@ -510,7 +510,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %28, %.loopexit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local noundef ptr @heap_beginscan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   tail call void @RelationIncrementReferenceCount(ptr noundef %0) #11
   %7 = tail call ptr @palloc(i64 noundef 712) #11
   store ptr %0, ptr %7, align 8
@@ -589,7 +589,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @PredicateLockRelation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initscan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 80), (92, 98), (104, 112)) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @initscan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 80), (92, 98), (104, 112)) %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -810,7 +810,7 @@ define internal fastcc void @initscan(ptr noundef captures(none) initializes((56
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_rescan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 76), (92, 98), (104, 112)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
+define dso_local void @heap_rescan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 76), (92, 98), (104, 112)) %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   br i1 %2, label %7, label %24
 
 7:                                                ; preds = %6
@@ -2666,7 +2666,7 @@ declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @PredicateLockTID(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = icmp slt i32 %2, 0
   br i1 %9, label %10, label %16
@@ -5050,7 +5050,7 @@ declare void @visibilitymap_pin(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare i32 @HeapTupleSatisfiesUpdate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = zext i32 %2 to i64
   %7 = getelementptr [4 x %struct.anon], ptr @tupleLockExtraInfo, i64 0, i64 %6
@@ -15384,7 +15384,7 @@ define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef range(i32 0, 6) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly %7) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 noundef range(i32 0, 6) %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 4) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = zext i16 %2 to i32
   %11 = and i32 %10, 4304

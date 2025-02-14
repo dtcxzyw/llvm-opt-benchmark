@@ -1173,7 +1173,7 @@ define hidden void @_ZN11CardTableRSC2E9MemRegion(ptr noundef nonnull align 8 de
 declare void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereferenceable(88), ptr, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN11CardTableRS21find_first_dirty_cardEPhS0_(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN11CardTableRS21find_first_dirty_cardEPhS0_(ptr noundef %0, ptr noundef readnone captures(address, ret: address, provenance) %1) local_unnamed_addr #2 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %4, 0

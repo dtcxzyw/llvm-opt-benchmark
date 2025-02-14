@@ -4733,7 +4733,7 @@ if.end63:                                         ; preds = %_ZN11flatbuffers15v
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers6VerifyERKN10reflection6SchemaERKNS0_6ObjectEPKhmjj(ptr noundef nonnull align 1 dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %root, ptr noundef %buf, i64 noundef %length, i32 noundef %max_depth, i32 noundef %max_tables) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers6VerifyERKN10reflection6SchemaERKNS0_6ObjectEPKhmjj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %root, ptr noundef %buf, i64 noundef %length, i32 noundef %max_depth, i32 noundef %max_tables) local_unnamed_addr #1 {
 entry:
   %v = alloca %"class.flatbuffers::Verifier", align 8
   store ptr %buf, ptr %v, align 8
@@ -4769,7 +4769,7 @@ _ZN11flatbuffers10GetAnyRootEPKh.exit:            ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_112VerifyObjectERNS_8VerifierERKN10reflection6SchemaERKNS3_6ObjectEPKNS_5TableEb(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 1 dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %obj, ptr noundef %table, i1 noundef zeroext %required) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_112VerifyObjectERNS_8VerifierERKN10reflection6SchemaERKNS3_6ObjectEPKNS_5TableEb(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %obj, ptr noundef %table, i1 noundef zeroext %required) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %table, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -6281,7 +6281,7 @@ return:                                           ; preds = %_ZNK10reflection6Ob
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers18VerifySizePrefixedERKN10reflection6SchemaERKNS0_6ObjectEPKhmjj(ptr noundef nonnull align 1 dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %root, ptr noundef %buf, i64 noundef %length, i32 noundef %max_depth, i32 noundef %max_tables) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers18VerifySizePrefixedERKN10reflection6SchemaERKNS0_6ObjectEPKhmjj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %schema, ptr noundef nonnull align 1 dereferenceable(1) %root, ptr noundef %buf, i64 noundef %length, i32 noundef %max_depth, i32 noundef %max_tables) local_unnamed_addr #1 {
 entry:
   %v = alloca %"class.flatbuffers::Verifier", align 8
   store ptr %buf, ptr %v, align 8
@@ -7429,7 +7429,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_111VerifyUnionERNS_8VerifierERKN10reflection6SchemaEhPKhRKNS3_5FieldE(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 1 dereferenceable(1) %schema, i8 noundef zeroext %utype, ptr noundef %elem, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %union_field) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_111VerifyUnionERNS_8VerifierERKN10reflection6SchemaEhPKhRKNS3_5FieldE(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %schema, i8 noundef zeroext %utype, ptr noundef %elem, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %union_field) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i8 %utype, 0
   br i1 %tobool.not, label %return, label %if.end
