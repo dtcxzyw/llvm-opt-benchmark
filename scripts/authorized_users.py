@@ -1,1 +1,1 @@
-authorized_users = ['dtcxzyw','nikic','preames','topperc','goldsteinn','fhahn','RKSimon','arsenm','antoniofrighetto','asb','michaelmaitland','artagnon','XChy']
+authorized_users = ['dtcxzyw','nikic','preames','topperc','goldsteinn','fhahn','RKSimon','arsenm','antoniofrighetto','asb','michaelmaitland','artagnon','XChy','andjo403']
