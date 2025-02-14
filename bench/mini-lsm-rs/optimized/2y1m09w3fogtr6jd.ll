@@ -1176,7 +1176,7 @@ define hidden void @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i64 1, 65) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6743c796bff958e6E"(ptr noundef nonnull align 128 captures(none) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 1, 4) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6743c796bff958e6E"(ptr noundef nonnull align 128 captures(none) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load atomic i64, ptr %2 monotonic, align 128
   %4 = shl i64 %3, 13

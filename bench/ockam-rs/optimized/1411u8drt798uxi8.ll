@@ -47187,7 +47187,6 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN22aws_smithy_runtime_api6client12in
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load i64, ptr %5, align 8, !range !937, !noundef !10
   %7 = icmp eq i64 %6, 2
-  %. = select i1 %7, ptr null, ptr %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %9 = load i8, ptr %8, align 8, !range !310, !noundef !10
   %10 = trunc nuw i8 %9 to i1
@@ -47208,7 +47207,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN22aws_smithy_runtime_api6client12in
 14:                                               ; preds = %11
   %not. = xor i1 %7, true
   tail call void @llvm.assume(i1 %not.)
-  call void @_ZN22aws_smithy_runtime_api4http7request7Request9try_clone17h6a835d633ddb8bf6E(ptr noalias noundef nonnull sret({ i64, [42 x i64] }) align 8 captures(none) dereferenceable(344) %4, ptr noundef nonnull align 8 %.)
+  call void @_ZN22aws_smithy_runtime_api4http7request7Request9try_clone17h6a835d633ddb8bf6E(ptr noalias noundef nonnull sret({ i64, [42 x i64] }) align 8 captures(none) dereferenceable(344) %4, ptr noundef nonnull align 8 %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   store i8 2, ptr %15, align 1
   %16 = load i64, ptr %0, align 8, !range !937, !alias.scope !6085, !noundef !10
