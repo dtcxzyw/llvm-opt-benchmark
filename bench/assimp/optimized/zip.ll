@@ -15528,16 +15528,16 @@ while.end89.i:                                    ; preds = %while.end89.loopexi
   br i1 %cmp.i.i, label %zip_files_move.exit.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %while.end89.i
-  %cmp117.i.i = icmp sgt i64 %move_length.1.lcssa.i, 0
-  br i1 %cmp117.i.i, label %while.body.i.i, label %if.then16.i.i
+  %cmp120.i.i = icmp sgt i64 %move_length.1.lcssa.i, 0
+  br i1 %cmp120.i.i, label %while.body.i.i, label %if.then16.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end13.i.i
-  %moved_length.022.i.i = phi i64 [ %add15.i.i, %if.end13.i.i ], [ 0, %while.cond.preheader.i.i ]
-  %length.addr.021.i.i = phi i64 [ %sub.i.i27, %if.end13.i.i ], [ %move_length.1.lcssa.i, %while.cond.preheader.i.i ]
-  %read_num.addr.020.i.i = phi i64 [ %add14.i.i, %if.end13.i.i ], [ %read_num.2.lcssa.i, %while.cond.preheader.i.i ]
-  %writen_num.addr.018.i.i = phi i64 [ %add.i.i, %if.end13.i.i ], [ %writen_num.1.lcssa.i, %while.cond.preheader.i.i ]
-  %50 = call i64 @llvm.umin.i64(i64 %length.addr.021.i.i, i64 4096)
-  %call.i.i.i = call i32 @fseeko(ptr noundef %49, i64 noundef %read_num.addr.020.i.i, i32 noundef 0)
+  %moved_length.025.i.i = phi i64 [ %add15.i.i, %if.end13.i.i ], [ 0, %while.cond.preheader.i.i ]
+  %length.addr.024.i.i = phi i64 [ %sub.i.i27, %if.end13.i.i ], [ %move_length.1.lcssa.i, %while.cond.preheader.i.i ]
+  %read_num.addr.023.i.i = phi i64 [ %add14.i.i, %if.end13.i.i ], [ %read_num.2.lcssa.i, %while.cond.preheader.i.i ]
+  %writen_num.addr.021.i.i = phi i64 [ %add.i.i, %if.end13.i.i ], [ %writen_num.1.lcssa.i, %while.cond.preheader.i.i ]
+  %50 = call i64 @llvm.umin.i64(i64 %length.addr.024.i.i, i64 4096)
+  %call.i.i.i = call i32 @fseeko(ptr noundef %49, i64 noundef %read_num.addr.023.i.i, i32 noundef 0)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end3.i.i.i, label %return.sink.split.i.i.i
 
@@ -15547,7 +15547,7 @@ if.end3.i.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return.sink.split.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %call9.i.i.i = call i32 @fseeko(ptr noundef %49, i64 noundef %writen_num.addr.018.i.i, i32 noundef 0)
+  %call9.i.i.i = call i32 @fseeko(ptr noundef %49, i64 noundef %writen_num.addr.021.i.i, i32 noundef 0)
   %tobool10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %return.sink.split.i.i.i
 
@@ -15572,15 +15572,15 @@ if.end8.i.i:                                      ; preds = %zip_file_move.exit.
   br i1 %cmp10.not.i.i, label %if.end13.i.i, label %if.then16.i.i
 
 if.end13.i.i:                                     ; preds = %if.end8.i.i
-  %add.i.i = add i64 %writen_num.addr.018.i.i, %50
-  %add14.i.i = add i64 %50, %read_num.addr.020.i.i
-  %sub.i.i27 = sub nsw i64 %length.addr.021.i.i, %50
-  %add15.i.i = add nuw nsw i64 %50, %moved_length.022.i.i
+  %add.i.i = add i64 %writen_num.addr.021.i.i, %50
+  %add14.i.i = add i64 %50, %read_num.addr.023.i.i
+  %sub.i.i27 = sub nsw i64 %length.addr.024.i.i, %50
+  %add15.i.i = add nuw nsw i64 %50, %moved_length.025.i.i
   %cmp1.i.i = icmp sgt i64 %sub.i.i27, 0
   br i1 %cmp1.i.i, label %while.body.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end13.i.i, %if.end8.i.i, %zip_file_move.exit.i.i, %while.cond.preheader.i.i
-  %moved_length.1.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %retval.0.i.i.i, %zip_file_move.exit.i.i ], [ %add15.i.i, %if.end13.i.i ], [ %moved_length.022.i.i, %if.end8.i.i ]
+  %moved_length.1.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %retval.0.i.i.i, %zip_file_move.exit.i.i ], [ %add15.i.i, %if.end13.i.i ], [ %moved_length.025.i.i, %if.end8.i.i ]
   call void @free(ptr noundef %call.i.i26) #30
   br label %zip_files_move.exit.i
 

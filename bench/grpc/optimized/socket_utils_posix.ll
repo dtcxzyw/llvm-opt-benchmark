@@ -129,8 +129,8 @@ invoke.cont23:                                    ; preds = %invoke.cont11
 invoke.cont35:                                    ; preds = %invoke.cont23
   %actual_value.sroa.0.0.extract.trunc.i37 = trunc i64 %call36 to i32
   %7 = and i64 %call36, 6442450944
-  %or.cond.i40.not = icmp eq i64 %7, 4294967296
-  %retval.0.i43 = select i1 %or.cond.i40.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
+  %or.cond3.i42.not = icmp eq i64 %7, 4294967296
+  %retval.0.i43 = select i1 %or.cond3.i42.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
   store i32 %retval.0.i43, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
   %vtable45 = load ptr, ptr %config, align 8
   %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 16
@@ -141,8 +141,8 @@ invoke.cont35:                                    ; preds = %invoke.cont23
 invoke.cont47:                                    ; preds = %invoke.cont35
   %actual_value.sroa.0.0.extract.trunc.i46 = trunc i64 %call48 to i32
   %9 = and i64 %call48, 6442450944
-  %or.cond.i49.not = icmp eq i64 %9, 4294967296
-  %retval.0.i52 = select i1 %or.cond.i49.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
+  %or.cond3.i51.not = icmp eq i64 %9, 4294967296
+  %retval.0.i52 = select i1 %or.cond3.i51.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
   store i32 %retval.0.i52, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
   %vtable57 = load ptr, ptr %config, align 8
   %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 16
@@ -153,8 +153,8 @@ invoke.cont47:                                    ; preds = %invoke.cont35
 invoke.cont59:                                    ; preds = %invoke.cont47
   %actual_value.sroa.0.0.extract.trunc.i55 = trunc i64 %call60 to i32
   %11 = and i64 %call60, 6442450944
-  %or.cond.i58.not = icmp eq i64 %11, 4294967296
-  %retval.0.i61 = select i1 %or.cond.i58.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
+  %or.cond3.i60.not = icmp eq i64 %11, 4294967296
+  %retval.0.i61 = select i1 %or.cond3.i60.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
   store i32 %retval.0.i61, ptr %tcp_receive_buffer_size.i, align 4
   %vtable69 = load ptr, ptr %config, align 8
   %vfn70 = getelementptr inbounds nuw i8, ptr %vtable69, i64 16
