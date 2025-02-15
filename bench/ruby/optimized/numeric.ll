@@ -8536,15 +8536,15 @@ rb_num2long_inline.exit.i:                        ; preds = %2
 
 23:                                               ; preds = %12
   %24 = icmp samesign ugt i64 %13, 63
-  br i1 %24, label %rb_ulong2num_inline.exit.i.i, label %25
+  br i1 %24, label %.thread.i.i, label %25
 
 25:                                               ; preds = %23
   %26 = sub nuw nsw i64 63, %13
   %27 = lshr i64 %4, %26
   %.not.i16.i = icmp eq i64 %27, 0
-  br i1 %.not.i16.i, label %30, label %rb_ulong2num_inline.exit.i.i
+  br i1 %.not.i16.i, label %30, label %.thread.i.i
 
-rb_ulong2num_inline.exit.i.i:                     ; preds = %25, %23
+.thread.i.i:                                      ; preds = %25, %23
   %28 = tail call i64 @rb_int2big(i64 noundef %4) #23
   %29 = tail call i64 @rb_big_lshift(i64 noundef %28, i64 noundef %1) #23
   br label %.critedge
@@ -8582,8 +8582,8 @@ rb_ulong2num_inline.exit.i.i:                     ; preds = %25, %23
   %49 = tail call i64 @rb_big_lshift(i64 noundef %0, i64 noundef %1) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %33, %rb_ulong2num_inline.exit.i.i, %19, %18, %9, %5, %43, %38, %48
-  %.024 = phi i64 [ %49, %48 ], [ 4, %38 ], [ 4, %43 ], [ %11, %9 ], [ 1, %5 ], [ %22, %19 ], [ %..i.i, %18 ], [ %29, %rb_ulong2num_inline.exit.i.i ], [ %35, %33 ], [ %37, %36 ]
+.critedge:                                        ; preds = %36, %33, %.thread.i.i, %19, %18, %9, %5, %43, %38, %48
+  %.024 = phi i64 [ %49, %48 ], [ 4, %38 ], [ 4, %43 ], [ %11, %9 ], [ 1, %5 ], [ %22, %19 ], [ %..i.i, %18 ], [ %29, %.thread.i.i ], [ %35, %33 ], [ %37, %36 ]
   ret i64 %.024
 }
 
