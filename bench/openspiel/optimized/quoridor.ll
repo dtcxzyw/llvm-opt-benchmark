@@ -6854,7 +6854,7 @@ _ZNK10open_spiel8quoridor4Move7IsValidEv.exit.thread: ; preds = %82, %_ZNK10open
   %.sroa.3.8.insert.insert.i30 = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i29
   tail call void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_4MoveENS0_14QuoridorPlayerEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.sroa.0.0.insert.insert.i25, i64 %.sroa.3.8.insert.insert.i30, i8 noundef zeroext 4, i32 noundef 5)
   %101 = shl nuw nsw i32 %91, 1
-  %102 = xor i32 %101, 2
+  %102 = select i1 %92, i32 0, i32 2
   %103 = add nuw nsw i32 %101, %.sroa.055.sroa.0.0.extract.trunc
   %104 = add nuw nsw i32 %102, %.sroa.055.sroa.9.0.extract.trunc
   %105 = mul nsw i32 %104, %.sroa.16.12.extract.trunc

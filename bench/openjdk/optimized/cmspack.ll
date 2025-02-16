@@ -2361,25 +2361,24 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %.in.lobit = lshr i8 %.in, 7
   %16 = zext nneg i8 %.in.lobit to i32
   %17 = add nuw nsw i32 %15, %16
-  %18 = shl nuw nsw i32 %11, 1
-  %.038.idx = zext nneg i32 %18 to i64
+  %.038.idx = select i1 %.not, i64 0, i64 2
   %.038 = getelementptr inbounds nuw i8, ptr %2, i64 %.038.idx
   %.not78 = icmp eq i32 %7, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %19 = and i32 %.fr79, 1024
-  %.not43 = icmp eq i32 %19, 0
-  %20 = and i32 %.fr79, 2048
-  %.not44 = icmp eq i32 %20, 0
+  %18 = and i32 %.fr79, 1024
+  %.not43 = icmp eq i32 %18, 0
+  %19 = and i32 %.fr79, 2048
+  %.not44 = icmp eq i32 %19, 0
   %.not45 = icmp eq i32 %17, 0
-  %21 = shl i32 %.fr79, 18
-  %sext = ashr i32 %21, 31
+  %20 = shl i32 %.fr79, 18
+  %sext = ashr i32 %20, 31
   %wide.trip.count128 = zext nneg i32 %7 to i64
   br i1 %.not45, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %22 = trunc nsw i32 %sext to i16
+  %21 = trunc nsw i32 %sext to i16
   br i1 %.not43, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -2387,25 +2386,25 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %.13948.us.us.us = phi ptr [ %26, %.lr.ph.split.us.split.us.split.us ], [ %.038, %.lr.ph.split.us.split.us ]
-  %23 = load i16, ptr %.13948.us.us.us, align 2
-  %24 = xor i16 %23, %22
-  %25 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv125
-  store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds nuw i8, ptr %.13948.us.us.us, i64 2
+  %.13948.us.us.us = phi ptr [ %25, %.lr.ph.split.us.split.us.split.us ], [ %.038, %.lr.ph.split.us.split.us ]
+  %22 = load i16, ptr %.13948.us.us.us, align 2
+  %23 = xor i16 %22, %21
+  %24 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv125
+  store i16 %23, ptr %24, align 2
+  %25 = getelementptr inbounds nuw i8, ptr %.13948.us.us.us, i64 2
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !20
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %.13948.us.us = phi ptr [ %30, %.lr.ph.split.us.split.us.split ], [ %.038, %.lr.ph.split.us.split.us ]
-  %27 = load i16, ptr %.13948.us.us, align 2
-  %rev.us.us = tail call i16 @llvm.bswap.i16(i16 %27)
-  %28 = xor i16 %rev.us.us, %22
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv120
-  store i16 %28, ptr %29, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %.13948.us.us, i64 2
+  %.13948.us.us = phi ptr [ %29, %.lr.ph.split.us.split.us.split ], [ %.038, %.lr.ph.split.us.split.us ]
+  %26 = load i16, ptr %.13948.us.us, align 2
+  %rev.us.us = tail call i16 @llvm.bswap.i16(i16 %26)
+  %27 = xor i16 %rev.us.us, %21
+  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv120
+  store i16 %27, ptr %28, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %.13948.us.us, i64 2
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count128
   br i1 %exitcond124.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !20
@@ -2415,33 +2414,33 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %.13948.us.us68 = phi ptr [ %38, %.lr.ph.split.us.split.split.us ], [ %.038, %.lr.ph.split.us.split ]
-  %31 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %32 = xor i32 %31, -1
-  %33 = add nsw i32 %7, %32
-  %34 = load i16, ptr %.13948.us.us68, align 2
-  %35 = xor i16 %34, %22
-  %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %36
-  store i16 %35, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %.13948.us.us68, i64 2
+  %.13948.us.us68 = phi ptr [ %37, %.lr.ph.split.us.split.split.us ], [ %.038, %.lr.ph.split.us.split ]
+  %30 = trunc nuw nsw i64 %indvars.iv115 to i32
+  %31 = xor i32 %30, -1
+  %32 = add nsw i32 %7, %31
+  %33 = load i16, ptr %.13948.us.us68, align 2
+  %34 = xor i16 %33, %21
+  %35 = zext i32 %32 to i64
+  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %35
+  store i16 %34, ptr %36, align 2
+  %37 = getelementptr inbounds nuw i8, ptr %.13948.us.us68, i64 2
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count128
   br i1 %exitcond119.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !20
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %.13948.us = phi ptr [ %46, %.lr.ph.split.us.split.split ], [ %.038, %.lr.ph.split.us.split ]
-  %39 = trunc nuw nsw i64 %indvars.iv110 to i32
-  %40 = xor i32 %39, -1
-  %41 = add nsw i32 %7, %40
-  %42 = load i16, ptr %.13948.us, align 2
-  %rev.us = tail call i16 @llvm.bswap.i16(i16 %42)
-  %43 = xor i16 %rev.us, %22
-  %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %1, i64 %44
-  store i16 %43, ptr %45, align 2
-  %46 = getelementptr inbounds nuw i8, ptr %.13948.us, i64 2
+  %.13948.us = phi ptr [ %45, %.lr.ph.split.us.split.split ], [ %.038, %.lr.ph.split.us.split ]
+  %38 = trunc nuw nsw i64 %indvars.iv110 to i32
+  %39 = xor i32 %38, -1
+  %40 = add nsw i32 %7, %39
+  %41 = load i16, ptr %.13948.us, align 2
+  %rev.us = tail call i16 @llvm.bswap.i16(i16 %41)
+  %42 = xor i16 %rev.us, %21
+  %43 = zext i32 %40 to i64
+  %44 = getelementptr inbounds nuw i16, ptr %1, i64 %43
+  store i16 %42, ptr %44, align 2
+  %45 = getelementptr inbounds nuw i8, ptr %.13948.us, i64 2
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count128
   br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !20
@@ -2454,35 +2453,35 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %.13948.us49.us = phi ptr [ %53, %.lr.ph.split.split.us.split.us ], [ %.038, %.lr.ph.split.split.us ]
-  %47 = load i16, ptr %.13948.us49.us, align 2
-  %.0.us53.us = zext i16 %47 to i32
-  %48 = shl nuw i32 %.0.us53.us, 16
-  %49 = udiv i32 %48, %17
-  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
-  %50 = xor i32 %spec.store.select.us.us, %sext
-  %51 = trunc i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv105
-  store i16 %51, ptr %52, align 2
-  %53 = getelementptr inbounds nuw i8, ptr %.13948.us49.us, i64 2
+  %.13948.us49.us = phi ptr [ %52, %.lr.ph.split.split.us.split.us ], [ %.038, %.lr.ph.split.split.us ]
+  %46 = load i16, ptr %.13948.us49.us, align 2
+  %.0.us53.us = zext i16 %46 to i32
+  %47 = shl nuw i32 %.0.us53.us, 16
+  %48 = udiv i32 %47, %17
+  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %48, i32 65535)
+  %49 = xor i32 %spec.store.select.us.us, %sext
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv105
+  store i16 %50, ptr %51, align 2
+  %52 = getelementptr inbounds nuw i8, ptr %.13948.us49.us, i64 2
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count128
   br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !20
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %.13948.us49 = phi ptr [ %60, %.lr.ph.split.split.us.split ], [ %.038, %.lr.ph.split.split.us ]
-  %54 = load i16, ptr %.13948.us49, align 2
-  %rev.us51 = tail call i16 @llvm.bswap.i16(i16 %54)
+  %.13948.us49 = phi ptr [ %59, %.lr.ph.split.split.us.split ], [ %.038, %.lr.ph.split.split.us ]
+  %53 = load i16, ptr %.13948.us49, align 2
+  %rev.us51 = tail call i16 @llvm.bswap.i16(i16 %53)
   %.0.us53 = zext i16 %rev.us51 to i32
-  %55 = shl nuw i32 %.0.us53, 16
-  %56 = udiv i32 %55, %17
-  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %56, i32 65535)
-  %57 = xor i32 %spec.store.select.us, %sext
-  %58 = trunc i32 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv100
-  store i16 %58, ptr %59, align 2
-  %60 = getelementptr inbounds nuw i8, ptr %.13948.us49, i64 2
+  %54 = shl nuw i32 %.0.us53, 16
+  %55 = udiv i32 %54, %17
+  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %55, i32 65535)
+  %56 = xor i32 %spec.store.select.us, %sext
+  %57 = trunc i32 %56 to i16
+  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv100
+  store i16 %57, ptr %58, align 2
+  %59 = getelementptr inbounds nuw i8, ptr %.13948.us49, i64 2
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count128
   br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !20
@@ -2492,51 +2491,50 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %.13948.us56 = phi ptr [ %71, %.lr.ph.split.split.split.us ], [ %.038, %.lr.ph.split.split ]
-  %61 = trunc nuw nsw i64 %indvars.iv95 to i32
-  %62 = xor i32 %61, -1
-  %63 = add nsw i32 %7, %62
-  %64 = load i16, ptr %.13948.us56, align 2
-  %.0.us60 = zext i16 %64 to i32
-  %65 = shl nuw i32 %.0.us60, 16
-  %66 = udiv i32 %65, %17
-  %spec.store.select.us61 = tail call i32 @llvm.umin.i32(i32 %66, i32 65535)
-  %67 = xor i32 %spec.store.select.us61, %sext
-  %68 = trunc i32 %67 to i16
-  %69 = zext i32 %63 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
-  store i16 %68, ptr %70, align 2
-  %71 = getelementptr inbounds nuw i8, ptr %.13948.us56, i64 2
+  %.13948.us56 = phi ptr [ %70, %.lr.ph.split.split.split.us ], [ %.038, %.lr.ph.split.split ]
+  %60 = trunc nuw nsw i64 %indvars.iv95 to i32
+  %61 = xor i32 %60, -1
+  %62 = add nsw i32 %7, %61
+  %63 = load i16, ptr %.13948.us56, align 2
+  %.0.us60 = zext i16 %63 to i32
+  %64 = shl nuw i32 %.0.us60, 16
+  %65 = udiv i32 %64, %17
+  %spec.store.select.us61 = tail call i32 @llvm.umin.i32(i32 %65, i32 65535)
+  %66 = xor i32 %spec.store.select.us61, %sext
+  %67 = trunc i32 %66 to i16
+  %68 = zext i32 %62 to i64
+  %69 = getelementptr inbounds nuw i16, ptr %1, i64 %68
+  store i16 %67, ptr %69, align 2
+  %70 = getelementptr inbounds nuw i8, ptr %.13948.us56, i64 2
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count128
   br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !20
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %.13948 = phi ptr [ %82, %.lr.ph.split.split.split ], [ %.038, %.lr.ph.split.split ]
-  %72 = trunc nuw nsw i64 %indvars.iv to i32
-  %73 = xor i32 %72, -1
-  %74 = add nsw i32 %7, %73
-  %75 = load i16, ptr %.13948, align 2
-  %rev = tail call i16 @llvm.bswap.i16(i16 %75)
+  %.13948 = phi ptr [ %81, %.lr.ph.split.split.split ], [ %.038, %.lr.ph.split.split ]
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
+  %72 = xor i32 %71, -1
+  %73 = add nsw i32 %7, %72
+  %74 = load i16, ptr %.13948, align 2
+  %rev = tail call i16 @llvm.bswap.i16(i16 %74)
   %.0 = zext i16 %rev to i32
-  %76 = shl nuw i32 %.0, 16
-  %77 = udiv i32 %76, %17
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %77, i32 65535)
-  %78 = xor i32 %spec.store.select, %sext
-  %79 = trunc i32 %78 to i16
-  %80 = zext i32 %74 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %1, i64 %80
-  store i16 %79, ptr %81, align 2
-  %82 = getelementptr inbounds nuw i8, ptr %.13948, i64 2
+  %75 = shl nuw i32 %.0, 16
+  %76 = udiv i32 %75, %17
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %76, i32 65535)
+  %77 = xor i32 %spec.store.select, %sext
+  %78 = trunc i32 %77 to i16
+  %79 = zext i32 %73 to i64
+  %80 = getelementptr inbounds nuw i16, ptr %1, i64 %79
+  store i16 %78, ptr %80, align 2
+  %81 = getelementptr inbounds nuw i8, ptr %.13948, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count128
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %4
-  %.139.lcssa = phi ptr [ %.038, %4 ], [ %26, %.lr.ph.split.us.split.us.split.us ], [ %30, %.lr.ph.split.us.split.us.split ], [ %38, %.lr.ph.split.us.split.split.us ], [ %46, %.lr.ph.split.us.split.split ], [ %53, %.lr.ph.split.split.us.split.us ], [ %60, %.lr.ph.split.split.us.split ], [ %71, %.lr.ph.split.split.split.us ], [ %82, %.lr.ph.split.split.split ]
-  %83 = xor i32 %18, 2
-  %spec.select.idx = zext nneg i32 %83 to i64
+  %.139.lcssa = phi ptr [ %.038, %4 ], [ %25, %.lr.ph.split.us.split.us.split.us ], [ %29, %.lr.ph.split.us.split.us.split ], [ %37, %.lr.ph.split.us.split.split.us ], [ %45, %.lr.ph.split.us.split.split ], [ %52, %.lr.ph.split.split.us.split.us ], [ %59, %.lr.ph.split.split.us.split ], [ %70, %.lr.ph.split.split.split.us ], [ %81, %.lr.ph.split.split.split ]
+  %spec.select.idx = select i1 %.not, i64 2, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %.139.lcssa, i64 %spec.select.idx
   ret ptr %spec.select
 }

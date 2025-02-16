@@ -1392,75 +1392,73 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE23assi
   %116 = or disjoint i32 %70, 1
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i32, ptr %31, i64 %117
-  br label %150
+  br label %148
 
 119:                                              ; preds = %3
   %120 = and i16 %32, 32
   %.not67 = icmp eq i16 %120, 0
-  %121 = lshr exact i16 %120, 3
-  %122 = xor i16 %121, 4
   store i32 %1, ptr %13, align 4
   store float 0x3FE5555560000000, ptr %16, align 4
-  %123 = load i32, ptr %31, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float 0x3FC5555560000000, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %127, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store float 0x3FC5555560000000, ptr %129, align 4
+  %121 = load i32, ptr %31, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %121, ptr %122, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float 0x3FC5555560000000, ptr %123, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %125, ptr %126, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store float 0x3FC5555560000000, ptr %127, align 4
   %.sroa.speculated167 = select i1 %.not67, ptr %25, ptr %20
   store i32 %1, ptr %.sroa.speculated167, align 4
   %.sroa.speculated143 = select i1 %.not67, ptr %26, ptr %21
   store float 0x3FE5555560000000, ptr %.sroa.speculated143, align 4
-  %130 = zext nneg i16 %122 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %31, i64 %130
-  %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.speculated167, i64 4
-  store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.speculated143, i64 4
-  store float 0x3FD5555560000000, ptr %134, align 4
+  %128 = select i1 %.not67, i64 4, i64 0
+  %129 = getelementptr inbounds nuw i32, ptr %31, i64 %128
+  %130 = load i32, ptr %129, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.speculated167, i64 4
+  store i32 %130, ptr %131, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.speculated143, i64 4
+  store float 0x3FD5555560000000, ptr %132, align 4
   %.sroa.speculated161 = select i1 %.not67, ptr %20, ptr %25
   store i32 %1, ptr %.sroa.speculated161, align 4
   %.sroa.speculated137 = select i1 %.not67, ptr %21, ptr %26
   store float 0x3FDC71C720000000, ptr %.sroa.speculated137, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 4
-  store i32 %136, ptr %137, align 4
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 4
-  store float 0x3FCC71C720000000, ptr %138, align 4
-  %139 = load i32, ptr %31, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 8
-  store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 8
-  store float 0x3FBC71C720000000, ptr %141, align 4
-  %142 = load i32, ptr %126, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 12
-  store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 12
-  store float 0x3FBC71C720000000, ptr %144, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 16
-  store i32 %146, ptr %147, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 16
-  store float 0x3FAC71C720000000, ptr %148, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  br label %150
+  %133 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %134 = load i32, ptr %133, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 4
+  store i32 %134, ptr %135, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 4
+  store float 0x3FCC71C720000000, ptr %136, align 4
+  %137 = load i32, ptr %31, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 8
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 8
+  store float 0x3FBC71C720000000, ptr %139, align 4
+  %140 = load i32, ptr %124, align 4
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 12
+  store i32 %140, ptr %141, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 12
+  store float 0x3FBC71C720000000, ptr %142, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %144 = load i32, ptr %143, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 16
+  store i32 %144, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 16
+  store float 0x3FAC71C720000000, ptr %146, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  br label %148
 
-150:                                              ; preds = %119, %34
+148:                                              ; preds = %119, %34
   %.sroa.speculated161.sink = phi ptr [ %.sroa.speculated161, %119 ], [ %25, %34 ]
-  %.sink.in = phi ptr [ %149, %119 ], [ %118, %34 ]
+  %.sink.in = phi ptr [ %147, %119 ], [ %118, %34 ]
   %.sroa.speculated137.sink = phi ptr [ %.sroa.speculated137, %119 ], [ %26, %34 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161.sink, i64 20
-  store i32 %.sink, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137.sink, i64 20
-  store float 0x3FAC71C720000000, ptr %152, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161.sink, i64 20
+  store i32 %.sink, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137.sink, i64 20
+  store float 0x3FAC71C720000000, ptr %150, align 4
   ret void
 }
 
@@ -7388,75 +7386,73 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE23assi
   %116 = or disjoint i32 %70, 1
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i32, ptr %31, i64 %117
-  br label %150
+  br label %148
 
 119:                                              ; preds = %3
   %120 = and i16 %32, 32
   %.not67 = icmp eq i16 %120, 0
-  %121 = lshr exact i16 %120, 3
-  %122 = xor i16 %121, 4
   store i32 %1, ptr %13, align 4
   store double 0x3FE5555555555555, ptr %16, align 8
-  %123 = load i32, ptr %31, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store double 0x3FC5555555555555, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %127, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store double 0x3FC5555555555555, ptr %129, align 8
+  %121 = load i32, ptr %31, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %121, ptr %122, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store double 0x3FC5555555555555, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %125, ptr %126, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store double 0x3FC5555555555555, ptr %127, align 8
   %.sroa.speculated167 = select i1 %.not67, ptr %25, ptr %20
   store i32 %1, ptr %.sroa.speculated167, align 4
   %.sroa.speculated143 = select i1 %.not67, ptr %26, ptr %21
   store double 0x3FE5555555555555, ptr %.sroa.speculated143, align 8
-  %130 = zext nneg i16 %122 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %31, i64 %130
-  %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.speculated167, i64 4
-  store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.speculated143, i64 8
-  store double 0x3FD5555555555555, ptr %134, align 8
+  %128 = select i1 %.not67, i64 4, i64 0
+  %129 = getelementptr inbounds nuw i32, ptr %31, i64 %128
+  %130 = load i32, ptr %129, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.speculated167, i64 4
+  store i32 %130, ptr %131, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.speculated143, i64 8
+  store double 0x3FD5555555555555, ptr %132, align 8
   %.sroa.speculated161 = select i1 %.not67, ptr %20, ptr %25
   store i32 %1, ptr %.sroa.speculated161, align 4
   %.sroa.speculated137 = select i1 %.not67, ptr %21, ptr %26
   store double 0x3FDC71C71C71C71C, ptr %.sroa.speculated137, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 4
-  store i32 %136, ptr %137, align 4
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 8
-  store double 0x3FCC71C71C71C71C, ptr %138, align 8
-  %139 = load i32, ptr %31, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 8
-  store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 16
-  store double 0x3FBC71C71C71C71C, ptr %141, align 8
-  %142 = load i32, ptr %126, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 12
-  store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 24
-  store double 0x3FBC71C71C71C71C, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 16
-  store i32 %146, ptr %147, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 32
-  store double 0x3FAC71C71C71C71C, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  br label %150
+  %133 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %134 = load i32, ptr %133, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 4
+  store i32 %134, ptr %135, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 8
+  store double 0x3FCC71C71C71C71C, ptr %136, align 8
+  %137 = load i32, ptr %31, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 8
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 16
+  store double 0x3FBC71C71C71C71C, ptr %139, align 8
+  %140 = load i32, ptr %124, align 4
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 12
+  store i32 %140, ptr %141, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 24
+  store double 0x3FBC71C71C71C71C, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %144 = load i32, ptr %143, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161, i64 16
+  store i32 %144, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137, i64 32
+  store double 0x3FAC71C71C71C71C, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  br label %148
 
-150:                                              ; preds = %119, %34
+148:                                              ; preds = %119, %34
   %.sroa.speculated161.sink = phi ptr [ %.sroa.speculated161, %119 ], [ %25, %34 ]
-  %.sink.in = phi ptr [ %149, %119 ], [ %118, %34 ]
+  %.sink.in = phi ptr [ %147, %119 ], [ %118, %34 ]
   %.sroa.speculated137.sink = phi ptr [ %.sroa.speculated137, %119 ], [ %26, %34 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161.sink, i64 20
-  store i32 %.sink, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137.sink, i64 40
-  store double 0x3FAC71C71C71C71C, ptr %152, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.speculated161.sink, i64 20
+  store i32 %.sink, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.speculated137.sink, i64 40
+  store double 0x3FAC71C71C71C71C, ptr %150, align 8
   ret void
 }
 

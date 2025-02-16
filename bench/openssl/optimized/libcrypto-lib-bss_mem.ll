@@ -206,10 +206,9 @@ entry:
   %0 = load ptr, ptr %ptr, align 8
   %flags = getelementptr inbounds nuw i8, ptr %b, i64 48
   %1 = load i32, ptr %flags, align 8
-  %and = lshr i32 %1, 6
-  %2 = and i32 %and, 8
-  %3 = xor i32 %2, 8
-  %spec.select.idx = zext nneg i32 %3 to i64
+  %and = and i32 %1, 512
+  %tobool.not = icmp eq i32 %and, 0
+  %spec.select.idx = select i1 %tobool.not, i64 8, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   %bm.0 = load ptr, ptr %spec.select, align 8
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #7
@@ -228,17 +227,17 @@ cond.end:                                         ; preds = %entry
 
 if.then10:                                        ; preds = %cond.end
   %data = getelementptr inbounds nuw i8, ptr %bm.0, i64 8
-  %4 = load ptr, ptr %data, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr align 1 %4, i64 %spec.select2228, i1 false)
-  %5 = load i64, ptr %bm.0, align 8
-  %sub = sub i64 %5, %spec.select2228
+  %2 = load ptr, ptr %data, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out, ptr align 1 %2, i64 %spec.select2228, i1 false)
+  %3 = load i64, ptr %bm.0, align 8
+  %sub = sub i64 %3, %spec.select2228
   store i64 %sub, ptr %bm.0, align 8
   %max = getelementptr inbounds nuw i8, ptr %bm.0, i64 16
-  %6 = load i64, ptr %max, align 8
-  %sub15 = sub i64 %6, %spec.select2228
+  %4 = load i64, ptr %max, align 8
+  %sub15 = sub i64 %4, %spec.select2228
   store i64 %sub15, ptr %max, align 8
-  %7 = load ptr, ptr %data, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select2228
+  %5 = load ptr, ptr %data, align 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %spec.select2228
   store ptr %add.ptr, ptr %data, align 8
   br label %if.end26
 
@@ -249,8 +248,8 @@ if.else:                                          ; preds = %entry, %cond.end
 
 if.then20:                                        ; preds = %if.else
   %num = getelementptr inbounds nuw i8, ptr %b, i64 56
-  %8 = load i32, ptr %num, align 8
-  %cmp21.not = icmp eq i32 %8, 0
+  %6 = load i32, ptr %num, align 8
+  %cmp21.not = icmp eq i32 %6, 0
   br i1 %cmp21.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %if.then20
@@ -258,7 +257,7 @@ if.then23:                                        ; preds = %if.then20
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then23, %if.then20, %if.then10
-  %ret.0 = phi i32 [ %spec.select22, %if.then10 ], [ %8, %if.then23 ], [ 0, %if.then20 ], [ %cond27, %if.else ]
+  %ret.0 = phi i32 [ %spec.select22, %if.then10 ], [ %6, %if.then23 ], [ 0, %if.then20 ], [ %cond27, %if.else ]
   ret i32 %ret.0
 }
 
@@ -278,15 +277,14 @@ entry:
   %0 = load ptr, ptr %ptr, align 8
   %flags = getelementptr inbounds nuw i8, ptr %bp, i64 48
   %1 = load i32, ptr %flags, align 8
-  %and = lshr i32 %1, 6
-  %2 = and i32 %and, 8
-  %3 = xor i32 %2, 8
-  %spec.select.idx = zext nneg i32 %3 to i64
+  %and = and i32 %1, 512
+  %tobool.not = icmp eq i32 %and, 0
+  %spec.select.idx = select i1 %tobool.not, i64 8, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   %bm.0 = load ptr, ptr %spec.select, align 8
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #7
-  %4 = load i64, ptr %bm.0, align 8
-  %conv = trunc i64 %4 to i32
+  %2 = load i64, ptr %bm.0, align 8
+  %conv = trunc i64 %2 to i32
   %cmp.not = icmp sgt i32 %size, %conv
   %sub = add nsw i32 %size, -1
   %j.0 = select i1 %cmp.not, i32 %conv, i32 %sub
@@ -299,20 +297,20 @@ if.then8:                                         ; preds = %entry
 
 if.end9:                                          ; preds = %entry
   %data = getelementptr inbounds nuw i8, ptr %bm.0, i64 8
-  %5 = load ptr, ptr %data, align 8
+  %3 = load ptr, ptr %data, align 8
   %wide.trip.count = zext nneg i32 %j.0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %if.end9, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %6 = load i8, ptr %arrayidx, align 1
-  %cmp13 = icmp eq i8 %6, 10
+  %arrayidx = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %4 = load i8, ptr %arrayidx, align 1
+  %cmp13 = icmp eq i8 %4, 10
   br i1 %cmp13, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %for.body
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %inc = add nuw nsw i32 %7, 1
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
+  %inc = add nuw nsw i32 %5, 1
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
@@ -322,13 +320,12 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then15
   %i.1 = phi i32 [ %inc, %if.then15 ], [ %j.0, %for.inc ]
-  %8 = load ptr, ptr %ptr, align 8
-  %9 = load i32, ptr %flags, align 8
-  %and.i = lshr i32 %9, 6
-  %10 = and i32 %and.i, 8
-  %11 = xor i32 %10, 8
-  %spec.select.idx.i = zext nneg i32 %11 to i64
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.idx.i
+  %6 = load ptr, ptr %ptr, align 8
+  %7 = load i32, ptr %flags, align 8
+  %and.i = and i32 %7, 512
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  %spec.select.idx.i = select i1 %tobool.not.i, i64 8, i64 0
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %6, i64 %spec.select.idx.i
   %bm.0.i = load ptr, ptr %spec.select.i, align 8
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #7
   %cmp.i = icmp sgt i32 %i.1, -1
@@ -346,17 +343,17 @@ cond.end.i:                                       ; preds = %for.end
 
 if.then10.i:                                      ; preds = %cond.end.i
   %data.i = getelementptr inbounds nuw i8, ptr %bm.0.i, i64 8
-  %12 = load ptr, ptr %data.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %12, i64 %spec.select2228.i, i1 false)
-  %13 = load i64, ptr %bm.0.i, align 8
-  %sub.i = sub i64 %13, %spec.select2228.i
+  %8 = load ptr, ptr %data.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %8, i64 %spec.select2228.i, i1 false)
+  %9 = load i64, ptr %bm.0.i, align 8
+  %sub.i = sub i64 %9, %spec.select2228.i
   store i64 %sub.i, ptr %bm.0.i, align 8
   %max.i = getelementptr inbounds nuw i8, ptr %bm.0.i, i64 16
-  %14 = load i64, ptr %max.i, align 8
-  %sub15.i = sub i64 %14, %spec.select2228.i
+  %10 = load i64, ptr %max.i, align 8
+  %sub15.i = sub i64 %10, %spec.select2228.i
   store i64 %sub15.i, ptr %max.i, align 8
-  %15 = load ptr, ptr %data.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select2228.i
+  %11 = load ptr, ptr %data.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select2228.i
   store ptr %add.ptr.i, ptr %data.i, align 8
   br label %mem_read.exit
 
@@ -367,8 +364,8 @@ if.else.i:                                        ; preds = %cond.end.i, %for.en
 
 if.then20.i:                                      ; preds = %if.else.i
   %num.i = getelementptr inbounds nuw i8, ptr %bp, i64 56
-  %16 = load i32, ptr %num.i, align 8
-  %cmp21.not.i = icmp eq i32 %16, 0
+  %12 = load i32, ptr %num.i, align 8
+  %cmp21.not.i = icmp eq i32 %12, 0
   br i1 %cmp21.not.i, label %return, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then20.i
@@ -376,7 +373,7 @@ if.then23.i:                                      ; preds = %if.then20.i
   br label %mem_read.exit
 
 mem_read.exit:                                    ; preds = %if.then10.i, %if.else.i, %if.then23.i
-  %ret.0.i = phi i32 [ %spec.select22.i, %if.then10.i ], [ %16, %if.then23.i ], [ %cond27.i, %if.else.i ]
+  %ret.0.i = phi i32 [ %spec.select22.i, %if.then10.i ], [ %12, %if.then23.i ], [ %cond27.i, %if.else.i ]
   %cmp18 = icmp sgt i32 %ret.0.i, 0
   br i1 %cmp18, label %if.then20, label %return
 

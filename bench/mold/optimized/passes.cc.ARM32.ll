@@ -93064,6 +93064,7 @@ entry:
   %x.0.copyload.i = load i32, ptr %sh_type, align 1
   %sh_flags = getelementptr inbounds nuw i8, ptr %chunk, i64 32
   %x.0.copyload.i21 = load i32, ptr %sh_flags, align 1
+  %conv4 = zext i32 %x.0.copyload.i21 to i64
   %0 = load ptr, ptr %this, align 8
   %ehdr = getelementptr inbounds nuw i8, ptr %0, i64 3992
   %1 = load ptr, ptr %ehdr, align 8
@@ -93084,91 +93085,93 @@ if.end7:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end7
   %cmp11 = icmp ne i32 %x.0.copyload.i, 7
-  %4 = and i32 %x.0.copyload.i21, 2
-  %tobool.not = icmp eq i32 %4, 0
+  %and = and i64 %conv4, 2
+  %tobool.not = icmp eq i64 %and, 0
   %or.cond = or i1 %cmp11, %tobool.not
   br i1 %or.cond, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end10
   %hash = getelementptr inbounds nuw i8, ptr %0, i64 4088
-  %5 = load ptr, ptr %hash, align 8
-  %cmp14 = icmp eq ptr %chunk, %5
+  %4 = load ptr, ptr %hash, align 8
+  %cmp14 = icmp eq ptr %chunk, %4
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
   %gnu_hash = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  %6 = load ptr, ptr %gnu_hash, align 8
-  %cmp17 = icmp eq ptr %chunk, %6
+  %5 = load ptr, ptr %gnu_hash, align 8
+  %cmp17 = icmp eq ptr %chunk, %5
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
   %dynsym = getelementptr inbounds nuw i8, ptr %0, i64 4144
-  %7 = load ptr, ptr %dynsym, align 8
-  %cmp20 = icmp eq ptr %chunk, %7
+  %6 = load ptr, ptr %dynsym, align 8
+  %cmp20 = icmp eq ptr %chunk, %6
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end19
   %dynstr = getelementptr inbounds nuw i8, ptr %0, i64 4080
-  %8 = load ptr, ptr %dynstr, align 8
-  %cmp23 = icmp eq ptr %chunk, %8
+  %7 = load ptr, ptr %dynstr, align 8
+  %cmp23 = icmp eq ptr %chunk, %7
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
   %versym = getelementptr inbounds nuw i8, ptr %0, i64 4192
-  %9 = load ptr, ptr %versym, align 8
-  %cmp26 = icmp eq ptr %chunk, %9
+  %8 = load ptr, ptr %versym, align 8
+  %cmp26 = icmp eq ptr %chunk, %8
   br i1 %cmp26, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end25
   %verneed = getelementptr inbounds nuw i8, ptr %0, i64 4200
-  %10 = load ptr, ptr %verneed, align 8
-  %cmp29 = icmp eq ptr %chunk, %10
+  %9 = load ptr, ptr %verneed, align 8
+  %cmp29 = icmp eq ptr %chunk, %9
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end28
   %reldyn = getelementptr inbounds nuw i8, ptr %0, i64 4048
-  %11 = load ptr, ptr %reldyn, align 8
-  %cmp32 = icmp eq ptr %chunk, %11
+  %10 = load ptr, ptr %reldyn, align 8
+  %cmp32 = icmp eq ptr %chunk, %10
   br i1 %cmp32, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end31
   %relplt = getelementptr inbounds nuw i8, ptr %0, i64 4040
-  %12 = load ptr, ptr %relplt, align 8
-  %cmp35 = icmp eq ptr %chunk, %12
+  %11 = load ptr, ptr %relplt, align 8
+  %cmp35 = icmp eq ptr %chunk, %11
   br i1 %cmp35, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.end34
   %shdr38 = getelementptr inbounds nuw i8, ptr %0, i64 4000
-  %13 = load ptr, ptr %shdr38, align 8
-  %cmp39 = icmp eq ptr %chunk, %13
+  %12 = load ptr, ptr %shdr38, align 8
+  %cmp39 = icmp eq ptr %chunk, %12
   br i1 %cmp39, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
   %gdb_index = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %14 = load ptr, ptr %gdb_index, align 8
-  %cmp42 = icmp eq ptr %chunk, %14
+  %13 = load ptr, ptr %gdb_index, align 8
+  %cmp42 = icmp eq ptr %chunk, %13
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end41
+  %and53 = and i64 %conv4, 1024
+  %tobool54.not = icmp eq i64 %and53, 0
   %is_relro = getelementptr inbounds nuw i8, ptr %chunk, i64 72
-  %15 = load i8, ptr %is_relro, align 8
+  %14 = load i8, ptr %is_relro, align 8
   %cmp58 = icmp eq i32 %x.0.copyload.i, 8
-  %and45 = shl i32 %x.0.copyload.i21, 8
-  %16 = and i32 %and45, 768
-  %17 = shl i32 %x.0.copyload.i21, 5
-  %shl68 = and i32 %17, 128
-  %and53 = lshr i32 %x.0.copyload.i21, 4
-  %18 = and i32 %and53, 64
-  %19 = shl i8 %15, 5
-  %20 = and i8 %19, 32
-  %21 = xor i8 %20, 32
-  %shl78 = zext nneg i8 %21 to i32
+  %or = select i1 %tobool.not, i32 1536, i32 1024
+  %and47 = shl i32 %x.0.copyload.i21, 8
+  %shl64 = and i32 %and47, 256
+  %15 = shl i32 %x.0.copyload.i21, 5
+  %shl68 = and i32 %15, 128
+  %shl73 = select i1 %tobool54.not, i32 64, i32 0
+  %16 = shl i8 %14, 5
+  %17 = and i8 %16, 32
+  %18 = xor i8 %17, 32
+  %shl78 = zext nneg i8 %18 to i32
   %shl82 = select i1 %cmp58, i32 16, i32 0
-  %22 = or disjoint i32 %shl68, %shl82
-  %23 = or disjoint i32 %22, %16
-  %24 = or disjoint i32 %23, %18
-  %25 = or disjoint i32 %24, %shl78
-  %or83 = xor i32 %25, 1600
+  %or65 = or disjoint i32 %shl64, %shl82
+  %or69 = or disjoint i32 %or65, %shl68
+  %or74 = or disjoint i32 %or69, %or
+  %or79 = or disjoint i32 %or74, %shl73
+  %or83 = or disjoint i32 %or79, %shl78
   br label %return
 
 return:                                           ; preds = %if.end41, %if.end37, %if.end34, %if.end31, %if.end28, %if.end25, %if.end22, %if.end19, %if.end16, %if.end13, %if.end10, %if.end7, %if.end, %entry, %if.end44

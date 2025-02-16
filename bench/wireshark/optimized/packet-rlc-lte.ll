@@ -3404,15 +3404,15 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %7
 
-7:                                                ; preds = %.lr.ph, %34
-  %.01 = phi i32 [ %2, %.lr.ph ], [ %35, %34 ]
+7:                                                ; preds = %.lr.ph, %33
+  %.01 = phi i32 [ %2, %.lr.ph ], [ %34, %33 ]
   %8 = load i32, ptr @hf_rlc_lte_extension_part, align 4
   %9 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %.01, i32 noundef 2, ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.53) #13
   %10 = load i32, ptr @ett_rlc_lte_extension_part, align 4
   %11 = call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #13
   %12 = load i32, ptr %6, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %27
+  br i1 %13, label %14, label %26
 
 14:                                               ; preds = %7
   %15 = load i8, ptr @s_number_of_extensions, align 1
@@ -3420,66 +3420,65 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %17 = load i32, ptr @hf_rlc_lte_extension_e, align 4
   %18 = shl i32 %.01, 3
   %.not29 = icmp eq i8 %16, 0
-  %19 = shl nuw nsw i8 %16, 2
-  %20 = zext nneg i8 %19 to i32
-  %21 = or disjoint i32 %18, %20
-  %22 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %21, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
-  %23 = load i32, ptr @hf_rlc_lte_extension_li, align 4
-  %24 = select i1 %.not29, i32 1, i32 5
-  %25 = or disjoint i32 %24, %18
-  %26 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %23, ptr noundef %0, i32 noundef %25, i32 noundef 11, ptr noundef nonnull %5, i32 noundef 0) #13
+  %19 = select i1 %.not29, i32 0, i32 4
+  %20 = or disjoint i32 %19, %18
+  %21 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %20, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
+  %22 = load i32, ptr @hf_rlc_lte_extension_li, align 4
+  %23 = select i1 %.not29, i32 1, i32 5
+  %24 = or disjoint i32 %23, %18
+  %25 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %24, i32 noundef 11, ptr noundef nonnull %5, i32 noundef 0) #13
   %. = select i1 %.not29, i32 1, i32 2
-  br label %34
+  br label %33
 
-27:                                               ; preds = %7
-  %28 = load i32, ptr @hf_rlc_lte_extension_e, align 4
-  %29 = shl i32 %.01, 3
-  %30 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
-  %31 = load i32, ptr @hf_rlc_lte_extension_li, align 4
-  %32 = or disjoint i32 %29, 1
-  %33 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 15, ptr noundef nonnull %5, i32 noundef 0) #13
-  br label %34
+26:                                               ; preds = %7
+  %27 = load i32, ptr @hf_rlc_lte_extension_e, align 4
+  %28 = shl i32 %.01, 3
+  %29 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
+  %30 = load i32, ptr @hf_rlc_lte_extension_li, align 4
+  %31 = or disjoint i32 %28, 1
+  %32 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 15, ptr noundef nonnull %5, i32 noundef 0) #13
+  br label %33
 
-34:                                               ; preds = %14, %27
-  %.sink = phi i32 [ 2, %27 ], [ %., %14 ]
-  %35 = add i32 %.01, %.sink
-  %36 = load i64, ptr %5, align 8
-  %37 = trunc i64 %36 to i32
-  %38 = and i32 %37, 65535
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.320, i32 noundef %38) #13
-  %39 = load i64, ptr %5, align 8
-  %40 = trunc i64 %39 to i16
-  %41 = load i8, ptr @s_number_of_extensions, align 1
-  %42 = add i8 %41, 1
-  store i8 %42, ptr @s_number_of_extensions, align 1
-  %43 = zext i8 %41 to i64
-  %44 = getelementptr [192 x i16], ptr @s_lengths, i64 0, i64 %43
-  store i16 %40, ptr %44, align 2
-  %45 = load i64, ptr %4, align 8
-  %46 = icmp ne i64 %45, 0
-  %47 = icmp ult i8 %42, -64
-  %48 = and i1 %46, %47
-  br i1 %48, label %7, label %._crit_edge, !llvm.loop !16
+33:                                               ; preds = %14, %26
+  %.sink = phi i32 [ 2, %26 ], [ %., %14 ]
+  %34 = add i32 %.01, %.sink
+  %35 = load i64, ptr %5, align 8
+  %36 = trunc i64 %35 to i32
+  %37 = and i32 %36, 65535
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.320, i32 noundef %37) #13
+  %38 = load i64, ptr %5, align 8
+  %39 = trunc i64 %38 to i16
+  %40 = load i8, ptr @s_number_of_extensions, align 1
+  %41 = add i8 %40, 1
+  store i8 %41, ptr @s_number_of_extensions, align 1
+  %42 = zext i8 %40 to i64
+  %43 = getelementptr [192 x i16], ptr @s_lengths, i64 0, i64 %42
+  store i16 %39, ptr %43, align 2
+  %44 = load i64, ptr %4, align 8
+  %45 = icmp ne i64 %44, 0
+  %46 = icmp ult i8 %41, -64
+  %47 = and i1 %45, %46
+  br i1 %47, label %7, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %34
-  %49 = and i8 %41, 1
-  %.not.not = icmp eq i8 %49, 0
-  br i1 %.not.not, label %50, label %58
+._crit_edge:                                      ; preds = %33
+  %48 = and i8 %40, 1
+  %.not.not = icmp eq i8 %48, 0
+  br i1 %.not.not, label %49, label %57
 
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %58
+49:                                               ; preds = %._crit_edge
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %57
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr @hf_rlc_lte_extension_padding, align 4
-  %56 = add i32 %35, 1
-  %57 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %55, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #13
-  br label %58
+53:                                               ; preds = %49
+  %54 = load i32, ptr @hf_rlc_lte_extension_padding, align 4
+  %55 = add i32 %34, 1
+  %56 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %54, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0) #13
+  br label %57
 
-58:                                               ; preds = %54, %50, %._crit_edge
-  %.2 = phi i32 [ %56, %54 ], [ %35, %50 ], [ %35, %._crit_edge ]
+57:                                               ; preds = %53, %49, %._crit_edge
+  %.2 = phi i32 [ %55, %53 ], [ %34, %49 ], [ %34, %._crit_edge ]
   ret i32 %.2
 }
 

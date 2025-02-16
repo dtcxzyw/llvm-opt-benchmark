@@ -194,20 +194,20 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
   br label %76
 
 63:                                               ; preds = %21
-  %64 = shl nuw nsw i16 %34, 1
-  %65 = shl nuw nsw i16 %44, 2
-  %66 = or disjoint i16 %65, %64
-  %67 = or disjoint i16 %66, %25
-  %.not.i = icmp eq i16 %67, 0
-  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, label %68
+  %64 = zext nneg i16 %25 to i32
+  %65 = select i1 %35, i32 2, i32 0
+  %66 = or disjoint i32 %65, %64
+  %67 = select i1 %45, i32 4, i32 0
+  %68 = or disjoint i32 %66, %67
+  %.not.i = icmp eq i32 %68, 0
+  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, label %69
 
-68:                                               ; preds = %63
-  %69 = zext nneg i16 %67 to i32
+69:                                               ; preds = %63
   %70 = icmp eq i32 %51, 0
   br i1 %70, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, label %71
 
-71:                                               ; preds = %68
-  %72 = icmp eq i16 %67, 7
+71:                                               ; preds = %69
+  %72 = icmp eq i32 %68, 7
   br i1 %72, label %73, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit
 
 73:                                               ; preds = %71
@@ -220,9 +220,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
 74:                                               ; preds = %73, %73, %73
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %63, %68, %71, %73, %74
-  %.014.i = phi i32 [ 16, %74 ], [ 0, %73 ], [ 0, %71 ], [ 0, %63 ], [ 8, %68 ]
-  %.0.i = phi i32 [ %51, %74 ], [ %51, %73 ], [ %51, %71 ], [ %51, %63 ], [ %69, %68 ]
+_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %63, %69, %71, %73, %74
+  %.014.i = phi i32 [ 16, %74 ], [ 0, %73 ], [ 0, %71 ], [ 0, %63 ], [ 8, %69 ]
+  %.0.i = phi i32 [ %51, %74 ], [ %51, %73 ], [ %51, %71 ], [ %51, %63 ], [ %68, %69 ]
   %75 = or disjoint i32 %.0.i, %.014.i
   br label %76
 

@@ -12807,7 +12807,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %30, ptr noundef nonnull @.str.99) #12
-  br label %83
+  br label %81
 
 31:                                               ; preds = %24, %7
   %32 = and i8 %.pre, 8
@@ -12823,7 +12823,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 
 37:                                               ; preds = %33, %31
   %38 = call fastcc zeroext i1 @sema_call_analyse_invocation(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull byval(%struct.CalledDecl) align 8 %9, ptr noundef %8, ptr noundef %6)
-  br i1 %38, label %39, label %83
+  br i1 %38, label %39, label %81
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -12841,7 +12841,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   store i16 %51, ptr %45, align 8
   %52 = load ptr, ptr @type_void, align 8
   %.not45 = icmp eq ptr %43, %52
-  br i1 %.not45, label %75, label %53
+  br i1 %.not45, label %73, label %53
 
 53:                                               ; preds = %39
   %.not46 = icmp eq ptr %43, null
@@ -12874,36 +12874,35 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   %66 = load i8, ptr %12, align 8
   %67 = trunc i8 %66 to i1
   %68 = and i8 %66, 2
-  %69 = zext nneg i8 %68 to i16
-  %70 = shl nuw nsw i16 %69, 10
-  %71 = xor i16 %70, 2048
-  %spec.select51 = select i1 %.03750, i16 0, i16 %71
-  %72 = select i1 %67, i16 2048, i16 %spec.select51
-  %73 = and i16 %65, -2049
-  %74 = or i16 %72, %73
-  store i16 %74, ptr %45, align 8
-  br label %75
+  %.not47 = icmp eq i8 %68, 0
+  %69 = select i1 %.not47, i16 2048, i16 0
+  %spec.select51 = select i1 %.03750, i16 0, i16 %69
+  %70 = select i1 %67, i16 2048, i16 %spec.select51
+  %71 = and i16 %65, -2049
+  %72 = or disjoint i16 %70, %71
+  store i16 %72, ptr %45, align 8
+  br label %73
 
-75:                                               ; preds = %.thread, %39
-  %76 = trunc i8 %44 to i1
-  br i1 %76, label %77, label %82
+73:                                               ; preds = %.thread, %39
+  %74 = trunc i8 %44 to i1
+  br i1 %74, label %75, label %80
 
-77:                                               ; preds = %75
-  %78 = load i32, ptr %43, align 8
-  %79 = icmp eq i32 %78, 40
-  br i1 %79, label %82, label %80
+75:                                               ; preds = %73
+  %76 = load i32, ptr %43, align 8
+  %77 = icmp eq i32 %76, 40
+  br i1 %77, label %80, label %78
 
-80:                                               ; preds = %77
-  %81 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
-  br label %82
+78:                                               ; preds = %75
+  %79 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
+  br label %80
 
-82:                                               ; preds = %75, %77, %80
-  %.0 = phi ptr [ %81, %80 ], [ %43, %77 ], [ %43, %75 ]
+80:                                               ; preds = %73, %75, %78
+  %.0 = phi ptr [ %79, %78 ], [ %43, %75 ], [ %43, %73 ]
   store ptr %.0, ptr %2, align 8
-  br label %83
+  br label %81
 
-83:                                               ; preds = %37, %82, %28
-  %.039 = phi i1 [ true, %82 ], [ false, %28 ], [ false, %37 ]
+81:                                               ; preds = %37, %80, %28
+  %.039 = phi i1 [ true, %80 ], [ false, %28 ], [ false, %37 ]
   ret i1 %.039
 }
 

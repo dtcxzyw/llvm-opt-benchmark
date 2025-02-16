@@ -8864,7 +8864,7 @@ define dso_local i64 @_ZN5clang4Sema19adjustCCAndNoReturnENS_8QualTypeES1_b(ptr 
   %5 = alloca %"struct.clang::FunctionProtoType::ExtProtoInfo", align 8
   %6 = alloca %"struct.clang::FunctionProtoType::ExtProtoInfo", align 8
   %.not.i.i = icmp ult i64 %1, 16
-  br i1 %.not.i.i, label %64, label %7
+  br i1 %.not.i.i, label %63, label %7
 
 7:                                                ; preds = %4
   %8 = and i64 %2, -16
@@ -8922,64 +8922,63 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit24: ; preds = %_ZNK5cl
   %38 = and i16 %35, 32
   %39 = icmp ne i16 %38, 0
   %40 = xor i1 %37, %39
-  br i1 %40, label %41, label %44
+  br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
   %42 = and i16 %35, -33
-  %43 = lshr exact i64 %36, 19
-  %masksel.i = trunc nuw nsw i64 %43 to i16
-  %.sroa.0.0.i = or disjoint i16 %42, %masksel.i
+  %masksel.i = select i1 %37, i16 32, i16 0
+  %.sroa.0.0.i = or disjoint i16 %masksel.i, %42
   store i16 %.sroa.0.0.i, ptr %5, align 8, !tbaa !1069
-  br label %44
+  br label %43
 
-44:                                               ; preds = %41, %34
+43:                                               ; preds = %41, %34
   %.1 = phi i1 [ true, %41 ], [ %.not, %34 ]
-  br i1 %3, label %45, label %53
+  br i1 %3, label %44, label %52
 
-45:                                               ; preds = %44
-  %46 = and i64 %23, 270215977642229760
-  %.not30 = icmp eq i64 %46, 0
-  br i1 %.not30, label %47, label %.thread
+44:                                               ; preds = %43
+  %45 = and i64 %23, 270215977642229760
+  %.not30 = icmp eq i64 %45, 0
+  br i1 %.not30, label %46, label %.thread
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 16
-  %49 = load i64, ptr %48, align 16
-  %50 = and i64 %49, 270215977642229760
-  %.not31 = icmp eq i64 %50, 0
-  br i1 %.not31, label %53, label %.thread
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 16
+  %48 = load i64, ptr %47, align 16
+  %49 = and i64 %48, 270215977642229760
+  %.not31 = icmp eq i64 %49, 0
+  br i1 %.not31, label %52, label %.thread
 
-.thread:                                          ; preds = %45, %47
+.thread:                                          ; preds = %44, %46
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #22
   call void @_ZNK5clang17FunctionProtoType15getExtProtoInfoEv(ptr dead_on_unwind nonnull writable sret(%"struct.clang::FunctionProtoType::ExtProtoInfo") align 8 %6, ptr noundef nonnull align 16 dereferenceable(48) %.1.i)
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(48) %51, i64 48, i1 false), !tbaa.struct !1215
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false), !tbaa.struct !1215
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #22
-  br label %54
+  br label %53
 
-53:                                               ; preds = %47, %44
-  br i1 %.1, label %54, label %63
+52:                                               ; preds = %46, %43
+  br i1 %.1, label %53, label %62
 
-54:                                               ; preds = %.thread, %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %56 = load ptr, ptr %55, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 24
-  %.sroa.0.0.copyload.i = load i64, ptr %57, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 48
-  %59 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 16
-  %60 = load i64, ptr %59, align 16
-  %61 = lshr i64 %60, 38
-  %.idx.i = and i64 %61, 65535
-  %62 = call i64 @_ZNK5clang10ASTContext23getFunctionTypeInternalENS_8QualTypeEN4llvm8ArrayRefIS1_EERKNS_17FunctionProtoType12ExtProtoInfoEb(ptr noundef nonnull align 8 dereferenceable(23216) %56, i64 %.sroa.0.0.copyload.i, ptr nonnull %58, i64 %.idx.i, ptr noundef nonnull align 8 dereferenceable(120) %5, i1 noundef zeroext false) #22
+53:                                               ; preds = %.thread, %52
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %55 = load ptr, ptr %54, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 24
+  %.sroa.0.0.copyload.i = load i64, ptr %56, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.1.i23, i64 16
+  %59 = load i64, ptr %58, align 16
+  %60 = lshr i64 %59, 38
+  %.idx.i = and i64 %60, 65535
+  %61 = call i64 @_ZNK5clang10ASTContext23getFunctionTypeInternalENS_8QualTypeEN4llvm8ArrayRefIS1_EERKNS_17FunctionProtoType12ExtProtoInfoEb(ptr noundef nonnull align 8 dereferenceable(23216) %55, i64 %.sroa.0.0.copyload.i, ptr nonnull %57, i64 %.idx.i, ptr noundef nonnull align 8 dereferenceable(120) %5, i1 noundef zeroext false) #22
+  br label %62
+
+62:                                               ; preds = %52, %53
+  %.sroa.017.1 = phi i64 [ %61, %53 ], [ %1, %52 ]
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #22
   br label %63
 
-63:                                               ; preds = %53, %54
-  %.sroa.017.1 = phi i64 [ %62, %54 ], [ %1, %53 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #22
-  br label %64
-
-64:                                               ; preds = %4, %63
-  %.sroa.017.0 = phi i64 [ %.sroa.017.1, %63 ], [ %1, %4 ]
+63:                                               ; preds = %4, %62
+  %.sroa.017.0 = phi i64 [ %.sroa.017.1, %62 ], [ %1, %4 ]
   ret i64 %.sroa.017.0
 }
 

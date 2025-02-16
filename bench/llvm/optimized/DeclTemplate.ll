@@ -3485,22 +3485,21 @@ define dso_local noundef ptr @_ZN5clang20TemplateTypeParmDecl6CreateERKNS_10ASTC
   %22 = select i1 %9, i8 2, i8 0
   %23 = and i64 %10, 4294967296
   %.not.i = icmp eq i64 %23, 0
-  %24 = lshr exact i64 %23, 29
-  %25 = trunc nuw nsw i64 %24 to i8
-  %26 = or disjoint i8 %22, %14
-  %27 = or disjoint i8 %26, %25
-  %28 = or disjoint i8 %27, %21
-  store i8 %28, ptr %19, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %24 = select i1 %.not.i, i8 0, i8 8
+  %25 = or disjoint i8 %22, %14
+  %26 = or disjoint i8 %25, %24
+  %27 = or disjoint i8 %26, %21
+  store i8 %27, ptr %19, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %.0.i.i = select i1 %.not.i, i32 0, i32 %.sroa.0.0.extract.trunc.i
-  store i32 %.0.i.i, ptr %29, align 8, !tbaa !103
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i64 0, ptr %30, align 8, !tbaa !14
-  %31 = tail call i64 @_ZNK5clang10ASTContext23getTemplateTypeParmTypeEjjbPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %8, ptr noundef nonnull %13) #22
-  %32 = and i64 %31, -16
-  %33 = inttoptr i64 %32 to ptr
-  %34 = load ptr, ptr %33, align 16, !tbaa !15
-  store ptr %34, ptr %17, align 8, !tbaa !101
+  store i32 %.0.i.i, ptr %28, align 8, !tbaa !103
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store i64 0, ptr %29, align 8, !tbaa !14
+  %30 = tail call i64 @_ZNK5clang10ASTContext23getTemplateTypeParmTypeEjjbPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %8, ptr noundef nonnull %13) #22
+  %31 = and i64 %30, -16
+  %32 = inttoptr i64 %31 to ptr
+  %33 = load ptr, ptr %32, align 16, !tbaa !15
+  store ptr %33, ptr %17, align 8, !tbaa !101
   ret ptr %13
 }
 

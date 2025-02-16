@@ -1000,8 +1000,8 @@ calc_cks.exit113.i:                               ; preds = %68
   %74 = phi i32 [ %47, %calc_cks.exit113.i ], [ %47, %calc_cks.exit108.i ], [ %47, %60 ], [ %30, %29 ], [ %30, %32 ], [ %45, %.thread151.i ], [ %30, %calc_cks.exit93.i ], [ %30, %calc_cks.exit.i ]
   %75 = and i32 %73, 2
   %.not86.not.i = icmp eq i32 %75, 0
-  %76 = and i32 %73, 8
-  %.lobit.i = lshr exact i32 %76, 3
+  %76 = lshr i32 %73, 3
+  %.lobit.i = and i32 %76, 1
   %.lobit131.i = lshr exact i32 %75, 1
   %.067.i = select i1 %.not86.not.i, i32 %.lobit.i, i32 1
   %77 = or disjoint i32 %.lobit131.i, 6
@@ -1010,10 +1010,9 @@ calc_cks.exit113.i:                               ; preds = %68
   br i1 %79, label %guess_imb_format.exit.thread, label %80
 
 80:                                               ; preds = %.thread129.i
-  %81 = trunc nuw nsw i32 %76 to i8
-  %82 = shl nuw nsw i8 %81, 2
-  %.88.i = xor i8 %82, 32
-  %.0.i = select i1 %.not86.not.i, i8 %.88.i, i8 0
+  %81 = and i32 %73, 10
+  %82 = icmp eq i32 %81, 0
+  %.0.i = select i1 %82, i8 32, i8 0
   %83 = or disjoint i32 %.067.i, 2
   br label %84
 

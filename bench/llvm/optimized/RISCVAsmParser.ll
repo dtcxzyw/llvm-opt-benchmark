@@ -8551,12 +8551,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61: ; preds = %_ZNK12_G
   %104 = tail call noundef nonnull align 8 dereferenceable(304) ptr @_ZNK4llvm17MCTargetAsmParser6getSTIEv(ptr noundef nonnull align 8 dereferenceable(561) %0) #25
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 232
   %106 = load i64, ptr %105, align 8, !tbaa !53
-  %107 = and i64 %106, 4
-  %.not78 = icmp ne i64 %107, 0
-  %brmerge.not = and i1 %.0.i53, %.not78
-  %108 = trunc nuw nsw i64 %107 to i32
-  %.mux = xor i32 %108, 4
-  %spec.select = select i1 %brmerge.not, i32 0, i32 %.mux
+  %107 = trunc i64 %106 to i32
+  %108 = and i32 %107, 4
+  %spec.select = xor i32 %108, 4
   br label %.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61.thread: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit.thread, %97, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61

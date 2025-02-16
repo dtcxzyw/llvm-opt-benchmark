@@ -19535,7 +19535,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %.sink.in.i = select i1 %cmp.i.i.not.i, ptr %__first1.addr.020.i, ptr %__first2.addr.019.i
   %__first2.addr.1.idx.i = lshr exact i64 %4, 29
   %__first2.addr.1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.019.i, i64 %__first2.addr.1.idx.i
-  %__first1.addr.1.idx.i = xor i64 %__first2.addr.1.idx.i, 4
+  %__first1.addr.1.idx.i = select i1 %cmp.i.i.not.i, i64 4, i64 0
   %__first1.addr.1.i = getelementptr inbounds nuw i8, ptr %__first1.addr.020.i, i64 %__first1.addr.1.idx.i
   %.sink.i = load i32, ptr %.sink.in.i, align 4
   store i32 %.sink.i, ptr %__result.addr.021.i, align 4
@@ -19929,7 +19929,7 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %.sink.in.i = select i1 %cmp.i.i.not.i, ptr %__first1.addr.027.i, ptr %__first2.addr.026.i
   %__first2.addr.1.idx.i = lshr exact i64 %3, 29
   %__first2.addr.1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.026.i, i64 %__first2.addr.1.idx.i
-  %__first1.addr.1.idx.i = xor i64 %__first2.addr.1.idx.i, 4
+  %__first1.addr.1.idx.i = select i1 %cmp.i.i.not.i, i64 4, i64 0
   %__first1.addr.1.i = getelementptr inbounds nuw i8, ptr %__first1.addr.027.i, i64 %__first1.addr.1.idx.i
   %.sink.i = load i32, ptr %.sink.in.i, align 4
   store i32 %.sink.i, ptr %__result.addr.028.i, align 4
@@ -20007,7 +20007,7 @@ if.end.i.i.i.i.i58:                               ; preds = %while.body.i35
   %.sink.in.i49 = select i1 %cmp.i.i.not.i48, ptr %__first1.addr.027.i37, ptr %__first2.addr.026.i38
   %__first2.addr.1.idx.i50 = lshr exact i64 %9, 29
   %__first2.addr.1.i51 = getelementptr inbounds nuw i8, ptr %__first2.addr.026.i38, i64 %__first2.addr.1.idx.i50
-  %__first1.addr.1.idx.i52 = xor i64 %__first2.addr.1.idx.i50, 4
+  %__first1.addr.1.idx.i52 = select i1 %cmp.i.i.not.i48, i64 4, i64 0
   %__first1.addr.1.i53 = getelementptr inbounds nuw i8, ptr %__first1.addr.027.i37, i64 %__first1.addr.1.idx.i52
   %.sink.i54 = load i32, ptr %.sink.in.i49, align 4
   store i32 %.sink.i54, ptr %__result.addr.028.i36, align 4

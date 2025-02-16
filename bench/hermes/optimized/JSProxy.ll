@@ -1722,11 +1722,11 @@ land.lhs.true19:                                  ; preds = %if.end
 
 if.then26:                                        ; preds = %land.lhs.true19
   %bf.clear34 = and i16 %desc.0.val, 1
-  %cmp.i.i54.not.not = icmp eq i16 %bf.clear34, 0
+  %tobool36.not.not.not = icmp eq i16 %bf.clear34, 0
   store ptr @.str.27, ptr %ref.tmp30, align 8
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   store i32 3, ptr %leftKind_.i22.i.i, align 8
-  br i1 %cmp.i.i54.not.not, label %if.end.i.i.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
+  br i1 %tobool36.not.not.not, label %if.end.i.i.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
 
 if.end.i.i.thread:                                ; preds = %if.then26
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 16
@@ -1757,8 +1757,8 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103:  ; preds = %if.then26, %if.end.
   %rightSize_.i25.i.i96 = getelementptr inbounds nuw i8, ptr %ref.tmp29, i64 40
   store i64 34, ptr %rightSize_.i25.i.i96, align 8, !alias.scope !11
   %6 = and i16 %current.0.val, 2
-  %cmp.i.i108.not.not = icmp eq i16 %6, 0
-  br i1 %cmp.i.i108.not.not, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149
+  %tobool42.not.not.not = icmp eq i16 %6, 0
+  br i1 %tobool42.not.not.not, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit149.thread: ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
   %add.i.i.i124 = add nuw nsw i64 %add.i.i.i78, 34

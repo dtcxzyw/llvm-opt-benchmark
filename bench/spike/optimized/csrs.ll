@@ -10443,11 +10443,11 @@ define noundef zeroext i1 @_ZN14stimecmp_csr_t14unlogged_writeEm(ptr noundef non
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load i64, ptr %27, align 8
   %29 = select i1 %.not, i64 0, i64 %28
-  %30 = lshr i64 %17, 57
-  %31 = lshr i64 %10, 58
-  %32 = and i64 %31, 32
-  %33 = and i64 %30, 64
-  %34 = or disjoint i64 %33, %32
+  %30 = lshr i64 %10, 58
+  %31 = and i64 %30, 32
+  %32 = lshr i64 %17, 57
+  %33 = and i64 %32, 64
+  %34 = or disjoint i64 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = xor i64 %34, -1

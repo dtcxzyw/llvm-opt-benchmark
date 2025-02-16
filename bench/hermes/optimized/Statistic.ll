@@ -1949,9 +1949,7 @@ if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %retval.0.in.i.i.i.i = phi i32 [ %call14.i.i.i.i, %if.end11.i.i.i.i ], [ %call3.i.i.i.i, %while.body.i.i ], [ %call7.i.i.i.i, %if.end.i.i.i.i ]
   %retval.0.i.i.i.i = icmp slt i32 %retval.0.in.i.i.i.i, 0
   %.sink.i.i = select i1 %retval.0.i.i.i.i, ptr %0, ptr %1
-  %8 = lshr i32 %retval.0.in.i.i.i.i, 28
-  %9 = and i32 %8, 8
-  %__first2.sroa.0.1.idx.i.i = zext nneg i32 %9 to i64
+  %__first2.sroa.0.1.idx.i.i = select i1 %retval.0.i.i.i.i, i64 8, i64 0
   %__first2.sroa.0.1.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.020.i.i, i64 %__first2.sroa.0.1.idx.i.i
   %__first1.sroa.0.1.idx.i.i = select i1 %retval.0.i.i.i.i, i64 0, i64 8
   %__first1.sroa.0.1.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.021.i.i, i64 %__first1.sroa.0.1.idx.i.i
@@ -2007,38 +2005,36 @@ while.body.i34.i:                                 ; preds = %while.end.i, %"_ZN9
   %__result.addr.022.i35.i = phi ptr [ %incdec.ptr.i48.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i" ], [ %__result.addr.0.lcssa.i, %while.end.i ]
   %__first1.sroa.0.021.i36.i = phi ptr [ %__first1.sroa.0.1.i47.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i" ], [ %__first.sroa.0.0.lcssa.i15, %while.end.i ]
   %__first2.sroa.0.020.i37.i = phi ptr [ %__first2.sroa.0.1.i45.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i" ], [ %add.ptr.i12.i, %while.end.i ]
-  %10 = load ptr, ptr %__first2.sroa.0.020.i37.i, align 8
-  %11 = load ptr, ptr %__first1.sroa.0.021.i36.i, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = load ptr, ptr %11, align 8
-  %call3.i.i.i38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13) #25
+  %8 = load ptr, ptr %__first2.sroa.0.020.i37.i, align 8
+  %9 = load ptr, ptr %__first1.sroa.0.021.i36.i, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = load ptr, ptr %9, align 8
+  %call3.i.i.i38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #25
   %tobool.not.i.i.i39.i = icmp eq i32 %call3.i.i.i38.i, 0
   br i1 %tobool.not.i.i.i39.i, label %if.end.i.i.i52.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i"
 
 if.end.i.i.i52.i:                                 ; preds = %while.body.i34.i
-  %Name.i.i.i.i53.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %Name.i.i.i.i53.i, align 8
-  %Name.i7.i.i.i54.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load ptr, ptr %Name.i7.i.i.i54.i, align 8
-  %call7.i.i.i55.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %15) #25
+  %Name.i.i.i.i53.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = load ptr, ptr %Name.i.i.i.i53.i, align 8
+  %Name.i7.i.i.i54.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = load ptr, ptr %Name.i7.i.i.i54.i, align 8
+  %call7.i.i.i55.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13) #25
   %tobool8.not.i.i.i56.i = icmp eq i32 %call7.i.i.i55.i, 0
   br i1 %tobool8.not.i.i.i56.i, label %if.end11.i.i.i57.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i"
 
 if.end11.i.i.i57.i:                               ; preds = %if.end.i.i.i52.i
-  %Desc.i.i.i.i58.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %16 = load ptr, ptr %Desc.i.i.i.i58.i, align 8
-  %Desc.i8.i.i.i59.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load ptr, ptr %Desc.i8.i.i.i59.i, align 8
-  %call14.i.i.i60.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %17) #25
+  %Desc.i.i.i.i58.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %14 = load ptr, ptr %Desc.i.i.i.i58.i, align 8
+  %Desc.i8.i.i.i59.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = load ptr, ptr %Desc.i8.i.i.i59.i, align 8
+  %call14.i.i.i60.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %15) #25
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i40.i": ; preds = %if.end11.i.i.i57.i, %if.end.i.i.i52.i, %while.body.i34.i
   %retval.0.in.i.i.i41.i = phi i32 [ %call14.i.i.i60.i, %if.end11.i.i.i57.i ], [ %call3.i.i.i38.i, %while.body.i34.i ], [ %call7.i.i.i55.i, %if.end.i.i.i52.i ]
   %retval.0.i.i.i42.i = icmp slt i32 %retval.0.in.i.i.i41.i, 0
-  %.sink.i43.i = select i1 %retval.0.i.i.i42.i, ptr %10, ptr %11
-  %18 = lshr i32 %retval.0.in.i.i.i41.i, 28
-  %19 = and i32 %18, 8
-  %__first2.sroa.0.1.idx.i44.i = zext nneg i32 %19 to i64
+  %.sink.i43.i = select i1 %retval.0.i.i.i42.i, ptr %8, ptr %9
+  %__first2.sroa.0.1.idx.i44.i = select i1 %retval.0.i.i.i42.i, i64 8, i64 0
   %__first2.sroa.0.1.i45.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.020.i37.i, i64 %__first2.sroa.0.1.idx.i44.i
   %__first1.sroa.0.1.idx.i46.i = select i1 %retval.0.i.i.i42.i, i64 0, i64 8
   %__first1.sroa.0.1.i47.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.021.i36.i, i64 %__first1.sroa.0.1.idx.i46.i
@@ -2092,36 +2088,34 @@ while.body.i.i19:                                 ; preds = %"_ZN9__gnu_cxx5__op
   %__result.sroa.0.022.i.i = phi ptr [ %incdec.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i" ], [ %__result.sroa.0.072.i, %while.body.i18 ]
   %__first2.addr.0.val.i.i = load ptr, ptr %__first2.addr.023.i.i, align 8
   %__first1.addr.0.val.i.i = load ptr, ptr %__first1.addr.024.i.i, align 8
-  %20 = load ptr, ptr %__first2.addr.0.val.i.i, align 8
-  %21 = load ptr, ptr %__first1.addr.0.val.i.i, align 8
-  %call3.i.i.i.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #25
+  %16 = load ptr, ptr %__first2.addr.0.val.i.i, align 8
+  %17 = load ptr, ptr %__first1.addr.0.val.i.i, align 8
+  %call3.i.i.i.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %17) #25
   %tobool.not.i.i.i.i21 = icmp eq i32 %call3.i.i.i.i20, 0
   br i1 %tobool.not.i.i.i.i21, label %if.end.i.i.i.i36, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i"
 
 if.end.i.i.i.i36:                                 ; preds = %while.body.i.i19
   %Name.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__first2.addr.0.val.i.i, i64 8
-  %22 = load ptr, ptr %Name.i.i.i.i.i37, align 8
+  %18 = load ptr, ptr %Name.i.i.i.i.i37, align 8
   %Name.i7.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first1.addr.0.val.i.i, i64 8
-  %23 = load ptr, ptr %Name.i7.i.i.i.i38, align 8
-  %call7.i.i.i.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %23) #25
+  %19 = load ptr, ptr %Name.i7.i.i.i.i38, align 8
+  %call7.i.i.i.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #25
   %tobool8.not.i.i.i.i40 = icmp eq i32 %call7.i.i.i.i39, 0
   br i1 %tobool8.not.i.i.i.i40, label %if.end11.i.i.i.i41, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i"
 
 if.end11.i.i.i.i41:                               ; preds = %if.end.i.i.i.i36
   %Desc.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first2.addr.0.val.i.i, i64 16
-  %24 = load ptr, ptr %Desc.i.i.i.i.i42, align 8
+  %20 = load ptr, ptr %Desc.i.i.i.i.i42, align 8
   %Desc.i8.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %__first1.addr.0.val.i.i, i64 16
-  %25 = load ptr, ptr %Desc.i8.i.i.i.i43, align 8
-  %call14.i.i.i.i44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #25
+  %21 = load ptr, ptr %Desc.i8.i.i.i.i43, align 8
+  %call14.i.i.i.i44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #25
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i": ; preds = %if.end11.i.i.i.i41, %if.end.i.i.i.i36, %while.body.i.i19
   %retval.0.in.i.i.i.i22 = phi i32 [ %call14.i.i.i.i44, %if.end11.i.i.i.i41 ], [ %call3.i.i.i.i20, %while.body.i.i19 ], [ %call7.i.i.i.i39, %if.end.i.i.i.i36 ]
   %retval.0.i.i.i.i23 = icmp slt i32 %retval.0.in.i.i.i.i22, 0
   %__first1.addr.0.val.sink.i.i = select i1 %retval.0.i.i.i.i23, ptr %__first2.addr.0.val.i.i, ptr %__first1.addr.0.val.i.i
-  %26 = lshr i32 %retval.0.in.i.i.i.i22, 28
-  %27 = and i32 %26, 8
-  %__first2.addr.1.idx.i.i = zext nneg i32 %27 to i64
+  %__first2.addr.1.idx.i.i = select i1 %retval.0.i.i.i.i23, i64 8, i64 0
   %__first2.addr.1.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.023.i.i, i64 %__first2.addr.1.idx.i.i
   %__first1.addr.1.idx.i.i = select i1 %retval.0.i.i.i.i23, i64 0, i64 8
   %__first1.addr.1.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.024.i.i, i64 %__first1.addr.1.idx.i.i
@@ -2129,8 +2123,8 @@ if.end11.i.i.i.i41:                               ; preds = %if.end.i.i.i.i36
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.022.i.i, i64 8
   %cmp.i.i = icmp ne ptr %__first1.addr.1.i.i, %add.ptr.i
   %cmp1.i.i = icmp ne ptr %__first2.addr.1.i.i, %add.ptr2.i
-  %28 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  br i1 %28, label %while.body.i.i19, label %while.end.i.loopexit.i24, !llvm.loop !26
+  %22 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
+  br i1 %22, label %while.body.i.i19, label %while.end.i.loopexit.i24, !llvm.loop !26
 
 while.end.i.loopexit.i24:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i.i"
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i25 = ptrtoint ptr %add.ptr.i to i64
@@ -2170,8 +2164,8 @@ while.end.i34:                                    ; preds = %"_ZSt12__move_merge
   %add.ptr13.i = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i35
   %cmp20.i16.i = icmp ne i64 %.sroa.speculated.i35, 0
   %cmp121.i17.i = icmp ne ptr %add.ptr13.i, %add.ptr
-  %29 = and i1 %cmp20.i16.i, %cmp121.i17.i
-  br i1 %29, label %while.body.i35.i, label %while.end.i18.i
+  %23 = and i1 %cmp20.i16.i, %cmp121.i17.i
+  br i1 %23, label %while.body.i35.i, label %while.end.i18.i
 
 while.body.i35.i:                                 ; preds = %while.end.i34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i"
   %__first1.addr.024.i36.i = phi ptr [ %__first1.addr.1.i50.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i" ], [ %__first.addr.0.lcssa.i, %while.end.i34 ]
@@ -2179,36 +2173,34 @@ while.body.i35.i:                                 ; preds = %while.end.i34, %"_Z
   %__result.sroa.0.022.i38.i = phi ptr [ %incdec.ptr.i.i51.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i" ], [ %__result.sroa.0.0.lcssa.i, %while.end.i34 ]
   %__first2.addr.0.val.i39.i = load ptr, ptr %__first2.addr.023.i37.i, align 8
   %__first1.addr.0.val.i40.i = load ptr, ptr %__first1.addr.024.i36.i, align 8
-  %30 = load ptr, ptr %__first2.addr.0.val.i39.i, align 8
-  %31 = load ptr, ptr %__first1.addr.0.val.i40.i, align 8
-  %call3.i.i.i41.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %31) #25
+  %24 = load ptr, ptr %__first2.addr.0.val.i39.i, align 8
+  %25 = load ptr, ptr %__first1.addr.0.val.i40.i, align 8
+  %call3.i.i.i41.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #25
   %tobool.not.i.i.i42.i = icmp eq i32 %call3.i.i.i41.i, 0
   br i1 %tobool.not.i.i.i42.i, label %if.end.i.i.i54.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i"
 
 if.end.i.i.i54.i:                                 ; preds = %while.body.i35.i
   %Name.i.i.i.i55.i = getelementptr inbounds nuw i8, ptr %__first2.addr.0.val.i39.i, i64 8
-  %32 = load ptr, ptr %Name.i.i.i.i55.i, align 8
+  %26 = load ptr, ptr %Name.i.i.i.i55.i, align 8
   %Name.i7.i.i.i56.i = getelementptr inbounds nuw i8, ptr %__first1.addr.0.val.i40.i, i64 8
-  %33 = load ptr, ptr %Name.i7.i.i.i56.i, align 8
-  %call7.i.i.i57.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %33) #25
+  %27 = load ptr, ptr %Name.i7.i.i.i56.i, align 8
+  %call7.i.i.i57.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27) #25
   %tobool8.not.i.i.i58.i = icmp eq i32 %call7.i.i.i57.i, 0
   br i1 %tobool8.not.i.i.i58.i, label %if.end11.i.i.i59.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i"
 
 if.end11.i.i.i59.i:                               ; preds = %if.end.i.i.i54.i
   %Desc.i.i.i.i60.i = getelementptr inbounds nuw i8, ptr %__first2.addr.0.val.i39.i, i64 16
-  %34 = load ptr, ptr %Desc.i.i.i.i60.i, align 8
+  %28 = load ptr, ptr %Desc.i.i.i.i60.i, align 8
   %Desc.i8.i.i.i61.i = getelementptr inbounds nuw i8, ptr %__first1.addr.0.val.i40.i, i64 16
-  %35 = load ptr, ptr %Desc.i8.i.i.i61.i, align 8
-  %call14.i.i.i62.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %35) #25
+  %29 = load ptr, ptr %Desc.i8.i.i.i61.i, align 8
+  %call14.i.i.i62.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29) #25
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i": ; preds = %if.end11.i.i.i59.i, %if.end.i.i.i54.i, %while.body.i35.i
   %retval.0.in.i.i.i44.i = phi i32 [ %call14.i.i.i62.i, %if.end11.i.i.i59.i ], [ %call3.i.i.i41.i, %while.body.i35.i ], [ %call7.i.i.i57.i, %if.end.i.i.i54.i ]
   %retval.0.i.i.i45.i = icmp slt i32 %retval.0.in.i.i.i44.i, 0
   %__first1.addr.0.val.sink.i46.i = select i1 %retval.0.i.i.i45.i, ptr %__first2.addr.0.val.i39.i, ptr %__first1.addr.0.val.i40.i
-  %36 = lshr i32 %retval.0.in.i.i.i44.i, 28
-  %37 = and i32 %36, 8
-  %__first2.addr.1.idx.i47.i = zext nneg i32 %37 to i64
+  %__first2.addr.1.idx.i47.i = select i1 %retval.0.i.i.i45.i, i64 8, i64 0
   %__first2.addr.1.i48.i = getelementptr inbounds nuw i8, ptr %__first2.addr.023.i37.i, i64 %__first2.addr.1.idx.i47.i
   %__first1.addr.1.idx.i49.i = select i1 %retval.0.i.i.i45.i, i64 0, i64 8
   %__first1.addr.1.i50.i = getelementptr inbounds nuw i8, ptr %__first1.addr.024.i36.i, i64 %__first1.addr.1.idx.i49.i
@@ -2216,8 +2208,8 @@ if.end11.i.i.i59.i:                               ; preds = %if.end.i.i.i54.i
   %incdec.ptr.i.i51.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.022.i38.i, i64 8
   %cmp.i52.i = icmp ne ptr %__first1.addr.1.i50.i, %add.ptr13.i
   %cmp1.i53.i = icmp ne ptr %__first2.addr.1.i48.i, %add.ptr
-  %38 = select i1 %cmp.i52.i, i1 %cmp1.i53.i, i1 false
-  br i1 %38, label %while.body.i35.i, label %while.end.i18.i, !llvm.loop !26
+  %30 = select i1 %cmp.i52.i, i1 %cmp1.i53.i, i1 false
+  br i1 %30, label %while.body.i35.i, label %while.end.i18.i, !llvm.loop !26
 
 while.end.i18.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i", %while.end.i34
   %__result.sroa.0.0.lcssa.i19.i = phi ptr [ %__result.sroa.0.0.lcssa.i, %while.end.i34 ], [ %incdec.ptr.i.i51.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticESA_EEbT_T0_.exit.i43.i" ]
@@ -2315,9 +2307,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   %retval.0.in.i.i.i = phi i32 [ %call14.i.i.i, %if.end11.i.i.i ], [ %call3.i.i.i, %while.body.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %retval.0.i.i.i = icmp slt i32 %retval.0.in.i.i.i, 0
   %__first1.addr.0.val.sink.i = select i1 %retval.0.i.i.i, ptr %0, ptr %__first1.addr.0.val.i
-  %7 = lshr i32 %retval.0.in.i.i.i, 28
-  %8 = and i32 %7, 8
-  %__first2.sroa.0.1.idx.i = zext nneg i32 %8 to i64
+  %__first2.sroa.0.1.idx.i = select i1 %retval.0.i.i.i, i64 8, i64 0
   %__first2.sroa.0.1.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.016.i, i64 %__first2.sroa.0.1.idx.i
   %__first1.addr.1.idx.i = select i1 %retval.0.i.i.i, i64 0, i64 8
   %__first1.addr.1.i = getelementptr inbounds nuw i8, ptr %__first1.addr.018.i, i64 %__first1.addr.1.idx.i
@@ -2369,28 +2359,28 @@ while.body.i38:                                   ; preds = %while.body.i38.oute
   %__result.sroa.0.0.i = phi ptr [ %incdec.ptr.i11.i, %if.end31.i ], [ %__result.sroa.0.0.i.ph, %while.body.i38.outer ]
   %__last2.addr.0.i = phi ptr [ %incdec.ptr32.i, %if.end31.i ], [ %__last2.addr.0.i.ph, %while.body.i38.outer ]
   %__last2.addr.0.val.i = load ptr, ptr %__last2.addr.0.i, align 8
-  %9 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
-  %10 = load ptr, ptr %__last2.addr.0.val.i, align 8
-  %11 = load ptr, ptr %9, align 8
-  %call3.i.i.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #25
+  %7 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
+  %8 = load ptr, ptr %__last2.addr.0.val.i, align 8
+  %9 = load ptr, ptr %7, align 8
+  %call3.i.i.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %9) #25
   %tobool.not.i.i.i40 = icmp eq i32 %call3.i.i.i39, 0
   br i1 %tobool.not.i.i.i40, label %if.end.i.i.i43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticENS_17__normal_iteratorISA_St6vectorIS9_SaIS9_EEEEEEbT_T0_.exit.i"
 
 if.end.i.i.i43:                                   ; preds = %while.body.i38
   %Name.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__last2.addr.0.val.i, i64 8
-  %12 = load ptr, ptr %Name.i.i.i.i44, align 8
-  %Name.i7.i.i.i45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %Name.i7.i.i.i45, align 8
-  %call7.i.i.i46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13) #25
+  %10 = load ptr, ptr %Name.i.i.i.i44, align 8
+  %Name.i7.i.i.i45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %11 = load ptr, ptr %Name.i7.i.i.i45, align 8
+  %call7.i.i.i46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #25
   %tobool8.not.i.i.i47 = icmp eq i32 %call7.i.i.i46, 0
   br i1 %tobool8.not.i.i.i47, label %if.end11.i.i.i48, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticENS_17__normal_iteratorISA_St6vectorIS9_SaIS9_EEEEEEbT_T0_.exit.i"
 
 if.end11.i.i.i48:                                 ; preds = %if.end.i.i.i43
   %Desc.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %__last2.addr.0.val.i, i64 16
-  %14 = load ptr, ptr %Desc.i.i.i.i49, align 8
-  %Desc.i8.i.i.i50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load ptr, ptr %Desc.i8.i.i.i50, align 8
-  %call14.i.i.i51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %15) #25
+  %12 = load ptr, ptr %Desc.i.i.i.i49, align 8
+  %Desc.i8.i.i.i50 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = load ptr, ptr %Desc.i8.i.i.i50, align 8
+  %call14.i.i.i51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %13) #25
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticENS_17__normal_iteratorISA_St6vectorIS9_SaIS9_EEEEEEbT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticENS_17__normal_iteratorISA_St6vectorIS9_SaIS9_EEEEEEbT_T0_.exit.i": ; preds = %if.end11.i.i.i48, %if.end.i.i.i43, %while.body.i38
@@ -2400,7 +2390,7 @@ if.end11.i.i.i48:                                 ; preds = %if.end.i.i.i43
   br i1 %retval.0.i.i.i42, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIPPN4llvh9StatisticENS_17__normal_iteratorISA_St6vectorIS9_SaIS9_EEEEEEbT_T0_.exit.i"
-  store ptr %9, ptr %incdec.ptr.i11.i, align 8
+  store ptr %7, ptr %incdec.ptr.i11.i, align 8
   %cmp.i12.i = icmp eq ptr %__first.coerce.tr140, %__last1.sroa.0.0.i.ph
   br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i38.outer, !llvm.loop !30
 
@@ -2444,7 +2434,7 @@ if.then31:                                        ; preds = %if.else29
 
 while.body.lr.ph.i:                               ; preds = %if.then31
   %call34.val = load ptr, ptr %add.ptr.i.i.i, align 8
-  %16 = load ptr, ptr %call34.val, align 8
+  %14 = load ptr, ptr %call34.val, align 8
   %Name.i7.i.i.i53 = getelementptr inbounds nuw i8, ptr %call34.val, i64 8
   %Desc.i8.i.i.i54 = getelementptr inbounds nuw i8, ptr %call34.val, i64 16
   br label %while.body.i55
@@ -2454,33 +2444,33 @@ while.body.i55:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__first.sroa.0.03.i = phi ptr [ %__middle.coerce.tr141, %while.body.lr.ph.i ], [ %__first.sroa.0.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i" ]
   %shr.i = lshr i64 %__len.04.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i, i64 %shr.i
-  %17 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %18 = load ptr, ptr %17, align 8
-  %call3.i.i.i56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %16) #25
+  %15 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %16 = load ptr, ptr %15, align 8
+  %call3.i.i.i56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %14) #25
   %tobool.not.i.i.i57 = icmp eq i32 %call3.i.i.i56, 0
   br i1 %tobool.not.i.i.i57, label %if.end.i.i.i61, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i"
 
 if.end.i.i.i61:                                   ; preds = %while.body.i55
-  %Name.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %Name.i.i.i.i62, align 8
-  %20 = load ptr, ptr %Name.i7.i.i.i53, align 8
-  %call7.i.i.i63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20) #25
+  %Name.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %Name.i.i.i.i62, align 8
+  %18 = load ptr, ptr %Name.i7.i.i.i53, align 8
+  %call7.i.i.i63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #25
   %tobool8.not.i.i.i64 = icmp eq i32 %call7.i.i.i63, 0
   br i1 %tobool8.not.i.i.i64, label %if.end11.i.i.i65, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i"
 
 if.end11.i.i.i65:                                 ; preds = %if.end.i.i.i61
-  %Desc.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load ptr, ptr %Desc.i.i.i.i66, align 8
-  %22 = load ptr, ptr %Desc.i8.i.i.i54, align 8
-  %call14.i.i.i67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #25
+  %Desc.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load ptr, ptr %Desc.i.i.i.i66, align 8
+  %20 = load ptr, ptr %Desc.i8.i.i.i54, align 8
+  %call14.i.i.i67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20) #25
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvh9StatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i": ; preds = %if.end11.i.i.i65, %if.end.i.i.i61, %while.body.i55
   %retval.0.in.i.i.i58 = phi i32 [ %call14.i.i.i67, %if.end11.i.i.i65 ], [ %call3.i.i.i56, %while.body.i55 ], [ %call7.i.i.i63, %if.end.i.i.i61 ]
   %retval.0.i.i.i59 = icmp slt i32 %retval.0.in.i.i.i58, 0
   %incdec.ptr.i.i60 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
-  %23 = xor i64 %shr.i, -1
-  %sub9.i = add nsw i64 %__len.04.i, %23
+  %21 = xor i64 %shr.i, -1
+  %sub9.i = add nsw i64 %__len.04.i, %21
   %__first.sroa.0.1.i = select i1 %retval.0.i.i.i59, ptr %incdec.ptr.i.i60, ptr %__first.sroa.0.03.i
   %__len.1.i = select i1 %retval.0.i.i.i59, i64 %sub9.i, i64 %shr.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
@@ -2508,7 +2498,7 @@ if.else46:                                        ; preds = %if.else29
 
 while.body.lr.ph.i87:                             ; preds = %if.else46
   %call51.val = load ptr, ptr %add.ptr.i.i.i74, align 8
-  %24 = load ptr, ptr %call51.val, align 8
+  %22 = load ptr, ptr %call51.val, align 8
   %Name.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %call51.val, i64 8
   %Desc.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %call51.val, i64 16
   br label %while.body.i90
@@ -2518,33 +2508,33 @@ while.body.i90:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__first.sroa.0.03.i92 = phi ptr [ %__first.coerce.tr140, %while.body.lr.ph.i87 ], [ %__first.sroa.0.1.i105, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %shr.i93 = lshr i64 %__len.04.i91, 1
   %add.ptr.i.i.i.i96 = getelementptr inbounds nuw ptr, ptr %__first.sroa.0.03.i92, i64 %shr.i93
-  %25 = load ptr, ptr %add.ptr.i.i.i.i96, align 8
-  %26 = load ptr, ptr %25, align 8
-  %call3.i.i.i99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #25
+  %23 = load ptr, ptr %add.ptr.i.i.i.i96, align 8
+  %24 = load ptr, ptr %23, align 8
+  %call3.i.i.i99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #25
   %tobool.not.i.i.i100 = icmp eq i32 %call3.i.i.i99, 0
   br i1 %tobool.not.i.i.i100, label %if.end.i.i.i108, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i"
 
 if.end.i.i.i108:                                  ; preds = %while.body.i90
-  %27 = load ptr, ptr %Name.i.i.i.i88, align 8
-  %Name.i7.i.i.i109 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load ptr, ptr %Name.i7.i.i.i109, align 8
-  %call7.i.i.i110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #25
+  %25 = load ptr, ptr %Name.i.i.i.i88, align 8
+  %Name.i7.i.i.i109 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = load ptr, ptr %Name.i7.i.i.i109, align 8
+  %call7.i.i.i110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %26) #25
   %tobool8.not.i.i.i111 = icmp eq i32 %call7.i.i.i110, 0
   br i1 %tobool8.not.i.i.i111, label %if.end11.i.i.i112, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i"
 
 if.end11.i.i.i112:                                ; preds = %if.end.i.i.i108
-  %29 = load ptr, ptr %Desc.i.i.i.i89, align 8
-  %Desc.i8.i.i.i113 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %Desc.i8.i.i.i113, align 8
-  %call14.i.i.i114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %30) #25
+  %27 = load ptr, ptr %Desc.i.i.i.i89, align 8
+  %Desc.i8.i.i.i113 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %28 = load ptr, ptr %Desc.i8.i.i.i113, align 8
+  %call14.i.i.i114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #25
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvh9StatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i": ; preds = %if.end11.i.i.i112, %if.end.i.i.i108, %while.body.i90
   %retval.0.in.i.i.i101 = phi i32 [ %call14.i.i.i114, %if.end11.i.i.i112 ], [ %call3.i.i.i99, %while.body.i90 ], [ %call7.i.i.i110, %if.end.i.i.i108 ]
   %retval.0.i.i.i102 = icmp slt i32 %retval.0.in.i.i.i101, 0
   %incdec.ptr.i.i103 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i96, i64 8
-  %31 = xor i64 %shr.i93, -1
-  %sub9.i104 = add nsw i64 %__len.04.i91, %31
+  %29 = xor i64 %shr.i93, -1
+  %sub9.i104 = add nsw i64 %__len.04.i91, %29
   %__first.sroa.0.1.i105 = select i1 %retval.0.i.i.i102, ptr %__first.sroa.0.03.i92, ptr %incdec.ptr.i.i103
   %__len.1.i106 = select i1 %retval.0.i.i.i102, i64 %shr.i93, i64 %sub9.i104
   %cmp.i107 = icmp sgt i64 %__len.1.i106, 0

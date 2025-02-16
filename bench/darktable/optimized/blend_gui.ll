@@ -6067,7 +6067,7 @@ define internal noundef i32 @_blendop_blend_order_clicked(ptr noundef %0, ptr re
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !66
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %18
+  br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 760
@@ -6076,19 +6076,21 @@ define internal noundef i32 @_blendop_blend_order_clicked(ptr noundef %0, ptr re
   %11 = load i32, ptr %10, align 4, !tbaa !220
   %.not9 = icmp sgt i32 %11, -1
   %12 = zext i1 %.not9 to i32
-  %storemerge = xor i32 %11, -2147483648
+  %13 = and i32 %11, 2147483647
+  %masksel = select i1 %.not9, i32 -2147483648, i32 0
+  %storemerge = or disjoint i32 %masksel, %13
   store i32 %storemerge, ptr %10, align 4, !tbaa !220
-  %13 = tail call i64 @gtk_toggle_button_get_type() #19
-  %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %13) #18
-  tail call void @gtk_toggle_button_set_active(ptr noundef %14, i32 noundef %12) #18
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
-  tail call void @dt_dev_add_history_item(ptr noundef %15, ptr noundef %2, i32 noundef 1) #18
-  %16 = tail call i64 @gtk_widget_get_type() #19
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %16) #18
-  tail call void @dt_control_queue_redraw_widget(ptr noundef %17) #18
-  br label %18
+  %14 = tail call i64 @gtk_toggle_button_get_type() #19
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %14) #18
+  tail call void @gtk_toggle_button_set_active(ptr noundef %15, i32 noundef %12) #18
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
+  tail call void @dt_dev_add_history_item(ptr noundef %16, ptr noundef %2, i32 noundef 1) #18
+  %17 = tail call i64 @gtk_widget_get_type() #19
+  %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %17) #18
+  tail call void @dt_control_queue_redraw_widget(ptr noundef %18) #18
+  br label %19
 
-18:                                               ; preds = %3, %7
+19:                                               ; preds = %3, %7
   ret i32 1
 }
 

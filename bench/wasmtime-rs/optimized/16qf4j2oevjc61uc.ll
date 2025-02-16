@@ -21885,14 +21885,10 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi14ABIMachineSpec25gen_res
   unreachable
 
 8:                                                ; preds = %5
-  %9 = sub nsw i32 0, %2
-  %10 = lshr i32 %9, 30
-  %11 = trunc nuw nsw i32 %10 to i8
-  %.05.i = and i8 %11, 2
-  %12 = zext nneg i32 %2 to i64
+  %9 = zext nneg i32 %2 to i64
   store i8 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.05.i, ptr %.sroa.4.0..sroa_idx, align 1
+  store i8 2, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 3, ptr %.sroa.5.0..sroa_idx, align 2
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21906,7 +21902,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi14ABIMachineSpec25gen_res
   %.sroa.10.sroa.3.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 96, ptr %.sroa.10.sroa.3.0..sroa.10.0..sroa_idx.sroa_idx, align 8
   %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %12, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx, align 8
+  store i64 %9, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx, align 8
   br label %7
 }
 

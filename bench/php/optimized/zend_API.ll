@@ -18126,24 +18126,22 @@ define void @zend_declare_property_string(ptr noundef %0, ptr noundef readonly c
   br label %16
 
 16:                                               ; preds = %14, %12
-  %17 = phi ptr [ %13, %12 ], [ %15, %14 ]
-  store i32 1, ptr %17, align 4
-  %18 = shl i8 %8, 7
-  %19 = or disjoint i8 %18, 22
-  %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %7, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %3, i64 %7, i1 false)
-  %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %7
-  store i8 0, ptr %25, align 1
-  store ptr %17, ptr %6, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 262, ptr %26, align 8
+  %17 = phi i32 [ 150, %12 ], [ 22, %14 ]
+  %18 = phi ptr [ %13, %12 ], [ %15, %14 ]
+  store i32 1, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %17, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %7, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %3, i64 %7, i1 false)
+  %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %7
+  store i8 0, ptr %23, align 1
+  store ptr %18, ptr %6, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 262, ptr %24, align 8
   call void @zend_declare_property(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef %4)
   ret void
 }
@@ -18167,24 +18165,22 @@ define void @zend_declare_property_stringl(ptr noundef %0, ptr noundef readonly 
   br label %16
 
 16:                                               ; preds = %14, %12
-  %17 = phi ptr [ %13, %12 ], [ %15, %14 ]
-  store i32 1, ptr %17, align 4
-  %18 = shl i8 %8, 7
-  %19 = or disjoint i8 %18, 22
-  %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %4, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %3, i64 %4, i1 false)
-  %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %4
-  store i8 0, ptr %25, align 1
-  store ptr %17, ptr %7, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 262, ptr %26, align 8
+  %17 = phi i32 [ 150, %12 ], [ 22, %14 ]
+  %18 = phi ptr [ %13, %12 ], [ %15, %14 ]
+  store i32 1, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %17, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %4, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %3, i64 %4, i1 false)
+  %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %4
+  store i8 0, ptr %23, align 1
+  store ptr %18, ptr %7, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 262, ptr %24, align 8
   call void @zend_declare_property(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %7, i32 noundef %5)
   ret void
 }
@@ -18505,24 +18501,22 @@ define void @zend_declare_class_constant_stringl(ptr noundef %0, ptr noundef %1,
   br label %15
 
 15:                                               ; preds = %13, %11
-  %16 = phi ptr [ %12, %11 ], [ %14, %13 ]
-  store i32 1, ptr %16, align 4
-  %17 = shl i8 %7, 7
-  %18 = or disjoint i8 %17, 22
-  %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %4, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %3, i64 %4, i1 false)
-  %24 = getelementptr inbounds [1 x i8], ptr %23, i64 0, i64 %4
-  store i8 0, ptr %24, align 1
-  store ptr %16, ptr %6, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 262, ptr %25, align 8
+  %16 = phi i32 [ 150, %11 ], [ 22, %13 ]
+  %17 = phi ptr [ %12, %11 ], [ %14, %13 ]
+  store i32 1, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 %16, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %4, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %3, i64 %4, i1 false)
+  %22 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %4
+  store i8 0, ptr %22, align 1
+  store ptr %17, ptr %6, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 262, ptr %23, align 8
   call void @zend_declare_class_constant(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6)
   ret void
 }
@@ -18548,24 +18542,22 @@ define void @zend_declare_class_constant_string(ptr noundef %0, ptr noundef %1, 
   br label %zend_declare_class_constant_stringl.exit
 
 zend_declare_class_constant_stringl.exit:         ; preds = %11, %13
-  %15 = phi ptr [ %12, %11 ], [ %14, %13 ]
-  store i32 1, ptr %15, align 4
-  %16 = shl i8 %7, 7
-  %17 = or disjoint i8 %16, 22
-  %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %6, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull readonly align 1 %3, i64 %6, i1 false)
-  %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %6
-  store i8 0, ptr %23, align 1
-  store ptr %15, ptr %5, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 262, ptr %24, align 8
+  %15 = phi i32 [ 150, %11 ], [ 22, %13 ]
+  %16 = phi ptr [ %12, %11 ], [ %14, %13 ]
+  store i32 1, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 %15, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %6, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull readonly align 1 %3, i64 %6, i1 false)
+  %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %6
+  store i8 0, ptr %21, align 1
+  store ptr %16, ptr %5, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 262, ptr %22, align 8
   call void @zend_declare_class_constant(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void

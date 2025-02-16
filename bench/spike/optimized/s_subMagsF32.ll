@@ -25,11 +25,11 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
 12:                                               ; preds = %10
   %13 = or i64 %8, %5
   %.not77 = icmp eq i64 %13, 0
-  br i1 %.not77, label %14, label %91
+  br i1 %.not77, label %14, label %90
 
 14:                                               ; preds = %12
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %93
+  br label %92
 
 15:                                               ; preds = %10
   %.not74 = icmp eq i64 %5, %8
@@ -39,7 +39,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %17 = load i8, ptr @softfloat_roundingMode, align 1
   %18 = icmp eq i8 %17, 2
   %19 = select i1 %18, i64 2147483648, i64 0
-  br label %93
+  br label %92
 
 20:                                               ; preds = %15
   %21 = sub nsw i64 %5, %8
@@ -79,98 +79,97 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %46 = and i64 %45, 4294967295
   %47 = shl i64 %.064, %46
   %48 = add nsw i64 %47, %44
-  br label %93
+  br label %92
 
 49:                                               ; preds = %2
   %50 = shl nuw nsw i64 %5, 7
   %51 = shl nuw nsw i64 %8, 7
   %52 = icmp slt i64 %9, 0
-  br i1 %52, label %53, label %64
+  br i1 %52, label %53, label %63
 
 53:                                               ; preds = %49
   %54 = and i64 %0, 2147483648
   %55 = icmp eq i64 %7, 255
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
   %.not82 = icmp eq i64 %8, 0
-  br i1 %.not82, label %57, label %91
+  br i1 %.not82, label %57, label %90
 
 57:                                               ; preds = %56
-  %58 = add nuw nsw i64 %54, 4286578688
-  %59 = and i64 %58, 4286578688
-  br label %93
+  %58 = xor i64 %54, 4286578688
+  br label %92
 
-60:                                               ; preds = %53
+59:                                               ; preds = %53
   %.not78 = icmp eq i64 %54, 0
   %.not81 = icmp eq i64 %4, 0
-  %61 = select i1 %.not81, i64 %50, i64 1073741824
-  %62 = add nuw nsw i64 %61, %50
-  %63 = sub nsw i64 0, %9
-  br label %72
+  %60 = select i1 %.not81, i64 %50, i64 1073741824
+  %61 = add nuw nsw i64 %60, %50
+  %62 = sub nsw i64 0, %9
+  br label %71
 
-64:                                               ; preds = %49
-  %65 = icmp eq i64 %4, 255
-  br i1 %65, label %66, label %67
+63:                                               ; preds = %49
+  %64 = icmp eq i64 %4, 255
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %64
+65:                                               ; preds = %63
   %.not80 = icmp eq i64 %5, 0
-  br i1 %.not80, label %93, label %91
+  br i1 %.not80, label %92, label %90
 
-67:                                               ; preds = %64
+66:                                               ; preds = %63
   %.not79 = icmp eq i64 %7, 0
-  %68 = select i1 %.not79, i64 %51, i64 1073741824
-  %69 = add nuw nsw i64 %68, %51
-  %70 = and i64 %0, 2147483648
-  %71 = icmp ne i64 %70, 0
-  br label %72
+  %67 = select i1 %.not79, i64 %51, i64 1073741824
+  %68 = add nuw nsw i64 %67, %51
+  %69 = and i64 %0, 2147483648
+  %70 = icmp ne i64 %69, 0
+  br label %71
 
-72:                                               ; preds = %67, %60
-  %.066 = phi i64 [ %63, %60 ], [ %9, %67 ]
-  %.163 = phi i1 [ %.not78, %60 ], [ %71, %67 ]
-  %.1.in = phi i64 [ %7, %60 ], [ %4, %67 ]
-  %.059.in = phi i64 [ %51, %60 ], [ %50, %67 ]
-  %.0 = phi i64 [ %62, %60 ], [ %69, %67 ]
+71:                                               ; preds = %66, %59
+  %.066 = phi i64 [ %62, %59 ], [ %9, %66 ]
+  %.163 = phi i1 [ %.not78, %59 ], [ %70, %66 ]
+  %.1.in = phi i64 [ %7, %59 ], [ %4, %66 ]
+  %.059.in = phi i64 [ %51, %59 ], [ %50, %66 ]
+  %.0 = phi i64 [ %61, %59 ], [ %68, %66 ]
   %.059 = add nuw nsw i64 %.059.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %73 = icmp samesign ult i64 %.066, 31
-  br i1 %73, label %74, label %84
+  %72 = icmp samesign ult i64 %.066, 31
+  br i1 %72, label %73, label %83
 
-74:                                               ; preds = %72
-  %75 = trunc nuw nsw i64 %.0 to i32
-  %76 = trunc nuw nsw i64 %.066 to i32
-  %77 = lshr i32 %75, %76
-  %78 = sub nsw i32 0, %76
-  %79 = and i32 %78, 31
-  %80 = shl i32 %75, %79
-  %81 = icmp ne i32 %80, 0
-  %82 = zext i1 %81 to i32
-  %83 = or i32 %77, %82
+73:                                               ; preds = %71
+  %74 = trunc nuw nsw i64 %.0 to i32
+  %75 = trunc nuw nsw i64 %.066 to i32
+  %76 = lshr i32 %74, %75
+  %77 = sub nsw i32 0, %75
+  %78 = and i32 %77, 31
+  %79 = shl i32 %74, %78
+  %80 = icmp ne i32 %79, 0
+  %81 = zext i1 %80 to i32
+  %82 = or i32 %76, %81
   br label %softfloat_shiftRightJam32.exit
 
-84:                                               ; preds = %72
-  %85 = icmp ne i64 %.0, 0
-  %86 = zext i1 %85 to i32
+83:                                               ; preds = %71
+  %84 = icmp ne i64 %.0, 0
+  %85 = zext i1 %84 to i32
   br label %softfloat_shiftRightJam32.exit
 
-softfloat_shiftRightJam32.exit:                   ; preds = %74, %84
-  %87 = phi i32 [ %83, %74 ], [ %86, %84 ]
-  %88 = zext nneg i32 %87 to i64
-  %89 = sub nsw i64 %.059, %88
-  %90 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %.163, i64 noundef %.1, i64 noundef %89) #3
-  br label %95
+softfloat_shiftRightJam32.exit:                   ; preds = %73, %83
+  %86 = phi i32 [ %82, %73 ], [ %85, %83 ]
+  %87 = zext nneg i32 %86 to i64
+  %88 = sub nsw i64 %.059, %87
+  %89 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %.163, i64 noundef %.1, i64 noundef %88) #3
+  br label %94
 
-91:                                               ; preds = %66, %56, %12
-  %92 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %0, i64 noundef %1) #3
-  br label %93
+90:                                               ; preds = %65, %56, %12
+  %91 = tail call i64 @softfloat_propagateNaNF32UI(i64 noundef %0, i64 noundef %1) #3
+  br label %92
 
-93:                                               ; preds = %66, %91, %57, %20, %16, %14
-  %.065 = phi i64 [ %92, %91 ], [ %59, %57 ], [ 2143289344, %14 ], [ %48, %20 ], [ %19, %16 ], [ %0, %66 ]
-  %94 = trunc i64 %.065 to i32
-  br label %95
+92:                                               ; preds = %65, %90, %57, %20, %16, %14
+  %.065 = phi i64 [ %91, %90 ], [ %58, %57 ], [ 2143289344, %14 ], [ %48, %20 ], [ %19, %16 ], [ %0, %65 ]
+  %93 = trunc i64 %.065 to i32
+  br label %94
 
-95:                                               ; preds = %93, %softfloat_shiftRightJam32.exit
-  %.sroa.058.0 = phi i32 [ %94, %93 ], [ %90, %softfloat_shiftRightJam32.exit ]
+94:                                               ; preds = %92, %softfloat_shiftRightJam32.exit
+  %.sroa.058.0 = phi i32 [ %93, %92 ], [ %89, %softfloat_shiftRightJam32.exit ]
   ret i32 %.sroa.058.0
 }
 

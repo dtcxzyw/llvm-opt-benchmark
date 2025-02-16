@@ -21,7 +21,7 @@ define range(i32 0, 4) i32 @PMPI_Status_set_elements_x(ptr noundef writeonly cap
   %4 = alloca i64, align 8
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
   %8 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -40,44 +40,41 @@ define range(i32 0, 4) i32 @PMPI_Status_set_elements_x(ptr noundef writeonly cap
 
 15:                                               ; preds = %12
   %16 = icmp sgt i64 %2, -1
-  %17 = lshr i64 %2, 62
-  %18 = trunc nuw nsw i64 %17 to i32
-  %spec.select22 = and i32 %18, 2
-  br i1 %16, label %20, label %.thread
+  br i1 %16, label %18, label %.thread
 
 .thread:                                          ; preds = %12, %15
-  %.01926 = phi i32 [ %spec.select22, %15 ], [ 3, %12 ]
-  %19 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01926, ptr noundef nonnull @FUNC_NAME) #2
-  br label %33
+  %.01926 = phi i32 [ 2, %15 ], [ 3, %12 ]
+  %17 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.01926, ptr noundef nonnull @FUNC_NAME) #2
+  br label %31
 
-20:                                               ; preds = %15, %3
-  %21 = icmp eq ptr %0, null
-  br i1 %21, label %33, label %22
+18:                                               ; preds = %15, %3
+  %19 = icmp eq ptr %0, null
+  br i1 %19, label %31, label %20
 
-22:                                               ; preds = %20
-  %23 = getelementptr i8, ptr %1, i64 16
-  %.val = load i16, ptr %23, align 8
-  %24 = and i16 %.val, 512
-  %.not21 = icmp eq i16 %24, 0
-  br i1 %.not21, label %29, label %25
+20:                                               ; preds = %18
+  %21 = getelementptr i8, ptr %1, i64 16
+  %.val = load i16, ptr %21, align 8
+  %22 = and i16 %.val, 512
+  %.not21 = icmp eq i16 %22, 0
+  br i1 %.not21, label %27, label %23
 
-25:                                               ; preds = %22
-  %26 = getelementptr i8, ptr %1, i64 24
-  %.val23 = load i64, ptr %26, align 8
-  %27 = mul i64 %.val23, %2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %27, ptr %28, align 8
-  br label %33
+23:                                               ; preds = %20
+  %24 = getelementptr i8, ptr %1, i64 24
+  %.val23 = load i64, ptr %24, align 8
+  %25 = mul i64 %.val23, %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %25, ptr %26, align 8
+  br label %31
 
-29:                                               ; preds = %22
-  %30 = call i32 @opal_datatype_set_element_count(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %4) #2
-  %31 = load i64, ptr %4, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %31, ptr %32, align 8
-  br label %33
+27:                                               ; preds = %20
+  %28 = call i32 @opal_datatype_set_element_count(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %4) #2
+  %29 = load i64, ptr %4, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %29, ptr %30, align 8
+  br label %31
 
-33:                                               ; preds = %25, %29, %20, %.thread
-  %.0 = phi i32 [ %.01926, %.thread ], [ 0, %20 ], [ 0, %29 ], [ 0, %25 ]
+31:                                               ; preds = %23, %27, %18, %.thread
+  %.0 = phi i32 [ %.01926, %.thread ], [ 0, %18 ], [ 0, %27 ], [ 0, %23 ]
   ret i32 %.0
 }
 

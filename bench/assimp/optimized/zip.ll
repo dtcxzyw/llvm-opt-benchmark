@@ -11415,8 +11415,7 @@ if.then136:                                       ; preds = %if.then130
 
 if.end139:                                        ; preds = %if.then130
   %add140 = add i64 %add118, %buf_size
-  %32 = lshr exact i32 %and1, 7
-  %spec.select121 = trunc nuw nsw i32 %32 to i16
+  %spec.select121 = select i1 %tobool2, i16 8, i16 0
   br label %if.end162
 
 if.then146:                                       ; preds = %if.end128
@@ -11427,10 +11426,10 @@ if.then146:                                       ; preds = %if.end128
   store i64 0, ptr %m_comp_size, align 8
   %idxprom.i = zext nneg i32 %and to i64
   %arrayidx.i = getelementptr inbounds nuw [11 x i32], ptr @tdefl_write_image_to_png_file_in_memory_ex.s_tdefl_png_num_probes, i64 0, i64 %idxprom.i
-  %33 = load i32, ptr %arrayidx.i, align 4
+  %32 = load i32, ptr %arrayidx.i, align 4
   %cmp6.i = icmp samesign ult i32 %and, 4
   %cond7.i = select i1 %cmp6.i, i32 16384, i32 0
-  %or.i = or i32 %33, %cond7.i
+  %or.i = or i32 %32, %cond7.i
   %call148 = call i32 @tdefl_init(ptr noundef %pComp.0, ptr noundef nonnull @mz_zip_writer_add_put_buf_callback, ptr noundef nonnull %state, i32 noundef %or.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
   store i64 %buf_size, ptr %in_buf_size.addr.i, align 8
@@ -11441,36 +11440,36 @@ if.then146:                                       ; preds = %if.end128
 
 if.then155:                                       ; preds = %if.then146
   %m_pFree156 = getelementptr inbounds nuw i8, ptr %pZip, i64 48
-  %34 = load ptr, ptr %m_pFree156, align 8
+  %33 = load ptr, ptr %m_pFree156, align 8
   %m_pAlloc_opaque157 = getelementptr inbounds nuw i8, ptr %pZip, i64 64
-  %35 = load ptr, ptr %m_pAlloc_opaque157, align 8
-  call void %34(ptr noundef %35, ptr noundef %pComp.0) #30
+  %34 = load ptr, ptr %m_pAlloc_opaque157, align 8
+  call void %33(ptr noundef %34, ptr noundef %pComp.0) #30
   br label %return
 
 if.end158:                                        ; preds = %if.then146
-  %36 = load i64, ptr %m_comp_size, align 8
-  %37 = load i64, ptr %m_cur_archive_file_ofs, align 8
+  %35 = load i64, ptr %m_comp_size, align 8
+  %36 = load i64, ptr %m_cur_archive_file_ofs, align 8
   br label %if.end162
 
 if.end162:                                        ; preds = %if.end139, %if.end158
   %uncomp_crc32.addr.0136 = phi i32 [ %conv123, %if.end158 ], [ %uncomp_crc32.addr.0137, %if.end139 ]
   %uncomp_size.addr.0134 = phi i64 [ %buf_size, %if.end158 ], [ %uncomp_size.addr.0135, %if.end139 ]
   %method.0 = phi i16 [ 8, %if.end158 ], [ %spec.select121, %if.end139 ]
-  %cur_archive_file_ofs.0 = phi i64 [ %37, %if.end158 ], [ %add140, %if.end139 ]
-  %comp_size.0 = phi i64 [ %36, %if.end158 ], [ %buf_size, %if.end139 ]
+  %cur_archive_file_ofs.0 = phi i64 [ %36, %if.end158 ], [ %add140, %if.end139 ]
+  %comp_size.0 = phi i64 [ %35, %if.end158 ], [ %buf_size, %if.end139 ]
   %m_pFree163 = getelementptr inbounds nuw i8, ptr %pZip, i64 48
-  %38 = load ptr, ptr %m_pFree163, align 8
+  %37 = load ptr, ptr %m_pFree163, align 8
   %m_pAlloc_opaque164 = getelementptr inbounds nuw i8, ptr %pZip, i64 64
-  %39 = load ptr, ptr %m_pAlloc_opaque164, align 8
-  call void %38(ptr noundef %39, ptr noundef %pComp.0) #30
+  %38 = load ptr, ptr %m_pAlloc_opaque164, align 8
+  call void %37(ptr noundef %38, ptr noundef %pComp.0) #30
   %cmp165 = icmp ugt i64 %comp_size.0, 4294967295
   %cmp168 = icmp ugt i64 %cur_archive_file_ofs.0, 4294967295
   %or.cond8 = select i1 %cmp165, i1 true, i1 %cmp168
   br i1 %or.cond8, label %return, label %if.end171
 
 if.end171:                                        ; preds = %if.end162
-  %40 = load i16, ptr %dos_time, align 2
-  %41 = load i16, ptr %dos_date, align 2
+  %39 = load i16, ptr %dos_time, align 2
+  %40 = load i16, ptr %dos_date, align 2
   store i8 80, ptr %local_dir_header, align 16
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 1
   store i8 75, ptr %arrayidx2.i.i, align 1
@@ -11494,17 +11493,17 @@ if.end171:                                        ; preds = %if.end162
   %arrayidx3.i15.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 9
   store i8 0, ptr %arrayidx3.i15.i, align 1
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 10
-  %conv.i16.i = trunc i16 %40 to i8
+  %conv.i16.i = trunc i16 %39 to i8
   store i8 %conv.i16.i, ptr %add.ptr5.i, align 2
-  %42 = lshr i16 %40, 8
-  %conv2.i17.i = trunc nuw i16 %42 to i8
+  %41 = lshr i16 %39, 8
+  %conv2.i17.i = trunc nuw i16 %41 to i8
   %arrayidx3.i18.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 11
   store i8 %conv2.i17.i, ptr %arrayidx3.i18.i, align 1
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 12
-  %conv.i19.i = trunc i16 %41 to i8
+  %conv.i19.i = trunc i16 %40 to i8
   store i8 %conv.i19.i, ptr %add.ptr6.i, align 4
-  %43 = lshr i16 %41, 8
-  %conv2.i20.i = trunc nuw i16 %43 to i8
+  %42 = lshr i16 %40, 8
+  %conv2.i20.i = trunc nuw i16 %42 to i8
   %arrayidx3.i21.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 13
   store i8 %conv2.i20.i, ptr %arrayidx3.i21.i, align 1
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 14
@@ -11555,29 +11554,29 @@ if.end171:                                        ; preds = %if.end162
   %add.ptr12.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 26
   %conv.i46.i = trunc i64 %call42 to i8
   store i8 %conv.i46.i, ptr %add.ptr12.i, align 2
-  %44 = lshr i64 %call42, 8
-  %conv2.i47.i = trunc nuw i64 %44 to i8
+  %43 = lshr i64 %call42, 8
+  %conv2.i47.i = trunc nuw i64 %43 to i8
   %arrayidx3.i48.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 27
   store i8 %conv2.i47.i, ptr %arrayidx3.i48.i, align 1
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 28
   store i8 0, ptr %add.ptr13.i, align 4
   %arrayidx3.i49.i = getelementptr inbounds nuw i8, ptr %local_dir_header, i64 29
   store i8 0, ptr %arrayidx3.i49.i, align 1
-  %45 = load ptr, ptr %m_pWrite, align 8
-  %46 = load ptr, ptr %m_pIO_opaque, align 8
-  %call180 = call i64 %45(ptr noundef %46, i64 noundef %add104, ptr noundef nonnull %local_dir_header, i64 noundef 30) #30
+  %44 = load ptr, ptr %m_pWrite, align 8
+  %45 = load ptr, ptr %m_pIO_opaque, align 8
+  %call180 = call i64 %44(ptr noundef %45, i64 noundef %add104, ptr noundef nonnull %local_dir_header, i64 noundef 30) #30
   %cmp181.not = icmp eq i64 %call180, 30
   br i1 %cmp181.not, label %if.end184, label %return
 
 if.end184:                                        ; preds = %if.end171
   %conv172 = trunc nuw i64 %call42 to i16
-  %call186 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv172, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size.addr.0134, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.addr.0136, i16 noundef zeroext %method.0, i16 noundef zeroext %40, i16 noundef zeroext %41, i64 noundef %add104, i32 noundef %ext_attributes.0)
+  %call186 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv172, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size.addr.0134, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.addr.0136, i16 noundef zeroext %method.0, i16 noundef zeroext %39, i16 noundef zeroext %40, i64 noundef %add104, i32 noundef %ext_attributes.0)
   %tobool187.not = icmp eq i32 %call186, 0
   br i1 %tobool187.not, label %return, label %if.end189
 
 if.end189:                                        ; preds = %if.end184
-  %47 = load i32, ptr %m_total_files, align 8
-  %inc = add i32 %47, 1
+  %46 = load i32, ptr %m_total_files, align 8
+  %inc = add i32 %46, 1
   store i32 %inc, ptr %m_total_files, align 8
   store i64 %cur_archive_file_ofs.0, ptr %pZip, align 8
   br label %return

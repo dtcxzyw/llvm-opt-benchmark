@@ -1302,16 +1302,15 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.bb6:                                           ; preds = %entry, %entry, %entry
-  %1 = lshr i8 %bf.load, 2
-  %2 = and i8 %1, 2
-  %3 = xor i8 %2, 2
-  %. = zext nneg i8 %3 to i32
+  %1 = and i8 %bf.load, 8
+  %tobool.not = icmp eq i8 %1, 0
+  %. = select i1 %tobool.not, i32 2, i32 0
   br label %return
 
 sw.bb10:                                          ; preds = %entry, %entry, %entry
-  %4 = lshr i8 %bf.load3, 2
-  %5 = and i8 %4, 2
-  %.7 = zext nneg i8 %5 to i32
+  %2 = lshr i8 %bf.load3, 2
+  %3 = and i8 %2, 2
+  %.7 = zext nneg i8 %3 to i32
   br label %return
 
 sw.bb19:                                          ; preds = %entry
@@ -1323,9 +1322,8 @@ sw.bb19:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else31
 
 if.else31:                                        ; preds = %sw.bb19
-  %6 = shl nuw nsw i8 %bf.clear23, 1
-  %7 = xor i8 %6, 2
-  %.8 = zext nneg i8 %7 to i32
+  %tobool37.not = icmp eq i8 %bf.clear23, 0
+  %.8 = select i1 %tobool37.not, i32 2, i32 0
   br label %return
 
 sw.bb40:                                          ; preds = %entry
@@ -1340,40 +1338,39 @@ sw.epilog:                                        ; preds = %entry
   br i1 %cmp52.not, label %if.else62, label %if.then53
 
 if.then53:                                        ; preds = %sw.epilog
-  %8 = shl nuw nsw i8 %bf.clear45, 1
-  %9 = xor i8 %8, 2
-  %.9 = zext nneg i8 %9 to i32
+  %tobool59.not = icmp eq i8 %bf.clear45, 0
+  %.9 = select i1 %tobool59.not, i32 2, i32 0
   br label %return
 
 if.else62:                                        ; preds = %sw.epilog
   %exponent.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i16, ptr %exponent.i, align 8
-  %conv.i = sext i16 %10 to i32
+  %4 = load i16, ptr %exponent.i, align 8
+  %conv.i = sext i16 %4 to i32
   %exponent2.i = getelementptr inbounds nuw i8, ptr %rhs, i64 16
-  %11 = load i16, ptr %exponent2.i, align 8
-  %conv3.i = sext i16 %11 to i32
+  %5 = load i16, ptr %exponent2.i, align 8
+  %conv3.i = sext i16 %5 to i32
   %sub.i = sub nsw i32 %conv.i, %conv3.i
   %cmp.i = icmp eq i32 %sub.i, 0
   br i1 %cmp.i, label %if.then.i, label %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
 
 if.then.i:                                        ; preds = %if.else62
-  %12 = load ptr, ptr %this, align 8
-  %precision.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %13 = load i32, ptr %precision.i.i.i.i, align 4
-  %14 = add i32 %13, -64
-  %cmp.i.i.i = icmp ult i32 %14, -128
+  %6 = load ptr, ptr %this, align 8
+  %precision.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %7 = load i32, ptr %precision.i.i.i.i, align 4
+  %8 = add i32 %7, -64
+  %cmp.i.i.i = icmp ult i32 %8, -128
   %significand.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %15 = load ptr, ptr %significand.i.i.i, align 8
-  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %15, ptr %significand.i.i.i
-  %16 = load ptr, ptr %rhs, align 8
-  %precision.i.i.i4.i = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %17 = load i32, ptr %precision.i.i.i4.i, align 4
-  %18 = add i32 %17, -64
-  %cmp.i.i5.i = icmp ult i32 %18, -128
+  %9 = load ptr, ptr %significand.i.i.i, align 8
+  %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %9, ptr %significand.i.i.i
+  %10 = load ptr, ptr %rhs, align 8
+  %precision.i.i.i4.i = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %11 = load i32, ptr %precision.i.i.i4.i, align 4
+  %12 = add i32 %11, -64
+  %cmp.i.i5.i = icmp ult i32 %12, -128
   %significand.i.i6.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
-  %19 = load ptr, ptr %significand.i.i6.i, align 8
-  %retval.0.i.i7.i = select i1 %cmp.i.i5.i, ptr %19, ptr %significand.i.i6.i
-  %sub.i.i.i = add i32 %13, 64
+  %13 = load ptr, ptr %significand.i.i6.i, align 8
+  %retval.0.i.i7.i = select i1 %cmp.i.i5.i, ptr %13, ptr %significand.i.i6.i
+  %sub.i.i.i = add i32 %7, 64
   %div1.i.i.i = lshr i32 %sub.i.i.i, 6
   %call6.i = tail call noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef %retval.0.i.i.i, ptr noundef %retval.0.i.i7.i, i32 noundef %div1.i.i.i) #26
   %bf.load64.pre = load i8, ptr %category, align 2
@@ -1386,8 +1383,8 @@ _ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %if.else6
   %cmp9.i = icmp sgt i32 %compare.0.i, -1
   %..i = zext i1 %cmp9.i to i32
   %retval.0.i = select i1 %cmp7.i, i32 2, i32 %..i
-  %20 = and i8 %bf.load64, 8
-  %tobool68.not = icmp eq i8 %20, 0
+  %14 = and i8 %bf.load64, 8
+  %tobool68.not = icmp eq i8 %14, 0
   br i1 %tobool68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit

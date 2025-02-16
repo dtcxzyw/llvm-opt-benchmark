@@ -330,7 +330,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %8 = alloca [4 x i8], align 1
   %9 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 16, ptr noundef %4, ptr noundef %5) #6
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %151, label %10
+  br i1 %.not, label %149, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -424,7 +424,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %84 = call i32 @wtap_block_add_uint32_option(ptr noundef %66, i32 noundef 2, i32 noundef %.2) #6
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %86 = load i32, ptr %85, align 8
-  switch i32 %86, label %146 [
+  switch i32 %86, label %144 [
     i32 22, label %87
     i32 1, label %140
   ]
@@ -446,7 +446,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 -13, ptr %4, align 4
   %96 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5) #6
   store ptr %96, ptr %5, align 8
-  br label %151
+  br label %149
 
 97:                                               ; preds = %92
   %98 = add i32 %90, -4
@@ -456,7 +456,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %100 = add i16 %spec.select, -4
   %101 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %4, ptr noundef %5) #6
   %.not95 = icmp eq i32 %101, 0
-  br i1 %.not95, label %151, label %102
+  br i1 %.not95, label %149, label %102
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 108
@@ -534,37 +534,36 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 -13, ptr %4, align 4
   %136 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6) #6
   store ptr %136, ptr %5, align 8
-  br label %151
+  br label %149
 
 137:                                              ; preds = %132
   %138 = add i32 %130, -4
   store i32 %138, ptr %78, align 4
   %139 = add i32 %133, -4
   store i32 %139, ptr %77, align 8
-  br label %146
+  br label %144
 
 140:                                              ; preds = %10
-  %141 = shl i8 %26, 2
-  %142 = and i8 %141, 4
-  %143 = xor i8 %142, 4
-  %144 = zext nneg i8 %143 to i32
-  %145 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %144, ptr %145, align 8
-  br label %146
+  %141 = and i8 %26, 1
+  %.not94 = icmp eq i8 %141, 0
+  %142 = select i1 %.not94, i32 4, i32 0
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 %142, ptr %143, align 8
+  br label %144
 
-146:                                              ; preds = %140, %137, %10
+144:                                              ; preds = %140, %137, %10
   %.187 = phi i16 [ %spec.select, %10 ], [ %spec.select, %140 ], [ %100, %137 ]
-  %147 = load i32, ptr %77, align 8
-  %148 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %147, ptr noundef %4, ptr noundef %5) #6
-  %.not96 = icmp eq i32 %148, 0
-  br i1 %.not96, label %151, label %149
+  %145 = load i32, ptr %77, align 8
+  %146 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %145, ptr noundef %4, ptr noundef %5) #6
+  %.not96 = icmp eq i32 %146, 0
+  br i1 %.not96, label %149, label %147
 
-149:                                              ; preds = %146
-  %150 = zext i16 %.187 to i32
-  br label %151
+147:                                              ; preds = %144
+  %148 = zext i16 %.187 to i32
+  br label %149
 
-151:                                              ; preds = %146, %97, %6, %149, %135, %95
-  %.085 = phi i32 [ %150, %149 ], [ -1, %95 ], [ -1, %135 ], [ -1, %6 ], [ -1, %97 ], [ -1, %146 ]
+149:                                              ; preds = %144, %97, %6, %147, %135, %95
+  %.085 = phi i32 [ %148, %147 ], [ -1, %95 ], [ -1, %135 ], [ -1, %6 ], [ -1, %97 ], [ -1, %144 ]
   ret i32 %.085
 }
 
