@@ -87,12 +87,12 @@ define i16 @f16_roundToInt(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   ]
 
 35:                                               ; preds = %31
-  %36 = lshr i64 %33, 1
+  %36 = lshr exact i64 %33, 1
   %37 = add nuw nsw i64 %36, %4
   br label %50
 
 38:                                               ; preds = %31
-  %39 = lshr i64 %33, 1
+  %39 = lshr exact i64 %33, 1
   %40 = add nuw nsw i64 %39, %4
   %41 = and i64 %40, %34
   %.not51 = icmp eq i64 %41, 0

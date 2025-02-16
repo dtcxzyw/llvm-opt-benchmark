@@ -1806,8 +1806,8 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit20:       ; preds = %_ZNK17QArrayDataPoi
   %96 = getelementptr %"struct.LabelStack::_StackItem", ptr %81, i64 %1
   %97 = sub i64 %93, %1
   %98 = sub i64 1, %97
-  %99 = icmp sgt i64 %97, 0
-  br i1 %99, label %104, label %.thread53
+  %99 = icmp slt i64 %97, 1
+  br i1 %99, label %.thread53, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split.i
 
 .thread53:                                        ; preds = %92
   store ptr %64, ptr %94, align 8
@@ -1822,92 +1822,92 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit20:       ; preds = %_ZNK17QArrayDataPoi
   store i64 %103, ptr %73, align 8
   br label %_ZN10LabelStack10_StackItemD2Ev.exit
 
-104:                                              ; preds = %92
-  %105 = load ptr, ptr %95, align 8
-  store ptr %105, ptr %94, align 8
+_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split.i: ; preds = %92
+  %104 = load ptr, ptr %95, align 8
+  store ptr %104, ptr %94, align 8
   store ptr null, ptr %95, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %107 = getelementptr i8, ptr %94, i64 -24
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %106, align 8
-  store ptr null, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %110 = getelementptr i8, ptr %94, i64 -16
-  %111 = load i64, ptr %110, align 8
-  store i64 %111, ptr %109, align 8
-  store i64 0, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %113 = getelementptr i8, ptr %94, i64 -8
-  %114 = load i32, ptr %113, align 8
-  store i32 %114, ptr %112, align 8
-  %115 = add i64 %93, 1
+  %105 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %106 = getelementptr i8, ptr %94, i64 -24
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %105, align 8
+  store ptr null, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %109 = getelementptr i8, ptr %94, i64 -16
+  %110 = load i64, ptr %109, align 8
+  store i64 %110, ptr %108, align 8
+  store i64 0, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %112 = getelementptr i8, ptr %94, i64 -8
+  %113 = load i32, ptr %112, align 8
+  store i32 %113, ptr %111, align 8
+  %114 = add i64 %93, 1
   %.not78.i = icmp eq i64 %97, 1
   br i1 %.not78.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %104, %.lr.ph.i
-  %.09.i = phi i64 [ %131, %.lr.ph.i ], [ 0, %104 ]
-  %116 = getelementptr %"struct.LabelStack::_StackItem", ptr %95, i64 %.09.i
-  %117 = getelementptr i8, ptr %116, i64 -32
+.lr.ph.i:                                         ; preds = %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split.i, %.lr.ph.i
+  %.09.i = phi i64 [ %130, %.lr.ph.i ], [ 0, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split.i ]
+  %115 = getelementptr %"struct.LabelStack::_StackItem", ptr %95, i64 %.09.i
+  %116 = getelementptr i8, ptr %115, i64 -32
+  %117 = load ptr, ptr %115, align 8
   %118 = load ptr, ptr %116, align 8
-  %119 = load ptr, ptr %117, align 8
-  store ptr %119, ptr %116, align 8
-  store ptr %118, ptr %117, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %121 = getelementptr i8, ptr %116, i64 -24
+  store ptr %118, ptr %115, align 8
+  store ptr %117, ptr %116, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %120 = getelementptr i8, ptr %115, i64 -24
+  %121 = load ptr, ptr %119, align 8
   %122 = load ptr, ptr %120, align 8
-  %123 = load ptr, ptr %121, align 8
-  store ptr %123, ptr %120, align 8
-  store ptr %122, ptr %121, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %125 = getelementptr i8, ptr %116, i64 -16
+  store ptr %122, ptr %119, align 8
+  store ptr %121, ptr %120, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %124 = getelementptr i8, ptr %115, i64 -16
+  %125 = load i64, ptr %123, align 8
   %126 = load i64, ptr %124, align 8
-  %127 = load i64, ptr %125, align 8
-  store i64 %127, ptr %124, align 8
-  store i64 %126, ptr %125, align 8
-  %128 = getelementptr i8, ptr %116, i64 -8
-  %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i32 %129, ptr %130, align 8
-  %131 = add i64 %.09.i, -1
-  %.not7.i = icmp eq i64 %131, %98
+  store i64 %126, ptr %123, align 8
+  store i64 %125, ptr %124, align 8
+  %127 = getelementptr i8, ptr %115, i64 -8
+  %128 = load i32, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  store i32 %128, ptr %129, align 8
+  %130 = add i64 %.09.i, -1
+  %.not7.i = icmp eq i64 %130, %98
   br i1 %.not7.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph.i, %104
-  %132 = load ptr, ptr %96, align 8
+.loopexit:                                        ; preds = %.lr.ph.i, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE8Inserter5setupExx.exitthread-pre-split.i
+  %131 = load ptr, ptr %96, align 8
   store ptr %64, ptr %96, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %66, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store i64 %68, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store i32 %72, ptr %135, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %66, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  store i64 %68, ptr %133, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  store i32 %72, ptr %134, align 8
   store ptr %81, ptr %80, align 8
-  store i64 %115, ptr %73, align 8
-  %.not.i.i.i.i21 = icmp eq ptr %132, null
+  store i64 %114, ptr %73, align 8
+  %.not.i.i.i.i21 = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i21, label %_ZN10LabelStack10_StackItemD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.loopexit
-  %136 = atomicrmw sub ptr %132, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %136, 1
-  br i1 %.not.i.i.i, label %137, label %_ZN10LabelStack10_StackItemD2Ev.exit
+  %135 = atomicrmw sub ptr %131, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %135, 1
+  br i1 %.not.i.i.i, label %136, label %_ZN10LabelStack10_StackItemD2Ev.exit
 
-137:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %132, i64 noundef 2, i64 noundef 8) #16
+136:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %131, i64 noundef 2, i64 noundef 8) #16
   br label %_ZN10LabelStack10_StackItemD2Ev.exit
 
-_ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %137, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %.loopexit, %.thread, %.thread53, %_ZN10LabelStack10_StackItemC2ERKS0_.exit18, %_ZN10LabelStack10_StackItemC2ERKS0_.exit
+_ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %136, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %.loopexit, %.thread, %.thread53, %_ZN10LabelStack10_StackItemC2ERKS0_.exit18, %_ZN10LabelStack10_StackItemC2ERKS0_.exit
   ret void
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23:  ; preds = %90
-  %138 = atomicrmw sub ptr %64, i32 1 seq_cst, align 4
-  %.not.i.i.i24 = icmp eq i32 %138, 1
-  br i1 %.not.i.i.i24, label %139, label %_ZN10LabelStack10_StackItemD2Ev.exit25
+  %137 = atomicrmw sub ptr %64, i32 1 seq_cst, align 4
+  %.not.i.i.i24 = icmp eq i32 %137, 1
+  br i1 %.not.i.i.i24, label %138, label %_ZN10LabelStack10_StackItemD2Ev.exit25
 
-139:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23
+138:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23
   tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %64, i64 noundef 2, i64 noundef 8) #16
   br label %_ZN10LabelStack10_StackItemD2Ev.exit25
 
-_ZN10LabelStack10_StackItemD2Ev.exit25:           ; preds = %90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23, %139
+_ZN10LabelStack10_StackItemD2Ev.exit25:           ; preds = %90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23, %138
   resume { ptr, i32 } %91
 }
 
