@@ -3493,13 +3493,13 @@ define dso_local noundef ptr @_ZN5clang20TemplateTypeParmDecl6CreateERKNS_10ASTC
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %.0.i.i = select i1 %.not.i, i32 0, i32 %.sroa.0.0.extract.trunc.i
   store i32 %.0.i.i, ptr %28, align 8, !tbaa !103
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i64 0, ptr %29, align 8, !tbaa !14
-  %30 = tail call i64 @_ZNK5clang10ASTContext23getTemplateTypeParmTypeEjjbPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %8, ptr noundef nonnull %13) #22
-  %31 = and i64 %30, -16
-  %32 = inttoptr i64 %31 to ptr
-  %33 = load ptr, ptr %32, align 16, !tbaa !15
-  store ptr %33, ptr %17, align 8, !tbaa !101
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store i64 0, ptr %30, align 8, !tbaa !14
+  %31 = tail call i64 @_ZNK5clang10ASTContext23getTemplateTypeParmTypeEjjbPNS_20TemplateTypeParmDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %8, ptr noundef nonnull %13) #22
+  %32 = and i64 %31, -16
+  %33 = inttoptr i64 %32 to ptr
+  %34 = load ptr, ptr %33, align 16, !tbaa !15
+  store ptr %34, ptr %17, align 8, !tbaa !101
   ret ptr %13
 }
 

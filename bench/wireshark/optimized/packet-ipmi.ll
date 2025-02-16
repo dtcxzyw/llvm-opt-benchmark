@@ -1012,7 +1012,7 @@ calc_cks.exit113.i:                               ; preds = %68
 80:                                               ; preds = %.thread129.i
   %81 = and i32 %73, 10
   %82 = icmp eq i32 %81, 0
-  %.0.i = select i1 %82, i8 32, i8 0
+  %.88.i = select i1 %82, i8 32, i8 0
   %83 = or disjoint i32 %.067.i, 2
   br label %84
 

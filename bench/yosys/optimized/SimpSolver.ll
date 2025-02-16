@@ -5921,175 +5921,175 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
   %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
   %106 = load i32, ptr %57, align 4
   %107 = select i1 %.not.i16, i32 0, i32 8
-  %108 = and i32 %106, -9
+  %108 = and i33 %106, -9
   %109 = or disjoint i32 %108, %107
   store i32 %109, ptr %105, align 4
   %110 = load i32, ptr %57, align 4
-  %.not.i.i = icmp ult i32 %110, 32
+  %111 = icmp ult i32 %110, 32
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i17
 
 .lr.ph.i.i17:                                     ; preds = %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
-  %111 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  br label %113
+  %112 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  br label %114
 
-113:                                              ; preds = %113, %.lr.ph.i.i17
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i17 ], [ %indvars.iv.next.i.i, %113 ]
+114:                                              ; preds = %114, %.lr.ph.i.i17
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i17 ], [ %indvars.iv.next.i.i, %114 ]
   %114 = getelementptr inbounds nuw [0 x %union.anon], ptr %111, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %114, align 4
   %115 = getelementptr inbounds nuw [0 x %union.anon], ptr %112, i64 0, i64 %indvars.iv.i.i
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %115, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %116 = load i32, ptr %57, align 4
-  %117 = lshr i32 %116, 5
-  %118 = zext nneg i32 %117 to i64
-  %119 = icmp samesign ult i64 %indvars.iv.next.i.i, %118
-  br i1 %119, label %113, label %._crit_edge.i.i, !llvm.loop !57
+  %117 = load i32, ptr %57, align 4
+  %118 = lshr i32 %117, 5
+  %119 = zext nneg i32 %118 to i64
+  %120 = icmp samesign ult i64 %indvars.iv.next.i.i, %119
+  br i1 %120, label %114, label %._crit_edge.i.i, !llvm.loop !57
 
-._crit_edge.i.i:                                  ; preds = %113, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
-  br i1 %.not.i16, label %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit, label %120
+._crit_edge.i.i:                                  ; preds = %114, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
+  br i1 %.not.i16, label %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit, label %121
 
-120:                                              ; preds = %._crit_edge.i.i
-  %121 = and i32 %106, 4
-  %.not10.i.i = icmp eq i32 %121, 0
-  %122 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %123 = lshr i32 %106, 5
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [0 x %union.anon], ptr %122, i64 0, i64 %124
-  %126 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %127 = getelementptr inbounds nuw [0 x %union.anon], ptr %126, i64 0, i64 %124
-  br i1 %.not10.i.i, label %130, label %128
+121:                                              ; preds = %._crit_edge.i.i
+  %122 = and i32 %106, 4
+  %.not10.i.i = icmp eq i32 %122, 0
+  %123 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %124 = lshr i32 %106, 5
+  %125 = zext nneg i32 %124 to i64
+  %126 = getelementptr inbounds nuw [0 x %union.anon], ptr %123, i64 0, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %128 = getelementptr inbounds nuw [0 x %union.anon], ptr %127, i64 0, i64 %125
+  br i1 %.not10.i.i, label %131, label %129
 
-128:                                              ; preds = %120
-  %129 = load float, ptr %125, align 4
-  store float %129, ptr %127, align 4
+129:                                              ; preds = %121
+  %130 = load float, ptr %126, align 4
+  store float %130, ptr %128, align 4
   br label %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit
 
-130:                                              ; preds = %120
-  %131 = load i32, ptr %125, align 4
-  store i32 %131, ptr %127, align 4
+131:                                              ; preds = %121
+  %132 = load i32, ptr %126, align 4
+  store i32 %132, ptr %128, align 4
   br label %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit
 
-_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit: ; preds = %._crit_edge.i.i, %128, %130
+_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit: ; preds = %._crit_edge.i.i, %129, %131
   store i32 %99, ptr %53, align 4
-  %132 = load i32, ptr %57, align 4
-  %133 = or i32 %132, 16
-  store i32 %133, ptr %57, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 %99, ptr %134, align 4
+  %133 = load i32, ptr %57, align 4
+  %134 = or i32 %133, 16
+  store i32 %134, ptr %57, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 %99, ptr %135, align 4
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit
 
 _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %60, %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %135 = load i32, ptr %49, align 8
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  %136 = load i32, ptr %49, align 8
+  %137 = sext i32 %136 to i64
+  %138 = icmp slt i64 %indvars.iv.next, %137
+  br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE5cleanERKi.exit
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %138 = load i32, ptr %6, align 4
-  %139 = sext i32 %138 to i64
-  %140 = icmp slt i64 %indvars.iv.next40, %139
-  br i1 %140, label %16, label %._crit_edge31, !llvm.loop !59
+  %139 = load i32, ptr %6, align 4
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %indvars.iv.next40, %140
+  br i1 %141, label %16, label %._crit_edge31, !llvm.loop !59
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %.preheader
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1116
-  %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %145 = load i32, ptr %144, align 8
-  %.not.i11 = icmp slt i32 %143, %145
-  %146 = sub i32 %143, %145
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %148 = load i32, ptr %147, align 8
-  %149 = select i1 %.not.i11, i32 %148, i32 0
-  %150 = add nsw i32 %146, %149
-  %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph34, label %._crit_edge35
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 1116
+  %144 = load i32, ptr %143, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %146 = load i32, ptr %145, align 8
+  %.not.i11 = icmp slt i32 %144, %146
+  %147 = sub i32 %144, %146
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %149 = load i32, ptr %148, align 8
+  %150 = select i1 %.not.i11, i32 %149, i32 0
+  %151 = add nsw i32 %147, %150
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %.lr.ph34, label %._crit_edge35
 
 .lr.ph34:                                         ; preds = %._crit_edge31
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  br label %153
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  br label %154
 
-153:                                              ; preds = %.lr.ph34, %177
-  %.032 = phi i32 [ %150, %.lr.ph34 ], [ %178, %177 ]
-  %154 = load i32, ptr %144, align 8
-  %155 = load ptr, ptr %141, align 8
-  %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds i32, ptr %155, i64 %156
-  %158 = load i32, ptr %157, align 4
-  %159 = add nsw i32 %154, 1
-  %160 = load i32, ptr %147, align 8
-  %161 = icmp eq i32 %159, %160
-  %spec.store.select.i = select i1 %161, i32 0, i32 %159
-  store i32 %spec.store.select.i, ptr %144, align 8
-  %162 = load ptr, ptr %152, align 8
-  %163 = zext i32 %158 to i64
-  %164 = getelementptr inbounds nuw i32, ptr %162, i64 %163
-  %165 = load i32, ptr %164, align 4
-  %166 = and i32 %165, 3
-  %.not = icmp eq i32 %166, 0
-  br i1 %.not, label %167, label %177
+154:                                              ; preds = %.lr.ph34, %178
+  %.032 = phi i32 [ %151, %.lr.ph34 ], [ %179, %178 ]
+  %155 = load i32, ptr %145, align 8
+  %156 = load ptr, ptr %142, align 8
+  %157 = sext i32 %155 to i64
+  %158 = getelementptr inbounds i32, ptr %156, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = add nsw i32 %155, 1
+  %161 = load i32, ptr %148, align 8
+  %162 = icmp eq i32 %160, %161
+  %spec.store.select.i = select i1 %162, i32 0, i32 %160
+  store i32 %spec.store.select.i, ptr %145, align 8
+  %163 = load ptr, ptr %153, align 8
+  %164 = zext i32 %159 to i64
+  %165 = getelementptr inbounds nuw i32, ptr %163, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = and i32 %166, 3
+  %.not = icmp eq i32 %167, 0
+  br i1 %.not, label %168, label %178
 
-167:                                              ; preds = %153
-  %168 = and i32 %165, 16
-  %.not.i12 = icmp eq i32 %168, 0
-  br i1 %.not.i12, label %172, label %169
+168:                                              ; preds = %154
+  %169 = and i32 %166, 16
+  %.not.i12 = icmp eq i32 %169, 0
+  br i1 %.not.i12, label %173, label %170
 
-169:                                              ; preds = %167
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  %171 = load i32, ptr %170, align 4
+170:                                              ; preds = %168
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  %172 = load i32, ptr %171, align 4
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
 
-172:                                              ; preds = %167
-  %173 = tail call noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %164)
-  %174 = load i32, ptr %164, align 4
-  %175 = or i32 %174, 16
-  store i32 %175, ptr %164, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store i32 %173, ptr %176, align 4
+173:                                              ; preds = %168
+  %174 = tail call noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %165)
+  %175 = load i32, ptr %165, align 4
+  %176 = or i32 %175, 16
+  store i32 %176, ptr %165, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  store i32 %174, ptr %177, align 4
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
 
-_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13: ; preds = %169, %172
-  %.025 = phi i32 [ %173, %172 ], [ %171, %169 ]
-  tail call void @_ZN7Minisat5QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %141, i32 noundef %.025)
-  br label %177
+_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13: ; preds = %170, %173
+  %.025 = phi i32 [ %174, %173 ], [ %172, %170 ]
+  tail call void @_ZN7Minisat5QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %142, i32 noundef %.025)
+  br label %178
 
-177:                                              ; preds = %153, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
-  %178 = add nsw i32 %.032, -1
-  %179 = icmp sgt i32 %.032, 1
-  br i1 %179, label %153, label %._crit_edge35, !llvm.loop !60
+178:                                              ; preds = %154, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
+  %179 = add nsw i32 %.032, -1
+  %180 = icmp sgt i32 %.032, 1
+  br i1 %180, label %154, label %._crit_edge35, !llvm.loop !60
 
-._crit_edge35:                                    ; preds = %177, %._crit_edge31
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %182 = load i32, ptr %181, align 8
-  %183 = load ptr, ptr %180, align 8
-  %184 = zext i32 %182 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %183, i64 %184
-  %186 = load i32, ptr %185, align 4
-  %187 = and i32 %186, 16
-  %.not.i14 = icmp eq i32 %187, 0
-  br i1 %.not.i14, label %191, label %188
+._crit_edge35:                                    ; preds = %178, %._crit_edge31
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  %183 = load i32, ptr %182, align 8
+  %184 = load ptr, ptr %181, align 8
+  %185 = zext i32 %183 to i64
+  %186 = getelementptr inbounds nuw i32, ptr %184, i64 %185
+  %187 = load i32, ptr %186, align 4
+  %188 = and i32 %187, 16
+  %.not.i14 = icmp eq i32 %188, 0
+  br i1 %.not.i14, label %192, label %189
 
-188:                                              ; preds = %._crit_edge35
-  %189 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %190 = load i32, ptr %189, align 4
-  store i32 %190, ptr %181, align 8
+189:                                              ; preds = %._crit_edge35
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %191 = load i32, ptr %190, align 4
+  store i32 %191, ptr %182, align 8
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15
 
-191:                                              ; preds = %._crit_edge35
-  %192 = tail call noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %185)
-  store i32 %192, ptr %181, align 8
-  %193 = load i32, ptr %185, align 4
-  %194 = or i32 %193, 16
-  store i32 %194, ptr %185, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  store i32 %192, ptr %195, align 4
+192:                                              ; preds = %._crit_edge35
+  %193 = tail call noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %186)
+  store i32 %193, ptr %182, align 8
+  %194 = load i32, ptr %186, align 4
+  %195 = or i32 %194, 16
+  store i32 %195, ptr %186, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  store i32 %193, ptr %196, align 4
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15
 
-_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15: ; preds = %191, %188, %2
+_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15: ; preds = %192, %189, %2
   ret void
 }
 
@@ -7273,52 +7273,52 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit:     ; preds = %2
   %28 = or disjoint i32 %27, %26
   store i32 %28, ptr %24, align 4
   %29 = load i32, ptr %1, align 4
-  %.not.i = icmp ult i32 %29, 32
+  %30 = icmp ult i32 %29, 32
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  br label %32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  br label %33
 
-32:                                               ; preds = %32, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
+33:                                               ; preds = %33, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
   %33 = getelementptr inbounds nuw [0 x %union.anon], ptr %30, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %33, align 4
   %34 = getelementptr inbounds nuw [0 x %union.anon], ptr %31, i64 0, i64 %indvars.iv.i
   store i32 %.sroa.0.0.copyload.i.i, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = load i32, ptr %1, align 4
-  %36 = lshr i32 %35, 5
-  %37 = zext nneg i32 %36 to i64
-  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
-  br i1 %38, label %32, label %._crit_edge.i, !llvm.loop !57
+  %36 = load i32, ptr %1, align 4
+  %37 = lshr i32 %36, 5
+  %38 = zext nneg i32 %37 to i64
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %38
+  br i1 %39, label %33, label %._crit_edge.i, !llvm.loop !57
 
-._crit_edge.i:                                    ; preds = %32, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit
-  br i1 %.not, label %_ZN7Minisat6ClauseC2ERKS0_b.exit, label %39
+._crit_edge.i:                                    ; preds = %33, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit
+  br i1 %.not, label %_ZN7Minisat6ClauseC2ERKS0_b.exit, label %40
 
-39:                                               ; preds = %._crit_edge.i
-  %40 = and i32 %25, 4
-  %.not10.i = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %42 = lshr i32 %25, 5
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %46 = getelementptr inbounds nuw [0 x %union.anon], ptr %45, i64 0, i64 %43
-  br i1 %.not10.i, label %49, label %47
+40:                                               ; preds = %._crit_edge.i
+  %41 = and i32 %25, 4
+  %.not10.i = icmp eq i32 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %43 = lshr i32 %25, 5
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw [0 x %union.anon], ptr %42, i64 0, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %47 = getelementptr inbounds nuw [0 x %union.anon], ptr %46, i64 0, i64 %44
+  br i1 %.not10.i, label %50, label %48
 
-47:                                               ; preds = %39
-  %48 = load float, ptr %44, align 4
-  store float %48, ptr %46, align 4
+48:                                               ; preds = %40
+  %49 = load float, ptr %45, align 4
+  store float %49, ptr %47, align 4
   br label %_ZN7Minisat6ClauseC2ERKS0_b.exit
 
-49:                                               ; preds = %39
-  %50 = load i32, ptr %44, align 4
-  store i32 %50, ptr %46, align 4
+50:                                               ; preds = %40
+  %51 = load i32, ptr %45, align 4
+  store i32 %51, ptr %47, align 4
   br label %_ZN7Minisat6ClauseC2ERKS0_b.exit
 
-_ZN7Minisat6ClauseC2ERKS0_b.exit:                 ; preds = %._crit_edge.i, %47, %49
+_ZN7Minisat6ClauseC2ERKS0_b.exit:                 ; preds = %._crit_edge.i, %48, %50
   ret i32 %17
 }
 

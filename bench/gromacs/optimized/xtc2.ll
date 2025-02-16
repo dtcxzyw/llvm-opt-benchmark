@@ -431,13 +431,13 @@ positive_int.exit466:                             ; preds = %142, %145, %147
   %166 = load i32, ptr %34, align 4
   br label %167
 
-167:                                              ; preds = %.lr.ph730, %631
-  %.0373728 = phi i32 [ %119, %.lr.ph730 ], [ %.1374, %631 ]
-  %.0377727 = phi i32 [ 0, %.lr.ph730 ], [ %.1378, %631 ]
-  %.0380726 = phi i32 [ %23, %.lr.ph730 ], [ %.2382, %631 ]
-  %.0384725 = phi ptr [ %1, %.lr.ph730 ], [ %.2386, %631 ]
-  %.0390724 = phi i32 [ 0, %.lr.ph730 ], [ %.1391, %631 ]
-  %.0723 = phi i32 [ 0, %.lr.ph730 ], [ %.1611, %631 ]
+167:                                              ; preds = %.lr.ph730, %632
+  %.0373728 = phi i32 [ %119, %.lr.ph730 ], [ %.1374, %632 ]
+  %.0377727 = phi i32 [ 0, %.lr.ph730 ], [ %.1378, %632 ]
+  %.0380726 = phi i32 [ %23, %.lr.ph730 ], [ %.2382, %632 ]
+  %.0384725 = phi ptr [ %1, %.lr.ph730 ], [ %.2386, %632 ]
+  %.0390724 = phi i32 [ 0, %.lr.ph730 ], [ %.1391, %632 ]
+  %.0723 = phi i32 [ 0, %.lr.ph730 ], [ %.1611, %632 ]
   %168 = icmp slt i32 %.0380726, 0
   br i1 %168, label %169, label %172
 
@@ -588,7 +588,7 @@ buffer_large.exit:                                ; preds = %trajcoder_base_comp
   %.1385.lcssa = phi ptr [ %.0384725, %.preheader642 ], [ %221, %buffer_large.exit ]
   %.1381.lcssa = phi i32 [ 0, %.preheader642 ], [ %222, %buffer_large.exit ]
   call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %225, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
-  br label %631
+  br label %632
 
 .lr.ph.i:                                         ; preds = %172
   %226 = load i32, ptr %19, align 4
@@ -1373,13 +1373,13 @@ Ptngc_find_magic_index.exit544:                   ; preds = %511
   %525 = add nsw i32 %.0350, 6
   %526 = icmp slt i32 %525, %.1372
   %or.cond431 = select i1 %or.cond429, i1 true, i1 %526
-  br i1 %or.cond431, label %527, label %631
+  br i1 %or.cond431, label %527, label %632
 
 527:                                              ; preds = %519, %517
   %528 = icmp ne i32 %.0352, %.0390724
   %.not416 = icmp ne i32 %.0350, %.0373728
   %or.cond433.not = select i1 %528, i1 true, i1 %.not416
-  br i1 %or.cond433.not, label %529, label %579
+  br i1 %or.cond433.not, label %529, label %580
 
 529:                                              ; preds = %527
   %530 = sub nsw i32 %.0350, %.0373728
@@ -1451,7 +1451,7 @@ Ptngc_find_magic_index.exit544:                   ; preds = %511
   %555 = icmp eq i32 %.1338.lcssa, -1
   %556 = icmp eq i32 %.0390724, %.0352
   %or.cond434 = select i1 %555, i1 %556, i1 false
-  br i1 %or.cond434, label %579, label %557
+  br i1 %or.cond434, label %580, label %557
 
 557:                                              ; preds = %.thread, %._crit_edge700
   %558 = phi i1 [ %554, %.thread ], [ %556, %._crit_edge700 ]
@@ -1478,171 +1478,171 @@ Ptngc_find_magic_index.exit544:                   ; preds = %511
   %565 = add nsw i32 %spec.store.select15, %.3376911
   %566 = icmp slt i32 %.5912, 0
   %567 = sub nsw i32 0, %spec.store.select15
-  %spec.select436 = select i1 %566, i32 2, i32 0
+  %568 = select i1 %566, i32 2, i32 0
   %spec.select437 = select i1 %566, i32 %567, i32 %spec.store.select15
-  %568 = add nsw i32 %spec.select437, -1
-  %569 = or i32 %568, %spec.select436
+  %569 = add nsw i32 %spec.select437, -1
+  %570 = or i32 %569, %spec.select436
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12) #11
-  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %569, i32 noundef 2, ptr noundef nonnull %12) #11
-  %570 = add i32 %564, -2
-  %or.cond9 = icmp ult i32 %570, -3
-  %571 = icmp ne i32 %564, 0
-  %572 = and i1 %560, %571
-  %or.cond = select i1 %or.cond9, i1 true, i1 %572
+  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %570, i32 noundef 2, ptr noundef nonnull %12) #11
+  %571 = add i32 %564, -2
+  %or.cond9 = icmp ult i32 %571, -3
+  %572 = icmp ne i32 %564, 0
+  %573 = and i1 %560, %572
+  %or.cond = select i1 %or.cond9, i1 true, i1 %573
   br i1 %or.cond, label %.critedge, label %._crit_edge913, !llvm.loop !36
 
 ._crit_edge913:                                   ; preds = %.critedge, %557
   %.3376.lcssa = phi i32 [ %.0373728, %557 ], [ %565, %.critedge ]
   %.5.lcssa = phi i32 [ %.4, %557 ], [ %564, %.critedge ]
-  %.lcssa902 = phi i1 [ %562, %557 ], [ %571, %.critedge ]
+  %.lcssa902 = phi i1 [ %562, %557 ], [ %572, %.critedge ]
   %or.cond12 = or i1 %528, %.lcssa902
-  br i1 %or.cond12, label %573, label %579
+  br i1 %or.cond12, label %574, label %580
 
-573:                                              ; preds = %._crit_edge913
-  %574 = add nsw i32 %.5.lcssa, 1
-  %575 = mul i32 %.0352, 3
-  %576 = add i32 %575, -3
-  %spec.select438 = select i1 %560, i32 0, i32 %574
-  %577 = add nuw nsw i32 %576, %spec.select438
-  %578 = add nsw i32 %.5.lcssa, %.3376.lcssa
+574:                                              ; preds = %._crit_edge913
+  %575 = add nsw i32 %.5.lcssa, 1
+  %576 = mul i32 %.0352, 3
+  %577 = add i32 %576, -3
+  %spec.select438 = select i1 %560, i32 0, i32 %575
+  %578 = add nuw nsw i32 %577, %spec.select438
+  %579 = add nsw i32 %.5.lcssa, %.3376.lcssa
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %12) #11
-  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %577, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %579
+  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %578, i32 noundef 4, ptr noundef nonnull %12) #11
+  br label %580
 
-579:                                              ; preds = %._crit_edge700, %527, %._crit_edge913, %573
-  %.2392 = phi i32 [ %.0352, %573 ], [ %.0390724, %._crit_edge913 ], [ %.0390724, %527 ], [ %.0390724, %._crit_edge700 ]
-  %.2375 = phi i32 [ %578, %573 ], [ %.3376.lcssa, %._crit_edge913 ], [ %.0373728, %527 ], [ %.0373728, %._crit_edge700 ]
-  %580 = load i32, ptr %17, align 4
-  %.not417 = icmp eq i32 %580, 0
-  br i1 %.not417, label %589, label %581
+580:                                              ; preds = %._crit_edge700, %527, %._crit_edge913, %574
+  %.2392 = phi i32 [ %.0352, %574 ], [ %.0390724, %._crit_edge913 ], [ %.0390724, %527 ], [ %.0390724, %._crit_edge700 ]
+  %.2375 = phi i32 [ %579, %574 ], [ %.3376.lcssa, %._crit_edge913 ], [ %.0373728, %527 ], [ %.0373728, %._crit_edge700 ]
+  %581 = load i32, ptr %17, align 4
+  %.not417 = icmp eq i32 %581, 0
+  br i1 %.not417, label %590, label %582
 
-581:                                              ; preds = %579
-  %582 = icmp eq i32 %.2612, 0
-  %or.cond14 = or i1 %582, %.0388
-  br i1 %or.cond14, label %584, label %583
+582:                                              ; preds = %580
+  %583 = icmp eq i32 %.2612, 0
+  %or.cond14 = or i1 %583, %.0388
+  br i1 %or.cond14, label %585, label %584
 
-583:                                              ; preds = %581
-  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %580, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
+584:                                              ; preds = %582
+  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %581, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %590
+  br label %591
 
-584:                                              ; preds = %581
-  %585 = icmp sgt i32 %580, 1
-  br i1 %585, label %586, label %588
+585:                                              ; preds = %582
+  %586 = icmp sgt i32 %581, 1
+  br i1 %586, label %587, label %589
 
-586:                                              ; preds = %584
-  %587 = add nsw i32 %580, -1
-  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %587, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
-  br label %588
+587:                                              ; preds = %585
+  %588 = add nsw i32 %581, -1
+  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %588, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
+  br label %589
 
-588:                                              ; preds = %586, %584
+589:                                              ; preds = %587, %585
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %12) #11
   call fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly %18, i32 noundef 3, ptr noundef nonnull readonly %13, ptr noundef nonnull %21)
   call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %.2.i, ptr noundef nonnull %12) #11
   store i32 0, ptr %17, align 4
-  br label %590
+  br label %591
 
-589:                                              ; preds = %579
+590:                                              ; preds = %580
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %590
+  br label %591
 
-590:                                              ; preds = %583, %588, %589
-  %591 = sext i32 %.2375 to i64
-  %592 = add nsw i32 %.2392, -1
-  %593 = zext nneg i32 %592 to i64
-  %594 = getelementptr inbounds [92 x [8 x i32]], ptr @magic_bits, i64 0, i64 %591, i64 %593
-  %595 = load i32, ptr %594, align 4
+591:                                              ; preds = %584, %589, %590
+  %592 = sext i32 %.2375 to i64
+  %593 = add nsw i32 %.2392, -1
+  %594 = zext nneg i32 %593 to i64
+  %595 = getelementptr inbounds [92 x [8 x i32]], ptr @magic_bits, i64 0, i64 %592, i64 %594
+  %596 = load i32, ptr %595, align 4
   store i32 %.2375, ptr %14, align 4
   store i32 %.2375, ptr %160, align 4
   store i32 %.2375, ptr %161, align 4
-  %596 = mul nuw nsw i32 %.2392, 3
-  call fastcc void @trajcoder_base_compress(ptr noundef %20, i32 noundef %596, ptr noundef %14, ptr noundef %21)
-  call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %595, ptr noundef nonnull %12) #11
-  %597 = icmp sgt i32 %.2392, 0
-  br i1 %597, label %.lr.ph709.preheader, label %._crit_edge710
+  %597 = mul nuw nsw i32 %.2392, 3
+  call fastcc void @trajcoder_base_compress(ptr noundef %20, i32 noundef %597, ptr noundef %14, ptr noundef %21)
+  call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %596, ptr noundef nonnull %12) #11
+  %598 = icmp sgt i32 %.2392, 0
+  br i1 %598, label %.lr.ph709.preheader, label %._crit_edge710
 
-.lr.ph709.preheader:                              ; preds = %590
+.lr.ph709.preheader:                              ; preds = %591
   %wide.trip.count816 = zext nneg i32 %.2392 to i64
   br label %.lr.ph709
 
 .lr.ph709:                                        ; preds = %.lr.ph709.preheader, %.lr.ph709
   %indvars.iv813 = phi i64 [ 0, %.lr.ph709.preheader ], [ %indvars.iv.next814, %.lr.ph709 ]
-  %598 = phi i32 [ %.promoted, %.lr.ph709.preheader ], [ %609, %.lr.ph709 ]
-  %599 = phi i32 [ %.promoted703, %.lr.ph709.preheader ], [ %618, %.lr.ph709 ]
-  %600 = phi i32 [ %.promoted705, %.lr.ph709.preheader ], [ %627, %.lr.ph709 ]
-  %601 = mul nuw nsw i64 %indvars.iv813, 3
-  %602 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %601
-  %603 = load i32, ptr %602, align 4
-  %604 = add nsw i32 %603, 1
-  %605 = sdiv i32 %604, 2
-  %606 = and i32 %603, 1
-  %607 = icmp eq i32 %606, 0
-  %608 = sub nsw i32 0, %605
-  %spec.select.i = select i1 %607, i32 %608, i32 %605
-  %609 = add nsw i32 %spec.select.i, %598
-  %610 = add nuw nsw i64 %601, 1
-  %611 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %610
-  %612 = load i32, ptr %611, align 4
-  %613 = add nsw i32 %612, 1
-  %614 = sdiv i32 %613, 2
-  %615 = and i32 %612, 1
-  %616 = icmp eq i32 %615, 0
-  %617 = sub nsw i32 0, %614
-  %spec.select.i545 = select i1 %616, i32 %617, i32 %614
-  %618 = add nsw i32 %spec.select.i545, %599
-  %619 = add nuw nsw i64 %601, 2
-  %620 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %619
-  %621 = load i32, ptr %620, align 4
-  %622 = add nsw i32 %621, 1
-  %623 = sdiv i32 %622, 2
-  %624 = and i32 %621, 1
-  %625 = icmp eq i32 %624, 0
-  %626 = sub nsw i32 0, %623
-  %spec.select.i546 = select i1 %625, i32 %626, i32 %623
-  %627 = add nsw i32 %spec.select.i546, %600
+  %599 = phi i32 [ %.promoted, %.lr.ph709.preheader ], [ %610, %.lr.ph709 ]
+  %600 = phi i32 [ %.promoted703, %.lr.ph709.preheader ], [ %619, %.lr.ph709 ]
+  %601 = phi i32 [ %.promoted705, %.lr.ph709.preheader ], [ %628, %.lr.ph709 ]
+  %602 = mul nuw nsw i64 %indvars.iv813, 3
+  %603 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %602
+  %604 = load i32, ptr %603, align 4
+  %605 = add nsw i32 %604, 1
+  %606 = sdiv i32 %605, 2
+  %607 = and i32 %604, 1
+  %608 = icmp eq i32 %607, 0
+  %609 = sub nsw i32 0, %606
+  %spec.select.i = select i1 %608, i32 %609, i32 %606
+  %610 = add nsw i32 %spec.select.i, %599
+  %611 = add nuw nsw i64 %602, 1
+  %612 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %611
+  %613 = load i32, ptr %612, align 4
+  %614 = add nsw i32 %613, 1
+  %615 = sdiv i32 %614, 2
+  %616 = and i32 %613, 1
+  %617 = icmp eq i32 %616, 0
+  %618 = sub nsw i32 0, %615
+  %spec.select.i545 = select i1 %617, i32 %618, i32 %615
+  %619 = add nsw i32 %spec.select.i545, %600
+  %620 = add nuw nsw i64 %602, 2
+  %621 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %620
+  %622 = load i32, ptr %621, align 4
+  %623 = add nsw i32 %622, 1
+  %624 = sdiv i32 %623, 2
+  %625 = and i32 %622, 1
+  %626 = icmp eq i32 %625, 0
+  %627 = sub nsw i32 0, %624
+  %spec.select.i546 = select i1 %626, i32 %627, i32 %624
+  %628 = add nsw i32 %spec.select.i546, %601
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
   %exitcond817.not = icmp eq i64 %indvars.iv.next814, %wide.trip.count816
   br i1 %exitcond817.not, label %._crit_edge710, label %.lr.ph709, !llvm.loop !37
 
-._crit_edge710:                                   ; preds = %.lr.ph709, %590
-  %.lcssa706 = phi i32 [ %.promoted705, %590 ], [ %627, %.lr.ph709 ]
-  %.lcssa704 = phi i32 [ %.promoted703, %590 ], [ %618, %.lr.ph709 ]
-  %.lcssa702 = phi i32 [ %.promoted, %590 ], [ %609, %.lr.ph709 ]
+._crit_edge710:                                   ; preds = %.lr.ph709, %591
+  %.lcssa706 = phi i32 [ %.promoted705, %591 ], [ %628, %.lr.ph709 ]
+  %.lcssa704 = phi i32 [ %.promoted703, %591 ], [ %619, %.lr.ph709 ]
+  %.lcssa702 = phi i32 [ %.promoted, %591 ], [ %610, %.lr.ph709 ]
   store i32 %.lcssa702, ptr %19, align 4
   store i32 %.lcssa704, ptr %151, align 4
   store i32 %.lcssa706, ptr %152, align 4
-  %628 = zext nneg i32 %596 to i64
-  %629 = getelementptr inbounds nuw i32, ptr %.3387, i64 %628
-  %630 = sub nsw i32 %.3383, %.2392
-  br label %631
+  %629 = zext nneg i32 %597 to i64
+  %630 = getelementptr inbounds nuw i32, ptr %.3387, i64 %629
+  %631 = sub nsw i32 %.3383, %.2392
+  br label %632
 
-631:                                              ; preds = %519, %._crit_edge710, %._crit_edge719
+632:                                              ; preds = %519, %._crit_edge710, %._crit_edge719
   %.1611 = phi i32 [ %.0723, %._crit_edge719 ], [ %.2612, %._crit_edge710 ], [ %.2612, %519 ]
   %.1391 = phi i32 [ %.0390724, %._crit_edge719 ], [ %.2392, %._crit_edge710 ], [ %.0390724, %519 ]
-  %.2386 = phi ptr [ %.1385.lcssa, %._crit_edge719 ], [ %629, %._crit_edge710 ], [ %.3387, %519 ]
-  %.2382 = phi i32 [ %.1381.lcssa, %._crit_edge719 ], [ %630, %._crit_edge710 ], [ %.3383, %519 ]
+  %.2386 = phi ptr [ %.1385.lcssa, %._crit_edge719 ], [ %630, %._crit_edge710 ], [ %.3387, %519 ]
+  %.2382 = phi i32 [ %.1381.lcssa, %._crit_edge719 ], [ %631, %._crit_edge710 ], [ %.3383, %519 ]
   %.1378 = phi i32 [ %.0377727, %._crit_edge719 ], [ 0, %._crit_edge710 ], [ 1, %519 ]
   %.1374 = phi i32 [ %.0373728, %._crit_edge719 ], [ %.2375, %._crit_edge710 ], [ %.0373728, %519 ]
   %.not = icmp eq i32 %.2382, 0
   br i1 %.not, label %._crit_edge731, label %167, !llvm.loop !38
 
-._crit_edge731:                                   ; preds = %631
+._crit_edge731:                                   ; preds = %632
   %.pre833 = load i32, ptr %17, align 4
   %.not409 = icmp eq i32 %.pre833, 0
-  br i1 %.not409, label %._crit_edge731.thread, label %632
+  br i1 %.not409, label %._crit_edge731.thread, label %633
 
-632:                                              ; preds = %._crit_edge731
+633:                                              ; preds = %._crit_edge731
   call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %.pre833, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
   br label %._crit_edge731.thread
 
-._crit_edge731.thread:                            ; preds = %positive_int.exit466, %632, %._crit_edge731
+._crit_edge731.thread:                            ; preds = %positive_int.exit466, %633, %._crit_edge731
   call void @Ptngc_pack_flush(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
-  %633 = load ptr, ptr %12, align 8
-  %634 = ptrtoint ptr %633 to i64
-  %635 = ptrtoint ptr %26 to i64
-  %636 = sub i64 %634, %635
-  %637 = trunc i64 %636 to i32
-  store i32 %637, ptr %2, align 4
+  %634 = load ptr, ptr %12, align 8
+  %635 = ptrtoint ptr %634 to i64
+  %636 = ptrtoint ptr %26 to i64
+  %637 = sub i64 %635, %636
+  %638 = trunc i64 %637 to i32
+  store i32 %638, ptr %2, align 4
   ret ptr %26
 }
 

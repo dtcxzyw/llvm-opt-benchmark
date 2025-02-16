@@ -731,8 +731,8 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %1 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %cmp.i.i.i.i.inv.i = icmp sgt i16 %1, -1
-  br i1 %cmp.i.i.i.i.inv.i, label %return, label %if.then6
+  %tobool.i.i.not = icmp sgt i16 %1, -1
+  br i1 %tobool.i.i.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 10

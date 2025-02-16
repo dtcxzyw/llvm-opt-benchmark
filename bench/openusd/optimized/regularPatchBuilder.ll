@@ -198,11 +198,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
   %65 = select i1 %35, i32 2, i32 0
   %66 = or disjoint i32 %65, %64
   %67 = select i1 %45, i32 4, i32 0
-  %68 = or disjoint i32 %66, %67
+  %.not.i = or disjoint i32 %66, %67
   %.not.i = icmp eq i32 %68, 0
   br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, label %69
 
-69:                                               ; preds = %63
+69:; preds = %63
   %70 = icmp eq i32 %51, 0
   br i1 %70, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, label %71
 

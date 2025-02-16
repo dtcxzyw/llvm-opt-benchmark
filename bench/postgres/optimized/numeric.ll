@@ -2490,18 +2490,18 @@ define range(i32 -1, -2147483648) i32 @PGTYPESnumeric_cmp(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr noundef captures(none) initializes((16, 20)) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 17
-  %spec.select.i = and i32 %3, 16384
-  %4 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
-  %spec.select43.i = zext i32 %4 to i64
+  %4 = and i32 %3, 16384
+  %5 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
+  %spec.select.i = zext i32 %5 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %spec.select.i, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %6, %2
-  %.036.i = phi i32 [ 0, %2 ], [ %7, %6 ]
-  %.0.i = phi i64 [ 1, %2 ], [ %8, %6 ]
-  %7 = add nuw nsw i32 %.036.i, 1
-  %8 = mul i64 %.0.i, 10
+  %.036 = phi i32 [ 0, %2 ], [ %7, %6 ]
+  %.0 = phi i64 [ 1, %2 ], [ %8, %6 ]
+  %7 = add nuw nsw i32 %.036, 1
+  %8 = mul i64 %.0, 10
   %9 = add i64 %8, -1
   %10 = icmp slt i64 %9, %spec.select43.i
   %11 = icmp slt i64 %8, 922337203685477581
@@ -2513,21 +2513,21 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr noundef
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add nuw i32 %.036.i, 3
+  %16 = add nuw i32 %.036, 3
   br label %20
 
 17:                                               ; preds = %13
-  %18 = add nuw i32 %.036.i, 2
+  %18 = add nuw i32 %.036, 2
   %19 = sdiv i64 %8, 10
   br label %20
 
 20:                                               ; preds = %17, %15
-  %.137.i = phi i32 [ %16, %15 ], [ %18, %17 ]
-  %.1.i = phi i64 [ %8, %15 ], [ %19, %17 ]
+  %.137 = phi i32 [ %16, %15 ], [ %18, %17 ]
+  %.1 = phi i64 [ %8, %15 ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #14
-  %23 = add i32 %.137.i, 1
+  %23 = add i32 %.137, 1
   %24 = sext i32 %23 to i64
   %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #14
   store ptr %25, ptr %21, align 8
@@ -2540,31 +2540,31 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr noundef
   %29 = getelementptr i8, ptr %28, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %29, ptr %30, align 8
-  store i32 %.137.i, ptr %1, align 8
+  store i32 %.137, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %32, align 4
-  %33 = add i32 %.137.i, -2
+  %33 = add i32 %.137, -2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %33, ptr %34, align 4
   br label %35
 
 35:                                               ; preds = %35, %27
-  %.035.i = phi i32 [ 0, %27 ], [ %42, %35 ]
-  %.134.i = phi i64 [ %spec.select43.i, %27 ], [ %36, %35 ]
-  %.2.i = phi i64 [ %.1.i, %27 ], [ %43, %35 ]
-  %36 = srem i64 %.134.i, %.2.i
-  %37 = sdiv i64 %.134.i, %.2.i
+  %.035 = phi i32 [ 0, %27 ], [ %42, %35 ]
+  %.134 = phi i64 [ %spec.select43.i, %27 ], [ %36, %35 ]
+  %.2 = phi i64 [ %.1, %27 ], [ %43, %35 ]
+  %36 = srem i64 %.134, %.2
+  %37 = sdiv i64 %.134, %.2
   %38 = trunc i64 %37 to i8
   %39 = load ptr, ptr %30, align 8
-  %40 = sext i32 %.035.i to i64
+  %40 = sext i32 %.035 to i64
   %41 = getelementptr i8, ptr %39, i64 %40
   store i8 %38, ptr %41, align 1
-  %42 = add i32 %.035.i, 1
-  %43 = sdiv i64 %.2.i, 10
-  %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %PGTYPESnumeric_from_long.exit, label %35, !llvm.loop !40
+  %42 = add i32 %.035, 1
+  %43 = sdiv i64 %.2, 10
+  %44 = icmp eq i64 %36, 0
+  br i1 %44, label %PGTYPESnumeric_from_long.exit, label %35, !llvm.loop !40
 
 PGTYPESnumeric_from_long.exit:                    ; preds = %35, %20
   %.032.i = phi i32 [ -1, %20 ], [ 0, %35 ]
@@ -2633,8 +2633,8 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nounde
   store i32 %32, ptr %33, align 4
   br label %34
 
-34:                                               ; preds = %34, %26
-  %.035 = phi i32 [ 0, %26 ], [ %41, %34 ]
+alloc_var.exit.thread:                            ; preds = %34, %26
+  %.032 = phi i32 [ 0, %26 ], [ %41, %34 ]
   %.134 = phi i64 [ %spec.select43, %26 ], [ %35, %34 ]
   %.2 = phi i64 [ %.1, %26 ], [ %42, %34 ]
   %35 = srem i64 %.134, %.2

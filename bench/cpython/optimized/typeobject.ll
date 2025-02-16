@@ -15441,46 +15441,46 @@ lookup_maybe_method.exit.thread8.i:               ; preds = %lookup_maybe_method
   %29 = add nuw i64 %2, 9223372036854775807
   %.07.i = getelementptr i8, ptr %1, i64 %.07.idx.i
   %.0.i = select i1 %.not.i.i, i64 %29, i64 %2
-  %30 = and i64 %.val6.i.i.i, 2048
-  %.not.i.i.i13 = icmp eq i64 %30, 0
+  %31 = and i64 %.val6.i.i.i, 2048
+  %.not.i.i.i13 = icmp eq i64 %31, 0
   br i1 %.not.i.i.i13, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
-  %32 = load i64, ptr %31, align 8, !tbaa !274
-  %33 = getelementptr i8, ptr %.0.i7.i.ph, i64 %32
-  %.0.copyload.i.i.i = load ptr, ptr %33, align 1
-  %34 = icmp eq ptr %.0.copyload.i.i.i, null
-  br i1 %34, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %37
+  %32 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
+  %33 = load i64, ptr %32, align 8, !tbaa !274
+  %34 = getelementptr i8, ptr %.0.i7.i.ph, i64 %33
+  %.0.copyload.i.i.i = load ptr, ptr %34, align 1
+  %35 = icmp eq ptr %.0.copyload.i.i.i, null
+  br i1 %35, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %38
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %28
-  %35 = and i64 %.0.i, 9223372036854775807
-  %36 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %5, ptr noundef nonnull %.0.i7.i.ph, ptr noundef %.07.i, i64 noundef %35, ptr noundef null) #24
+  %36 = and i64 %.0.i, 9223372036854775807
+  %37 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %5, ptr noundef nonnull %.0.i7.i.ph, ptr noundef %.07.i, i64 noundef %36, ptr noundef null) #24
   br label %vectorcall_unbound.exit
 
-37:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %38 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.0.i7.i.ph, ptr noundef %.07.i, i64 noundef %.0.i, ptr noundef null) #24
-  %39 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %5, ptr noundef nonnull %.0.i7.i.ph, ptr noundef %38, ptr noundef null) #24
+38:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
+  %39 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.0.i7.i.ph, ptr noundef %.07.i, i64 noundef %.0.i, ptr noundef null) #24
+  %40 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %5, ptr noundef nonnull %.0.i7.i.ph, ptr noundef %39, ptr noundef null) #24
   br label %vectorcall_unbound.exit
 
-vectorcall_unbound.exit:                          ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %37
-  %.0.i.i = phi ptr [ %36, %_PyVectorcall_FunctionInline.exit.thread.i.i ], [ %39, %37 ]
-  %40 = load i32, ptr %.0.i7.i.ph, align 8, !tbaa !102
-  %.not.i = icmp sgt i32 %40, -1
-  br i1 %.not.i, label %41, label %lookup_method.exit
+vectorcall_unbound.exit:                          ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %38
+  %.0.i.i = phi ptr [ %37, %_PyVectorcall_FunctionInline.exit.thread.i.i ], [ %40, %38 ]
+  %41 = load i32, ptr %.0.i7.i.ph, align 8, !tbaa !102
+  %.not.i = icmp sgt i32 %41, -1
+  br i1 %.not.i, label %42, label %lookup_method.exit
 
-41:                                               ; preds = %vectorcall_unbound.exit
-  %42 = add nsw i32 %40, -1
-  store i32 %42, ptr %.0.i7.i.ph, align 8, !tbaa !102
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %lookup_method.exit
+42:                                               ; preds = %vectorcall_unbound.exit
+  %43 = add nsw i32 %41, -1
+  store i32 %43, ptr %.0.i7.i.ph, align 8, !tbaa !102
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %lookup_method.exit
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i7.i.ph) #24
   br label %lookup_method.exit
 
-lookup_method.exit:                               ; preds = %44, %41, %vectorcall_unbound.exit, %26, %lookup_maybe_method.exit.thread8.i
-  %.0 = phi ptr [ null, %lookup_maybe_method.exit.thread8.i ], [ null, %26 ], [ %.0.i.i, %vectorcall_unbound.exit ], [ %.0.i.i, %41 ], [ %.0.i.i, %44 ]
+lookup_method.exit:                               ; preds = %45, %42, %vectorcall_unbound.exit, %26, %lookup_maybe_method.exit.thread8.i
+  %.0 = phi ptr [ null, %lookup_maybe_method.exit.thread8.i ], [ null, %26 ], [ %.0.i.i, %vectorcall_unbound.exit ], [ %.0.i.i, %42 ], [ %.0.i.i, %45 ]
   ret ptr %.0
 }
 
@@ -32719,46 +32719,46 @@ lookup_maybe_method.exit.thread:                  ; preds = %lookup_maybe_method
   %.07.idx.i = phi i64 [ 8, %lookup_maybe_method.exit.lookup_maybe_method.exit.thread_crit_edge ], [ 8, %12 ], [ 0, %8 ]
   %.0.i18 = phi ptr [ %16, %lookup_maybe_method.exit.lookup_maybe_method.exit.thread_crit_edge ], [ %6, %12 ], [ %6, %8 ]
   %.07.i = getelementptr i8, ptr %2, i64 %.07.idx.i
-  %24 = and i64 %.val6.i.i.i, 2048
-  %.not.i.i.i = icmp eq i64 %24, 0
+  %25 = and i64 %.val6.i.i.i, 2048
+  %.not.i.i.i = icmp eq i64 %25, 0
   br i1 %.not.i.i.i, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %lookup_maybe_method.exit.thread
-  %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !274
-  %27 = getelementptr i8, ptr %.0.i18, i64 %26
-  %.0.copyload.i.i.i = load ptr, ptr %27, align 1
-  %28 = icmp eq ptr %.0.copyload.i.i.i, null
-  br i1 %28, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %31
+  %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
+  %27 = load i64, ptr %26, align 8, !tbaa !274
+  %28 = getelementptr i8, ptr %.0.i18, i64 %27
+  %.0.copyload.i.i.i = load ptr, ptr %28, align 1
+  %29 = icmp eq ptr %.0.copyload.i.i.i, null
+  br i1 %29, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %32
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %lookup_maybe_method.exit.thread
-  %29 = and i64 %.0.i13, 3
-  %30 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %0, ptr noundef nonnull %.0.i18, ptr noundef %.07.i, i64 noundef %29, ptr noundef null) #24
+  %30 = and i64 %.0.i13, 3
+  %31 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %0, ptr noundef nonnull %.0.i18, ptr noundef %.07.i, i64 noundef %30, ptr noundef null) #24
   br label %vectorcall_unbound.exit
 
-31:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %32 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.0.i18, ptr noundef %.07.i, i64 noundef %.0.i13, ptr noundef null) #24
-  %33 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %0, ptr noundef nonnull %.0.i18, ptr noundef %32, ptr noundef null) #24
+32:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
+  %33 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.0.i18, ptr noundef %.07.i, i64 noundef %.0.i13, ptr noundef null) #24
+  %34 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %0, ptr noundef nonnull %.0.i18, ptr noundef %33, ptr noundef null) #24
   br label %vectorcall_unbound.exit
 
-vectorcall_unbound.exit:                          ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %31
-  %.0.i.i = phi ptr [ %30, %_PyVectorcall_FunctionInline.exit.thread.i.i ], [ %33, %31 ]
-  %34 = load i32, ptr %.0.i18, align 8, !tbaa !102
-  %.not.i = icmp sgt i32 %34, -1
-  br i1 %.not.i, label %35, label %Py_DECREF.exit
+vectorcall_unbound.exit:                          ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %32
+  %.0.i.i = phi ptr [ %31, %_PyVectorcall_FunctionInline.exit.thread.i.i ], [ %34, %32 ]
+  %35 = load i32, ptr %.0.i18, align 8, !tbaa !102
+  %.not.i = icmp sgt i32 %35, -1
+  br i1 %.not.i, label %36, label %Py_DECREF.exit
 
-35:                                               ; preds = %vectorcall_unbound.exit
-  %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %.0.i18, align 8, !tbaa !102
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %Py_DECREF.exit
+36:                                               ; preds = %vectorcall_unbound.exit
+  %37 = add nsw i32 %35, -1
+  store i32 %37, ptr %.0.i18, align 8, !tbaa !102
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %Py_DECREF.exit
 
-38:                                               ; preds = %35
+39:                                               ; preds = %36
   tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i18) #24
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %38, %35, %vectorcall_unbound.exit, %lookup_maybe_method.exit.thread19
-  %.0 = phi ptr [ %_Py_NotImplementedStruct., %lookup_maybe_method.exit.thread19 ], [ %.0.i.i, %vectorcall_unbound.exit ], [ %.0.i.i, %35 ], [ %.0.i.i, %38 ]
+Py_DECREF.exit:                                   ; preds = %39, %36, %vectorcall_unbound.exit, %lookup_maybe_method.exit.thread19
+  %.0 = phi ptr [ %_Py_NotImplementedStruct., %lookup_maybe_method.exit.thread19 ], [ %.0.i.i, %vectorcall_unbound.exit ], [ %.0.i.i, %36 ], [ %.0.i.i, %39 ]
   ret ptr %.0
 }
 

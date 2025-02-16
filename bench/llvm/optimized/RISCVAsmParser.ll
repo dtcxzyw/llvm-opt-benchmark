@@ -8552,8 +8552,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61: ; preds = %_ZNK12_G
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 232
   %106 = load i64, ptr %105, align 8, !tbaa !53
   %107 = trunc i64 %106 to i32
-  %108 = and i32 %107, 4
-  %spec.select = xor i32 %108, 4
+  %.not78 = and i32 %107, 4
+  %brmerge.not = xor i32 %.not78, 4
   br label %.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61.thread: ; preds = %_ZNK12_GLOBAL__N_112RISCVOperand10isGPRAsFPREv.exit.thread, %97, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit61

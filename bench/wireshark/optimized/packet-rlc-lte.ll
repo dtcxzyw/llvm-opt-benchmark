@@ -3430,17 +3430,17 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   %. = select i1 %.not29, i32 1, i32 2
   br label %33
 
-26:                                               ; preds = %7
-  %27 = load i32, ptr @hf_rlc_lte_extension_e, align 4
-  %28 = shl i32 %.01, 3
-  %29 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
+54:                                               ; preds = %7
+  %55 = load i32, ptr @hf_rlc_lte_extension_e, align 4
+  %56 = shl i32 %.01, 3
+  %57 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0) #13
   %30 = load i32, ptr @hf_rlc_lte_extension_li, align 4
   %31 = or disjoint i32 %28, 1
   %32 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 15, ptr noundef nonnull %5, i32 noundef 0) #13
   br label %33
 
-33:                                               ; preds = %14, %26
-  %.sink = phi i32 [ 2, %26 ], [ %., %14 ]
+58:                                               ; preds = %14, %54
+  %.2 = phi i32 [ 2, %54 ], [ %., %14 ]
   %34 = add i32 %.01, %.sink
   %35 = load i64, ptr %5, align 8
   %36 = trunc i64 %35 to i32

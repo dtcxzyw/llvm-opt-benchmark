@@ -17710,7 +17710,7 @@ define linkonce_odr void @_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloat
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  br i1 %5, label %.sink.split, label %55
+  br i1 %5, label %.sink.split, label %57
 
 9:                                                ; preds = %3
   %10 = and i32 %.sroa.0.0.copyload.i.i, 8388607
@@ -17798,21 +17798,21 @@ _ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51
   %brmerge.i = or i1 %.023.i, %or.cond.not28.i
   %spec.select.i = select i1 %38, i16 1, i16 %.1.lcssa.i
   %.2.i = select i1 %brmerge.i, i16 %.1.lcssa.i, i16 %spec.select.i
-  %spec.select26.i = select i1 %5, i16 -32768, i16 0
+  %49 = select i1 %5, i16 -32768, i16 0
   %49 = shl i16 %.0.lcssa.i, 10
-  %50 = add i16 %49, 15360
+  %spec.select26.i = add i16 %50, 15360
   %51 = and i16 %50, 31744
   %52 = and i16 %.2.i, 1023
-  %53 = or disjoint i16 %51, %spec.select26.i
+  %53 = or disjoint i16 %51, %49
   %54 = or disjoint i16 %53, %52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %.critedge38, %.critedge39, %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit
   %.sink = phi i16 [ %54, %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit ], [ %36, %.critedge39 ], [ %31, %.critedge38 ], [ -32768, %8 ]
   store i16 %.sink, ptr %1, align 2
-  br label %55
+  br label %57
 
-55:                                               ; preds = %.sink.split, %8
+57:                                               ; preds = %.sink.split, %8
   ret void
 }
 

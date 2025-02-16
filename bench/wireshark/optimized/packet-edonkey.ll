@@ -3002,13 +3002,13 @@ define internal noundef i32 @dissect_emule_sourceOBFU(ptr noundef %0, ptr readno
   %19 = add i32 %2, 7
   br i1 %.not, label %24, label %20
 
-20:                                               ; preds = %4
+20:; preds = %4
   %21 = load i32, ptr @hf_edonkey_client_hash, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %19, i32 noundef 16, i32 noundef 0) #7
   %23 = add i32 %2, 23
   br label %24
 
-24:                                               ; preds = %20, %4
+24:; preds = %20, %4
   %.0 = phi i32 [ %23, %20 ], [ %19, %4 ]
   ret i32 %.0
 }

@@ -13240,30 +13240,30 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   %10 = load i24, ptr %2, align 8
   %11 = xor i24 %10, %9
   %12 = and i24 %11, 3670016
-  %.not.i = icmp eq i24 %12, 0
-  br i1 %.not.i, label %13, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTraitExprES4_.exit
+  %13 = icmp eq i24 %12, 0
+  br i1 %13, label %13, label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTraitExprES4_.exit
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %0, align 8, !tbaa !613
-  %15 = and i24 %9, 4194304
-  %.not.i7 = icmp eq i24 %15, 0
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %.sroa.0.0.in.idx.i8 = select i1 %.not.i7, i64 8, i64 0
-  %.sroa.0.0.in.i9 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.0.0.in.idx.i8
-  %.sroa.0.0.i10 = load i64, ptr %.sroa.0.0.in.i9, align 8, !tbaa !82
-  %18 = and i24 %10, 4194304
-  %.not.i6 = icmp eq i24 %18, 0
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %0, align 8, !tbaa !613
+  %17 = and i24 %9, 4194304
+  %18 = icmp eq i24 %17, 0
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %.sroa.0.0.in.idx.i = select i1 %.not.i6, i64 8, i64 0
+  %.sroa.0.0.in.idx.i6 = select i1 %21, i64 8, i64 0
+  %.sroa.0.0.in.i7 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.0.0.in.idx.i6
+  %.sroa.0.0.i8 = load i64, ptr %.sroa.0.0.in.i7, align 8, !tbaa !82
+  %21 = and i24 %10, 4194304
+  %22 = icmp eq i24 %21, 0
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %.sroa.0.0.in.idx.i = select i1 %22, i64 8, i64 0
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.0.0.in.idx.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !82
-  %21 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %14, i64 %.sroa.0.0.i10, i64 %.sroa.0.0.i)
+  %25 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %16, i64 %.sroa.0.0.i8, i64 %.sroa.0.0.i)
   br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTraitExprES4_.exit
 
-_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTraitExprES4_.exit: ; preds = %13, %8, %3
-  %.0 = phi i1 [ false, %3 ], [ %21, %13 ], [ false, %8 ]
+_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTraitExprES4_.exit: ; preds = %15, %8, %3
+  %.0 = phi i1 [ false, %3 ], [ %25, %15 ], [ false, %8 ]
   ret i1 %.0
 }
 

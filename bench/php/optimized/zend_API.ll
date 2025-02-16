@@ -18128,16 +18128,16 @@ define void @zend_declare_property_string(ptr noundef %0, ptr noundef readonly c
 16:                                               ; preds = %14, %12
   %17 = phi i32 [ 150, %12 ], [ 22, %14 ]
   %18 = phi ptr [ %13, %12 ], [ %15, %14 ]
-  store i32 1, ptr %18, align 4
+  store i32 1, ptr %19, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %17, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %7, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 0, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %7, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %3, i64 %7, i1 false)
-  %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %7
+  %24 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %7
   store i8 0, ptr %23, align 1
   store ptr %18, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -18167,16 +18167,16 @@ define void @zend_declare_property_stringl(ptr noundef %0, ptr noundef readonly 
 16:                                               ; preds = %14, %12
   %17 = phi i32 [ 150, %12 ], [ 22, %14 ]
   %18 = phi ptr [ %13, %12 ], [ %15, %14 ]
-  store i32 1, ptr %18, align 4
+  store i32 1, ptr %19, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %17, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %4, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 0, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %4, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %3, i64 %4, i1 false)
-  %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %4
+  %24 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %4
   store i8 0, ptr %23, align 1
   store ptr %18, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -18506,13 +18506,13 @@ define void @zend_declare_class_constant_stringl(ptr noundef %0, ptr noundef %1,
   store i32 1, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %16, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %4, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %4, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %3, i64 %4, i1 false)
-  %22 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %4
+  %23 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %4
   store i8 0, ptr %22, align 1
   store ptr %17, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -18547,13 +18547,13 @@ zend_declare_class_constant_stringl.exit:         ; preds = %11, %13
   store i32 1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %15, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %6, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %6, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull readonly align 1 %3, i64 %6, i1 false)
-  %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %6
+  %22 = getelementptr inbounds [1 x i8], ptr %21, i64 0, i64 %6
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8

@@ -8545,7 +8545,7 @@ entry:
   %tobool.i.i14.not.i = icmp eq i8 %1, 0
   %m_upper_combine13.i = getelementptr inbounds nuw i8, ptr %b_deps, i64 2
   %..i = zext i1 %tobool.i.i.not.i to i16
-  %.16.i = select i1 %tobool.i.i14.not.i, i16 2, i16 0
+  %1 = select i1 %tobool.i.i14.not.i, i16 2, i16 0
   store i16 %.16.i, ptr %b_deps, align 2
   store i16 %..i, ptr %m_upper_combine13.i, align 2
   tail call void @_ZN16interval_managerIN13dep_intervals9im_configEE3negERKNS1_8intervalERS3_(ptr noundef nonnull align 8 dereferenceable(672) %this, ptr noundef nonnull align 8 dereferenceable(88) %a, ptr noundef nonnull align 8 dereferenceable(88) %b)
@@ -8563,7 +8563,7 @@ entry:
   %tobool.i.i14.not = icmp eq i8 %1, 0
   %m_upper_combine13 = getelementptr inbounds nuw i8, ptr %b_deps, i64 2
   %. = zext i1 %tobool.i.i.not to i16
-  %.16 = select i1 %tobool.i.i14.not, i16 2, i16 0
+  %1 = select i1 %tobool.i.i14.not, i16 2, i16 0
   store i16 %.16, ptr %b_deps, align 2
   store i16 %., ptr %m_upper_combine13, align 2
   ret void

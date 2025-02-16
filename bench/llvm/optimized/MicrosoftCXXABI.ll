@@ -5546,8 +5546,8 @@ define internal { ptr, i32 } @_ZN12_GLOBAL__N_115MicrosoftCXXABI19getCatchAllTyp
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 70368744177664
-  %.not = icmp eq i64 %10, 0
-  %. = select i1 %.not, i32 64, i32 0
+  %11 = icmp eq i64 %10, 0
+  %12 = select i1 %11, i32 64, i32 0
   %.fca.1.insert = insertvalue { ptr, i32 } { ptr null, i32 poison }, i32 %., 1
   ret { ptr, i32 } %.fca.1.insert
 }

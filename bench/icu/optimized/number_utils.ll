@@ -1128,11 +1128,11 @@ _ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode.exit: ; preds = %if.else1
   store i32 %add, ptr %exponent, align 4
   %10 = bitcast double %d to i64
   %11 = icmp slt i64 %10, 0
-  %conv9 = select i1 %11, i8 -128, i8 0
-  %12 = load ptr, ptr %this, align 8
-  %bits = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = load i8, ptr %bits, align 4
-  %or = or i8 %13, %conv9
+  %12 = select i1 %11, i8 -128, i8 0
+  %conv9 = load ptr, ptr %this, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %bits = load i8, ptr %13, align 4
+  %14 = or i8 %bits, %conv9
   store i8 %or, ptr %bits, align 4
   br label %return
 

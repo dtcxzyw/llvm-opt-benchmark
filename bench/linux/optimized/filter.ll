@@ -27940,16 +27940,16 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %33 = load i32, ptr %18, align 4
   %. = select i1 %32, i32 %33, i32 1
   %.7 = select i1 %32, i32 0, i32 %33
-  %.8 = select i1 %32, i32 4, i32 0
+  %34 = select i1 %32, i32 4, i32 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, i8 0, i64 80, i1 false), !annotation !7
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %., ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %., ptr %35, align 4
   store i32 %.7, ptr %6, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 17
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i32 %37, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 0, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 19
   store i8 0, ptr %39, align 1
@@ -27957,16 +27957,16 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i8 %42, ptr %43, align 2
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 18
+  store i8 %42, ptr %42, align 2
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 78
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 78
   store i16 %47, ptr %49, align 2
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i16, ptr %50, align 4
@@ -27975,35 +27975,35 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %72, label %54
 
-54:                                               ; preds = %30
-  %55 = and i32 %2, 8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %60, label %57
+55:                                               ; preds = %30
+  %56 = and i32 %2, 8
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %61, label %58
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %59 = load i32, ptr %58, align 4
-  store i32 0, ptr %58, align 4
-  br label %60
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %60 = load i32, ptr %59, align 4
+  store i32 0, ptr %59, align 4
+  br label %61
 
-60:                                               ; preds = %57, %54
-  %61 = phi i32 [ %59, %57 ], [ 254, %54 ]
-  %62 = load ptr, ptr @ipv6_stub, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr %64(ptr noundef %0, i32 noundef %61) #34
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread, label %67, !prof !14
+61:                                               ; preds = %58, %55
+  %62 = phi i32 [ %60, %58 ], [ 254, %55 ]
+  %63 = load ptr, ptr @ipv6_stub, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call ptr %64(ptr noundef %0, i32 noundef %62) #34
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.thread, label %68, !prof !14
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr @ipv6_stub, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 %70(ptr noundef %0, ptr noundef nonnull %65, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
-  br label %81
+68:                                               ; preds = %61
+  %69 = load ptr, ptr @ipv6_stub, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 %70(ptr noundef %0, ptr noundef nonnull %66, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
+  br label %82
 
-72:                                               ; preds = %30
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 12
+73:                                               ; preds = %30
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %74, align 4
@@ -28013,56 +28013,56 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   store i32 0, ptr %76, align 8
   %77 = load ptr, ptr @ipv6_stub, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
+  %78 = load ptr, ptr %78, align 8
+  %79 = call i32 %79(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.8) #34
   br label %81
 
-81:                                               ; preds = %67, %72
-  %82 = phi i32 [ %71, %67 ], [ %80, %72 ]
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %.thread, !prof !9
+82:                                               ; preds = %68, %73
+  %83 = phi i32 [ %72, %68 ], [ %80, %73 ]
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %.thread, !prof !9
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, null
-  %88 = icmp ugt ptr %86, inttoptr (i64 -4096 to ptr)
-  %89 = or i1 %87, %88
-  br i1 %89, label %.thread, label %90, !prof !14
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  %89 = icmp ugt ptr %87, inttoptr (i64 -4096 to ptr)
+  %90 = or i1 %88, %89
+  br i1 %90, label %.thread, label %91, !prof !14
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %86, %92
-  br i1 %93, label %.thread, label %94, !prof !14
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp eq ptr %87, %93
+  br i1 %94, label %.thread, label %95, !prof !14
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %96 = load i8, ptr %95, align 4
-  switch i8 %96, label %99 [
-    i8 1, label %100
+95:                                               ; preds = %91
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %97 = load i8, ptr %96, align 4
+  switch i8 %97, label %100 [
+    i8 1, label %101
     i8 6, label %.thread
-    i8 7, label %97
-    i8 8, label %98
+    i8 7, label %98
+    i8 8, label %99
   ]
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   br label %.thread
 
-98:                                               ; preds = %94
+99:                                               ; preds = %95
   br label %.thread
 
-99:                                               ; preds = %94
+100:                                              ; preds = %95
   br label %.thread
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr @ipv6_stub, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %6, align 8
-  %105 = icmp ne i32 %104, 0
-  call void %103(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %104, i1 noundef zeroext %105, ptr noundef null, i32 noundef %.8) #34
-  br i1 %3, label %106, label %117
+101:                                              ; preds = %95
+  %102 = load ptr, ptr @ipv6_stub, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = load i32, ptr %6, align 8
+  %106 = icmp ne i32 %105, 0
+  call void %103(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %105, i1 noundef zeroext %106, ptr noundef null, i32 noundef %.8) #34
+  br i1 %3, label %106, label %118
 
 106:                                              ; preds = %100
   %107 = load ptr, ptr @ipv6_stub, align 8
@@ -28075,41 +28075,41 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %114 = icmp ult i32 %110, %113
   br i1 %114, label %115, label %117
 
-115:                                              ; preds = %106
-  %116 = trunc nuw i32 %110 to i16
+107:                                              ; preds = %106
+  %108 = trunc nuw i32 %110 to i16
   store i16 %116, ptr %111, align 2
   br label %.thread
 
-117:                                              ; preds = %106, %100
-  %118 = phi i32 [ %110, %106 ], [ 0, %100 ]
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %.thread
+118:                                              ; preds = %106, %101
+  %119 = phi i32 [ %110, %106 ], [ 0, %101 ]
+  %120 = load ptr, ptr %5, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %.thread
 
-123:                                              ; preds = %117
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 14
-  %125 = load i8, ptr %124, align 2
-  %126 = icmp eq i8 %125, 0
-  br i1 %126, label %129, label %127
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 14
+  %126 = load i8, ptr %125, align 2
+  %127 = icmp eq i8 %126, 0
+  br i1 %127, label %130, label %128
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false)
-  br label %129
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %129, i64 16, i1 false)
+  br label %130
 
-129:                                              ; preds = %127, %123
-  %130 = load ptr, ptr %119, align 8
-  %131 = load ptr, ptr %85, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
-  %133 = load i32, ptr %132, align 8
-  store i32 %133, ptr %35, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 216
-  %135 = load i32, ptr %134, align 8
-  store i32 %135, ptr %18, align 4
-  %136 = icmp samesign ult i32 %2, 16
-  br i1 %136, label %149, label %137
+130:                                              ; preds = %128, %124
+  %131 = load ptr, ptr %120, align 8
+  %132 = load ptr, ptr %86, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 128
+  %134 = load i32, ptr %133, align 8
+  store i32 %134, ptr %36, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 216
+  %136 = load i32, ptr %135, align 8
+  store i32 %136, ptr %18, align 4
+  %137 = icmp samesign ult i32 %2, 16
+  br i1 %137, label %149, label %137
 
 137:                                              ; preds = %129
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 124
@@ -28117,34 +28117,34 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %143, label %141
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw i8, ptr %131, i64 108
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds nuw i8, ptr %132, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %142, i64 16, i1 false)
   br label %149
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr @ipv6_bpf_stub, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
+142:                                              ; preds = %137
+  %143 = load ptr, ptr @ipv6_bpf_stub, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 %146(ptr noundef %0, ptr noundef %130, ptr noundef nonnull %44, i32 noundef 0, ptr noundef nonnull %7) #34
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.thread
 
-149:                                              ; preds = %143, %141, %129
-  %150 = and i32 %2, 4
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %152, label %166
+144:                                              ; preds = %143, %138, %129
+  %145 = and i32 %2, 4
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %152, label %166
 
-152:                                              ; preds = %149
-  %153 = call fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %130, ptr noundef nonnull %8)
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread, label %155
+167:                                              ; preds = %149
+  %168 = call fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %130, ptr noundef nonnull %8)
+  %169 = icmp eq ptr %153, null
+  br i1 %169, label %.thread, label %155
 
-155:                                              ; preds = %152
+155:; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 132
   %157 = load volatile i8, ptr %156, align 4
   %158 = and i8 %157, -34
-  %159 = icmp eq i8 %158, 0
+  %172 = icmp eq i8 %158, 0
   br i1 %159, label %.thread, label %160
 
 160:                                              ; preds = %155
@@ -28171,11 +28171,11 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   store i16 %171, ptr %172, align 2
   br label %.thread
 
-.thread:                                          ; preds = %60, %170, %166, %155, %152, %143, %117, %115, %99, %98, %97, %94, %90, %84, %81, %26, %22, %17, %13, %4
-  %173 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 2, %97 ], [ 8, %115 ], [ 4, %13 ], [ 4, %4 ], [ -19, %17 ], [ 5, %26 ], [ 4, %90 ], [ 1, %94 ], [ 6, %117 ], [ 9, %143 ], [ 7, %155 ], [ 7, %152 ], [ 5, %22 ], [ 4, %81 ], [ 4, %84 ], [ 0, %166 ], [ 0, %170 ], [ 4, %60 ]
+.thread:                                          ; preds = %61, %170, %166, %155, %152, %143, %118, %115, %100, %99, %98, %95, %91, %85, %82, %26, %22, %17, %13, %4
+  %174 = phi i32 [ 4, %100 ], [ 3, %99 ], [ 2, %98 ], [ 8, %115 ], [ 4, %13 ], [ 4, %4 ], [ -19, %17 ], [ 5, %26 ], [ 4, %91 ], [ 1, %95 ], [ 6, %118 ], [ 9, %143 ], [ 7, %155 ], [ 7, %152 ], [ 5, %22 ], [ 4, %81 ], [ 4, %84 ], [ 0, %166 ], [ 0, %170 ], [ 4, %60 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #34
-  ret i32 %173
+  ret i32 %174
 }
 
 ; Function Attrs: null_pointer_is_valid
