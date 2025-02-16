@@ -1074,23 +1074,23 @@ if.then102:                                       ; preds = %while.body91
   %shl.i62 = shl nuw i64 1, %sh_prom.i61
   store i64 %shl.i62, ptr %ref.tmp111, align 8
   %cmp.not.i63 = icmp ugt i64 %add110, %shl.i62
-  br i1 %cmp.not.i63, label %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %for.body125.preheader
+  br i1 %cmp.not.i63, label %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %if.end122
 
 _ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %if.then102
   %call.i66 = call noundef ptr @_ZN7logging17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp111, ptr noundef nonnull @.str.6)
   %tobool.not.i67 = icmp eq ptr %call.i66, null
-  br i1 %tobool.not.i67, label %for.body125.preheader, label %if.else116
+  br i1 %tobool.not.i67, label %if.end122, label %if.else116
 
 if.else116:                                       ; preds = %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp117, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull %call.i66)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp117) #17
-  br label %for.body125.preheader
+  br label %if.end122
 
-for.body125.preheader:                            ; preds = %if.else116, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.then102
+if.end122:                                        ; preds = %if.else116, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %if.then102
   br label %for.body125
 
-for.body125:                                      ; preds = %for.body125.preheader, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit113
-  %k.0198 = phi i64 [ %inc, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit113 ], [ 1, %for.body125.preheader ]
+for.body125:                                      ; preds = %if.end122, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit113
+  %k.0198 = phi i64 [ %inc, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit113 ], [ 1, %if.end122 ]
   %add127 = add i64 %k.0198, %j.0201
   %conv128 = trunc i64 %add127 to i32
   %41 = load i64, ptr %entries_offset.i57, align 8

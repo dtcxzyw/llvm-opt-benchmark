@@ -3410,7 +3410,7 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1, ptr %19, align 8
   %20 = icmp slt i64 %14, 1
-  br i1 %20, label %21, label %_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthread-pre-split
+  br i1 %20, label %21, label %41
 
 21:                                               ; preds = %3
   store i64 %17, ptr %15, align 8
@@ -3446,57 +3446,57 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE
   store i64 %39, ptr %6, align 8
   br label %97
 
-_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthread-pre-split: ; preds = %3
-  %40 = load i32, ptr %10, align 8
-  store i32 %40, ptr %8, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %42 = getelementptr i8, ptr %8, i64 -32
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %41, align 8
-  store ptr null, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %45 = getelementptr i8, ptr %8, i64 -24
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %44, align 8
-  store ptr null, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %48 = getelementptr i8, ptr %8, i64 -16
-  %49 = load i64, ptr %48, align 8
-  store i64 %49, ptr %47, align 8
-  store i64 0, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %51 = getelementptr i8, ptr %8, i64 -8
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  store i8 %53, ptr %50, align 8
-  %54 = load i64, ptr %6, align 8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %6, align 8
-  %56 = load i64, ptr %18, align 8
-  %.not78 = icmp eq i64 %56, 0
+40:                                               ; preds = %3
+  %41 = load i32, ptr %10, align 8
+  store i32 %41, ptr %8, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %43 = getelementptr i8, ptr %8, i64 -32
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %42, align 8
+  store ptr null, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %46 = getelementptr i8, ptr %8, i64 -24
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %45, align 8
+  store ptr null, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %49 = getelementptr i8, ptr %8, i64 -16
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %48, align 8
+  store i64 0, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %52 = getelementptr i8, ptr %8, i64 -8
+  %53 = load i8, ptr %52, align 8
+  %54 = and i8 %53, 1
+  store i8 %54, ptr %51, align 8
+  %55 = load i64, ptr %6, align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %6, align 8
+  %57 = load i64, ptr %18, align 8
+  %.not78 = icmp eq i64 %57, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthread-pre-split, %.lr.ph
-  %.09 = phi i64 [ %77, %.lr.ph ], [ 0, %_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthread-pre-split ]
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr %class.TrafficTypesRowData, ptr %57, i64 %.09
-  %59 = getelementptr i8, ptr %58, i64 -40
-  %60 = load i32, ptr %59, align 8
-  store i32 %60, ptr %58, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %62 = getelementptr i8, ptr %58, i64 -32
+.lr.ph:                                           ; preds = %40, %.lr.ph
+  %.09 = phi i64 [ %77, %.lr.ph ], [ 0, %40 ]
+  %58 = load ptr, ptr %11, align 8
+  %59 = getelementptr %class.TrafficTypesRowData, ptr %58, i64 %.09
+  %60 = getelementptr i8, ptr %59, i64 -40
+  %61 = load i32, ptr %60, align 8
+  store i32 %61, ptr %59, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %63 = getelementptr i8, ptr %59, i64 -32
   %63 = load ptr, ptr %61, align 8
   %64 = load ptr, ptr %62, align 8
   store ptr %64, ptr %61, align 8
   store ptr %63, ptr %62, align 8
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %66 = getelementptr i8, ptr %58, i64 -24
+  %66 = getelementptr i8, ptr %59, i64 -24
   %67 = load ptr, ptr %65, align 8
   %68 = load ptr, ptr %66, align 8
   store ptr %68, ptr %65, align 8
   store ptr %67, ptr %66, align 8
   %69 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %70 = getelementptr i8, ptr %58, i64 -16
+  %70 = getelementptr i8, ptr %59, i64 -16
   %71 = load i64, ptr %69, align 8
   %72 = load i64, ptr %70, align 8
   store i64 %72, ptr %69, align 8
@@ -3508,20 +3508,20 @@ _ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthr
   store i8 %76, ptr %75, align 8
   %77 = add i64 %.09, -1
   %78 = load i64, ptr %18, align 8
-  %.not7 = icmp eq i64 %77, %78
+  %79 = icmp eq i64 %77, %78
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN9QtPrivate16QGenericArrayOpsI19TrafficTypesRowDataE8Inserter5setupExx.exitthread-pre-split
-  %79 = load ptr, ptr %13, align 8
-  %80 = load i32, ptr %2, align 8
-  store i32 %80, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
+._crit_edge:                                      ; preds = %.lr.ph, %40
+  %80 = load ptr, ptr %13, align 8
+  %81 = load i32, ptr %2, align 8
+  store i32 %81, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %83 = load ptr, ptr %81, align 8
   %84 = load ptr, ptr %82, align 8
   store ptr %84, ptr %81, align 8
   store ptr %83, ptr %82, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = load ptr, ptr %85, align 8
   %88 = load ptr, ptr %86, align 8

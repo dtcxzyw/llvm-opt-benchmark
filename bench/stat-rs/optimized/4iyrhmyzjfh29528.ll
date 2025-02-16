@@ -1893,14 +1893,14 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   %11 = fcmp oeq double %1, 0.000000e+00
   br i1 %11, label %15, label %13
 
-.split45.us.sink.split:                           ; preds = %38, %54, %6, %15, %86
-  %.us-phi.sink = phi double [ %89, %86 ], [ %17, %15 ], [ %9, %6 ], [ %63, %54 ], [ %39, %38 ]
+.split45.us.sink.split:                           ; preds = %38, %54, %6, %15, %90
+  %.us-phi.sink = phi double [ %93, %90 ], [ %17, %15 ], [ %9, %6 ], [ %63, %54 ], [ %39, %38 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.us-phi.sink, ptr %12, align 8
   br label %.split45.us
 
-.split45.us:                                      ; preds = %.split.us, %53, %68, %.split45.us.sink.split
-  %.sink = phi i64 [ 21, %.split45.us.sink.split ], [ 17, %68 ], [ 17, %53 ], [ 17, %.split.us ]
+.split45.us:                                      ; preds = %.split.us, %54, %68, %.split45.us.sink.split
+  %.sink = phi i64 [ 21, %.split45.us.sink.split ], [ 17, %68 ], [ 17, %54 ], [ 17, %.split.us ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -1983,61 +1983,61 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   %52 = fneg double %1
   br label %53
 
-53:                                               ; preds = %54, %.split
+54:                                               ; preds = %54, %.split
   %.sroa.024.1 = phi double [ %51, %.split ], [ %63, %54 ]
-  %.sroa.013.0 = phi double [ 1.000000e+00, %.split ], [ %58, %54 ]
-  %.sroa.031.0 = phi i64 [ 1, %.split ], [ %55, %54 ]
+  %.sroa.013.0 = phi double [ 1.000000e+00, %.split ], [ %59, %54 ]
+  %.sroa.031.0 = phi i64 [ 1, %.split ], [ %56, %54 ]
   %exitcond55.not = icmp eq i64 %.sroa.031.0, 101
-  br i1 %exitcond55.not, label %.split45.us, label %54
+  br i1 %exitcond55.not, label %.split45.us, label %55
 
-54:                                               ; preds = %53
-  %55 = add nuw nsw i64 %.sroa.031.0, 1
-  %56 = uitofp nneg i64 %.sroa.031.0 to double
-  %57 = fdiv double %52, %56
-  %58 = fmul double %.sroa.013.0, %57
-  %59 = fneg double %58
+55:                                               ; preds = %54
+  %56 = add nuw nsw i64 %.sroa.031.0, 1
+  %57 = uitofp nneg i64 %.sroa.031.0 to double
+  %58 = fdiv double %52, %57
+  %59 = fmul double %.sroa.013.0, %58
+  %.not = fneg double %.not
   %60 = fsub double %56, %4
   %61 = fadd double %60, 1.000000e+00
   %62 = fdiv double %59, %61
-  %63 = fadd double %.sroa.024.1, %62
+  %60 = fadd double %.sroa.024.1, %62
   %64 = tail call double @llvm.fabs.f64(double %62)
   %65 = tail call double @llvm.fabs.f64(double %63)
   %66 = fmul double %65, 1.000000e-17
-  %67 = fcmp olt double %64, %66
+  %62 = fcmp olt double %64, %66
   br i1 %67, label %.split45.us.sink.split, label %53
 
-68:                                               ; preds = %69, %21
+68:; preds = %69, %21
   %.sroa.029.0 = phi i64 [ 1, %21 ], [ %70, %69 ]
   %.sroa.010.0 = phi double [ %23, %21 ], [ %82, %69 ]
   %.sroa.08.0 = phi double [ 1.000000e+100, %21 ], [ %80, %69 ]
-  %.sroa.05.0 = phi double [ %23, %21 ], [ %78, %69 ]
-  %.sroa.0.0 = phi double [ %22, %21 ], [ %75, %69 ]
+  %.sroa.022.0 = phi double [ %23, %21 ], [ %78, %69 ]
+  %67 = phi double [ %22, %21 ], [ %75, %69 ]
   %exitcond56.not = icmp eq i64 %.sroa.029.0, 101
-  br i1 %exitcond56.not, label %.split45.us, label %69
+  br i1 %exitcond56.not, label %.split45.us, label %73
 
-69:                                               ; preds = %68
-  %70 = add nuw nsw i64 %.sroa.029.0, 1
-  %71 = uitofp nneg i64 %.sroa.029.0 to double
-  %72 = fneg double %71
-  %73 = fadd double %24, %71
-  %74 = fmul double %73, %72
-  %75 = fadd double %.sroa.0.0, 2.000000e+00
-  %76 = fmul double %74, %.sroa.05.0
-  %77 = fadd double %76, %75
-  %78 = fdiv double 1.000000e+00, %77
-  %79 = fdiv double %74, %.sroa.08.0
-  %80 = fadd double %79, %75
-  %81 = fmul double %80, %78
-  %82 = fmul double %.sroa.010.0, %81
-  %83 = fadd double %81, -1.000000e+00
-  %84 = tail call double @llvm.fabs.f64(double %83)
-  %85 = fcmp olt double %84, 1.000000e-17
-  br i1 %85, label %86, label %68
+73:                                               ; preds = %68
+  %74 = add nuw nsw i64 %.sroa.029.0, 1
+  %75 = uitofp nneg i64 %.sroa.029.0 to double
+  %76 = fneg double %75
+  %77 = fadd double %24, %75
+  %78 = fmul double %77, %76
+  %79 = fadd double %.sroa.0.0, 2.000000e+00
+  %80 = fmul double %78, %.sroa.05.0
+  %81 = fadd double %80, %79
+  %82 = fdiv double 1.000000e+00, %81
+  %83 = fdiv double %78, %.sroa.08.0
+  %84 = fadd double %83, %79
+  %85 = fmul double %84, %82
+  %86 = fmul double %.sroa.010.0, %85
+  %87 = fadd double %85, -1.000000e+00
+  %88 = tail call double @llvm.fabs.f64(double %87)
+  %89 = fcmp olt double %88, 1.000000e-17
+  br i1 %89, label %90, label %68
 
-86:                                               ; preds = %69
-  %87 = fneg double %1
-  %88 = tail call double @llvm.exp.f64(double %87)
-  %89 = fmul double %88, %82
+90:                                               ; preds = %73
+  %91 = fneg double %1
+  %92 = tail call double @llvm.exp.f64(double %91)
+  %93 = fmul double %92, %86
   br label %.split45.us.sink.split
 }
 

@@ -1035,7 +1035,7 @@ define dso_local void @hugetlb_fix_reserve_counts(ptr noundef readonly captures(
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
   %17 = icmp sgt i64 %16, %11
-  br i1 %17, label %.critedge8, label %18
+  br i1 %17, label %39, label %18
 
 18:                                               ; preds = %13
   store i64 %16, ptr %14, align 8
@@ -1059,7 +1059,7 @@ define dso_local void @hugetlb_fix_reserve_counts(ptr noundef readonly captures(
   %.inv = icmp sgt i64 %25, 0
   store i64 %29, ptr %24, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %7) #22
-  br i1 %.inv, label %.thread7, label %30
+  br i1 %.inv, label %.thread9, label %30
 
 .thread5:                                         ; preds = %23, %19
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %7) #22
@@ -1068,7 +1068,7 @@ define dso_local void @hugetlb_fix_reserve_counts(ptr noundef readonly captures(
 30:                                               ; preds = %27
   %notsub = add i64 %25, -2
   %31 = icmp slt i64 %notsub, -1
-  br i1 %31, label %.thread, label %.critedge
+  br i1 %31, label %.thread, label %.thread8
 
 .thread:                                          ; preds = %1, %.thread5, %30
   %32 = load ptr, ptr %2, align 8
@@ -1078,17 +1078,17 @@ define dso_local void @hugetlb_fix_reserve_counts(ptr noundef readonly captures(
   %36 = load ptr, ptr %35, align 8
   %37 = tail call fastcc i32 @hugetlb_acct_memory(ptr noundef %36, i64 noundef 1), !range !6
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.thread7, label %.critedge
+  br i1 %38, label %.thread9, label %.thread8
 
-.critedge8:                                       ; preds = %13
+39:                                               ; preds = %13
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %7) #22
-  br label %.critedge
+  br label %.thread8
 
-.critedge:                                        ; preds = %30, %.critedge8, %.thread
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #25
-  br label %.thread7
+.thread8:                                         ; preds = %30, %39, %.thread
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #25
+  br label %.thread9
 
-.thread7:                                         ; preds = %27, %.thread, %.critedge
+.thread9:                                         ; preds = %27, %.thread, %.thread8
   ret void
 }
 
