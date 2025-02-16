@@ -7280,8 +7280,8 @@ should_validate_capability.exit.i:                ; preds = %for.inc.i, %entry
 land.lhs.true.i:                                  ; preds = %should_validate_capability.exit.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = and i8 %2, 1
-  %4 = zext nneg i8 %3 to i32
-  %spec.select.i = add i32 %result.05.i, %4
+  %inc.i = zext nneg i8 %3 to i32
+  %spec.select.i = add i32 %result.05.i, %inc.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %should_validate_capability.exit.i
@@ -7294,9 +7294,9 @@ get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
   %caps_count = getelementptr inbounds nuw i8, ptr %opaque, i64 92
   store i32 %result.1.i, ptr %caps_count, align 4
   %capabilities = getelementptr inbounds nuw i8, ptr %opaque, i64 96
-  %5 = load ptr, ptr %capabilities, align 8
+  %4 = load ptr, ptr %capabilities, align 8
   %conv7 = zext i32 %result.1.i to i64
-  %call8 = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %conv7, i64 noundef 4) #18
+  %call8 = tail call ptr @g_realloc_n(ptr noundef %4, i64 noundef %conv7, i64 noundef 4) #18
   store ptr %call8, ptr %capabilities, align 8
   %arrayidx = getelementptr i8, ptr %call1, i64 1096
   br label %should_validate_capability.exit
@@ -7308,15 +7308,15 @@ should_validate_capability.exit:                  ; preds = %get_validatable_cap
   br i1 %cond.i, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %should_validate_capability.exit
-  %6 = load i8, ptr %arrayidx, align 1
-  %tobool = trunc i8 %6 to i1
+  %5 = load i8, ptr %arrayidx, align 1
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  %7 = load ptr, ptr %capabilities, align 8
+  %6 = load ptr, ptr %capabilities, align 8
   %inc = add i32 %j.016, 1
   %idxprom16 = sext i32 %j.016 to i64
-  %arrayidx17 = getelementptr i32, ptr %7, i64 %idxprom16
+  %arrayidx17 = getelementptr i32, ptr %6, i64 %idxprom16
   store i32 16, ptr %arrayidx17, align 4
   br label %for.inc
 
@@ -7383,8 +7383,8 @@ should_validate_capability.exit.i:                ; preds = %for.inc.i, %entry
 land.lhs.true.i:                                  ; preds = %should_validate_capability.exit.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, 1
-  %2 = zext nneg i8 %1 to i32
-  %spec.select.i = add i32 %result.05.i, %2
+  %inc.i = zext nneg i8 %1 to i32
+  %spec.select.i = add i32 %result.05.i, %inc.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %should_validate_capability.exit.i

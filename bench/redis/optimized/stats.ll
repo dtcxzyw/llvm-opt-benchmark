@@ -3106,25 +3106,25 @@ if.then179:                                       ; preds = %for.body170
 do.end182:                                        ; preds = %for.body170
   %68 = load i8, ptr %arrayidx175, align 1
   %69 = and i8 %68, 1
-  %70 = zext nneg i8 %69 to i32
-  %spec.select = add i32 %ninitialized.0204, %70
+  %inc187 = zext nneg i8 %69 to i32
+  %spec.select = add i32 %ninitialized.0204, %inc187
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %71 = load i32, ptr %narenas, align 4
-  %72 = zext i32 %71 to i64
-  %cmp169 = icmp samesign ult i64 %indvars.iv.next210, %72
+  %70 = load i32, ptr %narenas, align 4
+  %71 = zext i32 %70 to i64
+  %cmp169 = icmp samesign ult i64 %indvars.iv.next210, %71
   br i1 %cmp169, label %for.body170, label %for.end191.loopexit, !llvm.loop !11
 
 for.end191.loopexit:                              ; preds = %do.end182
-  %73 = icmp ult i32 %spec.select, 2
+  %72 = icmp ult i32 %spec.select, 2
   br label %for.end191
 
 for.end191:                                       ; preds = %for.end191.loopexit, %for.cond168.preheader
-  %ninitialized.0.lcssa = phi i1 [ true, %for.cond168.preheader ], [ %73, %for.end191.loopexit ]
+  %ninitialized.0.lcssa = phi i1 [ true, %for.cond168.preheader ], [ %72, %for.end191.loopexit ]
   %arrayidx192 = getelementptr inbounds nuw i8, ptr %mib157, i64 8
   store i64 4097, ptr %arrayidx192, align 8
   store i64 1, ptr %sz159, align 8
-  %74 = load i64, ptr %miblen158, align 8
-  %call195 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib157, i64 noundef %74, ptr noundef nonnull %destroyed_initialized, ptr noundef nonnull %sz159, ptr noundef null, i64 noundef 0) #13
+  %73 = load i64, ptr %miblen158, align 8
+  %call195 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib157, i64 noundef %73, ptr noundef nonnull %destroyed_initialized, ptr noundef nonnull %sz159, ptr noundef null, i64 noundef 0) #13
   %cmp196.not = icmp eq i32 %call195, 0
   br i1 %cmp196.not, label %do.end201, label %if.then198
 
@@ -3148,8 +3148,8 @@ if.then208:                                       ; preds = %do.end201
   br label %if.end214
 
 if.end214:                                        ; preds = %if.then208, %do.end201
-  %75 = load i8, ptr %destroyed_initialized, align 1
-  %tobool215 = trunc i8 %75 to i1
+  %74 = load i8, ptr %destroyed_initialized, align 1
+  %tobool215 = trunc i8 %74 to i1
   %brmerge72.demorgan = and i1 %destroyed, %tobool215
   br i1 %brmerge72.demorgan, label %if.then220, label %if.end226
 
@@ -3164,8 +3164,8 @@ if.then220:                                       ; preds = %if.end214
 
 do.end.i140:                                      ; preds = %if.then220
   %nesting_depth.i.i141 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
-  %76 = load i32, ptr %nesting_depth.i.i141, align 8
-  %dec.i.i142 = add nsw i32 %76, -1
+  %75 = load i32, ptr %nesting_depth.i.i141, align 8
+  %dec.i.i142 = add nsw i32 %75, -1
   store i32 %dec.i.i142, ptr %nesting_depth.i.i141, align 8
   %item_at_depth.i.i143 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i143, align 4
@@ -3174,16 +3174,16 @@ do.end.i140:                                      ; preds = %if.then220
 
 if.then1.i145:                                    ; preds = %do.end.i140
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %77 = load i32, ptr %nesting_depth.i.i141, align 8
-  %78 = load i32, ptr %emitter, align 8
-  %cmp.i.i146 = icmp ne i32 %78, 0
+  %76 = load i32, ptr %nesting_depth.i.i141, align 8
+  %77 = load i32, ptr %emitter, align 8
+  %cmp.i.i146 = icmp ne i32 %77, 0
   %indent_str.0.i.i147 = select i1 %cmp.i.i146, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i148 = icmp sgt i32 %77, 0
+  %cmp15.i.i148 = icmp sgt i32 %76, 0
   br i1 %cmp15.i.i148, label %for.body.preheader.i.i150, label %if.end.i149
 
 for.body.preheader.i.i150:                        ; preds = %if.then1.i145
   %mul.i.i151 = zext i1 %cmp.i.i146 to i32
-  %amount.0.i.i152 = shl nuw nsw i32 %77, %mul.i.i151
+  %amount.0.i.i152 = shl nuw nsw i32 %76, %mul.i.i151
   br label %for.body.i.i153
 
 for.body.i.i153:                                  ; preds = %for.body.i.i153, %for.body.preheader.i.i150
@@ -3198,8 +3198,8 @@ if.end.i149:                                      ; preds = %for.body.i.i153, %i
   br label %if.end226
 
 if.end226:                                        ; preds = %if.end.i149, %if.then220, %if.end214
-  %79 = load i32, ptr %narenas, align 4
-  %cmp230205 = icmp ne i32 %79, 0
+  %78 = load i32, ptr %narenas, align 4
+  %cmp230205 = icmp ne i32 %78, 0
   %or.cond207 = select i1 %unmerged, i1 %cmp230205, i1 false
   br i1 %or.cond207, label %for.body232.lr.ph, label %if.end250
 
@@ -3211,24 +3211,24 @@ for.body232.lr.ph:                                ; preds = %if.end226
 for.body232:                                      ; preds = %for.body232.lr.ph, %for.inc247
   %indvars.iv212 = phi i64 [ 0, %for.body232.lr.ph ], [ %indvars.iv.next213, %for.inc247 ]
   %arrayidx234 = getelementptr inbounds nuw i8, ptr %vla, i64 %indvars.iv212
-  %80 = load i8, ptr %arrayidx234, align 1
-  %tobool235 = trunc i8 %80 to i1
+  %79 = load i8, ptr %arrayidx234, align 1
+  %tobool235 = trunc i8 %79 to i1
   br i1 %tobool235, label %if.then236, label %for.inc247
 
 if.then236:                                       ; preds = %for.body232
-  %81 = trunc nuw i64 %indvars.iv212 to i32
-  %call238 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.217, i32 noundef %81) #13
+  %80 = trunc nuw i64 %indvars.iv212 to i32
+  %call238 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.217, i32 noundef %80) #13
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull %arena_ind_str)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.265, ptr noundef nonnull %arena_ind_str)
-  call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %81, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
+  call fastcc void @stats_arena_print(ptr noundef %emitter, i32 noundef %80, i1 noundef zeroext %bins, i1 noundef zeroext %large, i1 noundef zeroext %mutex, i1 noundef zeroext %extents, i1 noundef zeroext %hpa) #15
   %emitter.val.i158 = load i32, ptr %emitter, align 8
   %spec.select.i.i159 = icmp ult i32 %emitter.val.i158, 2
   br i1 %spec.select.i.i159, label %do.end.i160, label %for.inc247
 
 do.end.i160:                                      ; preds = %if.then236
-  %82 = load i32, ptr %nesting_depth.i.i161, align 8
-  %dec.i.i162 = add nsw i32 %82, -1
+  %81 = load i32, ptr %nesting_depth.i.i161, align 8
+  %dec.i.i162 = add nsw i32 %81, -1
   store i32 %dec.i.i162, ptr %nesting_depth.i.i161, align 8
   store i8 1, ptr %item_at_depth.i.i163, align 4
   %cmp.not.i164 = icmp eq i32 %emitter.val.i158, 1
@@ -3236,16 +3236,16 @@ do.end.i160:                                      ; preds = %if.then236
 
 if.then1.i165:                                    ; preds = %do.end.i160
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %83 = load i32, ptr %nesting_depth.i.i161, align 8
-  %84 = load i32, ptr %emitter, align 8
-  %cmp.i.i166 = icmp ne i32 %84, 0
+  %82 = load i32, ptr %nesting_depth.i.i161, align 8
+  %83 = load i32, ptr %emitter, align 8
+  %cmp.i.i166 = icmp ne i32 %83, 0
   %indent_str.0.i.i167 = select i1 %cmp.i.i166, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i168 = icmp sgt i32 %83, 0
+  %cmp15.i.i168 = icmp sgt i32 %82, 0
   br i1 %cmp15.i.i168, label %for.body.preheader.i.i170, label %if.end.i169
 
 for.body.preheader.i.i170:                        ; preds = %if.then1.i165
   %mul.i.i171 = zext i1 %cmp.i.i166 to i32
-  %amount.0.i.i172 = shl nuw nsw i32 %83, %mul.i.i171
+  %amount.0.i.i172 = shl nuw nsw i32 %82, %mul.i.i171
   br label %for.body.i.i173
 
 for.body.i.i173:                                  ; preds = %for.body.i.i173, %for.body.preheader.i.i170
@@ -3261,9 +3261,9 @@ if.end.i169:                                      ; preds = %for.body.i.i173, %i
 
 for.inc247:                                       ; preds = %if.end.i169, %if.then236, %for.body232
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %85 = load i32, ptr %narenas, align 4
-  %86 = zext i32 %85 to i64
-  %cmp230 = icmp samesign ult i64 %indvars.iv.next213, %86
+  %84 = load i32, ptr %narenas, align 4
+  %85 = zext i32 %84 to i64
+  %cmp230 = icmp samesign ult i64 %indvars.iv.next213, %85
   br i1 %cmp230, label %for.body232, label %if.end250, !llvm.loop !12
 
 if.end250:                                        ; preds = %for.inc247, %if.end226
@@ -3273,8 +3273,8 @@ if.end250:                                        ; preds = %for.inc247, %if.end
 
 do.end.i180:                                      ; preds = %if.end250
   %nesting_depth.i.i181 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
-  %87 = load i32, ptr %nesting_depth.i.i181, align 8
-  %dec.i.i182 = add nsw i32 %87, -1
+  %86 = load i32, ptr %nesting_depth.i.i181, align 8
+  %dec.i.i182 = add nsw i32 %86, -1
   store i32 %dec.i.i182, ptr %nesting_depth.i.i181, align 8
   %item_at_depth.i.i183 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i183, align 4
@@ -3283,16 +3283,16 @@ do.end.i180:                                      ; preds = %if.end250
 
 if.then1.i185:                                    ; preds = %do.end.i180
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %88 = load i32, ptr %nesting_depth.i.i181, align 8
-  %89 = load i32, ptr %emitter, align 8
-  %cmp.i.i186 = icmp ne i32 %89, 0
+  %87 = load i32, ptr %nesting_depth.i.i181, align 8
+  %88 = load i32, ptr %emitter, align 8
+  %cmp.i.i186 = icmp ne i32 %88, 0
   %indent_str.0.i.i187 = select i1 %cmp.i.i186, ptr @.str.31, ptr @.str.34
-  %cmp15.i.i188 = icmp sgt i32 %88, 0
+  %cmp15.i.i188 = icmp sgt i32 %87, 0
   br i1 %cmp15.i.i188, label %for.body.preheader.i.i190, label %if.end.i189
 
 for.body.preheader.i.i190:                        ; preds = %if.then1.i185
   %mul.i.i191 = zext i1 %cmp.i.i186 to i32
-  %amount.0.i.i192 = shl nuw nsw i32 %88, %mul.i.i191
+  %amount.0.i.i192 = shl nuw nsw i32 %87, %mul.i.i191
   br label %for.body.i.i193
 
 for.body.i.i193:                                  ; preds = %for.body.i.i193, %for.body.preheader.i.i190

@@ -277,131 +277,131 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls_co
   br i1 %10, label %.lr.ph.split.us.split.us, label %mca_bml_base_btl_array_get_next.exit.us.preheader
 
 mca_bml_base_btl_array_get_next.exit.us.preheader: ; preds = %.lr.ph.split.us
-  %.pre62 = load i64, ptr %11, align 8
+  %.pre63 = load i64, ptr %11, align 8
   br label %mca_bml_base_btl_array_get_next.exit.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
   %16 = and i8 %15, 1
-  %17 = zext nneg i8 %16 to i32
-  %18 = mul nuw nsw i32 %3, %17
+  %not..us.us = zext nneg i8 %16 to i32
+  %17 = mul nuw nsw i32 %3, %not..us.us
   br label %._crit_edge30
 
 mca_bml_base_btl_array_get_next.exit.us:          ; preds = %mca_bml_base_btl_array_get_next.exit.us.preheader, %mca_bml_base_btl_array_get_next.exit.us
-  %19 = phi i64 [ %..i.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %.pre62, %mca_bml_base_btl_array_get_next.exit.us.preheader ]
+  %18 = phi i64 [ %..i.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %.pre63, %mca_bml_base_btl_array_get_next.exit.us.preheader ]
   %.028.us = phi i32 [ %spec.select.us, %mca_bml_base_btl_array_get_next.exit.us ], [ 0, %mca_bml_base_btl_array_get_next.exit.us.preheader ]
-  %.01927.us = phi i32 [ %25, %mca_bml_base_btl_array_get_next.exit.us ], [ 0, %mca_bml_base_btl_array_get_next.exit.us.preheader ]
-  %20 = add i64 %19, 1
-  %21 = icmp eq i64 %20, %.val21
-  %..i.us = select i1 %21, i64 0, i64 %20
+  %.01927.us = phi i32 [ %23, %mca_bml_base_btl_array_get_next.exit.us ], [ 0, %mca_bml_base_btl_array_get_next.exit.us.preheader ]
+  %19 = add i64 %18, 1
+  %20 = icmp eq i64 %19, %.val21
+  %..i.us = select i1 %20, i64 0, i64 %19
   store i64 %..i.us, ptr %11, align 8
-  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
-  %23 = and i8 %22, 1
-  %24 = zext nneg i8 %23 to i32
-  %spec.select.us = add i32 %.028.us, %24
-  %25 = add nuw nsw i32 %.01927.us, 1
-  %26 = icmp slt i32 %25, %3
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 224), align 16
-  %28 = icmp slt i32 %25, %27
-  %29 = select i1 %26, i1 %28, i1 false
-  br i1 %29, label %mca_bml_base_btl_array_get_next.exit.us, label %._crit_edge30, !llvm.loop !8
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
+  %22 = and i8 %21, 1
+  %not..us = zext nneg i8 %22 to i32
+  %spec.select.us = add i32 %.028.us, %not..us
+  %23 = add nuw nsw i32 %.01927.us, 1
+  %24 = icmp slt i32 %23, %3
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 224), align 16
+  %26 = icmp slt i32 %23, %25
+  %27 = select i1 %24, i1 %26, i1 false
+  br i1 %27, label %mca_bml_base_btl_array_get_next.exit.us, label %._crit_edge30, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
-  %31 = trunc i8 %30 to i1
-  %32 = and i8 %30, 1
-  br i1 %31, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
+  %29 = trunc i8 %28 to i1
+  %30 = and i8 %28, 1
+  br i1 %29, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us
-  %33 = zext nneg i8 %32 to i32
-  %34 = mul nuw nsw i32 %3, %33
+  %not..us37.us = zext nneg i8 %30 to i32
+  %31 = mul nuw nsw i32 %3, %not..us37.us
   br label %._crit_edge30
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %14, align 8
-  %38 = load ptr, ptr %36, align 8
-  %wide.trip.count57 = and i64 %.val.fr, 2147483647
+  %32 = load ptr, ptr %12, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %14, align 8
+  %35 = load ptr, ptr %33, align 8
+  %wide.trip.count58 = and i64 %.val.fr, 2147483647
   br label %mca_bml_base_btl_array_get_index.exit.us
 
-39:                                               ; preds = %mca_bml_base_btl_array_get_index.exit.us
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge30.loopexit65, label %mca_bml_base_btl_array_get_index.exit.us, !llvm.loop !9
+36:                                               ; preds = %mca_bml_base_btl_array_get_index.exit.us
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
+  br i1 %exitcond59.not, label %._crit_edge30.loopexit66, label %mca_bml_base_btl_array_get_index.exit.us, !llvm.loop !9
 
-mca_bml_base_btl_array_get_index.exit.us:         ; preds = %.lr.ph.split.split.us.split, %39
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph.split.split.us.split ], [ %indvars.iv.next55, %39 ]
-  %40 = icmp ugt i64 %.val.fr, %indvars.iv54
-  tail call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds nuw %struct.mca_bml_base_btl_t, ptr %37, i64 %indvars.iv54, i32 3
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %38
-  br i1 %43, label %._crit_edge30.loopexit65, label %39
+mca_bml_base_btl_array_get_index.exit.us:         ; preds = %.lr.ph.split.split.us.split, %36
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph.split.split.us.split ], [ %indvars.iv.next56, %36 ]
+  %37 = icmp ugt i64 %.val.fr, %indvars.iv55
+  tail call void @llvm.assume(i1 %37)
+  %38 = getelementptr inbounds nuw %struct.mca_bml_base_btl_t, ptr %34, i64 %indvars.iv55, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, %35
+  br i1 %40, label %._crit_edge30.loopexit66, label %36
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %44 = load ptr, ptr %12, align 8
-  %invariant.gep = getelementptr i8, ptr %44, i64 16
+  %41 = load ptr, ptr %12, align 8
+  %invariant.gep = getelementptr i8, ptr %41, i64 16
   %.pre = load i64, ptr %11, align 8
   %wide.trip.count = and i64 %.val.fr, 2147483647
   br label %mca_bml_base_btl_array_get_next.exit
 
 mca_bml_base_btl_array_get_next.exit:             ; preds = %.lr.ph.split.split, %mca_bml_base_btl_array_get_index.exit._crit_edge
-  %45 = phi i64 [ %.pre, %.lr.ph.split.split ], [ %..i, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
+  %42 = phi i64 [ %.pre, %.lr.ph.split.split ], [ %..i, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
   %.028 = phi i32 [ 0, %.lr.ph.split.split ], [ %spec.select, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
-  %.01927 = phi i32 [ 0, %.lr.ph.split.split ], [ %59, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
-  %46 = add i64 %45, 1
-  %47 = icmp eq i64 %46, %.val21
-  %..i = select i1 %47, i64 0, i64 %46
+  %.01927 = phi i32 [ 0, %.lr.ph.split.split ], [ %55, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
+  %43 = add i64 %42, 1
+  %44 = icmp eq i64 %43, %.val21
+  %..i = select i1 %44, i64 0, i64 %43
   store i64 %..i, ptr %11, align 8
-  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
-  %49 = trunc i8 %48 to i1
-  %50 = and i8 %48, 1
-  br i1 %49, label %mca_bml_base_btl_array_get_index.exit._crit_edge, label %mca_bml_base_btl_array_get_index.exit.lr.ph
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 232), align 8
+  %46 = trunc i8 %45 to i1
+  %47 = and i8 %45, 1
+  br i1 %46, label %mca_bml_base_btl_array_get_index.exit._crit_edge, label %mca_bml_base_btl_array_get_index.exit.lr.ph
 
 mca_bml_base_btl_array_get_index.exit.lr.ph:      ; preds = %mca_bml_base_btl_array_get_next.exit
-  %51 = load ptr, ptr %14, align 8
-  %gep = getelementptr %struct.mca_bml_base_btl_t, ptr %invariant.gep, i64 %45
-  %52 = load ptr, ptr %gep, align 8
+  %48 = load ptr, ptr %14, align 8
+  %gep = getelementptr %struct.mca_bml_base_btl_t, ptr %invariant.gep, i64 %42
+  %49 = load ptr, ptr %gep, align 8
   br label %mca_bml_base_btl_array_get_index.exit
 
-53:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
+50:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %mca_bml_base_btl_array_get_index.exit._crit_edge, label %mca_bml_base_btl_array_get_index.exit, !llvm.loop !9
 
-mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %indvars.iv.next, %53 ]
-  %54 = icmp ugt i64 %.val.fr, %indvars.iv
-  tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw %struct.mca_bml_base_btl_t, ptr %51, i64 %indvars.iv, i32 3
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, %52
-  br i1 %57, label %mca_bml_base_btl_array_get_index.exit._crit_edge, label %53
+mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %50
+  %indvars.iv = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %indvars.iv.next, %50 ]
+  %51 = icmp ugt i64 %.val.fr, %indvars.iv
+  tail call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw %struct.mca_bml_base_btl_t, ptr %48, i64 %indvars.iv, i32 3
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, %49
+  br i1 %54, label %mca_bml_base_btl_array_get_index.exit._crit_edge, label %50
 
-mca_bml_base_btl_array_get_index.exit._crit_edge: ; preds = %53, %mca_bml_base_btl_array_get_index.exit, %mca_bml_base_btl_array_get_next.exit
-  %.018 = phi i8 [ %50, %mca_bml_base_btl_array_get_next.exit ], [ 1, %mca_bml_base_btl_array_get_index.exit ], [ %50, %53 ]
-  %58 = zext nneg i8 %.018 to i32
-  %spec.select = add i32 %.028, %58
-  %59 = add nuw nsw i32 %.01927, 1
-  %60 = icmp slt i32 %59, %3
-  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 224), align 16
-  %62 = icmp slt i32 %59, %61
-  %63 = select i1 %60, i1 %62, i1 false
-  br i1 %63, label %mca_bml_base_btl_array_get_next.exit, label %._crit_edge30, !llvm.loop !8
+mca_bml_base_btl_array_get_index.exit._crit_edge: ; preds = %50, %mca_bml_base_btl_array_get_index.exit, %mca_bml_base_btl_array_get_next.exit
+  %.018 = phi i8 [ %47, %mca_bml_base_btl_array_get_next.exit ], [ 1, %mca_bml_base_btl_array_get_index.exit ], [ %47, %50 ]
+  %not. = zext nneg i8 %.018 to i32
+  %spec.select = add i32 %.028, %not.
+  %55 = add nuw nsw i32 %.01927, 1
+  %56 = icmp slt i32 %55, %3
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 224), align 16
+  %58 = icmp slt i32 %55, %57
+  %59 = select i1 %56, i1 %58, i1 false
+  br i1 %59, label %mca_bml_base_btl_array_get_next.exit, label %._crit_edge30, !llvm.loop !8
 
-._crit_edge30.loopexit65:                         ; preds = %mca_bml_base_btl_array_get_index.exit.us, %39
-  %.018.us36 = phi i8 [ 1, %mca_bml_base_btl_array_get_index.exit.us ], [ %32, %39 ]
-  %64 = zext nneg i8 %.018.us36 to i32
+._crit_edge30.loopexit66:                         ; preds = %mca_bml_base_btl_array_get_index.exit.us, %36
+  %.018.us36 = phi i8 [ 1, %mca_bml_base_btl_array_get_index.exit.us ], [ %30, %36 ]
+  %not..us37 = zext nneg i8 %.018.us36 to i32
   br label %._crit_edge30
 
-._crit_edge30:                                    ; preds = %mca_bml_base_btl_array_get_index.exit._crit_edge, %mca_bml_base_btl_array_get_next.exit.us, %._crit_edge30.loopexit65, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.us, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %18, %.lr.ph.split.us.split.us ], [ %34, %.lr.ph.split.split.us.split.us ], [ %64, %._crit_edge30.loopexit65 ], [ %spec.select.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %spec.select, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
-  %65 = sext i32 %.0.lcssa to i64
-  ret i64 %65
+._crit_edge30:                                    ; preds = %mca_bml_base_btl_array_get_index.exit._crit_edge, %mca_bml_base_btl_array_get_next.exit.us, %._crit_edge30.loopexit66, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.us, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %17, %.lr.ph.split.us.split.us ], [ %31, %.lr.ph.split.split.us.split.us ], [ %not..us37, %._crit_edge30.loopexit66 ], [ %spec.select.us, %mca_bml_base_btl_array_get_next.exit.us ], [ %spec.select, %mca_bml_base_btl_array_get_index.exit._crit_edge ]
+  %60 = sext i32 %.0.lcssa to i64
+  ret i64 %60
 }
 
 ; Function Attrs: nofree nounwind uwtable

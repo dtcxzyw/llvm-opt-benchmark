@@ -2178,17 +2178,17 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %in_flight = getelementptr inbounds nuw i8, ptr %5, i64 441
   %6 = load i8, ptr %in_flight, align 1
   %7 = and i8 %6, 1
-  %8 = zext nneg i8 %7 to i64
-  %spec.select = add i64 %num_in_flight.033, %8
+  %inc = zext nneg i8 %7 to i64
+  %spec.select = add i64 %num_in_flight.033, %inc
   %cmp6 = icmp samesign ugt i64 %spec.select, 1
   br i1 %cmp6, label %return, label %if.then.i.i12
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %for.body
   %in_flight21 = getelementptr inbounds i8, ptr %it.sroa.0.030, i64 -39
-  %9 = load i8, ptr %in_flight21, align 1
-  %10 = and i8 %9, 1
-  %11 = zext nneg i8 %10 to i64
-  %spec.select24 = add i64 %num_in_flight.033, %11
+  %8 = load i8, ptr %in_flight21, align 1
+  %9 = and i8 %8, 1
+  %inc23 = zext nneg i8 %9 to i64
+  %spec.select24 = add i64 %num_in_flight.033, %inc23
   %cmp625 = icmp samesign ugt i64 %spec.select24, 1
   br i1 %cmp625, label %return, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
@@ -2200,8 +2200,8 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   %spec.select2628 = phi i64 [ %spec.select, %if.then.i.i12 ], [ %spec.select24, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %it.sroa.5.1 = phi ptr [ %5, %if.then.i.i12 ], [ %it.sroa.5.031, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %it.sroa.11.1 = phi ptr [ %add.ptr.i.i, %if.then.i.i12 ], [ %it.sroa.11.032, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %12 = phi ptr [ %add.ptr.i.i.i14, %if.then.i.i12 ], [ %it.sroa.0.030, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %12, i64 -80
+  %10 = phi ptr [ %add.ptr.i.i.i14, %if.then.i.i12 ], [ %it.sroa.0.030, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %10, i64 -80
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i11, %2
   br i1 %cmp.i.i.i.not, label %return, label %for.body, !llvm.loop !95
 

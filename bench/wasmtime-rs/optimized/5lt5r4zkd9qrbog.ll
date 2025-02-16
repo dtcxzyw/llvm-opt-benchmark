@@ -5510,12 +5510,12 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst20gen_type_constraints2
   %191 = load i8, ptr %22, align 1, !range !6, !noundef !3
   %192 = shl nuw nsw i8 %191, 3
   %193 = load i8, ptr %21, align 1, !range !6, !noundef !3
-  %194 = shl nuw nsw i8 %193, 4
-  %195 = or disjoint i8 %192, %194
-  %196 = zext nneg i8 %195 to i64
-  %197 = shl nuw nsw i64 %172, 5
-  %198 = or disjoint i64 %197, %196
-  %199 = or disjoint i64 %198, %170
+  %spec.select = shl nuw nsw i8 %193, 4
+  %194 = or disjoint i8 %192, %spec.select
+  %195 = zext nneg i8 %194 to i64
+  %196 = shl nuw nsw i64 %172, 5
+  %197 = or disjoint i64 %196, %196
+  %198 = or disjoint i64 %197, %170
   store i64 %199, ptr %5, align 8
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.226, i64 19)
           to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit

@@ -9452,7 +9452,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad75, %lpad.i45, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %21, %lpad.i45 ], [ %1, %lpad ], [ %22, %lpad75 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %20, %lpad.i45 ], [ %1, %lpad ], [ %21, %lpad75 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.then
@@ -9534,8 +9534,8 @@ if.end65:                                         ; preds = %if.else52, %if.else
   %anchored = getelementptr inbounds nuw i8, ptr %params, i64 32
   %11 = load i8, ptr %anchored, align 8
   %12 = and i8 %11, 1
-  %13 = zext nneg i8 %12 to i64
-  %spec.select = or disjoint i64 %start14.0, %13
+  %or = zext nneg i8 %12 to i64
+  %spec.select = or disjoint i64 %start14.0, %or
   %start_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %arrayidx69 = getelementptr inbounds nuw [8 x %"struct.re2::DFA::StartInfo"], ptr %start_, i64 0, i64 %spec.select
   %call70 = tail call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params, ptr noundef nonnull %arrayidx69, i32 noundef %flags.0)
@@ -9543,30 +9543,30 @@ if.end65:                                         ; preds = %if.else52, %if.else
 
 if.then71:                                        ; preds = %if.end65
   %cache_lock = getelementptr inbounds nuw i8, ptr %params, i64 48
-  %14 = load ptr, ptr %cache_lock, align 8
+  %13 = load ptr, ptr %cache_lock, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %writing_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load i8, ptr %writing_.i.i, align 8
-  %tobool.i.i = trunc i8 %15 to i1
+  %writing_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %14 = load i8, ptr %writing_.i.i, align 8
+  %tobool.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i, label %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then71
-  %16 = load ptr, ptr %14, align 8
-  tail call void @_ZN4absl7debian25Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-  %17 = load ptr, ptr %14, align 8
-  tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %15 = load ptr, ptr %13, align 8
+  tail call void @_ZN4absl7debian25Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %16 = load ptr, ptr %13, align 8
+  tail call void @_ZN4absl7debian25Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
   store i8 1, ptr %writing_.i.i, align 8
   br label %_ZN3re23DFA8RWLocker14LockForWritingEv.exit.i
 
 _ZN3re23DFA8RWLocker14LockForWritingEv.exit.i:    ; preds = %if.then.i.i, %if.then71
   %call.i = tail call noundef ptr @_ZN3re25hooks25GetDFAStateCacheResetHookEv()
   %state_budget_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %18 = load i64, ptr %state_budget_.i, align 8
-  store i64 %18, ptr %ref.tmp.i, align 8
+  %17 = load i64, ptr %state_budget_.i, align 8
+  store i64 %17, ptr %ref.tmp.i, align 8
   %state_cache_size.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %19 = load i64, ptr %size_.i.i, align 8
-  store i64 %19, ptr %state_cache_size.i, align 8
+  %18 = load i64, ptr %size_.i.i, align 8
+  store i64 %18, ptr %state_cache_size.i, align 8
   call void %call.i(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   br label %for.body.i
 
@@ -9580,9 +9580,9 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN3re
 
 _ZN3re23DFA10ResetCacheEPNS0_8RWLockerE.exit:     ; preds = %for.body.i
   call void @_ZN3re23DFA10ClearCacheEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %20 = load i64, ptr %state_budget_.i, align 8
+  %19 = load i64, ptr %state_budget_.i, align 8
   %mem_budget_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store i64 %20, ptr %mem_budget_.i, align 8
+  store i64 %19, ptr %mem_budget_.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call72 = call noundef zeroext i1 @_ZN3re23DFA19AnalyzeSearchHelperEPNS0_12SearchParamsEPNS0_9StartInfoEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %params, ptr noundef nonnull %arrayidx69, i32 noundef %flags.0)
   br i1 %call72, label %if.end81, label %if.then73
@@ -9609,7 +9609,7 @@ invoke.cont6.i50:                                 ; preds = %invoke.cont4.i48
           to label %_ZN10LogMessageC2EPKci.exit52 unwind label %lpad.i45
 
 lpad.i45:                                         ; preds = %invoke.cont6.i50, %invoke.cont4.i48, %invoke.cont2.i46, %if.then73
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i43) #24
   br label %common.resume
@@ -9623,33 +9623,33 @@ invoke.cont78:                                    ; preds = %_ZN10LogMessageC2EP
   br label %return
 
 lpad75:                                           ; preds = %_ZN10LogMessageC2EPKci.exit52
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp74) #24
   br label %common.resume
 
 if.end81:                                         ; preds = %_ZN3re23DFA10ResetCacheEPNS0_8RWLockerE.exit, %if.end65
-  %23 = load atomic i64, ptr %arrayidx69 acquire, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %23 to ptr
+  %22 = load atomic i64, ptr %arrayidx69 acquire, align 8
+  %atomic-temp.i.0.i = inttoptr i64 %22 to ptr
   %start84 = getelementptr inbounds nuw i8, ptr %params, i64 40
   store ptr %atomic-temp.i.0.i, ptr %start84, align 8
-  %24 = load ptr, ptr %this, align 8
-  %prefix_size_.i = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %25 = load i64, ptr %prefix_size_.i, align 8
-  %cmp.i.not = icmp eq i64 %25, 0
+  %23 = load ptr, ptr %this, align 8
+  %prefix_size_.i = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %24 = load i64, ptr %prefix_size_.i, align 8
+  %cmp.i.not = icmp eq i64 %24, 0
   br i1 %cmp.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end81
-  %26 = load i8, ptr %anchored, align 8
-  %tobool87 = trunc i8 %26 to i1
-  %cmp90 = icmp ult i64 %23, 3
+  %25 = load i8, ptr %anchored, align 8
+  %tobool87 = trunc i8 %25 to i1
+  %cmp90 = icmp ult i64 %22, 3
   %or.cond.not = select i1 %tobool87, i1 true, i1 %cmp90
   br i1 %or.cond.not, label %return, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %land.lhs.true
   %flag_ = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
-  %27 = load i32, ptr %flag_, align 4
-  %cmp93 = icmp ult i32 %27, 65536
+  %26 = load i32, ptr %flag_, align 4
+  %cmp93 = icmp ult i32 %26, 65536
   br i1 %cmp93, label %if.then94, label %return
 
 if.then94:                                        ; preds = %land.lhs.true91

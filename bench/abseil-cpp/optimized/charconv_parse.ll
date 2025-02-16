@@ -1014,22 +1014,22 @@ land.lhs.true64:                                  ; preds = %if.end59
 
 if.end68:                                         ; preds = %land.lhs.true64, %if.end59
   %24 = and i8 %mantissa_is_inexact.0, 1
-  %25 = zext nneg i8 %24 to i64
-  %spec.select142 = or i64 %mantissa.0, %25
+  %or = zext nneg i8 %24 to i64
+  %spec.select142 = or i64 %mantissa.0, %or
   store i64 %spec.select142, ptr %agg.result, align 8
   %literal_exponent = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 0, ptr %literal_exponent, align 4
-  %26 = and i32 %format_flags, 3
-  %27 = icmp ne i32 %26, 2
+  %25 = and i32 %format_flags, 3
+  %26 = icmp ne i32 %25, 2
   %cmp74 = icmp ult ptr %begin.addr.1, %end
-  %or.cond = and i1 %27, %cmp74
+  %or.cond = and i1 %26, %cmp74
   br i1 %or.cond, label %land.lhs.true75, label %land.lhs.true110
 
 land.lhs.true75:                                  ; preds = %if.end68
-  %28 = load i8, ptr %begin.addr.1, align 1
-  %29 = and i8 %28, -33
-  %30 = icmp eq i8 %29, 80
-  br i1 %30, label %if.then77, label %land.lhs.true110
+  %27 = load i8, ptr %begin.addr.1, align 1
+  %28 = and i8 %27, -33
+  %29 = icmp eq i8 %28, 80
+  br i1 %29, label %if.then77, label %land.lhs.true110
 
 if.then77:                                        ; preds = %land.lhs.true75
   %incdec.ptr78 = getelementptr inbounds nuw i8, ptr %begin.addr.1, i64 1
@@ -1037,8 +1037,8 @@ if.then77:                                        ; preds = %land.lhs.true75
   br i1 %cmp79, label %land.lhs.true80, label %if.end93
 
 land.lhs.true80:                                  ; preds = %if.then77
-  %31 = load i8, ptr %incdec.ptr78, align 1
-  %cmp82 = icmp eq i8 %31, 45
+  %30 = load i8, ptr %incdec.ptr78, align 1
+  %cmp82 = icmp eq i8 %30, 45
   br i1 %cmp82, label %if.then83, label %land.lhs.true87
 
 if.then83:                                        ; preds = %land.lhs.true80
@@ -1046,7 +1046,7 @@ if.then83:                                        ; preds = %land.lhs.true80
   br label %if.end93
 
 land.lhs.true87:                                  ; preds = %land.lhs.true80
-  %cmp89 = icmp eq i8 %31, 43
+  %cmp89 = icmp eq i8 %30, 43
   %incdec.ptr91 = getelementptr inbounds nuw i8, ptr %begin.addr.1, i64 2
   %spec.select = select i1 %cmp89, ptr %incdec.ptr91, ptr %incdec.ptr78
   br label %if.end93
@@ -1062,8 +1062,8 @@ if.end93:                                         ; preds = %land.lhs.true87, %i
   br i1 %brmerge, label %if.end108, label %if.end108.thread137
 
 if.end108.thread137:                              ; preds = %if.end93
-  %32 = load i32, ptr %literal_exponent, align 4
-  %sub104 = sub nsw i32 0, %32
+  %31 = load i32, ptr %literal_exponent, align 4
+  %sub104 = sub nsw i32 0, %31
   store i32 %sub104, ptr %literal_exponent, align 4
   br label %if.end113
 
@@ -1071,21 +1071,21 @@ if.end108:                                        ; preds = %if.end93
   br i1 %cmp98, label %land.lhs.true110, label %if.end113
 
 land.lhs.true110:                                 ; preds = %if.end68, %land.lhs.true75, %if.end108
-  %33 = icmp eq i32 %26, 1
-  br i1 %33, label %return, label %if.end113
+  %32 = icmp eq i32 %25, 1
+  br i1 %32, label %return, label %if.end113
 
 if.end113:                                        ; preds = %if.end108.thread137, %land.lhs.true110, %if.end108
   %begin.addr.4136 = phi ptr [ %begin.addr.1, %land.lhs.true110 ], [ %add.ptr97, %if.end108 ], [ %add.ptr97, %if.end108.thread137 ]
   %type = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 0, ptr %type, align 8
-  %34 = load i64, ptr %agg.result, align 8
-  %cmp115.not = icmp eq i64 %34, 0
-  %35 = load i32, ptr %literal_exponent, align 4
+  %33 = load i64, ptr %agg.result, align 8
+  %cmp115.not = icmp eq i64 %33, 0
+  %34 = load i32, ptr %literal_exponent, align 4
   %mul = shl nsw i32 %exponent_adjustment.1, 2
-  %add = add nsw i32 %35, %mul
+  %add = add nsw i32 %34, %mul
   %add.sink = select i1 %cmp115.not, i32 0, i32 %add
-  %36 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 %add.sink, ptr %36, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i32 %add.sink, ptr %35, align 8
   %end122 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr %begin.addr.4136, ptr %end122, align 8
   br label %return

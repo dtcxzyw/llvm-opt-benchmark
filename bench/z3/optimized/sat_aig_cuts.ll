@@ -7512,7 +7512,7 @@ for.end168:                                       ; preds = %for.end168.loopexit
   %parity.0.lcssa = phi i8 [ %frombool, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ], [ %parity.1, %for.end168.loopexit ]
   %88 = xor i8 %parity.0.lcssa, 1
   %89 = zext nneg i8 %88 to i32
-  %storemerge44 = xor i32 %87, %89
+  %xor.i190 = xor i32 %87, %89
   %90 = load ptr, ptr %m_clause, align 8
   %cmp.i191 = icmp eq ptr %90, null
   br i1 %cmp.i191, label %if.then.i200, label %lor.lhs.false.i192

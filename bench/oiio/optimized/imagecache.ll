@@ -19645,8 +19645,8 @@ for.body757:                                      ; preds = %if.end750, %for.bod
   %m_broken.i511 = getelementptr inbounds nuw i8, ptr %210, i64 25
   %211 = load i8, ptr %m_broken.i511, align 1
   %212 = and i8 %211, 1
-  %213 = zext nneg i8 %212 to i32
-  %spec.select = add i32 %nbroken.0717, %213
+  %inc765 = zext nneg i8 %212 to i32
+  %spec.select = add i32 %nbroken.0717, %inc765
   %incdec.ptr.i513 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0718, i64 8
   %cmp.i510.not = icmp eq ptr %incdec.ptr.i513, %208
   br i1 %cmp.i510.not, label %for.end769, label %for.body757
@@ -19672,7 +19672,7 @@ invoke.cont781:                                   ; preds = %if.then772
   br i1 %cmp.i510.not716, label %if.end813, label %for.body792.lr.ph
 
 for.body792.lr.ph:                                ; preds = %invoke.cont781
-  %214 = ptrtoint ptr %ref.tmp801 to i64
+  %213 = ptrtoint ptr %ref.tmp801 to i64
   %arrayinit.element.i.i.i528 = getelementptr inbounds nuw i8, ptr %ref.tmp.i526, i64 16
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i529 = getelementptr inbounds nuw i8, ptr %ref.tmp.i526, i64 24
   br label %for.body792
@@ -19680,22 +19680,22 @@ for.body792.lr.ph:                                ; preds = %invoke.cont781
 for.body792:                                      ; preds = %for.body792.lr.ph, %for.inc809
   %__begin4784.sroa.0.0722 = phi ptr [ %209, %for.body792.lr.ph ], [ %incdec.ptr.i531, %for.inc809 ]
   %nprinted782.0721 = phi i32 [ 0, %for.body792.lr.ph ], [ %nprinted782.1, %for.inc809 ]
-  %215 = load ptr, ptr %__begin4784.sroa.0.0722, align 8
-  %m_broken.i523 = getelementptr inbounds nuw i8, ptr %215, i64 25
-  %216 = load i8, ptr %m_broken.i523, align 1
-  %tobool.i524 = trunc i8 %216 to i1
+  %214 = load ptr, ptr %__begin4784.sroa.0.0722, align 8
+  %m_broken.i523 = getelementptr inbounds nuw i8, ptr %214, i64 25
+  %215 = load i8, ptr %m_broken.i523, align 1
+  %tobool.i524 = trunc i8 %215 to i1
   br i1 %tobool.i524, label %if.then799, label %for.inc809
 
 if.then799:                                       ; preds = %for.body792
   %inc800 = add nsw i32 %nprinted782.0721, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %m_filename.i525 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %217 = load ptr, ptr %m_filename.i525, align 8, !noalias !284
-  store ptr %217, ptr %ref.tmp801, align 8, !alias.scope !284
+  %m_filename.i525 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  %216 = load ptr, ptr %m_filename.i525, align 8, !noalias !284
+  store ptr %216, ptr %ref.tmp801, align 8, !alias.scope !284
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i526)
   %retval.i22.i.sroa.0.0.insert.ext.i = zext i32 %inc800 to i64
   store i64 %retval.i22.i.sroa.0.0.insert.ext.i, ptr %ref.tmp.i526, align 16
-  store i64 %214, ptr %arrayinit.element.i.i.i528, align 16
+  store i64 %213, ptr %arrayinit.element.i.i.i528, align 16
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_07ustringENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i529, align 8
   invoke void @_ZN3fmt2v86vprintIcEEvRSt13basic_ostreamIT_St11char_traitsIS3_EENS0_17basic_string_viewIS3_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS3_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISF_EEEE4typeESF_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nonnull @.str.163, i64 12, i64 241, ptr nonnull %ref.tmp.i526)
           to label %invoke.cont806 unwind label %lpad805
@@ -19705,7 +19705,7 @@ invoke.cont806:                                   ; preds = %if.then799
   br label %for.inc809
 
 lpad805:                                          ; preds = %if.then799
-  %218 = landingpad { ptr, i32 }
+  %217 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup815
 
@@ -19721,30 +19721,30 @@ if.end813:                                        ; preds = %for.inc809, %invoke
 
 invoke.cont814:                                   ; preds = %if.end813
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out) #35
-  %219 = load ptr, ptr %files, align 8
-  %220 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %219, %220
+  %218 = load ptr, ptr %files, align 8
+  %219 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %218, %219
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i533
 
 for.body.i.i.i.i533:                              ; preds = %invoke.cont814, %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i ], [ %219, %invoke.cont814 ]
-  %221 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %221, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i ], [ %218, %invoke.cont814 ]
+  %220 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %220, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i533
-  %222 = atomicrmw sub ptr %221, i32 1 seq_cst, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %222, 1
+  %221 = atomicrmw sub ptr %220, i32 1 seq_cst, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %221, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
-  call void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFileD1Ev(ptr noundef nonnull align 8 dereferenceable(360) %221) #35
-  call void @_ZdlPv(ptr noundef nonnull %221) #36
+  call void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFileD1Ev(ptr noundef nonnull align 8 dereferenceable(360) %220) #35
+  call void @_ZdlPv(ptr noundef nonnull %220) #36
   br label %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i.i533
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i534 = icmp eq ptr %incdec.ptr.i.i.i.i, %220
+  %cmp.not.i.i.i.i534 = icmp eq ptr %incdec.ptr.i.i.i.i, %219
   br i1 %cmp.not.i.i.i.i534, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i533, !llvm.loop !287
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEEEvPT_.exit.i.i.i.i
@@ -19752,19 +19752,19 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN18Op
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont814
-  %223 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %219, %invoke.cont814 ]
-  %tobool.not.i.i.i535 = icmp eq ptr %223, null
+  %222 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %218, %invoke.cont814 ]
+  %tobool.not.i.i.i535 = icmp eq ptr %222, null
   br i1 %tobool.not.i.i.i535, label %_ZNSt6vectorIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEESaIS4_EED2Ev.exit, label %if.then.i.i.i536
 
 if.then.i.i.i536:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %223) #36
+  call void @_ZdlPv(ptr noundef nonnull %222) #36
   br label %_ZNSt6vectorIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN18OpenImageIO_v2_6_013intrusive_ptrINS0_3pvt14ImageCacheFileEEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i536
   ret void
 
 ehcleanup815:                                     ; preds = %lpad87.loopexit, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad87.loopexit.split-lp.loopexit, %lpad805, %lpad743, %lpad663, %ehcleanup596, %lpad534, %lpad445, %lpad429, %lpad421, %ehcleanup378, %lpad98
-  %.pn97 = phi { ptr, i32 } [ %162, %lpad421 ], [ %165, %lpad429 ], [ %218, %lpad805 ], [ %207, %lpad743 ], [ %195, %lpad663 ], [ %.pn95, %ehcleanup596 ], [ %177, %lpad534 ], [ %167, %lpad445 ], [ %.pn93, %ehcleanup378 ], [ %69, %lpad98 ], [ %lpad.loopexit, %lpad87.loopexit ], [ %lpad.loopexit651, %lpad87.loopexit.split-lp.loopexit ], [ %lpad.loopexit654, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit656, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit659, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn97 = phi { ptr, i32 } [ %162, %lpad421 ], [ %165, %lpad429 ], [ %217, %lpad805 ], [ %207, %lpad743 ], [ %195, %lpad663 ], [ %.pn95, %ehcleanup596 ], [ %177, %lpad534 ], [ %167, %lpad445 ], [ %.pn93, %ehcleanup378 ], [ %69, %lpad98 ], [ %lpad.loopexit, %lpad87.loopexit ], [ %lpad.loopexit651, %lpad87.loopexit.split-lp.loopexit ], [ %lpad.loopexit654, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit656, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit659, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad87.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out) #35
   br label %ehcleanup816
 
