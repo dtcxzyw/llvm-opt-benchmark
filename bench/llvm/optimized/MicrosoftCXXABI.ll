@@ -5511,26 +5511,24 @@ define internal { ptr, i32 } @_ZN12_GLOBAL__N_115MicrosoftCXXABI28getAddrOfCXXCa
   %21 = and i8 %20, -2
   %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %21, 42
   %22 = load i8, ptr %4, align 1, !tbaa !873, !range !405, !noundef !406
-  %spec.select = zext nneg i8 %22 to i32
   %23 = load i8, ptr %5, align 1, !tbaa !873, !range !405, !noundef !406
-  %24 = trunc nuw i8 %23 to i1
-  %25 = or disjoint i32 %spec.select, 2
-  %.1 = select i1 %24, i32 %25, i32 %spec.select
-  %26 = load i8, ptr %6, align 1, !tbaa !873, !range !405, !noundef !406
-  %27 = trunc nuw i8 %26 to i1
-  %28 = or disjoint i32 %.1, 4
-  %.2 = select i1 %27, i32 %28, i32 %.1
-  %29 = or i32 %.2, 8
-  %.3 = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i32 %29, i32 %.2
-  %30 = load ptr, ptr %0, align 8, !tbaa !348
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 272
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 %11) #25
-  %34 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #25
+  %24 = shl nuw nsw i8 %23, 1
+  %.111 = or disjoint i8 %24, %22
+  %25 = load i8, ptr %6, align 1, !tbaa !873, !range !405, !noundef !406
+  %26 = shl nuw nsw i8 %25, 2
+  %.212 = or disjoint i8 %.111, %26
+  %.2 = zext nneg i8 %.212 to i32
+  %27 = or disjoint i32 %.2, 8
+  %.3 = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i32 %27, i32 %.2
+  %28 = load ptr, ptr %0, align 8, !tbaa !348
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 272
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 %11) #25
+  %32 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #25
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %32, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.3, 1
   ret { ptr, i32 } %.fca.1.insert
 }

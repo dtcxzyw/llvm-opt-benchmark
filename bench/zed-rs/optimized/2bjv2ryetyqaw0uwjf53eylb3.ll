@@ -37629,19 +37629,16 @@ define noundef range(i8 0, 16) i8 @_ZN6search13SearchOptions13from_settings17h6f
   %2 = load i8, ptr %0, align 1, !range !40, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !range !40, !noundef !4
-  %5 = trunc nuw i8 %4 to i1
-  %6 = or disjoint i8 %2, 2
-  %.sroa.0.1 = select i1 %5, i8 %6, i8 %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %8 = load i8, ptr %7, align 1, !range !40, !noundef !4
-  %9 = trunc nuw i8 %8 to i1
-  %10 = or disjoint i8 %.sroa.0.1, 4
-  %.sroa.0.2 = select i1 %9, i8 %10, i8 %.sroa.0.1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %12 = load i8, ptr %11, align 1, !range !40, !noundef !4
-  %13 = trunc nuw i8 %12 to i1
-  %14 = or disjoint i8 %.sroa.0.2, 8
-  %.sroa.0.3 = select i1 %13, i8 %14, i8 %.sroa.0.2
+  %5 = shl nuw nsw i8 %4, 1
+  %.sroa.0.1 = or disjoint i8 %5, %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %7 = load i8, ptr %6, align 1, !range !40, !noundef !4
+  %8 = shl nuw nsw i8 %7, 2
+  %.sroa.0.2 = or disjoint i8 %.sroa.0.1, %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %10 = load i8, ptr %9, align 1, !range !40, !noundef !4
+  %11 = shl nuw nsw i8 %10, 3
+  %.sroa.0.3 = or disjoint i8 %.sroa.0.2, %11
   ret i8 %.sroa.0.3
 }
 

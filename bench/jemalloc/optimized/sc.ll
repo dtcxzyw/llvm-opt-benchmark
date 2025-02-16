@@ -181,8 +181,8 @@ size_class.exit163.i:                             ; preds = %if.end13.i158.i, %i
   %lookup_maxclass.2.i = select i1 %cmp70.not.i, i64 %lookup_maxclass.1172.i, i64 %add.i.i141.i
   %11 = trunc nsw i64 %indvars.iv.next194.i to i32
   %nlbins.4.i = select i1 %cmp70.not.i, i32 %nlbins.3178.i, i32 %11
-  %inc82.i = zext i1 %cmp.i143.i to i32
-  %npsizes.8.i = add nsw i32 %npsizes.7176.i, %inc82.i
+  %12 = zext i1 %cmp.i143.i to i32
+  %npsizes.8.i = add i32 %npsizes.7176.i, %12
   %tobool85.i = trunc nuw i8 %10 to i1
   %small_maxclass.2.i = select i1 %tobool85.i, i64 %add.i.i141.i, i64 %small_maxclass.1173.i
   %lg_large_minclass.2.i = select i1 %tobool85.i, i32 %6, i32 %lg_large_minclass.1174.i
@@ -198,22 +198,22 @@ while.end110.i:                                   ; preds = %size_class.exit163.
   br i1 %exitcond208.not.i, label %size_classes.exit, label %while.body56.i, !llvm.loop !9
 
 size_classes.exit:                                ; preds = %while.end110.i
-  %12 = trunc i64 %index.3184.i to i32
-  %13 = add i32 %12, 3
+  %13 = trunc i64 %index.3184.i to i32
+  %14 = add i32 %13, 3
   %cmp.i.i.i.i.i = icmp ne i64 %indvars.iv.next194.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %sext209.i = shl i64 %indvars.iv193.i, 32
-  %14 = ashr exact i64 %sext209.i, 32
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
-  %16 = trunc nuw nsw i64 %15 to i32
-  %add.i.i = sub nuw nsw i32 64, %16
+  %15 = ashr exact i64 %sext209.i, 32
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
+  %17 = trunc nuw nsw i64 %16 to i32
+  %add.i.i = sub nuw nsw i32 64, %17
   store i32 1, ptr %sc_data, align 8
   %nlbins116.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 4
   store i32 %nlbins.4.i, ptr %nlbins116.i, align 4
   %nbins117.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 8
   store i32 %nbins.7.i, ptr %nbins117.i, align 8
   %nsizes118.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 12
-  store i32 %13, ptr %nsizes118.i, align 4
+  store i32 %14, ptr %nsizes118.i, align 4
   %lg_ceil_nsizes119.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 16
   store i32 %add.i.i, ptr %lg_ceil_nsizes119.i, align 8
   %npsizes120.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 20

@@ -19504,7 +19504,7 @@ _ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE5clearEv.exit:
   br i1 %.not115119, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %22 = zext nneg i32 %spec.select to i64
+  %22 = sext i32 %spec.select to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
@@ -19530,7 +19530,7 @@ _ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE5clearEv.exit:
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.096.0120, i64 416
   %30 = load i8, ptr %29, align 8, !tbaa !594, !range !96, !noundef !97
   %31 = zext nneg i8 %30 to i32
-  %spec.select = add nuw nsw i32 %.0121, %31
+  %spec.select = add i32 %.0121, %31
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.096.0120, i64 952
   %.not115 = icmp eq ptr %32, %16
   br i1 %.not115, label %._crit_edge.loopexit, label %.lr.ph
@@ -19561,7 +19561,7 @@ _ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE5clearEv.exit:
   %46 = load i8, ptr %45, align 8, !tbaa !594, !range !96, !noundef !97
   %47 = trunc nuw i8 %46 to i1
   %48 = zext nneg i8 %46 to i32
-  %spec.select112 = add nuw nsw i32 %.2142, %48
+  %spec.select112 = add i32 %.2142, %48
   %49 = load i8, ptr %23, align 1, !tbaa !596, !range !96, !noundef !97
   %50 = trunc nuw i8 %49 to i1
   %51 = load ptr, ptr %33, align 8, !tbaa !356

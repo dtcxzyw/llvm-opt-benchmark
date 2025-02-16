@@ -3035,12 +3035,12 @@ define hidden void @_ZN5ceres8internal27FindInterpolatingPolynomialERKSt6vectorI
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = zext nneg i8 %19 to i32
-  %spec.select = add nsw i32 %.04777, %20
+  %spec.select = add i32 %.04777, %20
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
   %24 = zext nneg i8 %23 to i32
-  %.2 = add nsw i32 %spec.select, %24
+  %.2 = add i32 %spec.select, %24
   %25 = freeze i32 %.2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

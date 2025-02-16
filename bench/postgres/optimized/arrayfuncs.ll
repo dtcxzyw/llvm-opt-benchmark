@@ -1863,13 +1863,13 @@ array_iter_setup.exit:                            ; preds = %84, %108, %127
 .loopexit228:                                     ; preds = %159, %143, %147, %140
   %.1194 = phi i64 [ %142, %140 ], [ %.0193246, %147 ], [ %.0193246, %143 ], [ %.3196, %159 ]
   %.0185 = phi i8 [ 0, %140 ], [ %., %147 ], [ 1, %143 ], [ %.3188, %159 ]
-  %162 = trunc nuw i8 %.0185 to i1
-  %163 = getelementptr i8, ptr %78, i64 %indvars.iv284
-  %164 = and i8 %.0185, 1
-  store i8 %164, ptr %163, align 1
-  %165 = add i64 %.1194, 2
-  %spec.select = select i1 %162, i64 %165, i64 %.1194
-  %166 = add i64 %spec.select, 1
+  %162 = getelementptr i8, ptr %78, i64 %indvars.iv284
+  %163 = and i8 %.0185, 1
+  store i8 %163, ptr %162, align 1
+  %164 = zext nneg i8 %.0185 to i64
+  %165 = shl nuw nsw i64 %164, 1
+  %spec.select = add i64 %.1194, 1
+  %166 = add i64 %spec.select, %165
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
   br i1 %exitcond288.not, label %.preheader227, label %134, !llvm.loop !16

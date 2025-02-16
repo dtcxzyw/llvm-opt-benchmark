@@ -48058,8 +48058,8 @@ land.lhs.true:                                    ; preds = %entry
   %ScrollbarX = getelementptr inbounds nuw i8, ptr %window, i64 188
   %5 = load i8, ptr %ScrollbarX, align 4
   %6 = and i8 %5, 1
-  %or = zext nneg i8 %6 to i32
-  %spec.select = or disjoint i32 %flags, %or
+  %7 = zext nneg i8 %6 to i32
+  %spec.select = or disjoint i32 %flags, %7
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -48070,127 +48070,127 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then21:                                        ; preds = %if.end
   %Appearing = getelementptr inbounds nuw i8, ptr %window, i64 196
-  %7 = load i8, ptr %Appearing, align 4
-  %tobool22 = trunc i8 %7 to i1
+  %8 = load i8, ptr %Appearing, align 4
+  %tobool22 = trunc i8 %8 to i1
   %cond = select i1 %tobool22, i32 32, i32 2
   %or23 = or disjoint i32 %cond, %flags.addr.0
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %if.end
   %flags.addr.1 = phi i32 [ %or23, %if.then21 ], [ %flags.addr.0, %if.end ]
-  %8 = load float, ptr %item_rect, align 4
-  %cmp29 = fcmp oge float %8, %cond.i
+  %9 = load float, ptr %item_rect, align 4
+  %cmp29 = fcmp oge float %9, %cond.i
   %Max30 = getelementptr inbounds nuw i8, ptr %item_rect, i64 8
-  %9 = load float, ptr %Max30, align 4
-  %cmp34 = fcmp ole float %9, %add.i
-  %10 = select i1 %cmp29, i1 %cmp34, i1 false
+  %10 = load float, ptr %Max30, align 4
+  %cmp34 = fcmp ole float %10, %add.i
+  %11 = select i1 %cmp29, i1 %cmp34, i1 false
   %y36 = getelementptr inbounds nuw i8, ptr %item_rect, i64 4
-  %11 = load float, ptr %y36, align 4
-  %cmp39 = fcmp oge float %11, %cond.i98
+  %12 = load float, ptr %y36, align 4
+  %cmp39 = fcmp oge float %12, %cond.i98
   %y42 = getelementptr inbounds nuw i8, ptr %item_rect, i64 12
-  %12 = load float, ptr %y42, align 4
-  %cmp45 = fcmp ole float %12, %add3.i
-  %13 = select i1 %cmp39, i1 %cmp45, i1 false
-  %sub.i100 = fsub float %9, %8
+  %13 = load float, ptr %y42, align 4
+  %cmp45 = fcmp ole float %13, %add3.i
+  %14 = select i1 %cmp39, i1 %cmp45, i1 false
+  %sub.i100 = fsub float %10, %9
   %ItemSpacing = getelementptr inbounds nuw i8, ptr %0, i64 14652
-  %14 = load float, ptr %ItemSpacing, align 4
-  %15 = tail call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %sub.i100)
+  %15 = load float, ptr %ItemSpacing, align 4
+  %16 = tail call float @llvm.fmuladd.f32(float %15, float 2.000000e+00, float %sub.i100)
   %sub.i102 = fsub float %add.i, %cond.i
-  %cmp51 = fcmp ugt float %15, %sub.i102
+  %cmp51 = fcmp ugt float %16, %sub.i102
   br i1 %cmp51, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %if.end24
   %AutoFitFramesX = getelementptr inbounds nuw i8, ptr %window, i64 220
-  %16 = load i8, ptr %AutoFitFramesX, align 4
-  %cmp52 = icmp sgt i8 %16, 0
+  %17 = load i8, ptr %AutoFitFramesX, align 4
+  %cmp52 = icmp sgt i8 %17, 0
   br i1 %cmp52, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   %Flags = getelementptr inbounds nuw i8, ptr %window, i64 20
-  %17 = load i32, ptr %Flags, align 4
-  %and53 = and i32 %17, 64
+  %18 = load i32, ptr %Flags, align 4
+  %and53 = and i32 %18, 64
   %cmp54 = icmp ne i32 %and53, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %if.end24
-  %18 = phi i1 [ true, %lor.lhs.false ], [ true, %if.end24 ], [ %cmp54, %lor.rhs ]
-  %sub.i104 = fsub float %12, %11
+  %19 = phi i1 [ true, %lor.lhs.false ], [ true, %if.end24 ], [ %cmp54, %lor.rhs ]
+  %sub.i104 = fsub float %13, %12
   %y59 = getelementptr inbounds nuw i8, ptr %0, i64 14656
-  %19 = load float, ptr %y59, align 4
-  %20 = tail call float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %sub.i104)
+  %20 = load float, ptr %y59, align 4
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float 2.000000e+00, float %sub.i104)
   %sub.i107 = fsub float %add3.i, %cond.i98
-  %cmp61 = fcmp ugt float %20, %sub.i107
+  %cmp61 = fcmp ugt float %21, %sub.i107
   br i1 %cmp61, label %lor.lhs.false62, label %lor.end69
 
 lor.lhs.false62:                                  ; preds = %lor.end
   %AutoFitFramesY = getelementptr inbounds nuw i8, ptr %window, i64 221
-  %21 = load i8, ptr %AutoFitFramesY, align 1
-  %cmp64 = icmp sgt i8 %21, 0
+  %22 = load i8, ptr %AutoFitFramesY, align 1
+  %cmp64 = icmp sgt i8 %22, 0
   br i1 %cmp64, label %lor.end69, label %lor.rhs65
 
 lor.rhs65:                                        ; preds = %lor.lhs.false62
   %Flags66 = getelementptr inbounds nuw i8, ptr %window, i64 20
-  %22 = load i32, ptr %Flags66, align 4
-  %and67 = and i32 %22, 64
+  %23 = load i32, ptr %Flags66, align 4
+  %and67 = and i32 %23, 64
   %cmp68 = icmp ne i32 %and67, 0
   br label %lor.end69
 
 lor.end69:                                        ; preds = %lor.rhs65, %lor.lhs.false62, %lor.end
-  %23 = phi i1 [ true, %lor.lhs.false62 ], [ true, %lor.end ], [ %cmp68, %lor.rhs65 ]
+  %24 = phi i1 [ true, %lor.lhs.false62 ], [ true, %lor.end ], [ %cmp68, %lor.rhs65 ]
   %and71 = and i32 %flags.addr.1, 1
   %tobool72.not = icmp eq i32 %and71, 0
-  %brmerge = select i1 %tobool72.not, i1 true, i1 %10
+  %brmerge = select i1 %tobool72.not, i1 true, i1 %11
   br i1 %brmerge, label %if.else108, label %if.then75
 
 if.then75:                                        ; preds = %lor.end69
-  %cmp80 = fcmp uge float %8, %cond.i
-  %brmerge76.not = select i1 %cmp80, i1 %18, i1 false
+  %cmp80 = fcmp uge float %9, %cond.i
+  %brmerge76.not = select i1 %cmp80, i1 %19, i1 false
   br i1 %brmerge76.not, label %if.else, label %if.then83
 
 if.then83:                                        ; preds = %if.then75
-  %sub = fsub float %8, %14
+  %sub = fsub float %9, %15
   br label %if.end136.sink.split
 
 if.else:                                          ; preds = %if.then75
-  %cmp95 = fcmp ult float %9, %add.i
+  %cmp95 = fcmp ult float %10, %add.i
   br i1 %cmp95, label %if.end136, label %if.then96
 
 if.then96:                                        ; preds = %if.else
-  %add102 = fadd float %9, %14
+  %add102 = fadd float %10, %15
   br label %if.end136.sink.split
 
 if.else108:                                       ; preds = %lor.end69
   %and109 = and i32 %flags.addr.1, 4
   %tobool110.not = icmp eq i32 %and109, 0
-  %brmerge77 = select i1 %tobool110.not, i1 true, i1 %10
+  %brmerge77 = select i1 %tobool110.not, i1 true, i1 %11
   %and114 = and i32 %flags.addr.1, 16
   %tobool115.not = icmp eq i32 %and114, 0
   %or.cond = select i1 %brmerge77, i1 %tobool115.not, i1 false
   br i1 %or.cond, label %if.end136, label %if.then116
 
 if.then116:                                       ; preds = %if.else108
-  br i1 %18, label %if.then118, label %if.end136.sink.split
+  br i1 %19, label %if.then118, label %if.end136.sink.split
 
 if.then118:                                       ; preds = %if.then116
-  %add123 = fadd float %8, %9
+  %add123 = fadd float %9, %10
   %mul = fmul float %add123, 5.000000e-01
   %conv.i121 = fptosi float %mul to i32
   %conv1.i = sitofp i32 %conv.i121 to float
   br label %if.end136.sink.split
 
 if.end136.sink.split:                             ; preds = %if.then116, %if.then96, %if.then83, %if.then118
-  %.sink229 = phi float [ %conv1.i, %if.then118 ], [ %sub, %if.then83 ], [ %add102, %if.then96 ], [ %8, %if.then116 ]
+  %.sink229 = phi float [ %conv1.i, %if.then118 ], [ %sub, %if.then83 ], [ %add102, %if.then96 ], [ %9, %if.then116 ]
   %.sink = phi float [ 5.000000e-01, %if.then118 ], [ 0.000000e+00, %if.then83 ], [ 1.000000e+00, %if.then96 ], [ 0.000000e+00, %if.then116 ]
   %Pos131 = getelementptr inbounds nuw i8, ptr %window, i64 40
-  %24 = load float, ptr %Pos131, align 8
-  %sub133 = fsub float %.sink229, %24
+  %25 = load float, ptr %Pos131, align 8
+  %sub133 = fsub float %.sink229, %25
   %DecoOuterSizeX1.i133 = getelementptr inbounds nuw i8, ptr %window, i64 104
-  %25 = load float, ptr %DecoOuterSizeX1.i133, align 8
-  %sub.i134 = fsub float %sub133, %25
+  %26 = load float, ptr %DecoOuterSizeX1.i133, align 8
+  %sub.i134 = fsub float %sub133, %26
   %sub1.i136 = fsub float %sub.i134, %3
   %Scroll.i137 = getelementptr inbounds nuw i8, ptr %window, i64 140
-  %26 = load float, ptr %Scroll.i137, align 4
-  %add.i138 = fadd float %26, %sub1.i136
+  %27 = load float, ptr %Scroll.i137, align 4
+  %add.i138 = fadd float %27, %sub1.i136
   %conv.i139 = fptosi float %add.i138 to i32
   %conv2.i140 = sitofp i32 %conv.i139 to float
   %ScrollTarget.i141 = getelementptr inbounds nuw i8, ptr %window, i64 156
@@ -48204,64 +48204,64 @@ if.end136.sink.split:                             ; preds = %if.then116, %if.the
 if.end136:                                        ; preds = %if.end136.sink.split, %if.else108, %if.else
   %and137 = and i32 %flags.addr.1, 2
   %tobool138.not = icmp eq i32 %and137, 0
-  %brmerge78 = select i1 %tobool138.not, i1 true, i1 %13
+  %brmerge78 = select i1 %tobool138.not, i1 true, i1 %14
   br i1 %brmerge78, label %if.else177, label %if.then141
 
 if.then141:                                       ; preds = %if.end136
-  %27 = load float, ptr %y36, align 4
-  %cmp146 = fcmp uge float %27, %cond.i98
-  %brmerge80.not = select i1 %cmp146, i1 %23, i1 false
+  %28 = load float, ptr %y36, align 4
+  %cmp146 = fcmp uge float %28, %cond.i98
+  %brmerge80.not = select i1 %cmp146, i1 %24, i1 false
   br i1 %brmerge80.not, label %if.else159, label %if.then149
 
 if.then149:                                       ; preds = %if.then141
-  %28 = load float, ptr %y59, align 4
-  %sub155 = fsub float %27, %28
+  %29 = load float, ptr %y59, align 4
+  %sub155 = fsub float %28, %29
   br label %if.end206.sink.split
 
 if.else159:                                       ; preds = %if.then141
-  %29 = load float, ptr %y42, align 4
-  %cmp164 = fcmp ult float %29, %add3.i
+  %30 = load float, ptr %y42, align 4
+  %cmp164 = fcmp ult float %30, %add3.i
   br i1 %cmp164, label %if.end206, label %if.then165
 
 if.then165:                                       ; preds = %if.else159
-  %30 = load float, ptr %y59, align 4
-  %add171 = fadd float %29, %30
+  %31 = load float, ptr %y59, align 4
+  %add171 = fadd float %30, %31
   br label %if.end206.sink.split
 
 if.else177:                                       ; preds = %if.end136
   %and178 = and i32 %flags.addr.1, 8
   %tobool179.not = icmp eq i32 %and178, 0
-  %brmerge81 = select i1 %tobool179.not, i1 true, i1 %13
+  %brmerge81 = select i1 %tobool179.not, i1 true, i1 %14
   %and183 = and i32 %flags.addr.1, 32
   %tobool184.not = icmp eq i32 %and183, 0
   %or.cond82 = select i1 %brmerge81, i1 %tobool184.not, i1 false
   br i1 %or.cond82, label %if.end206, label %if.then185
 
 if.then185:                                       ; preds = %if.else177
-  %31 = load float, ptr %y36, align 4
-  br i1 %23, label %if.then187, label %if.end206.sink.split
+  %32 = load float, ptr %y36, align 4
+  br i1 %24, label %if.then187, label %if.end206.sink.split
 
 if.then187:                                       ; preds = %if.then185
-  %32 = load float, ptr %y42, align 4
-  %add192 = fadd float %31, %32
+  %33 = load float, ptr %y42, align 4
+  %add192 = fadd float %32, %33
   %mul193 = fmul float %add192, 5.000000e-01
   %conv.i161 = fptosi float %mul193 to i32
   %conv1.i162 = sitofp i32 %conv.i161 to float
   br label %if.end206.sink.split
 
 if.end206.sink.split:                             ; preds = %if.then185, %if.then165, %if.then149, %if.then187
-  %.sink234 = phi float [ %conv1.i162, %if.then187 ], [ %sub155, %if.then149 ], [ %add171, %if.then165 ], [ %31, %if.then185 ]
+  %.sink234 = phi float [ %conv1.i162, %if.then187 ], [ %sub155, %if.then149 ], [ %add171, %if.then165 ], [ %32, %if.then185 ]
   %.sink231 = phi float [ 5.000000e-01, %if.then187 ], [ 0.000000e+00, %if.then149 ], [ 1.000000e+00, %if.then165 ], [ 0.000000e+00, %if.then185 ]
   %y202 = getelementptr inbounds nuw i8, ptr %window, i64 44
-  %33 = load float, ptr %y202, align 4
-  %sub203 = fsub float %.sink234, %33
+  %34 = load float, ptr %y202, align 4
+  %sub203 = fsub float %.sink234, %34
   %DecoOuterSizeY1.i174 = getelementptr inbounds nuw i8, ptr %window, i64 108
-  %34 = load float, ptr %DecoOuterSizeY1.i174, align 4
-  %sub.i175 = fsub float %sub203, %34
+  %35 = load float, ptr %DecoOuterSizeY1.i174, align 4
+  %sub.i175 = fsub float %sub203, %35
   %sub1.i177 = fsub float %sub.i175, %4
   %y.i178 = getelementptr inbounds nuw i8, ptr %window, i64 144
-  %35 = load float, ptr %y.i178, align 4
-  %add.i179 = fadd float %35, %sub1.i177
+  %36 = load float, ptr %y.i178, align 4
+  %add.i179 = fadd float %36, %sub1.i177
   %conv.i180 = fptosi float %add.i179 to i32
   %conv2.i181 = sitofp i32 %conv.i180 to float
   %y3.i182 = getelementptr inbounds nuw i8, ptr %window, i64 160
@@ -48278,8 +48278,8 @@ if.end206:                                        ; preds = %if.end206.sink.spli
   %next_scroll.sroa.0.0.vec.extract = extractelement <2 x float> %call207, i64 0
   %next_scroll.sroa.0.4.vec.extract = extractelement <2 x float> %call207, i64 1
   %Scroll.val = load float, ptr %Scroll, align 4
-  %36 = getelementptr i8, ptr %window, i64 144
-  %Scroll.val89 = load float, ptr %36, align 4
+  %37 = getelementptr i8, ptr %window, i64 144
+  %Scroll.val89 = load float, ptr %37, align 4
   %sub.i185 = fsub float %next_scroll.sroa.0.0.vec.extract, %Scroll.val
   %sub3.i186 = fsub float %next_scroll.sroa.0.4.vec.extract, %Scroll.val89
   %retval.sroa.0.0.vec.insert.i187 = insertelement <2 x float> poison, float %sub.i185, i64 0
@@ -48290,8 +48290,8 @@ if.end206:                                        ; preds = %if.end206.sink.spli
 
 land.lhs.true211:                                 ; preds = %if.end206
   %Flags212 = getelementptr inbounds nuw i8, ptr %window, i64 20
-  %37 = load i32, ptr %Flags212, align 4
-  %and213 = and i32 %37, 16777216
+  %38 = load i32, ptr %Flags212, align 4
+  %and213 = and i32 %38, 16777216
   %tobool214.not = icmp eq i32 %and213, 0
   br i1 %tobool214.not, label %if.end238, label %if.then215
 
@@ -48307,7 +48307,7 @@ if.then215:                                       ; preds = %land.lhs.true211
   %or226 = or disjoint i32 %and225, 2
   %in_flags.1 = select i1 %cmp223.not, i32 %in_flags.0, i32 %or226
   %ParentWindow = getelementptr inbounds nuw i8, ptr %window, i64 888
-  %38 = load ptr, ptr %ParentWindow, align 8
+  %39 = load ptr, ptr %ParentWindow, align 8
   %item_rect.val = load float, ptr %item_rect, align 4
   %item_rect.val85 = load float, ptr %y36, align 4
   %sub.i189 = fsub float %item_rect.val, %sub.i185
@@ -48323,7 +48323,7 @@ if.then215:                                       ; preds = %land.lhs.true211
   store <2 x float> %retval.sroa.0.4.vec.insert.i192, ptr %ref.tmp229, align 8
   %Max.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp229, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i196, ptr %Max.i197, align 8
-  %call236 = call <2 x float> @_ZN5ImGui14ScrollToRectExEP11ImGuiWindowRK6ImRecti(ptr noundef %38, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp229, i32 noundef %in_flags.1)
+  %call236 = call <2 x float> @_ZN5ImGui14ScrollToRectExEP11ImGuiWindowRK6ImRecti(ptr noundef %39, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp229, i32 noundef %in_flags.1)
   %ref.tmp228.sroa.0.0.vec.extract = extractelement <2 x float> %call236, i64 0
   %add.i198 = fadd float %sub.i185, %ref.tmp228.sroa.0.0.vec.extract
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i198, i64 0

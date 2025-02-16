@@ -1015,8 +1015,7 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24, %22
-  %.mask = and i8 %.130, 1
-  %28 = zext nneg i8 %.mask to i32
+  %28 = zext nneg i8 %.130 to i32
   %spec.select = add i32 %.031, %28
   %29 = icmp eq i32 %spec.select, 0
   %spec.select43 = select i1 %29, i32 %.034, i32 %.035

@@ -61761,7 +61761,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail6p
   %85 = xor i8 %.0228, 1
   %narrow = select i1 %50, i8 0, i8 %85
   %spec.select = zext nneg i8 %narrow to i64
-  %.2223 = add nuw nsw i64 %.1222, %spec.select
+  %.2223 = add i64 %.1222, %spec.select
   %86 = load i8, ptr %84, align 1, !tbaa !15
   %87 = icmp eq i8 %86, 46
   %spec.select249 = select i1 %87, i8 1, i8 %.0228

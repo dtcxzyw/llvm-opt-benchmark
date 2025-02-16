@@ -18228,17 +18228,17 @@ define void @gres_g_job_set_env(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 7980, ptr noundef nonnull @__func__.gres_g_job_set_env) #27
   unreachable
 
-15:                                               ; preds = %.lr.ph, %98
-  %16 = phi i32 [ %5, %.lr.ph ], [ %99, %98 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
-  %.02655 = phi i1 [ false, %.lr.ph ], [ %.1, %98 ]
-  %.02754 = phi i32 [ 0, %.lr.ph ], [ %.128, %98 ]
+15:                                               ; preds = %.lr.ph, %99
+  %16 = phi i32 [ %5, %.lr.ph ], [ %100, %99 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
+  %.02655 = phi i8 [ 0, %.lr.ph ], [ %.1, %99 ]
+  %.02754 = phi i32 [ 0, %.lr.ph ], [ %.128, %99 ]
   %17 = load ptr, ptr @gres_context, align 8
   %18 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not35 = icmp eq ptr %20, null
-  br i1 %.not35, label %98, label %21
+  br i1 %.not35, label %99, label %21
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %7, align 8
@@ -18252,7 +18252,7 @@ define void @gres_g_job_set_env(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 .outer.us:                                        ; preds = %23, %_accumulate_job_gres_alloc.exit.us
   %.348.ph.us = phi i64 [ %.4.us, %_accumulate_job_gres_alloc.exit.us ], [ 0, %23 ]
-  %.3.ph.us = phi i1 [ %spec.select.us, %_accumulate_job_gres_alloc.exit.us ], [ %.02655, %23 ]
+  %.3.ph.us = phi i8 [ %spec.select.us, %_accumulate_job_gres_alloc.exit.us ], [ %.02655, %23 ]
   br label %61
 
 26:                                               ; preds = %61
@@ -18323,7 +18323,7 @@ _accumulate_job_gres_alloc.exit.us:               ; preds = %54, %51, %35
   %58 = load i32, ptr %25, align 8
   %59 = load i32, ptr @gpu_plugin_id, align 4
   %60 = icmp eq i32 %58, %59
-  %spec.select.us = select i1 %60, i1 true, i1 %.3.ph.us
+  %spec.select.us = select i1 %60, i8 1, i8 %.3.ph.us
   br label %.outer.us, !llvm.loop !180
 
 61:                                               ; preds = %26, %.outer.us
@@ -18333,7 +18333,7 @@ _accumulate_job_gres_alloc.exit.us:               ; preds = %54, %51, %35
 
 .outer:                                           ; preds = %23, %_accumulate_job_gres_alloc.exit
   %.348.ph = phi i64 [ %.4, %_accumulate_job_gres_alloc.exit ], [ 0, %23 ]
-  %.3.ph = phi i1 [ %spec.select, %_accumulate_job_gres_alloc.exit ], [ %.02655, %23 ]
+  %.3.ph = phi i8 [ %spec.select, %_accumulate_job_gres_alloc.exit ], [ %.02655, %23 ]
   br label %63
 
 63:                                               ; preds = %.outer, %65
@@ -18378,67 +18378,68 @@ _accumulate_job_gres_alloc.exit:                  ; preds = %74, %76, %79
   %.4 = phi i64 [ %.348.ph, %76 ], [ %82, %79 ], [ %.348.ph, %74 ]
   %84 = load i32, ptr @gpu_plugin_id, align 4
   %85 = icmp eq i32 %83, %84
-  %spec.select = select i1 %85, i1 true, i1 %.3.ph
+  %spec.select = select i1 %85, i8 1, i8 %.3.ph
   br label %.outer, !llvm.loop !180
 
 .split52.us:                                      ; preds = %63, %61
   %.us-phi = phi i64 [ %.348.ph.us, %61 ], [ %.348.ph, %63 ]
-  %.us-phi53 = phi i1 [ %.3.ph.us, %61 ], [ %.3.ph, %63 ]
+  %.us-phi53 = phi i8 [ %.3.ph.us, %61 ], [ %.3.ph, %63 ]
   call void @list_iterator_destroy(ptr noundef %24) #25
   br label %86
 
 86:                                               ; preds = %.split52.us, %21
   %.247 = phi i64 [ 0, %21 ], [ %.us-phi, %.split52.us ]
-  %.2 = phi i1 [ %.02655, %21 ], [ %.us-phi53, %.split52.us ]
+  %.2 = phi i8 [ %.02655, %21 ], [ %.us-phi53, %.split52.us ]
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, 512
   %.not.i42.not = icmp eq i32 %89, 0
-  %90 = or i32 %.02754, 2
-  %spec.select41 = select i1 %.2, i32 %90, i32 %.02754
-  %.229 = select i1 %.not.i42.not, i32 %.02754, i32 %spec.select41
-  %91 = load i32, ptr %11, align 8
-  %92 = and i32 %91, 32
-  %.not38 = icmp eq i32 %92, 0
-  %93 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %.sink65.in = select i1 %.not38, ptr %19, ptr %93
+  %90 = zext nneg i8 %.2 to i32
+  %91 = shl nuw nsw i32 %90, 1
+  %spec.select41 = select i1 %.not.i42.not, i32 0, i32 %91
+  %.229 = or i32 %spec.select41, %.02754
+  %92 = load i32, ptr %11, align 8
+  %93 = and i32 %92, 32
+  %.not38 = icmp eq i32 %93, 0
+  %94 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %.sink65.in = select i1 %.not38, ptr %19, ptr %94
   %.sink65 = load ptr, ptr %.sink65.in, align 8
-  %94 = load ptr, ptr %3, align 8
-  call void %.sink65(ptr noundef nonnull %12, ptr noundef %94, i64 noundef %.247, i32 noundef %.229) #25
   %95 = load ptr, ptr %3, align 8
-  %.not39 = icmp eq ptr %95, null
-  br i1 %.not39, label %97, label %96
+  call void %.sink65(ptr noundef nonnull %12, ptr noundef %95, i64 noundef %.247, i32 noundef %.229) #25
+  %96 = load ptr, ptr %3, align 8
+  %.not39 = icmp eq ptr %96, null
+  br i1 %.not39, label %98, label %97
 
-96:                                               ; preds = %86
+97:                                               ; preds = %86
   call void @slurm_bit_free(ptr noundef nonnull %3) #25
-  br label %97
-
-97:                                               ; preds = %96, %86
-  store ptr null, ptr %3, align 8
-  %.pre60 = load i32, ptr @gres_context_cnt, align 4
   br label %98
 
-98:                                               ; preds = %15, %97
-  %99 = phi i32 [ %.pre60, %97 ], [ %16, %15 ]
-  %.128 = phi i32 [ %.229, %97 ], [ %.02754, %15 ]
-  %.1 = phi i1 [ %.2, %97 ], [ %.02655, %15 ]
+98:                                               ; preds = %97, %86
+  store ptr null, ptr %3, align 8
+  %.pre60 = load i32, ptr @gres_context_cnt, align 4
+  br label %99
+
+99:                                               ; preds = %15, %98
+  %100 = phi i32 [ %.pre60, %98 ], [ %16, %15 ]
+  %.128 = phi i32 [ %.229, %98 ], [ %.02754, %15 ]
+  %.1 = phi i8 [ %.2, %98 ], [ %.02655, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %15, label %._crit_edge, !llvm.loop !181
+  %101 = sext i32 %100 to i64
+  %102 = icmp slt i64 %indvars.iv.next, %101
+  br i1 %102, label %15, label %._crit_edge, !llvm.loop !181
 
-._crit_edge:                                      ; preds = %98, %.preheader
-  %102 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
-  %.not34 = icmp eq i32 %102, 0
-  br i1 %.not34, label %105, label %103
+._crit_edge:                                      ; preds = %99, %.preheader
+  %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
+  %.not34 = icmp eq i32 %103, 0
+  br i1 %.not34, label %106, label %104
 
-103:                                              ; preds = %._crit_edge
-  %104 = tail call ptr @__errno_location() #26
-  store i32 %102, ptr %104, align 4
+104:                                              ; preds = %._crit_edge
+  %105 = tail call ptr @__errno_location() #26
+  store i32 %103, ptr %105, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 8030, ptr noundef nonnull @__func__.gres_g_job_set_env) #27
   unreachable
 
-105:                                              ; preds = %._crit_edge
+106:                                              ; preds = %._crit_edge
   ret void
 }
 
@@ -23486,16 +23487,16 @@ define void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2 {
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 10071, ptr noundef nonnull @__func__.gres_g_step_set_env) #27
   unreachable
 
-10:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %.02347 = phi i1 [ false, %.lr.ph ], [ %.1, %65 ]
-  %.02446 = phi i32 [ 0, %.lr.ph ], [ %.125, %65 ]
+10:                                               ; preds = %.lr.ph, %66
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.02347 = phi i8 [ 0, %.lr.ph ], [ %.1, %66 ]
+  %.02446 = phi i32 [ 0, %.lr.ph ], [ %.125, %66 ]
   %11 = load ptr, ptr @gres_context, align 8
   %12 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not33 = icmp eq ptr %14, null
-  br i1 %.not33, label %65, label %15
+  br i1 %.not33, label %66, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %6, align 8
@@ -23504,7 +23505,7 @@ define void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2 {
 
 17:                                               ; preds = %15
   call void %14(ptr noundef nonnull %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #25
-  br label %65
+  br label %66
 
 18:                                               ; preds = %15
   %19 = call ptr @list_iterator_create(ptr noundef nonnull %16) #25
@@ -23513,7 +23514,7 @@ define void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2 {
 
 .outer:                                           ; preds = %_accumulate_step_gres_alloc.exit, %18
   %.243.ph = phi i64 [ %.4, %_accumulate_step_gres_alloc.exit ], [ 0, %18 ]
-  %.2.ph = phi i1 [ %spec.select, %_accumulate_step_gres_alloc.exit ], [ %.02347, %18 ]
+  %.2.ph = phi i8 [ %spec.select, %_accumulate_step_gres_alloc.exit ], [ %.02347, %18 ]
   br label %21
 
 21:                                               ; preds = %.outer, %23
@@ -23586,7 +23587,7 @@ _accumulate_step_gres_alloc.exit:                 ; preds = %46, %49, %31
   %52 = load i32, ptr %20, align 8
   %53 = load i32, ptr @gpu_plugin_id, align 4
   %54 = icmp eq i32 %52, %53
-  %spec.select = select i1 %54, i1 true, i1 %.2.ph
+  %spec.select = select i1 %54, i8 1, i8 %.2.ph
   br label %.outer, !llvm.loop !224
 
 55:                                               ; preds = %21
@@ -23595,45 +23596,46 @@ _accumulate_step_gres_alloc.exit:                 ; preds = %46, %49, %31
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 512
   %.not.i39.not = icmp eq i32 %58, 0
-  %59 = or i32 %.02446, 2
-  %spec.select38 = select i1 %.2.ph, i32 %59, i32 %.02446
-  %.226 = select i1 %.not.i39.not, i32 %.02446, i32 %spec.select38
-  %60 = load ptr, ptr %13, align 8
-  %61 = load ptr, ptr %2, align 8
-  call void %60(ptr noundef nonnull %7, ptr noundef %61, i64 noundef %.243.ph, i32 noundef %.226) #25
+  %59 = zext nneg i8 %.2.ph to i32
+  %60 = shl nuw nsw i32 %59, 1
+  %spec.select38 = select i1 %.not.i39.not, i32 0, i32 %60
+  %.226 = or i32 %spec.select38, %.02446
+  %61 = load ptr, ptr %13, align 8
   %62 = load ptr, ptr %2, align 8
-  %.not36 = icmp eq ptr %62, null
-  br i1 %.not36, label %64, label %63
+  call void %61(ptr noundef nonnull %7, ptr noundef %62, i64 noundef %.243.ph, i32 noundef %.226) #25
+  %63 = load ptr, ptr %2, align 8
+  %.not36 = icmp eq ptr %63, null
+  br i1 %.not36, label %65, label %64
 
-63:                                               ; preds = %55
+64:                                               ; preds = %55
   call void @slurm_bit_free(ptr noundef nonnull %2) #25
-  br label %64
-
-64:                                               ; preds = %63, %55
-  store ptr null, ptr %2, align 8
   br label %65
 
-65:                                               ; preds = %10, %64, %17
-  %.125 = phi i32 [ %.226, %64 ], [ %.02446, %17 ], [ %.02446, %10 ]
-  %.1 = phi i1 [ %.2.ph, %64 ], [ %.02347, %17 ], [ %.02347, %10 ]
+65:                                               ; preds = %64, %55
+  store ptr null, ptr %2, align 8
+  br label %66
+
+66:                                               ; preds = %10, %65, %17
+  %.125 = phi i32 [ %.226, %65 ], [ %.02446, %17 ], [ %.02446, %10 ]
+  %.1 = phi i8 [ %.2.ph, %65 ], [ %.02347, %17 ], [ %.02347, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load i32, ptr @gres_context_cnt, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %10, label %._crit_edge, !llvm.loop !225
+  %67 = load i32, ptr @gres_context_cnt, align 4
+  %68 = sext i32 %67 to i64
+  %69 = icmp slt i64 %indvars.iv.next, %68
+  br i1 %69, label %10, label %._crit_edge, !llvm.loop !225
 
-._crit_edge:                                      ; preds = %65, %.preheader
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
-  %.not32 = icmp eq i32 %69, 0
-  br i1 %.not32, label %72, label %70
+._crit_edge:                                      ; preds = %66, %.preheader
+  %70 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
+  %.not32 = icmp eq i32 %70, 0
+  br i1 %.not32, label %73, label %71
 
-70:                                               ; preds = %._crit_edge
-  %71 = tail call ptr @__errno_location() #26
-  store i32 %69, ptr %71, align 4
+71:                                               ; preds = %._crit_edge
+  %72 = tail call ptr @__errno_location() #26
+  store i32 %70, ptr %72, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 10110, ptr noundef nonnull @__func__.gres_g_step_set_env) #27
   unreachable
 
-72:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   ret void
 }
 

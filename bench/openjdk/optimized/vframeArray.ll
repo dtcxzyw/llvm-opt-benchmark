@@ -802,143 +802,142 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
   tail call void @_ZN5frame25interpreter_frame_set_bcpEPh(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.094) #13
   %123 = load i8, ptr @ProfileInterpreter, align 1
   %124 = trunc i8 %123 to i1
-  br i1 %124, label %125, label %134
+  br i1 %124, label %125, label %133
 
 125:                                              ; preds = %122
   %126 = load ptr, ptr %106, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   %.not = icmp eq ptr %128, null
-  br i1 %.not, label %134, label %129
+  br i1 %.not, label %133, label %129
 
 129:                                              ; preds = %125
   %130 = tail call noundef i32 @_ZNK5frame21interpreter_frame_bciEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  %131 = and i8 %.197, 1
-  %132 = zext nneg i8 %131 to i32
-  %spec.select = add nsw i32 %130, %132
-  %133 = tail call noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 dereferenceable(312) %128, i32 noundef %spec.select) #13
-  tail call void @_ZN5frame25interpreter_frame_set_mdpEPh(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %133) #13
-  br label %134
+  %131 = zext nneg i8 %.197 to i32
+  %spec.select = add i32 %130, %131
+  %132 = tail call noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 dereferenceable(312) %128, i32 noundef %spec.select) #13
+  tail call void @_ZN5frame25interpreter_frame_set_mdpEPh(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %132) #13
+  br label %133
 
-134:                                              ; preds = %125, %129, %122
-  %135 = load ptr, ptr %95, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = load i32, ptr %136, align 4
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph116, label %.preheader
+133:                                              ; preds = %125, %129, %122
+  %134 = load ptr, ptr %95, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %.lr.ph116, label %.preheader
 
-.preheader:                                       ; preds = %156, %134
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 80
+.preheader:                                       ; preds = %155, %133
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph118, label %._crit_edge119
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %.lr.ph118, label %._crit_edge119
 
-.lr.ph116:                                        ; preds = %134, %156
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %156 ], [ 0, %134 ]
-  %144 = phi ptr [ %158, %156 ], [ %136, %134 ]
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv121
-  %148 = load ptr, ptr %147, align 8
-  %149 = trunc nuw nsw i64 %indvars.iv121 to i32
-  %150 = tail call noundef ptr @_ZNK5frame37interpreter_frame_expression_stack_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %149) #13
-  %151 = load i8, ptr %148, align 8
-  switch i8 %151, label %152 [
+.lr.ph116:                                        ; preds = %133, %155
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %155 ], [ 0, %133 ]
+  %143 = phi ptr [ %157, %155 ], [ %135, %133 ]
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv121
+  %147 = load ptr, ptr %146, align 8
+  %148 = trunc nuw nsw i64 %indvars.iv121 to i32
+  %149 = tail call noundef ptr @_ZNK5frame37interpreter_frame_expression_stack_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %148) #13
+  %150 = load i8, ptr %147, align 8
+  switch i8 %150, label %151 [
     i8 10, label %.sink.split
     i8 12, label %.sink.split
-    i8 19, label %156
+    i8 19, label %155
   ]
 
-152:                                              ; preds = %.lr.ph116
-  %153 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %153, align 1
+151:                                              ; preds = %.lr.ph116
+  %152 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %152, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 382) #14
   unreachable
 
 .sink.split:                                      ; preds = %.lr.ph116, %.lr.ph116
-  %154 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %155 = load i64, ptr %154, align 8
-  br label %156
+  %153 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %154 = load i64, ptr %153, align 8
+  br label %155
 
-156:                                              ; preds = %.sink.split, %.lr.ph116
-  %.sink = phi i64 [ 0, %.lr.ph116 ], [ %155, %.sink.split ]
-  store i64 %.sink, ptr %150, align 8
+155:                                              ; preds = %.sink.split, %.lr.ph116
+  %.sink = phi i64 [ 0, %.lr.ph116 ], [ %154, %.sink.split ]
+  store i64 %.sink, ptr %149, align 8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %157 = load ptr, ptr %95, align 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = load i32, ptr %158, align 4
-  %160 = sext i32 %159 to i64
-  %161 = icmp slt i64 %indvars.iv.next122, %160
-  br i1 %161, label %.lr.ph116, label %.preheader, !llvm.loop !11
+  %156 = load ptr, ptr %95, align 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i32, ptr %157, align 4
+  %159 = sext i32 %158 to i64
+  %160 = icmp slt i64 %indvars.iv.next122, %159
+  br i1 %160, label %.lr.ph116, label %.preheader, !llvm.loop !11
 
-.lr.ph118:                                        ; preds = %.preheader, %174
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %174 ], [ 0, %.preheader ]
-  %162 = phi ptr [ %176, %174 ], [ %141, %.preheader ]
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv124
-  %166 = load ptr, ptr %165, align 8
-  %167 = trunc nuw nsw i64 %indvars.iv124 to i32
-  %168 = tail call noundef ptr @_ZNK5frame26interpreter_frame_local_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %167) #13
-  %169 = load i8, ptr %166, align 8
-  switch i8 %169, label %170 [
+.lr.ph118:                                        ; preds = %.preheader, %173
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %173 ], [ 0, %.preheader ]
+  %161 = phi ptr [ %175, %173 ], [ %140, %.preheader ]
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv124
+  %165 = load ptr, ptr %164, align 8
+  %166 = trunc nuw nsw i64 %indvars.iv124 to i32
+  %167 = tail call noundef ptr @_ZNK5frame26interpreter_frame_local_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %166) #13
+  %168 = load i8, ptr %165, align 8
+  switch i8 %168, label %169 [
     i8 10, label %.sink.split129
     i8 12, label %.sink.split129
-    i8 19, label %174
+    i8 19, label %173
   ]
 
-170:                                              ; preds = %.lr.ph118
-  %171 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %171, align 1
+169:                                              ; preds = %.lr.ph118
+  %170 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %170, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 426) #14
   unreachable
 
 .sink.split129:                                   ; preds = %.lr.ph118, %.lr.ph118
-  %172 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %173 = load i64, ptr %172, align 8
-  br label %174
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %172 = load i64, ptr %171, align 8
+  br label %173
 
-174:                                              ; preds = %.sink.split129, %.lr.ph118
-  %.sink127 = phi i64 [ 0, %.lr.ph118 ], [ %173, %.sink.split129 ]
-  store i64 %.sink127, ptr %168, align 8
+173:                                              ; preds = %.sink.split129, %.lr.ph118
+  %.sink127 = phi i64 [ 0, %.lr.ph118 ], [ %172, %.sink.split129 ]
+  store i64 %.sink127, ptr %167, align 8
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %175 = load ptr, ptr %139, align 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = load i32, ptr %176, align 4
-  %178 = sext i32 %177 to i64
-  %179 = icmp slt i64 %indvars.iv.next125, %178
-  br i1 %179, label %.lr.ph118, label %._crit_edge119, !llvm.loop !12
+  %174 = load ptr, ptr %138, align 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i32, ptr %175, align 4
+  %177 = sext i32 %176 to i64
+  %178 = icmp slt i64 %indvars.iv.next125, %177
+  br i1 %178, label %.lr.ph118, label %._crit_edge119, !llvm.loop !12
 
-._crit_edge119:                                   ; preds = %174, %.preheader
-  br i1 %5, label %180, label %194
+._crit_edge119:                                   ; preds = %173, %.preheader
+  br i1 %5, label %179, label %193
 
-180:                                              ; preds = %._crit_edge119
-  %181 = load i8, ptr @_ZN11JvmtiExport14_can_pop_frameE, align 1
-  %182 = trunc i8 %181 to i1
-  br i1 %182, label %183, label %194
+179:                                              ; preds = %._crit_edge119
+  %180 = load i8, ptr @_ZN11JvmtiExport14_can_pop_frameE, align 1
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %182, label %193
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds nuw i8, ptr %10, i64 1324
-  %185 = load i32, ptr %184, align 4
-  %186 = and i32 %185, 4
-  %187 = icmp ne i32 %186, 0
-  %188 = icmp ne i32 %.099, 0
-  %or.cond7 = and i1 %188, %187
-  br i1 %or.cond7, label %189, label %194
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 1324
+  %184 = load i32, ptr %183, align 4
+  %185 = and i32 %184, 4
+  %186 = icmp ne i32 %185, 0
+  %187 = icmp ne i32 %.099, 0
+  %or.cond7 = and i1 %187, %186
+  br i1 %or.cond7, label %188, label %193
 
-189:                                              ; preds = %183
-  %190 = tail call noundef ptr @_ZN10JavaThread23popframe_preserved_argsEv(ptr noundef nonnull align 8 dereferenceable(1800) %10) #13
-  %191 = tail call noundef i32 @_ZNK5frame39interpreter_frame_expression_stack_sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  %192 = add nsw i32 %191, -1
-  %193 = tail call noundef ptr @_ZNK5frame37interpreter_frame_expression_stack_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %192) #13
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %193, ptr align 1 %190, i64 %.098, i1 false)
+188:                                              ; preds = %182
+  %189 = tail call noundef ptr @_ZN10JavaThread23popframe_preserved_argsEv(ptr noundef nonnull align 8 dereferenceable(1800) %10) #13
+  %190 = tail call noundef i32 @_ZNK5frame39interpreter_frame_expression_stack_sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
+  %191 = add nsw i32 %190, -1
+  %192 = tail call noundef ptr @_ZNK5frame37interpreter_frame_expression_stack_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %191) #13
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %192, ptr align 1 %189, i64 %.098, i1 false)
   tail call void @_ZN10JavaThread28popframe_free_preserved_argsEv(ptr noundef nonnull align 8 dereferenceable(1800) %10) #13
-  br label %194
+  br label %193
 
-194:                                              ; preds = %189, %183, %180, %._crit_edge119
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+193:                                              ; preds = %188, %182, %179, %._crit_edge119
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, i8 0, i64 16, i1 false)
   ret void
 }
 

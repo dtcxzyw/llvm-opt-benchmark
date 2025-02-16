@@ -2085,15 +2085,15 @@ entry:
   %public_flags.1 = or disjoint i8 %spec.select, %2
   %multipath_flag = getelementptr inbounds nuw i8, ptr %header, i64 12
   %3 = load i8, ptr %multipath_flag, align 4
-  %tobool11 = trunc i8 %3 to i1
-  %4 = or disjoint i8 %public_flags.1, 64
-  %public_flags.2 = select i1 %tobool11, i8 %4, i8 %public_flags.1
+  %4 = shl i8 %3, 6
+  %5 = and i8 %4, 64
+  %public_flags.2 = or disjoint i8 %public_flags.1, %5
   %packet_number_length = getelementptr inbounds nuw i8, ptr %header, i64 15
-  %5 = load i8, ptr %packet_number_length, align 1
+  %6 = load i8, ptr %packet_number_length, align 1
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp4.i)
-  %switch.tableidx = add i8 %5, -1
-  %6 = icmp ult i8 %switch.tableidx, 6
-  br i1 %6, label %switch.hole_check, label %sw.default.i
+  %switch.tableidx = add i8 %6, -1
+  %7 = icmp ult i8 %switch.tableidx, 6
+  br i1 %7, label %switch.hole_check, label %sw.default.i
 
 sw.default.i:                                     ; preds = %switch.hole_check, %entry
   %call.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -2110,10 +2110,10 @@ cleanup.action.i:                                 ; preds = %cond.false.i
   br label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
 
 lpad.i:                                           ; preds = %cond.false.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4.i) #20
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 
 switch.hole_check:                                ; preds = %entry
   %switch.shifted = lshr i8 43, %switch.tableidx
@@ -2121,8 +2121,8 @@ switch.hole_check:                                ; preds = %entry
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %8 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %8 to i48
+  %9 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i8 %9 to i48
   %switch.downshift = lshr i48 52777095008256, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
@@ -2130,15 +2130,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
 _ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %sw.default.i, %cleanup.action.i
   %retval.0.i = phi i8 [ 48, %sw.default.i ], [ 48, %cleanup.action.i ], [ %switch.masked, %switch.lookup ]
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp4.i)
-  %or2033 = or disjoint i8 %retval.0.i, %public_flags.2
+  %or2033 = or disjoint i8 %public_flags.2, %retval.0.i
   %nonce = getelementptr inbounds nuw i8, ptr %header, i64 40
-  %9 = load ptr, ptr %nonce, align 8
-  %cmp.not = icmp eq ptr %9, null
-  %10 = or disjoint i8 %or2033, 4
-  %spec.select43 = select i1 %cmp.not, i8 %or2033, i8 %10
+  %10 = load ptr, ptr %nonce, align 8
+  %cmp.not = icmp eq ptr %10, null
+  %11 = or disjoint i8 %or2033, 4
+  %spec.select43 = select i1 %cmp.not, i8 %or2033, i8 %11
   %connection_id_length = getelementptr inbounds nuw i8, ptr %header, i64 8
-  %11 = load i32, ptr %connection_id_length, align 8
-  switch i32 %11, label %sw.epilog [
+  %12 = load i32, ptr %connection_id_length, align 8
+  switch i32 %12, label %sw.epilog [
     i32 0, label %sw.bb
     i32 8, label %sw.bb40
   ]
@@ -2149,85 +2149,85 @@ sw.bb:                                            ; preds = %_ZN3net10QuicFramer
 
 sw.bb40:                                          ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
   %quic_version_ = getelementptr inbounds nuw i8, ptr %this, i64 268
-  %12 = load i32, ptr %quic_version_, align 4
-  %cmp41 = icmp sgt i32 %12, 32
+  %13 = load i32, ptr %quic_version_, align 4
+  %cmp41 = icmp sgt i32 %13, 32
   br i1 %cmp41, label %if.then42, label %if.else53
 
 if.then42:                                        ; preds = %sw.bb40
-  %13 = load i8, ptr @FLAGS_quic_remove_v33_hacks, align 1
-  %tobool46 = trunc i8 %13 to i1
+  %14 = load i8, ptr @FLAGS_quic_remove_v33_hacks, align 1
+  %tobool46 = trunc i8 %14 to i1
   %perspective_ = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %14 = load i32, ptr %perspective_, align 8
-  %cmp47 = icmp ne i32 %14, 1
+  %15 = load i32, ptr %perspective_, align 8
+  %cmp47 = icmp ne i32 %15, 1
   %or.cond.not = select i1 %tobool46, i1 true, i1 %cmp47
   %spec.select35.v = select i1 %or.cond.not, i8 8, i8 12
   %spec.select35 = or i8 %spec.select35.v, %spec.select43
   br label %if.end57
 
 if.else53:                                        ; preds = %sw.bb40
-  %15 = or i8 %spec.select43, 12
+  %16 = or i8 %spec.select43, 12
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then42, %if.else53
-  %public_flags.4 = phi i8 [ %15, %if.else53 ], [ %spec.select35, %if.then42 ]
+  %public_flags.4 = phi i8 [ %16, %if.else53 ], [ %spec.select35, %if.then42 ]
   %call58 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %public_flags.4)
   br i1 %call58, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end57
-  %16 = load i64, ptr %header, align 8
-  %call60 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef nonnull align 8 dereferenceable(24) %writer, i64 noundef %16)
+  %17 = load i64, ptr %header, align 8
+  %call60 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef nonnull align 8 dereferenceable(24) %writer, i64 noundef %17)
   br i1 %call60, label %sw.epilog, label %return
 
 sw.epilog:                                        ; preds = %lor.lhs.false, %sw.bb, %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %17 = load i64, ptr %header, align 8
+  %18 = load i64, ptr %header, align 8
   %last_serialized_connection_id_ = getelementptr inbounds nuw i8, ptr %this, i64 256
-  store i64 %17, ptr %last_serialized_connection_id_, align 8
-  %18 = load i8, ptr %version_flag, align 2
-  %tobool67 = trunc i8 %18 to i1
+  store i64 %18, ptr %last_serialized_connection_id_, align 8
+  %19 = load i8, ptr %version_flag, align 2
+  %tobool67 = trunc i8 %19 to i1
   br i1 %tobool67, label %if.end78, label %if.end82
 
 if.end78:                                         ; preds = %sw.epilog
   %quic_version_79 = getelementptr inbounds nuw i8, ptr %this, i64 268
-  %19 = load i32, ptr %quic_version_79, align 4
-  %call80 = call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %19)
+  %20 = load i32, ptr %quic_version_79, align 4
+  %call80 = call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %20)
   %call81 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %writer, i32 noundef %call80)
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end78, %sw.epilog
-  %20 = load i8, ptr %multipath_flag, align 4
-  %tobool85 = trunc i8 %20 to i1
+  %21 = load i8, ptr %multipath_flag, align 4
+  %tobool85 = trunc i8 %21 to i1
   br i1 %tobool85, label %land.lhs.true86, label %if.end89
 
 land.lhs.true86:                                  ; preds = %if.end82
   %path_id = getelementptr inbounds nuw i8, ptr %header, i64 56
-  %21 = load i8, ptr %path_id, align 8
-  %call87 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %21)
+  %22 = load i8, ptr %path_id, align 8
+  %call87 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %22)
   br i1 %call87, label %if.end89, label %return
 
 if.end89:                                         ; preds = %land.lhs.true86, %if.end82
-  %22 = load ptr, ptr %nonce, align 8
-  %cmp92.not = icmp eq ptr %22, null
+  %23 = load ptr, ptr %nonce, align 8
+  %cmp92.not = icmp eq ptr %23, null
   br i1 %cmp92.not, label %if.end98, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %if.end89
-  %call96 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %writer, ptr noundef nonnull %22, i64 noundef 32)
+  %call96 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %writer, ptr noundef nonnull %23, i64 noundef 32)
   br i1 %call96, label %if.end98, label %return
 
 if.end98:                                         ; preds = %land.lhs.true93, %if.end89
-  %23 = load i8, ptr %packet_number_length, align 1
+  %24 = load i8, ptr %packet_number_length, align 1
   %packet_number = getelementptr inbounds nuw i8, ptr %header, i64 48
-  %24 = load i64, ptr %packet_number, align 8
+  %25 = load i64, ptr %packet_number, align 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
-  %25 = load i64, ptr %capacity_.i.i, align 8
+  %26 = load i64, ptr %capacity_.i.i, align 8
   %length_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
-  %26 = load i64, ptr %length_.i.i, align 8
-  %sub.i = sub i64 %25, %26
-  %conv.i = sext i8 %23 to i64
+  %27 = load i64, ptr %length_.i.i, align 8
+  %sub.i = sub i64 %26, %27
+  %conv.i = sext i8 %24 to i64
   %cmp.i = icmp ult i64 %sub.i, %conv.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end98
-  switch i8 %23, label %return [
+  switch i8 %24, label %return [
     i8 1, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
     i8 2, label %sw.bb5.i
     i8 4, label %sw.bb9.i
@@ -2235,35 +2235,35 @@ if.end.i:                                         ; preds = %if.end98
   ]
 
 sw.bb5.i:                                         ; preds = %if.end.i
-  %conv7.i = trunc i64 %24 to i16
+  %conv7.i = trunc i64 %25 to i16
   %call8.i = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24) %writer, i16 noundef zeroext %conv7.i)
   br i1 %call8.i, label %if.end103, label %return
 
 sw.bb9.i:                                         ; preds = %if.end.i
-  %conv11.i = trunc i64 %24 to i32
+  %conv11.i = trunc i64 %25 to i32
   %call12.i = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %writer, i32 noundef %conv11.i)
   br i1 %call12.i, label %if.end103, label %return
 
 sw.bb13.i:                                        ; preds = %if.end.i
-  %and14.i = and i64 %24, 281474976710655
+  %and14.i = and i64 %25, 281474976710655
   %call15.i = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef nonnull align 8 dereferenceable(24) %writer, i64 noundef %and14.i)
   br i1 %call15.i, label %if.end103, label %return
 
 _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit: ; preds = %if.end.i
-  %conv3.i = trunc i64 %24 to i8
+  %conv3.i = trunc i64 %25 to i8
   %call4.i = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %conv3.i)
   br i1 %call4.i, label %if.end103, label %return
 
 if.end103:                                        ; preds = %sw.bb5.i, %sw.bb9.i, %sw.bb13.i, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
   %quic_version_104 = getelementptr inbounds nuw i8, ptr %this, i64 268
-  %27 = load i32, ptr %quic_version_104, align 4
-  %cmp105 = icmp sgt i32 %27, 33
+  %28 = load i32, ptr %quic_version_104, align 4
+  %cmp105 = icmp sgt i32 %28, 33
   br i1 %cmp105, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end103
   %entropy_flag = getelementptr inbounds nuw i8, ptr %header, i64 57
-  %28 = load i8, ptr %entropy_flag, align 1
-  %spec.select34 = and i8 %28, 1
+  %29 = load i8, ptr %entropy_flag, align 1
+  %spec.select34 = and i8 %29, 1
   %call114 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext %spec.select34)
   br label %return
 
