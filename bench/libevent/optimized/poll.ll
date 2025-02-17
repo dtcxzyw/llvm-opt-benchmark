@@ -1,14 +1,14 @@
 ; ModuleID = 'bench/libevent/original/poll.ll'
 source_filename = "bench/libevent/original/poll.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
 %struct.pollfd = type { i32, i16, i16 }
 
 @.str = private unnamed_addr constant [5 x i8] c"poll\00", align 1
-@pollops = dso_local local_unnamed_addr constant %struct.eventop { ptr @.str, ptr @poll_init, ptr @poll_add, ptr @poll_del, ptr @poll_dispatch, ptr @poll_dealloc, i32 1, i32 12, i64 4 }, align 8
+@pollops = hidden local_unnamed_addr constant %struct.eventop { ptr @.str, ptr @poll_init, ptr @poll_add, ptr @poll_del, ptr @poll_dispatch, ptr @poll_dealloc, i32 1, i32 12, i64 4 }, align 8
 @.str.1 = private unnamed_addr constant [8 x i8] c"realloc\00", align 1
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 @event_debug_logging_mask_ = external local_unnamed_addr global i32, align 4
@@ -16,421 +16,416 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.poll_dispatch = private unnamed_addr constant [14 x i8] c"poll_dispatch\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @poll_init(ptr noundef %base) #0 {
-entry:
-  %call = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 32) #6
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+define internal ptr @poll_init(ptr noundef %0) #0 {
+  %2 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 32) #6
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %11, label %3
 
-if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @sigfd_init_(ptr noundef %base) #6
-  %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %if.then2, label %if.end4
+3:                                                ; preds = %1
+  %4 = tail call i32 @sigfd_init_(ptr noundef %0) #6
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %6, label %8
 
-if.then2:                                         ; preds = %if.end
-  %call3 = tail call i32 @evsig_init_(ptr noundef %base) #6
-  br label %if.end4
+6:                                                ; preds = %3
+  %7 = tail call i32 @evsig_init_(ptr noundef %0) #6
+  br label %8
 
-if.end4:                                          ; preds = %if.then2, %if.end
-  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
-  %call5 = tail call i32 @evutil_weakrand_seed_(ptr noundef nonnull %weakrand_seed, i32 noundef 0) #6
-  br label %return
+8:                                                ; preds = %6, %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %10 = tail call i32 @evutil_weakrand_seed_(ptr noundef nonnull %9, i32 noundef 0) #6
+  br label %11
 
-return:                                           ; preds = %entry, %if.end4
-  ret ptr %call
+11:                                               ; preds = %1, %8
+  ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @poll_add(ptr noundef readonly captures(none) %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr noundef captures(none) %idx_) #0 {
-entry:
-  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
-  %0 = load ptr, ptr %evbase, align 8
-  %1 = and i16 %events, 134
-  %tobool.not = icmp eq i16 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+define internal range(i32 -1, 1) i32 @poll_add(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 signext %2, i16 noundef signext %3, ptr noundef captures(none) %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = and i16 %3, 134
+  %.not = icmp eq i16 %8, 0
+  br i1 %.not, label %60, label %9
 
-if.end:                                           ; preds = %entry
-  %nfds = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %2 = load i32, ptr %nfds, align 4
-  %add = add nsw i32 %2, 1
-  %3 = load i32, ptr %0, align 8
-  %cmp.not = icmp slt i32 %add, %3
-  br i1 %cmp.not, label %if.end17, label %if.then2
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = add nsw i32 %11, 1
+  %13 = load i32, ptr %7, align 8
+  %.not41 = icmp slt i32 %12, %13
+  br i1 %.not41, label %24, label %14
 
-if.then2:                                         ; preds = %if.end
-  %cmp4 = icmp slt i32 %3, 32
-  %mul = shl nuw nsw i32 %3, 1
-  %tmp_event_count.0 = select i1 %cmp4, i32 32, i32 %mul
-  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %event_set, align 8
-  %conv9 = zext nneg i32 %tmp_event_count.0 to i64
-  %mul10 = shl nuw nsw i64 %conv9, 3
-  %call = tail call ptr @event_mm_realloc_(ptr noundef %4, i64 noundef %mul10) #6
-  %cmp11 = icmp eq ptr %call, null
-  br i1 %cmp11, label %if.then13, label %if.end14
+14:                                               ; preds = %9
+  %15 = icmp slt i32 %13, 32
+  %16 = shl nuw nsw i32 %13, 1
+  %.0 = select i1 %15, i32 32, i32 %16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = zext nneg i32 %.0 to i64
+  %20 = shl nuw nsw i64 %19, 3
+  %21 = tail call ptr @event_mm_realloc_(ptr noundef %18, i64 noundef %20) #6
+  %.not42 = icmp eq ptr %21, null
+  br i1 %.not42, label %.thread, label %22
 
-if.then13:                                        ; preds = %if.then2
+.thread:                                          ; preds = %14
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1) #6
-  br label %return
+  br label %60
 
-if.end14:                                         ; preds = %if.then2
-  store ptr %call, ptr %event_set, align 8
-  store i32 %tmp_event_count.0, ptr %0, align 8
-  %realloc_copy = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %realloc_copy, align 8
-  br label %if.end17
+22:                                               ; preds = %14
+  store ptr %21, ptr %17, align 8
+  store i32 %.0, ptr %7, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 1, ptr %23, align 8
+  br label %24
 
-if.end17:                                         ; preds = %if.end14, %if.end
-  %5 = load i32, ptr %idx_, align 4
-  %cmp18 = icmp sgt i32 %5, 0
-  br i1 %cmp18, label %if.then20, label %if.else22
+24:                                               ; preds = %22, %9
+  %25 = load i32, ptr %4, align 4
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %33
 
-if.then20:                                        ; preds = %if.end17
-  %event_set21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %event_set21, align 8
-  %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr %struct.pollfd, ptr %6, i64 %7
-  %arrayidx = getelementptr i8, ptr %8, i64 -8
-  br label %if.end31
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = zext nneg i32 %25 to i64
+  %31 = getelementptr %struct.pollfd, ptr %29, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -8
+  br label %41
 
-if.else22:                                        ; preds = %if.end17
-  %9 = load i32, ptr %nfds, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %nfds, align 4
-  %event_set24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %event_set24, align 8
-  %idxprom25 = sext i32 %9 to i64
-  %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %10, i64 %idxprom25
-  %events27 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 4
-  store i16 0, ptr %events27, align 4
-  store i32 %fd, ptr %arrayidx26, align 4
-  store i32 %inc, ptr %idx_, align 4
-  br label %if.end31
+33:                                               ; preds = %24
+  %34 = load i32, ptr %10, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %10, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = sext i32 %34 to i64
+  %39 = getelementptr inbounds %struct.pollfd, ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i16 0, ptr %40, align 4
+  store i32 %1, ptr %39, align 4
+  store i32 %35, ptr %4, align 4
+  br label %41
 
-if.end31:                                         ; preds = %if.else22, %if.then20
-  %pfd.0 = phi ptr [ %arrayidx, %if.then20 ], [ %arrayidx26, %if.else22 ]
-  %revents = getelementptr inbounds nuw i8, ptr %pfd.0, i64 6
-  store i16 0, ptr %revents, align 2
-  %11 = and i16 %events, 4
-  %tobool34.not = icmp eq i16 %11, 0
-  br i1 %tobool34.not, label %if.end39, label %if.then35
+41:                                               ; preds = %33, %27
+  %.037 = phi ptr [ %32, %27 ], [ %39, %33 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.037, i64 6
+  store i16 0, ptr %42, align 2
+  %43 = and i16 %3, 4
+  %.not43 = icmp eq i16 %43, 0
+  br i1 %.not43, label %48, label %44
 
-if.then35:                                        ; preds = %if.end31
-  %events36 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
-  %12 = load i16, ptr %events36, align 4
-  %13 = or i16 %12, 4
-  store i16 %13, ptr %events36, align 4
-  br label %if.end39
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+  %46 = load i16, ptr %45, align 4
+  %47 = or i16 %46, 4
+  store i16 %47, ptr %45, align 4
+  br label %48
 
-if.end39:                                         ; preds = %if.then35, %if.end31
-  %14 = and i16 %events, 2
-  %tobool42.not = icmp eq i16 %14, 0
-  br i1 %tobool42.not, label %if.end48, label %if.then43
+48:                                               ; preds = %44, %41
+  %49 = and i16 %3, 2
+  %.not44 = icmp eq i16 %49, 0
+  br i1 %.not44, label %54, label %50
 
-if.then43:                                        ; preds = %if.end39
-  %events44 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
-  %15 = load i16, ptr %events44, align 4
-  %16 = or i16 %15, 1
-  store i16 %16, ptr %events44, align 4
-  br label %if.end48
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+  %52 = load i16, ptr %51, align 4
+  %53 = or i16 %52, 1
+  store i16 %53, ptr %51, align 4
+  br label %54
 
-if.end48:                                         ; preds = %if.then43, %if.end39
-  %17 = and i16 %events, 128
-  %tobool51.not = icmp eq i16 %17, 0
-  br i1 %tobool51.not, label %return, label %if.then52
+54:                                               ; preds = %50, %48
+  %55 = and i16 %3, 128
+  %.not45 = icmp eq i16 %55, 0
+  br i1 %.not45, label %60, label %56
 
-if.then52:                                        ; preds = %if.end48
-  %events53 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
-  %18 = load i16, ptr %events53, align 4
-  %19 = or i16 %18, 8192
-  store i16 %19, ptr %events53, align 4
-  br label %return
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+  %58 = load i16, ptr %57, align 4
+  %59 = or i16 %58, 8192
+  store i16 %59, ptr %57, align 4
+  br label %60
 
-return:                                           ; preds = %if.end48, %if.then52, %entry, %if.then13
-  %retval.0 = phi i32 [ -1, %if.then13 ], [ 0, %entry ], [ 0, %if.then52 ], [ 0, %if.end48 ]
-  ret i32 %retval.0
+60:                                               ; preds = %.thread, %54, %56, %5
+  %.035 = phi i32 [ 0, %5 ], [ 0, %56 ], [ 0, %54 ], [ -1, %.thread ]
+  ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr noundef captures(none) %idx_) #0 {
-entry:
-  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
-  %0 = load ptr, ptr %evbase, align 8
-  %1 = and i16 %events, 134
-  %tobool.not = icmp eq i16 %1, 0
-  br i1 %tobool.not, label %return, label %if.end
+define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %0, i32 %1, i16 signext %2, i16 noundef signext %3, ptr noundef captures(none) %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = and i16 %3, 134
+  %.not = icmp eq i16 %8, 0
+  br i1 %.not, label %49, label %9
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %idx_, align 4
-  %cmp = icmp slt i32 %2, 1
-  br i1 %cmp, label %return, label %if.end3
+9:                                                ; preds = %5
+  %10 = load i32, ptr %4, align 4
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %49, label %12
 
-if.end3:                                          ; preds = %if.end
-  %sub = add nsw i32 %2, -1
-  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %event_set, align 8
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw %struct.pollfd, ptr %3, i64 %idxprom
-  %4 = and i16 %events, 2
-  %tobool6.not = icmp eq i16 %4, 0
-  br i1 %tobool6.not, label %if.end12, label %if.then7
+12:                                               ; preds = %9
+  %13 = add nsw i32 %10, -1
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext nneg i32 %13 to i64
+  %17 = getelementptr inbounds nuw %struct.pollfd, ptr %15, i64 %16
+  %18 = and i16 %3, 2
+  %.not29 = icmp eq i16 %18, 0
+  br i1 %.not29, label %23, label %19
 
-if.then7:                                         ; preds = %if.end3
-  %events8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %5 = load i16, ptr %events8, align 4
-  %6 = and i16 %5, -2
-  store i16 %6, ptr %events8, align 4
-  br label %if.end12
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %21 = load i16, ptr %20, align 4
+  %22 = and i16 %21, -2
+  store i16 %22, ptr %20, align 4
+  br label %23
 
-if.end12:                                         ; preds = %if.then7, %if.end3
-  %7 = and i16 %events, 4
-  %tobool15.not = icmp eq i16 %7, 0
-  br i1 %tobool15.not, label %if.end21, label %if.then16
+23:                                               ; preds = %19, %12
+  %24 = and i16 %3, 4
+  %.not30 = icmp eq i16 %24, 0
+  br i1 %.not30, label %29, label %25
 
-if.then16:                                        ; preds = %if.end12
-  %events17 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %8 = load i16, ptr %events17, align 4
-  %9 = and i16 %8, -5
-  store i16 %9, ptr %events17, align 4
-  br label %if.end21
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %27 = load i16, ptr %26, align 4
+  %28 = and i16 %27, -5
+  store i16 %28, ptr %26, align 4
+  br label %29
 
-if.end21:                                         ; preds = %if.then16, %if.end12
-  %10 = and i16 %events, 128
-  %tobool24.not = icmp eq i16 %10, 0
-  %events31.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %.pre = load i16, ptr %events31.phi.trans.insert, align 4
-  br i1 %tobool24.not, label %if.end30, label %if.then25
+29:                                               ; preds = %25, %23
+  %30 = and i16 %3, 128
+  %.not31 = icmp eq i16 %30, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.pre = load i16, ptr %.phi.trans.insert, align 4
+  br i1 %.not31, label %._crit_edge, label %31
 
-if.then25:                                        ; preds = %if.end21
-  %11 = and i16 %.pre, -8193
-  store i16 %11, ptr %events31.phi.trans.insert, align 4
-  br label %if.end30
+31:                                               ; preds = %29
+  %32 = and i16 %.pre, -8193
+  store i16 %32, ptr %.phi.trans.insert, align 4
+  br label %._crit_edge
 
-if.end30:                                         ; preds = %if.end21, %if.then25
-  %12 = phi i16 [ %11, %if.then25 ], [ %.pre, %if.end21 ]
-  %tobool32.not = icmp eq i16 %12, 0
-  br i1 %tobool32.not, label %if.end34, label %return
+._crit_edge:                                      ; preds = %29, %31
+  %33 = phi i16 [ %32, %31 ], [ %.pre, %29 ]
+  %.not32 = icmp eq i16 %33, 0
+  br i1 %.not32, label %34, label %49
 
-if.end34:                                         ; preds = %if.end30
-  store i32 0, ptr %idx_, align 4
-  %nfds = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %nfds, align 4
-  %dec = add nsw i32 %13, -1
-  store i32 %dec, ptr %nfds, align 4
-  %cmp37.not = icmp eq i32 %2, %13
-  br i1 %cmp37.not, label %return, label %if.then39
+34:                                               ; preds = %._crit_edge
+  store i32 0, ptr %4, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = add nsw i32 %36, -1
+  store i32 %37, ptr %35, align 4
+  %.not33 = icmp eq i32 %10, %36
+  br i1 %.not33, label %49, label %38
 
-if.then39:                                        ; preds = %if.end34
-  %14 = load ptr, ptr %event_set, align 8
-  %arrayidx42 = getelementptr inbounds nuw %struct.pollfd, ptr %14, i64 %idxprom
-  %idxprom45 = sext i32 %dec to i64
-  %arrayidx46 = getelementptr inbounds %struct.pollfd, ptr %14, i64 %idxprom45
-  %15 = load i64, ptr %arrayidx46, align 4
-  store i64 %15, ptr %arrayidx42, align 4
-  %io = getelementptr inbounds nuw i8, ptr %base, i64 808
-  %16 = load ptr, ptr %event_set, align 8
-  %arrayidx49 = getelementptr inbounds nuw %struct.pollfd, ptr %16, i64 %idxprom
-  %17 = load i32, ptr %arrayidx49, align 4
-  %call = tail call ptr @evmap_io_get_fdinfo_(ptr noundef nonnull %io, i32 noundef %17) #6
-  store i32 %2, ptr %call, align 4
-  br label %return
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %14, align 8
+  %40 = getelementptr inbounds nuw %struct.pollfd, ptr %39, i64 %16
+  %41 = sext i32 %37 to i64
+  %42 = getelementptr inbounds %struct.pollfd, ptr %39, i64 %41
+  %43 = load i64, ptr %42, align 4
+  store i64 %43, ptr %40, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %45 = load ptr, ptr %14, align 8
+  %46 = getelementptr inbounds nuw %struct.pollfd, ptr %45, i64 %16
+  %47 = load i32, ptr %46, align 4
+  %48 = tail call ptr @evmap_io_get_fdinfo_(ptr noundef nonnull %44, i32 noundef %47) #6
+  store i32 %10, ptr %48, align 4
+  br label %49
 
-return:                                           ; preds = %if.end34, %if.then39, %if.end30, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ 0, %if.end30 ], [ 0, %if.then39 ], [ 0, %if.end34 ]
-  ret i32 %retval.0
+49:                                               ; preds = %34, %38, %._crit_edge, %9, %5
+  %.0 = phi i32 [ 0, %5 ], [ -1, %9 ], [ 0, %._crit_edge ], [ 0, %38 ], [ 0, %34 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @poll_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
-entry:
-  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
-  %0 = load ptr, ptr %evbase, align 8
-  %nfds1 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %1 = load i32, ptr %nfds1, align 4
-  %th_base_lock = getelementptr inbounds nuw i8, ptr %base, i64 952
-  %2 = load ptr, ptr %th_base_lock, align 8
-  %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %if.else, label %if.then
+define internal range(i32 -1, 1) i32 @poll_dispatch(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %24, label %9
 
-if.then:                                          ; preds = %entry
-  %realloc_copy = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %realloc_copy, align 8
-  %tobool2.not = icmp eq i32 %3, 0
-  %event_set_copy9.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load ptr, ptr %event_set_copy9.phi.trans.insert, align 8
-  br i1 %tobool2.not, label %if.end8, label %if.then3
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = load i32, ptr %10, align 8
+  %.not73 = icmp eq i32 %11, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  br i1 %.not73, label %._crit_edge, label %12
 
-if.then3:                                         ; preds = %if.then
-  %4 = load i32, ptr %0, align 8
-  %conv = sext i32 %4 to i64
-  %mul = shl nsw i64 %conv, 3
-  %call = tail call ptr @event_mm_realloc_(ptr noundef %.pre, i64 noundef %mul) #6
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %return.sink.split, label %if.end
+12:                                               ; preds = %9
+  %13 = load i32, ptr %4, align 8
+  %14 = sext i32 %13 to i64
+  %15 = shl nsw i64 %14, 3
+  %16 = tail call ptr @event_mm_realloc_(ptr noundef %.pre, i64 noundef %15) #6
+  %.not74 = icmp eq ptr %16, null
+  br i1 %.not74, label %.loopexit.sink.split, label %17
 
-if.end:                                           ; preds = %if.then3
-  store ptr %call, ptr %event_set_copy9.phi.trans.insert, align 8
-  store i32 0, ptr %realloc_copy, align 8
-  br label %if.end8
+17:                                               ; preds = %12
+  store ptr %16, ptr %.phi.trans.insert, align 8
+  store i32 0, ptr %10, align 8
+  br label %._crit_edge
 
-if.end8:                                          ; preds = %if.then, %if.end
-  %5 = phi ptr [ %call, %if.end ], [ %.pre, %if.then ]
-  %event_set_copy9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %event_set10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %event_set10, align 8
-  %conv11 = sext i32 %1 to i64
-  %mul12 = shl nsw i64 %conv11, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 %mul12, i1 false)
-  br label %if.end15
+._crit_edge:                                      ; preds = %9, %17
+  %18 = phi ptr [ %16, %17 ], [ %.pre, %9 ]
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = sext i32 %6 to i64
+  %23 = shl nsw i64 %22, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %21, i64 %23, i1 false)
+  br label %26
 
-if.else:                                          ; preds = %entry
-  %event_set14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %if.end15
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %26
 
-if.end15:                                         ; preds = %if.else, %if.end8
-  %event_set.0.in = phi ptr [ %event_set_copy9, %if.end8 ], [ %event_set14, %if.else ]
-  %event_set.0 = load ptr, ptr %event_set.0.in, align 8
-  %cmp16.not = icmp eq ptr %tv, null
-  br i1 %cmp16.not, label %do.body27, label %if.then18
+26:                                               ; preds = %24, %._crit_edge
+  %.060.in = phi ptr [ %19, %._crit_edge ], [ %25, %24 ]
+  %.060 = load ptr, ptr %.060.in, align 8
+  %.not75 = icmp eq ptr %1, null
+  br i1 %.not75, label %30, label %27
 
-if.then18:                                        ; preds = %if.end15
-  %call19 = tail call i64 @evutil_tv_to_msec_(ptr noundef nonnull %tv) #6
-  %spec.store.select2 = tail call i64 @llvm.umin.i64(i64 %call19, i64 2147483647)
-  %7 = trunc nuw nsw i64 %spec.store.select2 to i32
-  br label %do.body27
+27:                                               ; preds = %26
+  %28 = tail call i64 @evutil_tv_to_msec_(ptr noundef nonnull %1) #6
+  %spec.store.select4 = tail call i64 @llvm.umin.i64(i64 %28, i64 2147483647)
+  %29 = trunc nuw nsw i64 %spec.store.select4 to i32
+  br label %30
 
-do.body27:                                        ; preds = %if.then18, %if.end15
-  %msec.0 = phi i32 [ %7, %if.then18 ], [ -1, %if.end15 ]
-  %8 = load ptr, ptr %th_base_lock, align 8
-  %tobool29.not = icmp eq ptr %8, null
-  br i1 %tobool29.not, label %do.end34, label %if.then30
+30:                                               ; preds = %27, %26
+  %.063 = phi i32 [ %29, %27 ], [ -1, %26 ]
+  %31 = load ptr, ptr %7, align 8
+  %.not76 = icmp eq ptr %31, null
+  br i1 %.not76, label %35, label %32
 
-if.then30:                                        ; preds = %do.body27
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call32 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %8) #6
-  br label %do.end34
+32:                                               ; preds = %30
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %34 = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %31) #6
+  br label %35
 
-do.end34:                                         ; preds = %if.then30, %do.body27
-  %conv35 = sext i32 %1 to i64
-  %call37 = tail call i32 @poll(ptr noundef %event_set.0, i64 noundef %conv35, i32 noundef %msec.0) #6
-  %10 = load ptr, ptr %th_base_lock, align 8
-  %tobool41.not = icmp eq ptr %10, null
-  br i1 %tobool41.not, label %do.end47, label %if.then42
+35:                                               ; preds = %32, %30
+  %36 = sext i32 %6 to i64
+  %37 = tail call i32 @poll(ptr noundef %.060, i64 noundef %36, i32 noundef %.063) #6
+  %38 = load ptr, ptr %7, align 8
+  %.not77 = icmp eq ptr %38, null
+  br i1 %.not77, label %42, label %39
 
-if.then42:                                        ; preds = %do.end34
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call44 = tail call i32 %11(i32 noundef 0, ptr noundef nonnull %10) #6
-  br label %do.end47
+39:                                               ; preds = %35
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %41 = tail call i32 %40(i32 noundef 0, ptr noundef nonnull %38) #6
+  br label %42
 
-do.end47:                                         ; preds = %if.then42, %do.end34
-  %cmp48 = icmp eq i32 %call37, -1
-  br i1 %cmp48, label %if.then50, label %do.body57
+42:                                               ; preds = %39, %35
+  %43 = icmp eq i32 %37, -1
+  br i1 %43, label %44, label %47
 
-if.then50:                                        ; preds = %do.end47
-  %call51 = tail call ptr @__errno_location() #7
-  %12 = load i32, ptr %call51, align 4
-  %cmp52.not = icmp eq i32 %12, 4
-  br i1 %cmp52.not, label %return, label %return.sink.split
+44:                                               ; preds = %42
+  %45 = tail call ptr @__errno_location() #7
+  %46 = load i32, ptr %45, align 4
+  %.not84 = icmp eq i32 %46, 4
+  br i1 %.not84, label %.loopexit, label %.loopexit.sink.split
 
-do.body57:                                        ; preds = %do.end47
-  %13 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool58.not = icmp eq i32 %13, 0
-  br i1 %tobool58.not, label %do.end61, label %if.then59
+47:                                               ; preds = %42
+  %48 = load i32, ptr @event_debug_logging_mask_, align 4
+  %.not78 = icmp eq i32 %48, 0
+  br i1 %.not78, label %50, label %49
 
-if.then59:                                        ; preds = %do.body57
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.poll_dispatch, i32 noundef %call37) #6
-  br label %do.end61
+49:                                               ; preds = %47
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.poll_dispatch, i32 noundef %37) #6
+  br label %50
 
-do.end61:                                         ; preds = %do.body57, %if.then59
-  %cmp62 = icmp eq i32 %call37, 0
-  %cmp65 = icmp eq i32 %1, 0
-  %or.cond1 = select i1 %cmp62, i1 true, i1 %cmp65
-  br i1 %or.cond1, label %return, label %if.end68
+50:                                               ; preds = %49, %47
+  %51 = icmp eq i32 %37, 0
+  %52 = icmp eq i32 %6, 0
+  %or.cond3 = select i1 %51, i1 true, i1 %52
+  br i1 %or.cond3, label %.loopexit, label %53
 
-if.end68:                                         ; preds = %do.end61
-  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
-  %call69 = tail call i32 @evutil_weakrand_range_(ptr noundef nonnull %weakrand_seed, i32 noundef %1) #6
-  %cmp7047 = icmp sgt i32 %1, 0
-  br i1 %cmp7047, label %for.body, label %return
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %55 = tail call i32 @evutil_weakrand_range_(ptr noundef nonnull %54, i32 noundef %6) #6
+  %56 = icmp sgt i32 %6, 0
+  br i1 %56, label %.lr.ph, label %.loopexit
 
-for.body:                                         ; preds = %if.end68, %for.inc
-  %i.049 = phi i32 [ %spec.store.select, %for.inc ], [ %call69, %if.end68 ]
-  %j.048 = phi i32 [ %inc105, %for.inc ], [ 0, %if.end68 ]
-  %inc = add nsw i32 %i.049, 1
-  %cmp72 = icmp eq i32 %inc, %1
-  %spec.store.select = select i1 %cmp72, i32 0, i32 %inc
-  %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %event_set.0, i64 %idxprom
-  %revents = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
-  %14 = load i16, ptr %revents, align 2
-  %tobool77.not = icmp eq i16 %14, 0
-  br i1 %tobool77.not, label %for.inc, label %if.end79
+.lr.ph:                                           ; preds = %53, %75
+  %.06486 = phi i32 [ %spec.store.select, %75 ], [ %55, %53 ]
+  %.06585 = phi i32 [ %76, %75 ], [ 0, %53 ]
+  %57 = add nsw i32 %.06486, 1
+  %58 = icmp eq i32 %57, %6
+  %spec.store.select = select i1 %58, i32 0, i32 %57
+  %59 = sext i32 %spec.store.select to i64
+  %60 = getelementptr inbounds %struct.pollfd, ptr %.060, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 6
+  %62 = load i16, ptr %61, align 2
+  %.not79 = icmp eq i16 %62, 0
+  br i1 %.not79, label %75, label %63
 
-if.end79:                                         ; preds = %for.body
-  %conv76 = sext i16 %14 to i32
-  %15 = and i16 %14, 56
-  %tobool80.not = icmp eq i16 %15, 0
-  %or = or i32 %conv76, 5
-  %spec.select = select i1 %tobool80.not, i32 %conv76, i32 %or
-  %and83 = shl nsw i32 %spec.select, 1
-  %res.0 = and i32 %and83, 2
-  %and88 = and i32 %spec.select, 4
-  %res.1 = or disjoint i32 %res.0, %and88
-  %and93 = lshr i32 %spec.select, 6
-  %16 = and i32 %and93, 128
-  %res.2 = or disjoint i32 %res.1, %16
-  %cmp98 = icmp eq i32 %res.2, 0
-  br i1 %cmp98, label %for.inc, label %if.end101
+63:                                               ; preds = %.lr.ph
+  %64 = sext i16 %62 to i32
+  %65 = and i16 %62, 56
+  %.not80 = icmp eq i16 %65, 0
+  %66 = or i32 %64, 5
+  %spec.select = select i1 %.not80, i32 %64, i32 %66
+  %67 = shl nsw i32 %spec.select, 1
+  %.061 = and i32 %67, 2
+  %68 = and i32 %spec.select, 4
+  %.162 = or disjoint i32 %.061, %68
+  %69 = lshr i32 %spec.select, 6
+  %70 = and i32 %69, 128
+  %.2 = or disjoint i32 %.162, %70
+  %71 = icmp eq i32 %.2, 0
+  br i1 %71, label %75, label %72
 
-if.end101:                                        ; preds = %if.end79
-  %17 = load i32, ptr %arrayidx, align 4
-  %conv104 = trunc nuw nsw i32 %res.2 to i16
-  tail call void @evmap_io_active_(ptr noundef %base, i32 noundef %17, i16 noundef signext %conv104) #6
-  br label %for.inc
+72:                                               ; preds = %63
+  %73 = load i32, ptr %60, align 4
+  %74 = trunc nuw nsw i32 %.2 to i16
+  tail call void @evmap_io_active_(ptr noundef %0, i32 noundef %73, i16 noundef signext %74) #6
+  br label %75
 
-for.inc:                                          ; preds = %if.end79, %for.body, %if.end101
-  %inc105 = add nuw nsw i32 %j.048, 1
-  %exitcond.not = icmp eq i32 %inc105, %1
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
+75:                                               ; preds = %63, %.lr.ph, %72
+  %76 = add nuw nsw i32 %.06585, 1
+  %exitcond.not = icmp eq i32 %76, %6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !3
 
-return.sink.split:                                ; preds = %if.then50, %if.then3
-  %.str.sink = phi ptr [ @.str.1, %if.then3 ], [ @.str, %if.then50 ]
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.sink) #6
-  br label %return
+.loopexit.sink.split:                             ; preds = %44, %12
+  %.str.1.sink = phi ptr [ @.str.1, %12 ], [ @.str, %44 ]
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.1.sink) #6
+  br label %.loopexit
 
-return:                                           ; preds = %for.inc, %return.sink.split, %if.end68, %do.end61, %if.then50
-  %retval.0 = phi i32 [ 0, %if.then50 ], [ 0, %do.end61 ], [ 0, %if.end68 ], [ -1, %return.sink.split ], [ 0, %for.inc ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %75, %.loopexit.sink.split, %53, %50, %44
+  %.1 = phi i32 [ 0, %44 ], [ 0, %50 ], [ 0, %53 ], [ -1, %.loopexit.sink.split ], [ 0, %75 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poll_dealloc(ptr noundef %base) #0 {
-entry:
-  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
-  %0 = load ptr, ptr %evbase, align 8
-  tail call void @evsig_dealloc_(ptr noundef %base) #6
-  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1 = load ptr, ptr %event_set, align 8
-  %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal void @poll_dealloc(ptr noundef %0) #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call void @evsig_dealloc_(ptr noundef %0) #6
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %7, label %6
 
-if.then:                                          ; preds = %entry
-  tail call void @event_mm_free_(ptr noundef nonnull %1) #6
-  br label %if.end
+6:                                                ; preds = %1
+  tail call void @event_mm_free_(ptr noundef nonnull %5) #6
+  br label %7
 
-if.end:                                           ; preds = %if.then, %entry
-  %event_set_copy = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2 = load ptr, ptr %event_set_copy, align 8
-  %tobool2.not = icmp eq ptr %2, null
-  br i1 %tobool2.not, label %if.end5, label %if.then3
+7:                                                ; preds = %6, %1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %.not9 = icmp eq ptr %9, null
+  br i1 %.not9, label %11, label %10
 
-if.then3:                                         ; preds = %if.end
-  tail call void @event_mm_free_(ptr noundef nonnull %2) #6
-  br label %if.end5
+10:                                               ; preds = %7
+  tail call void @event_mm_free_(ptr noundef nonnull %9) #6
+  br label %11
 
-if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #6
+11:                                               ; preds = %10, %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @event_mm_free_(ptr noundef nonnull %3) #6
   ret void
 }
 
@@ -474,21 +469,19 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}

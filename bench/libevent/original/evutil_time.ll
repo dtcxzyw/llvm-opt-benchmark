@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
@@ -30,572 +30,602 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"%s, %02d %s %4d %02d:%02d:%02d GMT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @evutil_tv_to_msec_(ptr noundef %tv) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %tv.addr = alloca ptr, align 8
-  store ptr %tv, ptr %tv.addr, align 8
-  %0 = load ptr, ptr %tv.addr, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %0, i32 0, i32 1
-  %1 = load i64, ptr %tv_usec, align 8
-  %cmp = icmp sgt i64 %1, 1000000
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define hidden i64 @evutil_tv_to_msec_(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %struct.timeval, ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp sgt i64 %6, 1000000
+  br i1 %7, label %13, label %8
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %tv.addr, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %2, i32 0, i32 0
-  %3 = load i64, ptr %tv_sec, align 8
-  %cmp1 = icmp sgt i64 %3, 9223372036854774
-  br i1 %cmp1, label %if.then, label %if.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %struct.timeval, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp sgt i64 %11, 9223372036854774
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i64 -1, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %8, %1
+  store i64 -1, ptr %2, align 8
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %tv.addr, align 8
-  %tv_sec2 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %tv_sec2, align 8
-  %mul = mul nsw i64 %5, 1000
-  %6 = load ptr, ptr %tv.addr, align 8
-  %tv_usec3 = getelementptr inbounds %struct.timeval, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %tv_usec3, align 8
-  %add = add nsw i64 %7, 999
-  %div = sdiv i64 %add, 1000
-  %add4 = add nsw i64 %mul, %div
-  store i64 %add4, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8
+  %18 = mul nsw i64 %17, 1000
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.timeval, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = add nsw i64 %21, 999
+  %23 = sdiv i64 %22, 1000
+  %24 = add nsw i64 %18, %23
+  store i64 %24, ptr %2, align 8
+  br label %25
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
+25:                                               ; preds = %14, %13
+  %26 = load i64, ptr %2, align 8
+  ret i64 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evutil_usleep_(ptr noundef %tv) #0 {
-entry:
-  %tv.addr = alloca ptr, align 8
-  %ts = alloca %struct.timespec, align 8
-  store ptr %tv, ptr %tv.addr, align 8
-  %0 = load ptr, ptr %tv.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define void @evutil_usleep_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.timespec, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %7, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+6:                                                ; preds = %1
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %tv.addr, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %tv_sec, align 8
-  %tv_sec1 = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 0
-  store i64 %2, ptr %tv_sec1, align 8
-  %3 = load ptr, ptr %tv.addr, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %tv_usec, align 8
-  %mul = mul nsw i64 %4, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 1
-  store i64 %mul, ptr %tv_nsec, align 8
-  %call = call i32 @nanosleep(ptr noundef %ts, ptr noundef null)
-  br label %return
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #6
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.timeval, ptr %8, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.timespec, ptr %3, i32 0, i32 0
+  store i64 %10, ptr %11, align 8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.timeval, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = mul nsw i64 %14, 1000
+  %16 = getelementptr inbounds nuw %struct.timespec, ptr %3, i32 0, i32 1
+  store i64 %15, ptr %16, align 8
+  %17 = call i32 @nanosleep(ptr noundef %3, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #6
+  br label %18
 
-return:                                           ; preds = %if.end, %if.then
+18:                                               ; preds = %7, %6
   ret void
 }
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @nanosleep(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_date_rfc1123(ptr noundef %date, i64 noundef %datelen, ptr noundef %tm) #0 {
-entry:
-  %date.addr = alloca ptr, align 8
-  %datelen.addr = alloca i64, align 8
-  %tm.addr = alloca ptr, align 8
-  %t = alloca i64, align 8
-  %sys = alloca %struct.tm, align 8
-  store ptr %date, ptr %date.addr, align 8
-  store i64 %datelen, ptr %datelen.addr, align 8
-  store ptr %tm, ptr %tm.addr, align 8
-  %call = call i64 @time(ptr noundef null) #5
-  store i64 %call, ptr %t, align 8
-  %0 = load ptr, ptr %tm.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct.tm, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %9 = call i64 @time(ptr noundef null) #6
+  store i64 %9, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %8) #6
+  %10 = load ptr, ptr %6, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %14
 
-if.then:                                          ; preds = %entry
-  %call1 = call ptr @gmtime_r(ptr noundef %t, ptr noundef %sys) #5
-  store ptr %sys, ptr %tm.addr, align 8
-  br label %if.end
+12:                                               ; preds = %3
+  %13 = call ptr @gmtime_r(ptr noundef %7, ptr noundef %8) #6
+  store ptr %8, ptr %6, align 8
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr %date.addr, align 8
-  %2 = load i64, ptr %datelen.addr, align 8
-  %3 = load ptr, ptr %tm.addr, align 8
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %3, i32 0, i32 6
-  %4 = load i32, ptr %tm_wday, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  %6 = load ptr, ptr %tm.addr, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %tm_mday, align 4
-  %8 = load ptr, ptr %tm.addr, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %8, i32 0, i32 4
-  %9 = load i32, ptr %tm_mon, align 8
-  %idxprom2 = sext i32 %9 to i64
-  %arrayidx3 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %idxprom2
-  %10 = load ptr, ptr %arrayidx3, align 8
-  %11 = load ptr, ptr %tm.addr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %11, i32 0, i32 5
-  %12 = load i32, ptr %tm_year, align 4
-  %add = add nsw i32 1900, %12
-  %13 = load ptr, ptr %tm.addr, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %13, i32 0, i32 2
-  %14 = load i32, ptr %tm_hour, align 8
-  %15 = load ptr, ptr %tm.addr, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %15, i32 0, i32 1
-  %16 = load i32, ptr %tm_min, align 4
-  %17 = load ptr, ptr %tm.addr, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %tm_sec, align 8
-  %call4 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %1, i64 noundef %2, ptr noundef @.str.19, ptr noundef %5, i32 noundef %7, ptr noundef %10, i32 noundef %add, i32 noundef %14, i32 noundef %16, i32 noundef %18)
-  ret i32 %call4
+14:                                               ; preds = %12, %3
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i64, ptr %5, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.tm, ptr %17, i32 0, i32 6
+  %19 = load i32, ptr %18, align 8
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.tm, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.tm, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds nuw %struct.tm, ptr %32, i32 0, i32 5
+  %34 = load i32, ptr %33, align 4
+  %35 = add nsw i32 1900, %34
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct.tm, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw %struct.tm, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct.tm, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8
+  %45 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %15, i64 noundef %16, ptr noundef @.str.19, ptr noundef %22, i32 noundef %25, ptr noundef %31, i32 noundef %35, i32 noundef %38, i32 noundef %41, i32 noundef %44)
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #2
+declare i64 @time(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) #2
+declare ptr @gmtime_r(ptr noundef, ptr noundef) #3
 
-declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evutil_monotonic_timer_new() #0 {
-entry:
-  %p = alloca ptr, align 8
-  store ptr null, ptr %p, align 8
-  %call = call ptr @event_mm_malloc_(i64 noundef 40)
-  store ptr %call, ptr %p, align 8
-  %0 = load ptr, ptr %p, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define ptr @evutil_monotonic_timer_new() #0 {
+  %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  store ptr null, ptr %1, align 8
+  %2 = call ptr @event_mm_malloc_(i64 noundef 40)
+  store ptr %2, ptr %1, align 8
+  %3 = load ptr, ptr %1, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  br label %done
+5:                                                ; preds = %0
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %p, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 40, i1 false)
-  br label %done
+6:                                                ; preds = %0
+  %7 = load ptr, ptr %1, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 40, i1 false)
+  br label %8
 
-done:                                             ; preds = %if.end, %if.then
-  %2 = load ptr, ptr %p, align 8
-  ret ptr %2
+8:                                                ; preds = %6, %5
+  %9 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
+  ret ptr %9
 }
 
-declare ptr @event_mm_malloc_(i64 noundef) #1
+declare ptr @event_mm_malloc_(i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evutil_monotonic_timer_free(ptr noundef %timer) #0 {
-entry:
-  %timer.addr = alloca ptr, align 8
-  store ptr %timer, ptr %timer.addr, align 8
-  %0 = load ptr, ptr %timer.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define void @evutil_monotonic_timer_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %timer.addr, align 8
-  call void @event_mm_free_(ptr noundef %1)
-  br label %if.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8
+  call void @event_mm_free_(ptr noundef %6)
+  br label %7
 
-if.end:                                           ; preds = %if.then, %entry
+7:                                                ; preds = %5, %1
   ret void
 }
 
-declare void @event_mm_free_(ptr noundef) #1
+declare void @event_mm_free_(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_configure_monotonic_time(ptr noundef %timer, i32 noundef %flags) #0 {
-entry:
-  %timer.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  store ptr %timer, ptr %timer.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  %0 = load ptr, ptr %timer.addr, align 8
-  %1 = load i32, ptr %flags.addr, align 4
-  %call = call i32 @evutil_configure_monotonic_time_(ptr noundef %0, i32 noundef %1)
-  ret i32 %call
+define i32 @evutil_configure_monotonic_time(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = call i32 @evutil_configure_monotonic_time_(ptr noundef %5, i32 noundef %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_configure_monotonic_time_(ptr noundef %base, i32 noundef %flags) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %precise = alloca i32, align 4
-  %fallback = alloca i32, align 4
-  %ts = alloca %struct.timespec, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  %0 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %0, 1
-  store i32 %and, ptr %precise, align 4
-  %1 = load i32, ptr %flags.addr, align 4
-  %and1 = and i32 %1, 2
-  store i32 %and1, ptr %fallback, align 4
-  %2 = load i32, ptr %precise, align 4
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %if.end4, label %land.lhs.true
+define i32 @evutil_configure_monotonic_time_(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.timespec, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %10 = load i32, ptr %5, align 4
+  %11 = and i32 %10, 1
+  store i32 %11, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %12 = load i32, ptr %5, align 4
+  %13 = and i32 %12, 2
+  store i32 %13, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #6
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 40, i1 false)
+  %15 = load i32, ptr %6, align 4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %27, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load i32, ptr %fallback, align 4
-  %tobool2 = icmp ne i32 %3, 0
-  br i1 %tobool2, label %if.end4, label %if.then
+17:                                               ; preds = %2
+  %18 = load i32, ptr %7, align 4
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %27, label %20
 
-if.then:                                          ; preds = %land.lhs.true
-  %call = call i32 @clock_gettime(i32 noundef 6, ptr noundef %ts) #5
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then3, label %if.end
+20:                                               ; preds = %17
+  %21 = call i32 @clock_gettime(i32 noundef 6, ptr noundef %8) #6
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %26
 
-if.then3:                                         ; preds = %if.then
-  %4 = load ptr, ptr %base.addr, align 8
-  %monotonic_clock = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %4, i32 0, i32 0
-  store i32 6, ptr %monotonic_clock, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %24, i32 0, i32 0
+  store i32 6, ptr %25, align 8
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %39
 
-if.end:                                           ; preds = %if.then
-  br label %if.end4
+26:                                               ; preds = %20
+  br label %27
 
-if.end4:                                          ; preds = %if.end, %land.lhs.true, %entry
-  %5 = load i32, ptr %fallback, align 4
-  %tobool5 = icmp ne i32 %5, 0
-  br i1 %tobool5, label %if.end11, label %land.lhs.true6
+27:                                               ; preds = %26, %17, %2
+  %28 = load i32, ptr %7, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %36, label %30
 
-land.lhs.true6:                                   ; preds = %if.end4
-  %call7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %ts) #5
-  %cmp8 = icmp eq i32 %call7, 0
-  br i1 %cmp8, label %if.then9, label %if.end11
+30:                                               ; preds = %27
+  %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %8) #6
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %36
 
-if.then9:                                         ; preds = %land.lhs.true6
-  %6 = load ptr, ptr %base.addr, align 8
-  %monotonic_clock10 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %6, i32 0, i32 0
-  store i32 1, ptr %monotonic_clock10, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %34, i32 0, i32 0
+  store i32 1, ptr %35, align 8
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %39
 
-if.end11:                                         ; preds = %land.lhs.true6, %if.end4
-  %7 = load ptr, ptr %base.addr, align 8
-  %monotonic_clock12 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %7, i32 0, i32 0
-  store i32 -1, ptr %monotonic_clock12, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %30, %27
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %37, i32 0, i32 0
+  store i32 -1, ptr %38, align 8
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %39
 
-return:                                           ; preds = %if.end11, %if.then9, %if.then3
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+39:                                               ; preds = %36, %33, %23
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %40 = load i32, ptr %3, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_gettime_monotonic(ptr noundef %timer, ptr noundef %tp) #0 {
-entry:
-  %timer.addr = alloca ptr, align 8
-  %tp.addr = alloca ptr, align 8
-  store ptr %timer, ptr %timer.addr, align 8
-  store ptr %tp, ptr %tp.addr, align 8
-  %0 = load ptr, ptr %timer.addr, align 8
-  %1 = load ptr, ptr %tp.addr, align 8
-  %call = call i32 @evutil_gettime_monotonic_(ptr noundef %0, ptr noundef %1)
-  ret i32 %call
+define i32 @evutil_gettime_monotonic(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call i32 @evutil_gettime_monotonic_(ptr noundef %5, ptr noundef %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_gettime_monotonic_(ptr noundef %base, ptr noundef %tp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %tp.addr = alloca ptr, align 8
-  %ts = alloca %struct.timespec, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %tp, ptr %tp.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %monotonic_clock = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %monotonic_clock, align 8
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end3
+define i32 @evutil_gettime_monotonic_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.timespec, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %20
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %tp.addr, align 8
-  %call = call i32 @gettimeofday(ptr noundef %2, ptr noundef null) #5
-  %cmp1 = icmp slt i32 %call, 0
-  br i1 %cmp1, label %if.then2, label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 @gettimeofday(ptr noundef %13, ptr noundef null) #6
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then2:                                         ; preds = %if.then
-  store i32 -1, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %12
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %37
 
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %base.addr, align 8
-  %4 = load ptr, ptr %tp.addr, align 8
-  call void @adjust_monotonic_time(ptr noundef %3, ptr noundef %4)
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @adjust_monotonic_time(ptr noundef %18, ptr noundef %19)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %37
 
-if.end3:                                          ; preds = %entry
-  %5 = load ptr, ptr %base.addr, align 8
-  %monotonic_clock4 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %monotonic_clock4, align 8
-  %call5 = call i32 @clock_gettime(i32 noundef %6, ptr noundef %ts) #5
-  %cmp6 = icmp eq i32 %call5, -1
-  br i1 %cmp6, label %if.then7, label %if.end8
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = call i32 @clock_gettime(i32 noundef %23, ptr noundef %6) #6
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %26, label %27
 
-if.then7:                                         ; preds = %if.end3
-  store i32 -1, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %20
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %37
 
-if.end8:                                          ; preds = %if.end3
-  %tv_sec = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 0
-  %7 = load i64, ptr %tv_sec, align 8
-  %8 = load ptr, ptr %tp.addr, align 8
-  %tv_sec9 = getelementptr inbounds %struct.timeval, ptr %8, i32 0, i32 0
-  store i64 %7, ptr %tv_sec9, align 8
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i32 0, i32 1
-  %9 = load i64, ptr %tv_nsec, align 8
-  %div = sdiv i64 %9, 1000
-  %10 = load ptr, ptr %tp.addr, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %10, i32 0, i32 1
-  store i64 %div, ptr %tv_usec, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw %struct.timespec, ptr %6, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.timeval, ptr %30, i32 0, i32 0
+  store i64 %29, ptr %31, align 8
+  %32 = getelementptr inbounds nuw %struct.timespec, ptr %6, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = sdiv i64 %33, 1000
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %35, i32 0, i32 1
+  store i64 %34, ptr %36, align 8
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %37
 
-return:                                           ; preds = %if.end8, %if.then7, %if.end, %if.then2
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+37:                                               ; preds = %27, %26, %17, %16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #6
+  %38 = load i32, ptr %3, align 4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #2
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @gettimeofday(ptr noundef, ptr noundef) #2
+declare i32 @gettimeofday(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @adjust_monotonic_time(ptr noundef %base, ptr noundef %tv) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %tv.addr = alloca ptr, align 8
-  %adjust = alloca %struct.timeval, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %tv, ptr %tv.addr, align 8
-  br label %do.body
+define internal void @adjust_monotonic_time(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.timeval, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %6
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %tv.addr, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %tv_sec, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %2, i32 0, i32 1
-  %tv_sec1 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock, i32 0, i32 0
-  %3 = load i64, ptr %tv_sec1, align 8
-  %add = add nsw i64 %1, %3
-  %4 = load ptr, ptr %tv.addr, align 8
-  %tv_sec2 = getelementptr inbounds %struct.timeval, ptr %4, i32 0, i32 0
-  store i64 %add, ptr %tv_sec2, align 8
-  %5 = load ptr, ptr %tv.addr, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %tv_usec, align 8
-  %7 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock3 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %7, i32 0, i32 1
-  %tv_usec4 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock3, i32 0, i32 1
-  %8 = load i64, ptr %tv_usec4, align 8
-  %add5 = add nsw i64 %6, %8
-  %9 = load ptr, ptr %tv.addr, align 8
-  %tv_usec6 = getelementptr inbounds %struct.timeval, ptr %9, i32 0, i32 1
-  store i64 %add5, ptr %tv_usec6, align 8
-  %10 = load ptr, ptr %tv.addr, align 8
-  %tv_usec7 = getelementptr inbounds %struct.timeval, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %tv_usec7, align 8
-  %cmp = icmp sge i64 %11, 1000000
-  br i1 %cmp, label %if.then, label %if.end
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.timeval, ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %10, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.timeval, ptr %11, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = add nsw i64 %9, %13
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.timeval, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.timeval, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8
+  %24 = add nsw i64 %19, %23
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %25, i32 0, i32 1
+  store i64 %24, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %struct.timeval, ptr %27, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp sge i64 %29, 1000000
+  br i1 %30, label %31, label %40
 
-if.then:                                          ; preds = %do.body
-  %12 = load ptr, ptr %tv.addr, align 8
-  %tv_sec8 = getelementptr inbounds %struct.timeval, ptr %12, i32 0, i32 0
-  %13 = load i64, ptr %tv_sec8, align 8
-  %inc = add nsw i64 %13, 1
-  store i64 %inc, ptr %tv_sec8, align 8
-  %14 = load ptr, ptr %tv.addr, align 8
-  %tv_usec9 = getelementptr inbounds %struct.timeval, ptr %14, i32 0, i32 1
-  %15 = load i64, ptr %tv_usec9, align 8
-  %sub = sub nsw i64 %15, 1000000
-  store i64 %sub, ptr %tv_usec9, align 8
-  br label %if.end
+31:                                               ; preds = %6
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %struct.timeval, ptr %32, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8
+  %35 = add nsw i64 %34, 1
+  store i64 %35, ptr %33, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.timeval, ptr %36, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = sub nsw i64 %38, 1000000
+  store i64 %39, ptr %37, align 8
+  br label %40
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+40:                                               ; preds = %31, %6
+  br label %41
 
-do.end:                                           ; preds = %if.end
-  %16 = load ptr, ptr %tv.addr, align 8
-  %tv_sec10 = getelementptr inbounds %struct.timeval, ptr %16, i32 0, i32 0
-  %17 = load i64, ptr %tv_sec10, align 8
-  %18 = load ptr, ptr %base.addr, align 8
-  %last_time = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %18, i32 0, i32 2
-  %tv_sec11 = getelementptr inbounds %struct.timeval, ptr %last_time, i32 0, i32 0
-  %19 = load i64, ptr %tv_sec11, align 8
-  %cmp12 = icmp eq i64 %17, %19
-  br i1 %cmp12, label %cond.true, label %cond.false
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.timeval, ptr %42, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %45, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %struct.timeval, ptr %46, i32 0, i32 0
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp eq i64 %44, %48
+  br i1 %49, label %50, label %59
 
-cond.true:                                        ; preds = %do.end
-  %20 = load ptr, ptr %tv.addr, align 8
-  %tv_usec13 = getelementptr inbounds %struct.timeval, ptr %20, i32 0, i32 1
-  %21 = load i64, ptr %tv_usec13, align 8
-  %22 = load ptr, ptr %base.addr, align 8
-  %last_time14 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %22, i32 0, i32 2
-  %tv_usec15 = getelementptr inbounds %struct.timeval, ptr %last_time14, i32 0, i32 1
-  %23 = load i64, ptr %tv_usec15, align 8
-  %cmp16 = icmp slt i64 %21, %23
-  br i1 %cmp16, label %if.then21, label %if.end67
+50:                                               ; preds = %41
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.timeval, ptr %51, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %54, i32 0, i32 2
+  %56 = getelementptr inbounds nuw %struct.timeval, ptr %55, i32 0, i32 1
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp slt i64 %53, %57
+  br i1 %58, label %68, label %144
 
-cond.false:                                       ; preds = %do.end
-  %24 = load ptr, ptr %tv.addr, align 8
-  %tv_sec17 = getelementptr inbounds %struct.timeval, ptr %24, i32 0, i32 0
-  %25 = load i64, ptr %tv_sec17, align 8
-  %26 = load ptr, ptr %base.addr, align 8
-  %last_time18 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %26, i32 0, i32 2
-  %tv_sec19 = getelementptr inbounds %struct.timeval, ptr %last_time18, i32 0, i32 0
-  %27 = load i64, ptr %tv_sec19, align 8
-  %cmp20 = icmp slt i64 %25, %27
-  br i1 %cmp20, label %if.then21, label %if.end67
+59:                                               ; preds = %41
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds nuw %struct.timeval, ptr %60, i32 0, i32 0
+  %62 = load i64, ptr %61, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %63, i32 0, i32 2
+  %65 = getelementptr inbounds nuw %struct.timeval, ptr %64, i32 0, i32 0
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp slt i64 %62, %66
+  br i1 %67, label %68, label %144
 
-if.then21:                                        ; preds = %cond.false, %cond.true
-  br label %do.body22
+68:                                               ; preds = %59, %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #6
+  br label %69
 
-do.body22:                                        ; preds = %if.then21
-  %28 = load ptr, ptr %base.addr, align 8
-  %last_time23 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %28, i32 0, i32 2
-  %tv_sec24 = getelementptr inbounds %struct.timeval, ptr %last_time23, i32 0, i32 0
-  %29 = load i64, ptr %tv_sec24, align 8
-  %30 = load ptr, ptr %tv.addr, align 8
-  %tv_sec25 = getelementptr inbounds %struct.timeval, ptr %30, i32 0, i32 0
-  %31 = load i64, ptr %tv_sec25, align 8
-  %sub26 = sub nsw i64 %29, %31
-  %tv_sec27 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 0
-  store i64 %sub26, ptr %tv_sec27, align 8
-  %32 = load ptr, ptr %base.addr, align 8
-  %last_time28 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %32, i32 0, i32 2
-  %tv_usec29 = getelementptr inbounds %struct.timeval, ptr %last_time28, i32 0, i32 1
-  %33 = load i64, ptr %tv_usec29, align 8
-  %34 = load ptr, ptr %tv.addr, align 8
-  %tv_usec30 = getelementptr inbounds %struct.timeval, ptr %34, i32 0, i32 1
-  %35 = load i64, ptr %tv_usec30, align 8
-  %sub31 = sub nsw i64 %33, %35
-  %tv_usec32 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 1
-  store i64 %sub31, ptr %tv_usec32, align 8
-  %tv_usec33 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 1
-  %36 = load i64, ptr %tv_usec33, align 8
-  %cmp34 = icmp slt i64 %36, 0
-  br i1 %cmp34, label %if.then35, label %if.end39
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %70, i32 0, i32 2
+  %72 = getelementptr inbounds nuw %struct.timeval, ptr %71, i32 0, i32 0
+  %73 = load i64, ptr %72, align 8
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds nuw %struct.timeval, ptr %74, i32 0, i32 0
+  %76 = load i64, ptr %75, align 8
+  %77 = sub nsw i64 %73, %76
+  %78 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  store i64 %77, ptr %78, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %79, i32 0, i32 2
+  %81 = getelementptr inbounds nuw %struct.timeval, ptr %80, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds nuw %struct.timeval, ptr %83, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  %86 = sub nsw i64 %82, %85
+  %87 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  store i64 %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %89 = load i64, ptr %88, align 8
+  %90 = icmp slt i64 %89, 0
+  br i1 %90, label %91, label %98
 
-if.then35:                                        ; preds = %do.body22
-  %tv_sec36 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 0
-  %37 = load i64, ptr %tv_sec36, align 8
-  %dec = add nsw i64 %37, -1
-  store i64 %dec, ptr %tv_sec36, align 8
-  %tv_usec37 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 1
-  %38 = load i64, ptr %tv_usec37, align 8
-  %add38 = add nsw i64 %38, 1000000
-  store i64 %add38, ptr %tv_usec37, align 8
-  br label %if.end39
+91:                                               ; preds = %69
+  %92 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %93 = load i64, ptr %92, align 8
+  %94 = add nsw i64 %93, -1
+  store i64 %94, ptr %92, align 8
+  %95 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  %97 = add nsw i64 %96, 1000000
+  store i64 %97, ptr %95, align 8
+  br label %98
 
-if.end39:                                         ; preds = %if.then35, %do.body22
-  br label %do.end40
+98:                                               ; preds = %91, %69
+  br label %99
 
-do.end40:                                         ; preds = %if.end39
-  br label %do.body41
+99:                                               ; preds = %98
+  br label %100
 
-do.body41:                                        ; preds = %do.end40
-  %tv_sec42 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 0
-  %39 = load i64, ptr %tv_sec42, align 8
-  %40 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock43 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %40, i32 0, i32 1
-  %tv_sec44 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock43, i32 0, i32 0
-  %41 = load i64, ptr %tv_sec44, align 8
-  %add45 = add nsw i64 %39, %41
-  %42 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock46 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %42, i32 0, i32 1
-  %tv_sec47 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock46, i32 0, i32 0
-  store i64 %add45, ptr %tv_sec47, align 8
-  %tv_usec48 = getelementptr inbounds %struct.timeval, ptr %adjust, i32 0, i32 1
-  %43 = load i64, ptr %tv_usec48, align 8
-  %44 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock49 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %44, i32 0, i32 1
-  %tv_usec50 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock49, i32 0, i32 1
-  %45 = load i64, ptr %tv_usec50, align 8
-  %add51 = add nsw i64 %43, %45
-  %46 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock52 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %46, i32 0, i32 1
-  %tv_usec53 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock52, i32 0, i32 1
-  store i64 %add51, ptr %tv_usec53, align 8
-  %47 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock54 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %47, i32 0, i32 1
-  %tv_usec55 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock54, i32 0, i32 1
-  %48 = load i64, ptr %tv_usec55, align 8
-  %cmp56 = icmp sge i64 %48, 1000000
-  br i1 %cmp56, label %if.then57, label %if.end64
+100:                                              ; preds = %99
+  br label %101
 
-if.then57:                                        ; preds = %do.body41
-  %49 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock58 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %49, i32 0, i32 1
-  %tv_sec59 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock58, i32 0, i32 0
-  %50 = load i64, ptr %tv_sec59, align 8
-  %inc60 = add nsw i64 %50, 1
-  store i64 %inc60, ptr %tv_sec59, align 8
-  %51 = load ptr, ptr %base.addr, align 8
-  %adjust_monotonic_clock61 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %51, i32 0, i32 1
-  %tv_usec62 = getelementptr inbounds %struct.timeval, ptr %adjust_monotonic_clock61, i32 0, i32 1
-  %52 = load i64, ptr %tv_usec62, align 8
-  %sub63 = sub nsw i64 %52, 1000000
-  store i64 %sub63, ptr %tv_usec62, align 8
-  br label %if.end64
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %103 = load i64, ptr %102, align 8
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.timeval, ptr %105, i32 0, i32 0
+  %107 = load i64, ptr %106, align 8
+  %108 = add nsw i64 %103, %107
+  %109 = load ptr, ptr %3, align 8
+  %110 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %109, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.timeval, ptr %110, i32 0, i32 0
+  store i64 %108, ptr %111, align 8
+  %112 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8
+  %114 = load ptr, ptr %3, align 8
+  %115 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %114, i32 0, i32 1
+  %116 = getelementptr inbounds nuw %struct.timeval, ptr %115, i32 0, i32 1
+  %117 = load i64, ptr %116, align 8
+  %118 = add nsw i64 %113, %117
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %119, i32 0, i32 1
+  %121 = getelementptr inbounds nuw %struct.timeval, ptr %120, i32 0, i32 1
+  store i64 %118, ptr %121, align 8
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %122, i32 0, i32 1
+  %124 = getelementptr inbounds nuw %struct.timeval, ptr %123, i32 0, i32 1
+  %125 = load i64, ptr %124, align 8
+  %126 = icmp sge i64 %125, 1000000
+  br i1 %126, label %127, label %138
 
-if.end64:                                         ; preds = %if.then57, %do.body41
-  br label %do.end65
+127:                                              ; preds = %101
+  %128 = load ptr, ptr %3, align 8
+  %129 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %128, i32 0, i32 1
+  %130 = getelementptr inbounds nuw %struct.timeval, ptr %129, i32 0, i32 0
+  %131 = load i64, ptr %130, align 8
+  %132 = add nsw i64 %131, 1
+  store i64 %132, ptr %130, align 8
+  %133 = load ptr, ptr %3, align 8
+  %134 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %133, i32 0, i32 1
+  %135 = getelementptr inbounds nuw %struct.timeval, ptr %134, i32 0, i32 1
+  %136 = load i64, ptr %135, align 8
+  %137 = sub nsw i64 %136, 1000000
+  store i64 %137, ptr %135, align 8
+  br label %138
 
-do.end65:                                         ; preds = %if.end64
-  %53 = load ptr, ptr %tv.addr, align 8
-  %54 = load ptr, ptr %base.addr, align 8
-  %last_time66 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %54, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %last_time66, i64 16, i1 false)
-  br label %if.end67
+138:                                              ; preds = %127, %101
+  br label %139
 
-if.end67:                                         ; preds = %do.end65, %cond.false, %cond.true
-  %55 = load ptr, ptr %base.addr, align 8
-  %last_time68 = getelementptr inbounds %struct.evutil_monotonic_timer, ptr %55, i32 0, i32 2
-  %56 = load ptr, ptr %tv.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %last_time68, ptr align 8 %56, i64 16, i1 false)
+139:                                              ; preds = %138
+  br label %140
+
+140:                                              ; preds = %139
+  %141 = load ptr, ptr %4, align 8
+  %142 = load ptr, ptr %3, align 8
+  %143 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %142, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %141, ptr align 8 %143, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #6
+  br label %144
+
+144:                                              ; preds = %140, %59, %50
+  %145 = load ptr, ptr %3, align 8
+  %146 = getelementptr inbounds nuw %struct.evutil_monotonic_timer, ptr %145, i32 0, i32 2
+  %147 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %146, ptr align 8 %147, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

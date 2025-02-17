@@ -26,6 +26,7 @@ supported_project = [
     "jq",
     "kcp",
     "libdeflate",
+    "libevent",
 ]
 
 modify_only = [

@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libevent/original/signalfd.ll'
 source_filename = "bench/libevent/original/signalfd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
@@ -18,293 +18,300 @@ target triple = "x86_64-unknown-linux-gnu"
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @sigfd_init_(ptr noundef captures(none) %base) local_unnamed_addr #0 {
-entry:
-  %flags = getelementptr inbounds nuw i8, ptr %base, i64 984
-  %0 = load i32, ptr %flags, align 8
-  %and = and i32 %0, 128
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
+define hidden range(i32 -1, 1) i32 @sigfd_init_(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %3 = load i32, ptr %2, align 8
+  %4 = and i32 %3, 128
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %7
 
-land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #6
-  %tobool1.not = icmp eq ptr %call, null
-  br i1 %tobool1.not, label %return, label %if.end
+5:                                                ; preds = %1
+  %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #7
+  %.not2 = icmp eq ptr %6, null
+  br i1 %.not2, label %9, label %7
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %evsigsel = getelementptr inbounds nuw i8, ptr %base, i64 32
-  store ptr @sigfdops, ptr %evsigsel, align 8
-  br label %return
+7:                                                ; preds = %5, %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr @sigfdops, ptr %8, align 8
+  br label %9
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -1, %land.lhs.true ]
-  ret i32 %retval.0
+9:                                                ; preds = %5, %7
+  %.0 = phi i32 [ 0, %7 ], [ -1, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr readnone captures(none) %p) #2 {
-entry:
-  %mask = alloca %struct.__sigset_t, align 8
-  %sig1 = getelementptr inbounds nuw i8, ptr %base, i64 40
-  %ev_sigevent = getelementptr inbounds nuw i8, ptr %base, i64 176
-  %idxprom = sext i32 %signo to i64
-  %arrayidx = getelementptr inbounds [65 x ptr], ptr %ev_sigevent, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end6, label %if.then
+define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, i16 signext %3, ptr readnone captures(none) %4) #2 {
+  %6 = alloca %struct.__sigset_t, align 8
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %9 = sext i32 %1 to i64
+  %10 = getelementptr inbounds [65 x ptr], ptr %8, i64 0, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %18, label %12
 
-if.then:                                          ; preds = %entry
-  %tobool.not = icmp eq i16 %old, 0
-  br i1 %tobool.not, label %return, label %if.then5
+12:                                               ; preds = %5
+  %.not37 = icmp eq i16 %2, 0
+  br i1 %.not37, label %64, label %13
 
-if.then5:                                         ; preds = %if.then
-  %call.i = tail call i32 @event_del_nolock_(ptr noundef nonnull %0, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load i32, ptr %ev_fd.i, align 8
-  %call1.i = tail call i32 @close(i32 noundef %1) #6
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #6
-  store ptr null, ptr %arrayidx, align 8
-  br label %if.end6
+13:                                               ; preds = %12
+  %14 = tail call i32 @event_del_nolock_(ptr noundef nonnull %11, i32 noundef 2) #7
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %16 = load i32, ptr %15, align 8
+  %17 = tail call i32 @close(i32 noundef %16) #7
+  tail call void @event_mm_free_(ptr noundef nonnull %11) #7
+  store ptr null, ptr %10, align 8
+  br label %18
 
-if.end6:                                          ; preds = %if.then5, %entry
-  %call = tail call i32 @evsig_ensure_saved_(ptr noundef nonnull %sig1, i32 noundef %signo) #6
-  %cmp7 = icmp slt i32 %call, 0
-  br i1 %cmp7, label %return, label %if.end9
+18:                                               ; preds = %13, %5
+  %19 = tail call i32 @evsig_ensure_saved_(ptr noundef nonnull %7, i32 noundef %1) #7
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %64, label %21
 
-if.end9:                                          ; preds = %if.end6
-  %call10 = tail call ptr @event_mm_malloc_(i64 noundef 152) #6
-  %sh_old = getelementptr inbounds nuw i8, ptr %base, i64 696
-  %2 = load ptr, ptr %sh_old, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %2, i64 %idxprom
-  store ptr %call10, ptr %arrayidx12, align 8
-  %3 = load ptr, ptr %sh_old, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx15, align 8
-  %cmp16 = icmp eq ptr %4, null
-  br i1 %cmp16, label %if.then17, label %if.end18
+21:                                               ; preds = %18
+  %22 = tail call ptr @event_mm_malloc_(i64 noundef 152) #7
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 %9
+  store ptr %22, ptr %25, align 8
+  %26 = load ptr, ptr %23, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %9
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-if.then17:                                        ; preds = %if.end9
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2) #6
-  br label %return
+30:                                               ; preds = %21
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2) #7
+  br label %64
 
-if.end18:                                         ; preds = %if.end9
-  %call22 = tail call i32 @sigaction(i32 noundef %signo, ptr noundef null, ptr noundef nonnull %4) #6
-  %cmp23 = icmp eq i32 %call22, -1
-  br i1 %cmp23, label %if.then24, label %if.end31
+31:                                               ; preds = %21
+  %32 = tail call i32 @sigaction(i32 noundef %1, ptr noundef null, ptr noundef nonnull %28) #7
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %40
 
-if.then24:                                        ; preds = %if.end18
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3) #6
-  %5 = load ptr, ptr %sh_old, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx27, align 8
-  tail call void @event_mm_free_(ptr noundef %6) #6
-  %7 = load ptr, ptr %sh_old, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %7, i64 %idxprom
-  store ptr null, ptr %arrayidx30, align 8
-  br label %return
+34:                                               ; preds = %31
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3) #7
+  %35 = load ptr, ptr %23, align 8
+  %36 = getelementptr inbounds ptr, ptr %35, i64 %9
+  %37 = load ptr, ptr %36, align 8
+  tail call void @event_mm_free_(ptr noundef %37) #7
+  %38 = load ptr, ptr %23, align 8
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %9
+  store ptr null, ptr %39, align 8
+  br label %64
 
-if.end31:                                         ; preds = %if.end18
-  %call32 = call i32 @sigemptyset(ptr noundef nonnull %mask) #6
-  %call33 = call i32 @sigaddset(ptr noundef nonnull %mask, i32 noundef %signo) #6
-  %call34 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %mask, ptr noundef null) #6
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %if.end37, label %if.then36
+40:                                               ; preds = %31
+  %41 = call i32 @sigemptyset(ptr noundef nonnull %6) #7
+  %42 = call i32 @sigaddset(ptr noundef nonnull %6, i32 noundef %1) #7
+  %43 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
+  %.not38 = icmp eq i32 %43, 0
+  br i1 %.not38, label %45, label %44
 
-if.then36:                                        ; preds = %if.end31
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.4) #6
-  br label %return
+44:                                               ; preds = %40
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.4) #7
+  br label %64
 
-if.end37:                                         ; preds = %if.end31
-  %call38 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %mask, i32 noundef 526336) #6
-  %cmp39 = icmp slt i32 %call38, 0
-  br i1 %cmp39, label %if.then40, label %if.end41
+45:                                               ; preds = %40
+  %46 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %6, i32 noundef 526336) #7
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then40:                                        ; preds = %if.end37
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.5) #6
-  br label %unblock
+48:                                               ; preds = %45
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.5) #7
+  br label %62
 
-if.end41:                                         ; preds = %if.end37
-  %call42 = call ptr @event_new(ptr noundef nonnull %base, i32 noundef %call38, i16 noundef signext 18, ptr noundef nonnull @sigfd_cb, ptr noundef nonnull %base) #6
-  %tobool43.not = icmp eq ptr %call42, null
-  br i1 %tobool43.not, label %close_fd, label %if.end45
+49:                                               ; preds = %45
+  %50 = call ptr @event_new(ptr noundef nonnull %0, i32 noundef %46, i16 noundef signext 18, ptr noundef nonnull @sigfd_cb, ptr noundef nonnull %0) #7
+  %.not39 = icmp eq ptr %50, null
+  br i1 %.not39, label %60, label %51
 
-if.end45:                                         ; preds = %if.end41
-  %evcb_flags = getelementptr inbounds nuw i8, ptr %call42, i64 16
-  %8 = load i16, ptr %evcb_flags, align 8
-  %9 = or i16 %8, 16
-  store i16 %9, ptr %evcb_flags, align 8
-  %call47 = call i32 @event_priority_set(ptr noundef nonnull %call42, i32 noundef 0) #6
-  %call48 = call i32 @event_add_nolock_(ptr noundef nonnull %call42, ptr noundef null, i32 noundef 0) #6
-  %cmp49 = icmp slt i32 %call48, 0
-  br i1 %cmp49, label %free_ev, label %if.end52
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %53 = load i16, ptr %52, align 8
+  %54 = or i16 %53, 16
+  store i16 %54, ptr %52, align 8
+  %55 = call i32 @event_priority_set(ptr noundef nonnull %50, i32 noundef 0) #7
+  %56 = call i32 @event_add_nolock_(ptr noundef nonnull %50, ptr noundef null, i32 noundef 0) #7
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %59, label %58
 
-if.end52:                                         ; preds = %if.end45
-  store ptr %call42, ptr %arrayidx, align 8
-  br label %return
+58:                                               ; preds = %51
+  store ptr %50, ptr %10, align 8
+  br label %64
 
-free_ev:                                          ; preds = %if.end45
-  call void @event_mm_free_(ptr noundef nonnull %call42) #6
-  br label %close_fd
+59:                                               ; preds = %51
+  call void @event_mm_free_(ptr noundef nonnull %50) #7
+  br label %60
 
-close_fd:                                         ; preds = %if.end41, %free_ev
-  %call57 = call i32 @close(i32 noundef %call38) #6
-  br label %unblock
+60:                                               ; preds = %49, %59
+  %61 = call i32 @close(i32 noundef %46) #7
+  br label %62
 
-unblock:                                          ; preds = %close_fd, %if.then40
-  %call58 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %mask, ptr noundef null) #6
-  br label %return
+62:                                               ; preds = %60, %48
+  %63 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  br label %64
 
-return:                                           ; preds = %if.end6, %if.then, %unblock, %if.end52, %if.then36, %if.then24, %if.then17
-  %retval.0 = phi i32 [ -1, %if.then17 ], [ -1, %if.then24 ], [ -1, %if.then36 ], [ -1, %unblock ], [ 0, %if.end52 ], [ 0, %if.then ], [ -1, %if.end6 ]
-  ret i32 %retval.0
+64:                                               ; preds = %18, %12, %62, %58, %44, %34, %30
+  %.0 = phi i32 [ -1, %30 ], [ -1, %34 ], [ -1, %44 ], [ -1, %62 ], [ 0, %58 ], [ 0, %12 ], [ -1, %18 ]
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %base, i32 noundef %signo, i16 signext %old, i16 signext %events, ptr readnone captures(none) %p) #2 {
-entry:
-  %mask = alloca %struct.__sigset_t, align 8
-  %idxprom = sext i32 %signo to i64
-  %call = call i32 @sigemptyset(ptr noundef nonnull %mask) #6
-  %call5 = call i32 @sigaddset(ptr noundef nonnull %mask, i32 noundef %signo) #6
-  %call6 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %mask, ptr noundef null) #6
-  %tobool.not = icmp eq i32 %call6, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i32 noundef %1, i16 signext %2, i16 signext %3, ptr readnone captures(none) %4) #2 {
+  %6 = alloca %struct.__sigset_t, align 8
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  %7 = sext i32 %1 to i64
+  %8 = call i32 @sigemptyset(ptr noundef nonnull %6) #7
+  %9 = call i32 @sigaddset(ptr noundef nonnull %6, i32 noundef %1) #7
+  %10 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %12, label %11
 
-if.then:                                          ; preds = %entry
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.4) #6
-  br label %return
+11:                                               ; preds = %5
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.4) #7
+  br label %35
 
-if.end:                                           ; preds = %entry
-  %sh_old_max = getelementptr inbounds nuw i8, ptr %base, i64 704
-  %0 = load i32, ptr %sh_old_max, align 8
-  %cmp = icmp slt i32 %signo, %0
-  br i1 %cmp, label %if.then7, label %if.end20
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp slt i32 %1, %14
+  br i1 %15, label %16, label %27
 
-if.then7:                                         ; preds = %if.end
-  %sh_old = getelementptr inbounds nuw i8, ptr %base, i64 696
-  %1 = load ptr, ptr %sh_old, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %2 = load ptr, ptr %arrayidx9, align 8
-  %tobool10.not = icmp eq ptr %2, null
-  br i1 %tobool10.not, label %if.end20, label %if.then11
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i64 %7
+  %20 = load ptr, ptr %19, align 8
+  %.not20 = icmp eq ptr %20, null
+  br i1 %.not20, label %27, label %21
 
-if.then11:                                        ; preds = %if.then7
-  %call12 = call i32 @sigaction(i32 noundef %signo, ptr noundef nonnull %2, ptr noundef null) #6
-  %cmp13 = icmp eq i32 %call12, -1
-  br i1 %cmp13, label %if.then14, label %if.end15
+21:                                               ; preds = %16
+  %22 = call i32 @sigaction(i32 noundef %1, ptr noundef nonnull %20, ptr noundef null) #7
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %.critedge, label %24
 
-if.then14:                                        ; preds = %if.then11
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3) #6
-  br label %return
+.critedge:                                        ; preds = %21
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3) #7
+  br label %35
 
-if.end15:                                         ; preds = %if.then11
-  call void @event_mm_free_(ptr noundef nonnull %2) #6
-  %3 = load ptr, ptr %sh_old, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  store ptr null, ptr %arrayidx18, align 8
-  br label %if.end20
+24:                                               ; preds = %21
+  call void @event_mm_free_(ptr noundef nonnull %20) #7
+  %25 = load ptr, ptr %17, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %7
+  store ptr null, ptr %26, align 8
+  br label %27
 
-if.end20:                                         ; preds = %if.then7, %if.end15, %if.end
-  %ev_sigevent.i = getelementptr inbounds nuw i8, ptr %base, i64 176
-  %arrayidx.i = getelementptr inbounds [65 x ptr], ptr %ev_sigevent.i, i64 0, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call i32 @event_del_nolock_(ptr noundef %4, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %5 = load i32, ptr %ev_fd.i, align 8
-  %call1.i = call i32 @close(i32 noundef %5) #6
-  call void @event_mm_free_(ptr noundef %4) #6
-  store ptr null, ptr %arrayidx.i, align 8
-  br label %return
+27:                                               ; preds = %24, %16, %12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %29 = getelementptr inbounds [65 x ptr], ptr %28, i64 0, i64 %7
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 @event_del_nolock_(ptr noundef %30, i32 noundef 2) #7
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %33 = load i32, ptr %32, align 8
+  %34 = call i32 @close(i32 noundef %33) #7
+  call void @event_mm_free_(ptr noundef %30) #7
+  store ptr null, ptr %29, align 8
+  br label %35
 
-return:                                           ; preds = %if.end20, %if.then14, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then14 ], [ 0, %if.end20 ]
-  ret i32 %retval.0
+35:                                               ; preds = %.critedge, %27, %11
+  %.0 = phi i32 [ -1, %11 ], [ 0, %27 ], [ -1, %.critedge ]
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  ret i32 %.0
 }
 
-declare i32 @evsig_ensure_saved_(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #3
+declare i32 @evsig_ensure_saved_(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @event_warn(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #3
+declare void @event_warn(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @signalfd(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: nounwind
+declare i32 @signalfd(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @sigfd_cb(i32 noundef %fd, i16 signext %what, ptr noundef %arg) #2 {
-entry:
-  %fdsi = alloca %struct.signalfd_siginfo, align 8
-  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %fdsi, i64 noundef 128) #6
-  %th_base_lock = getelementptr inbounds nuw i8, ptr %arg, i64 952
-  %0 = load ptr, ptr %th_base_lock, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end10, label %if.then
+define internal void @sigfd_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #2 {
+  %4 = alloca %struct.signalfd_siginfo, align 8
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
+  %5 = call i64 @read(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 128) #7
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 952
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %11, label %8
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %call8 = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #6
-  br label %do.end10
+8:                                                ; preds = %3
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %10 = tail call i32 %9(i32 noundef 0, ptr noundef nonnull %7) #7
+  br label %11
 
-do.end10:                                         ; preds = %if.then, %entry
-  %2 = load i32, ptr %fdsi, align 8
-  tail call void @evmap_signal_active_(ptr noundef nonnull %arg, i32 noundef %2, i32 noundef 1) #6
-  %3 = load ptr, ptr %th_base_lock, align 8
-  %tobool14.not = icmp eq ptr %3, null
-  br i1 %tobool14.not, label %do.end20, label %if.then15
+11:                                               ; preds = %8, %3
+  %12 = load i32, ptr %4, align 8
+  tail call void @evmap_signal_active_(ptr noundef nonnull %2, i32 noundef %12, i32 noundef 1) #7
+  %13 = load ptr, ptr %6, align 8
+  %.not7 = icmp eq ptr %13, null
+  br i1 %.not7, label %17, label %14
 
-if.then15:                                        ; preds = %do.end10
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call17 = tail call i32 %4(i32 noundef 0, ptr noundef nonnull %3) #6
-  br label %do.end20
+14:                                               ; preds = %11
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %16 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %13) #7
+  br label %17
 
-do.end20:                                         ; preds = %if.then15, %do.end10
+17:                                               ; preds = %14, %11
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #7
   ret void
 }
 
-declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @event_add_nolock_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @event_add_nolock_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #4
 
-declare i32 @event_del_nolock_(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+declare i32 @event_del_nolock_(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
-declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-attributes #0 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #0 = { nofree nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

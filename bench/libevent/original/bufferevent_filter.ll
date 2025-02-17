@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.bufferevent_ops = type { ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
@@ -24,657 +24,667 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.evbuffer_cb_info = type { i64, i64, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"filter\00", align 1
-@bufferevent_ops_filter = dso_local constant %struct.bufferevent_ops { ptr @.str, i64 0, ptr @be_filter_enable, ptr @be_filter_disable, ptr @be_filter_unlink, ptr @be_filter_destruct, ptr @bufferevent_generic_adj_timeouts_, ptr @be_filter_flush, ptr @be_filter_ctrl }, align 8
+@bufferevent_ops_filter = hidden constant %struct.bufferevent_ops { ptr @.str, i64 0, ptr @be_filter_enable, ptr @be_filter_disable, ptr @be_filter_unlink, ptr @be_filter_destruct, ptr @bufferevent_generic_adj_timeouts_, ptr @be_filter_flush, ptr @be_filter_ctrl }, align 8
 @.str.1 = private unnamed_addr constant [68 x i8] c"BEV_OPT_CLOSE_ON_FREE set on an bufferevent with too few references\00", align 1
 @evthread_lock_fns_ = external global %struct.evthread_lock_callbacks, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_enable(ptr noundef %bev, i16 noundef signext %event) #0 {
-entry:
-  %bev.addr = alloca ptr, align 8
-  %event.addr = alloca i16, align 2
-  %bevf = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  store i16 %event, ptr %event.addr, align 2
-  %0 = load ptr, ptr %bev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %0)
-  store ptr %call, ptr %bevf, align 8
-  %1 = load i16, ptr %event.addr, align 2
-  %conv = sext i16 %1 to i32
-  %and = and i32 %conv, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end7
+define internal i32 @be_filter_enable(ptr noundef %0, i16 noundef signext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i16 %1, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call ptr @upcast(ptr noundef %6)
+  store ptr %7, ptr %5, align 8
+  %8 = load i16, ptr %4, align 2
+  %9 = sext i16 %8 to i32
+  %10 = and i32 %9, 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %34
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+12:                                               ; preds = %2
+  br label %13
 
-do.body:                                          ; preds = %if.then
-  %2 = load ptr, ptr %bev.addr, align 8
-  %timeout_write = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 13
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %timeout_write, i32 0, i32 0
-  %3 = load i64, ptr %tv_sec, align 8
-  %tobool1 = icmp ne i64 %3, 0
-  br i1 %tobool1, label %if.then4, label %lor.lhs.false
+13:                                               ; preds = %12
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.bufferevent, ptr %14, i32 0, i32 13
+  %16 = getelementptr inbounds nuw %struct.timeval, ptr %15, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %25, label %19
 
-lor.lhs.false:                                    ; preds = %do.body
-  %4 = load ptr, ptr %bev.addr, align 8
-  %timeout_write2 = getelementptr inbounds %struct.bufferevent, ptr %4, i32 0, i32 13
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout_write2, i32 0, i32 1
-  %5 = load i64, ptr %tv_usec, align 8
-  %tobool3 = icmp ne i64 %5, 0
-  br i1 %tobool3, label %if.then4, label %if.end
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.bufferevent, ptr %20, i32 0, i32 13
+  %22 = getelementptr inbounds nuw %struct.timeval, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %31
 
-if.then4:                                         ; preds = %lor.lhs.false, %do.body
-  %6 = load ptr, ptr %bev.addr, align 8
-  %ev_write = getelementptr inbounds %struct.bufferevent, ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %bev.addr, align 8
-  %timeout_write5 = getelementptr inbounds %struct.bufferevent, ptr %7, i32 0, i32 13
-  %call6 = call i32 @event_add(ptr noundef %ev_write, ptr noundef %timeout_write5)
-  br label %if.end
+25:                                               ; preds = %19, %13
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.bufferevent, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.bufferevent, ptr %28, i32 0, i32 13
+  %30 = call i32 @event_add(ptr noundef %27, ptr noundef %29)
+  br label %31
 
-if.end:                                           ; preds = %if.then4, %lor.lhs.false
-  br label %do.end
+31:                                               ; preds = %25, %19
+  br label %32
 
-do.end:                                           ; preds = %if.end
-  br label %if.end7
+32:                                               ; preds = %31
+  br label %33
 
-if.end7:                                          ; preds = %do.end, %entry
-  %8 = load i16, ptr %event.addr, align 2
-  %conv8 = sext i16 %8 to i32
-  %and9 = and i32 %conv8, 2
-  %tobool10 = icmp ne i32 %and9, 0
-  br i1 %tobool10, label %if.then11, label %if.end24
+33:                                               ; preds = %32
+  br label %34
 
-if.then11:                                        ; preds = %if.end7
-  br label %do.body12
+34:                                               ; preds = %33, %2
+  %35 = load i16, ptr %4, align 2
+  %36 = sext i16 %35 to i32
+  %37 = and i32 %36, 2
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %64
 
-do.body12:                                        ; preds = %if.then11
-  %9 = load ptr, ptr %bev.addr, align 8
-  %timeout_read = getelementptr inbounds %struct.bufferevent, ptr %9, i32 0, i32 12
-  %tv_sec13 = getelementptr inbounds %struct.timeval, ptr %timeout_read, i32 0, i32 0
-  %10 = load i64, ptr %tv_sec13, align 8
-  %tobool14 = icmp ne i64 %10, 0
-  br i1 %tobool14, label %if.then19, label %lor.lhs.false15
+39:                                               ; preds = %34
+  br label %40
 
-lor.lhs.false15:                                  ; preds = %do.body12
-  %11 = load ptr, ptr %bev.addr, align 8
-  %timeout_read16 = getelementptr inbounds %struct.bufferevent, ptr %11, i32 0, i32 12
-  %tv_usec17 = getelementptr inbounds %struct.timeval, ptr %timeout_read16, i32 0, i32 1
-  %12 = load i64, ptr %tv_usec17, align 8
-  %tobool18 = icmp ne i64 %12, 0
-  br i1 %tobool18, label %if.then19, label %if.end22
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.bufferevent, ptr %41, i32 0, i32 12
+  %43 = getelementptr inbounds nuw %struct.timeval, ptr %42, i32 0, i32 0
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %52, label %46
 
-if.then19:                                        ; preds = %lor.lhs.false15, %do.body12
-  %13 = load ptr, ptr %bev.addr, align 8
-  %ev_read = getelementptr inbounds %struct.bufferevent, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %bev.addr, align 8
-  %timeout_read20 = getelementptr inbounds %struct.bufferevent, ptr %14, i32 0, i32 12
-  %call21 = call i32 @event_add(ptr noundef %ev_read, ptr noundef %timeout_read20)
-  br label %if.end22
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.bufferevent, ptr %47, i32 0, i32 12
+  %49 = getelementptr inbounds nuw %struct.timeval, ptr %48, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %58
 
-if.end22:                                         ; preds = %if.then19, %lor.lhs.false15
-  br label %do.end23
+52:                                               ; preds = %46, %40
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.bufferevent, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds nuw %struct.bufferevent, ptr %55, i32 0, i32 12
+  %57 = call i32 @event_add(ptr noundef %54, ptr noundef %56)
+  br label %58
 
-do.end23:                                         ; preds = %if.end22
-  %15 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %underlying, align 8
-  call void @bufferevent_unsuspend_read_(ptr noundef %16, i16 noundef zeroext 16)
-  br label %if.end24
+58:                                               ; preds = %52, %46
+  br label %59
 
-if.end24:                                         ; preds = %do.end23, %if.end7
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  call void @bufferevent_unsuspend_read_(ptr noundef %63, i16 noundef zeroext 16)
+  br label %64
+
+64:                                               ; preds = %60, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_disable(ptr noundef %bev, i16 noundef signext %event) #0 {
-entry:
-  %bev.addr = alloca ptr, align 8
-  %event.addr = alloca i16, align 2
-  %bevf = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  store i16 %event, ptr %event.addr, align 2
-  %0 = load ptr, ptr %bev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %0)
-  store ptr %call, ptr %bevf, align 8
-  %1 = load i16, ptr %event.addr, align 2
-  %conv = sext i16 %1 to i32
-  %and = and i32 %conv, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @be_filter_disable(ptr noundef %0, i16 noundef signext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i16 %1, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call ptr @upcast(ptr noundef %6)
+  store ptr %7, ptr %5, align 8
+  %8 = load i16, ptr %4, align 2
+  %9 = sext i16 %8 to i32
+  %10 = and i32 %9, 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %16
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %bev.addr, align 8
-  %ev_write = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 3
-  %call1 = call i32 @event_del(ptr noundef %ev_write)
-  br label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.bufferevent, ptr %13, i32 0, i32 3
+  %15 = call i32 @event_del(ptr noundef %14)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load i16, ptr %event.addr, align 2
-  %conv2 = sext i16 %3 to i32
-  %and3 = and i32 %conv2, 2
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then5, label %if.end7
+16:                                               ; preds = %12, %2
+  %17 = load i16, ptr %4, align 2
+  %18 = sext i16 %17 to i32
+  %19 = and i32 %18, 2
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %28
 
-if.then5:                                         ; preds = %if.end
-  %4 = load ptr, ptr %bev.addr, align 8
-  %ev_read = getelementptr inbounds %struct.bufferevent, ptr %4, i32 0, i32 2
-  %call6 = call i32 @event_del(ptr noundef %ev_read)
-  %5 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %underlying, align 8
-  call void @bufferevent_suspend_read_(ptr noundef %6, i16 noundef zeroext 16)
-  br label %if.end7
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.bufferevent, ptr %22, i32 0, i32 2
+  %24 = call i32 @event_del(ptr noundef %23)
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  call void @bufferevent_suspend_read_(ptr noundef %27, i16 noundef zeroext 16)
+  br label %28
 
-if.end7:                                          ; preds = %if.then5, %if.end
+28:                                               ; preds = %21, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_unlink(ptr noundef %bev) #0 {
-entry:
-  %bev.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  %0 = load ptr, ptr %bev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %0)
-  store ptr %call, ptr %bevf, align 8
-  br label %do.body
+define internal void @be_filter_unlink(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @upcast(ptr noundef %4)
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %7, i32 0, i32 9
+  %9 = load i32, ptr %8, align 8
+  %10 = and i32 %9, 1
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %26
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %16, i32 0, i32 10
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp slt i32 %18, 2
+  br i1 %19, label %20, label %21
 
-do.end:                                           ; preds = %do.body
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %options = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 9
-  %2 = load i32, ptr %options, align 8
-  %and = and i32 %2, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else4
-
-if.then:                                          ; preds = %do.end
-  %3 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %underlying, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 0
-  %refcnt = getelementptr inbounds %struct.bufferevent_private, ptr %add.ptr, i32 0, i32 10
-  %5 = load i32, ptr %refcnt, align 4
-  %cmp = icmp slt i32 %5, 2
-  br i1 %cmp, label %if.then2, label %if.else
-
-if.then2:                                         ; preds = %if.then
+20:                                               ; preds = %12
   call void (ptr, ...) @event_warnx(ptr noundef @.str.1)
-  br label %if.end
+  br label %25
 
-if.else:                                          ; preds = %if.then
-  %6 = load ptr, ptr %bevf, align 8
-  %underlying3 = getelementptr inbounds %struct.bufferevent_filtered, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %underlying3, align 8
-  call void @bufferevent_free(ptr noundef %7)
-  br label %if.end
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  call void @bufferevent_free(ptr noundef %24)
+  br label %25
 
-if.end:                                           ; preds = %if.else, %if.then2
-  br label %if.end15
+25:                                               ; preds = %21, %20
+  br label %47
 
-if.else4:                                         ; preds = %do.end
-  %8 = load ptr, ptr %bevf, align 8
-  %underlying5 = getelementptr inbounds %struct.bufferevent_filtered, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %underlying5, align 8
-  %tobool6 = icmp ne ptr %9, null
-  br i1 %tobool6, label %if.then7, label %if.end14
+26:                                               ; preds = %1
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %46
 
-if.then7:                                         ; preds = %if.else4
-  %10 = load ptr, ptr %bevf, align 8
-  %underlying8 = getelementptr inbounds %struct.bufferevent_filtered, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %underlying8, align 8
-  %errorcb = getelementptr inbounds %struct.bufferevent, ptr %11, i32 0, i32 10
-  %12 = load ptr, ptr %errorcb, align 8
-  %cmp9 = icmp eq ptr %12, @be_filter_eventcb
-  br i1 %cmp9, label %if.then10, label %if.end12
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %struct.bufferevent, ptr %34, i32 0, i32 10
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, @be_filter_eventcb
+  br i1 %37, label %38, label %42
 
-if.then10:                                        ; preds = %if.then7
-  %13 = load ptr, ptr %bevf, align 8
-  %underlying11 = getelementptr inbounds %struct.bufferevent_filtered, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %underlying11, align 8
-  call void @bufferevent_setcb(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  br label %if.end12
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @bufferevent_setcb(ptr noundef %41, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  br label %42
 
-if.end12:                                         ; preds = %if.then10, %if.then7
-  %15 = load ptr, ptr %bevf, align 8
-  %underlying13 = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %underlying13, align 8
-  call void @bufferevent_unsuspend_read_(ptr noundef %16, i16 noundef zeroext 16)
-  br label %if.end14
+42:                                               ; preds = %38, %31
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  call void @bufferevent_unsuspend_read_(ptr noundef %45, i16 noundef zeroext 16)
+  br label %46
 
-if.end14:                                         ; preds = %if.end12, %if.else4
-  br label %if.end15
+46:                                               ; preds = %42, %26
+  br label %47
 
-if.end15:                                         ; preds = %if.end14, %if.end
+47:                                               ; preds = %46, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_destruct(ptr noundef %bev) #0 {
-entry:
-  %bev.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  %0 = load ptr, ptr %bev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %0)
-  store ptr %call, ptr %bevf, align 8
-  br label %do.body
+define internal void @be_filter_destruct(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @upcast(ptr noundef %4)
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %6, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %11, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %14, i32 0, i32 8
+  %16 = load ptr, ptr %15, align 8
+  call void %13(ptr noundef %16)
+  br label %17
 
-do.end:                                           ; preds = %do.body
-  %1 = load ptr, ptr %bevf, align 8
-  %free_context = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %free_context, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+17:                                               ; preds = %10, %1
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %30
 
-if.then:                                          ; preds = %do.end
-  %3 = load ptr, ptr %bevf, align 8
-  %free_context1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %free_context1, align 8
-  %5 = load ptr, ptr %bevf, align 8
-  %context = getelementptr inbounds %struct.bufferevent_filtered, ptr %5, i32 0, i32 8
-  %6 = load ptr, ptr %context, align 8
-  call void %4(ptr noundef %6)
-  br label %if.end
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.bufferevent, ptr %23, i32 0, i32 4
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 @evbuffer_remove_cb_entry(ptr noundef %25, ptr noundef %28)
+  br label %30
 
-if.end:                                           ; preds = %if.then, %do.end
-  %7 = load ptr, ptr %bevf, align 8
-  %inbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %inbuf_cb, align 8
-  %tobool2 = icmp ne ptr %8, null
-  br i1 %tobool2, label %if.then3, label %if.end6
+30:                                               ; preds = %22, %17
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %43
 
-if.then3:                                         ; preds = %if.end
-  %9 = load ptr, ptr %bev.addr, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %input, align 8
-  %11 = load ptr, ptr %bevf, align 8
-  %inbuf_cb4 = getelementptr inbounds %struct.bufferevent_filtered, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %inbuf_cb4, align 8
-  %call5 = call i32 @evbuffer_remove_cb_entry(ptr noundef %10, ptr noundef %12)
-  br label %if.end6
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw %struct.bufferevent, ptr %36, i32 0, i32 5
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i32 @evbuffer_remove_cb_entry(ptr noundef %38, ptr noundef %41)
+  br label %43
 
-if.end6:                                          ; preds = %if.then3, %if.end
-  %13 = load ptr, ptr %bevf, align 8
-  %outbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %outbuf_cb, align 8
-  %tobool7 = icmp ne ptr %14, null
-  br i1 %tobool7, label %if.then8, label %if.end11
-
-if.then8:                                         ; preds = %if.end6
-  %15 = load ptr, ptr %bev.addr, align 8
-  %output = getelementptr inbounds %struct.bufferevent, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %output, align 8
-  %17 = load ptr, ptr %bevf, align 8
-  %outbuf_cb9 = getelementptr inbounds %struct.bufferevent_filtered, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %outbuf_cb9, align 8
-  %call10 = call i32 @evbuffer_remove_cb_entry(ptr noundef %16, ptr noundef %18)
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then8, %if.end6
+43:                                               ; preds = %35, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
   ret void
 }
 
 declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_flush(ptr noundef %bufev, i16 noundef signext %iotype, i32 noundef %mode) #0 {
-entry:
-  %bufev.addr = alloca ptr, align 8
-  %iotype.addr = alloca i16, align 2
-  %mode.addr = alloca i32, align 4
-  %bevf = alloca ptr, align 8
-  %processed_any = alloca i32, align 4
-  store ptr %bufev, ptr %bufev.addr, align 8
-  store i16 %iotype, ptr %iotype.addr, align 2
-  store i32 %mode, ptr %mode.addr, align 4
-  %0 = load ptr, ptr %bufev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %0)
-  store ptr %call, ptr %bevf, align 8
-  store i32 0, ptr %processed_any, align 4
-  br label %do.body
+define internal i32 @be_filter_flush(ptr noundef %0, i16 noundef signext %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i16 %1, ptr %5, align 2
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %9 = load ptr, ptr %4, align 8
+  %10 = call ptr @upcast(ptr noundef %9)
+  store ptr %10, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4
+  %11 = load ptr, ptr %4, align 8
+  call void @bufferevent_incref_and_lock_(ptr noundef %11)
+  %12 = load i16, ptr %5, align 2
+  %13 = sext i16 %12 to i32
+  %14 = and i32 %13, 2
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %20
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = call i32 @be_filter_process_input(ptr noundef %17, i32 noundef %18, ptr noundef %8)
+  br label %20
 
-do.end:                                           ; preds = %do.body
-  %1 = load ptr, ptr %bufev.addr, align 8
-  call void @bufferevent_incref_and_lock_(ptr noundef %1)
-  %2 = load i16, ptr %iotype.addr, align 2
-  %conv = sext i16 %2 to i32
-  %and = and i32 %conv, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+20:                                               ; preds = %16, %3
+  %21 = load i16, ptr %5, align 2
+  %22 = sext i16 %21 to i32
+  %23 = and i32 %22, 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-if.then:                                          ; preds = %do.end
-  %3 = load ptr, ptr %bevf, align 8
-  %4 = load i32, ptr %mode.addr, align 4
-  %call1 = call i32 @be_filter_process_input(ptr noundef %3, i32 noundef %4, ptr noundef %processed_any)
-  br label %if.end
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = call i32 @be_filter_process_output(ptr noundef %26, i32 noundef %27, ptr noundef %8)
+  br label %29
 
-if.end:                                           ; preds = %if.then, %do.end
-  %5 = load i16, ptr %iotype.addr, align 2
-  %conv2 = sext i16 %5 to i32
-  %and3 = and i32 %conv2, 4
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then5, label %if.end7
-
-if.then5:                                         ; preds = %if.end
-  %6 = load ptr, ptr %bevf, align 8
-  %7 = load i32, ptr %mode.addr, align 4
-  %call6 = call i32 @be_filter_process_output(ptr noundef %6, i32 noundef %7, ptr noundef %processed_any)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then5, %if.end
-  %8 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %underlying, align 8
-  %10 = load i16, ptr %iotype.addr, align 2
-  %11 = load i32, ptr %mode.addr, align 4
-  %call8 = call i32 @bufferevent_flush(ptr noundef %9, i16 noundef signext %10, i32 noundef %11)
-  %12 = load ptr, ptr %bufev.addr, align 8
-  %call9 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %12)
-  %13 = load i32, ptr %processed_any, align 4
-  ret i32 %13
+29:                                               ; preds = %25, %20
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i16, ptr %5, align 2
+  %34 = load i32, ptr %6, align 4
+  %35 = call i32 @bufferevent_flush(ptr noundef %32, i16 noundef signext %33, i32 noundef %34)
+  %36 = load ptr, ptr %4, align 8
+  %37 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %36)
+  %38 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_ctrl(ptr noundef %bev, i32 noundef %op, ptr noundef %data) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bev.addr = alloca ptr, align 8
-  %op.addr = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  store i32 %op, ptr %op.addr, align 4
-  store ptr %data, ptr %data.addr, align 8
-  %0 = load i32, ptr %op.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 2, label %sw.bb
-    i32 0, label %sw.bb1
-    i32 1, label %sw.bb1
-    i32 3, label %sw.bb15
+define internal i32 @be_filter_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load i32, ptr %6, align 4
+  switch i32 %10, label %57 [
+    i32 2, label %11
+    i32 0, label %18
+    i32 1, label %18
+    i32 3, label %56
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load ptr, ptr %bev.addr, align 8
-  %call = call ptr @upcast(ptr noundef %1)
-  store ptr %call, ptr %bevf, align 8
-  %2 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %underlying, align 8
-  %4 = load ptr, ptr %data.addr, align 8
-  store ptr %3, ptr %4, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8
+  %13 = call ptr @upcast(ptr noundef %12)
+  store ptr %13, ptr %8, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %7, align 8
+  store ptr %16, ptr %17, align 8
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-sw.bb1:                                           ; preds = %entry, %entry
-  %5 = load ptr, ptr %bev.addr, align 8
-  %call2 = call ptr @upcast(ptr noundef %5)
-  store ptr %call2, ptr %bevf, align 8
-  %6 = load ptr, ptr %bevf, align 8
-  %underlying3 = getelementptr inbounds %struct.bufferevent_filtered, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %underlying3, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
+18:                                               ; preds = %3, %3
+  %19 = load ptr, ptr %5, align 8
+  %20 = call ptr @upcast(ptr noundef %19)
+  store ptr %20, ptr %8, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %55
 
-land.lhs.true:                                    ; preds = %sw.bb1
-  %8 = load ptr, ptr %bevf, align 8
-  %underlying4 = getelementptr inbounds %struct.bufferevent_filtered, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %underlying4, align 8
-  %be_ops = getelementptr inbounds %struct.bufferevent, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %be_ops, align 8
-  %tobool5 = icmp ne ptr %10, null
-  br i1 %tobool5, label %land.lhs.true6, label %if.end
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %struct.bufferevent, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %55
 
-land.lhs.true6:                                   ; preds = %land.lhs.true
-  %11 = load ptr, ptr %bevf, align 8
-  %underlying7 = getelementptr inbounds %struct.bufferevent_filtered, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %underlying7, align 8
-  %be_ops8 = getelementptr inbounds %struct.bufferevent, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %be_ops8, align 8
-  %ctrl = getelementptr inbounds %struct.bufferevent_ops, ptr %13, i32 0, i32 8
-  %14 = load ptr, ptr %ctrl, align 8
-  %tobool9 = icmp ne ptr %14, null
-  br i1 %tobool9, label %if.then, label %if.end
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct.bufferevent, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.bufferevent_ops, ptr %37, i32 0, i32 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %55
 
-if.then:                                          ; preds = %land.lhs.true6
-  %15 = load ptr, ptr %bevf, align 8
-  %underlying10 = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %underlying10, align 8
-  %be_ops11 = getelementptr inbounds %struct.bufferevent, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %be_ops11, align 8
-  %ctrl12 = getelementptr inbounds %struct.bufferevent_ops, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %ctrl12, align 8
-  %19 = load ptr, ptr %bevf, align 8
-  %underlying13 = getelementptr inbounds %struct.bufferevent_filtered, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %underlying13, align 8
-  %21 = load i32, ptr %op.addr, align 4
-  %22 = load ptr, ptr %data.addr, align 8
-  %call14 = call i32 %18(ptr noundef %20, i32 noundef %21, ptr noundef %22)
-  store i32 %call14, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %32
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw %struct.bufferevent, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.bufferevent_ops, ptr %46, i32 0, i32 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %6, align 4
+  %53 = load ptr, ptr %7, align 8
+  %54 = call i32 %48(ptr noundef %51, i32 noundef %52, ptr noundef %53)
+  store i32 %54, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-if.end:                                           ; preds = %land.lhs.true6, %land.lhs.true, %sw.bb1
-  br label %sw.bb15
+55:                                               ; preds = %32, %25, %18
+  br label %56
 
-sw.bb15:                                          ; preds = %if.end, %entry
-  br label %sw.default
+56:                                               ; preds = %3, %55
+  br label %57
 
-sw.default:                                       ; preds = %sw.bb15, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+57:                                               ; preds = %3, %56
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-return:                                           ; preds = %sw.default, %if.then, %sw.bb
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+58:                                               ; preds = %57, %41, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %59 = load i32, ptr %4, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bufferevent_filter_new(ptr noundef %underlying, ptr noundef %input_filter, ptr noundef %output_filter, i32 noundef %options, ptr noundef %free_context, ptr noundef %ctx) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %underlying.addr = alloca ptr, align 8
-  %input_filter.addr = alloca ptr, align 8
-  %output_filter.addr = alloca ptr, align 8
-  %options.addr = alloca i32, align 4
-  %free_context.addr = alloca ptr, align 8
-  %ctx.addr = alloca ptr, align 8
-  %bufev_f = alloca ptr, align 8
-  %tmp_options = alloca i32, align 4
-  store ptr %underlying, ptr %underlying.addr, align 8
-  store ptr %input_filter, ptr %input_filter.addr, align 8
-  store ptr %output_filter, ptr %output_filter.addr, align 8
-  store i32 %options, ptr %options.addr, align 4
-  store ptr %free_context, ptr %free_context.addr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load i32, ptr %options.addr, align 4
-  %and = and i32 %0, -3
-  store i32 %and, ptr %tmp_options, align 4
-  %1 = load ptr, ptr %underlying.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define ptr @bufferevent_filter_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %17 = load i32, ptr %11, align 4
+  %18 = and i32 %17, -3
+  store i32 %18, ptr %15, align 4
+  %19 = load ptr, ptr %8, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %6
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %112
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %input_filter.addr, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.end3, label %if.then2
+22:                                               ; preds = %6
+  %23 = load ptr, ptr %9, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
 
-if.then2:                                         ; preds = %if.end
-  store ptr @be_null_filter, ptr %input_filter.addr, align 8
-  br label %if.end3
+25:                                               ; preds = %22
+  store ptr @be_null_filter, ptr %9, align 8
+  br label %26
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %3 = load ptr, ptr %output_filter.addr, align 8
-  %tobool4 = icmp ne ptr %3, null
-  br i1 %tobool4, label %if.end6, label %if.then5
+26:                                               ; preds = %25, %22
+  %27 = load ptr, ptr %10, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %30, label %29
 
-if.then5:                                         ; preds = %if.end3
-  store ptr @be_null_filter, ptr %output_filter.addr, align 8
-  br label %if.end6
+29:                                               ; preds = %26
+  store ptr @be_null_filter, ptr %10, align 8
+  br label %30
 
-if.end6:                                          ; preds = %if.then5, %if.end3
-  %call = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 584)
-  store ptr %call, ptr %bufev_f, align 8
-  %4 = load ptr, ptr %bufev_f, align 8
-  %tobool7 = icmp ne ptr %4, null
-  br i1 %tobool7, label %if.end9, label %if.then8
+30:                                               ; preds = %29, %26
+  %31 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 584)
+  store ptr %31, ptr %14, align 8
+  %32 = load ptr, ptr %14, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %35, label %34
 
-if.then8:                                         ; preds = %if.end6
-  store ptr null, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %30
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %112
 
-if.end9:                                          ; preds = %if.end6
-  %5 = load ptr, ptr %bufev_f, align 8
-  %bev = getelementptr inbounds %struct.bufferevent_filtered, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %underlying.addr, align 8
-  %ev_base = getelementptr inbounds %struct.bufferevent, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ev_base, align 8
-  %8 = load i32, ptr %tmp_options, align 4
-  %call10 = call i32 @bufferevent_init_common_(ptr noundef %bev, ptr noundef %7, ptr noundef @bufferevent_ops_filter, i32 noundef %8)
-  %cmp = icmp slt i32 %call10, 0
-  br i1 %cmp, label %if.then11, label %if.end12
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %14, align 8
+  %37 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.bufferevent, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %15, align 4
+  %42 = call i32 @bufferevent_init_common_(ptr noundef %37, ptr noundef %40, ptr noundef @bufferevent_ops_filter, i32 noundef %41)
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %46
 
-if.then11:                                        ; preds = %if.end9
-  %9 = load ptr, ptr %bufev_f, align 8
-  call void @event_mm_free_(ptr noundef %9)
-  store ptr null, ptr %retval, align 8
-  br label %return
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %14, align 8
+  call void @event_mm_free_(ptr noundef %45)
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %112
 
-if.end12:                                         ; preds = %if.end9
-  %10 = load i32, ptr %options.addr, align 4
-  %and13 = and i32 %10, 2
-  %tobool14 = icmp ne i32 %and13, 0
-  br i1 %tobool14, label %if.then15, label %if.end19
+46:                                               ; preds = %35
+  %47 = load i32, ptr %11, align 4
+  %48 = and i32 %47, 2
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %55
 
-if.then15:                                        ; preds = %if.end12
-  %11 = load ptr, ptr %bufev_f, align 8
-  %bev16 = getelementptr inbounds %struct.bufferevent_filtered, ptr %11, i32 0, i32 0
-  %bev17 = getelementptr inbounds %struct.bufferevent_private, ptr %bev16, i32 0, i32 0
-  %call18 = call i32 @bufferevent_enable_locking_(ptr noundef %bev17, ptr noundef null)
-  br label %if.end19
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %14, align 8
+  %52 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %52, i32 0, i32 0
+  %54 = call i32 @bufferevent_enable_locking_(ptr noundef %53, ptr noundef null)
+  br label %55
 
-if.end19:                                         ; preds = %if.then15, %if.end12
-  %12 = load ptr, ptr %underlying.addr, align 8
-  %13 = load ptr, ptr %bufev_f, align 8
-  %underlying20 = getelementptr inbounds %struct.bufferevent_filtered, ptr %13, i32 0, i32 1
-  store ptr %12, ptr %underlying20, align 8
-  %14 = load ptr, ptr %input_filter.addr, align 8
-  %15 = load ptr, ptr %bufev_f, align 8
-  %process_in = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 6
-  store ptr %14, ptr %process_in, align 8
-  %16 = load ptr, ptr %output_filter.addr, align 8
-  %17 = load ptr, ptr %bufev_f, align 8
-  %process_out = getelementptr inbounds %struct.bufferevent_filtered, ptr %17, i32 0, i32 7
-  store ptr %16, ptr %process_out, align 8
-  %18 = load ptr, ptr %free_context.addr, align 8
-  %19 = load ptr, ptr %bufev_f, align 8
-  %free_context21 = getelementptr inbounds %struct.bufferevent_filtered, ptr %19, i32 0, i32 5
-  store ptr %18, ptr %free_context21, align 8
-  %20 = load ptr, ptr %ctx.addr, align 8
-  %21 = load ptr, ptr %bufev_f, align 8
-  %context = getelementptr inbounds %struct.bufferevent_filtered, ptr %21, i32 0, i32 8
-  store ptr %20, ptr %context, align 8
-  %22 = load ptr, ptr %bufev_f, align 8
-  %underlying22 = getelementptr inbounds %struct.bufferevent_filtered, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %underlying22, align 8
-  %24 = load ptr, ptr %bufev_f, align 8
-  call void @bufferevent_setcb(ptr noundef %23, ptr noundef @be_filter_readcb, ptr noundef @be_filter_writecb, ptr noundef @be_filter_eventcb, ptr noundef %24)
-  %25 = load ptr, ptr %bufev_f, align 8
-  %bev23 = getelementptr inbounds %struct.bufferevent_filtered, ptr %25, i32 0, i32 0
-  %bev24 = getelementptr inbounds %struct.bufferevent_private, ptr %bev23, i32 0, i32 0
-  %input = getelementptr inbounds %struct.bufferevent, ptr %bev24, i32 0, i32 4
-  %26 = load ptr, ptr %input, align 8
-  %27 = load ptr, ptr %bufev_f, align 8
-  %call25 = call ptr @evbuffer_add_cb(ptr noundef %26, ptr noundef @bufferevent_filtered_inbuf_cb, ptr noundef %27)
-  %28 = load ptr, ptr %bufev_f, align 8
-  %inbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %28, i32 0, i32 2
-  store ptr %call25, ptr %inbuf_cb, align 8
-  %29 = load ptr, ptr %bufev_f, align 8
-  %bev26 = getelementptr inbounds %struct.bufferevent_filtered, ptr %29, i32 0, i32 0
-  %bev27 = getelementptr inbounds %struct.bufferevent_private, ptr %bev26, i32 0, i32 0
-  %input28 = getelementptr inbounds %struct.bufferevent, ptr %bev27, i32 0, i32 4
-  %30 = load ptr, ptr %input28, align 8
-  %31 = load ptr, ptr %bufev_f, align 8
-  %inbuf_cb29 = getelementptr inbounds %struct.bufferevent_filtered, ptr %31, i32 0, i32 2
-  %32 = load ptr, ptr %inbuf_cb29, align 8
-  %call30 = call i32 @evbuffer_cb_clear_flags(ptr noundef %30, ptr noundef %32, i32 noundef 1)
-  %33 = load ptr, ptr %bufev_f, align 8
-  %bev31 = getelementptr inbounds %struct.bufferevent_filtered, ptr %33, i32 0, i32 0
-  %bev32 = getelementptr inbounds %struct.bufferevent_private, ptr %bev31, i32 0, i32 0
-  %output = getelementptr inbounds %struct.bufferevent, ptr %bev32, i32 0, i32 5
-  %34 = load ptr, ptr %output, align 8
-  %35 = load ptr, ptr %bufev_f, align 8
-  %call33 = call ptr @evbuffer_add_cb(ptr noundef %34, ptr noundef @bufferevent_filtered_outbuf_cb, ptr noundef %35)
-  %36 = load ptr, ptr %bufev_f, align 8
-  %outbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %36, i32 0, i32 3
-  store ptr %call33, ptr %outbuf_cb, align 8
-  %37 = load ptr, ptr %bufev_f, align 8
-  %bev34 = getelementptr inbounds %struct.bufferevent_filtered, ptr %37, i32 0, i32 0
-  %bev35 = getelementptr inbounds %struct.bufferevent_private, ptr %bev34, i32 0, i32 0
-  call void @bufferevent_init_generic_timeout_cbs_(ptr noundef %bev35)
-  %38 = load ptr, ptr %underlying.addr, align 8
-  call void @bufferevent_incref(ptr noundef %38)
-  %39 = load ptr, ptr %underlying.addr, align 8
-  %call36 = call i32 @bufferevent_enable(ptr noundef %39, i16 noundef signext 6)
-  %40 = load ptr, ptr %underlying.addr, align 8
-  call void @bufferevent_suspend_read_(ptr noundef %40, i16 noundef zeroext 16)
-  %41 = load ptr, ptr %bufev_f, align 8
-  %bev37 = getelementptr inbounds %struct.bufferevent_filtered, ptr %41, i32 0, i32 0
-  %bev38 = getelementptr inbounds %struct.bufferevent_private, ptr %bev37, i32 0, i32 0
-  store ptr %bev38, ptr %retval, align 8
-  br label %return
+55:                                               ; preds = %50, %46
+  %56 = load ptr, ptr %8, align 8
+  %57 = load ptr, ptr %14, align 8
+  %58 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %57, i32 0, i32 1
+  store ptr %56, ptr %58, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %60, i32 0, i32 6
+  store ptr %59, ptr %61, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %63, i32 0, i32 7
+  store ptr %62, ptr %64, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %66, i32 0, i32 5
+  store ptr %65, ptr %67, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %14, align 8
+  %70 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %69, i32 0, i32 8
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %14, align 8
+  %72 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %14, align 8
+  call void @bufferevent_setcb(ptr noundef %73, ptr noundef @be_filter_readcb, ptr noundef @be_filter_writecb, ptr noundef @be_filter_eventcb, ptr noundef %74)
+  %75 = load ptr, ptr %14, align 8
+  %76 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %75, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.bufferevent, ptr %77, i32 0, i32 4
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %14, align 8
+  %81 = call ptr @evbuffer_add_cb(ptr noundef %79, ptr noundef @bufferevent_filtered_inbuf_cb, ptr noundef %80)
+  %82 = load ptr, ptr %14, align 8
+  %83 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %82, i32 0, i32 2
+  store ptr %81, ptr %83, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %85, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.bufferevent, ptr %86, i32 0, i32 4
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %89, i32 0, i32 2
+  %91 = load ptr, ptr %90, align 8
+  %92 = call i32 @evbuffer_cb_clear_flags(ptr noundef %88, ptr noundef %91, i32 noundef 1)
+  %93 = load ptr, ptr %14, align 8
+  %94 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %93, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds nuw %struct.bufferevent, ptr %95, i32 0, i32 5
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %14, align 8
+  %99 = call ptr @evbuffer_add_cb(ptr noundef %97, ptr noundef @bufferevent_filtered_outbuf_cb, ptr noundef %98)
+  %100 = load ptr, ptr %14, align 8
+  %101 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %100, i32 0, i32 3
+  store ptr %99, ptr %101, align 8
+  %102 = load ptr, ptr %14, align 8
+  %103 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %102, i32 0, i32 0
+  %104 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %103, i32 0, i32 0
+  call void @bufferevent_init_generic_timeout_cbs_(ptr noundef %104)
+  %105 = load ptr, ptr %8, align 8
+  call void @bufferevent_incref(ptr noundef %105)
+  %106 = load ptr, ptr %8, align 8
+  %107 = call i32 @bufferevent_enable(ptr noundef %106, i16 noundef signext 6)
+  %108 = load ptr, ptr %8, align 8
+  call void @bufferevent_suspend_read_(ptr noundef %108, i16 noundef zeroext 16)
+  %109 = load ptr, ptr %14, align 8
+  %110 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %110, i32 0, i32 0
+  store ptr %111, ptr %7, align 8
+  store i32 1, ptr %16, align 4
+  br label %112
 
-return:                                           ; preds = %if.end19, %if.then11, %if.then8, %if.then
-  %42 = load ptr, ptr %retval, align 8
-  ret ptr %42
+112:                                              ; preds = %55, %44, %34, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  %113 = load ptr, ptr %7, align 8
+  ret ptr %113
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_null_filter(ptr noundef %src, ptr noundef %dst, i64 noundef %lim, i32 noundef %state, ptr noundef %ctx) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %lim.addr = alloca i64, align 8
-  %state.addr = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i64 %lim, ptr %lim.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %1 = load ptr, ptr %dst.addr, align 8
-  %2 = load i64, ptr %lim.addr, align 8
-  %call = call i32 @evbuffer_remove_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  %cmp = icmp sge i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @be_null_filter(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i64, ptr %9, align 8
+  %15 = call i32 @evbuffer_remove_buffer(ptr noundef %12, ptr noundef %13, i64 noundef %14)
+  %16 = icmp sge i32 %15, 0
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  br label %19
 
-if.else:                                          ; preds = %entry
-  store i32 2, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %5
+  store i32 2, ptr %6, align 4
+  br label %19
 
-return:                                           ; preds = %if.else, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+19:                                               ; preds = %18, %17
+  %20 = load i32, ptr %6, align 4
+  ret i32 %20
 }
 
 declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #1
@@ -688,477 +698,564 @@ declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) #1
 declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_readcb(ptr noundef %underlying, ptr noundef %me_) #0 {
-entry:
-  %underlying.addr = alloca ptr, align 8
-  %me_.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %bev = alloca ptr, align 8
-  %locking = alloca ptr, align 8
-  %locking7 = alloca ptr, align 8
-  store ptr %underlying, ptr %underlying.addr, align 8
-  store ptr %me_, ptr %me_.addr, align 8
-  %0 = load ptr, ptr %me_.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  br label %do.body
+define internal void @be_filter_readcb(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %9 = load ptr, ptr %4, align 8
+  store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %11, i32 0, i32 0
+  store ptr %12, ptr %6, align 8
+  br label %13
 
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %bev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %locking, align 8
-  br label %do.body3
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 0
+  store ptr %15, ptr %7, align 8
+  br label %16
 
-do.body3:                                         ; preds = %do.body
-  %3 = load ptr, ptr %locking, align 8
-  %lock = getelementptr inbounds %struct.bufferevent_private, ptr %3, i32 0, i32 11
-  %4 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.then, label %if.end
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %17, i32 0, i32 11
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %27
 
-if.then:                                          ; preds = %do.body3
-  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %locking, align 8
-  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %7, i32 0, i32 11
-  %8 = load ptr, ptr %lock4, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
-  br label %if.end
+21:                                               ; preds = %16
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %23, i32 0, i32 11
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 %22(i32 noundef 0, ptr noundef %25)
+  br label %27
 
-if.end:                                           ; preds = %if.then, %do.body3
-  br label %do.end
+27:                                               ; preds = %21, %16
+  br label %28
 
-do.end:                                           ; preds = %if.end
-  br label %do.end5
+28:                                               ; preds = %27
+  br label %29
 
-do.end5:                                          ; preds = %do.end
-  %9 = load ptr, ptr %underlying.addr, align 8
-  %10 = load ptr, ptr %me_.addr, align 8
-  call void @be_filter_read_nolock_(ptr noundef %9, ptr noundef %10)
-  br label %do.body6
+29:                                               ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %30
 
-do.body6:                                         ; preds = %do.end5
-  %11 = load ptr, ptr %bev, align 8
-  %add.ptr8 = getelementptr inbounds i8, ptr %11, i64 0
-  store ptr %add.ptr8, ptr %locking7, align 8
-  br label %do.body9
+30:                                               ; preds = %29
+  br label %31
 
-do.body9:                                         ; preds = %do.body6
-  %12 = load ptr, ptr %locking7, align 8
-  %lock10 = getelementptr inbounds %struct.bufferevent_private, ptr %12, i32 0, i32 11
-  %13 = load ptr, ptr %lock10, align 8
-  %tobool11 = icmp ne ptr %13, null
-  br i1 %tobool11, label %if.then12, label %if.end15
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %3, align 8
+  %33 = load ptr, ptr %4, align 8
+  call void @be_filter_read_nolock_(ptr noundef %32, ptr noundef %33)
+  br label %34
 
-if.then12:                                        ; preds = %do.body9
-  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %locking7, align 8
-  %lock13 = getelementptr inbounds %struct.bufferevent_private, ptr %16, i32 0, i32 11
-  %17 = load ptr, ptr %lock13, align 8
-  %call14 = call i32 %15(i32 noundef 0, ptr noundef %17)
-  br label %if.end15
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 0
+  store ptr %36, ptr %8, align 8
+  br label %37
 
-if.end15:                                         ; preds = %if.then12, %do.body9
-  br label %do.end16
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %38, i32 0, i32 11
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %48
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.end17
+42:                                               ; preds = %37
+  %43 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %44, i32 0, i32 11
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 %43(i32 noundef 0, ptr noundef %46)
+  br label %48
 
-do.end17:                                         ; preds = %do.end16
+48:                                               ; preds = %42, %37
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  br label %51
+
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_writecb(ptr noundef %underlying, ptr noundef %me_) #0 {
-entry:
-  %underlying.addr = alloca ptr, align 8
-  %me_.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %bev = alloca ptr, align 8
-  %bufev_private = alloca ptr, align 8
-  %processed_any = alloca i32, align 4
-  %locking = alloca ptr, align 8
-  %locking13 = alloca ptr, align 8
-  store ptr %underlying, ptr %underlying.addr, align 8
-  store ptr %me_, ptr %me_.addr, align 8
-  %0 = load ptr, ptr %me_.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  %2 = load ptr, ptr %bev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %bufev_private, align 8
-  store i32 0, ptr %processed_any, align 4
-  br label %do.body
+define internal void @be_filter_writecb(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %13, i32 0, i32 0
+  store ptr %14, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  store ptr %16, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4
+  br label %17
 
-do.body:                                          ; preds = %entry
-  %3 = load ptr, ptr %bev, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %3, i64 0
-  store ptr %add.ptr3, ptr %locking, align 8
-  br label %do.body4
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 0
+  store ptr %19, ptr %9, align 8
+  br label %20
 
-do.body4:                                         ; preds = %do.body
-  %4 = load ptr, ptr %locking, align 8
-  %lock = getelementptr inbounds %struct.bufferevent_private, ptr %4, i32 0, i32 11
-  %5 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then, label %if.end
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %21, i32 0, i32 11
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %31
 
-if.then:                                          ; preds = %do.body4
-  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %locking, align 8
-  %lock5 = getelementptr inbounds %struct.bufferevent_private, ptr %8, i32 0, i32 11
-  %9 = load ptr, ptr %lock5, align 8
-  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
-  br label %if.end
+25:                                               ; preds = %20
+  %26 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %27, i32 0, i32 11
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 %26(i32 noundef 0, ptr noundef %29)
+  br label %31
 
-if.end:                                           ; preds = %if.then, %do.body4
-  br label %do.end
+31:                                               ; preds = %25, %20
+  br label %32
 
-do.end:                                           ; preds = %if.end
-  br label %do.end6
+32:                                               ; preds = %31
+  br label %33
 
-do.end6:                                          ; preds = %do.end
-  br label %do.body7
+33:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %34
 
-do.body7:                                         ; preds = %do.end6
-  br label %do.end8
+34:                                               ; preds = %33
+  br label %35
 
-do.end8:                                          ; preds = %do.body7
-  %10 = load ptr, ptr %bufev_private, align 8
-  %refcnt = getelementptr inbounds %struct.bufferevent_private, ptr %10, i32 0, i32 10
-  %11 = load i32, ptr %refcnt, align 4
-  %cmp = icmp sgt i32 %11, 0
-  br i1 %cmp, label %if.then9, label %if.end11
+35:                                               ; preds = %34
+  br label %36
 
-if.then9:                                         ; preds = %do.end8
-  %12 = load ptr, ptr %bevf, align 8
-  %call10 = call i32 @be_filter_process_output(ptr noundef %12, i32 noundef 0, ptr noundef %processed_any)
-  br label %if.end11
+36:                                               ; preds = %35
+  br label %37
 
-if.end11:                                         ; preds = %if.then9, %do.end8
-  br label %do.body12
+37:                                               ; preds = %36
+  br label %38
 
-do.body12:                                        ; preds = %if.end11
-  %13 = load ptr, ptr %bev, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %13, i64 0
-  store ptr %add.ptr14, ptr %locking13, align 8
-  br label %do.body15
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %39, i32 0, i32 10
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %46
 
-do.body15:                                        ; preds = %do.body12
-  %14 = load ptr, ptr %locking13, align 8
-  %lock16 = getelementptr inbounds %struct.bufferevent_private, ptr %14, i32 0, i32 11
-  %15 = load ptr, ptr %lock16, align 8
-  %tobool17 = icmp ne ptr %15, null
-  br i1 %tobool17, label %if.then18, label %if.end21
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %5, align 8
+  %45 = call i32 @be_filter_process_output(ptr noundef %44, i32 noundef 0, ptr noundef %8)
+  br label %46
 
-if.then18:                                        ; preds = %do.body15
-  %16 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %locking13, align 8
-  %lock19 = getelementptr inbounds %struct.bufferevent_private, ptr %18, i32 0, i32 11
-  %19 = load ptr, ptr %lock19, align 8
-  %call20 = call i32 %17(i32 noundef 0, ptr noundef %19)
-  br label %if.end21
+46:                                               ; preds = %43, %38
+  br label %47
 
-if.end21:                                         ; preds = %if.then18, %do.body15
-  br label %do.end22
+47:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  store ptr %49, ptr %10, align 8
+  br label %50
 
-do.end22:                                         ; preds = %if.end21
-  br label %do.end23
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %51, i32 0, i32 11
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %61
 
-do.end23:                                         ; preds = %do.end22
+55:                                               ; preds = %50
+  %56 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %57, i32 0, i32 11
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 %56(i32 noundef 0, ptr noundef %59)
+  br label %61
+
+61:                                               ; preds = %55, %50
+  br label %62
+
+62:                                               ; preds = %61
+  br label %63
+
+63:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_eventcb(ptr noundef %underlying, i16 noundef signext %what, ptr noundef %me_) #0 {
-entry:
-  %underlying.addr = alloca ptr, align 8
-  %what.addr = alloca i16, align 2
-  %me_.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %bev = alloca ptr, align 8
-  %bufev_private = alloca ptr, align 8
-  %locking = alloca ptr, align 8
-  %locking12 = alloca ptr, align 8
-  store ptr %underlying, ptr %underlying.addr, align 8
-  store i16 %what, ptr %what.addr, align 2
-  store ptr %me_, ptr %me_.addr, align 8
-  %0 = load ptr, ptr %me_.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  %2 = load ptr, ptr %bev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %bufev_private, align 8
-  br label %do.body
+define internal void @be_filter_eventcb(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i16 %1, ptr %5, align 2
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %14, i32 0, i32 0
+  store ptr %15, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  store ptr %17, ptr %9, align 8
+  br label %18
 
-do.body:                                          ; preds = %entry
-  %3 = load ptr, ptr %bev, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %3, i64 0
-  store ptr %add.ptr3, ptr %locking, align 8
-  br label %do.body4
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  store ptr %20, ptr %10, align 8
+  br label %21
 
-do.body4:                                         ; preds = %do.body
-  %4 = load ptr, ptr %locking, align 8
-  %lock = getelementptr inbounds %struct.bufferevent_private, ptr %4, i32 0, i32 11
-  %5 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then, label %if.end
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %22, i32 0, i32 11
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %32
 
-if.then:                                          ; preds = %do.body4
-  %6 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %locking, align 8
-  %lock5 = getelementptr inbounds %struct.bufferevent_private, ptr %8, i32 0, i32 11
-  %9 = load ptr, ptr %lock5, align 8
-  %call = call i32 %7(i32 noundef 0, ptr noundef %9)
-  br label %if.end
+26:                                               ; preds = %21
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %28, i32 0, i32 11
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %27(i32 noundef 0, ptr noundef %30)
+  br label %32
 
-if.end:                                           ; preds = %if.then, %do.body4
-  br label %do.end
+32:                                               ; preds = %26, %21
+  br label %33
 
-do.end:                                           ; preds = %if.end
-  br label %do.end6
+33:                                               ; preds = %32
+  br label %34
 
-do.end6:                                          ; preds = %do.end
-  br label %do.body7
+34:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  br label %35
 
-do.body7:                                         ; preds = %do.end6
-  br label %do.end8
+35:                                               ; preds = %34
+  br label %36
 
-do.end8:                                          ; preds = %do.body7
-  %10 = load ptr, ptr %bufev_private, align 8
-  %refcnt = getelementptr inbounds %struct.bufferevent_private, ptr %10, i32 0, i32 10
-  %11 = load i32, ptr %refcnt, align 4
-  %cmp = icmp sgt i32 %11, 0
-  br i1 %cmp, label %if.then9, label %if.end10
+36:                                               ; preds = %35
+  br label %37
 
-if.then9:                                         ; preds = %do.end8
-  %12 = load ptr, ptr %bev, align 8
-  %13 = load i16, ptr %what.addr, align 2
-  call void @bufferevent_run_eventcb_(ptr noundef %12, i16 noundef signext %13, i32 noundef 0)
-  br label %if.end10
+37:                                               ; preds = %36
+  br label %38
 
-if.end10:                                         ; preds = %if.then9, %do.end8
-  br label %do.body11
+38:                                               ; preds = %37
+  br label %39
 
-do.body11:                                        ; preds = %if.end10
-  %14 = load ptr, ptr %bev, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %14, i64 0
-  store ptr %add.ptr13, ptr %locking12, align 8
-  br label %do.body14
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %40, i32 0, i32 10
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %44, label %47
 
-do.body14:                                        ; preds = %do.body11
-  %15 = load ptr, ptr %locking12, align 8
-  %lock15 = getelementptr inbounds %struct.bufferevent_private, ptr %15, i32 0, i32 11
-  %16 = load ptr, ptr %lock15, align 8
-  %tobool16 = icmp ne ptr %16, null
-  br i1 %tobool16, label %if.then17, label %if.end20
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i16, ptr %5, align 2
+  call void @bufferevent_run_eventcb_(ptr noundef %45, i16 noundef signext %46, i32 noundef 0)
+  br label %47
 
-if.then17:                                        ; preds = %do.body14
-  %17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %locking12, align 8
-  %lock18 = getelementptr inbounds %struct.bufferevent_private, ptr %19, i32 0, i32 11
-  %20 = load ptr, ptr %lock18, align 8
-  %call19 = call i32 %18(i32 noundef 0, ptr noundef %20)
-  br label %if.end20
+47:                                               ; preds = %44, %39
+  br label %48
 
-if.end20:                                         ; preds = %if.then17, %do.body14
-  br label %do.end21
+48:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 0
+  store ptr %50, ptr %11, align 8
+  br label %51
 
-do.end21:                                         ; preds = %if.end20
-  br label %do.end22
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %11, align 8
+  %53 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %52, i32 0, i32 11
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %62
 
-do.end22:                                         ; preds = %do.end21
+56:                                               ; preds = %51
+  %57 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %58, i32 0, i32 11
+  %60 = load ptr, ptr %59, align 8
+  %61 = call i32 %57(i32 noundef 0, ptr noundef %60)
+  br label %62
+
+62:                                               ; preds = %56, %51
+  br label %63
+
+63:                                               ; preds = %62
+  br label %64
+
+64:                                               ; preds = %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  br label %65
+
+65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
 declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bufferevent_filtered_inbuf_cb(ptr noundef %buf, ptr noundef %cbinfo, ptr noundef %arg) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %cbinfo.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %state = alloca i32, align 4
-  %bev = alloca ptr, align 8
-  %locking = alloca ptr, align 8
-  %locking20 = alloca ptr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  store ptr %cbinfo, ptr %cbinfo.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  br label %do.body
+define internal void @bufferevent_filtered_inbuf_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %14, i32 0, i32 0
+  store ptr %15, ptr %9, align 8
+  br label %16
 
-do.body:                                          ; preds = %entry
-  %2 = load ptr, ptr %bev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %locking, align 8
-  br label %do.body3
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %17 = load ptr, ptr %9, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 0
+  store ptr %18, ptr %10, align 8
+  br label %19
 
-do.body3:                                         ; preds = %do.body
-  %3 = load ptr, ptr %locking, align 8
-  %lock = getelementptr inbounds %struct.bufferevent_private, ptr %3, i32 0, i32 11
-  %4 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.then, label %if.end
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %20, i32 0, i32 11
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %30
 
-if.then:                                          ; preds = %do.body3
-  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %locking, align 8
-  %lock4 = getelementptr inbounds %struct.bufferevent_private, ptr %7, i32 0, i32 11
-  %8 = load ptr, ptr %lock4, align 8
-  %call = call i32 %6(i32 noundef 0, ptr noundef %8)
-  br label %if.end
+24:                                               ; preds = %19
+  %25 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %26, i32 0, i32 11
+  %28 = load ptr, ptr %27, align 8
+  %29 = call i32 %25(i32 noundef 0, ptr noundef %28)
+  br label %30
 
-if.end:                                           ; preds = %if.then, %do.body3
-  br label %do.end
+30:                                               ; preds = %24, %19
+  br label %31
 
-do.end:                                           ; preds = %if.end
-  br label %do.end5
+31:                                               ; preds = %30
+  br label %32
 
-do.end5:                                          ; preds = %do.end
-  %9 = load ptr, ptr %bevf, align 8
-  %got_eof = getelementptr inbounds %struct.bufferevent_filtered, ptr %9, i32 0, i32 4
-  %10 = load i32, ptr %got_eof, align 8
-  %tobool6 = icmp ne i32 %10, 0
-  br i1 %tobool6, label %if.then7, label %if.else
+32:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  br label %33
 
-if.then7:                                         ; preds = %do.end5
-  store i32 2, ptr %state, align 4
-  br label %if.end8
+33:                                               ; preds = %32
+  br label %34
 
-if.else:                                          ; preds = %do.end5
-  store i32 0, ptr %state, align 4
-  br label %if.end8
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %35, i32 0, i32 4
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-if.end8:                                          ; preds = %if.else, %if.then7
-  %11 = load ptr, ptr %bevf, align 8
-  %12 = load i32, ptr %state, align 4
-  %call9 = call i32 @be_readbuf_full(ptr noundef %11, i32 noundef %12)
-  %tobool10 = icmp ne i32 %call9, 0
-  br i1 %tobool10, label %if.end18, label %if.then11
+39:                                               ; preds = %34
+  store i32 2, ptr %8, align 4
+  br label %41
 
-if.then11:                                        ; preds = %if.end8
-  %13 = load ptr, ptr %bev, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %input, align 8
-  %15 = load ptr, ptr %bevf, align 8
-  %inbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 2
-  %16 = load ptr, ptr %inbuf_cb, align 8
-  %call12 = call i32 @evbuffer_cb_clear_flags(ptr noundef %14, ptr noundef %16, i32 noundef 1)
-  %17 = load ptr, ptr %bevf, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %underlying, align 8
-  %input13 = getelementptr inbounds %struct.bufferevent, ptr %18, i32 0, i32 4
-  %19 = load ptr, ptr %input13, align 8
-  %call14 = call i64 @evbuffer_get_length(ptr noundef %19)
-  %cmp = icmp ugt i64 %call14, 0
-  br i1 %cmp, label %if.then15, label %if.end17
+40:                                               ; preds = %34
+  store i32 0, ptr %8, align 4
+  br label %41
 
-if.then15:                                        ; preds = %if.then11
-  %20 = load ptr, ptr %bevf, align 8
-  %underlying16 = getelementptr inbounds %struct.bufferevent_filtered, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %underlying16, align 8
-  %22 = load ptr, ptr %bevf, align 8
-  call void @be_filter_read_nolock_(ptr noundef %21, ptr noundef %22)
-  br label %if.end17
+41:                                               ; preds = %40, %39
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = call i32 @be_readbuf_full(ptr noundef %42, i32 noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %67, label %46
 
-if.end17:                                         ; preds = %if.then15, %if.then11
-  br label %if.end18
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.bufferevent, ptr %47, i32 0, i32 4
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 @evbuffer_cb_clear_flags(ptr noundef %49, ptr noundef %52, i32 noundef 1)
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw %struct.bufferevent, ptr %56, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i64 @evbuffer_get_length(ptr noundef %58)
+  %60 = icmp ugt i64 %59, 0
+  br i1 %60, label %61, label %66
 
-if.end18:                                         ; preds = %if.end17, %if.end8
-  br label %do.body19
+61:                                               ; preds = %46
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %7, align 8
+  call void @be_filter_read_nolock_(ptr noundef %64, ptr noundef %65)
+  br label %66
 
-do.body19:                                        ; preds = %if.end18
-  %23 = load ptr, ptr %bev, align 8
-  %add.ptr21 = getelementptr inbounds i8, ptr %23, i64 0
-  store ptr %add.ptr21, ptr %locking20, align 8
-  br label %do.body22
+66:                                               ; preds = %61, %46
+  br label %67
 
-do.body22:                                        ; preds = %do.body19
-  %24 = load ptr, ptr %locking20, align 8
-  %lock23 = getelementptr inbounds %struct.bufferevent_private, ptr %24, i32 0, i32 11
-  %25 = load ptr, ptr %lock23, align 8
-  %tobool24 = icmp ne ptr %25, null
-  br i1 %tobool24, label %if.then25, label %if.end28
+67:                                               ; preds = %66, %41
+  br label %68
 
-if.then25:                                        ; preds = %do.body22
-  %26 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %locking20, align 8
-  %lock26 = getelementptr inbounds %struct.bufferevent_private, ptr %28, i32 0, i32 11
-  %29 = load ptr, ptr %lock26, align 8
-  %call27 = call i32 %27(i32 noundef 0, ptr noundef %29)
-  br label %if.end28
+68:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %69 = load ptr, ptr %9, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 0
+  store ptr %70, ptr %11, align 8
+  br label %71
 
-if.end28:                                         ; preds = %if.then25, %do.body22
-  br label %do.end29
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %11, align 8
+  %73 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %72, i32 0, i32 11
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %82
 
-do.end29:                                         ; preds = %if.end28
-  br label %do.end30
+76:                                               ; preds = %71
+  %77 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %78, i32 0, i32 11
+  %80 = load ptr, ptr %79, align 8
+  %81 = call i32 %77(i32 noundef 0, ptr noundef %80)
+  br label %82
 
-do.end30:                                         ; preds = %do.end29
+82:                                               ; preds = %76, %71
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  br label %85
+
+85:                                               ; preds = %84
+  br label %86
+
+86:                                               ; preds = %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
 declare i32 @evbuffer_cb_clear_flags(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bufferevent_filtered_outbuf_cb(ptr noundef %buf, ptr noundef %cbinfo, ptr noundef %arg) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %cbinfo.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %bev = alloca ptr, align 8
-  %processed_any = alloca i32, align 4
-  store ptr %buf, ptr %buf.addr, align 8
-  store ptr %cbinfo, ptr %cbinfo.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  %2 = load ptr, ptr %cbinfo.addr, align 8
-  %n_added = getelementptr inbounds %struct.evbuffer_cb_info, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %n_added, align 8
-  %tobool = icmp ne i64 %3, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @bufferevent_filtered_outbuf_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %10 = load ptr, ptr %6, align 8
+  store ptr %10, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %11 = load ptr, ptr %7, align 8
+  %12 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %12, i32 0, i32 0
+  store ptr %13, ptr %8, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.evbuffer_cb_info, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %processed_any, align 4
-  %4 = load ptr, ptr %bev, align 8
-  call void @bufferevent_incref_and_lock_(ptr noundef %4)
-  %5 = load ptr, ptr %bevf, align 8
-  %call = call i32 @be_filter_process_output(ptr noundef %5, i32 noundef 0, ptr noundef %processed_any)
-  %6 = load ptr, ptr %bev, align 8
-  %call3 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %6)
-  br label %if.end
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  store i32 0, ptr %9, align 4
+  %19 = load ptr, ptr %8, align 8
+  call void @bufferevent_incref_and_lock_(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = call i32 @be_filter_process_output(ptr noundef %20, i32 noundef 0, ptr noundef %9)
+  %22 = load ptr, ptr %8, align 8
+  %23 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %22)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
+24:                                               ; preds = %18, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
@@ -1170,42 +1267,41 @@ declare i32 @bufferevent_enable(ptr noundef, i16 noundef signext) #1
 
 declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @evbuffer_remove_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @upcast(ptr noundef %bev) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %bev.addr = alloca ptr, align 8
-  %bev_f = alloca ptr, align 8
-  store ptr %bev, ptr %bev.addr, align 8
-  %0 = load ptr, ptr %bev.addr, align 8
-  %be_ops = getelementptr inbounds %struct.bufferevent, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %be_ops, align 8
-  %cmp = icmp eq ptr %1, @bufferevent_ops_filter
-  br i1 %cmp, label %if.end, label %if.then
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @upcast(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  br label %4
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+4:                                                ; preds = %1
+  br label %5
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %bev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %bev_f, align 8
-  br label %do.body
+5:                                                ; preds = %4
+  br label %6
 
-do.body:                                          ; preds = %if.end
-  br label %do.end
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 0
+  store ptr %8, ptr %3, align 8
+  br label %9
 
-do.end:                                           ; preds = %do.body
-  %3 = load ptr, ptr %bev_f, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %6
+  br label %10
 
-return:                                           ; preds = %do.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret ptr %12
 }
 
 declare void @event_warnx(ptr noundef, ...) #1
@@ -1223,401 +1319,416 @@ declare i32 @event_del(ptr noundef) #1
 declare void @bufferevent_incref_and_lock_(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr noundef %processed_out) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bevf.addr = alloca ptr, align 8
-  %state.addr = alloca i32, align 4
-  %processed_out.addr = alloca ptr, align 8
-  %res = alloca i32, align 4
-  %bufev = alloca ptr, align 8
-  %again = alloca i32, align 4
-  %processed = alloca i32, align 4
-  %limit = alloca i64, align 8
-  store ptr %bevf, ptr %bevf.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  store ptr %processed_out, ptr %processed_out.addr, align 8
-  store i32 0, ptr %res, align 4
-  %0 = load ptr, ptr %bevf.addr, align 8
-  %bev = getelementptr inbounds %struct.bufferevent_filtered, ptr %0, i32 0, i32 0
-  %bev1 = getelementptr inbounds %struct.bufferevent_private, ptr %bev, i32 0, i32 0
-  store ptr %bev1, ptr %bufev, align 8
-  store i32 0, ptr %again, align 4
-  %1 = load i32, ptr %state.addr, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end7
+define internal i32 @be_filter_process_output(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %15, i32 0, i32 0
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  store i32 0, ptr %10, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %39
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %bufev, align 8
-  %enabled = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 14
-  %3 = load i16, ptr %enabled, align 8
-  %conv = sext i16 %3 to i32
-  %and = and i32 %conv, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then6
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.bufferevent, ptr %20, i32 0, i32 14
+  %22 = load i16, ptr %21, align 8
+  %23 = sext i16 %22 to i32
+  %24 = and i32 %23, 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %37
 
-lor.lhs.false:                                    ; preds = %if.then
-  %4 = load ptr, ptr %bevf.addr, align 8
-  %5 = load i32, ptr %state.addr, align 4
-  %call = call i32 @be_underlying_writebuf_full(ptr noundef %4, i32 noundef %5)
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.then6, label %lor.lhs.false3
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = call i32 @be_underlying_writebuf_full(ptr noundef %27, i32 noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %37, label %31
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %bufev, align 8
-  %output = getelementptr inbounds %struct.bufferevent, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %output, align 8
-  %call4 = call i64 @evbuffer_get_length(ptr noundef %7)
-  %tobool5 = icmp ne i64 %call4, 0
-  br i1 %tobool5, label %if.end, label %if.then6
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.bufferevent, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i64 @evbuffer_get_length(ptr noundef %34)
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %38, label %37
 
-if.then6:                                         ; preds = %lor.lhs.false3, %lor.lhs.false, %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %31, %26, %19
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %188
 
-if.end:                                           ; preds = %lor.lhs.false3
-  br label %if.end7
+38:                                               ; preds = %31
+  br label %39
 
-if.end7:                                          ; preds = %if.end, %entry
-  %8 = load ptr, ptr %bufev, align 8
-  %output8 = getelementptr inbounds %struct.bufferevent, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %output8, align 8
-  %10 = load ptr, ptr %bevf.addr, align 8
-  %outbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %outbuf_cb, align 8
-  %call9 = call i32 @evbuffer_cb_clear_flags(ptr noundef %9, ptr noundef %11, i32 noundef 1)
-  br label %do.body
+39:                                               ; preds = %38, %3
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds nuw %struct.bufferevent, ptr %40, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @evbuffer_cb_clear_flags(ptr noundef %42, ptr noundef %45, i32 noundef 1)
+  br label %47
 
-do.body:                                          ; preds = %do.cond64, %if.end7
-  store i32 0, ptr %processed, align 4
-  store i32 0, ptr %again, align 4
-  br label %do.body10
+47:                                               ; preds = %150, %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store i32 0, ptr %12, align 4
+  store i32 0, ptr %10, align 4
+  br label %48
 
-do.body10:                                        ; preds = %land.end, %do.body
-  store i64 -1, ptr %limit, align 8
-  %12 = load i32, ptr %state.addr, align 4
-  %cmp11 = icmp eq i32 %12, 0
-  br i1 %cmp11, label %land.lhs.true, label %if.end21
+48:                                               ; preds = %120, %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  store i64 -1, ptr %13, align 8
+  %49 = load i32, ptr %6, align 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %73
 
-land.lhs.true:                                    ; preds = %do.body10
-  %13 = load ptr, ptr %bevf.addr, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %underlying, align 8
-  %wm_write = getelementptr inbounds %struct.bufferevent, ptr %14, i32 0, i32 7
-  %high = getelementptr inbounds %struct.event_watermark, ptr %wm_write, i32 0, i32 1
-  %15 = load i64, ptr %high, align 8
-  %tobool13 = icmp ne i64 %15, 0
-  br i1 %tobool13, label %if.then14, label %if.end21
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw %struct.bufferevent, ptr %54, i32 0, i32 7
+  %56 = getelementptr inbounds nuw %struct.event_watermark, ptr %55, i32 0, i32 1
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %73
 
-if.then14:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %bevf.addr, align 8
-  %underlying15 = getelementptr inbounds %struct.bufferevent_filtered, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %underlying15, align 8
-  %wm_write16 = getelementptr inbounds %struct.bufferevent, ptr %17, i32 0, i32 7
-  %high17 = getelementptr inbounds %struct.event_watermark, ptr %wm_write16, i32 0, i32 1
-  %18 = load i64, ptr %high17, align 8
-  %19 = load ptr, ptr %bevf.addr, align 8
-  %underlying18 = getelementptr inbounds %struct.bufferevent_filtered, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %underlying18, align 8
-  %output19 = getelementptr inbounds %struct.bufferevent, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %output19, align 8
-  %call20 = call i64 @evbuffer_get_length(ptr noundef %21)
-  %sub = sub i64 %18, %call20
-  store i64 %sub, ptr %limit, align 8
-  br label %if.end21
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct.bufferevent, ptr %62, i32 0, i32 7
+  %64 = getelementptr inbounds nuw %struct.event_watermark, ptr %63, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %struct.bufferevent, ptr %68, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8
+  %71 = call i64 @evbuffer_get_length(ptr noundef %70)
+  %72 = sub i64 %65, %71
+  store i64 %72, ptr %13, align 8
+  br label %73
 
-if.end21:                                         ; preds = %if.then14, %land.lhs.true, %do.body10
-  %22 = load ptr, ptr %bevf.addr, align 8
-  %process_out = getelementptr inbounds %struct.bufferevent_filtered, ptr %22, i32 0, i32 7
-  %23 = load ptr, ptr %process_out, align 8
-  %24 = load ptr, ptr %bevf.addr, align 8
-  %bev22 = getelementptr inbounds %struct.bufferevent_filtered, ptr %24, i32 0, i32 0
-  %bev23 = getelementptr inbounds %struct.bufferevent_private, ptr %bev22, i32 0, i32 0
-  %output24 = getelementptr inbounds %struct.bufferevent, ptr %bev23, i32 0, i32 5
-  %25 = load ptr, ptr %output24, align 8
-  %26 = load ptr, ptr %bevf.addr, align 8
-  %underlying25 = getelementptr inbounds %struct.bufferevent_filtered, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %underlying25, align 8
-  %output26 = getelementptr inbounds %struct.bufferevent, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %output26, align 8
-  %29 = load i64, ptr %limit, align 8
-  %30 = load i32, ptr %state.addr, align 4
-  %31 = load ptr, ptr %bevf.addr, align 8
-  %context = getelementptr inbounds %struct.bufferevent_filtered, ptr %31, i32 0, i32 8
-  %32 = load ptr, ptr %context, align 8
-  %call27 = call i32 %23(ptr noundef %25, ptr noundef %28, i64 noundef %29, i32 noundef %30, ptr noundef %32)
-  store i32 %call27, ptr %res, align 4
-  %33 = load i32, ptr %res, align 4
-  %cmp28 = icmp eq i32 %33, 0
-  br i1 %cmp28, label %if.then30, label %if.end31
+73:                                               ; preds = %59, %51, %48
+  %74 = load ptr, ptr %5, align 8
+  %75 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %74, i32 0, i32 7
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %struct.bufferevent, ptr %79, i32 0, i32 5
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %5, align 8
+  %83 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw %struct.bufferevent, ptr %84, i32 0, i32 5
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i64, ptr %13, align 8
+  %88 = load i32, ptr %6, align 4
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %89, i32 0, i32 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = call i32 %76(ptr noundef %81, ptr noundef %86, i64 noundef %87, i32 noundef %88, ptr noundef %91)
+  store i32 %92, ptr %8, align 4
+  %93 = load i32, ptr %8, align 4
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %97
 
-if.then30:                                        ; preds = %if.end21
-  %34 = load ptr, ptr %processed_out.addr, align 8
-  store i32 1, ptr %34, align 4
-  store i32 1, ptr %processed, align 4
-  br label %if.end31
+95:                                               ; preds = %73
+  %96 = load ptr, ptr %7, align 8
+  store i32 1, ptr %96, align 4
+  store i32 1, ptr %12, align 4
+  br label %97
 
-if.end31:                                         ; preds = %if.then30, %if.end21
-  br label %do.cond
+97:                                               ; preds = %95, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  br label %98
 
-do.cond:                                          ; preds = %if.end31
-  %35 = load i32, ptr %res, align 4
-  %cmp32 = icmp eq i32 %35, 0
-  br i1 %cmp32, label %land.lhs.true34, label %land.end
+98:                                               ; preds = %97
+  %99 = load i32, ptr %8, align 4
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %120
 
-land.lhs.true34:                                  ; preds = %do.cond
-  %36 = load ptr, ptr %bufev, align 8
-  %enabled35 = getelementptr inbounds %struct.bufferevent, ptr %36, i32 0, i32 14
-  %37 = load i16, ptr %enabled35, align 8
-  %conv36 = sext i16 %37 to i32
-  %and37 = and i32 %conv36, 4
-  %tobool38 = icmp ne i32 %and37, 0
-  br i1 %tobool38, label %land.lhs.true39, label %land.end
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw %struct.bufferevent, ptr %102, i32 0, i32 14
+  %104 = load i16, ptr %103, align 8
+  %105 = sext i16 %104 to i32
+  %106 = and i32 %105, 4
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %108, label %120
 
-land.lhs.true39:                                  ; preds = %land.lhs.true34
-  %38 = load ptr, ptr %bufev, align 8
-  %output40 = getelementptr inbounds %struct.bufferevent, ptr %38, i32 0, i32 5
-  %39 = load ptr, ptr %output40, align 8
-  %call41 = call i64 @evbuffer_get_length(ptr noundef %39)
-  %tobool42 = icmp ne i64 %call41, 0
-  br i1 %tobool42, label %land.rhs, label %land.end
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %9, align 8
+  %110 = getelementptr inbounds nuw %struct.bufferevent, ptr %109, i32 0, i32 5
+  %111 = load ptr, ptr %110, align 8
+  %112 = call i64 @evbuffer_get_length(ptr noundef %111)
+  %113 = icmp ne i64 %112, 0
+  br i1 %113, label %114, label %120
 
-land.rhs:                                         ; preds = %land.lhs.true39
-  %40 = load ptr, ptr %bevf.addr, align 8
-  %41 = load i32, ptr %state.addr, align 4
-  %call43 = call i32 @be_underlying_writebuf_full(ptr noundef %40, i32 noundef %41)
-  %tobool44 = icmp ne i32 %call43, 0
-  %lnot = xor i1 %tobool44, true
-  br label %land.end
+114:                                              ; preds = %108
+  %115 = load ptr, ptr %5, align 8
+  %116 = load i32, ptr %6, align 4
+  %117 = call i32 @be_underlying_writebuf_full(ptr noundef %115, i32 noundef %116)
+  %118 = icmp ne i32 %117, 0
+  %119 = xor i1 %118, true
+  br label %120
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true39, %land.lhs.true34, %do.cond
-  %42 = phi i1 [ false, %land.lhs.true39 ], [ false, %land.lhs.true34 ], [ false, %do.cond ], [ %lnot, %land.rhs ]
-  br i1 %42, label %do.body10, label %do.end, !llvm.loop !5
+120:                                              ; preds = %114, %108, %101, %98
+  %121 = phi i1 [ false, %108 ], [ false, %101 ], [ false, %98 ], [ %119, %114 ]
+  br i1 %121, label %48, label %122, !llvm.loop !3
 
-do.end:                                           ; preds = %land.end
-  %43 = load i32, ptr %processed, align 4
-  %tobool45 = icmp ne i32 %43, 0
-  br i1 %tobool45, label %if.then46, label %if.end63
+122:                                              ; preds = %120
+  %123 = load i32, ptr %12, align 4
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %149
 
-if.then46:                                        ; preds = %do.end
-  %44 = load ptr, ptr %bufev, align 8
-  call void @bufferevent_trigger_nolock_(ptr noundef %44, i16 noundef signext 4, i32 noundef 0)
-  %45 = load i32, ptr %res, align 4
-  %cmp47 = icmp eq i32 %45, 0
-  br i1 %cmp47, label %land.lhs.true49, label %if.end62
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %9, align 8
+  call void @bufferevent_trigger_nolock_(ptr noundef %126, i16 noundef signext 4, i32 noundef 0)
+  %127 = load i32, ptr %8, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %148
 
-land.lhs.true49:                                  ; preds = %if.then46
-  %46 = load ptr, ptr %bufev, align 8
-  %enabled50 = getelementptr inbounds %struct.bufferevent, ptr %46, i32 0, i32 14
-  %47 = load i16, ptr %enabled50, align 8
-  %conv51 = sext i16 %47 to i32
-  %and52 = and i32 %conv51, 4
-  %tobool53 = icmp ne i32 %and52, 0
-  br i1 %tobool53, label %land.lhs.true54, label %if.end62
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds nuw %struct.bufferevent, ptr %130, i32 0, i32 14
+  %132 = load i16, ptr %131, align 8
+  %133 = sext i16 %132 to i32
+  %134 = and i32 %133, 4
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %148
 
-land.lhs.true54:                                  ; preds = %land.lhs.true49
-  %48 = load ptr, ptr %bufev, align 8
-  %output55 = getelementptr inbounds %struct.bufferevent, ptr %48, i32 0, i32 5
-  %49 = load ptr, ptr %output55, align 8
-  %call56 = call i64 @evbuffer_get_length(ptr noundef %49)
-  %tobool57 = icmp ne i64 %call56, 0
-  br i1 %tobool57, label %land.lhs.true58, label %if.end62
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %9, align 8
+  %138 = getelementptr inbounds nuw %struct.bufferevent, ptr %137, i32 0, i32 5
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i64 @evbuffer_get_length(ptr noundef %139)
+  %141 = icmp ne i64 %140, 0
+  br i1 %141, label %142, label %148
 
-land.lhs.true58:                                  ; preds = %land.lhs.true54
-  %50 = load ptr, ptr %bevf.addr, align 8
-  %51 = load i32, ptr %state.addr, align 4
-  %call59 = call i32 @be_underlying_writebuf_full(ptr noundef %50, i32 noundef %51)
-  %tobool60 = icmp ne i32 %call59, 0
-  br i1 %tobool60, label %if.end62, label %if.then61
+142:                                              ; preds = %136
+  %143 = load ptr, ptr %5, align 8
+  %144 = load i32, ptr %6, align 4
+  %145 = call i32 @be_underlying_writebuf_full(ptr noundef %143, i32 noundef %144)
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %148, label %147
 
-if.then61:                                        ; preds = %land.lhs.true58
-  store i32 1, ptr %again, align 4
-  br label %if.end62
+147:                                              ; preds = %142
+  store i32 1, ptr %10, align 4
+  br label %148
 
-if.end62:                                         ; preds = %if.then61, %land.lhs.true58, %land.lhs.true54, %land.lhs.true49, %if.then46
-  br label %if.end63
+148:                                              ; preds = %147, %142, %136, %129, %125
+  br label %149
 
-if.end63:                                         ; preds = %if.end62, %do.end
-  br label %do.cond64
+149:                                              ; preds = %148, %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  br label %150
 
-do.cond64:                                        ; preds = %if.end63
-  %52 = load i32, ptr %again, align 4
-  %tobool65 = icmp ne i32 %52, 0
-  br i1 %tobool65, label %do.body, label %do.end66, !llvm.loop !7
+150:                                              ; preds = %149
+  %151 = load i32, ptr %10, align 4
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %47, label %153, !llvm.loop !5
 
-do.end66:                                         ; preds = %do.cond64
-  %53 = load ptr, ptr %bufev, align 8
-  %output67 = getelementptr inbounds %struct.bufferevent, ptr %53, i32 0, i32 5
-  %54 = load ptr, ptr %output67, align 8
-  %55 = load ptr, ptr %bevf.addr, align 8
-  %outbuf_cb68 = getelementptr inbounds %struct.bufferevent_filtered, ptr %55, i32 0, i32 3
-  %56 = load ptr, ptr %outbuf_cb68, align 8
-  %call69 = call i32 @evbuffer_cb_set_flags(ptr noundef %54, ptr noundef %56, i32 noundef 1)
-  %57 = load ptr, ptr %processed_out.addr, align 8
-  %58 = load i32, ptr %57, align 4
-  %tobool70 = icmp ne i32 %58, 0
-  br i1 %tobool70, label %if.then71, label %if.end83
+153:                                              ; preds = %150
+  %154 = load ptr, ptr %9, align 8
+  %155 = getelementptr inbounds nuw %struct.bufferevent, ptr %154, i32 0, i32 5
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %5, align 8
+  %158 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %157, i32 0, i32 3
+  %159 = load ptr, ptr %158, align 8
+  %160 = call i32 @evbuffer_cb_set_flags(ptr noundef %156, ptr noundef %159, i32 noundef 1)
+  %161 = load ptr, ptr %7, align 8
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %186
 
-if.then71:                                        ; preds = %do.end66
-  br label %do.body72
+164:                                              ; preds = %153
+  br label %165
 
-do.body72:                                        ; preds = %if.then71
-  %59 = load ptr, ptr %bufev, align 8
-  %timeout_write = getelementptr inbounds %struct.bufferevent, ptr %59, i32 0, i32 13
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %timeout_write, i32 0, i32 0
-  %60 = load i64, ptr %tv_sec, align 8
-  %tobool73 = icmp ne i64 %60, 0
-  br i1 %tobool73, label %if.then77, label %lor.lhs.false74
+165:                                              ; preds = %164
+  %166 = load ptr, ptr %9, align 8
+  %167 = getelementptr inbounds nuw %struct.bufferevent, ptr %166, i32 0, i32 13
+  %168 = getelementptr inbounds nuw %struct.timeval, ptr %167, i32 0, i32 0
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp ne i64 %169, 0
+  br i1 %170, label %177, label %171
 
-lor.lhs.false74:                                  ; preds = %do.body72
-  %61 = load ptr, ptr %bufev, align 8
-  %timeout_write75 = getelementptr inbounds %struct.bufferevent, ptr %61, i32 0, i32 13
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout_write75, i32 0, i32 1
-  %62 = load i64, ptr %tv_usec, align 8
-  %tobool76 = icmp ne i64 %62, 0
-  br i1 %tobool76, label %if.then77, label %if.end80
+171:                                              ; preds = %165
+  %172 = load ptr, ptr %9, align 8
+  %173 = getelementptr inbounds nuw %struct.bufferevent, ptr %172, i32 0, i32 13
+  %174 = getelementptr inbounds nuw %struct.timeval, ptr %173, i32 0, i32 1
+  %175 = load i64, ptr %174, align 8
+  %176 = icmp ne i64 %175, 0
+  br i1 %176, label %177, label %183
 
-if.then77:                                        ; preds = %lor.lhs.false74, %do.body72
-  %63 = load ptr, ptr %bufev, align 8
-  %ev_write = getelementptr inbounds %struct.bufferevent, ptr %63, i32 0, i32 3
-  %64 = load ptr, ptr %bufev, align 8
-  %timeout_write78 = getelementptr inbounds %struct.bufferevent, ptr %64, i32 0, i32 13
-  %call79 = call i32 @event_add(ptr noundef %ev_write, ptr noundef %timeout_write78)
-  br label %if.end80
+177:                                              ; preds = %171, %165
+  %178 = load ptr, ptr %9, align 8
+  %179 = getelementptr inbounds nuw %struct.bufferevent, ptr %178, i32 0, i32 3
+  %180 = load ptr, ptr %9, align 8
+  %181 = getelementptr inbounds nuw %struct.bufferevent, ptr %180, i32 0, i32 13
+  %182 = call i32 @event_add(ptr noundef %179, ptr noundef %181)
+  br label %183
 
-if.end80:                                         ; preds = %if.then77, %lor.lhs.false74
-  br label %do.end82
+183:                                              ; preds = %177, %171
+  br label %184
 
-do.end82:                                         ; preds = %if.end80
-  br label %if.end83
+184:                                              ; preds = %183
+  br label %185
 
-if.end83:                                         ; preds = %do.end82, %do.end66
-  %65 = load i32, ptr %res, align 4
-  store i32 %65, ptr %retval, align 4
-  br label %return
+185:                                              ; preds = %184
+  br label %186
 
-return:                                           ; preds = %if.end83, %if.then6
-  %66 = load i32, ptr %retval, align 4
-  ret i32 %66
+186:                                              ; preds = %185, %153
+  %187 = load i32, ptr %8, align 4
+  store i32 %187, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %188
+
+188:                                              ; preds = %186, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %189 = load i32, ptr %4, align 4
+  ret i32 %189
 }
 
 declare i32 @bufferevent_decref_and_unlock_(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_underlying_writebuf_full(ptr noundef %bevf, i32 noundef %state) #0 {
-entry:
-  %bevf.addr = alloca ptr, align 8
-  %state.addr = alloca i32, align 4
-  %u = alloca ptr, align 8
-  store ptr %bevf, ptr %bevf.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  %0 = load ptr, ptr %bevf.addr, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %underlying, align 8
-  store ptr %1, ptr %u, align 8
-  %2 = load i32, ptr %state.addr, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define internal i32 @be_underlying_writebuf_full(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %5, align 8
+  %9 = load i32, ptr %4, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %27
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %u, align 8
-  %wm_write = getelementptr inbounds %struct.bufferevent, ptr %3, i32 0, i32 7
-  %high = getelementptr inbounds %struct.event_watermark, ptr %wm_write, i32 0, i32 1
-  %4 = load i64, ptr %high, align 8
-  %tobool = icmp ne i64 %4, 0
-  br i1 %tobool, label %land.rhs, label %land.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.bufferevent, ptr %12, i32 0, i32 7
+  %14 = getelementptr inbounds nuw %struct.event_watermark, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %5 = load ptr, ptr %u, align 8
-  %output = getelementptr inbounds %struct.bufferevent, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %output, align 8
-  %call = call i64 @evbuffer_get_length(ptr noundef %6)
-  %7 = load ptr, ptr %u, align 8
-  %wm_write1 = getelementptr inbounds %struct.bufferevent, ptr %7, i32 0, i32 7
-  %high2 = getelementptr inbounds %struct.event_watermark, ptr %wm_write1, i32 0, i32 1
-  %8 = load i64, ptr %high2, align 8
-  %cmp3 = icmp uge i64 %call, %8
-  br label %land.end
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.bufferevent, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i64 @evbuffer_get_length(ptr noundef %20)
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.bufferevent, ptr %22, i32 0, i32 7
+  %24 = getelementptr inbounds nuw %struct.event_watermark, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp uge i64 %21, %25
+  br label %27
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %9 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp3, %land.rhs ]
-  %land.ext = zext i1 %9 to i32
-  ret i32 %land.ext
+27:                                               ; preds = %17, %11, %2
+  %28 = phi i1 [ false, %11 ], [ false, %2 ], [ %26, %17 ]
+  %29 = zext i1 %28 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret i32 %29
 }
 
 declare i64 @evbuffer_get_length(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @bufferevent_trigger_nolock_(ptr noundef %bufev, i16 noundef signext %iotype, i32 noundef %options) #0 {
-entry:
-  %bufev.addr = alloca ptr, align 8
-  %iotype.addr = alloca i16, align 2
-  %options.addr = alloca i32, align 4
-  store ptr %bufev, ptr %bufev.addr, align 8
-  store i16 %iotype, ptr %iotype.addr, align 2
-  store i32 %options, ptr %options.addr, align 4
-  %0 = load i16, ptr %iotype.addr, align 2
-  %conv = sext i16 %0 to i32
-  %and = and i32 %conv, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @bufferevent_trigger_nolock_(ptr noundef %0, i16 noundef signext %1, i32 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i16 %1, ptr %5, align 2
+  store i32 %2, ptr %6, align 4
+  %7 = load i16, ptr %5, align 2
+  %8 = sext i16 %7 to i32
+  %9 = and i32 %8, 2
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %28
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %options.addr, align 4
-  %and1 = and i32 %1, 65536
-  %tobool2 = icmp ne i32 %and1, 0
-  br i1 %tobool2, label %if.then, label %lor.lhs.false
+11:                                               ; preds = %3
+  %12 = load i32, ptr %6, align 4
+  %13 = and i32 %12, 65536
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %25, label %15
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %2 = load ptr, ptr %bufev.addr, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 4
-  %3 = load ptr, ptr %input, align 8
-  %call = call i64 @evbuffer_get_length(ptr noundef %3)
-  %4 = load ptr, ptr %bufev.addr, align 8
-  %wm_read = getelementptr inbounds %struct.bufferevent, ptr %4, i32 0, i32 6
-  %low = getelementptr inbounds %struct.event_watermark, ptr %wm_read, i32 0, i32 0
-  %5 = load i64, ptr %low, align 8
-  %cmp = icmp uge i64 %call, %5
-  br i1 %cmp, label %if.then, label %if.end
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.bufferevent, ptr %16, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i64 @evbuffer_get_length(ptr noundef %18)
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.bufferevent, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds nuw %struct.event_watermark, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp uge i64 %19, %23
+  br i1 %24, label %25, label %28
 
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %6 = load ptr, ptr %bufev.addr, align 8
-  %7 = load i32, ptr %options.addr, align 4
-  call void @bufferevent_run_readcb_(ptr noundef %6, i32 noundef %7)
-  br label %if.end
+25:                                               ; preds = %15, %11
+  %26 = load ptr, ptr %4, align 8
+  %27 = load i32, ptr %6, align 4
+  call void @bufferevent_run_readcb_(ptr noundef %26, i32 noundef %27)
+  br label %28
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
-  %8 = load i16, ptr %iotype.addr, align 2
-  %conv4 = sext i16 %8 to i32
-  %and5 = and i32 %conv4, 4
-  %tobool6 = icmp ne i32 %and5, 0
-  br i1 %tobool6, label %land.lhs.true7, label %if.end16
+28:                                               ; preds = %25, %15, %3
+  %29 = load i16, ptr %5, align 2
+  %30 = sext i16 %29 to i32
+  %31 = and i32 %30, 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %50
 
-land.lhs.true7:                                   ; preds = %if.end
-  %9 = load i32, ptr %options.addr, align 4
-  %and8 = and i32 %9, 65536
-  %tobool9 = icmp ne i32 %and8, 0
-  br i1 %tobool9, label %if.then15, label %lor.lhs.false10
+33:                                               ; preds = %28
+  %34 = load i32, ptr %6, align 4
+  %35 = and i32 %34, 65536
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %47, label %37
 
-lor.lhs.false10:                                  ; preds = %land.lhs.true7
-  %10 = load ptr, ptr %bufev.addr, align 8
-  %output = getelementptr inbounds %struct.bufferevent, ptr %10, i32 0, i32 5
-  %11 = load ptr, ptr %output, align 8
-  %call11 = call i64 @evbuffer_get_length(ptr noundef %11)
-  %12 = load ptr, ptr %bufev.addr, align 8
-  %wm_write = getelementptr inbounds %struct.bufferevent, ptr %12, i32 0, i32 7
-  %low12 = getelementptr inbounds %struct.event_watermark, ptr %wm_write, i32 0, i32 0
-  %13 = load i64, ptr %low12, align 8
-  %cmp13 = icmp ule i64 %call11, %13
-  br i1 %cmp13, label %if.then15, label %if.end16
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw %struct.bufferevent, ptr %38, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i64 @evbuffer_get_length(ptr noundef %40)
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.bufferevent, ptr %42, i32 0, i32 7
+  %44 = getelementptr inbounds nuw %struct.event_watermark, ptr %43, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8
+  %46 = icmp ule i64 %41, %45
+  br i1 %46, label %47, label %50
 
-if.then15:                                        ; preds = %lor.lhs.false10, %land.lhs.true7
-  %14 = load ptr, ptr %bufev.addr, align 8
-  %15 = load i32, ptr %options.addr, align 4
-  call void @bufferevent_run_writecb_(ptr noundef %14, i32 noundef %15)
-  br label %if.end16
+47:                                               ; preds = %37, %33
+  %48 = load ptr, ptr %4, align 8
+  %49 = load i32, ptr %6, align 4
+  call void @bufferevent_run_writecb_(ptr noundef %48, i32 noundef %49)
+  br label %50
 
-if.end16:                                         ; preds = %if.then15, %lor.lhs.false10, %if.end
+50:                                               ; preds = %47, %37, %28
   ret void
 }
 
@@ -1628,348 +1739,375 @@ declare void @bufferevent_run_readcb_(ptr noundef, i32 noundef) #1
 declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_readbuf_full(ptr noundef %bevf, i32 noundef %state) #0 {
-entry:
-  %bevf.addr = alloca ptr, align 8
-  %state.addr = alloca i32, align 4
-  %bufev = alloca ptr, align 8
-  store ptr %bevf, ptr %bevf.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  %0 = load ptr, ptr %bevf.addr, align 8
-  %bev = getelementptr inbounds %struct.bufferevent_filtered, ptr %0, i32 0, i32 0
-  %bev1 = getelementptr inbounds %struct.bufferevent_private, ptr %bev, i32 0, i32 0
-  store ptr %bev1, ptr %bufev, align 8
-  %1 = load i32, ptr %state.addr, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define internal i32 @be_readbuf_full(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8
+  %9 = load i32, ptr %4, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %27
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %bufev, align 8
-  %wm_read = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 6
-  %high = getelementptr inbounds %struct.event_watermark, ptr %wm_read, i32 0, i32 1
-  %3 = load i64, ptr %high, align 8
-  %tobool = icmp ne i64 %3, 0
-  br i1 %tobool, label %land.rhs, label %land.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.bufferevent, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds nuw %struct.event_watermark, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr %bufev, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %4, i32 0, i32 4
-  %5 = load ptr, ptr %input, align 8
-  %call = call i64 @evbuffer_get_length(ptr noundef %5)
-  %6 = load ptr, ptr %bufev, align 8
-  %wm_read2 = getelementptr inbounds %struct.bufferevent, ptr %6, i32 0, i32 6
-  %high3 = getelementptr inbounds %struct.event_watermark, ptr %wm_read2, i32 0, i32 1
-  %7 = load i64, ptr %high3, align 8
-  %cmp4 = icmp uge i64 %call, %7
-  br label %land.end
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.bufferevent, ptr %18, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i64 @evbuffer_get_length(ptr noundef %20)
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.bufferevent, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds nuw %struct.event_watermark, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp uge i64 %21, %25
+  br label %27
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
-  %8 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.rhs ]
-  %land.ext = zext i1 %8 to i32
-  ret i32 %land.ext
+27:                                               ; preds = %17, %11, %2
+  %28 = phi i1 [ false, %11 ], [ false, %2 ], [ %26, %17 ]
+  %29 = zext i1 %28 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_read_nolock_(ptr noundef %underlying, ptr noundef %me_) #0 {
-entry:
-  %underlying.addr = alloca ptr, align 8
-  %me_.addr = alloca ptr, align 8
-  %bevf = alloca ptr, align 8
-  %res = alloca i32, align 4
-  %state = alloca i32, align 4
-  %bufev = alloca ptr, align 8
-  %bufev_private = alloca ptr, align 8
-  %processed_any = alloca i32, align 4
-  store ptr %underlying, ptr %underlying.addr, align 8
-  store ptr %me_, ptr %me_.addr, align 8
-  %0 = load ptr, ptr %me_.addr, align 8
-  store ptr %0, ptr %bevf, align 8
-  %1 = load ptr, ptr %bevf, align 8
-  %bev = getelementptr inbounds %struct.bufferevent_filtered, ptr %1, i32 0, i32 0
-  %bev1 = getelementptr inbounds %struct.bufferevent_private, ptr %bev, i32 0, i32 0
-  store ptr %bev1, ptr %bufev, align 8
-  %2 = load ptr, ptr %bufev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 0
-  store ptr %add.ptr, ptr %bufev_private, align 8
-  store i32 0, ptr %processed_any, align 4
-  br label %do.body
+define internal void @be_filter_read_nolock_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %13, i32 0, i32 0
+  store ptr %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  store i32 0, ptr %10, align 4
+  br label %17
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+17:                                               ; preds = %2
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  %3 = load ptr, ptr %bufev_private, align 8
-  %refcnt = getelementptr inbounds %struct.bufferevent_private, ptr %3, i32 0, i32 10
-  %4 = load i32, ptr %refcnt, align 4
-  %cmp = icmp sgt i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end14
+18:                                               ; preds = %17
+  br label %19
 
-if.then:                                          ; preds = %do.end
-  %5 = load ptr, ptr %bevf, align 8
-  %got_eof = getelementptr inbounds %struct.bufferevent_filtered, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %got_eof, align 8
-  %tobool = icmp ne i32 %6, 0
-  br i1 %tobool, label %if.then2, label %if.else
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %20, i32 0, i32 10
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %24, label %59
 
-if.then2:                                         ; preds = %if.then
-  store i32 2, ptr %state, align 4
-  br label %if.end
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %25, i32 0, i32 4
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-if.else:                                          ; preds = %if.then
-  store i32 0, ptr %state, align 4
-  br label %if.end
+29:                                               ; preds = %24
+  store i32 2, ptr %7, align 4
+  br label %31
 
-if.end:                                           ; preds = %if.else, %if.then2
-  %7 = load ptr, ptr %bevf, align 8
-  %8 = load i32, ptr %state, align 4
-  %call = call i32 @be_filter_process_input(ptr noundef %7, i32 noundef %8, ptr noundef %processed_any)
-  store i32 %call, ptr %res, align 4
-  %9 = load i32, ptr %processed_any, align 4
-  %tobool3 = icmp ne i32 %9, 0
-  br i1 %tobool3, label %if.then4, label %if.end13
+30:                                               ; preds = %24
+  store i32 0, ptr %7, align 4
+  br label %31
 
-if.then4:                                         ; preds = %if.end
-  %10 = load ptr, ptr %bufev, align 8
-  call void @bufferevent_trigger_nolock_(ptr noundef %10, i16 noundef signext 2, i32 noundef 0)
-  %11 = load ptr, ptr %underlying.addr, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %input, align 8
-  %call5 = call i64 @evbuffer_get_length(ptr noundef %12)
-  %cmp6 = icmp ugt i64 %call5, 0
-  br i1 %cmp6, label %land.lhs.true, label %if.end12
+31:                                               ; preds = %30, %29
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i32, ptr %7, align 4
+  %34 = call i32 @be_filter_process_input(ptr noundef %32, i32 noundef %33, ptr noundef %10)
+  store i32 %34, ptr %6, align 4
+  %35 = load i32, ptr %10, align 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %58
 
-land.lhs.true:                                    ; preds = %if.then4
-  %13 = load ptr, ptr %bevf, align 8
-  %14 = load i32, ptr %state, align 4
-  %call7 = call i32 @be_readbuf_full(ptr noundef %13, i32 noundef %14)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end12
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %8, align 8
+  call void @bufferevent_trigger_nolock_(ptr noundef %38, i16 noundef signext 2, i32 noundef 0)
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.bufferevent, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i64 @evbuffer_get_length(ptr noundef %41)
+  %43 = icmp ugt i64 %42, 0
+  br i1 %43, label %44, label %57
 
-if.then9:                                         ; preds = %land.lhs.true
-  %15 = load ptr, ptr %bufev, align 8
-  %input10 = getelementptr inbounds %struct.bufferevent, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %input10, align 8
-  %17 = load ptr, ptr %bevf, align 8
-  %inbuf_cb = getelementptr inbounds %struct.bufferevent_filtered, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %inbuf_cb, align 8
-  %call11 = call i32 @evbuffer_cb_set_flags(ptr noundef %16, ptr noundef %18, i32 noundef 1)
-  br label %if.end12
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = call i32 @be_readbuf_full(ptr noundef %45, i32 noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %57
 
-if.end12:                                         ; preds = %if.then9, %land.lhs.true, %if.then4
-  br label %if.end13
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.bufferevent, ptr %50, i32 0, i32 4
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 @evbuffer_cb_set_flags(ptr noundef %52, ptr noundef %55, i32 noundef 1)
+  br label %57
 
-if.end13:                                         ; preds = %if.end12, %if.end
-  br label %if.end14
+57:                                               ; preds = %49, %44, %37
+  br label %58
 
-if.end14:                                         ; preds = %if.end13, %do.end
+58:                                               ; preds = %57, %31
+  br label %59
+
+59:                                               ; preds = %58, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr noundef %processed_out) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %bevf.addr = alloca ptr, align 8
-  %state.addr = alloca i32, align 4
-  %processed_out.addr = alloca ptr, align 8
-  %res = alloca i32, align 4
-  %bev = alloca ptr, align 8
-  %limit = alloca i64, align 8
-  store ptr %bevf, ptr %bevf.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  store ptr %processed_out, ptr %processed_out.addr, align 8
-  %0 = load ptr, ptr %bevf.addr, align 8
-  %bev1 = getelementptr inbounds %struct.bufferevent_filtered, ptr %0, i32 0, i32 0
-  %bev2 = getelementptr inbounds %struct.bufferevent_private, ptr %bev1, i32 0, i32 0
-  store ptr %bev2, ptr %bev, align 8
-  %1 = load i32, ptr %state.addr, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end5
+define internal i32 @be_filter_process_input(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.bufferevent_private, ptr %13, i32 0, i32 0
+  store ptr %14, ptr %9, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %31
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %bev, align 8
-  %enabled = getelementptr inbounds %struct.bufferevent, ptr %2, i32 0, i32 14
-  %3 = load i16, ptr %enabled, align 8
-  %conv = sext i16 %3 to i32
-  %and = and i32 %conv, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then4
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw %struct.bufferevent, ptr %18, i32 0, i32 14
+  %20 = load i16, ptr %19, align 8
+  %21 = sext i16 %20 to i32
+  %22 = and i32 %21, 2
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %29
 
-lor.lhs.false:                                    ; preds = %if.then
-  %4 = load ptr, ptr %bevf.addr, align 8
-  %5 = load i32, ptr %state.addr, align 4
-  %call = call i32 @be_readbuf_full(ptr noundef %4, i32 noundef %5)
-  %tobool3 = icmp ne i32 %call, 0
-  br i1 %tobool3, label %if.then4, label %if.end
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = call i32 @be_readbuf_full(ptr noundef %25, i32 noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then4:                                         ; preds = %lor.lhs.false, %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %24, %17
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %128
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end5
+30:                                               ; preds = %24
+  br label %31
 
-if.end5:                                          ; preds = %if.end, %entry
-  br label %do.body
+31:                                               ; preds = %30, %3
+  br label %32
 
-do.body:                                          ; preds = %land.end, %if.end5
-  store i64 -1, ptr %limit, align 8
-  %6 = load i32, ptr %state.addr, align 4
-  %cmp6 = icmp eq i32 %6, 0
-  br i1 %cmp6, label %land.lhs.true, label %if.end13
+32:                                               ; preds = %98, %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  store i64 -1, ptr %11, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %51
 
-land.lhs.true:                                    ; preds = %do.body
-  %7 = load ptr, ptr %bev, align 8
-  %wm_read = getelementptr inbounds %struct.bufferevent, ptr %7, i32 0, i32 6
-  %high = getelementptr inbounds %struct.event_watermark, ptr %wm_read, i32 0, i32 1
-  %8 = load i64, ptr %high, align 8
-  %tobool8 = icmp ne i64 %8, 0
-  br i1 %tobool8, label %if.then9, label %if.end13
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.bufferevent, ptr %36, i32 0, i32 6
+  %38 = getelementptr inbounds nuw %struct.event_watermark, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %51
 
-if.then9:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr %bev, align 8
-  %wm_read10 = getelementptr inbounds %struct.bufferevent, ptr %9, i32 0, i32 6
-  %high11 = getelementptr inbounds %struct.event_watermark, ptr %wm_read10, i32 0, i32 1
-  %10 = load i64, ptr %high11, align 8
-  %11 = load ptr, ptr %bev, align 8
-  %input = getelementptr inbounds %struct.bufferevent, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %input, align 8
-  %call12 = call i64 @evbuffer_get_length(ptr noundef %12)
-  %sub = sub i64 %10, %call12
-  store i64 %sub, ptr %limit, align 8
-  br label %if.end13
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.bufferevent, ptr %42, i32 0, i32 6
+  %44 = getelementptr inbounds nuw %struct.event_watermark, ptr %43, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.bufferevent, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i64 @evbuffer_get_length(ptr noundef %48)
+  %50 = sub i64 %45, %49
+  store i64 %50, ptr %11, align 8
+  br label %51
 
-if.end13:                                         ; preds = %if.then9, %land.lhs.true, %do.body
-  %13 = load ptr, ptr %bevf.addr, align 8
-  %process_in = getelementptr inbounds %struct.bufferevent_filtered, ptr %13, i32 0, i32 6
-  %14 = load ptr, ptr %process_in, align 8
-  %15 = load ptr, ptr %bevf.addr, align 8
-  %underlying = getelementptr inbounds %struct.bufferevent_filtered, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %underlying, align 8
-  %input14 = getelementptr inbounds %struct.bufferevent, ptr %16, i32 0, i32 4
-  %17 = load ptr, ptr %input14, align 8
-  %18 = load ptr, ptr %bev, align 8
-  %input15 = getelementptr inbounds %struct.bufferevent, ptr %18, i32 0, i32 4
-  %19 = load ptr, ptr %input15, align 8
-  %20 = load i64, ptr %limit, align 8
-  %21 = load i32, ptr %state.addr, align 4
-  %22 = load ptr, ptr %bevf.addr, align 8
-  %context = getelementptr inbounds %struct.bufferevent_filtered, ptr %22, i32 0, i32 8
-  %23 = load ptr, ptr %context, align 8
-  %call16 = call i32 %14(ptr noundef %17, ptr noundef %19, i64 noundef %20, i32 noundef %21, ptr noundef %23)
-  store i32 %call16, ptr %res, align 4
-  %24 = load i32, ptr %res, align 4
-  %cmp17 = icmp eq i32 %24, 0
-  br i1 %cmp17, label %if.then19, label %if.end20
+51:                                               ; preds = %41, %35, %32
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %52, i32 0, i32 6
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw %struct.bufferevent, ptr %57, i32 0, i32 4
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw %struct.bufferevent, ptr %60, i32 0, i32 4
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i64, ptr %11, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %65, i32 0, i32 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i32 %54(ptr noundef %59, ptr noundef %62, i64 noundef %63, i32 noundef %64, ptr noundef %67)
+  store i32 %68, ptr %8, align 4
+  %69 = load i32, ptr %8, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %73
 
-if.then19:                                        ; preds = %if.end13
-  %25 = load ptr, ptr %processed_out.addr, align 8
-  store i32 1, ptr %25, align 4
-  br label %if.end20
+71:                                               ; preds = %51
+  %72 = load ptr, ptr %7, align 8
+  store i32 1, ptr %72, align 4
+  br label %73
 
-if.end20:                                         ; preds = %if.then19, %if.end13
-  br label %do.cond
+73:                                               ; preds = %71, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  br label %74
 
-do.cond:                                          ; preds = %if.end20
-  %26 = load i32, ptr %res, align 4
-  %cmp21 = icmp eq i32 %26, 0
-  br i1 %cmp21, label %land.lhs.true23, label %land.end
+74:                                               ; preds = %73
+  %75 = load i32, ptr %8, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %98
 
-land.lhs.true23:                                  ; preds = %do.cond
-  %27 = load ptr, ptr %bev, align 8
-  %enabled24 = getelementptr inbounds %struct.bufferevent, ptr %27, i32 0, i32 14
-  %28 = load i16, ptr %enabled24, align 8
-  %conv25 = sext i16 %28 to i32
-  %and26 = and i32 %conv25, 2
-  %tobool27 = icmp ne i32 %and26, 0
-  br i1 %tobool27, label %land.lhs.true28, label %land.end
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw %struct.bufferevent, ptr %78, i32 0, i32 14
+  %80 = load i16, ptr %79, align 8
+  %81 = sext i16 %80 to i32
+  %82 = and i32 %81, 2
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %98
 
-land.lhs.true28:                                  ; preds = %land.lhs.true23
-  %29 = load ptr, ptr %bevf.addr, align 8
-  %underlying29 = getelementptr inbounds %struct.bufferevent_filtered, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %underlying29, align 8
-  %input30 = getelementptr inbounds %struct.bufferevent, ptr %30, i32 0, i32 4
-  %31 = load ptr, ptr %input30, align 8
-  %call31 = call i64 @evbuffer_get_length(ptr noundef %31)
-  %tobool32 = icmp ne i64 %call31, 0
-  br i1 %tobool32, label %land.rhs, label %land.end
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds nuw %struct.bufferevent_filtered, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw %struct.bufferevent, ptr %87, i32 0, i32 4
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i64 @evbuffer_get_length(ptr noundef %89)
+  %91 = icmp ne i64 %90, 0
+  br i1 %91, label %92, label %98
 
-land.rhs:                                         ; preds = %land.lhs.true28
-  %32 = load ptr, ptr %bevf.addr, align 8
-  %33 = load i32, ptr %state.addr, align 4
-  %call33 = call i32 @be_readbuf_full(ptr noundef %32, i32 noundef %33)
-  %tobool34 = icmp ne i32 %call33, 0
-  %lnot = xor i1 %tobool34, true
-  br label %land.end
+92:                                               ; preds = %84
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i32, ptr %6, align 4
+  %95 = call i32 @be_readbuf_full(ptr noundef %93, i32 noundef %94)
+  %96 = icmp ne i32 %95, 0
+  %97 = xor i1 %96, true
+  br label %98
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true28, %land.lhs.true23, %do.cond
-  %34 = phi i1 [ false, %land.lhs.true28 ], [ false, %land.lhs.true23 ], [ false, %do.cond ], [ %lnot, %land.rhs ]
-  br i1 %34, label %do.body, label %do.end, !llvm.loop !8
+98:                                               ; preds = %92, %84, %77, %74
+  %99 = phi i1 [ false, %84 ], [ false, %77 ], [ false, %74 ], [ %97, %92 ]
+  br i1 %99, label %32, label %100, !llvm.loop !6
 
-do.end:                                           ; preds = %land.end
-  %35 = load ptr, ptr %processed_out.addr, align 8
-  %36 = load i32, ptr %35, align 4
-  %tobool35 = icmp ne i32 %36, 0
-  br i1 %tobool35, label %if.then36, label %if.end48
+100:                                              ; preds = %98
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %126
 
-if.then36:                                        ; preds = %do.end
-  br label %do.body37
+104:                                              ; preds = %100
+  br label %105
 
-do.body37:                                        ; preds = %if.then36
-  %37 = load ptr, ptr %bev, align 8
-  %timeout_read = getelementptr inbounds %struct.bufferevent, ptr %37, i32 0, i32 12
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %timeout_read, i32 0, i32 0
-  %38 = load i64, ptr %tv_sec, align 8
-  %tobool38 = icmp ne i64 %38, 0
-  br i1 %tobool38, label %if.then42, label %lor.lhs.false39
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw %struct.bufferevent, ptr %106, i32 0, i32 12
+  %108 = getelementptr inbounds nuw %struct.timeval, ptr %107, i32 0, i32 0
+  %109 = load i64, ptr %108, align 8
+  %110 = icmp ne i64 %109, 0
+  br i1 %110, label %117, label %111
 
-lor.lhs.false39:                                  ; preds = %do.body37
-  %39 = load ptr, ptr %bev, align 8
-  %timeout_read40 = getelementptr inbounds %struct.bufferevent, ptr %39, i32 0, i32 12
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %timeout_read40, i32 0, i32 1
-  %40 = load i64, ptr %tv_usec, align 8
-  %tobool41 = icmp ne i64 %40, 0
-  br i1 %tobool41, label %if.then42, label %if.end45
+111:                                              ; preds = %105
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds nuw %struct.bufferevent, ptr %112, i32 0, i32 12
+  %114 = getelementptr inbounds nuw %struct.timeval, ptr %113, i32 0, i32 1
+  %115 = load i64, ptr %114, align 8
+  %116 = icmp ne i64 %115, 0
+  br i1 %116, label %117, label %123
 
-if.then42:                                        ; preds = %lor.lhs.false39, %do.body37
-  %41 = load ptr, ptr %bev, align 8
-  %ev_read = getelementptr inbounds %struct.bufferevent, ptr %41, i32 0, i32 2
-  %42 = load ptr, ptr %bev, align 8
-  %timeout_read43 = getelementptr inbounds %struct.bufferevent, ptr %42, i32 0, i32 12
-  %call44 = call i32 @event_add(ptr noundef %ev_read, ptr noundef %timeout_read43)
-  br label %if.end45
+117:                                              ; preds = %111, %105
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds nuw %struct.bufferevent, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds nuw %struct.bufferevent, ptr %120, i32 0, i32 12
+  %122 = call i32 @event_add(ptr noundef %119, ptr noundef %121)
+  br label %123
 
-if.end45:                                         ; preds = %if.then42, %lor.lhs.false39
-  br label %do.end47
+123:                                              ; preds = %117, %111
+  br label %124
 
-do.end47:                                         ; preds = %if.end45
-  br label %if.end48
+124:                                              ; preds = %123
+  br label %125
 
-if.end48:                                         ; preds = %do.end47, %do.end
-  %43 = load i32, ptr %res, align 4
-  store i32 %43, ptr %retval, align 4
-  br label %return
+125:                                              ; preds = %124
+  br label %126
 
-return:                                           ; preds = %if.end48, %if.then4
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+126:                                              ; preds = %125, %100
+  %127 = load i32, ptr %8, align 4
+  store i32 %127, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %128
+
+128:                                              ; preds = %126, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %129 = load i32, ptr %4, align 4
+  ret i32 %129
 }
 
 declare void @bufferevent_run_eventcb_(ptr noundef, i16 noundef signext, i32 noundef) #1
 
 declare i32 @bufferevent_flush(ptr noundef, i16 noundef signext, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

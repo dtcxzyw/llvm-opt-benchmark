@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.event_signal_map = type { ptr, i32 }
 %struct.event_base = type { ptr, ptr, %struct.event_changelist, ptr, %struct.evsig_info, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, %struct.evcallback_list, ptr, i32, i32, %struct.event_signal_map, %struct.event_signal_map, %struct.min_heap, %struct.timeval, %struct.evutil_monotonic_timer, %struct.timeval, i64, i64, ptr, ptr, i32, ptr, i32, %struct.timeval, i32, i32, i32, [2 x i32], %struct.event, ptr, %struct.evutil_weakrand_state, %struct.once_event_list, [2 x %struct.evwatch_list] }
@@ -36,3443 +36,3932 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [67 x i8] c"Tried to mix edge-triggered and non-edge-triggered events on fd %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_io_initmap_(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  call void @evmap_signal_initmap_(ptr noundef %0)
+define hidden void @evmap_io_initmap_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @evmap_signal_initmap_(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_signal_initmap_(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %0, i32 0, i32 1
-  store i32 0, ptr %nentries, align 8
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %1, i32 0, i32 0
-  store ptr null, ptr %entries, align 8
+define hidden void @evmap_signal_initmap_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.event_signal_map, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.event_signal_map, ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_io_clear_(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  call void @evmap_signal_clear_(ptr noundef %0)
+define hidden void @evmap_io_clear_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @evmap_signal_clear_(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_signal_clear_(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %entries, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end10
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %2 = load i32, ptr %i, align 4
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %nentries, align 8
-  %cmp1 = icmp slt i32 %2, %4
-  br i1 %cmp1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %entries2 = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %entries2, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  %cmp3 = icmp ne ptr %8, null
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %for.body
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %entries5 = getelementptr inbounds %struct.event_signal_map, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %entries5, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom6 = sext i32 %11 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %10, i64 %idxprom6
-  %12 = load ptr, ptr %arrayidx7, align 8
-  call void @event_mm_free_(ptr noundef %12)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %13 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %13, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %entries8 = getelementptr inbounds %struct.event_signal_map, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %entries8, align 8
-  call void @event_mm_free_(ptr noundef %15)
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %entries9 = getelementptr inbounds %struct.event_signal_map, ptr %16, i32 0, i32 0
-  store ptr null, ptr %entries9, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %for.end, %entry
-  %17 = load ptr, ptr %ctx.addr, align 8
-  %nentries11 = getelementptr inbounds %struct.event_signal_map, ptr %17, i32 0, i32 1
-  store i32 0, ptr %nentries11, align 8
-  ret void
-}
-
-declare void @event_mm_free_(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_io_add_(ptr noundef %base, i32 noundef %fd, ptr noundef %ev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %ev.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %io = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %nread = alloca i32, align 4
-  %nwrite = alloca i32, align 4
-  %nclose = alloca i32, align 4
-  %retval3 = alloca i32, align 4
-  %res = alloca i16, align 2
-  %old = alloca i16, align 2
-  %old_ev = alloca ptr, align 8
-  %extra = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %ev, ptr %ev.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsel1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %evsel1, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %io2 = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 23
-  store ptr %io2, ptr %io, align 8
-  store ptr null, ptr %ctx, align 8
-  store i32 0, ptr %retval3, align 4
-  store i16 0, ptr %res, align 2
-  store i16 0, ptr %old, align 2
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %3 = load i32, ptr %fd.addr, align 4
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %do.end
-  %4 = load i32, ptr %fd.addr, align 4
-  %5 = load ptr, ptr %io, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %nentries, align 8
-  %cmp4 = icmp sge i32 %4, %6
-  br i1 %cmp4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr %io, align 8
-  %8 = load i32, ptr %fd.addr, align 4
-  %call = call i32 @evmap_make_space(ptr noundef %7, i32 noundef %8, i32 noundef 8)
-  %cmp6 = icmp eq i32 %call, -1
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %if.then5
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end8:                                          ; preds = %if.then5
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end8, %if.end
-  br label %do.body10
-
-do.body10:                                        ; preds = %if.end9
-  %9 = load ptr, ptr %io, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %entries, align 8
-  %11 = load i32, ptr %fd.addr, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
-  %cmp11 = icmp eq ptr %12, null
-  br i1 %cmp11, label %if.then12, label %if.end27
-
-if.then12:                                        ; preds = %do.body10
-  %13 = load ptr, ptr %evsel, align 8
-  %fdinfo_len = getelementptr inbounds %struct.eventop, ptr %13, i32 0, i32 8
-  %14 = load i64, ptr %fdinfo_len, align 8
-  %add = add i64 16, %14
-  %call13 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %add)
-  %15 = load ptr, ptr %io, align 8
-  %entries14 = getelementptr inbounds %struct.event_signal_map, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %entries14, align 8
-  %17 = load i32, ptr %fd.addr, align 4
-  %idxprom15 = sext i32 %17 to i64
-  %arrayidx16 = getelementptr inbounds ptr, ptr %16, i64 %idxprom15
-  store ptr %call13, ptr %arrayidx16, align 8
-  %18 = load ptr, ptr %io, align 8
-  %entries17 = getelementptr inbounds %struct.event_signal_map, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %entries17, align 8
-  %20 = load i32, ptr %fd.addr, align 4
-  %idxprom18 = sext i32 %20 to i64
-  %arrayidx19 = getelementptr inbounds ptr, ptr %19, i64 %idxprom18
-  %21 = load ptr, ptr %arrayidx19, align 8
-  %cmp20 = icmp eq ptr %21, null
-  %lnot = xor i1 %cmp20, true
-  %lnot21 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot21 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.then12
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end23:                                         ; preds = %if.then12
-  %22 = load ptr, ptr %io, align 8
-  %entries24 = getelementptr inbounds %struct.event_signal_map, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %entries24, align 8
-  %24 = load i32, ptr %fd.addr, align 4
-  %idxprom25 = sext i32 %24 to i64
-  %arrayidx26 = getelementptr inbounds ptr, ptr %23, i64 %idxprom25
-  %25 = load ptr, ptr %arrayidx26, align 8
-  call void @evmap_io_init(ptr noundef %25)
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end23, %do.body10
-  %26 = load ptr, ptr %io, align 8
-  %entries28 = getelementptr inbounds %struct.event_signal_map, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %entries28, align 8
-  %28 = load i32, ptr %fd.addr, align 4
-  %idxprom29 = sext i32 %28 to i64
-  %arrayidx30 = getelementptr inbounds ptr, ptr %27, i64 %idxprom29
-  %29 = load ptr, ptr %arrayidx30, align 8
-  store ptr %29, ptr %ctx, align 8
-  br label %do.end31
-
-do.end31:                                         ; preds = %if.end27
-  %30 = load ptr, ptr %ctx, align 8
-  %nread32 = getelementptr inbounds %struct.evmap_io, ptr %30, i32 0, i32 1
-  %31 = load i16, ptr %nread32, align 8
-  %conv33 = zext i16 %31 to i32
-  store i32 %conv33, ptr %nread, align 4
-  %32 = load ptr, ptr %ctx, align 8
-  %nwrite34 = getelementptr inbounds %struct.evmap_io, ptr %32, i32 0, i32 2
-  %33 = load i16, ptr %nwrite34, align 2
-  %conv35 = zext i16 %33 to i32
-  store i32 %conv35, ptr %nwrite, align 4
-  %34 = load ptr, ptr %ctx, align 8
-  %nclose36 = getelementptr inbounds %struct.evmap_io, ptr %34, i32 0, i32 3
-  %35 = load i16, ptr %nclose36, align 4
-  %conv37 = zext i16 %35 to i32
-  store i32 %conv37, ptr %nclose, align 4
-  %36 = load i32, ptr %nread, align 4
-  %tobool38 = icmp ne i32 %36, 0
-  br i1 %tobool38, label %if.then39, label %if.end42
-
-if.then39:                                        ; preds = %do.end31
-  %37 = load i16, ptr %old, align 2
-  %conv40 = sext i16 %37 to i32
-  %or = or i32 %conv40, 2
-  %conv41 = trunc i32 %or to i16
-  store i16 %conv41, ptr %old, align 2
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.then39, %do.end31
-  %38 = load i32, ptr %nwrite, align 4
-  %tobool43 = icmp ne i32 %38, 0
-  br i1 %tobool43, label %if.then44, label %if.end48
-
-if.then44:                                        ; preds = %if.end42
-  %39 = load i16, ptr %old, align 2
-  %conv45 = sext i16 %39 to i32
-  %or46 = or i32 %conv45, 4
-  %conv47 = trunc i32 %or46 to i16
-  store i16 %conv47, ptr %old, align 2
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.then44, %if.end42
-  %40 = load i32, ptr %nclose, align 4
-  %tobool49 = icmp ne i32 %40, 0
-  br i1 %tobool49, label %if.then50, label %if.end54
-
-if.then50:                                        ; preds = %if.end48
-  %41 = load i16, ptr %old, align 2
-  %conv51 = sext i16 %41 to i32
-  %or52 = or i32 %conv51, 128
-  %conv53 = trunc i32 %or52 to i16
-  store i16 %conv53, ptr %old, align 2
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.then50, %if.end48
-  %42 = load ptr, ptr %ev.addr, align 8
-  %ev_events = getelementptr inbounds %struct.event, ptr %42, i32 0, i32 3
-  %43 = load i16, ptr %ev_events, align 4
-  %conv55 = sext i16 %43 to i32
-  %and = and i32 %conv55, 2
-  %tobool56 = icmp ne i32 %and, 0
-  br i1 %tobool56, label %if.then57, label %if.end65
-
-if.then57:                                        ; preds = %if.end54
-  %44 = load i32, ptr %nread, align 4
-  %inc = add nsw i32 %44, 1
-  store i32 %inc, ptr %nread, align 4
-  %cmp58 = icmp eq i32 %inc, 1
-  br i1 %cmp58, label %if.then60, label %if.end64
-
-if.then60:                                        ; preds = %if.then57
-  %45 = load i16, ptr %res, align 2
-  %conv61 = sext i16 %45 to i32
-  %or62 = or i32 %conv61, 2
-  %conv63 = trunc i32 %or62 to i16
-  store i16 %conv63, ptr %res, align 2
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.then60, %if.then57
-  br label %if.end65
-
-if.end65:                                         ; preds = %if.end64, %if.end54
-  %46 = load ptr, ptr %ev.addr, align 8
-  %ev_events66 = getelementptr inbounds %struct.event, ptr %46, i32 0, i32 3
-  %47 = load i16, ptr %ev_events66, align 4
-  %conv67 = sext i16 %47 to i32
-  %and68 = and i32 %conv67, 4
-  %tobool69 = icmp ne i32 %and68, 0
-  br i1 %tobool69, label %if.then70, label %if.end79
-
-if.then70:                                        ; preds = %if.end65
-  %48 = load i32, ptr %nwrite, align 4
-  %inc71 = add nsw i32 %48, 1
-  store i32 %inc71, ptr %nwrite, align 4
-  %cmp72 = icmp eq i32 %inc71, 1
-  br i1 %cmp72, label %if.then74, label %if.end78
-
-if.then74:                                        ; preds = %if.then70
-  %49 = load i16, ptr %res, align 2
-  %conv75 = sext i16 %49 to i32
-  %or76 = or i32 %conv75, 4
-  %conv77 = trunc i32 %or76 to i16
-  store i16 %conv77, ptr %res, align 2
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.then74, %if.then70
-  br label %if.end79
-
-if.end79:                                         ; preds = %if.end78, %if.end65
-  %50 = load ptr, ptr %ev.addr, align 8
-  %ev_events80 = getelementptr inbounds %struct.event, ptr %50, i32 0, i32 3
-  %51 = load i16, ptr %ev_events80, align 4
-  %conv81 = sext i16 %51 to i32
-  %and82 = and i32 %conv81, 128
-  %tobool83 = icmp ne i32 %and82, 0
-  br i1 %tobool83, label %if.then84, label %if.end93
-
-if.then84:                                        ; preds = %if.end79
-  %52 = load i32, ptr %nclose, align 4
-  %inc85 = add nsw i32 %52, 1
-  store i32 %inc85, ptr %nclose, align 4
-  %cmp86 = icmp eq i32 %inc85, 1
-  br i1 %cmp86, label %if.then88, label %if.end92
-
-if.then88:                                        ; preds = %if.then84
-  %53 = load i16, ptr %res, align 2
-  %conv89 = sext i16 %53 to i32
-  %or90 = or i32 %conv89, 128
-  %conv91 = trunc i32 %or90 to i16
-  store i16 %conv91, ptr %res, align 2
-  br label %if.end92
-
-if.end92:                                         ; preds = %if.then88, %if.then84
-  br label %if.end93
-
-if.end93:                                         ; preds = %if.end92, %if.end79
-  %54 = load i32, ptr %nread, align 4
-  %cmp94 = icmp sgt i32 %54, 65535
-  br i1 %cmp94, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end93
-  %55 = load i32, ptr %nwrite, align 4
-  %cmp96 = icmp sgt i32 %55, 65535
-  br i1 %cmp96, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false
-  %56 = load i32, ptr %nclose, align 4
-  %cmp98 = icmp sgt i32 %56, 65535
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false, %if.end93
-  %57 = phi i1 [ true, %lor.lhs.false ], [ true, %if.end93 ], [ %cmp98, %lor.rhs ]
-  %lnot100 = xor i1 %57, true
-  %lnot102 = xor i1 %lnot100, true
-  %lnot.ext103 = zext i1 %lnot102 to i32
-  %conv104 = sext i32 %lnot.ext103 to i64
-  %tobool105 = icmp ne i64 %conv104, 0
-  br i1 %tobool105, label %if.then106, label %if.end107
-
-if.then106:                                       ; preds = %lor.end
-  %58 = load i32, ptr %fd.addr, align 4
-  call void (ptr, ...) @event_warnx(ptr noundef @.str, i32 noundef %58)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end107:                                        ; preds = %lor.end
-  %59 = load i32, ptr @event_debug_mode_on_, align 4
-  %tobool108 = icmp ne i32 %59, 0
-  br i1 %tobool108, label %land.lhs.true, label %if.end120
-
-land.lhs.true:                                    ; preds = %if.end107
-  %60 = load ptr, ptr %ctx, align 8
-  %events = getelementptr inbounds %struct.evmap_io, ptr %60, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %61 = load ptr, ptr %lh_first, align 8
-  store ptr %61, ptr %old_ev, align 8
-  %tobool109 = icmp ne ptr %61, null
-  br i1 %tobool109, label %land.lhs.true110, label %if.end120
-
-land.lhs.true110:                                 ; preds = %land.lhs.true
-  %62 = load ptr, ptr %old_ev, align 8
-  %ev_events111 = getelementptr inbounds %struct.event, ptr %62, i32 0, i32 3
-  %63 = load i16, ptr %ev_events111, align 4
-  %conv112 = sext i16 %63 to i32
-  %and113 = and i32 %conv112, 32
-  %64 = load ptr, ptr %ev.addr, align 8
-  %ev_events114 = getelementptr inbounds %struct.event, ptr %64, i32 0, i32 3
-  %65 = load i16, ptr %ev_events114, align 4
-  %conv115 = sext i16 %65 to i32
-  %and116 = and i32 %conv115, 32
-  %cmp117 = icmp ne i32 %and113, %and116
-  br i1 %cmp117, label %if.then119, label %if.end120
-
-if.then119:                                       ; preds = %land.lhs.true110
-  %66 = load i32, ptr %fd.addr, align 4
-  call void (ptr, ...) @event_warnx(ptr noundef @.str.1, i32 noundef %66)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end120:                                        ; preds = %land.lhs.true110, %land.lhs.true, %if.end107
-  %67 = load i16, ptr %res, align 2
-  %tobool121 = icmp ne i16 %67, 0
-  br i1 %tobool121, label %if.then122, label %if.end135
-
-if.then122:                                       ; preds = %if.end120
-  %68 = load ptr, ptr %ctx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %68, i64 16
-  store ptr %add.ptr, ptr %extra, align 8
-  %69 = load ptr, ptr %evsel, align 8
-  %add123 = getelementptr inbounds %struct.eventop, ptr %69, i32 0, i32 2
-  %70 = load ptr, ptr %add123, align 8
-  %71 = load ptr, ptr %base.addr, align 8
-  %72 = load ptr, ptr %ev.addr, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %72, i32 0, i32 2
-  %73 = load i32, ptr %ev_fd, align 8
-  %74 = load i16, ptr %old, align 2
-  %75 = load ptr, ptr %ev.addr, align 8
-  %ev_events124 = getelementptr inbounds %struct.event, ptr %75, i32 0, i32 3
-  %76 = load i16, ptr %ev_events124, align 4
-  %conv125 = sext i16 %76 to i32
-  %and126 = and i32 %conv125, 32
-  %77 = load i16, ptr %res, align 2
-  %conv127 = sext i16 %77 to i32
-  %or128 = or i32 %and126, %conv127
-  %conv129 = trunc i32 %or128 to i16
-  %78 = load ptr, ptr %extra, align 8
-  %call130 = call i32 %70(ptr noundef %71, i32 noundef %73, i16 noundef signext %74, i16 noundef signext %conv129, ptr noundef %78)
-  %cmp131 = icmp eq i32 %call130, -1
-  br i1 %cmp131, label %if.then133, label %if.end134
-
-if.then133:                                       ; preds = %if.then122
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end134:                                        ; preds = %if.then122
-  store i32 1, ptr %retval3, align 4
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.end134, %if.end120
-  %79 = load i32, ptr %nread, align 4
-  %conv136 = trunc i32 %79 to i16
-  %80 = load ptr, ptr %ctx, align 8
-  %nread137 = getelementptr inbounds %struct.evmap_io, ptr %80, i32 0, i32 1
-  store i16 %conv136, ptr %nread137, align 8
-  %81 = load i32, ptr %nwrite, align 4
-  %conv138 = trunc i32 %81 to i16
-  %82 = load ptr, ptr %ctx, align 8
-  %nwrite139 = getelementptr inbounds %struct.evmap_io, ptr %82, i32 0, i32 2
-  store i16 %conv138, ptr %nwrite139, align 2
-  %83 = load i32, ptr %nclose, align 4
-  %conv140 = trunc i32 %83 to i16
-  %84 = load ptr, ptr %ctx, align 8
-  %nclose141 = getelementptr inbounds %struct.evmap_io, ptr %84, i32 0, i32 3
-  store i16 %conv140, ptr %nclose141, align 4
-  br label %do.body142
-
-do.body142:                                       ; preds = %if.end135
-  %85 = load ptr, ptr %ctx, align 8
-  %events143 = getelementptr inbounds %struct.evmap_io, ptr %85, i32 0, i32 0
-  %lh_first144 = getelementptr inbounds %struct.event_dlist, ptr %events143, i32 0, i32 0
-  %86 = load ptr, ptr %lh_first144, align 8
-  %87 = load ptr, ptr %ev.addr, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %87, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  store ptr %86, ptr %le_next, align 8
-  %cmp145 = icmp ne ptr %86, null
-  br i1 %cmp145, label %if.then147, label %if.end155
-
-if.then147:                                       ; preds = %do.body142
-  %88 = load ptr, ptr %ev.addr, align 8
-  %ev_148 = getelementptr inbounds %struct.event, ptr %88, i32 0, i32 6
-  %ev_io_next149 = getelementptr inbounds %struct.anon.3, ptr %ev_148, i32 0, i32 0
-  %le_next150 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next149, i32 0, i32 0
-  %89 = load ptr, ptr %ctx, align 8
-  %events151 = getelementptr inbounds %struct.evmap_io, ptr %89, i32 0, i32 0
-  %lh_first152 = getelementptr inbounds %struct.event_dlist, ptr %events151, i32 0, i32 0
-  %90 = load ptr, ptr %lh_first152, align 8
-  %ev_153 = getelementptr inbounds %struct.event, ptr %90, i32 0, i32 6
-  %ev_io_next154 = getelementptr inbounds %struct.anon.3, ptr %ev_153, i32 0, i32 0
-  %le_prev = getelementptr inbounds %struct.anon.4, ptr %ev_io_next154, i32 0, i32 1
-  store ptr %le_next150, ptr %le_prev, align 8
-  br label %if.end155
-
-if.end155:                                        ; preds = %if.then147, %do.body142
-  %91 = load ptr, ptr %ev.addr, align 8
-  %92 = load ptr, ptr %ctx, align 8
-  %events156 = getelementptr inbounds %struct.evmap_io, ptr %92, i32 0, i32 0
-  %lh_first157 = getelementptr inbounds %struct.event_dlist, ptr %events156, i32 0, i32 0
-  store ptr %91, ptr %lh_first157, align 8
-  %93 = load ptr, ptr %ctx, align 8
-  %events158 = getelementptr inbounds %struct.evmap_io, ptr %93, i32 0, i32 0
-  %lh_first159 = getelementptr inbounds %struct.event_dlist, ptr %events158, i32 0, i32 0
-  %94 = load ptr, ptr %ev.addr, align 8
-  %ev_160 = getelementptr inbounds %struct.event, ptr %94, i32 0, i32 6
-  %ev_io_next161 = getelementptr inbounds %struct.anon.3, ptr %ev_160, i32 0, i32 0
-  %le_prev162 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next161, i32 0, i32 1
-  store ptr %lh_first159, ptr %le_prev162, align 8
-  br label %do.end163
-
-do.end163:                                        ; preds = %if.end155
-  %95 = load i32, ptr %retval3, align 4
-  store i32 %95, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end163, %if.then133, %if.then119, %if.then106, %if.then22, %if.then7, %if.then
-  %96 = load i32, ptr %retval, align 4
-  ret i32 %96
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_make_space(ptr noundef %map, i32 noundef %slot, i32 noundef %msize) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %map.addr = alloca ptr, align 8
-  %slot.addr = alloca i32, align 4
-  %msize.addr = alloca i32, align 4
-  %nentries1 = alloca i32, align 4
-  %tmp = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %slot, ptr %slot.addr, align 4
-  store i32 %msize, ptr %msize.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %nentries, align 8
-  %2 = load i32, ptr %slot.addr, align 4
-  %cmp = icmp sle i32 %1, %2
-  br i1 %cmp, label %if.then, label %if.end20
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %map.addr, align 8
-  %nentries2 = getelementptr inbounds %struct.event_signal_map, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %nentries2, align 8
-  %tobool = icmp ne i32 %4, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then
-  %5 = load ptr, ptr %map.addr, align 8
-  %nentries3 = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %nentries3, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %6, %cond.true ], [ 32, %cond.false ]
-  store i32 %cond, ptr %nentries1, align 4
-  %7 = load i32, ptr %slot.addr, align 4
-  %cmp4 = icmp sgt i32 %7, 1073741823
-  br i1 %cmp4, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %cond.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %cond.end
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %8 = load i32, ptr %nentries1, align 4
-  %9 = load i32, ptr %slot.addr, align 4
-  %cmp6 = icmp sle i32 %8, %9
-  br i1 %cmp6, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %10 = load i32, ptr %nentries1, align 4
-  %shl = shl i32 %10, 1
-  store i32 %shl, ptr %nentries1, align 4
-  br label %while.cond, !llvm.loop !7
-
-while.end:                                        ; preds = %while.cond
-  %11 = load i32, ptr %nentries1, align 4
-  %12 = load i32, ptr %msize.addr, align 4
-  %div = sdiv i32 2147483647, %12
-  %cmp7 = icmp sgt i32 %11, %div
-  br i1 %cmp7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %while.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %while.end
-  %13 = load ptr, ptr %map.addr, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %entries, align 8
-  %15 = load i32, ptr %nentries1, align 4
-  %16 = load i32, ptr %msize.addr, align 4
-  %mul = mul nsw i32 %15, %16
-  %conv = sext i32 %mul to i64
-  %call = call ptr @event_mm_realloc_(ptr noundef %14, i64 noundef %conv)
-  store ptr %call, ptr %tmp, align 8
-  %17 = load ptr, ptr %tmp, align 8
-  %cmp10 = icmp eq ptr %17, null
-  br i1 %cmp10, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %if.end9
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end13:                                         ; preds = %if.end9
-  %18 = load ptr, ptr %tmp, align 8
-  %19 = load ptr, ptr %map.addr, align 8
-  %nentries14 = getelementptr inbounds %struct.event_signal_map, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %nentries14, align 8
-  %idxprom = sext i32 %20 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %18, i64 %idxprom
-  %21 = load i32, ptr %nentries1, align 4
-  %22 = load ptr, ptr %map.addr, align 8
-  %nentries15 = getelementptr inbounds %struct.event_signal_map, ptr %22, i32 0, i32 1
-  %23 = load i32, ptr %nentries15, align 8
-  %sub = sub nsw i32 %21, %23
-  %24 = load i32, ptr %msize.addr, align 4
-  %mul16 = mul nsw i32 %sub, %24
-  %conv17 = sext i32 %mul16 to i64
-  call void @llvm.memset.p0.i64(ptr align 8 %arrayidx, i8 0, i64 %conv17, i1 false)
-  %25 = load i32, ptr %nentries1, align 4
-  %26 = load ptr, ptr %map.addr, align 8
-  %nentries18 = getelementptr inbounds %struct.event_signal_map, ptr %26, i32 0, i32 1
-  store i32 %25, ptr %nentries18, align 8
-  %27 = load ptr, ptr %tmp, align 8
-  %28 = load ptr, ptr %map.addr, align 8
-  %entries19 = getelementptr inbounds %struct.event_signal_map, ptr %28, i32 0, i32 0
-  store ptr %27, ptr %entries19, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end13, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end20, %if.then12, %if.then8, %if.then5
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
-}
-
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @evmap_io_init(ptr noundef %entry1) #0 {
-entry:
-  %entry.addr = alloca ptr, align 8
-  store ptr %entry1, ptr %entry.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %entry.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_io, ptr %0, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  store ptr null, ptr %lh_first, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %1 = load ptr, ptr %entry.addr, align 8
-  %nread = getelementptr inbounds %struct.evmap_io, ptr %1, i32 0, i32 1
-  store i16 0, ptr %nread, align 8
-  %2 = load ptr, ptr %entry.addr, align 8
-  %nwrite = getelementptr inbounds %struct.evmap_io, ptr %2, i32 0, i32 2
-  store i16 0, ptr %nwrite, align 2
-  %3 = load ptr, ptr %entry.addr, align 8
-  %nclose = getelementptr inbounds %struct.evmap_io, ptr %3, i32 0, i32 3
-  store i16 0, ptr %nclose, align 4
-  ret void
-}
-
-declare void @event_warnx(ptr noundef, ...) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr noundef %ev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %ev.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %io = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %nread = alloca i32, align 4
-  %nwrite = alloca i32, align 4
-  %nclose = alloca i32, align 4
-  %retval3 = alloca i32, align 4
-  %res = alloca i16, align 2
-  %old = alloca i16, align 2
-  %extra = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %ev, ptr %ev.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsel1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %evsel1, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %io2 = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 23
-  store ptr %io2, ptr %io, align 8
-  store i32 0, ptr %retval3, align 4
-  store i16 0, ptr %res, align 2
-  store i16 0, ptr %old, align 2
-  %3 = load i32, ptr %fd.addr, align 4
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %4 = load i32, ptr %fd.addr, align 4
-  %5 = load ptr, ptr %io, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %nentries, align 8
-  %cmp4 = icmp sge i32 %4, %6
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %do.end
-  %7 = load ptr, ptr %io, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %entries, align 8
-  %9 = load i32, ptr %fd.addr, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx, align 8
-  store ptr %10, ptr %ctx, align 8
-  %11 = load ptr, ptr %ctx, align 8
-  %nread7 = getelementptr inbounds %struct.evmap_io, ptr %11, i32 0, i32 1
-  %12 = load i16, ptr %nread7, align 8
-  %conv = zext i16 %12 to i32
-  store i32 %conv, ptr %nread, align 4
-  %13 = load ptr, ptr %ctx, align 8
-  %nwrite8 = getelementptr inbounds %struct.evmap_io, ptr %13, i32 0, i32 2
-  %14 = load i16, ptr %nwrite8, align 2
-  %conv9 = zext i16 %14 to i32
-  store i32 %conv9, ptr %nwrite, align 4
-  %15 = load ptr, ptr %ctx, align 8
-  %nclose10 = getelementptr inbounds %struct.evmap_io, ptr %15, i32 0, i32 3
-  %16 = load i16, ptr %nclose10, align 4
-  %conv11 = zext i16 %16 to i32
-  store i32 %conv11, ptr %nclose, align 4
-  %17 = load i32, ptr %nread, align 4
-  %tobool = icmp ne i32 %17, 0
-  br i1 %tobool, label %if.then12, label %if.end15
-
-if.then12:                                        ; preds = %if.end6
-  %18 = load i16, ptr %old, align 2
-  %conv13 = sext i16 %18 to i32
-  %or = or i32 %conv13, 2
-  %conv14 = trunc i32 %or to i16
-  store i16 %conv14, ptr %old, align 2
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then12, %if.end6
-  %19 = load i32, ptr %nwrite, align 4
-  %tobool16 = icmp ne i32 %19, 0
-  br i1 %tobool16, label %if.then17, label %if.end21
-
-if.then17:                                        ; preds = %if.end15
-  %20 = load i16, ptr %old, align 2
-  %conv18 = sext i16 %20 to i32
-  %or19 = or i32 %conv18, 4
-  %conv20 = trunc i32 %or19 to i16
-  store i16 %conv20, ptr %old, align 2
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then17, %if.end15
-  %21 = load i32, ptr %nclose, align 4
-  %tobool22 = icmp ne i32 %21, 0
-  br i1 %tobool22, label %if.then23, label %if.end27
-
-if.then23:                                        ; preds = %if.end21
-  %22 = load i16, ptr %old, align 2
-  %conv24 = sext i16 %22 to i32
-  %or25 = or i32 %conv24, 128
-  %conv26 = trunc i32 %or25 to i16
-  store i16 %conv26, ptr %old, align 2
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then23, %if.end21
-  %23 = load ptr, ptr %ev.addr, align 8
-  %ev_events = getelementptr inbounds %struct.event, ptr %23, i32 0, i32 3
-  %24 = load i16, ptr %ev_events, align 4
-  %conv28 = sext i16 %24 to i32
-  %and = and i32 %conv28, 2
-  %tobool29 = icmp ne i32 %and, 0
-  br i1 %tobool29, label %if.then30, label %if.end40
-
-if.then30:                                        ; preds = %if.end27
-  %25 = load i32, ptr %nread, align 4
-  %dec = add nsw i32 %25, -1
-  store i32 %dec, ptr %nread, align 4
-  %cmp31 = icmp eq i32 %dec, 0
-  br i1 %cmp31, label %if.then33, label %if.end37
-
-if.then33:                                        ; preds = %if.then30
-  %26 = load i16, ptr %res, align 2
-  %conv34 = sext i16 %26 to i32
-  %or35 = or i32 %conv34, 2
-  %conv36 = trunc i32 %or35 to i16
-  store i16 %conv36, ptr %res, align 2
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then33, %if.then30
-  br label %do.body38
-
-do.body38:                                        ; preds = %if.end37
-  br label %do.end39
-
-do.end39:                                         ; preds = %do.body38
-  br label %if.end40
-
-if.end40:                                         ; preds = %do.end39, %if.end27
-  %27 = load ptr, ptr %ev.addr, align 8
-  %ev_events41 = getelementptr inbounds %struct.event, ptr %27, i32 0, i32 3
-  %28 = load i16, ptr %ev_events41, align 4
-  %conv42 = sext i16 %28 to i32
-  %and43 = and i32 %conv42, 4
-  %tobool44 = icmp ne i32 %and43, 0
-  br i1 %tobool44, label %if.then45, label %if.end56
-
-if.then45:                                        ; preds = %if.end40
-  %29 = load i32, ptr %nwrite, align 4
-  %dec46 = add nsw i32 %29, -1
-  store i32 %dec46, ptr %nwrite, align 4
-  %cmp47 = icmp eq i32 %dec46, 0
-  br i1 %cmp47, label %if.then49, label %if.end53
-
-if.then49:                                        ; preds = %if.then45
-  %30 = load i16, ptr %res, align 2
-  %conv50 = sext i16 %30 to i32
-  %or51 = or i32 %conv50, 4
-  %conv52 = trunc i32 %or51 to i16
-  store i16 %conv52, ptr %res, align 2
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then49, %if.then45
-  br label %do.body54
-
-do.body54:                                        ; preds = %if.end53
-  br label %do.end55
-
-do.end55:                                         ; preds = %do.body54
-  br label %if.end56
-
-if.end56:                                         ; preds = %do.end55, %if.end40
-  %31 = load ptr, ptr %ev.addr, align 8
-  %ev_events57 = getelementptr inbounds %struct.event, ptr %31, i32 0, i32 3
-  %32 = load i16, ptr %ev_events57, align 4
-  %conv58 = sext i16 %32 to i32
-  %and59 = and i32 %conv58, 128
-  %tobool60 = icmp ne i32 %and59, 0
-  br i1 %tobool60, label %if.then61, label %if.end72
-
-if.then61:                                        ; preds = %if.end56
-  %33 = load i32, ptr %nclose, align 4
-  %dec62 = add nsw i32 %33, -1
-  store i32 %dec62, ptr %nclose, align 4
-  %cmp63 = icmp eq i32 %dec62, 0
-  br i1 %cmp63, label %if.then65, label %if.end69
-
-if.then65:                                        ; preds = %if.then61
-  %34 = load i16, ptr %res, align 2
-  %conv66 = sext i16 %34 to i32
-  %or67 = or i32 %conv66, 128
-  %conv68 = trunc i32 %or67 to i16
-  store i16 %conv68, ptr %res, align 2
-  br label %if.end69
-
-if.end69:                                         ; preds = %if.then65, %if.then61
-  br label %do.body70
-
-do.body70:                                        ; preds = %if.end69
-  br label %do.end71
-
-do.end71:                                         ; preds = %do.body70
-  br label %if.end72
-
-if.end72:                                         ; preds = %do.end71, %if.end56
-  %35 = load i16, ptr %res, align 2
-  %tobool73 = icmp ne i16 %35, 0
-  br i1 %tobool73, label %if.then74, label %if.end85
-
-if.then74:                                        ; preds = %if.end72
-  %36 = load ptr, ptr %ctx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %add.ptr, ptr %extra, align 8
-  %37 = load ptr, ptr %evsel, align 8
-  %del = getelementptr inbounds %struct.eventop, ptr %37, i32 0, i32 3
-  %38 = load ptr, ptr %del, align 8
-  %39 = load ptr, ptr %base.addr, align 8
-  %40 = load ptr, ptr %ev.addr, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %40, i32 0, i32 2
-  %41 = load i32, ptr %ev_fd, align 8
-  %42 = load i16, ptr %old, align 2
-  %43 = load ptr, ptr %ev.addr, align 8
-  %ev_events75 = getelementptr inbounds %struct.event, ptr %43, i32 0, i32 3
-  %44 = load i16, ptr %ev_events75, align 4
-  %conv76 = sext i16 %44 to i32
-  %and77 = and i32 %conv76, 32
-  %45 = load i16, ptr %res, align 2
-  %conv78 = sext i16 %45 to i32
-  %or79 = or i32 %and77, %conv78
-  %conv80 = trunc i32 %or79 to i16
-  %46 = load ptr, ptr %extra, align 8
-  %call = call i32 %38(ptr noundef %39, i32 noundef %41, i16 noundef signext %42, i16 noundef signext %conv80, ptr noundef %46)
-  %cmp81 = icmp eq i32 %call, -1
-  br i1 %cmp81, label %if.then83, label %if.else
-
-if.then83:                                        ; preds = %if.then74
-  store i32 -1, ptr %retval3, align 4
-  br label %if.end84
-
-if.else:                                          ; preds = %if.then74
-  store i32 1, ptr %retval3, align 4
-  br label %if.end84
-
-if.end84:                                         ; preds = %if.else, %if.then83
-  br label %if.end85
-
-if.end85:                                         ; preds = %if.end84, %if.end72
-  %47 = load i32, ptr %nread, align 4
-  %conv86 = trunc i32 %47 to i16
-  %48 = load ptr, ptr %ctx, align 8
-  %nread87 = getelementptr inbounds %struct.evmap_io, ptr %48, i32 0, i32 1
-  store i16 %conv86, ptr %nread87, align 8
-  %49 = load i32, ptr %nwrite, align 4
-  %conv88 = trunc i32 %49 to i16
-  %50 = load ptr, ptr %ctx, align 8
-  %nwrite89 = getelementptr inbounds %struct.evmap_io, ptr %50, i32 0, i32 2
-  store i16 %conv88, ptr %nwrite89, align 2
-  %51 = load i32, ptr %nclose, align 4
-  %conv90 = trunc i32 %51 to i16
-  %52 = load ptr, ptr %ctx, align 8
-  %nclose91 = getelementptr inbounds %struct.evmap_io, ptr %52, i32 0, i32 3
-  store i16 %conv90, ptr %nclose91, align 4
-  br label %do.body92
-
-do.body92:                                        ; preds = %if.end85
-  %53 = load ptr, ptr %ev.addr, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %53, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  %54 = load ptr, ptr %le_next, align 8
-  %cmp93 = icmp ne ptr %54, null
-  br i1 %cmp93, label %if.then95, label %if.end104
-
-if.then95:                                        ; preds = %do.body92
-  %55 = load ptr, ptr %ev.addr, align 8
-  %ev_96 = getelementptr inbounds %struct.event, ptr %55, i32 0, i32 6
-  %ev_io_next97 = getelementptr inbounds %struct.anon.3, ptr %ev_96, i32 0, i32 0
-  %le_prev = getelementptr inbounds %struct.anon.4, ptr %ev_io_next97, i32 0, i32 1
-  %56 = load ptr, ptr %le_prev, align 8
-  %57 = load ptr, ptr %ev.addr, align 8
-  %ev_98 = getelementptr inbounds %struct.event, ptr %57, i32 0, i32 6
-  %ev_io_next99 = getelementptr inbounds %struct.anon.3, ptr %ev_98, i32 0, i32 0
-  %le_next100 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next99, i32 0, i32 0
-  %58 = load ptr, ptr %le_next100, align 8
-  %ev_101 = getelementptr inbounds %struct.event, ptr %58, i32 0, i32 6
-  %ev_io_next102 = getelementptr inbounds %struct.anon.3, ptr %ev_101, i32 0, i32 0
-  %le_prev103 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next102, i32 0, i32 1
-  store ptr %56, ptr %le_prev103, align 8
-  br label %if.end104
-
-if.end104:                                        ; preds = %if.then95, %do.body92
-  %59 = load ptr, ptr %ev.addr, align 8
-  %ev_105 = getelementptr inbounds %struct.event, ptr %59, i32 0, i32 6
-  %ev_io_next106 = getelementptr inbounds %struct.anon.3, ptr %ev_105, i32 0, i32 0
-  %le_next107 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next106, i32 0, i32 0
-  %60 = load ptr, ptr %le_next107, align 8
-  %61 = load ptr, ptr %ev.addr, align 8
-  %ev_108 = getelementptr inbounds %struct.event, ptr %61, i32 0, i32 6
-  %ev_io_next109 = getelementptr inbounds %struct.anon.3, ptr %ev_108, i32 0, i32 0
-  %le_prev110 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next109, i32 0, i32 1
-  %62 = load ptr, ptr %le_prev110, align 8
-  store ptr %60, ptr %62, align 8
-  br label %do.end111
-
-do.end111:                                        ; preds = %if.end104
-  %63 = load i32, ptr %retval3, align 4
-  store i32 %63, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end111, %if.then5, %if.then
-  %64 = load i32, ptr %retval, align 4
-  ret i32 %64
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @evmap_io_active_(ptr noundef %base, i32 noundef %fd, i16 noundef signext %events) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %events.addr = alloca i16, align 2
-  %io = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store i16 %events, ptr %events.addr, align 2
-  %0 = load ptr, ptr %base.addr, align 8
-  %io1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 23
-  store ptr %io1, ptr %io, align 8
-  %1 = load i32, ptr %fd.addr, align 4
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %fd.addr, align 4
-  %3 = load ptr, ptr %io, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %nentries, align 8
-  %cmp2 = icmp sge i32 %2, %4
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %for.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %io, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %entries, align 8
-  %7 = load i32, ptr %fd.addr, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  store ptr %8, ptr %ctx, align 8
-  %9 = load ptr, ptr %ctx, align 8
-  %cmp3 = icmp eq ptr null, %9
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  br label %for.end
-
-if.end5:                                          ; preds = %if.end
-  %10 = load ptr, ptr %ctx, align 8
-  %events6 = getelementptr inbounds %struct.evmap_io, ptr %10, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events6, i32 0, i32 0
-  %11 = load ptr, ptr %lh_first, align 8
-  store ptr %11, ptr %ev, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end5
-  %12 = load ptr, ptr %ev, align 8
-  %cmp7 = icmp ne ptr %12, null
-  br i1 %cmp7, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %ev, align 8
-  %ev_events = getelementptr inbounds %struct.event, ptr %13, i32 0, i32 3
-  %14 = load i16, ptr %ev_events, align 4
-  %conv = sext i16 %14 to i32
-  %15 = load i16, ptr %events.addr, align 2
-  %conv8 = sext i16 %15 to i32
-  %and = and i32 %conv8, -33
-  %and9 = and i32 %conv, %and
-  %tobool = icmp ne i32 %and9, 0
-  br i1 %tobool, label %if.then10, label %if.end15
-
-if.then10:                                        ; preds = %for.body
-  %16 = load ptr, ptr %ev, align 8
-  %17 = load ptr, ptr %ev, align 8
-  %ev_events11 = getelementptr inbounds %struct.event, ptr %17, i32 0, i32 3
-  %18 = load i16, ptr %ev_events11, align 4
-  %conv12 = sext i16 %18 to i32
-  %19 = load i16, ptr %events.addr, align 2
-  %conv13 = sext i16 %19 to i32
-  %and14 = and i32 %conv12, %conv13
-  call void @event_active_nolock_(ptr noundef %16, i32 noundef %and14, i16 noundef signext 1)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then10, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end15
-  %20 = load ptr, ptr %ev, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %20, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  %21 = load ptr, ptr %le_next, align 8
-  store ptr %21, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %for.cond, %if.then4, %if.then
-  ret void
-}
-
-declare void @event_active_nolock_(ptr noundef, i32 noundef, i16 noundef signext) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_signal_add_(ptr noundef %base, i32 noundef %sig, ptr noundef %ev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %sig.addr = alloca i32, align 4
-  %ev.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %map = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %sig, ptr %sig.addr, align 4
-  store ptr %ev, ptr %ev.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %evsigsel, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 24
-  store ptr %sigmap, ptr %map, align 8
-  store ptr null, ptr %ctx, align 8
-  %3 = load i32, ptr %sig.addr, align 4
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load i32, ptr %sig.addr, align 4
-  %cmp1 = icmp sge i32 %4, 65
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %5 = load i32, ptr %sig.addr, align 4
-  %6 = load ptr, ptr %map, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %nentries, align 8
-  %cmp2 = icmp sge i32 %5, %7
-  br i1 %cmp2, label %if.then3, label %if.end7
-
-if.then3:                                         ; preds = %if.end
-  %8 = load ptr, ptr %map, align 8
-  %9 = load i32, ptr %sig.addr, align 4
-  %call = call i32 @evmap_make_space(ptr noundef %8, i32 noundef %9, i32 noundef 8)
-  %cmp4 = icmp eq i32 %call, -1
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %if.then3
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.then3
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end6, %if.end
-  br label %do.body
-
-do.body:                                          ; preds = %if.end7
-  %10 = load ptr, ptr %map, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %entries, align 8
-  %12 = load i32, ptr %sig.addr, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %13 = load ptr, ptr %arrayidx, align 8
-  %cmp8 = icmp eq ptr %13, null
-  br i1 %cmp8, label %if.then9, label %if.end25
-
-if.then9:                                         ; preds = %do.body
-  %14 = load ptr, ptr %base.addr, align 8
-  %evsigsel10 = getelementptr inbounds %struct.event_base, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %evsigsel10, align 8
-  %fdinfo_len = getelementptr inbounds %struct.eventop, ptr %15, i32 0, i32 8
-  %16 = load i64, ptr %fdinfo_len, align 8
-  %add = add i64 8, %16
-  %call11 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %add)
-  %17 = load ptr, ptr %map, align 8
-  %entries12 = getelementptr inbounds %struct.event_signal_map, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %entries12, align 8
-  %19 = load i32, ptr %sig.addr, align 4
-  %idxprom13 = sext i32 %19 to i64
-  %arrayidx14 = getelementptr inbounds ptr, ptr %18, i64 %idxprom13
-  store ptr %call11, ptr %arrayidx14, align 8
-  %20 = load ptr, ptr %map, align 8
-  %entries15 = getelementptr inbounds %struct.event_signal_map, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %entries15, align 8
-  %22 = load i32, ptr %sig.addr, align 4
-  %idxprom16 = sext i32 %22 to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %21, i64 %idxprom16
-  %23 = load ptr, ptr %arrayidx17, align 8
-  %cmp18 = icmp eq ptr %23, null
-  %lnot = xor i1 %cmp18, true
-  %lnot19 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot19 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then20, label %if.end21
-
-if.then20:                                        ; preds = %if.then9
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end21:                                         ; preds = %if.then9
-  %24 = load ptr, ptr %map, align 8
-  %entries22 = getelementptr inbounds %struct.event_signal_map, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %entries22, align 8
-  %26 = load i32, ptr %sig.addr, align 4
-  %idxprom23 = sext i32 %26 to i64
-  %arrayidx24 = getelementptr inbounds ptr, ptr %25, i64 %idxprom23
-  %27 = load ptr, ptr %arrayidx24, align 8
-  call void @evmap_signal_init(ptr noundef %27)
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end21, %do.body
-  %28 = load ptr, ptr %map, align 8
-  %entries26 = getelementptr inbounds %struct.event_signal_map, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %entries26, align 8
-  %30 = load i32, ptr %sig.addr, align 4
-  %idxprom27 = sext i32 %30 to i64
-  %arrayidx28 = getelementptr inbounds ptr, ptr %29, i64 %idxprom27
-  %31 = load ptr, ptr %arrayidx28, align 8
-  store ptr %31, ptr %ctx, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %if.end25
-  %32 = load ptr, ptr %ctx, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %32, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %33 = load ptr, ptr %lh_first, align 8
-  %cmp29 = icmp eq ptr %33, null
-  br i1 %cmp29, label %if.then31, label %if.end38
-
-if.then31:                                        ; preds = %do.end
-  %34 = load ptr, ptr %evsel, align 8
-  %add32 = getelementptr inbounds %struct.eventop, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %add32, align 8
-  %36 = load ptr, ptr %base.addr, align 8
-  %37 = load ptr, ptr %ev.addr, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %37, i32 0, i32 2
-  %38 = load i32, ptr %ev_fd, align 8
-  %39 = load ptr, ptr %ev.addr, align 8
-  %call33 = call i32 %35(ptr noundef %36, i32 noundef %38, i16 noundef signext 0, i16 noundef signext 8, ptr noundef %39)
-  %cmp34 = icmp eq i32 %call33, -1
-  br i1 %cmp34, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %if.then31
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end37:                                         ; preds = %if.then31
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %do.end
-  br label %do.body39
-
-do.body39:                                        ; preds = %if.end38
-  %40 = load ptr, ptr %ctx, align 8
-  %events40 = getelementptr inbounds %struct.evmap_signal, ptr %40, i32 0, i32 0
-  %lh_first41 = getelementptr inbounds %struct.event_dlist, ptr %events40, i32 0, i32 0
-  %41 = load ptr, ptr %lh_first41, align 8
-  %42 = load ptr, ptr %ev.addr, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %42, i32 0, i32 6
-  %ev_signal_next = getelementptr inbounds %struct.anon.5, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next, i32 0, i32 0
-  store ptr %41, ptr %le_next, align 8
-  %cmp42 = icmp ne ptr %41, null
-  br i1 %cmp42, label %if.then44, label %if.end52
-
-if.then44:                                        ; preds = %do.body39
-  %43 = load ptr, ptr %ev.addr, align 8
-  %ev_45 = getelementptr inbounds %struct.event, ptr %43, i32 0, i32 6
-  %ev_signal_next46 = getelementptr inbounds %struct.anon.5, ptr %ev_45, i32 0, i32 0
-  %le_next47 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next46, i32 0, i32 0
-  %44 = load ptr, ptr %ctx, align 8
-  %events48 = getelementptr inbounds %struct.evmap_signal, ptr %44, i32 0, i32 0
-  %lh_first49 = getelementptr inbounds %struct.event_dlist, ptr %events48, i32 0, i32 0
-  %45 = load ptr, ptr %lh_first49, align 8
-  %ev_50 = getelementptr inbounds %struct.event, ptr %45, i32 0, i32 6
-  %ev_signal_next51 = getelementptr inbounds %struct.anon.5, ptr %ev_50, i32 0, i32 0
-  %le_prev = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next51, i32 0, i32 1
-  store ptr %le_next47, ptr %le_prev, align 8
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.then44, %do.body39
-  %46 = load ptr, ptr %ev.addr, align 8
-  %47 = load ptr, ptr %ctx, align 8
-  %events53 = getelementptr inbounds %struct.evmap_signal, ptr %47, i32 0, i32 0
-  %lh_first54 = getelementptr inbounds %struct.event_dlist, ptr %events53, i32 0, i32 0
-  store ptr %46, ptr %lh_first54, align 8
-  %48 = load ptr, ptr %ctx, align 8
-  %events55 = getelementptr inbounds %struct.evmap_signal, ptr %48, i32 0, i32 0
-  %lh_first56 = getelementptr inbounds %struct.event_dlist, ptr %events55, i32 0, i32 0
-  %49 = load ptr, ptr %ev.addr, align 8
-  %ev_57 = getelementptr inbounds %struct.event, ptr %49, i32 0, i32 6
-  %ev_signal_next58 = getelementptr inbounds %struct.anon.5, ptr %ev_57, i32 0, i32 0
-  %le_prev59 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next58, i32 0, i32 1
-  store ptr %lh_first56, ptr %le_prev59, align 8
-  br label %do.end60
-
-do.end60:                                         ; preds = %if.end52
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end60, %if.then36, %if.then20, %if.then5, %if.then
-  %50 = load i32, ptr %retval, align 4
-  ret i32 %50
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @evmap_signal_init(ptr noundef %entry1) #0 {
-entry:
-  %entry.addr = alloca ptr, align 8
-  store ptr %entry1, ptr %entry.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %entry.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %0, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  store ptr null, ptr %lh_first, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr noundef %ev) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %sig.addr = alloca i32, align 4
-  %ev.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %map = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %sig, ptr %sig.addr, align 4
-  store ptr %ev, ptr %ev.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %evsigsel, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 24
-  store ptr %sigmap, ptr %map, align 8
-  %3 = load i32, ptr %sig.addr, align 4
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load i32, ptr %sig.addr, align 4
-  %5 = load ptr, ptr %map, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %nentries, align 8
-  %cmp1 = icmp sge i32 %4, %6
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %map, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %entries, align 8
-  %9 = load i32, ptr %sig.addr, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx, align 8
-  store ptr %10, ptr %ctx, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %11 = load ptr, ptr %ev.addr, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %11, i32 0, i32 6
-  %ev_signal_next = getelementptr inbounds %struct.anon.5, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next, i32 0, i32 0
-  %12 = load ptr, ptr %le_next, align 8
-  %cmp2 = icmp ne ptr %12, null
-  br i1 %cmp2, label %if.then3, label %if.end12
-
-if.then3:                                         ; preds = %do.body
-  %13 = load ptr, ptr %ev.addr, align 8
-  %ev_4 = getelementptr inbounds %struct.event, ptr %13, i32 0, i32 6
-  %ev_signal_next5 = getelementptr inbounds %struct.anon.5, ptr %ev_4, i32 0, i32 0
-  %le_prev = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next5, i32 0, i32 1
-  %14 = load ptr, ptr %le_prev, align 8
-  %15 = load ptr, ptr %ev.addr, align 8
-  %ev_6 = getelementptr inbounds %struct.event, ptr %15, i32 0, i32 6
-  %ev_signal_next7 = getelementptr inbounds %struct.anon.5, ptr %ev_6, i32 0, i32 0
-  %le_next8 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next7, i32 0, i32 0
-  %16 = load ptr, ptr %le_next8, align 8
-  %ev_9 = getelementptr inbounds %struct.event, ptr %16, i32 0, i32 6
-  %ev_signal_next10 = getelementptr inbounds %struct.anon.5, ptr %ev_9, i32 0, i32 0
-  %le_prev11 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next10, i32 0, i32 1
-  store ptr %14, ptr %le_prev11, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then3, %do.body
-  %17 = load ptr, ptr %ev.addr, align 8
-  %ev_13 = getelementptr inbounds %struct.event, ptr %17, i32 0, i32 6
-  %ev_signal_next14 = getelementptr inbounds %struct.anon.5, ptr %ev_13, i32 0, i32 0
-  %le_next15 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next14, i32 0, i32 0
-  %18 = load ptr, ptr %le_next15, align 8
-  %19 = load ptr, ptr %ev.addr, align 8
-  %ev_16 = getelementptr inbounds %struct.event, ptr %19, i32 0, i32 6
-  %ev_signal_next17 = getelementptr inbounds %struct.anon.5, ptr %ev_16, i32 0, i32 0
-  %le_prev18 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next17, i32 0, i32 1
-  %20 = load ptr, ptr %le_prev18, align 8
-  store ptr %18, ptr %20, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %if.end12
-  %21 = load ptr, ptr %ctx, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %21, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %22 = load ptr, ptr %lh_first, align 8
-  %cmp19 = icmp eq ptr %22, null
-  br i1 %cmp19, label %if.then20, label %if.end24
-
-if.then20:                                        ; preds = %do.end
-  %23 = load ptr, ptr %evsel, align 8
-  %del = getelementptr inbounds %struct.eventop, ptr %23, i32 0, i32 3
-  %24 = load ptr, ptr %del, align 8
-  %25 = load ptr, ptr %base.addr, align 8
-  %26 = load ptr, ptr %ev.addr, align 8
-  %ev_fd = getelementptr inbounds %struct.event, ptr %26, i32 0, i32 2
-  %27 = load i32, ptr %ev_fd, align 8
-  %call = call i32 %24(ptr noundef %25, i32 noundef %27, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null)
-  %cmp21 = icmp eq i32 %call, -1
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.then20
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end23:                                         ; preds = %if.then20
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end23, %do.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end24, %if.then22, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @evmap_signal_active_(ptr noundef %base, i32 noundef %sig, i32 noundef %ncalls) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %sig.addr = alloca i32, align 4
-  %ncalls.addr = alloca i32, align 4
-  %map = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %sig, ptr %sig.addr, align 4
-  store i32 %ncalls, ptr %ncalls.addr, align 4
-  %0 = load ptr, ptr %base.addr, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 24
-  store ptr %sigmap, ptr %map, align 8
-  %1 = load i32, ptr %sig.addr, align 4
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %sig.addr, align 4
-  %3 = load ptr, ptr %map, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %nentries, align 8
-  %cmp1 = icmp sge i32 %2, %4
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %for.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %map, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %entries, align 8
-  %7 = load i32, ptr %sig.addr, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx, align 8
-  store ptr %8, ptr %ctx, align 8
-  %9 = load ptr, ptr %ctx, align 8
-  %tobool = icmp ne ptr %9, null
-  br i1 %tobool, label %if.end3, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  br label %for.end
-
-if.end3:                                          ; preds = %if.end
-  %10 = load ptr, ptr %ctx, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %10, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %11 = load ptr, ptr %lh_first, align 8
-  store ptr %11, ptr %ev, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end3
-  %12 = load ptr, ptr %ev, align 8
-  %cmp4 = icmp ne ptr %12, null
-  br i1 %cmp4, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %13 = load ptr, ptr %ev, align 8
-  %14 = load i32, ptr %ncalls.addr, align 4
-  %conv = trunc i32 %14 to i16
-  call void @event_active_nolock_(ptr noundef %13, i32 noundef 8, i16 noundef signext %conv)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %15 = load ptr, ptr %ev, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %15, i32 0, i32 6
-  %ev_signal_next = getelementptr inbounds %struct.anon.5, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next, i32 0, i32 0
-  %16 = load ptr, ptr %le_next, align 8
-  store ptr %16, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %for.cond, %if.then2, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @evmap_io_get_fdinfo_(ptr noundef %map, i32 noundef %fd) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %map.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %ctx = alloca ptr, align 8
-  store ptr %map, ptr %map.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  %0 = load ptr, ptr %map.addr, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %entries, align 8
-  %2 = load i32, ptr %fd.addr, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %ctx, align 8
-  %4 = load ptr, ptr %ctx, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %ctx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_reinit_(ptr noundef %base) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %result = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store i32 0, ptr %result, align 4
-  %0 = load ptr, ptr %base.addr, align 8
-  %call = call i32 @evmap_io_foreach_fd(ptr noundef %0, ptr noundef @evmap_io_reinit_iter_fn, ptr noundef %result)
-  %1 = load i32, ptr %result, align 4
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %base.addr, align 8
-  %call1 = call i32 @evmap_signal_foreach_signal(ptr noundef %2, ptr noundef @evmap_signal_reinit_iter_fn, ptr noundef %result)
-  %3 = load i32, ptr %result, align 4
-  %cmp2 = icmp slt i32 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_io_foreach_fd(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %fd = alloca i32, align 4
-  %iomap = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %ctx = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %io = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 23
-  store ptr %io, ptr %iomap, align 8
-  store i32 0, ptr %r, align 4
-  store i32 0, ptr %fd, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %fd, align 4
-  %2 = load ptr, ptr %iomap, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %nentries, align 8
-  %cmp = icmp slt i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %iomap, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %entries, align 8
-  %6 = load i32, ptr %fd, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %ctx, align 8
-  %8 = load ptr, ptr %ctx, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %9 = load ptr, ptr %fn.addr, align 8
-  %10 = load ptr, ptr %base.addr, align 8
-  %11 = load i32, ptr %fd, align 4
-  %12 = load ptr, ptr %ctx, align 8
-  %13 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 %9(ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
-  store i32 %call, ptr %r, align 4
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  br label %for.end
-
-if.end3:                                          ; preds = %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end3, %if.then
-  %14 = load i32, ptr %fd, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %fd, align 4
-  br label %for.cond, !llvm.loop !10
-
-for.end:                                          ; preds = %if.then2, %for.cond
-  %15 = load i32, ptr %r, align 4
-  ret i32 %15
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_io_reinit_iter_fn(ptr noundef %base, i32 noundef %fd, ptr noundef %ctx, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %extra = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  %events = alloca i16, align 2
-  %ev = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsel1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %evsel1, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  store ptr %2, ptr %result, align 8
-  store i16 0, ptr %events, align 2
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %add.ptr, ptr %extra, align 8
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %nread = getelementptr inbounds %struct.evmap_io, ptr %4, i32 0, i32 1
-  %5 = load i16, ptr %nread, align 8
-  %tobool = icmp ne i16 %5, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  %6 = load i16, ptr %events, align 2
-  %conv = sext i16 %6 to i32
-  %or = or i32 %conv, 2
-  %conv2 = trunc i32 %or to i16
-  store i16 %conv2, ptr %events, align 2
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.end
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %nwrite = getelementptr inbounds %struct.evmap_io, ptr %7, i32 0, i32 2
-  %8 = load i16, ptr %nwrite, align 2
-  %tobool3 = icmp ne i16 %8, 0
-  br i1 %tobool3, label %if.then4, label %if.end8
-
-if.then4:                                         ; preds = %if.end
-  %9 = load i16, ptr %events, align 2
-  %conv5 = sext i16 %9 to i32
-  %or6 = or i32 %conv5, 4
-  %conv7 = trunc i32 %or6 to i16
-  store i16 %conv7, ptr %events, align 2
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.then4, %if.end
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %nclose = getelementptr inbounds %struct.evmap_io, ptr %10, i32 0, i32 3
-  %11 = load i16, ptr %nclose, align 4
-  %tobool9 = icmp ne i16 %11, 0
-  br i1 %tobool9, label %if.then10, label %if.end14
-
-if.then10:                                        ; preds = %if.end8
-  %12 = load i16, ptr %events, align 2
-  %conv11 = sext i16 %12 to i32
-  %or12 = or i32 %conv11, 128
-  %conv13 = trunc i32 %or12 to i16
-  store i16 %conv13, ptr %events, align 2
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then10, %if.end8
-  %13 = load ptr, ptr %evsel, align 8
-  %fdinfo_len = getelementptr inbounds %struct.eventop, ptr %13, i32 0, i32 8
-  %14 = load i64, ptr %fdinfo_len, align 8
-  %tobool15 = icmp ne i64 %14, 0
-  br i1 %tobool15, label %if.then16, label %if.end18
-
-if.then16:                                        ; preds = %if.end14
-  %15 = load ptr, ptr %extra, align 8
-  %16 = load ptr, ptr %evsel, align 8
-  %fdinfo_len17 = getelementptr inbounds %struct.eventop, ptr %16, i32 0, i32 8
-  %17 = load i64, ptr %fdinfo_len17, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then16, %if.end14
-  %18 = load i16, ptr %events, align 2
-  %conv19 = sext i16 %18 to i32
-  %tobool20 = icmp ne i32 %conv19, 0
-  br i1 %tobool20, label %land.lhs.true, label %if.end30
-
-land.lhs.true:                                    ; preds = %if.end18
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %events21 = getelementptr inbounds %struct.evmap_io, ptr %19, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events21, i32 0, i32 0
-  %20 = load ptr, ptr %lh_first, align 8
-  store ptr %20, ptr %ev, align 8
-  %tobool22 = icmp ne ptr %20, null
-  br i1 %tobool22, label %land.lhs.true23, label %if.end30
-
-land.lhs.true23:                                  ; preds = %land.lhs.true
-  %21 = load ptr, ptr %ev, align 8
-  %ev_events = getelementptr inbounds %struct.event, ptr %21, i32 0, i32 3
-  %22 = load i16, ptr %ev_events, align 4
-  %conv24 = sext i16 %22 to i32
-  %and = and i32 %conv24, 32
-  %tobool25 = icmp ne i32 %and, 0
-  br i1 %tobool25, label %if.then26, label %if.end30
-
-if.then26:                                        ; preds = %land.lhs.true23
-  %23 = load i16, ptr %events, align 2
-  %conv27 = sext i16 %23 to i32
-  %or28 = or i32 %conv27, 32
-  %conv29 = trunc i32 %or28 to i16
-  store i16 %conv29, ptr %events, align 2
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.then26, %land.lhs.true23, %land.lhs.true, %if.end18
-  %24 = load ptr, ptr %evsel, align 8
-  %add = getelementptr inbounds %struct.eventop, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %add, align 8
-  %26 = load ptr, ptr %base.addr, align 8
-  %27 = load i32, ptr %fd.addr, align 4
-  %28 = load i16, ptr %events, align 2
-  %29 = load ptr, ptr %extra, align 8
-  %call = call i32 %25(ptr noundef %26, i32 noundef %27, i16 noundef signext 0, i16 noundef signext %28, ptr noundef %29)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then32, label %if.end33
-
-if.then32:                                        ; preds = %if.end30
-  %30 = load ptr, ptr %result, align 8
-  store i32 -1, ptr %30, align 4
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.then32, %if.end30
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_signal_foreach_signal(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %sigmap = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %signum = alloca i32, align 4
-  %ctx = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %sigmap1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 24
-  store ptr %sigmap1, ptr %sigmap, align 8
-  store i32 0, ptr %r, align 4
-  store i32 0, ptr %signum, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %signum, align 4
-  %2 = load ptr, ptr %sigmap, align 8
-  %nentries = getelementptr inbounds %struct.event_signal_map, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %nentries, align 8
-  %cmp = icmp slt i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %sigmap, align 8
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %entries, align 8
-  %6 = load i32, ptr %signum, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %ctx, align 8
-  %8 = load ptr, ptr %ctx, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body
-  br label %for.inc
-
-if.end:                                           ; preds = %for.body
-  %9 = load ptr, ptr %fn.addr, align 8
-  %10 = load ptr, ptr %base.addr, align 8
-  %11 = load i32, ptr %signum, align 4
-  %12 = load ptr, ptr %ctx, align 8
-  %13 = load ptr, ptr %arg.addr, align 8
-  %call = call i32 %9(ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
-  store i32 %call, ptr %r, align 4
-  %tobool2 = icmp ne i32 %call, 0
-  br i1 %tobool2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  br label %for.end
-
-if.end4:                                          ; preds = %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end4, %if.then
-  %14 = load i32, ptr %signum, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %signum, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %if.then3, %for.cond
-  %15 = load i32, ptr %r, align 4
-  ret i32 %15
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_signal_reinit_iter_fn(ptr noundef %base, i32 noundef %signum, ptr noundef %ctx, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %signum.addr = alloca i32, align 4
-  %ctx.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %evsel = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %signum, ptr %signum.addr, align 4
-  store ptr %ctx, ptr %ctx.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %evsigsel, align 8
-  store ptr %1, ptr %evsel, align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  store ptr %2, ptr %result, align 8
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %3, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %4 = load ptr, ptr %lh_first, align 8
-  %cmp = icmp eq ptr %4, null
-  br i1 %cmp, label %if.end5, label %if.then
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %evsel, align 8
-  %add = getelementptr inbounds %struct.eventop, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %add, align 8
-  %7 = load ptr, ptr %base.addr, align 8
-  %8 = load i32, ptr %signum.addr, align 4
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %events1 = getelementptr inbounds %struct.evmap_signal, ptr %9, i32 0, i32 0
-  %lh_first2 = getelementptr inbounds %struct.event_dlist, ptr %events1, i32 0, i32 0
-  %10 = load ptr, ptr %lh_first2, align 8
-  %call = call i32 %6(ptr noundef %7, i32 noundef %8, i16 noundef signext 1, i16 noundef signext 8, ptr noundef %10)
-  %cmp3 = icmp eq i32 %call, -1
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  %11 = load ptr, ptr %result, align 8
-  store i32 -1, ptr %11, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.then
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %entry
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @evmap_delete_all_(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %call = call i32 @evmap_signal_foreach_signal(ptr noundef %0, ptr noundef @evmap_signal_delete_all_iter_fn, ptr noundef null)
-  %1 = load ptr, ptr %base.addr, align 8
-  %call1 = call i32 @evmap_io_foreach_fd(ptr noundef %1, ptr noundef @evmap_io_delete_all_iter_fn, ptr noundef null)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_signal_delete_all_iter_fn(ptr noundef %base, i32 noundef %signum, ptr noundef %sig_info, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %signum.addr = alloca i32, align 4
-  %sig_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %signum, ptr %signum.addr, align 4
-  store ptr %sig_info, ptr %sig_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %sig_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %0, i32 0, i32 0
-  %call = call i32 @delete_all_in_dlist(ptr noundef %events)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_io_delete_all_iter_fn(ptr noundef %base, i32 noundef %fd, ptr noundef %io_info, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %io_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %io_info, ptr %io_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %io_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_io, ptr %0, i32 0, i32 0
-  %call = call i32 @delete_all_in_dlist(ptr noundef %events)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @event_changelist_init_(ptr noundef %changelist) #0 {
-entry:
-  %changelist.addr = alloca ptr, align 8
-  store ptr %changelist, ptr %changelist.addr, align 8
-  %0 = load ptr, ptr %changelist.addr, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %0, i32 0, i32 0
-  store ptr null, ptr %changes, align 8
-  %1 = load ptr, ptr %changelist.addr, align 8
-  %changes_size = getelementptr inbounds %struct.event_changelist, ptr %1, i32 0, i32 2
-  store i32 0, ptr %changes_size, align 4
-  %2 = load ptr, ptr %changelist.addr, align 8
-  %n_changes = getelementptr inbounds %struct.event_changelist, ptr %2, i32 0, i32 1
-  store i32 0, ptr %n_changes, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @event_changelist_remove_all_(ptr noundef %changelist, ptr noundef %base) #0 {
-entry:
-  %changelist.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ch = alloca ptr, align 8
-  %fdinfo = alloca ptr, align 8
-  store ptr %changelist, ptr %changelist.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %changelist.addr, align 8
-  %n_changes = getelementptr inbounds %struct.event_changelist, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %n_changes, align 8
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %changelist.addr, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %changes, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.event_change, ptr %4, i64 %idxprom
-  store ptr %arrayidx, ptr %ch, align 8
-  %6 = load ptr, ptr %base.addr, align 8
-  %7 = load ptr, ptr %ch, align 8
-  %call = call ptr @event_change_get_fdinfo(ptr noundef %6, ptr noundef %7)
-  store ptr %call, ptr %fdinfo, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %for.body
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %8 = load ptr, ptr %fdinfo, align 8
-  %idxplus1 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %8, i32 0, i32 0
-  store i32 0, ptr %idxplus1, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %do.end
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %changelist.addr, align 8
-  %n_changes1 = getelementptr inbounds %struct.event_changelist, ptr %10, i32 0, i32 1
-  store i32 0, ptr %n_changes1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @event_change_get_fdinfo(ptr noundef %base, ptr noundef %change) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %change.addr = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  %ctx = alloca ptr, align 8
-  %ctx1 = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %change, ptr %change.addr, align 8
-  %0 = load ptr, ptr %change.addr, align 8
-  %read_change = getelementptr inbounds %struct.event_change, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %read_change, align 2
-  %conv = zext i8 %1 to i32
-  %and = and i32 %conv, 8
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %base.addr, align 8
-  %sigmap = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 24
-  %entries = getelementptr inbounds %struct.event_signal_map, ptr %sigmap, i32 0, i32 0
-  %3 = load ptr, ptr %entries, align 8
-  %4 = load ptr, ptr %change.addr, align 8
-  %fd = getelementptr inbounds %struct.event_change, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %fd, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  store ptr %6, ptr %ctx, align 8
-  %7 = load ptr, ptr %ctx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %add.ptr, ptr %ptr, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %8 = load ptr, ptr %base.addr, align 8
-  %io = getelementptr inbounds %struct.event_base, ptr %8, i32 0, i32 23
-  %entries2 = getelementptr inbounds %struct.event_signal_map, ptr %io, i32 0, i32 0
-  %9 = load ptr, ptr %entries2, align 8
-  %10 = load ptr, ptr %change.addr, align 8
-  %fd3 = getelementptr inbounds %struct.event_change, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %fd3, align 4
-  %idxprom4 = sext i32 %11 to i64
-  %arrayidx5 = getelementptr inbounds ptr, ptr %9, i64 %idxprom4
-  %12 = load ptr, ptr %arrayidx5, align 8
-  store ptr %12, ptr %ctx1, align 8
-  %13 = load ptr, ptr %ctx1, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %add.ptr6, ptr %ptr, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %14 = load ptr, ptr %ptr, align 8
-  ret ptr %14
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @event_changelist_freemem_(ptr noundef %changelist) #0 {
-entry:
-  %changelist.addr = alloca ptr, align 8
-  store ptr %changelist, ptr %changelist.addr, align 8
-  %0 = load ptr, ptr %changelist.addr, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %changes, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %changelist.addr, align 8
-  %changes1 = getelementptr inbounds %struct.event_changelist, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %changes1, align 8
-  call void @event_mm_free_(ptr noundef %3)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %changelist.addr, align 8
-  call void @event_changelist_init_(ptr noundef %4)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @event_changelist_add_(ptr noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr noundef %p) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %old.addr = alloca i16, align 2
-  %events.addr = alloca i16, align 2
-  %p.addr = alloca ptr, align 8
-  %changelist = alloca ptr, align 8
-  %fdinfo = alloca ptr, align 8
-  %change = alloca ptr, align 8
-  %evchange = alloca i8, align 1
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store i16 %old, ptr %old.addr, align 2
-  store i16 %events, ptr %events.addr, align 2
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 2
-  store ptr %changelist1, ptr %changelist, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %fdinfo, align 8
-  %2 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %2 to i32
-  %and = and i32 %conv, 56
-  %or = or i32 1, %and
-  %conv2 = trunc i32 %or to i8
-  store i8 %conv2, ptr %evchange, align 1
-  %3 = load ptr, ptr %changelist, align 8
-  %4 = load i32, ptr %fd.addr, align 4
-  %5 = load i16, ptr %old.addr, align 2
-  %6 = load ptr, ptr %fdinfo, align 8
-  %call = call ptr @event_changelist_get_or_construct(ptr noundef %3, i32 noundef %4, i16 noundef signext %5, ptr noundef %6)
-  store ptr %call, ptr %change, align 8
-  %7 = load ptr, ptr %change, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load i16, ptr %events.addr, align 2
-  %conv3 = sext i16 %8 to i32
-  %and4 = and i32 %conv3, 10
-  %tobool5 = icmp ne i32 %and4, 0
-  br i1 %tobool5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  %9 = load i8, ptr %evchange, align 1
-  %10 = load ptr, ptr %change, align 8
-  %read_change = getelementptr inbounds %struct.event_change, ptr %10, i32 0, i32 2
-  store i8 %9, ptr %read_change, align 2
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then6, %if.end
-  %11 = load i16, ptr %events.addr, align 2
-  %conv8 = sext i16 %11 to i32
-  %and9 = and i32 %conv8, 4
-  %tobool10 = icmp ne i32 %and9, 0
-  br i1 %tobool10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end7
-  %12 = load i8, ptr %evchange, align 1
-  %13 = load ptr, ptr %change, align 8
-  %write_change = getelementptr inbounds %struct.event_change, ptr %13, i32 0, i32 3
-  store i8 %12, ptr %write_change, align 1
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then11, %if.end7
-  %14 = load i16, ptr %events.addr, align 2
-  %conv13 = sext i16 %14 to i32
-  %and14 = and i32 %conv13, 128
-  %tobool15 = icmp ne i32 %and14, 0
-  br i1 %tobool15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.end12
-  %15 = load i8, ptr %evchange, align 1
-  %16 = load ptr, ptr %change, align 8
-  %close_change = getelementptr inbounds %struct.event_change, ptr %16, i32 0, i32 4
-  store i8 %15, ptr %close_change, align 4
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then16, %if.end12
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end17, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @event_changelist_get_or_construct(ptr noundef %changelist, i32 noundef %fd, i16 noundef signext %old_events, ptr noundef %fdinfo) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %changelist.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %old_events.addr = alloca i16, align 2
-  %fdinfo.addr = alloca ptr, align 8
-  %change = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  store ptr %changelist, ptr %changelist.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store i16 %old_events, ptr %old_events.addr, align 2
-  store ptr %fdinfo, ptr %fdinfo.addr, align 8
-  %0 = load ptr, ptr %fdinfo.addr, align 8
-  %idxplus1 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %idxplus1, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %2 = load ptr, ptr %changelist.addr, align 8
-  %n_changes = getelementptr inbounds %struct.event_changelist, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %n_changes, align 8
-  %4 = load ptr, ptr %changelist.addr, align 8
-  %changes_size = getelementptr inbounds %struct.event_changelist, ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %changes_size, align 4
-  %cmp1 = icmp eq i32 %3, %5
-  br i1 %cmp1, label %if.then2, label %if.end5
-
-if.then2:                                         ; preds = %do.end
-  %6 = load ptr, ptr %changelist.addr, align 8
-  %call = call i32 @event_changelist_grow(ptr noundef %6)
-  %cmp3 = icmp slt i32 %call, 0
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then2
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.then2
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %do.end
-  %7 = load ptr, ptr %changelist.addr, align 8
-  %n_changes6 = getelementptr inbounds %struct.event_changelist, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %n_changes6, align 8
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %n_changes6, align 8
-  store i32 %8, ptr %idx, align 4
-  %9 = load ptr, ptr %changelist.addr, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %changes, align 8
-  %11 = load i32, ptr %idx, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds %struct.event_change, ptr %10, i64 %idxprom
-  store ptr %arrayidx, ptr %change, align 8
-  %12 = load i32, ptr %idx, align 4
-  %add = add nsw i32 %12, 1
-  %13 = load ptr, ptr %fdinfo.addr, align 8
-  %idxplus17 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %13, i32 0, i32 0
-  store i32 %add, ptr %idxplus17, align 4
-  %14 = load ptr, ptr %change, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 12, i1 false)
-  %15 = load i32, ptr %fd.addr, align 4
-  %16 = load ptr, ptr %change, align 8
-  %fd8 = getelementptr inbounds %struct.event_change, ptr %16, i32 0, i32 0
-  store i32 %15, ptr %fd8, align 4
-  %17 = load i16, ptr %old_events.addr, align 2
-  %18 = load ptr, ptr %change, align 8
-  %old_events9 = getelementptr inbounds %struct.event_change, ptr %18, i32 0, i32 1
-  store i16 %17, ptr %old_events9, align 4
-  br label %if.end16
-
-if.else:                                          ; preds = %entry
-  %19 = load ptr, ptr %changelist.addr, align 8
-  %changes10 = getelementptr inbounds %struct.event_changelist, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %changes10, align 8
-  %21 = load ptr, ptr %fdinfo.addr, align 8
-  %idxplus111 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %21, i32 0, i32 0
-  %22 = load i32, ptr %idxplus111, align 4
-  %sub = sub nsw i32 %22, 1
-  %idxprom12 = sext i32 %sub to i64
-  %arrayidx13 = getelementptr inbounds %struct.event_change, ptr %20, i64 %idxprom12
-  store ptr %arrayidx13, ptr %change, align 8
-  br label %do.body14
-
-do.body14:                                        ; preds = %if.else
-  br label %do.end15
-
-do.end15:                                         ; preds = %do.body14
-  br label %if.end16
-
-if.end16:                                         ; preds = %do.end15, %if.end5
-  %23 = load ptr, ptr %change, align 8
-  store ptr %23, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end16, %if.then4
-  %24 = load ptr, ptr %retval, align 8
-  ret ptr %24
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @event_changelist_del_(ptr noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr noundef %p) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %old.addr = alloca i16, align 2
-  %events.addr = alloca i16, align 2
-  %p.addr = alloca ptr, align 8
-  %changelist = alloca ptr, align 8
-  %fdinfo = alloca ptr, align 8
-  %change = alloca ptr, align 8
-  %del = alloca i8, align 1
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store i16 %old, ptr %old.addr, align 2
-  store i16 %events, ptr %events.addr, align 2
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 2
-  store ptr %changelist1, ptr %changelist, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %fdinfo, align 8
-  %2 = load i16, ptr %events.addr, align 2
-  %conv = sext i16 %2 to i32
-  %and = and i32 %conv, 32
-  %or = or i32 2, %and
-  %conv2 = trunc i32 %or to i8
-  store i8 %conv2, ptr %del, align 1
-  %3 = load ptr, ptr %changelist, align 8
-  %4 = load i32, ptr %fd.addr, align 4
-  %5 = load i16, ptr %old.addr, align 2
-  %6 = load ptr, ptr %fdinfo, align 8
-  %call = call ptr @event_changelist_get_or_construct(ptr noundef %3, i32 noundef %4, i16 noundef signext %5, ptr noundef %6)
-  store ptr %call, ptr %change, align 8
-  %7 = load ptr, ptr %change, align 8
-  %tobool = icmp ne ptr %7, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load i16, ptr %events.addr, align 2
-  %conv3 = sext i16 %8 to i32
-  %and4 = and i32 %conv3, 10
-  %tobool5 = icmp ne i32 %and4, 0
-  br i1 %tobool5, label %if.then6, label %if.end13
-
-if.then6:                                         ; preds = %if.end
-  %9 = load ptr, ptr %change, align 8
-  %old_events = getelementptr inbounds %struct.event_change, ptr %9, i32 0, i32 1
-  %10 = load i16, ptr %old_events, align 4
-  %conv7 = sext i16 %10 to i32
-  %and8 = and i32 %conv7, 10
-  %tobool9 = icmp ne i32 %and8, 0
-  br i1 %tobool9, label %if.else, label %if.then10
-
-if.then10:                                        ; preds = %if.then6
-  %11 = load ptr, ptr %change, align 8
-  %read_change = getelementptr inbounds %struct.event_change, ptr %11, i32 0, i32 2
-  store i8 0, ptr %read_change, align 2
-  br label %if.end12
-
-if.else:                                          ; preds = %if.then6
-  %12 = load i8, ptr %del, align 1
-  %13 = load ptr, ptr %change, align 8
-  %read_change11 = getelementptr inbounds %struct.event_change, ptr %13, i32 0, i32 2
-  store i8 %12, ptr %read_change11, align 2
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.else, %if.then10
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.end12, %if.end
-  %14 = load i16, ptr %events.addr, align 2
-  %conv14 = sext i16 %14 to i32
-  %and15 = and i32 %conv14, 4
-  %tobool16 = icmp ne i32 %and15, 0
-  br i1 %tobool16, label %if.then17, label %if.end26
-
-if.then17:                                        ; preds = %if.end13
-  %15 = load ptr, ptr %change, align 8
-  %old_events18 = getelementptr inbounds %struct.event_change, ptr %15, i32 0, i32 1
-  %16 = load i16, ptr %old_events18, align 4
-  %conv19 = sext i16 %16 to i32
-  %and20 = and i32 %conv19, 4
-  %tobool21 = icmp ne i32 %and20, 0
-  br i1 %tobool21, label %if.else23, label %if.then22
-
-if.then22:                                        ; preds = %if.then17
-  %17 = load ptr, ptr %change, align 8
-  %write_change = getelementptr inbounds %struct.event_change, ptr %17, i32 0, i32 3
-  store i8 0, ptr %write_change, align 1
-  br label %if.end25
-
-if.else23:                                        ; preds = %if.then17
-  %18 = load i8, ptr %del, align 1
-  %19 = load ptr, ptr %change, align 8
-  %write_change24 = getelementptr inbounds %struct.event_change, ptr %19, i32 0, i32 3
-  store i8 %18, ptr %write_change24, align 1
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.else23, %if.then22
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end25, %if.end13
-  %20 = load i16, ptr %events.addr, align 2
-  %conv27 = sext i16 %20 to i32
-  %and28 = and i32 %conv27, 128
-  %tobool29 = icmp ne i32 %and28, 0
-  br i1 %tobool29, label %if.then30, label %if.end39
-
-if.then30:                                        ; preds = %if.end26
-  %21 = load ptr, ptr %change, align 8
-  %old_events31 = getelementptr inbounds %struct.event_change, ptr %21, i32 0, i32 1
-  %22 = load i16, ptr %old_events31, align 4
-  %conv32 = sext i16 %22 to i32
-  %and33 = and i32 %conv32, 128
-  %tobool34 = icmp ne i32 %and33, 0
-  br i1 %tobool34, label %if.else36, label %if.then35
-
-if.then35:                                        ; preds = %if.then30
-  %23 = load ptr, ptr %change, align 8
-  %close_change = getelementptr inbounds %struct.event_change, ptr %23, i32 0, i32 4
-  store i8 0, ptr %close_change, align 4
-  br label %if.end38
-
-if.else36:                                        ; preds = %if.then30
-  %24 = load i8, ptr %del, align 1
-  %25 = load ptr, ptr %change, align 8
-  %close_change37 = getelementptr inbounds %struct.event_change, ptr %25, i32 0, i32 4
-  store i8 %24, ptr %close_change37, align 4
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.else36, %if.then35
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.end38, %if.end26
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end39, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @evmap_check_integrity_(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %call = call i32 @evmap_io_foreach_fd(ptr noundef %0, ptr noundef @evmap_io_check_integrity_fn, ptr noundef null)
-  %1 = load ptr, ptr %base.addr, align 8
-  %call1 = call i32 @evmap_signal_foreach_signal(ptr noundef %1, ptr noundef @evmap_signal_check_integrity_fn, ptr noundef null)
-  %2 = load ptr, ptr %base.addr, align 8
-  %evsel = getelementptr inbounds %struct.event_base, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %evsel, align 8
-  %add = getelementptr inbounds %struct.eventop, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %add, align 8
-  %cmp = icmp eq ptr %4, @event_changelist_add_
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %base.addr, align 8
-  call void @event_changelist_assert_ok(ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @evmap_io_check_integrity_fn(ptr noundef %base, i32 noundef %fd, ptr noundef %io_info, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %io_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  %n_read = alloca i32, align 4
-  %n_write = alloca i32, align 4
-  %n_close = alloca i32, align 4
-  %elm1 = alloca ptr, align 8
-  %elm2 = alloca ptr, align 8
-  %nextp = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %io_info, ptr %io_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 0, ptr %n_read, align 4
-  store i32 0, ptr %n_write, align 4
-  store i32 0, ptr %n_close, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %io_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_io, ptr %0, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %1 = load ptr, ptr %lh_first, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  br label %do.end34
-
-if.end:                                           ; preds = %do.body
-  %2 = load ptr, ptr %io_info.addr, align 8
-  %events1 = getelementptr inbounds %struct.evmap_io, ptr %2, i32 0, i32 0
-  %lh_first2 = getelementptr inbounds %struct.event_dlist, ptr %events1, i32 0, i32 0
-  %3 = load ptr, ptr %lh_first2, align 8
-  store ptr %3, ptr %elm1, align 8
-  %4 = load ptr, ptr %elm1, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %4, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  %5 = load ptr, ptr %le_next, align 8
-  store ptr %5, ptr %elm2, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %do.end15, %if.end
-  %6 = load ptr, ptr %elm1, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %7 = load ptr, ptr %elm2, align 8
-  %tobool3 = icmp ne ptr %7, null
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %tobool3, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  br label %do.body4
-
-do.body4:                                         ; preds = %while.body
-  br label %do.end
-
-do.end:                                           ; preds = %do.body4
-  %9 = load ptr, ptr %elm1, align 8
-  %ev_5 = getelementptr inbounds %struct.event, ptr %9, i32 0, i32 6
-  %ev_io_next6 = getelementptr inbounds %struct.anon.3, ptr %ev_5, i32 0, i32 0
-  %le_next7 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next6, i32 0, i32 0
-  %10 = load ptr, ptr %le_next7, align 8
-  store ptr %10, ptr %elm1, align 8
-  %11 = load ptr, ptr %elm2, align 8
-  %ev_8 = getelementptr inbounds %struct.event, ptr %11, i32 0, i32 6
-  %ev_io_next9 = getelementptr inbounds %struct.anon.3, ptr %ev_8, i32 0, i32 0
-  %le_next10 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next9, i32 0, i32 0
-  %12 = load ptr, ptr %le_next10, align 8
-  store ptr %12, ptr %elm2, align 8
-  %13 = load ptr, ptr %elm2, align 8
-  %tobool11 = icmp ne ptr %13, null
-  br i1 %tobool11, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %do.end
-  br label %while.end
-
-if.end13:                                         ; preds = %do.end
-  br label %do.body14
-
-do.body14:                                        ; preds = %if.end13
-  br label %do.end15
-
-do.end15:                                         ; preds = %do.body14
-  %14 = load ptr, ptr %elm2, align 8
-  %ev_16 = getelementptr inbounds %struct.event, ptr %14, i32 0, i32 6
-  %ev_io_next17 = getelementptr inbounds %struct.anon.3, ptr %ev_16, i32 0, i32 0
-  %le_next18 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next17, i32 0, i32 0
-  %15 = load ptr, ptr %le_next18, align 8
-  store ptr %15, ptr %elm2, align 8
-  br label %while.cond, !llvm.loop !13
-
-while.end:                                        ; preds = %if.then12, %land.end
-  %16 = load ptr, ptr %io_info.addr, align 8
-  %events19 = getelementptr inbounds %struct.evmap_io, ptr %16, i32 0, i32 0
-  %lh_first20 = getelementptr inbounds %struct.event_dlist, ptr %events19, i32 0, i32 0
-  store ptr %lh_first20, ptr %nextp, align 8
-  %17 = load ptr, ptr %io_info.addr, align 8
-  %events21 = getelementptr inbounds %struct.evmap_io, ptr %17, i32 0, i32 0
-  %lh_first22 = getelementptr inbounds %struct.event_dlist, ptr %events21, i32 0, i32 0
-  %18 = load ptr, ptr %lh_first22, align 8
-  store ptr %18, ptr %elm1, align 8
-  br label %while.cond23
-
-while.cond23:                                     ; preds = %do.end29, %while.end
-  %19 = load ptr, ptr %elm1, align 8
-  %tobool24 = icmp ne ptr %19, null
-  br i1 %tobool24, label %while.body25, label %while.end33
-
-while.body25:                                     ; preds = %while.cond23
-  br label %do.body26
-
-do.body26:                                        ; preds = %while.body25
-  br label %do.end27
-
-do.end27:                                         ; preds = %do.body26
-  br label %do.body28
-
-do.body28:                                        ; preds = %do.end27
-  br label %do.end29
-
-do.end29:                                         ; preds = %do.body28
-  %20 = load ptr, ptr %elm1, align 8
-  %ev_30 = getelementptr inbounds %struct.event, ptr %20, i32 0, i32 6
-  %ev_io_next31 = getelementptr inbounds %struct.anon.3, ptr %ev_30, i32 0, i32 0
-  %le_next32 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next31, i32 0, i32 0
-  store ptr %le_next32, ptr %nextp, align 8
-  %21 = load ptr, ptr %nextp, align 8
+define hidden void @evmap_signal_clear_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.event_signal_map, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %42
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  store i32 0, ptr %3, align 4
+  br label %9
+
+9:                                                ; preds = %33, %8
+  %10 = load i32, ptr %3, align 4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.event_signal_map, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp slt i32 %10, %13
+  br i1 %14, label %15, label %36
+
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.event_signal_map, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %3, align 4
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %elm1, align 8
-  br label %while.cond23, !llvm.loop !14
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %32
 
-while.end33:                                      ; preds = %while.cond23
-  br label %do.end34
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds nuw %struct.event_signal_map, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %3, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  call void @event_mm_free_(ptr noundef %31)
+  br label %32
 
-do.end34:                                         ; preds = %while.end33, %if.then
-  %23 = load ptr, ptr %io_info.addr, align 8
-  %events35 = getelementptr inbounds %struct.evmap_io, ptr %23, i32 0, i32 0
-  %lh_first36 = getelementptr inbounds %struct.event_dlist, ptr %events35, i32 0, i32 0
-  %24 = load ptr, ptr %lh_first36, align 8
-  store ptr %24, ptr %ev, align 8
-  br label %for.cond
+32:                                               ; preds = %24, %15
+  br label %33
 
-for.cond:                                         ; preds = %for.inc, %do.end34
-  %25 = load ptr, ptr %ev, align 8
-  %cmp37 = icmp ne ptr %25, null
-  br i1 %cmp37, label %for.body, label %for.end
+33:                                               ; preds = %32
+  %34 = load i32, ptr %3, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %3, align 4
+  br label %9, !llvm.loop !3
 
-for.body:                                         ; preds = %for.cond
-  br label %do.body38
+36:                                               ; preds = %9
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw %struct.event_signal_map, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  call void @event_mm_free_(ptr noundef %39)
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.event_signal_map, ptr %40, i32 0, i32 0
+  store ptr null, ptr %41, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  br label %42
 
-do.body38:                                        ; preds = %for.body
-  br label %do.end39
-
-do.end39:                                         ; preds = %do.body38
-  br label %do.body40
-
-do.body40:                                        ; preds = %do.end39
-  br label %do.end41
-
-do.end41:                                         ; preds = %do.body40
-  br label %do.body42
-
-do.body42:                                        ; preds = %do.end41
-  br label %do.end43
-
-do.end43:                                         ; preds = %do.body42
-  br label %do.body44
-
-do.body44:                                        ; preds = %do.end43
-  br label %do.end45
-
-do.end45:                                         ; preds = %do.body44
-  %26 = load ptr, ptr %ev, align 8
-  %ev_events = getelementptr inbounds %struct.event, ptr %26, i32 0, i32 3
-  %27 = load i16, ptr %ev_events, align 4
-  %conv = sext i16 %27 to i32
-  %and = and i32 %conv, 2
-  %tobool46 = icmp ne i32 %and, 0
-  br i1 %tobool46, label %if.then47, label %if.end48
-
-if.then47:                                        ; preds = %do.end45
-  %28 = load i32, ptr %n_read, align 4
-  %inc = add nsw i32 %28, 1
-  store i32 %inc, ptr %n_read, align 4
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.then47, %do.end45
-  %29 = load ptr, ptr %ev, align 8
-  %ev_events49 = getelementptr inbounds %struct.event, ptr %29, i32 0, i32 3
-  %30 = load i16, ptr %ev_events49, align 4
-  %conv50 = sext i16 %30 to i32
-  %and51 = and i32 %conv50, 4
-  %tobool52 = icmp ne i32 %and51, 0
-  br i1 %tobool52, label %if.then53, label %if.end55
-
-if.then53:                                        ; preds = %if.end48
-  %31 = load i32, ptr %n_write, align 4
-  %inc54 = add nsw i32 %31, 1
-  store i32 %inc54, ptr %n_write, align 4
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.then53, %if.end48
-  %32 = load ptr, ptr %ev, align 8
-  %ev_events56 = getelementptr inbounds %struct.event, ptr %32, i32 0, i32 3
-  %33 = load i16, ptr %ev_events56, align 4
-  %conv57 = sext i16 %33 to i32
-  %and58 = and i32 %conv57, 128
-  %tobool59 = icmp ne i32 %and58, 0
-  br i1 %tobool59, label %if.then60, label %if.end62
-
-if.then60:                                        ; preds = %if.end55
-  %34 = load i32, ptr %n_close, align 4
-  %inc61 = add nsw i32 %34, 1
-  store i32 %inc61, ptr %n_close, align 4
-  br label %if.end62
-
-if.end62:                                         ; preds = %if.then60, %if.end55
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end62
-  %35 = load ptr, ptr %ev, align 8
-  %ev_63 = getelementptr inbounds %struct.event, ptr %35, i32 0, i32 6
-  %ev_io_next64 = getelementptr inbounds %struct.anon.3, ptr %ev_63, i32 0, i32 0
-  %le_next65 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next64, i32 0, i32 0
-  %36 = load ptr, ptr %le_next65, align 8
-  store ptr %36, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !15
-
-for.end:                                          ; preds = %for.cond
-  br label %do.body66
-
-do.body66:                                        ; preds = %for.end
-  br label %do.end67
-
-do.end67:                                         ; preds = %do.body66
-  br label %do.body68
-
-do.body68:                                        ; preds = %do.end67
-  br label %do.end69
-
-do.end69:                                         ; preds = %do.body68
-  br label %do.body70
-
-do.body70:                                        ; preds = %do.end69
-  br label %do.end71
-
-do.end71:                                         ; preds = %do.body70
-  ret i32 0
+42:                                               ; preds = %36, %1
+  %43 = load ptr, ptr %2, align 8
+  %44 = getelementptr inbounds nuw %struct.event_signal_map, ptr %43, i32 0, i32 1
+  store i32 0, ptr %44, align 8
+  ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @event_mm_free_(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define internal i32 @evmap_signal_check_integrity_fn(ptr noundef %base, i32 noundef %signum, ptr noundef %sig_info, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %signum.addr = alloca i32, align 4
-  %sig_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  %elm1 = alloca ptr, align 8
-  %elm2 = alloca ptr, align 8
-  %nextp = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %signum, ptr %signum.addr, align 4
-  store ptr %sig_info, ptr %sig_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %sig_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %0, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %1 = load ptr, ptr %lh_first, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  br label %do.end34
-
-if.end:                                           ; preds = %do.body
-  %2 = load ptr, ptr %sig_info.addr, align 8
-  %events1 = getelementptr inbounds %struct.evmap_signal, ptr %2, i32 0, i32 0
-  %lh_first2 = getelementptr inbounds %struct.event_dlist, ptr %events1, i32 0, i32 0
-  %3 = load ptr, ptr %lh_first2, align 8
-  store ptr %3, ptr %elm1, align 8
-  %4 = load ptr, ptr %elm1, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %4, i32 0, i32 6
-  %ev_signal_next = getelementptr inbounds %struct.anon.5, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next, i32 0, i32 0
-  %5 = load ptr, ptr %le_next, align 8
-  store ptr %5, ptr %elm2, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %do.end15, %if.end
-  %6 = load ptr, ptr %elm1, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %7 = load ptr, ptr %elm2, align 8
-  %tobool3 = icmp ne ptr %7, null
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %8 = phi i1 [ false, %while.cond ], [ %tobool3, %land.rhs ]
-  br i1 %8, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  br label %do.body4
-
-do.body4:                                         ; preds = %while.body
-  br label %do.end
-
-do.end:                                           ; preds = %do.body4
-  %9 = load ptr, ptr %elm1, align 8
-  %ev_5 = getelementptr inbounds %struct.event, ptr %9, i32 0, i32 6
-  %ev_signal_next6 = getelementptr inbounds %struct.anon.5, ptr %ev_5, i32 0, i32 0
-  %le_next7 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next6, i32 0, i32 0
-  %10 = load ptr, ptr %le_next7, align 8
-  store ptr %10, ptr %elm1, align 8
-  %11 = load ptr, ptr %elm2, align 8
-  %ev_8 = getelementptr inbounds %struct.event, ptr %11, i32 0, i32 6
-  %ev_signal_next9 = getelementptr inbounds %struct.anon.5, ptr %ev_8, i32 0, i32 0
-  %le_next10 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next9, i32 0, i32 0
-  %12 = load ptr, ptr %le_next10, align 8
-  store ptr %12, ptr %elm2, align 8
-  %13 = load ptr, ptr %elm2, align 8
-  %tobool11 = icmp ne ptr %13, null
-  br i1 %tobool11, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %do.end
-  br label %while.end
-
-if.end13:                                         ; preds = %do.end
-  br label %do.body14
-
-do.body14:                                        ; preds = %if.end13
-  br label %do.end15
-
-do.end15:                                         ; preds = %do.body14
-  %14 = load ptr, ptr %elm2, align 8
-  %ev_16 = getelementptr inbounds %struct.event, ptr %14, i32 0, i32 6
-  %ev_signal_next17 = getelementptr inbounds %struct.anon.5, ptr %ev_16, i32 0, i32 0
-  %le_next18 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next17, i32 0, i32 0
-  %15 = load ptr, ptr %le_next18, align 8
-  store ptr %15, ptr %elm2, align 8
-  br label %while.cond, !llvm.loop !16
-
-while.end:                                        ; preds = %if.then12, %land.end
-  %16 = load ptr, ptr %sig_info.addr, align 8
-  %events19 = getelementptr inbounds %struct.evmap_signal, ptr %16, i32 0, i32 0
-  %lh_first20 = getelementptr inbounds %struct.event_dlist, ptr %events19, i32 0, i32 0
-  store ptr %lh_first20, ptr %nextp, align 8
-  %17 = load ptr, ptr %sig_info.addr, align 8
-  %events21 = getelementptr inbounds %struct.evmap_signal, ptr %17, i32 0, i32 0
-  %lh_first22 = getelementptr inbounds %struct.event_dlist, ptr %events21, i32 0, i32 0
-  %18 = load ptr, ptr %lh_first22, align 8
-  store ptr %18, ptr %elm1, align 8
-  br label %while.cond23
-
-while.cond23:                                     ; preds = %do.end29, %while.end
-  %19 = load ptr, ptr %elm1, align 8
-  %tobool24 = icmp ne ptr %19, null
-  br i1 %tobool24, label %while.body25, label %while.end33
-
-while.body25:                                     ; preds = %while.cond23
-  br label %do.body26
-
-do.body26:                                        ; preds = %while.body25
-  br label %do.end27
-
-do.end27:                                         ; preds = %do.body26
-  br label %do.body28
-
-do.body28:                                        ; preds = %do.end27
-  br label %do.end29
-
-do.end29:                                         ; preds = %do.body28
-  %20 = load ptr, ptr %elm1, align 8
-  %ev_30 = getelementptr inbounds %struct.event, ptr %20, i32 0, i32 6
-  %ev_signal_next31 = getelementptr inbounds %struct.anon.5, ptr %ev_30, i32 0, i32 0
-  %le_next32 = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next31, i32 0, i32 0
-  store ptr %le_next32, ptr %nextp, align 8
-  %21 = load ptr, ptr %nextp, align 8
+define hidden i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i16, align 2
+  %16 = alloca i16, align 2
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.event_base, ptr %20, i32 0, i32 0
   %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %elm1, align 8
-  br label %while.cond23, !llvm.loop !17
+  store ptr %22, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.event_base, ptr %23, i32 0, i32 23
+  store ptr %24, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #6
+  store i16 0, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #6
+  store i16 0, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  br label %25
 
-while.end33:                                      ; preds = %while.cond23
-  br label %do.end34
+25:                                               ; preds = %3
+  br label %26
 
-do.end34:                                         ; preds = %while.end33, %if.then
-  %23 = load ptr, ptr %sig_info.addr, align 8
-  %events35 = getelementptr inbounds %struct.evmap_signal, ptr %23, i32 0, i32 0
-  %lh_first36 = getelementptr inbounds %struct.event_dlist, ptr %events35, i32 0, i32 0
-  %24 = load ptr, ptr %lh_first36, align 8
-  store ptr %24, ptr %ev, align 8
-  br label %for.cond
+26:                                               ; preds = %25
+  br label %27
 
-for.cond:                                         ; preds = %for.inc, %do.end34
-  %25 = load ptr, ptr %ev, align 8
-  %cmp37 = icmp ne ptr %25, null
-  br i1 %cmp37, label %for.body, label %for.end
+27:                                               ; preds = %26
+  %28 = load i32, ptr %6, align 4
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %31
 
-for.body:                                         ; preds = %for.cond
-  br label %do.body38
+30:                                               ; preds = %27
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
 
-do.body38:                                        ; preds = %for.body
-  br label %do.end39
+31:                                               ; preds = %27
+  %32 = load i32, ptr %6, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.event_signal_map, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sge i32 %32, %35
+  br i1 %36, label %37, label %44
 
-do.end39:                                         ; preds = %do.body38
-  br label %do.body40
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %6, align 4
+  %40 = call i32 @evmap_make_space(ptr noundef %38, i32 noundef %39, i32 noundef 8)
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %43
 
-do.body40:                                        ; preds = %do.end39
-  br label %do.end41
+42:                                               ; preds = %37
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
 
-do.end41:                                         ; preds = %do.body40
-  br label %do.body42
+43:                                               ; preds = %37
+  br label %44
 
-do.body42:                                        ; preds = %do.end41
-  br label %do.end43
+44:                                               ; preds = %43, %31
+  br label %45
 
-do.end43:                                         ; preds = %do.body42
-  br label %do.body44
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.event_signal_map, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %6, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %89
 
-do.body44:                                        ; preds = %do.end43
-  br label %do.end45
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds nuw %struct.eventop, ptr %55, i32 0, i32 8
+  %57 = load i64, ptr %56, align 8
+  %58 = add i64 16, %57
+  %59 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %58)
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw %struct.event_signal_map, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %6, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  store ptr %59, ptr %65, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.event_signal_map, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %6, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  %74 = xor i1 %73, true
+  %75 = xor i1 %74, true
+  %76 = zext i1 %75 to i32
+  %77 = sext i32 %76 to i64
+  %78 = call i64 @llvm.expect.i64(i64 %77, i64 0)
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %81
 
-do.end45:                                         ; preds = %do.body44
-  br label %for.inc
+80:                                               ; preds = %54
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
 
-for.inc:                                          ; preds = %do.end45
-  %26 = load ptr, ptr %ev, align 8
-  %ev_46 = getelementptr inbounds %struct.event, ptr %26, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_46, i32 0, i32 0
-  %le_next47 = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  %27 = load ptr, ptr %le_next47, align 8
-  store ptr %27, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !18
+81:                                               ; preds = %54
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.event_signal_map, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i32, ptr %6, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  call void @evmap_io_init(ptr noundef %88)
+  br label %89
 
-for.end:                                          ; preds = %for.cond
-  ret i32 0
+89:                                               ; preds = %81, %45
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds nuw %struct.event_signal_map, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %6, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %10, align 8
+  br label %97
+
+97:                                               ; preds = %89
+  br label %98
+
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds nuw %struct.evmap_io, ptr %99, i32 0, i32 1
+  %101 = load i16, ptr %100, align 8
+  %102 = zext i16 %101 to i32
+  store i32 %102, ptr %11, align 4
+  %103 = load ptr, ptr %10, align 8
+  %104 = getelementptr inbounds nuw %struct.evmap_io, ptr %103, i32 0, i32 2
+  %105 = load i16, ptr %104, align 2
+  %106 = zext i16 %105 to i32
+  store i32 %106, ptr %12, align 4
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds nuw %struct.evmap_io, ptr %107, i32 0, i32 3
+  %109 = load i16, ptr %108, align 4
+  %110 = zext i16 %109 to i32
+  store i32 %110, ptr %13, align 4
+  %111 = load i32, ptr %11, align 4
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %113, label %118
+
+113:                                              ; preds = %98
+  %114 = load i16, ptr %16, align 2
+  %115 = sext i16 %114 to i32
+  %116 = or i32 %115, 2
+  %117 = trunc i32 %116 to i16
+  store i16 %117, ptr %16, align 2
+  br label %118
+
+118:                                              ; preds = %113, %98
+  %119 = load i32, ptr %12, align 4
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %126
+
+121:                                              ; preds = %118
+  %122 = load i16, ptr %16, align 2
+  %123 = sext i16 %122 to i32
+  %124 = or i32 %123, 4
+  %125 = trunc i32 %124 to i16
+  store i16 %125, ptr %16, align 2
+  br label %126
+
+126:                                              ; preds = %121, %118
+  %127 = load i32, ptr %13, align 4
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %134
+
+129:                                              ; preds = %126
+  %130 = load i16, ptr %16, align 2
+  %131 = sext i16 %130 to i32
+  %132 = or i32 %131, 128
+  %133 = trunc i32 %132 to i16
+  store i16 %133, ptr %16, align 2
+  br label %134
+
+134:                                              ; preds = %129, %126
+  %135 = load ptr, ptr %7, align 8
+  %136 = getelementptr inbounds nuw %struct.event, ptr %135, i32 0, i32 3
+  %137 = load i16, ptr %136, align 4
+  %138 = sext i16 %137 to i32
+  %139 = and i32 %138, 2
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %151
+
+141:                                              ; preds = %134
+  %142 = load i32, ptr %11, align 4
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %11, align 4
+  %144 = icmp eq i32 %143, 1
+  br i1 %144, label %145, label %150
+
+145:                                              ; preds = %141
+  %146 = load i16, ptr %15, align 2
+  %147 = sext i16 %146 to i32
+  %148 = or i32 %147, 2
+  %149 = trunc i32 %148 to i16
+  store i16 %149, ptr %15, align 2
+  br label %150
+
+150:                                              ; preds = %145, %141
+  br label %151
+
+151:                                              ; preds = %150, %134
+  %152 = load ptr, ptr %7, align 8
+  %153 = getelementptr inbounds nuw %struct.event, ptr %152, i32 0, i32 3
+  %154 = load i16, ptr %153, align 4
+  %155 = sext i16 %154 to i32
+  %156 = and i32 %155, 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %168
+
+158:                                              ; preds = %151
+  %159 = load i32, ptr %12, align 4
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %12, align 4
+  %161 = icmp eq i32 %160, 1
+  br i1 %161, label %162, label %167
+
+162:                                              ; preds = %158
+  %163 = load i16, ptr %15, align 2
+  %164 = sext i16 %163 to i32
+  %165 = or i32 %164, 4
+  %166 = trunc i32 %165 to i16
+  store i16 %166, ptr %15, align 2
+  br label %167
+
+167:                                              ; preds = %162, %158
+  br label %168
+
+168:                                              ; preds = %167, %151
+  %169 = load ptr, ptr %7, align 8
+  %170 = getelementptr inbounds nuw %struct.event, ptr %169, i32 0, i32 3
+  %171 = load i16, ptr %170, align 4
+  %172 = sext i16 %171 to i32
+  %173 = and i32 %172, 128
+  %174 = icmp ne i32 %173, 0
+  br i1 %174, label %175, label %185
+
+175:                                              ; preds = %168
+  %176 = load i32, ptr %13, align 4
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %13, align 4
+  %178 = icmp eq i32 %177, 1
+  br i1 %178, label %179, label %184
+
+179:                                              ; preds = %175
+  %180 = load i16, ptr %15, align 2
+  %181 = sext i16 %180 to i32
+  %182 = or i32 %181, 128
+  %183 = trunc i32 %182 to i16
+  store i16 %183, ptr %15, align 2
+  br label %184
+
+184:                                              ; preds = %179, %175
+  br label %185
+
+185:                                              ; preds = %184, %168
+  %186 = load i32, ptr %11, align 4
+  %187 = icmp sgt i32 %186, 65535
+  br i1 %187, label %194, label %188
+
+188:                                              ; preds = %185
+  %189 = load i32, ptr %12, align 4
+  %190 = icmp sgt i32 %189, 65535
+  br i1 %190, label %194, label %191
+
+191:                                              ; preds = %188
+  %192 = load i32, ptr %13, align 4
+  %193 = icmp sgt i32 %192, 65535
+  br label %194
+
+194:                                              ; preds = %191, %188, %185
+  %195 = phi i1 [ true, %188 ], [ true, %185 ], [ %193, %191 ]
+  %196 = xor i1 %195, true
+  %197 = xor i1 %196, true
+  %198 = zext i1 %197 to i32
+  %199 = sext i32 %198 to i64
+  %200 = call i64 @llvm.expect.i64(i64 %199, i64 0)
+  %201 = icmp ne i64 %200, 0
+  br i1 %201, label %202, label %204
+
+202:                                              ; preds = %194
+  %203 = load i32, ptr %6, align 4
+  call void (ptr, ...) @event_warnx(ptr noundef @.str, i32 noundef %203)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
+
+204:                                              ; preds = %194
+  %205 = load i32, ptr @event_debug_mode_on_, align 4
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %227
+
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %10, align 8
+  %209 = getelementptr inbounds nuw %struct.evmap_io, ptr %208, i32 0, i32 0
+  %210 = getelementptr inbounds nuw %struct.event_dlist, ptr %209, i32 0, i32 0
+  %211 = load ptr, ptr %210, align 8
+  store ptr %211, ptr %17, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %213, label %227
+
+213:                                              ; preds = %207
+  %214 = load ptr, ptr %17, align 8
+  %215 = getelementptr inbounds nuw %struct.event, ptr %214, i32 0, i32 3
+  %216 = load i16, ptr %215, align 4
+  %217 = sext i16 %216 to i32
+  %218 = and i32 %217, 32
+  %219 = load ptr, ptr %7, align 8
+  %220 = getelementptr inbounds nuw %struct.event, ptr %219, i32 0, i32 3
+  %221 = load i16, ptr %220, align 4
+  %222 = sext i16 %221 to i32
+  %223 = and i32 %222, 32
+  %224 = icmp ne i32 %218, %223
+  br i1 %224, label %225, label %227
+
+225:                                              ; preds = %213
+  %226 = load i32, ptr %6, align 4
+  call void (ptr, ...) @event_warnx(ptr noundef @.str.1, i32 noundef %226)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
+
+227:                                              ; preds = %213, %207, %204
+  %228 = load i16, ptr %15, align 2
+  %229 = icmp ne i16 %228, 0
+  br i1 %229, label %230, label %258
+
+230:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %231 = load ptr, ptr %10, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  store ptr %232, ptr %19, align 8
+  %233 = load ptr, ptr %8, align 8
+  %234 = getelementptr inbounds nuw %struct.eventop, ptr %233, i32 0, i32 2
+  %235 = load ptr, ptr %234, align 8
+  %236 = load ptr, ptr %5, align 8
+  %237 = load ptr, ptr %7, align 8
+  %238 = getelementptr inbounds nuw %struct.event, ptr %237, i32 0, i32 2
+  %239 = load i32, ptr %238, align 8
+  %240 = load i16, ptr %16, align 2
+  %241 = load ptr, ptr %7, align 8
+  %242 = getelementptr inbounds nuw %struct.event, ptr %241, i32 0, i32 3
+  %243 = load i16, ptr %242, align 4
+  %244 = sext i16 %243 to i32
+  %245 = and i32 %244, 32
+  %246 = load i16, ptr %15, align 2
+  %247 = sext i16 %246 to i32
+  %248 = or i32 %245, %247
+  %249 = trunc i32 %248 to i16
+  %250 = load ptr, ptr %19, align 8
+  %251 = call i32 %235(ptr noundef %236, i32 noundef %239, i16 noundef signext %240, i16 noundef signext %249, ptr noundef %250)
+  %252 = icmp eq i32 %251, -1
+  br i1 %252, label %253, label %254
+
+253:                                              ; preds = %230
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %255
+
+254:                                              ; preds = %230
+  store i32 1, ptr %14, align 4
+  store i32 0, ptr %18, align 4
+  br label %255
+
+255:                                              ; preds = %254, %253
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %256 = load i32, ptr %18, align 4
+  switch i32 %256, label %308 [
+    i32 0, label %257
+  ]
+
+257:                                              ; preds = %255
+  br label %258
+
+258:                                              ; preds = %257, %227
+  %259 = load i32, ptr %11, align 4
+  %260 = trunc i32 %259 to i16
+  %261 = load ptr, ptr %10, align 8
+  %262 = getelementptr inbounds nuw %struct.evmap_io, ptr %261, i32 0, i32 1
+  store i16 %260, ptr %262, align 8
+  %263 = load i32, ptr %12, align 4
+  %264 = trunc i32 %263 to i16
+  %265 = load ptr, ptr %10, align 8
+  %266 = getelementptr inbounds nuw %struct.evmap_io, ptr %265, i32 0, i32 2
+  store i16 %264, ptr %266, align 2
+  %267 = load i32, ptr %13, align 4
+  %268 = trunc i32 %267 to i16
+  %269 = load ptr, ptr %10, align 8
+  %270 = getelementptr inbounds nuw %struct.evmap_io, ptr %269, i32 0, i32 3
+  store i16 %268, ptr %270, align 4
+  br label %271
+
+271:                                              ; preds = %258
+  %272 = load ptr, ptr %10, align 8
+  %273 = getelementptr inbounds nuw %struct.evmap_io, ptr %272, i32 0, i32 0
+  %274 = getelementptr inbounds nuw %struct.event_dlist, ptr %273, i32 0, i32 0
+  %275 = load ptr, ptr %274, align 8
+  %276 = load ptr, ptr %7, align 8
+  %277 = getelementptr inbounds nuw %struct.event, ptr %276, i32 0, i32 6
+  %278 = getelementptr inbounds nuw %struct.anon.3, ptr %277, i32 0, i32 0
+  %279 = getelementptr inbounds nuw %struct.anon.4, ptr %278, i32 0, i32 0
+  store ptr %275, ptr %279, align 8
+  %280 = icmp ne ptr %275, null
+  br i1 %280, label %281, label %293
+
+281:                                              ; preds = %271
+  %282 = load ptr, ptr %7, align 8
+  %283 = getelementptr inbounds nuw %struct.event, ptr %282, i32 0, i32 6
+  %284 = getelementptr inbounds nuw %struct.anon.3, ptr %283, i32 0, i32 0
+  %285 = getelementptr inbounds nuw %struct.anon.4, ptr %284, i32 0, i32 0
+  %286 = load ptr, ptr %10, align 8
+  %287 = getelementptr inbounds nuw %struct.evmap_io, ptr %286, i32 0, i32 0
+  %288 = getelementptr inbounds nuw %struct.event_dlist, ptr %287, i32 0, i32 0
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr inbounds nuw %struct.event, ptr %289, i32 0, i32 6
+  %291 = getelementptr inbounds nuw %struct.anon.3, ptr %290, i32 0, i32 0
+  %292 = getelementptr inbounds nuw %struct.anon.4, ptr %291, i32 0, i32 1
+  store ptr %285, ptr %292, align 8
+  br label %293
+
+293:                                              ; preds = %281, %271
+  %294 = load ptr, ptr %7, align 8
+  %295 = load ptr, ptr %10, align 8
+  %296 = getelementptr inbounds nuw %struct.evmap_io, ptr %295, i32 0, i32 0
+  %297 = getelementptr inbounds nuw %struct.event_dlist, ptr %296, i32 0, i32 0
+  store ptr %294, ptr %297, align 8
+  %298 = load ptr, ptr %10, align 8
+  %299 = getelementptr inbounds nuw %struct.evmap_io, ptr %298, i32 0, i32 0
+  %300 = getelementptr inbounds nuw %struct.event_dlist, ptr %299, i32 0, i32 0
+  %301 = load ptr, ptr %7, align 8
+  %302 = getelementptr inbounds nuw %struct.event, ptr %301, i32 0, i32 6
+  %303 = getelementptr inbounds nuw %struct.anon.3, ptr %302, i32 0, i32 0
+  %304 = getelementptr inbounds nuw %struct.anon.4, ptr %303, i32 0, i32 1
+  store ptr %300, ptr %304, align 8
+  br label %305
+
+305:                                              ; preds = %293
+  br label %306
+
+306:                                              ; preds = %305
+  %307 = load i32, ptr %14, align 4
+  store i32 %307, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %308
+
+308:                                              ; preds = %306, %255, %225, %202, %80, %42, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %309 = load i32, ptr %4, align 4
+  ret i32 %309
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @event_changelist_assert_ok(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %changelist = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 2
-  store ptr %changelist1, ptr %changelist, align 8
-  br label %do.body
+define internal i32 @evmap_make_space(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.event_signal_map, ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8
+  %14 = load i32, ptr %6, align 4
+  %15 = icmp sle i32 %13, %14
+  br i1 %15, label %16, label %81
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.event_signal_map, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %25
 
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.event_signal_map, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %do.end
-  %1 = load i32, ptr %i, align 4
-  %2 = load ptr, ptr %changelist, align 8
-  %n_changes = getelementptr inbounds %struct.event_changelist, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %n_changes, align 8
-  %cmp = icmp slt i32 %1, %3
-  br i1 %cmp, label %for.body, label %for.end
+25:                                               ; preds = %16
+  br label %26
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %changelist, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %changes, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds %struct.event_change, ptr %5, i64 %idxprom
-  store ptr %arrayidx, ptr %c, align 8
-  br label %do.body2
+26:                                               ; preds = %25, %21
+  %27 = phi i32 [ %24, %21 ], [ 32, %25 ]
+  store i32 %27, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %28 = load i32, ptr %6, align 4
+  %29 = icmp sgt i32 %28, 1073741823
+  br i1 %29, label %30, label %31
 
-do.body2:                                         ; preds = %for.body
-  br label %do.end3
+30:                                               ; preds = %26
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %78
 
-do.end3:                                          ; preds = %do.body2
-  %7 = load ptr, ptr %base.addr, align 8
-  %8 = load ptr, ptr %c, align 8
-  %call = call ptr @event_change_get_fdinfo(ptr noundef %7, ptr noundef %8)
-  store ptr %call, ptr %f, align 8
-  br label %do.body4
+31:                                               ; preds = %26
+  br label %32
 
-do.body4:                                         ; preds = %do.end3
-  br label %do.end5
+32:                                               ; preds = %36, %31
+  %33 = load i32, ptr %8, align 4
+  %34 = load i32, ptr %6, align 4
+  %35 = icmp sle i32 %33, %34
+  br i1 %35, label %36, label %39
 
-do.end5:                                          ; preds = %do.body4
-  br label %do.body6
+36:                                               ; preds = %32
+  %37 = load i32, ptr %8, align 4
+  %38 = shl i32 %37, 1
+  store i32 %38, ptr %8, align 4
+  br label %32, !llvm.loop !5
 
-do.body6:                                         ; preds = %do.end5
-  br label %do.end7
+39:                                               ; preds = %32
+  %40 = load i32, ptr %8, align 4
+  %41 = load i32, ptr %7, align 4
+  %42 = sdiv i32 2147483647, %41
+  %43 = icmp sgt i32 %40, %42
+  br i1 %43, label %44, label %45
 
-do.end7:                                          ; preds = %do.body6
-  br label %for.inc
+44:                                               ; preds = %39
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %78
 
-for.inc:                                          ; preds = %do.end7
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !19
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.event_signal_map, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %8, align 4
+  %50 = load i32, ptr %7, align 4
+  %51 = mul nsw i32 %49, %50
+  %52 = sext i32 %51 to i64
+  %53 = call ptr @event_mm_realloc_(ptr noundef %48, i64 noundef %52)
+  store ptr %53, ptr %9, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
-for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %base.addr, align 8
-  %call8 = call i32 @evmap_io_foreach_fd(ptr noundef %10, ptr noundef @event_changelist_assert_ok_foreach_iter_fn, ptr noundef null)
+56:                                               ; preds = %45
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %78
+
+57:                                               ; preds = %45
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.event_signal_map, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds ptr, ptr %58, i64 %62
+  %64 = load i32, ptr %8, align 4
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds nuw %struct.event_signal_map, ptr %65, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  %68 = sub nsw i32 %64, %67
+  %69 = load i32, ptr %7, align 4
+  %70 = mul nsw i32 %68, %69
+  %71 = sext i32 %70 to i64
+  call void @llvm.memset.p0.i64(ptr align 8 %63, i8 0, i64 %71, i1 false)
+  %72 = load i32, ptr %8, align 4
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds nuw %struct.event_signal_map, ptr %73, i32 0, i32 1
+  store i32 %72, ptr %74, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw %struct.event_signal_map, ptr %76, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
+  store i32 0, ptr %10, align 4
+  br label %78
+
+78:                                               ; preds = %57, %56, %44, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %79 = load i32, ptr %10, align 4
+  switch i32 %79, label %84 [
+    i32 0, label %80
+    i32 1, label %82
+  ]
+
+80:                                               ; preds = %78
+  br label %81
+
+81:                                               ; preds = %80, %3
+  store i32 0, ptr %4, align 4
+  br label %82
+
+82:                                               ; preds = %81, %78
+  %83 = load i32, ptr %4, align 4
+  ret i32 %83
+
+84:                                               ; preds = %78
+  unreachable
+}
+
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @evmap_io_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
+
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.evmap_io, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.event_dlist, ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
+  br label %7
+
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.evmap_io, ptr %8, i32 0, i32 1
+  store i16 0, ptr %9, align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds nuw %struct.evmap_io, ptr %10, i32 0, i32 2
+  store i16 0, ptr %11, align 2
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.evmap_io, ptr %12, i32 0, i32 3
+  store i16 0, ptr %13, align 4
+  ret void
+}
+
+declare void @event_warnx(ptr noundef, ...) #2
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @evmap_io_del_(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i16, align 2
+  %16 = alloca i16, align 2
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.event_base, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.event_base, ptr %22, i32 0, i32 23
+  store ptr %23, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #6
+  store i16 0, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #6
+  store i16 0, ptr %16, align 2
+  %24 = load i32, ptr %6, align 4
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %17, align 4
+  br label %217
+
+27:                                               ; preds = %3
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load i32, ptr %6, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.event_signal_map, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp sge i32 %31, %34
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %30
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %17, align 4
+  br label %217
+
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %struct.event_signal_map, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %6, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %10, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds nuw %struct.evmap_io, ptr %45, i32 0, i32 1
+  %47 = load i16, ptr %46, align 8
+  %48 = zext i16 %47 to i32
+  store i32 %48, ptr %11, align 4
+  %49 = load ptr, ptr %10, align 8
+  %50 = getelementptr inbounds nuw %struct.evmap_io, ptr %49, i32 0, i32 2
+  %51 = load i16, ptr %50, align 2
+  %52 = zext i16 %51 to i32
+  store i32 %52, ptr %12, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds nuw %struct.evmap_io, ptr %53, i32 0, i32 3
+  %55 = load i16, ptr %54, align 4
+  %56 = zext i16 %55 to i32
+  store i32 %56, ptr %13, align 4
+  %57 = load i32, ptr %11, align 4
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %64
+
+59:                                               ; preds = %37
+  %60 = load i16, ptr %16, align 2
+  %61 = sext i16 %60 to i32
+  %62 = or i32 %61, 2
+  %63 = trunc i32 %62 to i16
+  store i16 %63, ptr %16, align 2
+  br label %64
+
+64:                                               ; preds = %59, %37
+  %65 = load i32, ptr %12, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %72
+
+67:                                               ; preds = %64
+  %68 = load i16, ptr %16, align 2
+  %69 = sext i16 %68 to i32
+  %70 = or i32 %69, 4
+  %71 = trunc i32 %70 to i16
+  store i16 %71, ptr %16, align 2
+  br label %72
+
+72:                                               ; preds = %67, %64
+  %73 = load i32, ptr %13, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %80
+
+75:                                               ; preds = %72
+  %76 = load i16, ptr %16, align 2
+  %77 = sext i16 %76 to i32
+  %78 = or i32 %77, 128
+  %79 = trunc i32 %78 to i16
+  store i16 %79, ptr %16, align 2
+  br label %80
+
+80:                                               ; preds = %75, %72
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds nuw %struct.event, ptr %81, i32 0, i32 3
+  %83 = load i16, ptr %82, align 4
+  %84 = sext i16 %83 to i32
+  %85 = and i32 %84, 2
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %100
+
+87:                                               ; preds = %80
+  %88 = load i32, ptr %11, align 4
+  %89 = add nsw i32 %88, -1
+  store i32 %89, ptr %11, align 4
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %96
+
+91:                                               ; preds = %87
+  %92 = load i16, ptr %15, align 2
+  %93 = sext i16 %92 to i32
+  %94 = or i32 %93, 2
+  %95 = trunc i32 %94 to i16
+  store i16 %95, ptr %15, align 2
+  br label %96
+
+96:                                               ; preds = %91, %87
+  br label %97
+
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97
+  br label %99
+
+99:                                               ; preds = %98
+  br label %100
+
+100:                                              ; preds = %99, %80
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds nuw %struct.event, ptr %101, i32 0, i32 3
+  %103 = load i16, ptr %102, align 4
+  %104 = sext i16 %103 to i32
+  %105 = and i32 %104, 4
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %120
+
+107:                                              ; preds = %100
+  %108 = load i32, ptr %12, align 4
+  %109 = add nsw i32 %108, -1
+  store i32 %109, ptr %12, align 4
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %116
+
+111:                                              ; preds = %107
+  %112 = load i16, ptr %15, align 2
+  %113 = sext i16 %112 to i32
+  %114 = or i32 %113, 4
+  %115 = trunc i32 %114 to i16
+  store i16 %115, ptr %15, align 2
+  br label %116
+
+116:                                              ; preds = %111, %107
+  br label %117
+
+117:                                              ; preds = %116
+  br label %118
+
+118:                                              ; preds = %117
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119, %100
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds nuw %struct.event, ptr %121, i32 0, i32 3
+  %123 = load i16, ptr %122, align 4
+  %124 = sext i16 %123 to i32
+  %125 = and i32 %124, 128
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %140
+
+127:                                              ; preds = %120
+  %128 = load i32, ptr %13, align 4
+  %129 = add nsw i32 %128, -1
+  store i32 %129, ptr %13, align 4
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %136
+
+131:                                              ; preds = %127
+  %132 = load i16, ptr %15, align 2
+  %133 = sext i16 %132 to i32
+  %134 = or i32 %133, 128
+  %135 = trunc i32 %134 to i16
+  store i16 %135, ptr %15, align 2
+  br label %136
+
+136:                                              ; preds = %131, %127
+  br label %137
+
+137:                                              ; preds = %136
+  br label %138
+
+138:                                              ; preds = %137
+  br label %139
+
+139:                                              ; preds = %138
+  br label %140
+
+140:                                              ; preds = %139, %120
+  %141 = load i16, ptr %15, align 2
+  %142 = icmp ne i16 %141, 0
+  br i1 %142, label %143, label %169
+
+143:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %144 = load ptr, ptr %10, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  store ptr %145, ptr %18, align 8
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds nuw %struct.eventop, ptr %146, i32 0, i32 3
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %5, align 8
+  %150 = load ptr, ptr %7, align 8
+  %151 = getelementptr inbounds nuw %struct.event, ptr %150, i32 0, i32 2
+  %152 = load i32, ptr %151, align 8
+  %153 = load i16, ptr %16, align 2
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds nuw %struct.event, ptr %154, i32 0, i32 3
+  %156 = load i16, ptr %155, align 4
+  %157 = sext i16 %156 to i32
+  %158 = and i32 %157, 32
+  %159 = load i16, ptr %15, align 2
+  %160 = sext i16 %159 to i32
+  %161 = or i32 %158, %160
+  %162 = trunc i32 %161 to i16
+  %163 = load ptr, ptr %18, align 8
+  %164 = call i32 %148(ptr noundef %149, i32 noundef %152, i16 noundef signext %153, i16 noundef signext %162, ptr noundef %163)
+  %165 = icmp eq i32 %164, -1
+  br i1 %165, label %166, label %167
+
+166:                                              ; preds = %143
+  store i32 -1, ptr %14, align 4
+  br label %168
+
+167:                                              ; preds = %143
+  store i32 1, ptr %14, align 4
+  br label %168
+
+168:                                              ; preds = %167, %166
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  br label %169
+
+169:                                              ; preds = %168, %140
+  %170 = load i32, ptr %11, align 4
+  %171 = trunc i32 %170 to i16
+  %172 = load ptr, ptr %10, align 8
+  %173 = getelementptr inbounds nuw %struct.evmap_io, ptr %172, i32 0, i32 1
+  store i16 %171, ptr %173, align 8
+  %174 = load i32, ptr %12, align 4
+  %175 = trunc i32 %174 to i16
+  %176 = load ptr, ptr %10, align 8
+  %177 = getelementptr inbounds nuw %struct.evmap_io, ptr %176, i32 0, i32 2
+  store i16 %175, ptr %177, align 2
+  %178 = load i32, ptr %13, align 4
+  %179 = trunc i32 %178 to i16
+  %180 = load ptr, ptr %10, align 8
+  %181 = getelementptr inbounds nuw %struct.evmap_io, ptr %180, i32 0, i32 3
+  store i16 %179, ptr %181, align 4
+  br label %182
+
+182:                                              ; preds = %169
+  %183 = load ptr, ptr %7, align 8
+  %184 = getelementptr inbounds nuw %struct.event, ptr %183, i32 0, i32 6
+  %185 = getelementptr inbounds nuw %struct.anon.3, ptr %184, i32 0, i32 0
+  %186 = getelementptr inbounds nuw %struct.anon.4, ptr %185, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %203
+
+189:                                              ; preds = %182
+  %190 = load ptr, ptr %7, align 8
+  %191 = getelementptr inbounds nuw %struct.event, ptr %190, i32 0, i32 6
+  %192 = getelementptr inbounds nuw %struct.anon.3, ptr %191, i32 0, i32 0
+  %193 = getelementptr inbounds nuw %struct.anon.4, ptr %192, i32 0, i32 1
+  %194 = load ptr, ptr %193, align 8
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds nuw %struct.event, ptr %195, i32 0, i32 6
+  %197 = getelementptr inbounds nuw %struct.anon.3, ptr %196, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %struct.anon.4, ptr %197, i32 0, i32 0
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw %struct.event, ptr %199, i32 0, i32 6
+  %201 = getelementptr inbounds nuw %struct.anon.3, ptr %200, i32 0, i32 0
+  %202 = getelementptr inbounds nuw %struct.anon.4, ptr %201, i32 0, i32 1
+  store ptr %194, ptr %202, align 8
+  br label %203
+
+203:                                              ; preds = %189, %182
+  %204 = load ptr, ptr %7, align 8
+  %205 = getelementptr inbounds nuw %struct.event, ptr %204, i32 0, i32 6
+  %206 = getelementptr inbounds nuw %struct.anon.3, ptr %205, i32 0, i32 0
+  %207 = getelementptr inbounds nuw %struct.anon.4, ptr %206, i32 0, i32 0
+  %208 = load ptr, ptr %207, align 8
+  %209 = load ptr, ptr %7, align 8
+  %210 = getelementptr inbounds nuw %struct.event, ptr %209, i32 0, i32 6
+  %211 = getelementptr inbounds nuw %struct.anon.3, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %struct.anon.4, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8
+  store ptr %208, ptr %213, align 8
+  br label %214
+
+214:                                              ; preds = %203
+  br label %215
+
+215:                                              ; preds = %214
+  %216 = load i32, ptr %14, align 4
+  store i32 %216, ptr %4, align 4
+  store i32 1, ptr %17, align 4
+  br label %217
+
+217:                                              ; preds = %215, %36, %26
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %218 = load i32, ptr %4, align 4
+  ret i32 %218
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @evmap_io_active_(ptr noundef %0, i32 noundef %1, i16 noundef signext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i16 %2, ptr %6, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.event_base, ptr %11, i32 0, i32 23
+  store ptr %12, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %13 = load i32, ptr %5, align 4
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %21, label %15
+
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.event_signal_map, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp sge i32 %16, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15, %3
+  store i32 1, ptr %10, align 4
+  br label %68
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.event_signal_map, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %5, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = icmp eq ptr null, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %22
+  store i32 1, ptr %10, align 4
+  br label %68
+
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.evmap_io, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.event_dlist, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %9, align 8
+  br label %38
+
+38:                                               ; preds = %61, %33
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %67
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.event, ptr %42, i32 0, i32 3
+  %44 = load i16, ptr %43, align 4
+  %45 = sext i16 %44 to i32
+  %46 = load i16, ptr %6, align 2
+  %47 = sext i16 %46 to i32
+  %48 = and i32 %47, -33
+  %49 = and i32 %45, %48
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %60
+
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds nuw %struct.event, ptr %53, i32 0, i32 3
+  %55 = load i16, ptr %54, align 4
+  %56 = sext i16 %55 to i32
+  %57 = load i16, ptr %6, align 2
+  %58 = sext i16 %57 to i32
+  %59 = and i32 %56, %58
+  call void @event_active_nolock_(ptr noundef %52, i32 noundef %59, i16 noundef signext 1)
+  br label %60
+
+60:                                               ; preds = %51, %41
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.event, ptr %62, i32 0, i32 6
+  %64 = getelementptr inbounds nuw %struct.anon.3, ptr %63, i32 0, i32 0
+  %65 = getelementptr inbounds nuw %struct.anon.4, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %9, align 8
+  br label %38, !llvm.loop !6
+
+67:                                               ; preds = %38
+  store i32 0, ptr %10, align 4
+  br label %68
+
+68:                                               ; preds = %67, %32, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  %69 = load i32, ptr %10, align 4
+  switch i32 %69, label %71 [
+    i32 0, label %70
+    i32 1, label %70
+  ]
+
+70:                                               ; preds = %68, %68
+  ret void
+
+71:                                               ; preds = %68
+  unreachable
+}
+
+declare void @event_active_nolock_(ptr noundef, i32 noundef, i16 noundef signext) #2
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @evmap_signal_add_(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.event_base, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.event_base, ptr %15, i32 0, i32 24
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store ptr null, ptr %10, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %22, label %19
+
+19:                                               ; preds = %3
+  %20 = load i32, ptr %6, align 4
+  %21 = icmp sge i32 %20, 65
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %19, %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %148
+
+23:                                               ; preds = %19
+  %24 = load i32, ptr %6, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.event_signal_map, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp sge i32 %24, %27
+  br i1 %28, label %29, label %36
+
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = call i32 @evmap_make_space(ptr noundef %30, i32 noundef %31, i32 noundef 8)
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %148
+
+35:                                               ; preds = %29
+  br label %36
+
+36:                                               ; preds = %35, %23
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %struct.event_signal_map, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %6, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %83
+
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw %struct.event_base, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %struct.eventop, ptr %49, i32 0, i32 8
+  %51 = load i64, ptr %50, align 8
+  %52 = add i64 8, %51
+  %53 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %52)
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.event_signal_map, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %6, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  store ptr %53, ptr %59, align 8
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw %struct.event_signal_map, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %6, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  %68 = xor i1 %67, true
+  %69 = xor i1 %68, true
+  %70 = zext i1 %69 to i32
+  %71 = sext i32 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 0)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %46
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %148
+
+75:                                               ; preds = %46
+  %76 = load ptr, ptr %9, align 8
+  %77 = getelementptr inbounds nuw %struct.event_signal_map, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %6, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  call void @evmap_signal_init(ptr noundef %82)
+  br label %83
+
+83:                                               ; preds = %75, %37
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.event_signal_map, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %10, align 8
+  br label %91
+
+91:                                               ; preds = %83
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds nuw %struct.evmap_signal, ptr %93, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %struct.event_dlist, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %98, label %111
+
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %8, align 8
+  %100 = getelementptr inbounds nuw %struct.eventop, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %5, align 8
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct.event, ptr %103, i32 0, i32 2
+  %105 = load i32, ptr %104, align 8
+  %106 = load ptr, ptr %7, align 8
+  %107 = call i32 %101(ptr noundef %102, i32 noundef %105, i16 noundef signext 0, i16 noundef signext 8, ptr noundef %106)
+  %108 = icmp eq i32 %107, -1
+  br i1 %108, label %109, label %110
+
+109:                                              ; preds = %98
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %148
+
+110:                                              ; preds = %98
+  br label %111
+
+111:                                              ; preds = %110, %92
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %10, align 8
+  %114 = getelementptr inbounds nuw %struct.evmap_signal, ptr %113, i32 0, i32 0
+  %115 = getelementptr inbounds nuw %struct.event_dlist, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr inbounds nuw %struct.event, ptr %117, i32 0, i32 6
+  %119 = getelementptr inbounds nuw %struct.anon.5, ptr %118, i32 0, i32 0
+  %120 = getelementptr inbounds nuw %struct.anon.6, ptr %119, i32 0, i32 0
+  store ptr %116, ptr %120, align 8
+  %121 = icmp ne ptr %116, null
+  br i1 %121, label %122, label %134
+
+122:                                              ; preds = %112
+  %123 = load ptr, ptr %7, align 8
+  %124 = getelementptr inbounds nuw %struct.event, ptr %123, i32 0, i32 6
+  %125 = getelementptr inbounds nuw %struct.anon.5, ptr %124, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %struct.anon.6, ptr %125, i32 0, i32 0
+  %127 = load ptr, ptr %10, align 8
+  %128 = getelementptr inbounds nuw %struct.evmap_signal, ptr %127, i32 0, i32 0
+  %129 = getelementptr inbounds nuw %struct.event_dlist, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw %struct.event, ptr %130, i32 0, i32 6
+  %132 = getelementptr inbounds nuw %struct.anon.5, ptr %131, i32 0, i32 0
+  %133 = getelementptr inbounds nuw %struct.anon.6, ptr %132, i32 0, i32 1
+  store ptr %126, ptr %133, align 8
+  br label %134
+
+134:                                              ; preds = %122, %112
+  %135 = load ptr, ptr %7, align 8
+  %136 = load ptr, ptr %10, align 8
+  %137 = getelementptr inbounds nuw %struct.evmap_signal, ptr %136, i32 0, i32 0
+  %138 = getelementptr inbounds nuw %struct.event_dlist, ptr %137, i32 0, i32 0
+  store ptr %135, ptr %138, align 8
+  %139 = load ptr, ptr %10, align 8
+  %140 = getelementptr inbounds nuw %struct.evmap_signal, ptr %139, i32 0, i32 0
+  %141 = getelementptr inbounds nuw %struct.event_dlist, ptr %140, i32 0, i32 0
+  %142 = load ptr, ptr %7, align 8
+  %143 = getelementptr inbounds nuw %struct.event, ptr %142, i32 0, i32 6
+  %144 = getelementptr inbounds nuw %struct.anon.5, ptr %143, i32 0, i32 0
+  %145 = getelementptr inbounds nuw %struct.anon.6, ptr %144, i32 0, i32 1
+  store ptr %141, ptr %145, align 8
+  br label %146
+
+146:                                              ; preds = %134
+  br label %147
+
+147:                                              ; preds = %146
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %148
+
+148:                                              ; preds = %147, %109, %74, %34, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %149 = load i32, ptr %4, align 4
+  ret i32 %149
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @evmap_signal_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
+
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.evmap_signal, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.event_dlist, ptr %5, i32 0, i32 0
+  store ptr null, ptr %6, align 8
+  br label %7
+
+7:                                                ; preds = %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_foreach_event_(ptr noundef %base, ptr noundef %fn, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %h = alloca %struct.evmap_foreach_event_helper, align 8
-  %r = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %fn.addr, align 8
-  %fn1 = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %h, i32 0, i32 0
-  store ptr %0, ptr %fn1, align 8
-  %1 = load ptr, ptr %arg.addr, align 8
-  %arg2 = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %h, i32 0, i32 1
-  store ptr %1, ptr %arg2, align 8
-  %2 = load ptr, ptr %base.addr, align 8
-  %call = call i32 @evmap_io_foreach_fd(ptr noundef %2, ptr noundef @evmap_io_foreach_event_fn, ptr noundef %h)
-  store i32 %call, ptr %r, align 4
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define hidden i32 @evmap_signal_del_(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.event_base, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.event_base, ptr %15, i32 0, i32 24
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %25, label %19
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %r, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %3
+  %20 = load i32, ptr %6, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.event_signal_map, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp sge i32 %20, %23
+  br i1 %24, label %25, label %26
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %base.addr, align 8
-  %call3 = call i32 @evmap_signal_foreach_signal(ptr noundef %4, ptr noundef @evmap_signal_foreach_event_fn, ptr noundef %h)
-  store i32 %call3, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %19, %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %86
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.event_signal_map, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %10, align 8
+  br label %34
+
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.event, ptr %35, i32 0, i32 6
+  %37 = getelementptr inbounds nuw %struct.anon.5, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.anon.6, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %55
+
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds nuw %struct.event, ptr %42, i32 0, i32 6
+  %44 = getelementptr inbounds nuw %struct.anon.5, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.anon.6, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct.event, ptr %47, i32 0, i32 6
+  %49 = getelementptr inbounds nuw %struct.anon.5, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.anon.6, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %struct.event, ptr %51, i32 0, i32 6
+  %53 = getelementptr inbounds nuw %struct.anon.5, ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.anon.6, ptr %53, i32 0, i32 1
+  store ptr %46, ptr %54, align 8
+  br label %55
+
+55:                                               ; preds = %41, %34
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds nuw %struct.event, ptr %56, i32 0, i32 6
+  %58 = getelementptr inbounds nuw %struct.anon.5, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.anon.6, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.event, ptr %61, i32 0, i32 6
+  %63 = getelementptr inbounds nuw %struct.anon.5, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.anon.6, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  store ptr %60, ptr %65, align 8
+  br label %66
+
+66:                                               ; preds = %55
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %10, align 8
+  %69 = getelementptr inbounds nuw %struct.evmap_signal, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.event_dlist, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %85
+
+73:                                               ; preds = %67
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.eventop, ptr %74, i32 0, i32 3
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds nuw %struct.event, ptr %78, i32 0, i32 2
+  %80 = load i32, ptr %79, align 8
+  %81 = call i32 %76(ptr noundef %77, i32 noundef %80, i16 noundef signext 0, i16 noundef signext 8, ptr noundef null)
+  %82 = icmp eq i32 %81, -1
+  br i1 %82, label %83, label %84
+
+83:                                               ; preds = %73
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %86
+
+84:                                               ; preds = %73
+  br label %85
+
+85:                                               ; preds = %84, %67
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %86
+
+86:                                               ; preds = %85, %83, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %87 = load i32, ptr %4, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @evmap_io_foreach_event_fn(ptr noundef %base, i32 noundef %fd, ptr noundef %io_info, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %io_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %h = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %io_info, ptr %io_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  store ptr %0, ptr %h, align 8
-  %1 = load ptr, ptr %io_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_io, ptr %1, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %2 = load ptr, ptr %lh_first, align 8
-  store ptr %2, ptr %ev, align 8
-  br label %for.cond
+define hidden void @evmap_signal_active_(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.event_base, ptr %11, i32 0, i32 24
+  store ptr %12, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %13 = load i32, ptr %5, align 4
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %21, label %15
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %ev, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %for.body, label %for.end
+15:                                               ; preds = %3
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.event_signal_map, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp sge i32 %16, %19
+  br i1 %20, label %21, label %22
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %h, align 8
-  %fn = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %fn, align 8
-  %6 = load ptr, ptr %base.addr, align 8
-  %7 = load ptr, ptr %ev, align 8
-  %8 = load ptr, ptr %h, align 8
-  %arg1 = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %arg1, align 8
-  %call = call i32 %5(ptr noundef %6, ptr noundef %7, ptr noundef %9)
-  store i32 %call, ptr %r, align 4
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+21:                                               ; preds = %15, %3
+  store i32 1, ptr %10, align 4
+  br label %52
 
-if.then:                                          ; preds = %for.body
-  %10 = load i32, ptr %r, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.event_signal_map, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %5, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %33, label %32
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+32:                                               ; preds = %22
+  store i32 1, ptr %10, align 4
+  br label %52
 
-for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %ev, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %11, i32 0, i32 6
-  %ev_io_next = getelementptr inbounds %struct.anon.3, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.4, ptr %ev_io_next, i32 0, i32 0
-  %12 = load ptr, ptr %le_next, align 8
-  store ptr %12, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !20
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.evmap_signal, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.event_dlist, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %9, align 8
+  br label %38
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %45, %33
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %51
 
-return:                                           ; preds = %for.end, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = trunc i32 %43 to i16
+  call void @event_active_nolock_(ptr noundef %42, i32 noundef 8, i16 noundef signext %44)
+  br label %45
+
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.event, ptr %46, i32 0, i32 6
+  %48 = getelementptr inbounds nuw %struct.anon.5, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.anon.6, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %9, align 8
+  br label %38, !llvm.loop !7
+
+51:                                               ; preds = %38
+  store i32 0, ptr %10, align 4
+  br label %52
+
+52:                                               ; preds = %51, %32, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  %53 = load i32, ptr %10, align 4
+  switch i32 %53, label %55 [
+    i32 0, label %54
+    i32 1, label %54
+  ]
+
+54:                                               ; preds = %52, %52
+  ret void
+
+55:                                               ; preds = %52
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @evmap_signal_foreach_event_fn(ptr noundef %base, i32 noundef %signum, ptr noundef %sig_info, ptr noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %base.addr = alloca ptr, align 8
-  %signum.addr = alloca i32, align 4
-  %sig_info.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  %h = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %signum, ptr %signum.addr, align 4
-  store ptr %sig_info, ptr %sig_info.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %arg.addr, align 8
-  store ptr %0, ptr %h, align 8
-  %1 = load ptr, ptr %sig_info.addr, align 8
-  %events = getelementptr inbounds %struct.evmap_signal, ptr %1, i32 0, i32 0
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %events, i32 0, i32 0
-  %2 = load ptr, ptr %lh_first, align 8
-  store ptr %2, ptr %ev, align 8
-  br label %for.cond
+define hidden ptr @evmap_io_get_fdinfo_(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.event_signal_map, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %20
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load ptr, ptr %ev, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %19, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %h, align 8
-  %fn = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %fn, align 8
-  %6 = load ptr, ptr %base.addr, align 8
-  %7 = load ptr, ptr %ev, align 8
-  %8 = load ptr, ptr %h, align 8
-  %arg1 = getelementptr inbounds %struct.evmap_foreach_event_helper, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %arg1, align 8
-  %call = call i32 %5(ptr noundef %6, ptr noundef %7, ptr noundef %9)
-  store i32 %call, ptr %r, align 4
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+20:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
 
-if.then:                                          ; preds = %for.body
-  %10 = load i32, ptr %r, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %11 = load ptr, ptr %ev, align 8
-  %ev_ = getelementptr inbounds %struct.event, ptr %11, i32 0, i32 6
-  %ev_signal_next = getelementptr inbounds %struct.anon.5, ptr %ev_, i32 0, i32 0
-  %le_next = getelementptr inbounds %struct.anon.6, ptr %ev_signal_next, i32 0, i32 0
-  %12 = load ptr, ptr %le_next, align 8
-  store ptr %12, ptr %ev, align 8
-  br label %for.cond, !llvm.loop !21
-
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %13 = load i32, ptr %retval, align 4
-  ret i32 %13
+21:                                               ; preds = %20, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %22 = load ptr, ptr %3, align 8
+  ret ptr %22
 }
 
-declare ptr @event_mm_realloc_(ptr noundef, i64 noundef) #1
+; Function Attrs: nounwind uwtable
+define hidden i32 @evmap_reinit_(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  store i32 0, ptr %4, align 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i32 @evmap_io_foreach_fd(ptr noundef %6, ptr noundef @evmap_io_reinit_iter_fn, ptr noundef %4)
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %18
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = call i32 @evmap_signal_foreach_signal(ptr noundef %12, ptr noundef @evmap_signal_reinit_iter_fn, ptr noundef %4)
+  %14 = load i32, ptr %4, align 4
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %11
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %18
+
+17:                                               ; preds = %11
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %18
+
+18:                                               ; preds = %17, %16, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_io_foreach_fd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.event_base, ptr %12, i32 0, i32 23
+  store ptr %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4
+  store i32 0, ptr %7, align 4
+  br label %14
+
+14:                                               ; preds = %44, %3
+  %15 = load i32, ptr %7, align 4
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds nuw %struct.event_signal_map, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp slt i32 %15, %18
+  br i1 %19, label %20, label %47
+
+20:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.event_signal_map, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %7, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %10, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %20
+  store i32 4, ptr %11, align 4
+  br label %41
+
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = call i32 %32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36)
+  store i32 %37, ptr %9, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %31
+  store i32 2, ptr %11, align 4
+  br label %41
+
+40:                                               ; preds = %31
+  store i32 0, ptr %11, align 4
+  br label %41
+
+41:                                               ; preds = %40, %39, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %42 = load i32, ptr %11, align 4
+  switch i32 %42, label %49 [
+    i32 0, label %43
+    i32 4, label %44
+    i32 2, label %47
+  ]
+
+43:                                               ; preds = %41
+  br label %44
+
+44:                                               ; preds = %43, %41
+  %45 = load i32, ptr %7, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %7, align 4
+  br label %14, !llvm.loop !8
+
+47:                                               ; preds = %41, %14
+  %48 = load i32, ptr %9, align 4
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %48
+
+49:                                               ; preds = %41
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_io_reinit_iter_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.event_base, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %17 = load ptr, ptr %8, align 8
+  store ptr %17, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #6
+  store i16 0, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  br label %18
+
+18:                                               ; preds = %4
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %22, ptr %10, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.evmap_io, ptr %23, i32 0, i32 1
+  %25 = load i16, ptr %24, align 8
+  %26 = icmp ne i16 %25, 0
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %20
+  %28 = load i16, ptr %12, align 2
+  %29 = sext i16 %28 to i32
+  %30 = or i32 %29, 2
+  %31 = trunc i32 %30 to i16
+  store i16 %31, ptr %12, align 2
+  br label %32
+
+32:                                               ; preds = %27, %20
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds nuw %struct.evmap_io, ptr %33, i32 0, i32 2
+  %35 = load i16, ptr %34, align 2
+  %36 = icmp ne i16 %35, 0
+  br i1 %36, label %37, label %42
+
+37:                                               ; preds = %32
+  %38 = load i16, ptr %12, align 2
+  %39 = sext i16 %38 to i32
+  %40 = or i32 %39, 4
+  %41 = trunc i32 %40 to i16
+  store i16 %41, ptr %12, align 2
+  br label %42
+
+42:                                               ; preds = %37, %32
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.evmap_io, ptr %43, i32 0, i32 3
+  %45 = load i16, ptr %44, align 4
+  %46 = icmp ne i16 %45, 0
+  br i1 %46, label %47, label %52
+
+47:                                               ; preds = %42
+  %48 = load i16, ptr %12, align 2
+  %49 = sext i16 %48 to i32
+  %50 = or i32 %49, 128
+  %51 = trunc i32 %50 to i16
+  store i16 %51, ptr %12, align 2
+  br label %52
+
+52:                                               ; preds = %47, %42
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds nuw %struct.eventop, ptr %53, i32 0, i32 8
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp ne i64 %55, 0
+  br i1 %56, label %57, label %62
+
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds nuw %struct.eventop, ptr %59, i32 0, i32 8
+  %61 = load i64, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %61, i1 false)
+  br label %62
+
+62:                                               ; preds = %57, %52
+  %63 = load i16, ptr %12, align 2
+  %64 = sext i16 %63 to i32
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %84
+
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.evmap_io, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.event_dlist, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %13, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %84
+
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr inbounds nuw %struct.event, ptr %73, i32 0, i32 3
+  %75 = load i16, ptr %74, align 4
+  %76 = sext i16 %75 to i32
+  %77 = and i32 %76, 32
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %84
+
+79:                                               ; preds = %72
+  %80 = load i16, ptr %12, align 2
+  %81 = sext i16 %80 to i32
+  %82 = or i32 %81, 32
+  %83 = trunc i32 %82 to i16
+  store i16 %83, ptr %12, align 2
+  br label %84
+
+84:                                               ; preds = %79, %72, %66, %62
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds nuw %struct.eventop, ptr %85, i32 0, i32 2
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = load i32, ptr %6, align 4
+  %90 = load i16, ptr %12, align 2
+  %91 = load ptr, ptr %10, align 8
+  %92 = call i32 %87(ptr noundef %88, i32 noundef %89, i16 noundef signext 0, i16 noundef signext %90, ptr noundef %91)
+  %93 = icmp eq i32 %92, -1
+  br i1 %93, label %94, label %96
+
+94:                                               ; preds = %84
+  %95 = load ptr, ptr %11, align 8
+  store i32 -1, ptr %95, align 4
+  br label %96
+
+96:                                               ; preds = %94, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_signal_foreach_signal(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.event_base, ptr %12, i32 0, i32 24
+  store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4
+  br label %14
+
+14:                                               ; preds = %44, %3
+  %15 = load i32, ptr %9, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.event_signal_map, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp slt i32 %15, %18
+  br i1 %19, label %20, label %47
+
+20:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.event_signal_map, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %10, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %31, label %30
+
+30:                                               ; preds = %20
+  store i32 4, ptr %11, align 4
+  br label %41
+
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = load i32, ptr %9, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = call i32 %32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36)
+  store i32 %37, ptr %8, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %31
+  store i32 2, ptr %11, align 4
+  br label %41
+
+40:                                               ; preds = %31
+  store i32 0, ptr %11, align 4
+  br label %41
+
+41:                                               ; preds = %40, %39, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %42 = load i32, ptr %11, align 4
+  switch i32 %42, label %49 [
+    i32 0, label %43
+    i32 4, label %44
+    i32 2, label %47
+  ]
+
+43:                                               ; preds = %41
+  br label %44
+
+44:                                               ; preds = %43, %41
+  %45 = load i32, ptr %9, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %9, align 4
+  br label %14, !llvm.loop !9
+
+47:                                               ; preds = %41, %14
+  %48 = load i32, ptr %8, align 4
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret i32 %48
+
+49:                                               ; preds = %41
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_signal_reinit_iter_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.event_base, ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %struct.evmap_signal, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.event_dlist, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %35, label %20
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.eventop, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %6, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.evmap_signal, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.event_dlist, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 %23(ptr noundef %24, i32 noundef %25, i16 noundef signext 1, i16 noundef signext 8, ptr noundef %29)
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %20
+  %33 = load ptr, ptr %10, align 8
+  store i32 -1, ptr %33, align 4
+  br label %34
+
+34:                                               ; preds = %32, %20
+  br label %35
+
+35:                                               ; preds = %34, %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @evmap_delete_all_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @evmap_signal_foreach_signal(ptr noundef %3, ptr noundef @evmap_signal_delete_all_iter_fn, ptr noundef null)
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 @evmap_io_foreach_fd(ptr noundef %5, ptr noundef @evmap_io_delete_all_iter_fn, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_signal_delete_all_iter_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds nuw %struct.evmap_signal, ptr %9, i32 0, i32 0
+  %11 = call i32 @delete_all_in_dlist(ptr noundef %10)
+  ret i32 %11
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_io_delete_all_iter_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds nuw %struct.evmap_io, ptr %9, i32 0, i32 0
+  %11 = call i32 @delete_all_in_dlist(ptr noundef %10)
+  ret i32 %11
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @event_changelist_init_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.event_changelist, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.event_changelist, ptr %5, i32 0, i32 2
+  store i32 0, ptr %6, align 4
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.event_changelist, ptr %7, i32 0, i32 1
+  store i32 0, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @event_changelist_remove_all_(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4
+  br label %8
+
+8:                                                ; preds = %29, %2
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.event_changelist, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %32
+
+14:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.event_changelist, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds %struct.event_change, ptr %17, i64 %19
+  store ptr %20, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = call ptr @event_change_get_fdinfo(ptr noundef %21, ptr noundef %22)
+  store ptr %23, ptr %7, align 8
+  br label %24
+
+24:                                               ; preds = %14
+  br label %25
+
+25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %27, i32 0, i32 0
+  store i32 0, ptr %28, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %29
+
+29:                                               ; preds = %26
+  %30 = load i32, ptr %5, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %5, align 4
+  br label %8, !llvm.loop !10
+
+32:                                               ; preds = %8
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.event_changelist, ptr %33, i32 0, i32 1
+  store i32 0, ptr %34, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @event_change_get_fdinfo(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.event_change, ptr %8, i32 0, i32 2
+  %10 = load i8, ptr %9, align 2
+  %11 = zext i8 %10 to i32
+  %12 = and i32 %11, 8
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %27
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.event_base, ptr %15, i32 0, i32 24
+  %17 = getelementptr inbounds nuw %struct.event_signal_map, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.event_change, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds ptr, ptr %18, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %26, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %40
+
+27:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.event_base, ptr %28, i32 0, i32 23
+  %30 = getelementptr inbounds nuw %struct.event_signal_map, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds nuw %struct.event_change, ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %33, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds ptr, ptr %31, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %7, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %39, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %40
+
+40:                                               ; preds = %27, %14
+  %41 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %41
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @event_changelist_freemem_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.event_changelist, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.event_changelist, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  call void @event_mm_free_(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %7, %1
+  %12 = load ptr, ptr %2, align 8
+  call void @event_changelist_init_(ptr noundef %12)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @event_changelist_add_(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, i16 noundef signext %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i16, align 2
+  %10 = alloca i16, align 2
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store i16 %2, ptr %9, align 2
+  store i16 %3, ptr %10, align 2
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.event_base, ptr %17, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %19 = load ptr, ptr %11, align 8
+  store ptr %19, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  %20 = load i16, ptr %10, align 2
+  %21 = sext i16 %20 to i32
+  %22 = and i32 %21, 56
+  %23 = or i32 1, %22
+  %24 = trunc i32 %23 to i8
+  store i8 %24, ptr %15, align 1
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load i16, ptr %9, align 2
+  %28 = load ptr, ptr %13, align 8
+  %29 = call ptr @event_changelist_get_or_construct(ptr noundef %25, i32 noundef %26, i16 noundef signext %27, ptr noundef %28)
+  store ptr %29, ptr %14, align 8
+  %30 = load ptr, ptr %14, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %5
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %61
+
+33:                                               ; preds = %5
+  %34 = load i16, ptr %10, align 2
+  %35 = sext i16 %34 to i32
+  %36 = and i32 %35, 10
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %33
+  %39 = load i8, ptr %15, align 1
+  %40 = load ptr, ptr %14, align 8
+  %41 = getelementptr inbounds nuw %struct.event_change, ptr %40, i32 0, i32 2
+  store i8 %39, ptr %41, align 2
+  br label %42
+
+42:                                               ; preds = %38, %33
+  %43 = load i16, ptr %10, align 2
+  %44 = sext i16 %43 to i32
+  %45 = and i32 %44, 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %42
+  %48 = load i8, ptr %15, align 1
+  %49 = load ptr, ptr %14, align 8
+  %50 = getelementptr inbounds nuw %struct.event_change, ptr %49, i32 0, i32 3
+  store i8 %48, ptr %50, align 1
+  br label %51
+
+51:                                               ; preds = %47, %42
+  %52 = load i16, ptr %10, align 2
+  %53 = sext i16 %52 to i32
+  %54 = and i32 %53, 128
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %51
+  %57 = load i8, ptr %15, align 1
+  %58 = load ptr, ptr %14, align 8
+  %59 = getelementptr inbounds nuw %struct.event_change, ptr %58, i32 0, i32 4
+  store i8 %57, ptr %59, align 4
+  br label %60
+
+60:                                               ; preds = %56, %51
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %61
+
+61:                                               ; preds = %60, %32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %62 = load i32, ptr %6, align 4
+  ret i32 %62
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @event_changelist_get_or_construct(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i16, align 2
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i16 %2, ptr %8, align 2
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %13 = load ptr, ptr %9, align 8
+  %14 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %59
+
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.event_changelist, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %struct.event_changelist, ptr %24, i32 0, i32 2
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %23, %26
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %6, align 8
+  %30 = call i32 @event_changelist_grow(ptr noundef %29)
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %28
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %56
+
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33, %20
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %struct.event_changelist, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %36, align 8
+  store i32 %37, ptr %11, align 4
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw %struct.event_changelist, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds %struct.event_change, ptr %41, i64 %43
+  store ptr %44, ptr %10, align 8
+  %45 = load i32, ptr %11, align 4
+  %46 = add nsw i32 %45, 1
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %47, i32 0, i32 0
+  store i32 %46, ptr %48, align 4
+  %49 = load ptr, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 12, i1 false)
+  %50 = load i32, ptr %7, align 4
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds nuw %struct.event_change, ptr %51, i32 0, i32 0
+  store i32 %50, ptr %52, align 4
+  %53 = load i16, ptr %8, align 2
+  %54 = load ptr, ptr %10, align 8
+  %55 = getelementptr inbounds nuw %struct.event_change, ptr %54, i32 0, i32 1
+  store i16 %53, ptr %55, align 4
+  store i32 0, ptr %12, align 4
+  br label %56
+
+56:                                               ; preds = %34, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  %57 = load i32, ptr %12, align 4
+  switch i32 %57, label %74 [
+    i32 0, label %58
+  ]
+
+58:                                               ; preds = %56
+  br label %72
+
+59:                                               ; preds = %4
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %struct.event_changelist, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %63, i32 0, i32 0
+  %65 = load i32, ptr %64, align 4
+  %66 = sub nsw i32 %65, 1
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %struct.event_change, ptr %62, i64 %67
+  store ptr %68, ptr %10, align 8
+  br label %69
+
+69:                                               ; preds = %59
+  br label %70
+
+70:                                               ; preds = %69
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71, %58
+  %73 = load ptr, ptr %10, align 8
+  store ptr %73, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %74
+
+74:                                               ; preds = %72, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %75 = load ptr, ptr %5, align 8
+  ret ptr %75
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @event_changelist_del_(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, i16 noundef signext %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i16, align 2
+  %10 = alloca i16, align 2
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store i16 %2, ptr %9, align 2
+  store i16 %3, ptr %10, align 2
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.event_base, ptr %17, i32 0, i32 2
+  store ptr %18, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %19 = load ptr, ptr %11, align 8
+  store ptr %19, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  %20 = load i16, ptr %10, align 2
+  %21 = sext i16 %20 to i32
+  %22 = and i32 %21, 32
+  %23 = or i32 2, %22
+  %24 = trunc i32 %23 to i8
+  store i8 %24, ptr %15, align 1
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load i16, ptr %9, align 2
+  %28 = load ptr, ptr %13, align 8
+  %29 = call ptr @event_changelist_get_or_construct(ptr noundef %25, i32 noundef %26, i16 noundef signext %27, ptr noundef %28)
+  store ptr %29, ptr %14, align 8
+  %30 = load ptr, ptr %14, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %5
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %94
+
+33:                                               ; preds = %5
+  %34 = load i16, ptr %10, align 2
+  %35 = sext i16 %34 to i32
+  %36 = and i32 %35, 10
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %53
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %14, align 8
+  %40 = getelementptr inbounds nuw %struct.event_change, ptr %39, i32 0, i32 1
+  %41 = load i16, ptr %40, align 4
+  %42 = sext i16 %41 to i32
+  %43 = and i32 %42, 10
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %48, label %45
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %14, align 8
+  %47 = getelementptr inbounds nuw %struct.event_change, ptr %46, i32 0, i32 2
+  store i8 0, ptr %47, align 2
+  br label %52
+
+48:                                               ; preds = %38
+  %49 = load i8, ptr %15, align 1
+  %50 = load ptr, ptr %14, align 8
+  %51 = getelementptr inbounds nuw %struct.event_change, ptr %50, i32 0, i32 2
+  store i8 %49, ptr %51, align 2
+  br label %52
+
+52:                                               ; preds = %48, %45
+  br label %53
+
+53:                                               ; preds = %52, %33
+  %54 = load i16, ptr %10, align 2
+  %55 = sext i16 %54 to i32
+  %56 = and i32 %55, 4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %73
+
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %14, align 8
+  %60 = getelementptr inbounds nuw %struct.event_change, ptr %59, i32 0, i32 1
+  %61 = load i16, ptr %60, align 4
+  %62 = sext i16 %61 to i32
+  %63 = and i32 %62, 4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %68, label %65
+
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds nuw %struct.event_change, ptr %66, i32 0, i32 3
+  store i8 0, ptr %67, align 1
+  br label %72
+
+68:                                               ; preds = %58
+  %69 = load i8, ptr %15, align 1
+  %70 = load ptr, ptr %14, align 8
+  %71 = getelementptr inbounds nuw %struct.event_change, ptr %70, i32 0, i32 3
+  store i8 %69, ptr %71, align 1
+  br label %72
+
+72:                                               ; preds = %68, %65
+  br label %73
+
+73:                                               ; preds = %72, %53
+  %74 = load i16, ptr %10, align 2
+  %75 = sext i16 %74 to i32
+  %76 = and i32 %75, 128
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %93
+
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %14, align 8
+  %80 = getelementptr inbounds nuw %struct.event_change, ptr %79, i32 0, i32 1
+  %81 = load i16, ptr %80, align 4
+  %82 = sext i16 %81 to i32
+  %83 = and i32 %82, 128
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %88, label %85
+
+85:                                               ; preds = %78
+  %86 = load ptr, ptr %14, align 8
+  %87 = getelementptr inbounds nuw %struct.event_change, ptr %86, i32 0, i32 4
+  store i8 0, ptr %87, align 4
+  br label %92
+
+88:                                               ; preds = %78
+  %89 = load i8, ptr %15, align 1
+  %90 = load ptr, ptr %14, align 8
+  %91 = getelementptr inbounds nuw %struct.event_change, ptr %90, i32 0, i32 4
+  store i8 %89, ptr %91, align 4
+  br label %92
+
+92:                                               ; preds = %88, %85
+  br label %93
+
+93:                                               ; preds = %92, %73
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %94
+
+94:                                               ; preds = %93, %32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %95 = load i32, ptr %6, align 4
+  ret i32 %95
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @evmap_check_integrity_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @evmap_io_foreach_fd(ptr noundef %3, ptr noundef @evmap_io_check_integrity_fn, ptr noundef null)
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 @evmap_signal_foreach_signal(ptr noundef %5, ptr noundef @evmap_signal_check_integrity_fn, ptr noundef null)
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.event_base, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %struct.eventop, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, @event_changelist_add_
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8
+  call void @event_changelist_assert_ok(ptr noundef %14)
+  br label %15
+
+15:                                               ; preds = %13, %1
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_io_check_integrity_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  store i32 0, ptr %12, align 4
+  br label %17
+
+17:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw %struct.evmap_io, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.event_dlist, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %17
+  store i32 2, ptr %16, align 4
+  br label %93
+
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds nuw %struct.evmap_io, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %struct.event_dlist, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %13, align 8
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds nuw %struct.event, ptr %29, i32 0, i32 6
+  %31 = getelementptr inbounds nuw %struct.anon.3, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.anon.4, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %14, align 8
+  br label %34
+
+34:                                               ; preds = %62, %24
+  %35 = load ptr, ptr %13, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %40
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %14, align 8
+  %39 = icmp ne ptr %38, null
+  br label %40
+
+40:                                               ; preds = %37, %34
+  %41 = phi i1 [ false, %34 ], [ %39, %37 ]
+  br i1 %41, label %42, label %68
+
+42:                                               ; preds = %40
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds nuw %struct.event, ptr %46, i32 0, i32 6
+  %48 = getelementptr inbounds nuw %struct.anon.3, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.anon.4, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %13, align 8
+  %51 = load ptr, ptr %14, align 8
+  %52 = getelementptr inbounds nuw %struct.event, ptr %51, i32 0, i32 6
+  %53 = getelementptr inbounds nuw %struct.anon.3, ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.anon.4, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %14, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %59, label %58
+
+58:                                               ; preds = %45
+  br label %68
+
+59:                                               ; preds = %45
+  br label %60
+
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %14, align 8
+  %64 = getelementptr inbounds nuw %struct.event, ptr %63, i32 0, i32 6
+  %65 = getelementptr inbounds nuw %struct.anon.3, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.anon.4, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr %14, align 8
+  br label %34, !llvm.loop !11
+
+68:                                               ; preds = %58, %40
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.evmap_io, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.event_dlist, ptr %70, i32 0, i32 0
+  store ptr %71, ptr %15, align 8
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.evmap_io, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds nuw %struct.event_dlist, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  store ptr %75, ptr %13, align 8
+  br label %76
+
+76:                                               ; preds = %85, %68
+  %77 = load ptr, ptr %13, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %92
+
+79:                                               ; preds = %76
+  br label %80
+
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %13, align 8
+  %87 = getelementptr inbounds nuw %struct.event, ptr %86, i32 0, i32 6
+  %88 = getelementptr inbounds nuw %struct.anon.3, ptr %87, i32 0, i32 0
+  %89 = getelementptr inbounds nuw %struct.anon.4, ptr %88, i32 0, i32 0
+  store ptr %89, ptr %15, align 8
+  %90 = load ptr, ptr %15, align 8
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %13, align 8
+  br label %76, !llvm.loop !12
+
+92:                                               ; preds = %76
+  store i32 0, ptr %16, align 4
+  br label %93
+
+93:                                               ; preds = %92, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  %94 = load i32, ptr %16, align 4
+  switch i32 %94, label %164 [
+    i32 0, label %95
+    i32 2, label %97
+  ]
+
+95:                                               ; preds = %93
+  br label %96
+
+96:                                               ; preds = %95
+  br label %97
+
+97:                                               ; preds = %96, %93
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds nuw %struct.evmap_io, ptr %98, i32 0, i32 0
+  %100 = getelementptr inbounds nuw %struct.event_dlist, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %9, align 8
+  br label %102
+
+102:                                              ; preds = %148, %97
+  %103 = load ptr, ptr %9, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %154
+
+105:                                              ; preds = %102
+  br label %106
+
+106:                                              ; preds = %105
+  br label %107
+
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107
+  br label %109
+
+109:                                              ; preds = %108
+  br label %110
+
+110:                                              ; preds = %109
+  br label %111
+
+111:                                              ; preds = %110
+  br label %112
+
+112:                                              ; preds = %111
+  br label %113
+
+113:                                              ; preds = %112
+  br label %114
+
+114:                                              ; preds = %113
+  br label %115
+
+115:                                              ; preds = %114
+  br label %116
+
+116:                                              ; preds = %115
+  br label %117
+
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds nuw %struct.event, ptr %118, i32 0, i32 3
+  %120 = load i16, ptr %119, align 4
+  %121 = sext i16 %120 to i32
+  %122 = and i32 %121, 2
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %127
+
+124:                                              ; preds = %117
+  %125 = load i32, ptr %10, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %10, align 4
+  br label %127
+
+127:                                              ; preds = %124, %117
+  %128 = load ptr, ptr %9, align 8
+  %129 = getelementptr inbounds nuw %struct.event, ptr %128, i32 0, i32 3
+  %130 = load i16, ptr %129, align 4
+  %131 = sext i16 %130 to i32
+  %132 = and i32 %131, 4
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %137
+
+134:                                              ; preds = %127
+  %135 = load i32, ptr %11, align 4
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %11, align 4
+  br label %137
+
+137:                                              ; preds = %134, %127
+  %138 = load ptr, ptr %9, align 8
+  %139 = getelementptr inbounds nuw %struct.event, ptr %138, i32 0, i32 3
+  %140 = load i16, ptr %139, align 4
+  %141 = sext i16 %140 to i32
+  %142 = and i32 %141, 128
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %147
+
+144:                                              ; preds = %137
+  %145 = load i32, ptr %12, align 4
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %12, align 4
+  br label %147
+
+147:                                              ; preds = %144, %137
+  br label %148
+
+148:                                              ; preds = %147
+  %149 = load ptr, ptr %9, align 8
+  %150 = getelementptr inbounds nuw %struct.event, ptr %149, i32 0, i32 6
+  %151 = getelementptr inbounds nuw %struct.anon.3, ptr %150, i32 0, i32 0
+  %152 = getelementptr inbounds nuw %struct.anon.4, ptr %151, i32 0, i32 0
+  %153 = load ptr, ptr %152, align 8
+  store ptr %153, ptr %9, align 8
+  br label %102, !llvm.loop !13
+
+154:                                              ; preds = %102
+  br label %155
+
+155:                                              ; preds = %154
+  br label %156
+
+156:                                              ; preds = %155
+  br label %157
+
+157:                                              ; preds = %156
+  br label %158
+
+158:                                              ; preds = %157
+  br label %159
+
+159:                                              ; preds = %158
+  br label %160
+
+160:                                              ; preds = %159
+  br label %161
+
+161:                                              ; preds = %160
+  br label %162
+
+162:                                              ; preds = %161
+  br label %163
+
+163:                                              ; preds = %162
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 0
+
+164:                                              ; preds = %93
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_signal_check_integrity_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  br label %14
+
+14:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %struct.evmap_signal, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.event_dlist, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %14
+  store i32 2, ptr %13, align 4
+  br label %90
+
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct.evmap_signal, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.event_dlist, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %10, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds nuw %struct.event, ptr %26, i32 0, i32 6
+  %28 = getelementptr inbounds nuw %struct.anon.5, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.anon.6, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %11, align 8
+  br label %31
+
+31:                                               ; preds = %59, %21
+  %32 = load ptr, ptr %10, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %37
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %11, align 8
+  %36 = icmp ne ptr %35, null
+  br label %37
+
+37:                                               ; preds = %34, %31
+  %38 = phi i1 [ false, %31 ], [ %36, %34 ]
+  br i1 %38, label %39, label %65
+
+39:                                               ; preds = %37
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds nuw %struct.event, ptr %43, i32 0, i32 6
+  %45 = getelementptr inbounds nuw %struct.anon.5, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.anon.6, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = getelementptr inbounds nuw %struct.event, ptr %48, i32 0, i32 6
+  %50 = getelementptr inbounds nuw %struct.anon.5, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.anon.6, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %11, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %56, label %55
+
+55:                                               ; preds = %42
+  br label %65
+
+56:                                               ; preds = %42
+  br label %57
+
+57:                                               ; preds = %56
+  br label %58
+
+58:                                               ; preds = %57
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct.event, ptr %60, i32 0, i32 6
+  %62 = getelementptr inbounds nuw %struct.anon.5, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %struct.anon.6, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %11, align 8
+  br label %31, !llvm.loop !14
+
+65:                                               ; preds = %55, %37
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct.evmap_signal, ptr %66, i32 0, i32 0
+  %68 = getelementptr inbounds nuw %struct.event_dlist, ptr %67, i32 0, i32 0
+  store ptr %68, ptr %12, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.evmap_signal, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.event_dlist, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  store ptr %72, ptr %10, align 8
+  br label %73
+
+73:                                               ; preds = %82, %65
+  %74 = load ptr, ptr %10, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %89
+
+76:                                               ; preds = %73
+  br label %77
+
+77:                                               ; preds = %76
+  br label %78
+
+78:                                               ; preds = %77
+  br label %79
+
+79:                                               ; preds = %78
+  br label %80
+
+80:                                               ; preds = %79
+  br label %81
+
+81:                                               ; preds = %80
+  br label %82
+
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %10, align 8
+  %84 = getelementptr inbounds nuw %struct.event, ptr %83, i32 0, i32 6
+  %85 = getelementptr inbounds nuw %struct.anon.5, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.anon.6, ptr %85, i32 0, i32 0
+  store ptr %86, ptr %12, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %10, align 8
+  br label %73, !llvm.loop !15
+
+89:                                               ; preds = %73
+  store i32 0, ptr %13, align 4
+  br label %90
+
+90:                                               ; preds = %89, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %91 = load i32, ptr %13, align 4
+  switch i32 %91, label %122 [
+    i32 0, label %92
+    i32 2, label %94
+  ]
+
+92:                                               ; preds = %90
+  br label %93
+
+93:                                               ; preds = %92
+  br label %94
+
+94:                                               ; preds = %93, %90
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds nuw %struct.evmap_signal, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %struct.event_dlist, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %9, align 8
+  br label %99
+
+99:                                               ; preds = %115, %94
+  %100 = load ptr, ptr %9, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %121
+
+102:                                              ; preds = %99
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103
+  br label %105
+
+105:                                              ; preds = %104
+  br label %106
+
+106:                                              ; preds = %105
+  br label %107
+
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107
+  br label %109
+
+109:                                              ; preds = %108
+  br label %110
+
+110:                                              ; preds = %109
+  br label %111
+
+111:                                              ; preds = %110
+  br label %112
+
+112:                                              ; preds = %111
+  br label %113
+
+113:                                              ; preds = %112
+  br label %114
+
+114:                                              ; preds = %113
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %9, align 8
+  %117 = getelementptr inbounds nuw %struct.event, ptr %116, i32 0, i32 6
+  %118 = getelementptr inbounds nuw %struct.anon.3, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %struct.anon.4, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %9, align 8
+  br label %99, !llvm.loop !16
+
+121:                                              ; preds = %99
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 0
+
+122:                                              ; preds = %90
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @event_changelist_assert_ok(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.event_base, ptr %7, i32 0, i32 2
+  store ptr %8, ptr %4, align 8
+  br label %9
+
+9:                                                ; preds = %1
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  store i32 0, ptr %3, align 4
+  br label %12
+
+12:                                               ; preds = %37, %11
+  %13 = load i32, ptr %3, align 4
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.event_changelist, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp slt i32 %13, %16
+  br i1 %17, label %18, label %40
+
+18:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.event_changelist, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %3, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds %struct.event_change, ptr %21, i64 %23
+  store ptr %24, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  br label %25
+
+25:                                               ; preds = %18
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %2, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = call ptr @event_change_get_fdinfo(ptr noundef %28, ptr noundef %29)
+  store ptr %30, ptr %6, align 8
+  br label %31
+
+31:                                               ; preds = %27
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load i32, ptr %3, align 4
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %3, align 4
+  br label %12, !llvm.loop !17
+
+40:                                               ; preds = %12
+  %41 = load ptr, ptr %2, align 8
+  %42 = call i32 @evmap_io_foreach_fd(ptr noundef %41, ptr noundef @event_changelist_assert_ok_foreach_iter_fn, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.evmap_foreach_event_helper, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %8, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %8, i32 0, i32 1
+  store ptr %13, ptr %14, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @evmap_io_foreach_fd(ptr noundef %15, ptr noundef @evmap_io_foreach_event_fn, ptr noundef %8)
+  store i32 %16, ptr %9, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %3
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %23
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %5, align 8
+  %22 = call i32 @evmap_signal_foreach_signal(ptr noundef %21, ptr noundef @evmap_signal_foreach_event_fn, ptr noundef %8)
+  store i32 %22, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %23
+
+23:                                               ; preds = %20, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #6
+  %24 = load i32, ptr %4, align 4
+  ret i32 %24
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_io_foreach_event_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %14 = load ptr, ptr %9, align 8
+  store ptr %14, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds nuw %struct.evmap_io, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.event_dlist, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %11, align 8
+  br label %19
+
+19:                                               ; preds = %36, %4
+  %20 = load ptr, ptr %11, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %25(ptr noundef %26, ptr noundef %27, ptr noundef %30)
+  store i32 %31, ptr %12, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %22
+  %34 = load i32, ptr %12, align 4
+  store i32 %34, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
+
+35:                                               ; preds = %22
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds nuw %struct.event, ptr %37, i32 0, i32 6
+  %39 = getelementptr inbounds nuw %struct.anon.3, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.anon.4, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %11, align 8
+  br label %19, !llvm.loop !18
+
+42:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
+
+43:                                               ; preds = %42, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @evmap_signal_foreach_event_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %14 = load ptr, ptr %9, align 8
+  store ptr %14, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %15 = load ptr, ptr %8, align 8
+  %16 = getelementptr inbounds nuw %struct.evmap_signal, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.event_dlist, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %10, align 8
+  br label %19
+
+19:                                               ; preds = %36, %4
+  %20 = load ptr, ptr %10, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %42
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %11, align 8
+  %24 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds nuw %struct.evmap_foreach_event_helper, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %25(ptr noundef %26, ptr noundef %27, ptr noundef %30)
+  store i32 %31, ptr %12, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %22
+  %34 = load i32, ptr %12, align 4
+  store i32 %34, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
+
+35:                                               ; preds = %22
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds nuw %struct.event, ptr %37, i32 0, i32 6
+  %39 = getelementptr inbounds nuw %struct.anon.5, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.anon.6, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %10, align 8
+  br label %19, !llvm.loop !19
+
+42:                                               ; preds = %19
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %43
+
+43:                                               ; preds = %42, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
+}
+
+declare ptr @event_mm_realloc_(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @delete_all_in_dlist(ptr noundef %dlist) #0 {
-entry:
-  %dlist.addr = alloca ptr, align 8
-  %ev = alloca ptr, align 8
-  store ptr %dlist, ptr %dlist.addr, align 8
-  br label %while.cond
+define internal i32 @delete_all_in_dlist(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  br label %4
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load ptr, ptr %dlist.addr, align 8
-  %lh_first = getelementptr inbounds %struct.event_dlist, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %lh_first, align 8
-  store ptr %1, ptr %ev, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %while.body, label %while.end
+4:                                                ; preds = %9, %1
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.event_dlist, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %3, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %12
 
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %ev, align 8
-  %call = call i32 @event_del(ptr noundef %2)
-  br label %while.cond, !llvm.loop !22
+9:                                                ; preds = %4
+  %10 = load ptr, ptr %3, align 8
+  %11 = call i32 @event_del(ptr noundef %10)
+  br label %4, !llvm.loop !20
 
-while.end:                                        ; preds = %while.cond
+12:                                               ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i32 0
 }
 
-declare i32 @event_del(ptr noundef) #1
+declare i32 @event_del(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @event_changelist_grow(ptr noundef %changelist) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %changelist.addr = alloca ptr, align 8
-  %new_size = alloca i32, align 4
-  %new_changes = alloca ptr, align 8
-  store ptr %changelist, ptr %changelist.addr, align 8
-  %0 = load ptr, ptr %changelist.addr, align 8
-  %changes_size = getelementptr inbounds %struct.event_changelist, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %changes_size, align 4
-  %cmp = icmp slt i32 %1, 64
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @event_changelist_grow(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.event_changelist, ptr %7, i32 0, i32 2
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp slt i32 %9, 64
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store i32 64, ptr %new_size, align 4
-  br label %if.end
+11:                                               ; preds = %1
+  store i32 64, ptr %4, align 4
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %2 = load ptr, ptr %changelist.addr, align 8
-  %changes_size1 = getelementptr inbounds %struct.event_changelist, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %changes_size1, align 4
-  %mul = mul nsw i32 %3, 2
-  store i32 %mul, ptr %new_size, align 4
-  br label %if.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.event_changelist, ptr %13, i32 0, i32 2
+  %15 = load i32, ptr %14, align 4
+  %16 = mul nsw i32 %15, 2
+  store i32 %16, ptr %4, align 4
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then
-  %4 = load ptr, ptr %changelist.addr, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %changes, align 8
-  %6 = load i32, ptr %new_size, align 4
-  %conv = sext i32 %6 to i64
-  %mul2 = mul i64 %conv, 12
-  %call = call ptr @event_mm_realloc_(ptr noundef %5, i64 noundef %mul2)
-  store ptr %call, ptr %new_changes, align 8
-  %7 = load ptr, ptr %new_changes, align 8
-  %cmp3 = icmp eq ptr %7, null
-  %lnot = xor i1 %cmp3, true
-  %lnot5 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot5 to i32
-  %conv6 = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv6, 0
-  br i1 %tobool, label %if.then7, label %if.end8
+17:                                               ; preds = %12, %11
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.event_changelist, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %4, align 4
+  %22 = sext i32 %21 to i64
+  %23 = mul i64 %22, 12
+  %24 = call ptr @event_mm_realloc_(ptr noundef %20, i64 noundef %23)
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = icmp eq ptr %25, null
+  %27 = xor i1 %26, true
+  %28 = xor i1 %27, true
+  %29 = zext i1 %28 to i32
+  %30 = sext i32 %29 to i64
+  %31 = call i64 @llvm.expect.i64(i64 %30, i64 0)
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %34
 
-if.then7:                                         ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %17
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
 
-if.end8:                                          ; preds = %if.end
-  %8 = load ptr, ptr %new_changes, align 8
-  %9 = load ptr, ptr %changelist.addr, align 8
-  %changes9 = getelementptr inbounds %struct.event_changelist, ptr %9, i32 0, i32 0
-  store ptr %8, ptr %changes9, align 8
-  %10 = load i32, ptr %new_size, align 4
-  %11 = load ptr, ptr %changelist.addr, align 8
-  %changes_size10 = getelementptr inbounds %struct.event_changelist, ptr %11, i32 0, i32 2
-  store i32 %10, ptr %changes_size10, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %17
+  %35 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.event_changelist, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %37, align 8
+  %38 = load i32, ptr %4, align 4
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw %struct.event_changelist, ptr %39, i32 0, i32 2
+  store i32 %38, ptr %40, align 4
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %41
 
-return:                                           ; preds = %if.end8, %if.then7
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+41:                                               ; preds = %34, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %42 = load i32, ptr %2, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @event_changelist_assert_ok_foreach_iter_fn(ptr noundef %base, i32 noundef %fd, ptr noundef %io, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %fd.addr = alloca i32, align 4
-  %io.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %changelist = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %io, ptr %io.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %changelist1 = getelementptr inbounds %struct.event_base, ptr %0, i32 0, i32 2
-  store ptr %changelist1, ptr %changelist, align 8
-  %1 = load ptr, ptr %io.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %add.ptr, ptr %f, align 8
-  %2 = load ptr, ptr %f, align 8
-  %idxplus1 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %idxplus1, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @event_changelist_assert_ok_foreach_iter_fn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.event_base, ptr %12, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %15, ptr %10, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %33
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %changelist, align 8
-  %changes = getelementptr inbounds %struct.event_changelist, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %changes, align 8
-  %6 = load ptr, ptr %f, align 8
-  %idxplus12 = getelementptr inbounds %struct.event_changelist_fdinfo, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %idxplus12, align 4
-  %sub = sub nsw i32 %7, 1
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds %struct.event_change, ptr %5, i64 %idxprom
-  store ptr %arrayidx, ptr %c, align 8
-  br label %do.body
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw %struct.event_changelist, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds nuw %struct.event_changelist_fdinfo, ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 4
+  %27 = sub nsw i32 %26, 1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.event_change, ptr %23, i64 %28
+  store ptr %29, ptr %11, align 8
+  br label %30
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+30:                                               ; preds = %20
+  br label %31
 
-do.end:                                           ; preds = %do.body
-  br label %if.end
+31:                                               ; preds = %30
+  br label %32
 
-if.end:                                           ; preds = %do.end, %entry
+32:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %33
+
+33:                                               ; preds = %32, %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}

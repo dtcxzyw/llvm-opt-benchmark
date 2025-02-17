@@ -1,16 +1,15 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
 %struct.evthread_condition_callbacks = type { i32, ptr, ptr, ptr, ptr }
 %struct.debug_lock = type { i32, i32, i64, i32, ptr }
 
-@evthread_lock_debugging_enabled_ = dso_local global i32 0, align 4
-@evthread_lock_fns_ = dso_local global %struct.evthread_lock_callbacks zeroinitializer, align 8
-@evthread_id_fn_ = dso_local global ptr null, align 8
-@evthread_cond_fns_ = dso_local global %struct.evthread_condition_callbacks zeroinitializer, align 8
+@evthread_lock_debugging_enabled_ = global i32 0, align 4
+@evthread_lock_fns_ = global %struct.evthread_lock_callbacks zeroinitializer, align 8
+@evthread_id_fn_ = hidden global ptr null, align 8
+@evthread_cond_fns_ = global { i32, [4 x i8], ptr, ptr, ptr, ptr } zeroinitializer, align 8
 @original_lock_fns_ = internal global %struct.evthread_lock_callbacks zeroinitializer, align 8
-@original_cond_fns_ = internal global %struct.evthread_condition_callbacks zeroinitializer, align 8
 @event_debug_mode_on_ = external global i32, align 4
 @event_debug_created_threadable_ctx_ = external global i32, align 4
 @.str = private unnamed_addr constant [61 x i8] c"evthread initialization must be called BEFORE anything else!\00", align 1
@@ -19,1176 +18,1288 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [90 x i8] c"Trying to disable condition functions after they have been set up will probably not work.\00", align 1
 @.str.4 = private unnamed_addr constant [66 x i8] c"Can't change condition callbacks once they have been initialized.\00", align 1
 @__const.evthread_enable_lock_debugging.cbs = private unnamed_addr constant %struct.evthread_lock_callbacks { i32 1, i32 1, ptr @debug_lock_alloc, ptr @debug_lock_free, ptr @debug_lock_lock, ptr @debug_lock_unlock }, align 8
+@original_cond_fns_ = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr } zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evthread_set_id_callback(ptr noundef %id_fn) #0 {
-entry:
-  %id_fn.addr = alloca ptr, align 8
-  store ptr %id_fn, ptr %id_fn.addr, align 8
-  %0 = load ptr, ptr %id_fn.addr, align 8
-  store ptr %0, ptr @evthread_id_fn_, align 8
+define void @evthread_set_id_callback(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr @evthread_id_fn_, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evthread_get_lock_callbacks() #0 {
-entry:
-  %0 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool = icmp ne i32 %0, 0
-  %cond = select i1 %tobool, ptr @original_lock_fns_, ptr @evthread_lock_fns_
-  ret ptr %cond
+define ptr @evthread_get_lock_callbacks() #0 {
+  %1 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %2 = icmp ne i32 %1, 0
+  %3 = select i1 %2, ptr @original_lock_fns_, ptr @evthread_lock_fns_
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evthread_get_condition_callbacks() #0 {
-entry:
-  %0 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool = icmp ne i32 %0, 0
-  %cond = select i1 %tobool, ptr @original_cond_fns_, ptr @evthread_cond_fns_
-  ret ptr %cond
+define hidden ptr @evthread_get_condition_callbacks() #0 {
+  %1 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %2 = icmp ne i32 %1, 0
+  %3 = select i1 %2, ptr @original_cond_fns_, ptr @evthread_cond_fns_
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evthreadimpl_disable_lock_debugging_() #0 {
-entry:
+define hidden void @evthreadimpl_disable_lock_debugging_() #0 {
   store i32 0, ptr @evthread_lock_debugging_enabled_, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_set_lock_callbacks(ptr noundef %cbs) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cbs.addr = alloca ptr, align 8
-  %target = alloca ptr, align 8
-  store ptr %cbs, ptr %cbs.addr, align 8
-  %call = call ptr @evthread_get_lock_callbacks()
-  store ptr %call, ptr %target, align 8
-  %0 = load i32, ptr @event_debug_mode_on_, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end3
+define i32 @evthread_set_lock_callbacks(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = call ptr @evthread_get_lock_callbacks()
+  store ptr %6, ptr %4, align 8
+  %7 = load i32, ptr @event_debug_mode_on_, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr @event_debug_created_threadable_ctx_, align 4
-  %tobool1 = icmp ne i32 %1, 0
-  br i1 %tobool1, label %if.then2, label %if.end
+9:                                                ; preds = %1
+  %10 = load i32, ptr @event_debug_created_threadable_ctx_, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then2:                                         ; preds = %if.then
-  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef @.str) #5
+12:                                               ; preds = %9
+  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef @.str) #7
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %if.end3
+13:                                               ; preds = %9
+  br label %14
 
-if.end3:                                          ; preds = %if.end, %entry
-  %2 = load ptr, ptr %cbs.addr, align 8
-  %tobool4 = icmp ne ptr %2, null
-  br i1 %tobool4, label %if.end9, label %if.then5
+14:                                               ; preds = %13, %1
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %25, label %17
 
-if.then5:                                         ; preds = %if.end3
-  %3 = load ptr, ptr %target, align 8
-  %alloc = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %alloc, align 8
-  %tobool6 = icmp ne ptr %4, null
-  br i1 %tobool6, label %if.then7, label %if.end8
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %23
 
-if.then7:                                         ; preds = %if.then5
+22:                                               ; preds = %17
   call void (ptr, ...) @event_warnx(ptr noundef @.str.1)
-  br label %if.end8
+  br label %23
 
-if.end8:                                          ; preds = %if.then7, %if.then5
-  %5 = load ptr, ptr %target, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 40, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 40, i1 false)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %105
 
-if.end9:                                          ; preds = %if.end3
-  %6 = load ptr, ptr %target, align 8
-  %alloc10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %alloc10, align 8
-  %tobool11 = icmp ne ptr %7, null
-  br i1 %tobool11, label %if.then12, label %if.end31
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %80
 
-if.then12:                                        ; preds = %if.end9
-  %8 = load ptr, ptr %target, align 8
-  %lock_api_version = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %lock_api_version, align 8
-  %10 = load ptr, ptr %cbs.addr, align 8
-  %lock_api_version13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %lock_api_version13, align 8
-  %cmp = icmp eq i32 %9, %11
-  br i1 %cmp, label %land.lhs.true, label %if.end30
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %33, %36
+  br i1 %37, label %38, label %79
 
-land.lhs.true:                                    ; preds = %if.then12
-  %12 = load ptr, ptr %target, align 8
-  %supported_locktypes = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %supported_locktypes, align 4
-  %14 = load ptr, ptr %cbs.addr, align 8
-  %supported_locktypes14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %14, i32 0, i32 1
-  %15 = load i32, ptr %supported_locktypes14, align 4
-  %cmp15 = icmp eq i32 %13, %15
-  br i1 %cmp15, label %land.lhs.true16, label %if.end30
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %41, %44
+  br i1 %45, label %46, label %79
 
-land.lhs.true16:                                  ; preds = %land.lhs.true
-  %16 = load ptr, ptr %target, align 8
-  %alloc17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %alloc17, align 8
-  %18 = load ptr, ptr %cbs.addr, align 8
-  %alloc18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %alloc18, align 8
-  %cmp19 = icmp eq ptr %17, %19
-  br i1 %cmp19, label %land.lhs.true20, label %if.end30
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %49, %52
+  br i1 %53, label %54, label %79
 
-land.lhs.true20:                                  ; preds = %land.lhs.true16
-  %20 = load ptr, ptr %target, align 8
-  %free = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %20, i32 0, i32 3
-  %21 = load ptr, ptr %free, align 8
-  %22 = load ptr, ptr %cbs.addr, align 8
-  %free21 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %free21, align 8
-  %cmp22 = icmp eq ptr %21, %23
-  br i1 %cmp22, label %land.lhs.true23, label %if.end30
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %57, %60
+  br i1 %61, label %62, label %79
 
-land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %24 = load ptr, ptr %target, align 8
-  %lock = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %24, i32 0, i32 4
-  %25 = load ptr, ptr %lock, align 8
-  %26 = load ptr, ptr %cbs.addr, align 8
-  %lock24 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %lock24, align 8
-  %cmp25 = icmp eq ptr %25, %27
-  br i1 %cmp25, label %land.lhs.true26, label %if.end30
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %63, i32 0, i32 4
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %66, i32 0, i32 4
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %65, %68
+  br i1 %69, label %70, label %79
 
-land.lhs.true26:                                  ; preds = %land.lhs.true23
-  %28 = load ptr, ptr %target, align 8
-  %unlock = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %28, i32 0, i32 5
-  %29 = load ptr, ptr %unlock, align 8
-  %30 = load ptr, ptr %cbs.addr, align 8
-  %unlock27 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %unlock27, align 8
-  %cmp28 = icmp eq ptr %29, %31
-  br i1 %cmp28, label %if.then29, label %if.end30
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %4, align 8
+  %72 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %74, i32 0, i32 5
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %73, %76
+  br i1 %77, label %78, label %79
 
-if.then29:                                        ; preds = %land.lhs.true26
-  store i32 0, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %70
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %105
 
-if.end30:                                         ; preds = %land.lhs.true26, %land.lhs.true23, %land.lhs.true20, %land.lhs.true16, %land.lhs.true, %if.then12
+79:                                               ; preds = %70, %62, %54, %46, %38, %30
   call void (ptr, ...) @event_warnx(ptr noundef @.str.2)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %105
 
-if.end31:                                         ; preds = %if.end9
-  %32 = load ptr, ptr %cbs.addr, align 8
-  %alloc32 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %alloc32, align 8
-  %tobool33 = icmp ne ptr %33, null
-  br i1 %tobool33, label %land.lhs.true34, label %if.else
+80:                                               ; preds = %25
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %104
 
-land.lhs.true34:                                  ; preds = %if.end31
-  %34 = load ptr, ptr %cbs.addr, align 8
-  %free35 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %34, i32 0, i32 3
-  %35 = load ptr, ptr %free35, align 8
-  %tobool36 = icmp ne ptr %35, null
-  br i1 %tobool36, label %land.lhs.true37, label %if.else
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %86, i32 0, i32 3
+  %88 = load ptr, ptr %87, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %104
 
-land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %36 = load ptr, ptr %cbs.addr, align 8
-  %lock38 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %36, i32 0, i32 4
-  %37 = load ptr, ptr %lock38, align 8
-  %tobool39 = icmp ne ptr %37, null
-  br i1 %tobool39, label %land.lhs.true40, label %if.else
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %91, i32 0, i32 4
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %104
 
-land.lhs.true40:                                  ; preds = %land.lhs.true37
-  %38 = load ptr, ptr %cbs.addr, align 8
-  %unlock41 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr %38, i32 0, i32 5
-  %39 = load ptr, ptr %unlock41, align 8
-  %tobool42 = icmp ne ptr %39, null
-  br i1 %tobool42, label %if.then43, label %if.else
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds nuw %struct.evthread_lock_callbacks, ptr %96, i32 0, i32 5
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %104
 
-if.then43:                                        ; preds = %land.lhs.true40
-  %40 = load ptr, ptr %target, align 8
-  %41 = load ptr, ptr %cbs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %41, i64 40, i1 false)
-  %call44 = call i32 @event_global_setup_locks_(i32 noundef 1)
-  store i32 %call44, ptr %retval, align 4
-  br label %return
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %4, align 8
+  %102 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %101, ptr align 8 %102, i64 40, i1 false)
+  %103 = call i32 @event_global_setup_locks_(i32 noundef 1)
+  store i32 %103, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %105
 
-if.else:                                          ; preds = %land.lhs.true40, %land.lhs.true37, %land.lhs.true34, %if.end31
-  store i32 -1, ptr %retval, align 4
-  br label %return
+104:                                              ; preds = %95, %90, %85, %80
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %105
 
-return:                                           ; preds = %if.else, %if.then43, %if.end30, %if.then29, %if.end8
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+105:                                              ; preds = %104, %100, %79, %78, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %106 = load i32, ptr %2, align 4
+  ret i32 %106
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn
-declare void @event_errx(i32 noundef, ptr noundef, ...) #1
+declare void @event_errx(i32 noundef, ptr noundef, ...) #2
 
-declare void @event_warnx(ptr noundef, ...) #2
+declare void @event_warnx(ptr noundef, ...) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @event_global_setup_locks_(i32 noundef) #2
+declare i32 @event_global_setup_locks_(i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_set_condition_callbacks(ptr noundef %cbs) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %cbs.addr = alloca ptr, align 8
-  %target = alloca ptr, align 8
-  store ptr %cbs, ptr %cbs.addr, align 8
-  %call = call ptr @evthread_get_condition_callbacks()
-  store ptr %call, ptr %target, align 8
-  %0 = load i32, ptr @event_debug_mode_on_, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end3
+define i32 @evthread_set_condition_callbacks(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = call ptr @evthread_get_condition_callbacks()
+  store ptr %6, ptr %4, align 8
+  %7 = load i32, ptr @event_debug_mode_on_, align 4
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr @event_debug_created_threadable_ctx_, align 4
-  %tobool1 = icmp ne i32 %1, 0
-  br i1 %tobool1, label %if.then2, label %if.end
+9:                                                ; preds = %1
+  %10 = load i32, ptr @event_debug_created_threadable_ctx_, align 4
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then2:                                         ; preds = %if.then
-  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef @.str) #5
+12:                                               ; preds = %9
+  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef @.str) #7
   unreachable
 
-if.end:                                           ; preds = %if.then
-  br label %if.end3
+13:                                               ; preds = %9
+  br label %14
 
-if.end3:                                          ; preds = %if.end, %entry
-  %2 = load ptr, ptr %cbs.addr, align 8
-  %tobool4 = icmp ne ptr %2, null
-  br i1 %tobool4, label %if.end9, label %if.then5
+14:                                               ; preds = %13, %1
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %25, label %17
 
-if.then5:                                         ; preds = %if.end3
-  %3 = load ptr, ptr %target, align 8
-  %alloc_condition = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %alloc_condition, align 8
-  %tobool6 = icmp ne ptr %4, null
-  br i1 %tobool6, label %if.then7, label %if.end8
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %23
 
-if.then7:                                         ; preds = %if.then5
+22:                                               ; preds = %17
   call void (ptr, ...) @event_warnx(ptr noundef @.str.3)
-  br label %if.end8
+  br label %23
 
-if.end8:                                          ; preds = %if.then7, %if.then5
-  %5 = load ptr, ptr %target, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 40, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 40, i1 false)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %109
 
-if.end9:                                          ; preds = %if.end3
-  %6 = load ptr, ptr %target, align 8
-  %alloc_condition10 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %alloc_condition10, align 8
-  %tobool11 = icmp ne ptr %7, null
-  br i1 %tobool11, label %if.then12, label %if.end28
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %72
 
-if.then12:                                        ; preds = %if.end9
-  %8 = load ptr, ptr %target, align 8
-  %condition_api_version = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %condition_api_version, align 8
-  %10 = load ptr, ptr %cbs.addr, align 8
-  %condition_api_version13 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %condition_api_version13, align 8
-  %cmp = icmp eq i32 %9, %11
-  br i1 %cmp, label %land.lhs.true, label %if.end27
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %33, %36
+  br i1 %37, label %38, label %71
 
-land.lhs.true:                                    ; preds = %if.then12
-  %12 = load ptr, ptr %target, align 8
-  %alloc_condition14 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %alloc_condition14, align 8
-  %14 = load ptr, ptr %cbs.addr, align 8
-  %alloc_condition15 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %alloc_condition15, align 8
-  %cmp16 = icmp eq ptr %13, %15
-  br i1 %cmp16, label %land.lhs.true17, label %if.end27
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %41, %44
+  br i1 %45, label %46, label %71
 
-land.lhs.true17:                                  ; preds = %land.lhs.true
-  %16 = load ptr, ptr %target, align 8
-  %free_condition = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %free_condition, align 8
-  %18 = load ptr, ptr %cbs.addr, align 8
-  %free_condition18 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %free_condition18, align 8
-  %cmp19 = icmp eq ptr %17, %19
-  br i1 %cmp19, label %land.lhs.true20, label %if.end27
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %49, %52
+  br i1 %53, label %54, label %71
 
-land.lhs.true20:                                  ; preds = %land.lhs.true17
-  %20 = load ptr, ptr %target, align 8
-  %signal_condition = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %20, i32 0, i32 3
-  %21 = load ptr, ptr %signal_condition, align 8
-  %22 = load ptr, ptr %cbs.addr, align 8
-  %signal_condition21 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %signal_condition21, align 8
-  %cmp22 = icmp eq ptr %21, %23
-  br i1 %cmp22, label %land.lhs.true23, label %if.end27
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %57, %60
+  br i1 %61, label %62, label %71
 
-land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %24 = load ptr, ptr %target, align 8
-  %wait_condition = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %24, i32 0, i32 4
-  %25 = load ptr, ptr %wait_condition, align 8
-  %26 = load ptr, ptr %cbs.addr, align 8
-  %wait_condition24 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %wait_condition24, align 8
-  %cmp25 = icmp eq ptr %25, %27
-  br i1 %cmp25, label %if.then26, label %if.end27
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %63, i32 0, i32 4
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %66, i32 0, i32 4
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %65, %68
+  br i1 %69, label %70, label %71
 
-if.then26:                                        ; preds = %land.lhs.true23
-  store i32 0, ptr %retval, align 4
-  br label %return
+70:                                               ; preds = %62
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %109
 
-if.end27:                                         ; preds = %land.lhs.true23, %land.lhs.true20, %land.lhs.true17, %land.lhs.true, %if.then12
+71:                                               ; preds = %62, %54, %46, %38, %30
   call void (ptr, ...) @event_warnx(ptr noundef @.str.4)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %109
 
-if.end28:                                         ; preds = %if.end9
-  %28 = load ptr, ptr %cbs.addr, align 8
-  %alloc_condition29 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %alloc_condition29, align 8
-  %tobool30 = icmp ne ptr %29, null
-  br i1 %tobool30, label %land.lhs.true31, label %if.end41
+72:                                               ; preds = %25
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %95
 
-land.lhs.true31:                                  ; preds = %if.end28
-  %30 = load ptr, ptr %cbs.addr, align 8
-  %free_condition32 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %free_condition32, align 8
-  %tobool33 = icmp ne ptr %31, null
-  br i1 %tobool33, label %land.lhs.true34, label %if.end41
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %95
 
-land.lhs.true34:                                  ; preds = %land.lhs.true31
-  %32 = load ptr, ptr %cbs.addr, align 8
-  %signal_condition35 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %32, i32 0, i32 3
-  %33 = load ptr, ptr %signal_condition35, align 8
-  %tobool36 = icmp ne ptr %33, null
-  br i1 %tobool36, label %land.lhs.true37, label %if.end41
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %83, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  br i1 %86, label %87, label %95
 
-land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %34 = load ptr, ptr %cbs.addr, align 8
-  %wait_condition38 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %34, i32 0, i32 4
-  %35 = load ptr, ptr %wait_condition38, align 8
-  %tobool39 = icmp ne ptr %35, null
-  br i1 %tobool39, label %if.then40, label %if.end41
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %88, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %95
 
-if.then40:                                        ; preds = %land.lhs.true37
-  %36 = load ptr, ptr %target, align 8
-  %37 = load ptr, ptr %cbs.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 40, i1 false)
-  br label %if.end41
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %4, align 8
+  %94 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %93, ptr align 8 %94, i64 40, i1 false)
+  br label %95
 
-if.end41:                                         ; preds = %if.then40, %land.lhs.true37, %land.lhs.true34, %land.lhs.true31, %if.end28
-  %38 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool42 = icmp ne i32 %38, 0
-  br i1 %tobool42, label %if.then43, label %if.end47
+95:                                               ; preds = %92, %87, %82, %77, %72
+  %96 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %108
 
-if.then43:                                        ; preds = %if.end41
-  %39 = load ptr, ptr %cbs.addr, align 8
-  %alloc_condition44 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %alloc_condition44, align 8
-  %41 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 1
-  store ptr %40, ptr %41, align 8
-  %42 = load ptr, ptr %cbs.addr, align 8
-  %free_condition45 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %42, i32 0, i32 2
-  %43 = load ptr, ptr %free_condition45, align 8
-  %44 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 2
-  store ptr %43, ptr %44, align 8
-  %45 = load ptr, ptr %cbs.addr, align 8
-  %signal_condition46 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr %45, i32 0, i32 3
-  %46 = load ptr, ptr %signal_condition46, align 8
-  %47 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 3
-  store ptr %46, ptr %47, align 8
-  br label %if.end47
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr getelementptr inbounds nuw (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 1), align 8
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr getelementptr inbounds nuw (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 2), align 8
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds nuw %struct.evthread_condition_callbacks, ptr %105, i32 0, i32 3
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr getelementptr inbounds nuw (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 3), align 8
+  br label %108
 
-if.end47:                                         ; preds = %if.then43, %if.end41
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %98, %95
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %109
 
-return:                                           ; preds = %if.end47, %if.end27, %if.then26, %if.end8
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
+109:                                              ; preds = %108, %71, %70, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %110 = load i32, ptr %2, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evthread_enable_lock_debuging() #0 {
-entry:
+define void @evthread_enable_lock_debuging() #0 {
   call void @evthread_enable_lock_debugging()
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evthread_enable_lock_debugging() #0 {
-entry:
-  %cbs = alloca %struct.evthread_lock_callbacks, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cbs, ptr align 8 @__const.evthread_enable_lock_debugging.cbs, i64 40, i1 false)
-  %0 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @evthread_enable_lock_debugging() #0 {
+  %1 = alloca %struct.evthread_lock_callbacks, align 8
+  %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %1) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 @__const.evthread_enable_lock_debugging.cbs, i64 40, i1 false)
+  %3 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %0
+  store i32 1, ptr %2, align 4
+  br label %8
 
-if.end:                                           ; preds = %entry
+6:                                                ; preds = %0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @original_lock_fns_, ptr align 8 @evthread_lock_fns_, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @evthread_lock_fns_, ptr align 8 %cbs, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @evthread_lock_fns_, ptr align 8 %1, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @original_cond_fns_, ptr align 8 @evthread_cond_fns_, i64 40, i1 false)
-  %1 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 4
-  store ptr @debug_cond_wait, ptr %1, align 8
+  store ptr @debug_cond_wait, ptr getelementptr inbounds nuw (%struct.evthread_condition_callbacks, ptr @evthread_cond_fns_, i32 0, i32 4), align 8
   store i32 1, ptr @evthread_lock_debugging_enabled_, align 4
-  %call = call i32 @event_global_setup_locks_(i32 noundef 0)
-  br label %return
+  %7 = call i32 @event_global_setup_locks_(i32 noundef 0)
+  store i32 0, ptr %2, align 4
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
+8:                                                ; preds = %6, %5
+  call void @llvm.lifetime.end.p0(i64 40, ptr %1) #6
+  %9 = load i32, ptr %2, align 4
+  switch i32 %9, label %11 [
+    i32 0, label %10
+    i32 1, label %10
+  ]
+
+10:                                               ; preds = %8, %8
+  ret void
+
+11:                                               ; preds = %8
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @debug_lock_alloc(i32 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = call ptr @event_mm_malloc_(i64 noundef 32)
+  store ptr %6, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %10, label %9
+
+9:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %38
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2), align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %24
+
+13:                                               ; preds = %10
+  %14 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2), align 8
+  %15 = load i32, ptr %3, align 4
+  %16 = or i32 %15, 1
+  %17 = call ptr %14(i32 noundef %16)
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.debug_lock, ptr %18, i32 0, i32 4
+  store ptr %17, ptr %19, align 8
+  %20 = icmp ne ptr %17, null
+  br i1 %20, label %23, label %21
+
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %4, align 8
+  call void @event_mm_free_(ptr noundef %22)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %38
+
+23:                                               ; preds = %13
+  br label %27
+
+24:                                               ; preds = %10
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.debug_lock, ptr %25, i32 0, i32 4
+  store ptr null, ptr %26, align 8
+  br label %27
+
+27:                                               ; preds = %24, %23
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.debug_lock, ptr %28, i32 0, i32 0
+  store i32 -558845684, ptr %29, align 8
+  %30 = load i32, ptr %3, align 4
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.debug_lock, ptr %31, i32 0, i32 1
+  store i32 %30, ptr %32, align 4
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.debug_lock, ptr %33, i32 0, i32 3
+  store i32 0, ptr %34, align 8
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.debug_lock, ptr %35, i32 0, i32 2
+  store i64 0, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  store ptr %37, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %38
+
+38:                                               ; preds = %27, %21, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %39 = load ptr, ptr %2, align 8
+  ret ptr %39
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @debug_lock_free(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  br label %7
+
+7:                                                ; preds = %2
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3), align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3), align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.debug_lock, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.debug_lock, ptr %23, i32 0, i32 1
+  %25 = load i32, ptr %24, align 4
+  %26 = or i32 %25, 1
+  call void %19(ptr noundef %22, i32 noundef %26)
+  br label %27
+
+27:                                               ; preds = %18, %15
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.debug_lock, ptr %28, i32 0, i32 4
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.debug_lock, ptr %30, i32 0, i32 3
+  store i32 -100, ptr %31, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds nuw %struct.debug_lock, ptr %32, i32 0, i32 0
+  store i32 305139674, ptr %33, align 8
+  %34 = load ptr, ptr %5, align 8
+  call void @event_mm_free_(ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @debug_lock_alloc(i32 noundef %locktype) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %locktype.addr = alloca i32, align 4
-  %result = alloca ptr, align 8
-  store i32 %locktype, ptr %locktype.addr, align 4
-  %call = call ptr @event_mm_malloc_(i64 noundef 32)
-  store ptr %call, ptr %result, align 8
-  %0 = load ptr, ptr %result, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @debug_lock_lock(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 0, ptr %6, align 4
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %struct.debug_lock, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %17
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2
-  %2 = load ptr, ptr %1, align 8
-  %tobool1 = icmp ne ptr %2, null
-  br i1 %tobool1, label %if.then2, label %if.else
+14:                                               ; preds = %13
+  br label %15
 
-if.then2:                                         ; preds = %if.end
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %locktype.addr, align 4
-  %or = or i32 %5, 1
-  %call3 = call ptr %4(i32 noundef %or)
-  %6 = load ptr, ptr %result, align 8
-  %lock = getelementptr inbounds %struct.debug_lock, ptr %6, i32 0, i32 4
-  store ptr %call3, ptr %lock, align 8
-  %tobool4 = icmp ne ptr %call3, null
-  br i1 %tobool4, label %if.end6, label %if.then5
+15:                                               ; preds = %14
+  br label %16
 
-if.then5:                                         ; preds = %if.then2
-  %7 = load ptr, ptr %result, align 8
-  call void @event_mm_free_(ptr noundef %7)
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %15
+  br label %21
 
-if.end6:                                          ; preds = %if.then2
-  br label %if.end8
+17:                                               ; preds = %2
+  br label %18
 
-if.else:                                          ; preds = %if.end
-  %8 = load ptr, ptr %result, align 8
-  %lock7 = getelementptr inbounds %struct.debug_lock, ptr %8, i32 0, i32 4
-  store ptr null, ptr %lock7, align 8
-  br label %if.end8
+18:                                               ; preds = %17
+  br label %19
 
-if.end8:                                          ; preds = %if.else, %if.end6
-  %9 = load ptr, ptr %result, align 8
-  %signature = getelementptr inbounds %struct.debug_lock, ptr %9, i32 0, i32 0
-  store i32 -558845684, ptr %signature, align 8
-  %10 = load i32, ptr %locktype.addr, align 4
-  %11 = load ptr, ptr %result, align 8
-  %locktype9 = getelementptr inbounds %struct.debug_lock, ptr %11, i32 0, i32 1
-  store i32 %10, ptr %locktype9, align 4
-  %12 = load ptr, ptr %result, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %12, i32 0, i32 3
-  store i32 0, ptr %count, align 8
-  %13 = load ptr, ptr %result, align 8
-  %held_by = getelementptr inbounds %struct.debug_lock, ptr %13, i32 0, i32 2
-  store i64 0, ptr %held_by, align 8
-  %14 = load ptr, ptr %result, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %18
+  br label %20
 
-return:                                           ; preds = %if.end8, %if.then5, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20, %16
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 4), align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %31
+
+24:                                               ; preds = %21
+  %25 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 4), align 8
+  %26 = load i32, ptr %3, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.debug_lock, ptr %27, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 %25(i32 noundef %26, ptr noundef %29)
+  store i32 %30, ptr %6, align 4
+  br label %31
+
+31:                                               ; preds = %24, %21
+  %32 = load i32, ptr %6, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %31
+  %35 = load i32, ptr %3, align 4
+  %36 = load ptr, ptr %5, align 8
+  call void @evthread_debug_lock_mark_locked(i32 noundef %35, ptr noundef %36)
+  br label %37
+
+37:                                               ; preds = %34, %31
+  %38 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_lock_free(ptr noundef %lock_, i32 noundef %locktype) #0 {
-entry:
-  %lock_.addr = alloca ptr, align 8
-  %locktype.addr = alloca i32, align 4
-  %lock = alloca ptr, align 8
-  store ptr %lock_, ptr %lock_.addr, align 8
-  store i32 %locktype, ptr %locktype.addr, align 4
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  br label %do.body
+define internal i32 @debug_lock_unlock(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 0, ptr %6, align 4
+  %8 = load i32, ptr %3, align 4
+  %9 = load ptr, ptr %5, align 8
+  call void @evthread_debug_lock_mark_unlocked(i32 noundef %8, ptr noundef %9)
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 5), align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %19
 
-do.body:                                          ; preds = %entry
-  br label %do.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 5), align 8
+  %14 = load i32, ptr %3, align 4
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct.debug_lock, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 %13(i32 noundef %14, ptr noundef %17)
+  store i32 %18, ptr %6, align 4
+  br label %19
 
-do.end:                                           ; preds = %do.body
-  br label %do.body1
+19:                                               ; preds = %12, %2
+  %20 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret i32 %20
+}
 
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
+; Function Attrs: nounwind uwtable
+define internal i32 @debug_cond_wait(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  br label %10
 
-do.end2:                                          ; preds = %do.body1
-  br label %do.body3
+10:                                               ; preds = %3
+  br label %11
 
-do.body3:                                         ; preds = %do.end2
-  br label %do.end4
+11:                                               ; preds = %10
+  br label %12
 
-do.end4:                                          ; preds = %do.body3
-  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3
-  %2 = load ptr, ptr %1, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+12:                                               ; preds = %11
+  br label %13
 
-if.then:                                          ; preds = %do.end4
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %lock, align 8
-  %lock5 = getelementptr inbounds %struct.debug_lock, ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %lock5, align 8
-  %7 = load ptr, ptr %lock, align 8
-  %locktype6 = getelementptr inbounds %struct.debug_lock, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %locktype6, align 4
-  %or = or i32 %8, 1
-  call void %4(ptr noundef %6, i32 noundef %or)
-  br label %if.end
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %if.then, %do.end4
-  %9 = load ptr, ptr %lock, align 8
-  %lock7 = getelementptr inbounds %struct.debug_lock, ptr %9, i32 0, i32 4
-  store ptr null, ptr %lock7, align 8
-  %10 = load ptr, ptr %lock, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %10, i32 0, i32 3
-  store i32 -100, ptr %count, align 8
-  %11 = load ptr, ptr %lock, align 8
-  %signature = getelementptr inbounds %struct.debug_lock, ptr %11, i32 0, i32 0
-  store i32 305139674, ptr %signature, align 8
-  %12 = load ptr, ptr %lock, align 8
-  call void @event_mm_free_(ptr noundef %12)
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %5, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %16
+  %20 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %19
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25, %19, %16
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %8, align 8
+  call void @evthread_debug_lock_mark_unlocked(i32 noundef 0, ptr noundef %29)
+  %30 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_condition_callbacks, ptr @original_cond_fns_, i32 0, i32 4), align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.debug_lock, ptr %32, i32 0, i32 4
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = call i32 %30(ptr noundef %31, ptr noundef %34, ptr noundef %35)
+  store i32 %36, ptr %7, align 4
+  %37 = load ptr, ptr %8, align 8
+  call void @evthread_debug_lock_mark_locked(i32 noundef 0, ptr noundef %37)
+  %38 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %38
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @evthread_is_debug_lock_held_(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %7 = load ptr, ptr %3, align 8
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.debug_lock, ptr %8, i32 0, i32 3
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr @evthread_id_fn_, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %29
+
+16:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %17 = load ptr, ptr @evthread_id_fn_, align 8
+  %18 = call i64 %17()
+  store i64 %18, ptr %6, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.debug_lock, ptr %19, i32 0, i32 2
+  %21 = load i64, ptr %20, align 8
+  %22 = load i64, ptr %6, align 8
+  %23 = icmp ne i64 %21, %22
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %16
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %26
+
+25:                                               ; preds = %16
+  store i32 0, ptr %5, align 4
+  br label %26
+
+26:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %27 = load i32, ptr %5, align 4
+  switch i32 %27, label %30 [
+    i32 0, label %28
+  ]
+
+28:                                               ; preds = %26
+  br label %29
+
+29:                                               ; preds = %28, %13
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+30:                                               ; preds = %29, %26, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %31 = load i32, ptr %2, align 4
+  ret i32 %31
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @evthread_debug_get_real_lock_(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.debug_lock, ptr %5, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  %11 = load i32, ptr %7, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %21, label %13
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2), align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %13
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = load i32, ptr %6, align 4
+  %20 = call ptr @debug_lock_alloc(i32 noundef %19)
+  store ptr %20, ptr %4, align 8
+  br label %116
+
+21:                                               ; preds = %13, %3
+  %22 = load i32, ptr %7, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %61, label %24
+
+24:                                               ; preds = %21
+  %25 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2), align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %61
+
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load i32, ptr %6, align 4
+  %32 = and i32 %31, 1
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %40, label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3), align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i32, ptr %6, align 4
+  call void %35(ptr noundef %36, i32 noundef %37)
+  %38 = load i32, ptr %6, align 4
+  %39 = call ptr @debug_lock_alloc(i32 noundef %38)
+  store ptr %39, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %60
+
+40:                                               ; preds = %30
+  %41 = call ptr @event_mm_malloc_(i64 noundef 32)
+  store ptr %41, ptr %8, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %48, label %44
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3), align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i32, ptr %6, align 4
+  call void %45(ptr noundef %46, i32 noundef %47)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %60
+
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.debug_lock, ptr %50, i32 0, i32 4
+  store ptr %49, ptr %51, align 8
+  %52 = load i32, ptr %6, align 4
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds nuw %struct.debug_lock, ptr %53, i32 0, i32 1
+  store i32 %52, ptr %54, align 4
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds nuw %struct.debug_lock, ptr %55, i32 0, i32 3
+  store i32 0, ptr %56, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.debug_lock, ptr %57, i32 0, i32 2
+  store i64 0, ptr %58, align 8
+  %59 = load ptr, ptr %8, align 8
+  store ptr %59, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %60
+
+60:                                               ; preds = %48, %44, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %116
+
+61:                                               ; preds = %24, %21
+  %62 = load i32, ptr %7, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %73
+
+64:                                               ; preds = %61
+  %65 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %73, label %67
+
+67:                                               ; preds = %64
+  br label %68
+
+68:                                               ; preds = %67
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
+  %71 = load i32, ptr %6, align 4
+  %72 = call ptr %70(i32 noundef %71)
+  store ptr %72, ptr %4, align 8
+  br label %116
+
+73:                                               ; preds = %64, %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %74 = load ptr, ptr %5, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %78
+
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %5, align 8
+  br label %81
+
+78:                                               ; preds = %73
+  %79 = load i32, ptr %6, align 4
+  %80 = call ptr @debug_lock_alloc(i32 noundef %79)
+  br label %81
+
+81:                                               ; preds = %78, %76
+  %82 = phi ptr [ %77, %76 ], [ %80, %78 ]
+  store ptr %82, ptr %10, align 8
+  %83 = load ptr, ptr %10, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %86, label %85
+
+85:                                               ; preds = %81
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %115
+
+86:                                               ; preds = %81
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %10, align 8
+  %94 = getelementptr inbounds nuw %struct.debug_lock, ptr %93, i32 0, i32 4
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %113, label %97
+
+97:                                               ; preds = %92
+  %98 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2), align 8
+  %99 = load i32, ptr %6, align 4
+  %100 = or i32 %99, 1
+  %101 = call ptr %98(i32 noundef %100)
+  %102 = load ptr, ptr %10, align 8
+  %103 = getelementptr inbounds nuw %struct.debug_lock, ptr %102, i32 0, i32 4
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = getelementptr inbounds nuw %struct.debug_lock, ptr %104, i32 0, i32 4
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %112, label %108
+
+108:                                              ; preds = %97
+  %109 = load ptr, ptr %10, align 8
+  %110 = getelementptr inbounds nuw %struct.debug_lock, ptr %109, i32 0, i32 3
+  store i32 -200, ptr %110, align 8
+  %111 = load ptr, ptr %10, align 8
+  call void @event_mm_free_(ptr noundef %111)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %115
+
+112:                                              ; preds = %97
+  br label %113
+
+113:                                              ; preds = %112, %92
+  %114 = load ptr, ptr %10, align 8
+  store ptr %114, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %115
+
+115:                                              ; preds = %113, %108, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %116
+
+116:                                              ; preds = %115, %69, %60, %18
+  %117 = load ptr, ptr %4, align 8
+  ret ptr %117
+}
+
+declare ptr @event_mm_malloc_(i64 noundef) #3
+
+declare void @event_mm_free_(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @evthread_debug_lock_mark_locked(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store i32 %0, ptr %3, align 4
+  store ptr %1, ptr %4, align 8
+  br label %6
+
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.debug_lock, ptr %8, i32 0, i32 3
+  %10 = load i32, ptr %9, align 8
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %9, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.debug_lock, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 1
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %20, label %17
+
+17:                                               ; preds = %7
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19, %7
+  %21 = load ptr, ptr @evthread_id_fn_, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %38
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %24 = load ptr, ptr @evthread_id_fn_, align 8
+  %25 = call i64 %24()
+  store i64 %25, ptr %5, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.debug_lock, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp sgt i32 %28, 1
+  br i1 %29, label %30, label %34
+
+30:                                               ; preds = %23
+  br label %31
+
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33, %23
+  %35 = load i64, ptr %5, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.debug_lock, ptr %36, i32 0, i32 2
+  store i64 %35, ptr %37, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %38
+
+38:                                               ; preds = %34, %20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_lock_lock(i32 noundef %mode, ptr noundef %lock_) #0 {
-entry:
-  %mode.addr = alloca i32, align 4
-  %lock_.addr = alloca ptr, align 8
-  %lock = alloca ptr, align 8
-  %res = alloca i32, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %lock_, ptr %lock_.addr, align 8
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  store i32 0, ptr %res, align 4
-  %1 = load ptr, ptr %lock, align 8
-  %locktype = getelementptr inbounds %struct.debug_lock, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %locktype, align 4
-  %and = and i32 %2, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.else
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %if.end
-
-if.end:                                           ; preds = %do.end2, %do.end
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 4
-  %4 = load ptr, ptr %3, align 8
-  %tobool3 = icmp ne ptr %4, null
-  br i1 %tobool3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.end
-  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %mode.addr, align 4
-  %8 = load ptr, ptr %lock, align 8
-  %lock5 = getelementptr inbounds %struct.debug_lock, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %lock5, align 8
-  %call = call i32 %6(i32 noundef %7, ptr noundef %9)
-  store i32 %call, ptr %res, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then4, %if.end
-  %10 = load i32, ptr %res, align 4
-  %tobool7 = icmp ne i32 %10, 0
-  br i1 %tobool7, label %if.end9, label %if.then8
-
-if.then8:                                         ; preds = %if.end6
-  %11 = load i32, ptr %mode.addr, align 4
-  %12 = load ptr, ptr %lock, align 8
-  call void @evthread_debug_lock_mark_locked(i32 noundef %11, ptr noundef %12)
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then8, %if.end6
-  %13 = load i32, ptr %res, align 4
-  ret i32 %13
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @debug_lock_unlock(i32 noundef %mode, ptr noundef %lock_) #0 {
-entry:
-  %mode.addr = alloca i32, align 4
-  %lock_.addr = alloca ptr, align 8
-  %lock = alloca ptr, align 8
-  %res = alloca i32, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %lock_, ptr %lock_.addr, align 8
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  store i32 0, ptr %res, align 4
-  %1 = load i32, ptr %mode.addr, align 4
-  %2 = load ptr, ptr %lock, align 8
-  call void @evthread_debug_lock_mark_unlocked(i32 noundef %1, ptr noundef %2)
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 5
-  %4 = load ptr, ptr %3, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 5
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %mode.addr, align 4
-  %8 = load ptr, ptr %lock, align 8
-  %lock1 = getelementptr inbounds %struct.debug_lock, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %lock1, align 8
-  %call = call i32 %6(i32 noundef %7, ptr noundef %9)
-  store i32 %call, ptr %res, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load i32, ptr %res, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @debug_cond_wait(ptr noundef %cond_, ptr noundef %lock_, ptr noundef %tv) #0 {
-entry:
-  %cond_.addr = alloca ptr, align 8
-  %lock_.addr = alloca ptr, align 8
-  %tv.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %lock = alloca ptr, align 8
-  store ptr %cond_, ptr %cond_.addr, align 8
-  store ptr %lock_, ptr %lock_.addr, align 8
-  store ptr %tv, ptr %tv.addr, align 8
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end2
-  %1 = load ptr, ptr %lock_.addr, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %do.body3
-  %2 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool4 = icmp ne i32 %2, 0
-  br i1 %tobool4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %do.body5
-
-do.body5:                                         ; preds = %if.then
-  br label %do.end6
-
-do.end6:                                          ; preds = %do.body5
-  br label %if.end
-
-if.end:                                           ; preds = %do.end6, %land.lhs.true, %do.body3
-  br label %do.end7
-
-do.end7:                                          ; preds = %if.end
-  %3 = load ptr, ptr %lock, align 8
-  call void @evthread_debug_lock_mark_unlocked(i32 noundef 0, ptr noundef %3)
-  %4 = getelementptr inbounds %struct.evthread_condition_callbacks, ptr @original_cond_fns_, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %cond_.addr, align 8
-  %7 = load ptr, ptr %lock, align 8
-  %lock8 = getelementptr inbounds %struct.debug_lock, ptr %7, i32 0, i32 4
-  %8 = load ptr, ptr %lock8, align 8
-  %9 = load ptr, ptr %tv.addr, align 8
-  %call = call i32 %5(ptr noundef %6, ptr noundef %8, ptr noundef %9)
-  store i32 %call, ptr %r, align 4
-  %10 = load ptr, ptr %lock, align 8
-  call void @evthread_debug_lock_mark_locked(i32 noundef 0, ptr noundef %10)
-  %11 = load i32, ptr %r, align 4
-  ret i32 %11
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_is_debug_lock_held_(ptr noundef %lock_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %lock_.addr = alloca ptr, align 8
-  %lock = alloca ptr, align 8
-  %me = alloca i64, align 8
-  store ptr %lock_, ptr %lock_.addr, align 8
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  %1 = load ptr, ptr %lock, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %count, align 8
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr @evthread_id_fn_, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.then2, label %if.end5
-
-if.then2:                                         ; preds = %if.end
-  %4 = load ptr, ptr @evthread_id_fn_, align 8
-  %call = call i64 %4()
-  store i64 %call, ptr %me, align 8
-  %5 = load ptr, ptr %lock, align 8
-  %held_by = getelementptr inbounds %struct.debug_lock, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %held_by, align 8
-  %7 = load i64, ptr %me, align 8
-  %cmp = icmp ne i64 %6, %7
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.then2
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.then2
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end4, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then3, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @evthread_debug_get_real_lock_(ptr noundef %lock_) #0 {
-entry:
-  %lock_.addr = alloca ptr, align 8
-  %lock = alloca ptr, align 8
-  store ptr %lock_, ptr %lock_.addr, align 8
-  %0 = load ptr, ptr %lock_.addr, align 8
-  store ptr %0, ptr %lock, align 8
-  %1 = load ptr, ptr %lock, align 8
-  %lock1 = getelementptr inbounds %struct.debug_lock, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %lock1, align 8
-  ret ptr %2
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local ptr @evthread_setup_global_lock_(ptr noundef %lock_, i32 noundef %locktype, i32 noundef %enable_locks) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %lock_.addr = alloca ptr, align 8
-  %locktype.addr = alloca i32, align 4
-  %enable_locks.addr = alloca i32, align 4
-  %lock = alloca ptr, align 8
-  %lock25 = alloca ptr, align 8
-  store ptr %lock_, ptr %lock_.addr, align 8
-  store i32 %locktype, ptr %locktype.addr, align 4
-  store i32 %enable_locks, ptr %enable_locks.addr, align 4
-  %0 = load i32, ptr %enable_locks.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.else, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2
-  %2 = load ptr, ptr %1, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %3 = load i32, ptr %locktype.addr, align 4
-  %call = call ptr @debug_lock_alloc(i32 noundef %3)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %4 = load i32, ptr %enable_locks.addr, align 4
-  %tobool1 = icmp ne i32 %4, 0
-  br i1 %tobool1, label %if.else16, label %land.lhs.true2
-
-land.lhs.true2:                                   ; preds = %if.else
-  %5 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %cmp3 = icmp ne ptr %6, null
-  br i1 %cmp3, label %if.then4, label %if.else16
-
-if.then4:                                         ; preds = %land.lhs.true2
-  br label %do.body5
-
-do.body5:                                         ; preds = %if.then4
-  br label %do.end6
-
-do.end6:                                          ; preds = %do.body5
-  %7 = load i32, ptr %locktype.addr, align 4
-  %and = and i32 %7, 1
-  %tobool7 = icmp ne i32 %and, 0
-  br i1 %tobool7, label %if.end, label %if.then8
-
-if.then8:                                         ; preds = %do.end6
-  %8 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %lock_.addr, align 8
-  %11 = load i32, ptr %locktype.addr, align 4
-  call void %9(ptr noundef %10, i32 noundef %11)
-  %12 = load i32, ptr %locktype.addr, align 4
-  %call9 = call ptr @debug_lock_alloc(i32 noundef %12)
-  store ptr %call9, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %do.end6
-  %call10 = call ptr @event_mm_malloc_(i64 noundef 32)
-  store ptr %call10, ptr %lock, align 8
-  %13 = load ptr, ptr %lock, align 8
-  %tobool11 = icmp ne ptr %13, null
-  br i1 %tobool11, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %if.end
-  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %lock_.addr, align 8
-  %17 = load i32, ptr %locktype.addr, align 4
-  call void %15(ptr noundef %16, i32 noundef %17)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end13:                                         ; preds = %if.end
-  %18 = load ptr, ptr %lock_.addr, align 8
-  %19 = load ptr, ptr %lock, align 8
-  %lock14 = getelementptr inbounds %struct.debug_lock, ptr %19, i32 0, i32 4
-  store ptr %18, ptr %lock14, align 8
-  %20 = load i32, ptr %locktype.addr, align 4
-  %21 = load ptr, ptr %lock, align 8
-  %locktype15 = getelementptr inbounds %struct.debug_lock, ptr %21, i32 0, i32 1
-  store i32 %20, ptr %locktype15, align 4
-  %22 = load ptr, ptr %lock, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %22, i32 0, i32 3
-  store i32 0, ptr %count, align 8
-  %23 = load ptr, ptr %lock, align 8
-  %held_by = getelementptr inbounds %struct.debug_lock, ptr %23, i32 0, i32 2
-  store i64 0, ptr %held_by, align 8
-  %24 = load ptr, ptr %lock, align 8
-  store ptr %24, ptr %retval, align 8
-  br label %return
-
-if.else16:                                        ; preds = %land.lhs.true2, %if.else
-  %25 = load i32, ptr %enable_locks.addr, align 4
-  %tobool17 = icmp ne i32 %25, 0
-  br i1 %tobool17, label %land.lhs.true18, label %if.else24
-
-land.lhs.true18:                                  ; preds = %if.else16
-  %26 = load i32, ptr @evthread_lock_debugging_enabled_, align 4
-  %tobool19 = icmp ne i32 %26, 0
-  br i1 %tobool19, label %if.else24, label %if.then20
-
-if.then20:                                        ; preds = %land.lhs.true18
-  br label %do.body21
-
-do.body21:                                        ; preds = %if.then20
-  br label %do.end22
-
-do.end22:                                         ; preds = %do.body21
-  %27 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %locktype.addr, align 4
-  %call23 = call ptr %28(i32 noundef %29)
-  store ptr %call23, ptr %retval, align 8
-  br label %return
-
-if.else24:                                        ; preds = %land.lhs.true18, %if.else16
-  %30 = load ptr, ptr %lock_.addr, align 8
-  %tobool26 = icmp ne ptr %30, null
-  br i1 %tobool26, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.else24
-  %31 = load ptr, ptr %lock_.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.else24
-  %32 = load i32, ptr %locktype.addr, align 4
-  %call27 = call ptr @debug_lock_alloc(i32 noundef %32)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %31, %cond.true ], [ %call27, %cond.false ]
-  store ptr %cond, ptr %lock25, align 8
-  br label %do.body28
-
-do.body28:                                        ; preds = %cond.end
-  br label %do.end29
-
-do.end29:                                         ; preds = %do.body28
-  br label %do.body30
-
-do.body30:                                        ; preds = %do.end29
-  br label %do.end31
-
-do.end31:                                         ; preds = %do.body30
-  %33 = load ptr, ptr %lock25, align 8
-  %lock32 = getelementptr inbounds %struct.debug_lock, ptr %33, i32 0, i32 4
-  %34 = load ptr, ptr %lock32, align 8
-  %tobool33 = icmp ne ptr %34, null
-  br i1 %tobool33, label %if.end42, label %if.then34
-
-if.then34:                                        ; preds = %do.end31
-  %35 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @original_lock_fns_, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %locktype.addr, align 4
-  %or = or i32 %37, 1
-  %call35 = call ptr %36(i32 noundef %or)
-  %38 = load ptr, ptr %lock25, align 8
-  %lock36 = getelementptr inbounds %struct.debug_lock, ptr %38, i32 0, i32 4
-  store ptr %call35, ptr %lock36, align 8
-  %39 = load ptr, ptr %lock25, align 8
-  %lock37 = getelementptr inbounds %struct.debug_lock, ptr %39, i32 0, i32 4
-  %40 = load ptr, ptr %lock37, align 8
-  %tobool38 = icmp ne ptr %40, null
-  br i1 %tobool38, label %if.end41, label %if.then39
-
-if.then39:                                        ; preds = %if.then34
-  %41 = load ptr, ptr %lock25, align 8
-  %count40 = getelementptr inbounds %struct.debug_lock, ptr %41, i32 0, i32 3
-  store i32 -200, ptr %count40, align 8
-  %42 = load ptr, ptr %lock25, align 8
-  call void @event_mm_free_(ptr noundef %42)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end41:                                         ; preds = %if.then34
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.end41, %do.end31
-  %43 = load ptr, ptr %lock25, align 8
-  store ptr %43, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end42, %if.then39, %do.end22, %if.end13, %if.then12, %if.then8, %do.end
-  %44 = load ptr, ptr %retval, align 8
-  ret ptr %44
-}
-
-declare ptr @event_mm_malloc_(i64 noundef) #2
-
-declare void @event_mm_free_(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @evthread_debug_lock_mark_locked(i32 noundef %mode, ptr noundef %lock) #0 {
-entry:
-  %mode.addr = alloca i32, align 4
-  %lock.addr = alloca ptr, align 8
-  %me = alloca i64, align 8
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %lock, ptr %lock.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %lock.addr, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %0, i32 0, i32 3
-  %1 = load i32, ptr %count, align 8
-  %inc = add nsw i32 %1, 1
-  store i32 %inc, ptr %count, align 8
-  %2 = load ptr, ptr %lock.addr, align 8
-  %locktype = getelementptr inbounds %struct.debug_lock, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %locktype, align 4
-  %and = and i32 %3, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %do.end
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.then
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %if.end
-
-if.end:                                           ; preds = %do.end2, %do.end
-  %4 = load ptr, ptr @evthread_id_fn_, align 8
-  %tobool3 = icmp ne ptr %4, null
-  br i1 %tobool3, label %if.then4, label %if.end10
-
-if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr @evthread_id_fn_, align 8
-  %call = call i64 %5()
-  store i64 %call, ptr %me, align 8
-  %6 = load ptr, ptr %lock.addr, align 8
-  %count5 = getelementptr inbounds %struct.debug_lock, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %count5, align 8
-  %cmp = icmp sgt i32 %7, 1
-  br i1 %cmp, label %if.then6, label %if.end9
-
-if.then6:                                         ; preds = %if.then4
-  br label %do.body7
-
-do.body7:                                         ; preds = %if.then6
-  br label %do.end8
-
-do.end8:                                          ; preds = %do.body7
-  br label %if.end9
-
-if.end9:                                          ; preds = %do.end8, %if.then4
-  %8 = load i64, ptr %me, align 8
-  %9 = load ptr, ptr %lock.addr, align 8
-  %held_by = getelementptr inbounds %struct.debug_lock, ptr %9, i32 0, i32 2
-  store i64 %8, ptr %held_by, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end9, %if.end
+define internal void @evthread_debug_lock_mark_unlocked(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store i32 %0, ptr %3, align 4
+  store ptr %1, ptr %4, align 8
+  br label %6
+
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.debug_lock, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %7
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %19
+
+16:                                               ; preds = %7
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18, %15
+  %20 = load ptr, ptr @evthread_id_fn_, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %36
+
+22:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %23 = load ptr, ptr @evthread_id_fn_, align 8
+  %24 = call i64 %23()
+  store i64 %24, ptr %5, align 8
+  br label %25
+
+25:                                               ; preds = %22
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.debug_lock, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %35
+
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw %struct.debug_lock, ptr %33, i32 0, i32 2
+  store i64 0, ptr %34, align 8
+  br label %35
+
+35:                                               ; preds = %32, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  br label %36
+
+36:                                               ; preds = %35, %19
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds nuw %struct.debug_lock, ptr %37, i32 0, i32 3
+  %39 = load i32, ptr %38, align 8
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %38, align 8
+  br label %41
+
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %41
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @evthread_debug_lock_mark_unlocked(i32 noundef %mode, ptr noundef %lock) #0 {
-entry:
-  %mode.addr = alloca i32, align 4
-  %lock.addr = alloca ptr, align 8
-  %me = alloca i64, align 8
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %lock, ptr %lock.addr, align 8
-  br label %do.body
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn }
 
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %lock.addr, align 8
-  %locktype = getelementptr inbounds %struct.debug_lock, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %locktype, align 4
-  %and = and i32 %1, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.end
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.then
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %if.end
-
-if.else:                                          ; preds = %do.end
-  br label %do.body3
-
-do.body3:                                         ; preds = %if.else
-  br label %do.end4
-
-do.end4:                                          ; preds = %do.body3
-  br label %if.end
-
-if.end:                                           ; preds = %do.end4, %do.end2
-  %2 = load ptr, ptr @evthread_id_fn_, align 8
-  %tobool5 = icmp ne ptr %2, null
-  br i1 %tobool5, label %if.then6, label %if.end11
-
-if.then6:                                         ; preds = %if.end
-  %3 = load ptr, ptr @evthread_id_fn_, align 8
-  %call = call i64 %3()
-  store i64 %call, ptr %me, align 8
-  br label %do.body7
-
-do.body7:                                         ; preds = %if.then6
-  br label %do.end8
-
-do.end8:                                          ; preds = %do.body7
-  %4 = load ptr, ptr %lock.addr, align 8
-  %count = getelementptr inbounds %struct.debug_lock, ptr %4, i32 0, i32 3
-  %5 = load i32, ptr %count, align 8
-  %cmp = icmp eq i32 %5, 1
-  br i1 %cmp, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %do.end8
-  %6 = load ptr, ptr %lock.addr, align 8
-  %held_by = getelementptr inbounds %struct.debug_lock, ptr %6, i32 0, i32 2
-  store i64 0, ptr %held_by, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then9, %do.end8
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.end
-  %7 = load ptr, ptr %lock.addr, align 8
-  %count12 = getelementptr inbounds %struct.debug_lock, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %count12, align 8
-  %dec = add nsw i32 %8, -1
-  store i32 %dec, ptr %count12, align 8
-  br label %do.body13
-
-do.body13:                                        ; preds = %if.end11
-  br label %do.end14
-
-do.end14:                                         ; preds = %do.body13
-  ret void
-}
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

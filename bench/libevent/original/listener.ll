@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.evconnlistener_ops = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
@@ -24,1482 +24,1629 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [25 x i8] c"Error from accept() call\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evconnlistener_new(ptr noundef %base, ptr noundef %cb, ptr noundef %ptr, i32 noundef %flags, i32 noundef %backlog, i32 noundef %fd) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %backlog.addr = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %lev = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store i32 %backlog, ptr %backlog.addr, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  %0 = load i32, ptr %backlog.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+define ptr @evconnlistener_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store i32 %5, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %16 = load i32, ptr %12, align 4
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %18, label %25
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %fd.addr, align 4
-  %2 = load i32, ptr %backlog.addr, align 4
-  %call = call i32 @listen(i32 noundef %1, i32 noundef %2) #4
-  %cmp1 = icmp slt i32 %call, 0
-  br i1 %cmp1, label %if.then2, label %if.end
+18:                                               ; preds = %6
+  %19 = load i32, ptr %13, align 4
+  %20 = load i32, ptr %12, align 4
+  %21 = call i32 @listen(i32 noundef %19, i32 noundef %20) #5
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %24
 
-if.then2:                                         ; preds = %if.then
-  store ptr null, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %18
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %114
 
-if.end:                                           ; preds = %if.then
-  br label %if.end10
+24:                                               ; preds = %18
+  br label %35
 
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %backlog.addr, align 4
-  %cmp3 = icmp slt i32 %3, 0
-  br i1 %cmp3, label %if.then4, label %if.end9
+25:                                               ; preds = %6
+  %26 = load i32, ptr %12, align 4
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %34
 
-if.then4:                                         ; preds = %if.else
-  %4 = load i32, ptr %fd.addr, align 4
-  %call5 = call i32 @listen(i32 noundef %4, i32 noundef 128) #4
-  %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+28:                                               ; preds = %25
+  %29 = load i32, ptr %13, align 4
+  %30 = call i32 @listen(i32 noundef %29, i32 noundef 128) #5
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %33
 
-if.then7:                                         ; preds = %if.then4
-  store ptr null, ptr %retval, align 8
-  br label %return
+32:                                               ; preds = %28
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %114
 
-if.end8:                                          ; preds = %if.then4
-  br label %if.end9
+33:                                               ; preds = %28
+  br label %34
 
-if.end9:                                          ; preds = %if.end8, %if.else
-  br label %if.end10
+34:                                               ; preds = %33, %25
+  br label %35
 
-if.end10:                                         ; preds = %if.end9, %if.end
-  %call11 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 176)
-  store ptr %call11, ptr %lev, align 8
-  %5 = load ptr, ptr %lev, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.end13, label %if.then12
+35:                                               ; preds = %34, %24
+  %36 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 176)
+  store ptr %36, ptr %14, align 8
+  %37 = load ptr, ptr %14, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %40, label %39
 
-if.then12:                                        ; preds = %if.end10
-  store ptr null, ptr %retval, align 8
-  br label %return
+39:                                               ; preds = %35
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %114
 
-if.end13:                                         ; preds = %if.end10
-  %6 = load ptr, ptr %lev, align 8
-  %base14 = getelementptr inbounds %struct.evconnlistener_event, ptr %6, i32 0, i32 0
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %base14, i32 0, i32 0
-  store ptr @evconnlistener_event_ops, ptr %ops, align 8
-  %7 = load ptr, ptr %cb.addr, align 8
-  %8 = load ptr, ptr %lev, align 8
-  %base15 = getelementptr inbounds %struct.evconnlistener_event, ptr %8, i32 0, i32 0
-  %cb16 = getelementptr inbounds %struct.evconnlistener, ptr %base15, i32 0, i32 2
-  store ptr %7, ptr %cb16, align 8
-  %9 = load ptr, ptr %ptr.addr, align 8
-  %10 = load ptr, ptr %lev, align 8
-  %base17 = getelementptr inbounds %struct.evconnlistener_event, ptr %10, i32 0, i32 0
-  %user_data = getelementptr inbounds %struct.evconnlistener, ptr %base17, i32 0, i32 4
-  store ptr %9, ptr %user_data, align 8
-  %11 = load i32, ptr %flags.addr, align 4
-  %12 = load ptr, ptr %lev, align 8
-  %base18 = getelementptr inbounds %struct.evconnlistener_event, ptr %12, i32 0, i32 0
-  %flags19 = getelementptr inbounds %struct.evconnlistener, ptr %base18, i32 0, i32 5
-  store i32 %11, ptr %flags19, align 8
-  %13 = load ptr, ptr %lev, align 8
-  %base20 = getelementptr inbounds %struct.evconnlistener_event, ptr %13, i32 0, i32 0
-  %refcnt = getelementptr inbounds %struct.evconnlistener, ptr %base20, i32 0, i32 6
-  store i16 1, ptr %refcnt, align 4
-  %14 = load ptr, ptr %lev, align 8
-  %base21 = getelementptr inbounds %struct.evconnlistener_event, ptr %14, i32 0, i32 0
-  %accept4_flags = getelementptr inbounds %struct.evconnlistener, ptr %base21, i32 0, i32 7
-  store i32 0, ptr %accept4_flags, align 8
-  %15 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %15, 1
-  %tobool22 = icmp ne i32 %and, 0
-  br i1 %tobool22, label %if.end26, label %if.then23
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %14, align 8
+  %42 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.evconnlistener, ptr %42, i32 0, i32 0
+  store ptr @evconnlistener_event_ops, ptr %43, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %14, align 8
+  %46 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.evconnlistener, ptr %46, i32 0, i32 2
+  store ptr %44, ptr %47, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %14, align 8
+  %50 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.evconnlistener, ptr %50, i32 0, i32 4
+  store ptr %48, ptr %51, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = load ptr, ptr %14, align 8
+  %54 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.evconnlistener, ptr %54, i32 0, i32 5
+  store i32 %52, ptr %55, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.evconnlistener, ptr %57, i32 0, i32 6
+  store i16 1, ptr %58, align 4
+  %59 = load ptr, ptr %14, align 8
+  %60 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.evconnlistener, ptr %60, i32 0, i32 7
+  store i32 0, ptr %61, align 8
+  %62 = load i32, ptr %11, align 4
+  %63 = and i32 %62, 1
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %71, label %65
 
-if.then23:                                        ; preds = %if.end13
-  %16 = load ptr, ptr %lev, align 8
-  %base24 = getelementptr inbounds %struct.evconnlistener_event, ptr %16, i32 0, i32 0
-  %accept4_flags25 = getelementptr inbounds %struct.evconnlistener, ptr %base24, i32 0, i32 7
-  %17 = load i32, ptr %accept4_flags25, align 8
-  %or = or i32 %17, 2048
-  store i32 %or, ptr %accept4_flags25, align 8
-  br label %if.end26
+65:                                               ; preds = %40
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %66, i32 0, i32 0
+  %68 = getelementptr inbounds nuw %struct.evconnlistener, ptr %67, i32 0, i32 7
+  %69 = load i32, ptr %68, align 8
+  %70 = or i32 %69, 2048
+  store i32 %70, ptr %68, align 8
+  br label %71
 
-if.end26:                                         ; preds = %if.then23, %if.end13
-  %18 = load i32, ptr %flags.addr, align 4
-  %and27 = and i32 %18, 4
-  %tobool28 = icmp ne i32 %and27, 0
-  br i1 %tobool28, label %if.then29, label %if.end33
+71:                                               ; preds = %65, %40
+  %72 = load i32, ptr %11, align 4
+  %73 = and i32 %72, 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %81
 
-if.then29:                                        ; preds = %if.end26
-  %19 = load ptr, ptr %lev, align 8
-  %base30 = getelementptr inbounds %struct.evconnlistener_event, ptr %19, i32 0, i32 0
-  %accept4_flags31 = getelementptr inbounds %struct.evconnlistener, ptr %base30, i32 0, i32 7
-  %20 = load i32, ptr %accept4_flags31, align 8
-  %or32 = or i32 %20, 524288
-  store i32 %or32, ptr %accept4_flags31, align 8
-  br label %if.end33
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %14, align 8
+  %77 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.evconnlistener, ptr %77, i32 0, i32 7
+  %79 = load i32, ptr %78, align 8
+  %80 = or i32 %79, 524288
+  store i32 %80, ptr %78, align 8
+  br label %81
 
-if.end33:                                         ; preds = %if.then29, %if.end26
-  %21 = load i32, ptr %flags.addr, align 4
-  %and34 = and i32 %21, 16
-  %tobool35 = icmp ne i32 %and34, 0
-  br i1 %tobool35, label %if.then36, label %if.end40
+81:                                               ; preds = %75, %71
+  %82 = load i32, ptr %11, align 4
+  %83 = and i32 %82, 16
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %97
 
-if.then36:                                        ; preds = %if.end33
-  %22 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %tobool37 = icmp ne ptr %23, null
-  br i1 %tobool37, label %cond.true, label %cond.false
+85:                                               ; preds = %81
+  %86 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %91
 
-cond.true:                                        ; preds = %if.then36
-  %24 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %call38 = call ptr %25(i32 noundef 1)
-  br label %cond.end
+88:                                               ; preds = %85
+  %89 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 2), align 8
+  %90 = call ptr %89(i32 noundef 1)
+  br label %92
 
-cond.false:                                       ; preds = %if.then36
-  br label %cond.end
+91:                                               ; preds = %85
+  br label %92
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call38, %cond.true ], [ null, %cond.false ]
-  %26 = load ptr, ptr %lev, align 8
-  %base39 = getelementptr inbounds %struct.evconnlistener_event, ptr %26, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %base39, i32 0, i32 1
-  store ptr %cond, ptr %lock, align 8
-  br label %if.end40
+92:                                               ; preds = %91, %88
+  %93 = phi ptr [ %90, %88 ], [ null, %91 ]
+  %94 = load ptr, ptr %14, align 8
+  %95 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds nuw %struct.evconnlistener, ptr %95, i32 0, i32 1
+  store ptr %93, ptr %96, align 8
+  br label %97
 
-if.end40:                                         ; preds = %cond.end, %if.end33
-  %27 = load ptr, ptr %lev, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %base.addr, align 8
-  %29 = load i32, ptr %fd.addr, align 4
-  %30 = load ptr, ptr %lev, align 8
-  %call41 = call i32 @event_assign(ptr noundef %listener, ptr noundef %28, i32 noundef %29, i16 noundef signext 18, ptr noundef @listener_read_cb, ptr noundef %30)
-  %31 = load i32, ptr %flags.addr, align 4
-  %and42 = and i32 %31, 32
-  %tobool43 = icmp ne i32 %and42, 0
-  br i1 %tobool43, label %if.end47, label %if.then44
+97:                                               ; preds = %92, %81
+  %98 = load ptr, ptr %14, align 8
+  %99 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i32, ptr %13, align 4
+  %102 = load ptr, ptr %14, align 8
+  %103 = call i32 @event_assign(ptr noundef %99, ptr noundef %100, i32 noundef %101, i16 noundef signext 18, ptr noundef @listener_read_cb, ptr noundef %102)
+  %104 = load i32, ptr %11, align 4
+  %105 = and i32 %104, 32
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %111, label %107
 
-if.then44:                                        ; preds = %if.end40
-  %32 = load ptr, ptr %lev, align 8
-  %base45 = getelementptr inbounds %struct.evconnlistener_event, ptr %32, i32 0, i32 0
-  %call46 = call i32 @evconnlistener_enable(ptr noundef %base45)
-  br label %if.end47
+107:                                              ; preds = %97
+  %108 = load ptr, ptr %14, align 8
+  %109 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %108, i32 0, i32 0
+  %110 = call i32 @evconnlistener_enable(ptr noundef %109)
+  br label %111
 
-if.end47:                                         ; preds = %if.then44, %if.end40
-  %33 = load ptr, ptr %lev, align 8
-  %base48 = getelementptr inbounds %struct.evconnlistener_event, ptr %33, i32 0, i32 0
-  store ptr %base48, ptr %retval, align 8
-  br label %return
+111:                                              ; preds = %107, %97
+  %112 = load ptr, ptr %14, align 8
+  %113 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %112, i32 0, i32 0
+  store ptr %113, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %114
 
-return:                                           ; preds = %if.end47, %if.then12, %if.then7, %if.then2
-  %34 = load ptr, ptr %retval, align 8
-  ret ptr %34
+114:                                              ; preds = %111, %39, %32, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %115 = load ptr, ptr %7, align 8
+  ret ptr %115
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) #1
+declare i32 @listen(i32 noundef, i32 noundef) #2
 
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #2
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) #3
 
-declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) #2
+declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @listener_read_cb(i32 noundef %fd, i16 noundef signext %what, ptr noundef %p) #0 {
-entry:
-  %fd.addr = alloca i32, align 4
-  %what.addr = alloca i16, align 2
-  %p.addr = alloca ptr, align 8
-  %lev = alloca ptr, align 8
-  %err = alloca i32, align 4
-  %cb = alloca ptr, align 8
-  %errorcb = alloca ptr, align 8
-  %user_data = alloca ptr, align 8
-  %ss = alloca %struct.sockaddr_storage, align 8
-  %socklen = alloca i32, align 4
-  %new_fd = alloca i32, align 4
-  %freed = alloca i32, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  store i16 %what, ptr %what.addr, align 2
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %lev, align 8
-  br label %do.body
+define internal void @listener_read_cb(i32 noundef %0, i16 noundef signext %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %struct.sockaddr_storage, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4
+  store i16 %1, ptr %5, align 2
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %17 = load ptr, ptr %6, align 8
+  store ptr %17, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  br label %18
 
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %lev, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.evconnlistener, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %29
 
-if.then:                                          ; preds = %do.body
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %lev, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %lock1, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %6)
-  br label %if.end
+23:                                               ; preds = %18
+  %24 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds nuw %struct.evconnlistener, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 %24(i32 noundef 0, ptr noundef %27)
+  br label %29
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+29:                                               ; preds = %23, %18
+  br label %30
 
-do.end:                                           ; preds = %if.end
-  br label %while.body
+30:                                               ; preds = %29
+  br label %31
 
-while.body:                                       ; preds = %if.end43, %if.then6, %do.end
-  store i32 128, ptr %socklen, align 4
-  %7 = load i32, ptr %fd.addr, align 4
-  %8 = load ptr, ptr %lev, align 8
-  %accept4_flags = getelementptr inbounds %struct.evconnlistener, ptr %8, i32 0, i32 7
-  %9 = load i32, ptr %accept4_flags, align 8
-  %call2 = call i32 @evutil_accept4_(i32 noundef %7, ptr noundef %ss, ptr noundef %socklen, i32 noundef %9)
-  store i32 %call2, ptr %new_fd, align 4
-  %10 = load i32, ptr %new_fd, align 4
-  %cmp = icmp slt i32 %10, 0
-  br i1 %cmp, label %if.then3, label %if.end4
+31:                                               ; preds = %30
+  br label %32
 
-if.then3:                                         ; preds = %while.body
-  br label %while.end
+32:                                               ; preds = %126, %124, %31
+  br label %33
 
-if.end4:                                          ; preds = %while.body
-  %11 = load i32, ptr %socklen, align 4
-  %cmp5 = icmp eq i32 %11, 0
-  br i1 %cmp5, label %if.then6, label %if.end8
+33:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 128, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 128, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %34 = load i32, ptr %4, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.evconnlistener, ptr %35, i32 0, i32 7
+  %37 = load i32, ptr %36, align 8
+  %38 = call i32 @evutil_accept4_(i32 noundef %34, ptr noundef %12, ptr noundef %13, i32 noundef %37)
+  store i32 %38, ptr %14, align 4
+  %39 = load i32, ptr %14, align 4
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %42
 
-if.then6:                                         ; preds = %if.end4
-  %12 = load i32, ptr %new_fd, align 4
-  %call7 = call i32 @evutil_closesocket(i32 noundef %12)
-  br label %while.body
+41:                                               ; preds = %33
+  store i32 5, ptr %15, align 4
+  br label %124
 
-if.end8:                                          ; preds = %if.end4
-  %13 = load ptr, ptr %lev, align 8
-  %cb9 = getelementptr inbounds %struct.evconnlistener, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %cb9, align 8
-  %cmp10 = icmp eq ptr %14, null
-  br i1 %cmp10, label %if.then11, label %if.end21
+42:                                               ; preds = %33
+  %43 = load i32, ptr %13, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-if.then11:                                        ; preds = %if.end8
-  %15 = load i32, ptr %new_fd, align 4
-  %call12 = call i32 @evutil_closesocket(i32 noundef %15)
-  br label %do.body13
+45:                                               ; preds = %42
+  %46 = load i32, ptr %14, align 4
+  %47 = call i32 @evutil_closesocket(i32 noundef %46)
+  store i32 4, ptr %15, align 4
+  br label %124
 
-do.body13:                                        ; preds = %if.then11
-  %16 = load ptr, ptr %lev, align 8
-  %lock14 = getelementptr inbounds %struct.evconnlistener, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %lock14, align 8
-  %tobool15 = icmp ne ptr %17, null
-  br i1 %tobool15, label %if.then16, label %if.end19
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds nuw %struct.evconnlistener, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %70
 
-if.then16:                                        ; preds = %do.body13
-  %18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %lev, align 8
-  %lock17 = getelementptr inbounds %struct.evconnlistener, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %lock17, align 8
-  %call18 = call i32 %19(i32 noundef 0, ptr noundef %21)
-  br label %if.end19
+53:                                               ; preds = %48
+  %54 = load i32, ptr %14, align 4
+  %55 = call i32 @evutil_closesocket(i32 noundef %54)
+  br label %56
 
-if.end19:                                         ; preds = %if.then16, %do.body13
-  br label %do.end20
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw %struct.evconnlistener, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %67
 
-do.end20:                                         ; preds = %if.end19
-  br label %if.end79
+61:                                               ; preds = %56
+  %62 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct.evconnlistener, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 %62(i32 noundef 0, ptr noundef %65)
+  br label %67
 
-if.end21:                                         ; preds = %if.end8
-  %22 = load ptr, ptr %lev, align 8
-  %refcnt = getelementptr inbounds %struct.evconnlistener, ptr %22, i32 0, i32 6
-  %23 = load i16, ptr %refcnt, align 4
-  %inc = add i16 %23, 1
-  store i16 %inc, ptr %refcnt, align 4
-  %24 = load ptr, ptr %lev, align 8
-  %cb22 = getelementptr inbounds %struct.evconnlistener, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %cb22, align 8
-  store ptr %25, ptr %cb, align 8
-  %26 = load ptr, ptr %lev, align 8
-  %user_data23 = getelementptr inbounds %struct.evconnlistener, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %user_data23, align 8
-  store ptr %27, ptr %user_data, align 8
-  %28 = load ptr, ptr %cb, align 8
-  %29 = load ptr, ptr %lev, align 8
-  %30 = load i32, ptr %new_fd, align 4
-  %31 = load i32, ptr %socklen, align 4
-  %32 = load ptr, ptr %user_data, align 8
-  call void %28(ptr noundef %29, i32 noundef %30, ptr noundef %ss, i32 noundef %31, ptr noundef %32)
-  %33 = load ptr, ptr %lev, align 8
-  %refcnt24 = getelementptr inbounds %struct.evconnlistener, ptr %33, i32 0, i32 6
-  %34 = load i16, ptr %refcnt24, align 4
-  %conv = sext i16 %34 to i32
-  %cmp25 = icmp eq i32 %conv, 1
-  br i1 %cmp25, label %if.then27, label %if.end31
+67:                                               ; preds = %61, %56
+  br label %68
 
-if.then27:                                        ; preds = %if.end21
-  %35 = load ptr, ptr %lev, align 8
-  %call28 = call i32 @listener_decref_and_unlock(ptr noundef %35)
-  store i32 %call28, ptr %freed, align 4
-  br label %do.body29
+68:                                               ; preds = %67
+  br label %69
 
-do.body29:                                        ; preds = %if.then27
-  br label %do.end30
+69:                                               ; preds = %68
+  store i32 1, ptr %15, align 4
+  br label %124
 
-do.end30:                                         ; preds = %do.body29
-  br label %if.end79
+70:                                               ; preds = %48
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds nuw %struct.evconnlistener, ptr %71, i32 0, i32 6
+  %73 = load i16, ptr %72, align 4
+  %74 = add i16 %73, 1
+  store i16 %74, ptr %72, align 4
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds nuw %struct.evconnlistener, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %9, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds nuw %struct.evconnlistener, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
+  store ptr %80, ptr %11, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %14, align 4
+  %84 = load i32, ptr %13, align 4
+  %85 = load ptr, ptr %11, align 8
+  call void %81(ptr noundef %82, i32 noundef %83, ptr noundef %12, i32 noundef %84, ptr noundef %85)
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds nuw %struct.evconnlistener, ptr %86, i32 0, i32 6
+  %88 = load i16, ptr %87, align 4
+  %89 = sext i16 %88 to i32
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %97
 
-if.end31:                                         ; preds = %if.end21
-  %36 = load ptr, ptr %lev, align 8
-  %refcnt32 = getelementptr inbounds %struct.evconnlistener, ptr %36, i32 0, i32 6
-  %37 = load i16, ptr %refcnt32, align 4
-  %dec = add i16 %37, -1
-  store i16 %dec, ptr %refcnt32, align 4
-  %38 = load ptr, ptr %lev, align 8
-  %enabled = getelementptr inbounds %struct.evconnlistener, ptr %38, i32 0, i32 8
-  %bf.load = load i8, ptr %enabled, align 4
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %tobool33 = icmp ne i32 %bf.cast, 0
-  br i1 %tobool33, label %if.end43, label %if.then34
+91:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %92 = load ptr, ptr %7, align 8
+  %93 = call i32 @listener_decref_and_unlock(ptr noundef %92)
+  store i32 %93, ptr %16, align 4
+  br label %94
 
-if.then34:                                        ; preds = %if.end31
-  br label %do.body35
+94:                                               ; preds = %91
+  br label %95
 
-do.body35:                                        ; preds = %if.then34
-  %39 = load ptr, ptr %lev, align 8
-  %lock36 = getelementptr inbounds %struct.evconnlistener, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %lock36, align 8
-  %tobool37 = icmp ne ptr %40, null
-  br i1 %tobool37, label %if.then38, label %if.end41
+95:                                               ; preds = %94
+  br label %96
 
-if.then38:                                        ; preds = %do.body35
-  %41 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %lev, align 8
-  %lock39 = getelementptr inbounds %struct.evconnlistener, ptr %43, i32 0, i32 1
-  %44 = load ptr, ptr %lock39, align 8
-  %call40 = call i32 %42(i32 noundef 0, ptr noundef %44)
-  br label %if.end41
+96:                                               ; preds = %95
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %124
 
-if.end41:                                         ; preds = %if.then38, %do.body35
-  br label %do.end42
+97:                                               ; preds = %70
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds nuw %struct.evconnlistener, ptr %98, i32 0, i32 6
+  %100 = load i16, ptr %99, align 4
+  %101 = add i16 %100, -1
+  store i16 %101, ptr %99, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds nuw %struct.evconnlistener, ptr %102, i32 0, i32 8
+  %104 = load i8, ptr %103, align 4
+  %105 = and i8 %104, 1
+  %106 = zext i8 %105 to i32
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %123, label %108
 
-do.end42:                                         ; preds = %if.end41
-  br label %if.end79
+108:                                              ; preds = %97
+  br label %109
 
-if.end43:                                         ; preds = %if.end31
-  br label %while.body
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds nuw %struct.evconnlistener, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %114, label %120
 
-while.end:                                        ; preds = %if.then3
-  %call44 = call ptr @__errno_location() #5
-  %45 = load i32, ptr %call44, align 4
-  store i32 %45, ptr %err, align 4
-  %46 = load i32, ptr %err, align 4
-  %cmp45 = icmp eq i32 %46, 4
-  br i1 %cmp45, label %if.then52, label %lor.lhs.false
+114:                                              ; preds = %109
+  %115 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %116 = load ptr, ptr %7, align 8
+  %117 = getelementptr inbounds nuw %struct.evconnlistener, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = call i32 %115(i32 noundef 0, ptr noundef %118)
+  br label %120
 
-lor.lhs.false:                                    ; preds = %while.end
-  %47 = load i32, ptr %err, align 4
-  %cmp47 = icmp eq i32 %47, 11
-  br i1 %cmp47, label %if.then52, label %lor.lhs.false49
+120:                                              ; preds = %114, %109
+  br label %121
 
-lor.lhs.false49:                                  ; preds = %lor.lhs.false
-  %48 = load i32, ptr %err, align 4
-  %cmp50 = icmp eq i32 %48, 103
-  br i1 %cmp50, label %if.then52, label %if.end61
+121:                                              ; preds = %120
+  br label %122
 
-if.then52:                                        ; preds = %lor.lhs.false49, %lor.lhs.false, %while.end
-  br label %do.body53
+122:                                              ; preds = %121
+  store i32 1, ptr %15, align 4
+  br label %124
 
-do.body53:                                        ; preds = %if.then52
-  %49 = load ptr, ptr %lev, align 8
-  %lock54 = getelementptr inbounds %struct.evconnlistener, ptr %49, i32 0, i32 1
-  %50 = load ptr, ptr %lock54, align 8
-  %tobool55 = icmp ne ptr %50, null
-  br i1 %tobool55, label %if.then56, label %if.end59
+123:                                              ; preds = %97
+  store i32 0, ptr %15, align 4
+  br label %124
 
-if.then56:                                        ; preds = %do.body53
-  %51 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %lev, align 8
-  %lock57 = getelementptr inbounds %struct.evconnlistener, ptr %53, i32 0, i32 1
-  %54 = load ptr, ptr %lock57, align 8
-  %call58 = call i32 %52(i32 noundef 0, ptr noundef %54)
-  br label %if.end59
+124:                                              ; preds = %123, %122, %96, %69, %45, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %12) #5
+  %125 = load i32, ptr %15, align 4
+  switch i32 %125, label %191 [
+    i32 0, label %126
+    i32 5, label %127
+    i32 4, label %32
+  ]
 
-if.end59:                                         ; preds = %if.then56, %do.body53
-  br label %do.end60
+126:                                              ; preds = %124
+  br label %32
 
-do.end60:                                         ; preds = %if.end59
-  br label %if.end79
+127:                                              ; preds = %124
+  %128 = call ptr @__errno_location() #6
+  %129 = load i32, ptr %128, align 4
+  store i32 %129, ptr %8, align 4
+  %130 = load i32, ptr %8, align 4
+  %131 = icmp eq i32 %130, 4
+  br i1 %131, label %138, label %132
 
-if.end61:                                         ; preds = %lor.lhs.false49
-  %55 = load ptr, ptr %lev, align 8
-  %errorcb62 = getelementptr inbounds %struct.evconnlistener, ptr %55, i32 0, i32 3
-  %56 = load ptr, ptr %errorcb62, align 8
-  %cmp63 = icmp ne ptr %56, null
-  br i1 %cmp63, label %if.then65, label %if.else
+132:                                              ; preds = %127
+  %133 = load i32, ptr %8, align 4
+  %134 = icmp eq i32 %133, 11
+  br i1 %134, label %138, label %135
 
-if.then65:                                        ; preds = %if.end61
-  %57 = load ptr, ptr %lev, align 8
-  %refcnt66 = getelementptr inbounds %struct.evconnlistener, ptr %57, i32 0, i32 6
-  %58 = load i16, ptr %refcnt66, align 4
-  %inc67 = add i16 %58, 1
-  store i16 %inc67, ptr %refcnt66, align 4
-  %59 = load ptr, ptr %lev, align 8
-  %errorcb68 = getelementptr inbounds %struct.evconnlistener, ptr %59, i32 0, i32 3
-  %60 = load ptr, ptr %errorcb68, align 8
-  store ptr %60, ptr %errorcb, align 8
-  %61 = load ptr, ptr %lev, align 8
-  %user_data69 = getelementptr inbounds %struct.evconnlistener, ptr %61, i32 0, i32 4
-  %62 = load ptr, ptr %user_data69, align 8
-  store ptr %62, ptr %user_data, align 8
-  %63 = load ptr, ptr %errorcb, align 8
-  %64 = load ptr, ptr %lev, align 8
-  %65 = load ptr, ptr %user_data, align 8
-  call void %63(ptr noundef %64, ptr noundef %65)
-  %66 = load ptr, ptr %lev, align 8
-  %call70 = call i32 @listener_decref_and_unlock(ptr noundef %66)
-  br label %if.end79
+135:                                              ; preds = %132
+  %136 = load i32, ptr %8, align 4
+  %137 = icmp eq i32 %136, 103
+  br i1 %137, label %138, label %153
 
-if.else:                                          ; preds = %if.end61
-  %67 = load i32, ptr %fd.addr, align 4
-  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %67, ptr noundef @.str)
-  br label %do.body71
+138:                                              ; preds = %135, %132, %127
+  br label %139
 
-do.body71:                                        ; preds = %if.else
-  %68 = load ptr, ptr %lev, align 8
-  %lock72 = getelementptr inbounds %struct.evconnlistener, ptr %68, i32 0, i32 1
-  %69 = load ptr, ptr %lock72, align 8
-  %tobool73 = icmp ne ptr %69, null
-  br i1 %tobool73, label %if.then74, label %if.end77
+139:                                              ; preds = %138
+  %140 = load ptr, ptr %7, align 8
+  %141 = getelementptr inbounds nuw %struct.evconnlistener, ptr %140, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp ne ptr %142, null
+  br i1 %143, label %144, label %150
 
-if.then74:                                        ; preds = %do.body71
-  %70 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %lev, align 8
-  %lock75 = getelementptr inbounds %struct.evconnlistener, ptr %72, i32 0, i32 1
-  %73 = load ptr, ptr %lock75, align 8
-  %call76 = call i32 %71(i32 noundef 0, ptr noundef %73)
-  br label %if.end77
+144:                                              ; preds = %139
+  %145 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds nuw %struct.evconnlistener, ptr %146, i32 0, i32 1
+  %148 = load ptr, ptr %147, align 8
+  %149 = call i32 %145(i32 noundef 0, ptr noundef %148)
+  br label %150
 
-if.end77:                                         ; preds = %if.then74, %do.body71
-  br label %do.end78
+150:                                              ; preds = %144, %139
+  br label %151
 
-do.end78:                                         ; preds = %if.end77
-  br label %if.end79
+151:                                              ; preds = %150
+  br label %152
 
-if.end79:                                         ; preds = %do.end78, %if.then65, %do.end60, %do.end42, %do.end30, %do.end20
+152:                                              ; preds = %151
+  store i32 1, ptr %15, align 4
+  br label %191
+
+153:                                              ; preds = %135
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds nuw %struct.evconnlistener, ptr %154, i32 0, i32 3
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %174
+
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %7, align 8
+  %160 = getelementptr inbounds nuw %struct.evconnlistener, ptr %159, i32 0, i32 6
+  %161 = load i16, ptr %160, align 4
+  %162 = add i16 %161, 1
+  store i16 %162, ptr %160, align 4
+  %163 = load ptr, ptr %7, align 8
+  %164 = getelementptr inbounds nuw %struct.evconnlistener, ptr %163, i32 0, i32 3
+  %165 = load ptr, ptr %164, align 8
+  store ptr %165, ptr %10, align 8
+  %166 = load ptr, ptr %7, align 8
+  %167 = getelementptr inbounds nuw %struct.evconnlistener, ptr %166, i32 0, i32 4
+  %168 = load ptr, ptr %167, align 8
+  store ptr %168, ptr %11, align 8
+  %169 = load ptr, ptr %10, align 8
+  %170 = load ptr, ptr %7, align 8
+  %171 = load ptr, ptr %11, align 8
+  call void %169(ptr noundef %170, ptr noundef %171)
+  %172 = load ptr, ptr %7, align 8
+  %173 = call i32 @listener_decref_and_unlock(ptr noundef %172)
+  br label %190
+
+174:                                              ; preds = %153
+  %175 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %175, ptr noundef @.str)
+  br label %176
+
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %7, align 8
+  %178 = getelementptr inbounds nuw %struct.evconnlistener, ptr %177, i32 0, i32 1
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %187
+
+181:                                              ; preds = %176
+  %182 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %183 = load ptr, ptr %7, align 8
+  %184 = getelementptr inbounds nuw %struct.evconnlistener, ptr %183, i32 0, i32 1
+  %185 = load ptr, ptr %184, align 8
+  %186 = call i32 %182(i32 noundef 0, ptr noundef %185)
+  br label %187
+
+187:                                              ; preds = %181, %176
+  br label %188
+
+188:                                              ; preds = %187
+  br label %189
+
+189:                                              ; preds = %188
+  br label %190
+
+190:                                              ; preds = %189, %158
+  store i32 0, ptr %15, align 4
+  br label %191
+
+191:                                              ; preds = %190, %152, %124
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  %192 = load i32, ptr %15, align 4
+  switch i32 %192, label %194 [
+    i32 0, label %193
+    i32 1, label %193
+  ]
+
+193:                                              ; preds = %191, %191
   ret void
+
+194:                                              ; preds = %191
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evconnlistener_enable(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %lev, ptr %lev.addr, align 8
-  br label %do.body
+define i32 @evconnlistener_enable(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  br label %4
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.evconnlistener, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %15
 
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
+9:                                                ; preds = %4
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.evconnlistener, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 %10(i32 noundef 0, ptr noundef %13)
+  br label %15
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+15:                                               ; preds = %9, %4
+  br label %16
 
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %enabled = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 8
-  %bf.load = load i8, ptr %enabled, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr %enabled, align 4
-  %7 = load ptr, ptr %lev.addr, align 8
-  %cb = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %cb, align 8
-  %tobool2 = icmp ne ptr %8, null
-  br i1 %tobool2, label %if.then3, label %if.else
+16:                                               ; preds = %15
+  br label %17
 
-if.then3:                                         ; preds = %do.end
-  %9 = load ptr, ptr %lev.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %ops, align 8
-  %enable = getelementptr inbounds %struct.evconnlistener_ops, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %enable, align 8
-  %12 = load ptr, ptr %lev.addr, align 8
-  %call4 = call i32 %11(ptr noundef %12)
-  store i32 %call4, ptr %r, align 4
-  br label %if.end5
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.evconnlistener, ptr %18, i32 0, i32 8
+  %20 = load i8, ptr %19, align 4
+  %21 = and i8 %20, -2
+  %22 = or i8 %21, 1
+  store i8 %22, ptr %19, align 4
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.evconnlistener, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %35
 
-if.else:                                          ; preds = %do.end
-  store i32 0, ptr %r, align 4
-  br label %if.end5
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct.evconnlistener, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = call i32 %32(ptr noundef %33)
+  store i32 %34, ptr %3, align 4
+  br label %36
 
-if.end5:                                          ; preds = %if.else, %if.then3
-  br label %do.body6
+35:                                               ; preds = %17
+  store i32 0, ptr %3, align 4
+  br label %36
 
-do.body6:                                         ; preds = %if.end5
-  %13 = load ptr, ptr %lev.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evconnlistener, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %lock7, align 8
-  %tobool8 = icmp ne ptr %14, null
-  br i1 %tobool8, label %if.then9, label %if.end12
+36:                                               ; preds = %35, %27
+  br label %37
 
-if.then9:                                         ; preds = %do.body6
-  %15 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %lev.addr, align 8
-  %lock10 = getelementptr inbounds %struct.evconnlistener, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %lock10, align 8
-  %call11 = call i32 %16(i32 noundef 0, ptr noundef %18)
-  br label %if.end12
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw %struct.evconnlistener, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %48
 
-if.end12:                                         ; preds = %if.then9, %do.body6
-  br label %do.end13
+42:                                               ; preds = %37
+  %43 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds nuw %struct.evconnlistener, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 %43(i32 noundef 0, ptr noundef %46)
+  br label %48
 
-do.end13:                                         ; preds = %if.end12
-  %19 = load i32, ptr %r, align 4
-  ret i32 %19
+48:                                               ; preds = %42, %37
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %51
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evconnlistener_new_bind(ptr noundef %base, ptr noundef %cb, ptr noundef %ptr, i32 noundef %flags, i32 noundef %backlog, ptr noundef %sa, i32 noundef %socklen) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %backlog.addr = alloca i32, align 4
-  %sa.addr = alloca ptr, align 8
-  %socklen.addr = alloca i32, align 4
-  %listener = alloca ptr, align 8
-  %fd = alloca i32, align 4
-  %on = alloca i32, align 4
-  %family = alloca i32, align 4
-  %socktype = alloca i32, align 4
-  %support_keepalive = alloca i32, align 4
-  %agg.tmp = alloca %union.__CONST_SOCKADDR_ARG, align 8
-  %saved_errno = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store i32 %backlog, ptr %backlog.addr, align 4
-  store ptr %sa, ptr %sa.addr, align 8
-  store i32 %socklen, ptr %socklen.addr, align 4
-  store i32 1, ptr %on, align 4
-  %0 = load ptr, ptr %sa.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %cond.true, label %cond.false
+define ptr @evconnlistener_new_bind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca %union.__CONST_SOCKADDR_ARG, align 8
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store i32 %3, ptr %12, align 4
+  store i32 %4, ptr %13, align 4
+  store ptr %5, ptr %14, align 8
+  store i32 %6, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %23 = load ptr, ptr %14, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %30
 
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %sa.addr, align 8
-  %sa_family = getelementptr inbounds %struct.sockaddr, ptr %1, i32 0, i32 0
-  %2 = load i16, ptr %sa_family, align 2
-  %conv = zext i16 %2 to i32
-  br label %cond.end
+25:                                               ; preds = %7
+  %26 = load ptr, ptr %14, align 8
+  %27 = getelementptr inbounds nuw %struct.sockaddr, ptr %26, i32 0, i32 0
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  br label %31
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+30:                                               ; preds = %7
+  br label %31
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv, %cond.true ], [ 0, %cond.false ]
-  store i32 %cond, ptr %family, align 4
-  store i32 2049, ptr %socktype, align 4
-  store i32 1, ptr %support_keepalive, align 4
-  %3 = load i32, ptr %backlog.addr, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+31:                                               ; preds = %30, %25
+  %32 = phi i32 [ %29, %25 ], [ 0, %30 ]
+  store i32 %32, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  store i32 2049, ptr %19, align 4
+  %33 = load i32, ptr %13, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %36
 
-if.then:                                          ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %31
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  br label %161
 
-if.end:                                           ; preds = %cond.end
-  %4 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %4, 4
-  %tobool2 = icmp ne i32 %and, 0
-  br i1 %tobool2, label %if.then3, label %if.end4
+36:                                               ; preds = %31
+  %37 = load i32, ptr %12, align 4
+  %38 = and i32 %37, 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %43
 
-if.then3:                                         ; preds = %if.end
-  %5 = load i32, ptr %socktype, align 4
-  %or = or i32 %5, 524288
-  store i32 %or, ptr %socktype, align 4
-  br label %if.end4
+40:                                               ; preds = %36
+  %41 = load i32, ptr %19, align 4
+  %42 = or i32 %41, 524288
+  store i32 %42, ptr %19, align 4
+  br label %43
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  %6 = load i32, ptr %family, align 4
-  %7 = load i32, ptr %socktype, align 4
-  %call = call i32 @evutil_socket_(i32 noundef %6, i32 noundef %7, i32 noundef 0)
-  store i32 %call, ptr %fd, align 4
-  %8 = load i32, ptr %fd, align 4
-  %cmp5 = icmp eq i32 %8, -1
-  br i1 %cmp5, label %if.then7, label %if.end8
+43:                                               ; preds = %40, %36
+  %44 = load i32, ptr %18, align 4
+  %45 = load i32, ptr %19, align 4
+  %46 = call i32 @evutil_socket_(i32 noundef %44, i32 noundef %45, i32 noundef 0)
+  store i32 %46, ptr %17, align 4
+  %47 = load i32, ptr %17, align 4
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %49, label %50
 
-if.then7:                                         ; preds = %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+49:                                               ; preds = %43
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  br label %161
 
-if.end8:                                          ; preds = %if.end4
-  %9 = load i32, ptr %support_keepalive, align 4
-  %tobool9 = icmp ne i32 %9, 0
-  br i1 %tobool9, label %if.then10, label %if.end16
+50:                                               ; preds = %43
+  %51 = load i32, ptr %18, align 4
+  %52 = icmp ne i32 %51, 1
+  br i1 %52, label %53, label %59
 
-if.then10:                                        ; preds = %if.end8
-  %10 = load i32, ptr %fd, align 4
-  %call11 = call i32 @setsockopt(i32 noundef %10, i32 noundef 1, i32 noundef 9, ptr noundef %on, i32 noundef 4) #4
-  %cmp12 = icmp slt i32 %call11, 0
-  br i1 %cmp12, label %if.then14, label %if.end15
+53:                                               ; preds = %50
+  %54 = load i32, ptr %17, align 4
+  %55 = call i32 @evutil_set_tcp_keepalive(i32 noundef %54, i32 noundef 1, i32 noundef 300)
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %58
 
-if.then14:                                        ; preds = %if.then10
-  br label %err
+57:                                               ; preds = %53
+  br label %147
 
-if.end15:                                         ; preds = %if.then10
-  br label %if.end16
+58:                                               ; preds = %53
+  br label %59
 
-if.end16:                                         ; preds = %if.end15, %if.end8
-  %11 = load i32, ptr %flags.addr, align 4
-  %and17 = and i32 %11, 8
-  %tobool18 = icmp ne i32 %and17, 0
-  br i1 %tobool18, label %if.then19, label %if.end25
+59:                                               ; preds = %58, %50
+  %60 = load i32, ptr %12, align 4
+  %61 = and i32 %60, 8
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %75
 
-if.then19:                                        ; preds = %if.end16
-  %12 = load i32, ptr %fd, align 4
-  %call20 = call i32 @evutil_make_listen_socket_reuseable(i32 noundef %12)
-  %cmp21 = icmp slt i32 %call20, 0
-  br i1 %cmp21, label %if.then23, label %if.end24
+63:                                               ; preds = %59
+  %64 = load i32, ptr %18, align 4
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %69
 
-if.then23:                                        ; preds = %if.then19
-  br label %err
+66:                                               ; preds = %63
+  %67 = load i32, ptr %17, align 4
+  %68 = call i32 @evutil_closesocket(i32 noundef %67)
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  br label %161
 
-if.end24:                                         ; preds = %if.then19
-  br label %if.end25
+69:                                               ; preds = %63
+  %70 = load i32, ptr %17, align 4
+  %71 = call i32 @evutil_make_listen_socket_reuseable(i32 noundef %70)
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %73, label %74
 
-if.end25:                                         ; preds = %if.end24, %if.end16
-  %13 = load i32, ptr %flags.addr, align 4
-  %and26 = and i32 %13, 128
-  %tobool27 = icmp ne i32 %and26, 0
-  br i1 %tobool27, label %if.then28, label %if.end34
+73:                                               ; preds = %69
+  br label %147
 
-if.then28:                                        ; preds = %if.end25
-  %14 = load i32, ptr %fd, align 4
-  %call29 = call i32 @evutil_make_listen_socket_reuseable_port(i32 noundef %14)
-  %cmp30 = icmp slt i32 %call29, 0
-  br i1 %cmp30, label %if.then32, label %if.end33
+74:                                               ; preds = %69
+  br label %75
 
-if.then32:                                        ; preds = %if.then28
-  br label %err
+75:                                               ; preds = %74, %59
+  %76 = load i32, ptr %12, align 4
+  %77 = and i32 %76, 128
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %91
 
-if.end33:                                         ; preds = %if.then28
-  br label %if.end34
+79:                                               ; preds = %75
+  %80 = load i32, ptr %18, align 4
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %82, label %85
 
-if.end34:                                         ; preds = %if.end33, %if.end25
-  %15 = load i32, ptr %flags.addr, align 4
-  %and35 = and i32 %15, 64
-  %tobool36 = icmp ne i32 %and35, 0
-  br i1 %tobool36, label %if.then37, label %if.end43
+82:                                               ; preds = %79
+  %83 = load i32, ptr %17, align 4
+  %84 = call i32 @evutil_closesocket(i32 noundef %83)
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  br label %161
 
-if.then37:                                        ; preds = %if.end34
-  %16 = load i32, ptr %fd, align 4
-  %call38 = call i32 @evutil_make_tcp_listen_socket_deferred(i32 noundef %16)
-  %cmp39 = icmp slt i32 %call38, 0
-  br i1 %cmp39, label %if.then41, label %if.end42
+85:                                               ; preds = %79
+  %86 = load i32, ptr %17, align 4
+  %87 = call i32 @evutil_make_listen_socket_reuseable_port(i32 noundef %86)
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %90
 
-if.then41:                                        ; preds = %if.then37
-  br label %err
+89:                                               ; preds = %85
+  br label %147
 
-if.end42:                                         ; preds = %if.then37
-  br label %if.end43
+90:                                               ; preds = %85
+  br label %91
 
-if.end43:                                         ; preds = %if.end42, %if.end34
-  %17 = load i32, ptr %flags.addr, align 4
-  %and44 = and i32 %17, 256
-  %tobool45 = icmp ne i32 %and44, 0
-  br i1 %tobool45, label %if.then46, label %if.end52
+91:                                               ; preds = %90, %75
+  %92 = load i32, ptr %12, align 4
+  %93 = and i32 %92, 64
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %101
 
-if.then46:                                        ; preds = %if.end43
-  %18 = load i32, ptr %fd, align 4
-  %call47 = call i32 @evutil_make_listen_socket_ipv6only(i32 noundef %18)
-  %cmp48 = icmp slt i32 %call47, 0
-  br i1 %cmp48, label %if.then50, label %if.end51
+95:                                               ; preds = %91
+  %96 = load i32, ptr %17, align 4
+  %97 = call i32 @evutil_make_tcp_listen_socket_deferred(i32 noundef %96)
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %100
 
-if.then50:                                        ; preds = %if.then46
-  br label %err
+99:                                               ; preds = %95
+  br label %147
 
-if.end51:                                         ; preds = %if.then46
-  br label %if.end52
+100:                                              ; preds = %95
+  br label %101
 
-if.end52:                                         ; preds = %if.end51, %if.end43
-  %19 = load i32, ptr %flags.addr, align 4
-  %and53 = and i32 %19, 512
-  %tobool54 = icmp ne i32 %and53, 0
-  br i1 %tobool54, label %if.then55, label %if.end61
+101:                                              ; preds = %100, %91
+  %102 = load i32, ptr %12, align 4
+  %103 = and i32 %102, 256
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %111
 
-if.then55:                                        ; preds = %if.end52
-  %20 = load i32, ptr %fd, align 4
-  %call56 = call i32 @evutil_make_listen_socket_not_ipv6only(i32 noundef %20)
-  %cmp57 = icmp slt i32 %call56, 0
-  br i1 %cmp57, label %if.then59, label %if.end60
+105:                                              ; preds = %101
+  %106 = load i32, ptr %17, align 4
+  %107 = call i32 @evutil_make_listen_socket_ipv6only(i32 noundef %106)
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %109, label %110
 
-if.then59:                                        ; preds = %if.then55
-  br label %err
+109:                                              ; preds = %105
+  br label %147
 
-if.end60:                                         ; preds = %if.then55
-  br label %if.end61
+110:                                              ; preds = %105
+  br label %111
 
-if.end61:                                         ; preds = %if.end60, %if.end52
-  %21 = load ptr, ptr %sa.addr, align 8
-  %tobool62 = icmp ne ptr %21, null
-  br i1 %tobool62, label %if.then63, label %if.end69
+111:                                              ; preds = %110, %101
+  %112 = load i32, ptr %12, align 4
+  %113 = and i32 %112, 512
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %121
 
-if.then63:                                        ; preds = %if.end61
-  %22 = load i32, ptr %fd, align 4
-  %23 = load ptr, ptr %sa.addr, align 8
-  store ptr %23, ptr %agg.tmp, align 8
-  %24 = load i32, ptr %socklen.addr, align 4
-  %coerce.dive = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %agg.tmp, i32 0, i32 0
-  %25 = load ptr, ptr %coerce.dive, align 8
-  %call64 = call i32 @bind(i32 noundef %22, ptr %25, i32 noundef %24) #4
-  %cmp65 = icmp slt i32 %call64, 0
-  br i1 %cmp65, label %if.then67, label %if.end68
+115:                                              ; preds = %111
+  %116 = load i32, ptr %17, align 4
+  %117 = call i32 @evutil_make_listen_socket_not_ipv6only(i32 noundef %116)
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %120
 
-if.then67:                                        ; preds = %if.then63
-  br label %err
+119:                                              ; preds = %115
+  br label %147
 
-if.end68:                                         ; preds = %if.then63
-  br label %if.end69
+120:                                              ; preds = %115
+  br label %121
 
-if.end69:                                         ; preds = %if.end68, %if.end61
-  %26 = load ptr, ptr %base.addr, align 8
-  %27 = load ptr, ptr %cb.addr, align 8
-  %28 = load ptr, ptr %ptr.addr, align 8
-  %29 = load i32, ptr %flags.addr, align 4
-  %30 = load i32, ptr %backlog.addr, align 4
-  %31 = load i32, ptr %fd, align 4
-  %call70 = call ptr @evconnlistener_new(ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
-  store ptr %call70, ptr %listener, align 8
-  %32 = load ptr, ptr %listener, align 8
-  %tobool71 = icmp ne ptr %32, null
-  br i1 %tobool71, label %if.end73, label %if.then72
+121:                                              ; preds = %120, %111
+  %122 = load ptr, ptr %14, align 8
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %124, label %134
 
-if.then72:                                        ; preds = %if.end69
-  br label %err
+124:                                              ; preds = %121
+  %125 = load i32, ptr %17, align 4
+  %126 = load ptr, ptr %14, align 8
+  store ptr %126, ptr %21, align 8
+  %127 = load i32, ptr %15, align 4
+  %128 = getelementptr inbounds nuw %union.__CONST_SOCKADDR_ARG, ptr %21, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8
+  %130 = call i32 @bind(i32 noundef %125, ptr %129, i32 noundef %127) #5
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %133
 
-if.end73:                                         ; preds = %if.end69
-  %33 = load ptr, ptr %listener, align 8
-  store ptr %33, ptr %retval, align 8
-  br label %return
+132:                                              ; preds = %124
+  br label %147
 
-err:                                              ; preds = %if.then72, %if.then67, %if.then59, %if.then50, %if.then41, %if.then32, %if.then23, %if.then14
-  %call74 = call ptr @__errno_location() #5
-  %34 = load i32, ptr %call74, align 4
-  store i32 %34, ptr %saved_errno, align 4
-  %35 = load i32, ptr %fd, align 4
-  %call75 = call i32 @evutil_closesocket(i32 noundef %35)
-  %36 = load i32, ptr %saved_errno, align 4
-  %tobool76 = icmp ne i32 %36, 0
-  br i1 %tobool76, label %if.then77, label %if.end79
+133:                                              ; preds = %124
+  br label %134
 
-if.then77:                                        ; preds = %err
-  br label %do.body
+134:                                              ; preds = %133, %121
+  %135 = load ptr, ptr %9, align 8
+  %136 = load ptr, ptr %10, align 8
+  %137 = load ptr, ptr %11, align 8
+  %138 = load i32, ptr %12, align 4
+  %139 = load i32, ptr %13, align 4
+  %140 = load i32, ptr %17, align 4
+  %141 = call ptr @evconnlistener_new(ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef %139, i32 noundef %140)
+  store ptr %141, ptr %16, align 8
+  %142 = load ptr, ptr %16, align 8
+  %143 = icmp ne ptr %142, null
+  br i1 %143, label %145, label %144
 
-do.body:                                          ; preds = %if.then77
-  %37 = load i32, ptr %saved_errno, align 4
-  %call78 = call ptr @__errno_location() #5
-  store i32 %37, ptr %call78, align 4
-  br label %do.end
+144:                                              ; preds = %134
+  br label %147
 
-do.end:                                           ; preds = %do.body
-  br label %if.end79
+145:                                              ; preds = %134
+  %146 = load ptr, ptr %16, align 8
+  store ptr %146, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  br label %161
 
-if.end79:                                         ; preds = %do.end, %err
-  store ptr null, ptr %retval, align 8
-  br label %return
+147:                                              ; preds = %144, %132, %119, %109, %99, %89, %73, %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  %148 = call ptr @__errno_location() #6
+  %149 = load i32, ptr %148, align 4
+  store i32 %149, ptr %22, align 4
+  %150 = load i32, ptr %17, align 4
+  %151 = call i32 @evutil_closesocket(i32 noundef %150)
+  %152 = load i32, ptr %22, align 4
+  %153 = icmp ne i32 %152, 0
+  br i1 %153, label %154, label %160
 
-return:                                           ; preds = %if.end79, %if.end73, %if.then7, %if.then
-  %38 = load ptr, ptr %retval, align 8
-  ret ptr %38
+154:                                              ; preds = %147
+  br label %155
+
+155:                                              ; preds = %154
+  %156 = load i32, ptr %22, align 4
+  %157 = call ptr @__errno_location() #6
+  store i32 %156, ptr %157, align 4
+  br label %158
+
+158:                                              ; preds = %155
+  br label %159
+
+159:                                              ; preds = %158
+  br label %160
+
+160:                                              ; preds = %159, %147
+  store ptr null, ptr %8, align 8
+  store i32 1, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  br label %161
+
+161:                                              ; preds = %160, %145, %82, %66, %49, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  %162 = load ptr, ptr %8, align 8
+  ret ptr %162
 }
 
-declare i32 @evutil_socket_(i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @evutil_socket_(i32 noundef, i32 noundef, i32 noundef) #3
+
+declare i32 @evutil_set_tcp_keepalive(i32 noundef, i32 noundef, i32 noundef) #3
+
+declare i32 @evutil_closesocket(i32 noundef) #3
+
+declare i32 @evutil_make_listen_socket_reuseable(i32 noundef) #3
+
+declare i32 @evutil_make_listen_socket_reuseable_port(i32 noundef) #3
+
+declare i32 @evutil_make_tcp_listen_socket_deferred(i32 noundef) #3
+
+declare i32 @evutil_make_listen_socket_ipv6only(i32 noundef) #3
+
+declare i32 @evutil_make_listen_socket_not_ipv6only(i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @evutil_make_listen_socket_reuseable(i32 noundef) #2
-
-declare i32 @evutil_make_listen_socket_reuseable_port(i32 noundef) #2
-
-declare i32 @evutil_make_tcp_listen_socket_deferred(i32 noundef) #2
-
-declare i32 @evutil_make_listen_socket_ipv6only(i32 noundef) #2
-
-declare i32 @evutil_make_listen_socket_not_ipv6only(i32 noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) #1
+declare i32 @bind(i32 noundef, ptr, i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
-
-declare i32 @evutil_closesocket(i32 noundef) #2
+declare ptr @__errno_location() #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_free(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  br label %do.body
+define void @evconnlistener_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.evconnlistener, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %14
 
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
+8:                                                ; preds = %3
+  %9 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds nuw %struct.evconnlistener, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = call i32 %9(i32 noundef 0, ptr noundef %12)
+  br label %14
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+14:                                               ; preds = %8, %3
+  br label %15
 
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %cb = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 2
-  store ptr null, ptr %cb, align 8
-  %7 = load ptr, ptr %lev.addr, align 8
-  %errorcb = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 3
-  store ptr null, ptr %errorcb, align 8
-  %8 = load ptr, ptr %lev.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %ops, align 8
-  %shutdown = getelementptr inbounds %struct.evconnlistener_ops, ptr %9, i32 0, i32 3
-  %10 = load ptr, ptr %shutdown, align 8
-  %tobool2 = icmp ne ptr %10, null
-  br i1 %tobool2, label %if.then3, label %if.end6
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.evconnlistener, ptr %16, i32 0, i32 2
+  store ptr null, ptr %17, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.evconnlistener, ptr %18, i32 0, i32 3
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.evconnlistener, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %33
 
-if.then3:                                         ; preds = %do.end
-  %11 = load ptr, ptr %lev.addr, align 8
-  %ops4 = getelementptr inbounds %struct.evconnlistener, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %ops4, align 8
-  %shutdown5 = getelementptr inbounds %struct.evconnlistener_ops, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %shutdown5, align 8
-  %14 = load ptr, ptr %lev.addr, align 8
-  call void %13(ptr noundef %14)
-  br label %if.end6
+26:                                               ; preds = %15
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds nuw %struct.evconnlistener, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %2, align 8
+  call void %31(ptr noundef %32)
+  br label %33
 
-if.end6:                                          ; preds = %if.then3, %do.end
-  %15 = load ptr, ptr %lev.addr, align 8
-  %call7 = call i32 @listener_decref_and_unlock(ptr noundef %15)
+33:                                               ; preds = %26, %15
+  %34 = load ptr, ptr %2, align 8
+  %35 = call i32 @listener_decref_and_unlock(ptr noundef %34)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @listener_decref_and_unlock(ptr noundef %listener) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %listener.addr = alloca ptr, align 8
-  %refcnt = alloca i32, align 4
-  %lock_tmp_ = alloca ptr, align 8
-  store ptr %listener, ptr %listener.addr, align 8
-  %0 = load ptr, ptr %listener.addr, align 8
-  %refcnt1 = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 6
-  %1 = load i16, ptr %refcnt1, align 4
-  %dec = add i16 %1, -1
-  store i16 %dec, ptr %refcnt1, align 4
-  %conv = sext i16 %dec to i32
-  store i32 %conv, ptr %refcnt, align 4
-  %2 = load i32, ptr %refcnt, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @listener_decref_and_unlock(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.evconnlistener, ptr %7, i32 0, i32 6
+  %9 = load i16, ptr %8, align 4
+  %10 = add i16 %9, -1
+  store i16 %10, ptr %8, align 4
+  %11 = sext i16 %10 to i32
+  store i32 %11, ptr %4, align 4
+  %12 = load i32, ptr %4, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %51
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %listener.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %ops, align 8
-  %destroy = getelementptr inbounds %struct.evconnlistener_ops, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %destroy, align 8
-  %6 = load ptr, ptr %listener.addr, align 8
-  call void %5(ptr noundef %6)
-  br label %do.body
-
-do.body:                                          ; preds = %if.then
-  %7 = load ptr, ptr %listener.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %do.body
-  %9 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %listener.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evconnlistener, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %lock4, align 8
-  %call = call i32 %10(i32 noundef 0, ptr noundef %12)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %do.body5
-
-do.body5:                                         ; preds = %do.end
-  %13 = load ptr, ptr %listener.addr, align 8
-  %lock6 = getelementptr inbounds %struct.evconnlistener, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %lock6, align 8
-  store ptr %14, ptr %lock_tmp_, align 8
-  %15 = load ptr, ptr %lock_tmp_, align 8
-  %tobool7 = icmp ne ptr %15, null
-  br i1 %tobool7, label %land.lhs.true, label %if.end10
-
-land.lhs.true:                                    ; preds = %do.body5
-  %16 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.evconnlistener, ptr %15, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
-  %tobool8 = icmp ne ptr %17, null
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %land.lhs.true
-  %18 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %17, i32 0, i32 2
   %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %lock_tmp_, align 8
-  call void %19(ptr noundef %20, i32 noundef 1)
-  br label %if.end10
+  %20 = load ptr, ptr %3, align 8
+  call void %19(ptr noundef %20)
+  br label %21
 
-if.end10:                                         ; preds = %if.then9, %land.lhs.true, %do.body5
-  br label %do.end11
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.evconnlistener, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %32
 
-do.end11:                                         ; preds = %if.end10
-  %21 = load ptr, ptr %listener.addr, align 8
-  call void @event_mm_free_(ptr noundef %21)
-  store i32 1, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %21
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.evconnlistener, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %27(i32 noundef 0, ptr noundef %30)
+  br label %32
 
-if.else:                                          ; preds = %entry
-  br label %do.body12
+32:                                               ; preds = %26, %21
+  br label %33
 
-do.body12:                                        ; preds = %if.else
-  %22 = load ptr, ptr %listener.addr, align 8
-  %lock13 = getelementptr inbounds %struct.evconnlistener, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %lock13, align 8
-  %tobool14 = icmp ne ptr %23, null
-  br i1 %tobool14, label %if.then15, label %if.end18
+33:                                               ; preds = %32
+  br label %34
 
-if.then15:                                        ; preds = %do.body12
-  %24 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.evconnlistener, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %5, align 8
+  %39 = load ptr, ptr %5, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %47
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 3), align 8
+  %46 = load ptr, ptr %5, align 8
+  call void %45(ptr noundef %46, i32 noundef 1)
+  br label %47
+
+47:                                               ; preds = %44, %41, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  br label %48
+
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %3, align 8
+  call void @event_mm_free_(ptr noundef %50)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %66
+
+51:                                               ; preds = %1
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.evconnlistener, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %63
+
+57:                                               ; preds = %52
+  %58 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds nuw %struct.evconnlistener, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = call i32 %58(i32 noundef 0, ptr noundef %61)
+  br label %63
+
+63:                                               ; preds = %57, %52
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %66
+
+66:                                               ; preds = %65, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %67 = load i32, ptr %2, align 4
+  ret i32 %67
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @evconnlistener_disable(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  br label %4
+
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.evconnlistener, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %15
+
+9:                                                ; preds = %4
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.evconnlistener, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 %10(i32 noundef 0, ptr noundef %13)
+  br label %15
+
+15:                                               ; preds = %9, %4
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.evconnlistener, ptr %18, i32 0, i32 8
+  %20 = load i8, ptr %19, align 4
+  %21 = and i8 %20, -2
+  %22 = or i8 %21, 0
+  store i8 %22, ptr %19, align 4
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.evconnlistener, ptr %23, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %listener.addr, align 8
-  %lock16 = getelementptr inbounds %struct.evconnlistener, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %25(i32 noundef 0, ptr noundef %27)
-  br label %if.end18
+  %26 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = call i32 %27(ptr noundef %28)
+  store i32 %29, ptr %3, align 4
+  br label %30
 
-if.end18:                                         ; preds = %if.then15, %do.body12
-  br label %do.end19
+30:                                               ; preds = %17
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds nuw %struct.evconnlistener, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %41
 
-do.end19:                                         ; preds = %if.end18
-  store i32 0, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %30
+  %36 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw %struct.evconnlistener, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 %36(i32 noundef 0, ptr noundef %39)
+  br label %41
 
-return:                                           ; preds = %do.end19, %do.end11
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+41:                                               ; preds = %35, %30
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evconnlistener_disable(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  store ptr %lev, ptr %lev.addr, align 8
-  br label %do.body
+define i32 @evconnlistener_get_fd(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  br label %4
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.evconnlistener, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %15
 
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %enabled = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 8
-  %bf.load = load i8, ptr %enabled, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %enabled, align 4
-  %7 = load ptr, ptr %lev.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %ops, align 8
-  %disable = getelementptr inbounds %struct.evconnlistener_ops, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %disable, align 8
-  %10 = load ptr, ptr %lev.addr, align 8
-  %call2 = call i32 %9(ptr noundef %10)
-  store i32 %call2, ptr %r, align 4
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %11 = load ptr, ptr %lev.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evconnlistener, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %12, null
-  br i1 %tobool5, label %if.then6, label %if.end9
-
-if.then6:                                         ; preds = %do.body3
-  %13 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %lev.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evconnlistener, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %14(i32 noundef 0, ptr noundef %16)
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then6, %do.body3
-  br label %do.end10
-
-do.end10:                                         ; preds = %if.end9
-  %17 = load i32, ptr %r, align 4
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @evconnlistener_get_fd(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %fd = alloca i32, align 4
-  store ptr %lev, ptr %lev.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ops, align 8
-  %getfd = getelementptr inbounds %struct.evconnlistener_ops, ptr %7, i32 0, i32 4
-  %8 = load ptr, ptr %getfd, align 8
-  %9 = load ptr, ptr %lev.addr, align 8
-  %call2 = call i32 %8(ptr noundef %9)
-  store i32 %call2, ptr %fd, align 4
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %10 = load ptr, ptr %lev.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evconnlistener, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %11, null
-  br i1 %tobool5, label %if.then6, label %if.end9
-
-if.then6:                                         ; preds = %do.body3
-  %12 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+9:                                                ; preds = %4
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.evconnlistener, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %lev.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evconnlistener, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %13(i32 noundef 0, ptr noundef %15)
-  br label %if.end9
+  %14 = call i32 %10(i32 noundef 0, ptr noundef %13)
+  br label %15
 
-if.end9:                                          ; preds = %if.then6, %do.body3
-  br label %do.end10
+15:                                               ; preds = %9, %4
+  br label %16
 
-do.end10:                                         ; preds = %if.end9
-  %16 = load i32, ptr %fd, align 4
-  ret i32 %16
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.evconnlistener, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = call i32 %22(ptr noundef %23)
+  store i32 %24, ptr %3, align 4
+  br label %25
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.evconnlistener, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %36
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw %struct.evconnlistener, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 %31(i32 noundef 0, ptr noundef %34)
+  br label %36
+
+36:                                               ; preds = %30, %25
+  br label %37
+
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evconnlistener_get_base(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %base = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  br label %do.body
+define ptr @evconnlistener_get_base(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  br label %4
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.evconnlistener, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %15
 
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %ops = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ops, align 8
-  %getbase = getelementptr inbounds %struct.evconnlistener_ops, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %getbase, align 8
-  %9 = load ptr, ptr %lev.addr, align 8
-  %call2 = call ptr %8(ptr noundef %9)
-  store ptr %call2, ptr %base, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %10 = load ptr, ptr %lev.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evconnlistener, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %11, null
-  br i1 %tobool5, label %if.then6, label %if.end9
-
-if.then6:                                         ; preds = %do.body3
-  %12 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+9:                                                ; preds = %4
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.evconnlistener, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %lev.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evconnlistener, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %13(i32 noundef 0, ptr noundef %15)
-  br label %if.end9
+  %14 = call i32 %10(i32 noundef 0, ptr noundef %13)
+  br label %15
 
-if.end9:                                          ; preds = %if.then6, %do.body3
-  br label %do.end10
+15:                                               ; preds = %9, %4
+  br label %16
 
-do.end10:                                         ; preds = %if.end9
-  %16 = load ptr, ptr %base, align 8
-  ret ptr %16
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.evconnlistener, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.evconnlistener_ops, ptr %20, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = call ptr %22(ptr noundef %23)
+  store ptr %24, ptr %3, align 8
+  br label %25
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.evconnlistener, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %36
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw %struct.evconnlistener, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 %31(i32 noundef 0, ptr noundef %34)
+  br label %36
+
+36:                                               ; preds = %30, %25
+  br label %37
+
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret ptr %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_set_cb(ptr noundef %lev, ptr noundef %cb, ptr noundef %arg) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %enable = alloca i32, align 4
-  store ptr %lev, ptr %lev.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 0, ptr %enable, align 4
-  br label %do.body
+define void @evconnlistener_set_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 0, ptr %7, align 4
+  br label %8
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %lev.addr, align 8
-  %enabled = getelementptr inbounds %struct.evconnlistener, ptr %6, i32 0, i32 8
-  %bf.load = load i8, ptr %enabled, align 4
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %tobool2 = icmp ne i32 %bf.cast, 0
-  br i1 %tobool2, label %land.lhs.true, label %if.end6
-
-land.lhs.true:                                    ; preds = %do.end
-  %7 = load ptr, ptr %lev.addr, align 8
-  %cb3 = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %cb3, align 8
-  %tobool4 = icmp ne ptr %8, null
-  br i1 %tobool4, label %if.end6, label %if.then5
-
-if.then5:                                         ; preds = %land.lhs.true
-  store i32 1, ptr %enable, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then5, %land.lhs.true, %do.end
-  %9 = load ptr, ptr %cb.addr, align 8
-  %10 = load ptr, ptr %lev.addr, align 8
-  %cb7 = getelementptr inbounds %struct.evconnlistener, ptr %10, i32 0, i32 2
-  store ptr %9, ptr %cb7, align 8
-  %11 = load ptr, ptr %arg.addr, align 8
-  %12 = load ptr, ptr %lev.addr, align 8
-  %user_data = getelementptr inbounds %struct.evconnlistener, ptr %12, i32 0, i32 4
-  store ptr %11, ptr %user_data, align 8
-  %13 = load i32, ptr %enable, align 4
-  %tobool8 = icmp ne i32 %13, 0
-  br i1 %tobool8, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %if.end6
-  %14 = load ptr, ptr %lev.addr, align 8
-  %call10 = call i32 @evconnlistener_enable(ptr noundef %14)
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then9, %if.end6
-  br label %do.body12
-
-do.body12:                                        ; preds = %if.end11
-  %15 = load ptr, ptr %lev.addr, align 8
-  %lock13 = getelementptr inbounds %struct.evconnlistener, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %lock13, align 8
-  %tobool14 = icmp ne ptr %16, null
-  br i1 %tobool14, label %if.then15, label %if.end18
-
-if.then15:                                        ; preds = %do.body12
-  %17 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %lev.addr, align 8
-  %lock16 = getelementptr inbounds %struct.evconnlistener, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %lock16, align 8
-  %call17 = call i32 %18(i32 noundef 0, ptr noundef %20)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then15, %do.body12
-  br label %do.end19
-
-do.end19:                                         ; preds = %if.end18
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_set_error_cb(ptr noundef %lev, ptr noundef %errorcb) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %errorcb.addr = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  store ptr %errorcb, ptr %errorcb.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %lev.addr, align 8
-  %lock = getelementptr inbounds %struct.evconnlistener, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %lock, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  %2 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %lev.addr, align 8
-  %lock1 = getelementptr inbounds %struct.evconnlistener, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %lock1, align 8
-  %call = call i32 %3(i32 noundef 0, ptr noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %errorcb.addr, align 8
-  %7 = load ptr, ptr %lev.addr, align 8
-  %errorcb2 = getelementptr inbounds %struct.evconnlistener, ptr %7, i32 0, i32 3
-  store ptr %6, ptr %errorcb2, align 8
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end
-  %8 = load ptr, ptr %lev.addr, align 8
-  %lock4 = getelementptr inbounds %struct.evconnlistener, ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %lock4, align 8
-  %tobool5 = icmp ne ptr %9, null
-  br i1 %tobool5, label %if.then6, label %if.end9
-
-if.then6:                                         ; preds = %do.body3
-  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %struct.evconnlistener, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %lev.addr, align 8
-  %lock7 = getelementptr inbounds %struct.evconnlistener, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %lock7, align 8
-  %call8 = call i32 %11(i32 noundef 0, ptr noundef %13)
-  br label %if.end9
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %19
 
-if.end9:                                          ; preds = %if.then6, %do.body3
-  br label %do.end10
+13:                                               ; preds = %8
+  %14 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.evconnlistener, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 %14(i32 noundef 0, ptr noundef %17)
+  br label %19
 
-do.end10:                                         ; preds = %if.end9
+19:                                               ; preds = %13, %8
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.evconnlistener, ptr %22, i32 0, i32 8
+  %24 = load i8, ptr %23, align 4
+  %25 = and i8 %24, 1
+  %26 = zext i8 %25 to i32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct.evconnlistener, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %34, label %33
+
+33:                                               ; preds = %28
+  store i32 1, ptr %7, align 4
+  br label %34
+
+34:                                               ; preds = %33, %28, %21
+  %35 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.evconnlistener, ptr %36, i32 0, i32 2
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.evconnlistener, ptr %39, i32 0, i32 4
+  store ptr %38, ptr %40, align 8
+  %41 = load i32, ptr %7, align 4
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %4, align 8
+  %45 = call i32 @evconnlistener_enable(ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %43, %34
+  br label %47
+
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.evconnlistener, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %58
+
+52:                                               ; preds = %47
+  %53 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds nuw %struct.evconnlistener, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = call i32 %53(i32 noundef 0, ptr noundef %56)
+  br label %58
+
+58:                                               ; preds = %52, %47
+  br label %59
+
+59:                                               ; preds = %58
+  br label %60
+
+60:                                               ; preds = %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @event_listener_enable(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %lev_e = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  %0 = load ptr, ptr %lev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %lev_e, align 8
-  %1 = load ptr, ptr %lev_e, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %1, i32 0, i32 1
-  %call = call i32 @event_add(ptr noundef %listener, ptr noundef null)
-  ret i32 %call
-}
+define void @evconnlistener_set_error_cb(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @event_listener_disable(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %lev_e = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  %0 = load ptr, ptr %lev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %lev_e, align 8
-  %1 = load ptr, ptr %lev_e, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %1, i32 0, i32 1
-  %call = call i32 @event_del(ptr noundef %listener)
-  ret i32 %call
-}
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %16
 
-; Function Attrs: nounwind uwtable
-define internal void @event_listener_destroy(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %lev_e = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  %0 = load ptr, ptr %lev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %lev_e, align 8
-  %1 = load ptr, ptr %lev_e, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %1, i32 0, i32 1
-  %call = call i32 @event_del(ptr noundef %listener)
-  %2 = load ptr, ptr %lev.addr, align 8
-  %flags = getelementptr inbounds %struct.evconnlistener, ptr %2, i32 0, i32 5
-  %3 = load i32, ptr %flags, align 8
-  %and = and i32 %3, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+10:                                               ; preds = %5
+  %11 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.evconnlistener, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 %11(i32 noundef 0, ptr noundef %14)
+  br label %16
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %lev_e, align 8
-  %listener1 = getelementptr inbounds %struct.evconnlistener_event, ptr %4, i32 0, i32 1
-  %call2 = call i32 @event_get_fd(ptr noundef %listener1)
-  %call3 = call i32 @evutil_closesocket(i32 noundef %call2)
-  br label %if.end
+16:                                               ; preds = %10, %5
+  br label %17
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %lev_e, align 8
-  %listener4 = getelementptr inbounds %struct.evconnlistener_event, ptr %5, i32 0, i32 1
-  call void @event_debug_unassign(ptr noundef %listener4)
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.evconnlistener, ptr %19, i32 0, i32 3
+  store ptr %18, ptr %20, align 8
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds nuw %struct.evconnlistener, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %32
+
+26:                                               ; preds = %21
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.evconnlistener, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %27(i32 noundef 0, ptr noundef %30)
+  br label %32
+
+32:                                               ; preds = %26, %21
+  br label %33
+
+33:                                               ; preds = %32
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @event_listener_getfd(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %lev_e = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  %0 = load ptr, ptr %lev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %lev_e, align 8
-  %1 = load ptr, ptr %lev_e, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %1, i32 0, i32 1
-  %call = call i32 @event_get_fd(ptr noundef %listener)
-  ret i32 %call
+define internal i32 @event_listener_enable(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %6, i32 0, i32 1
+  %8 = call i32 @event_add(ptr noundef %7, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @event_listener_getbase(ptr noundef %lev) #0 {
-entry:
-  %lev.addr = alloca ptr, align 8
-  %lev_e = alloca ptr, align 8
-  store ptr %lev, ptr %lev.addr, align 8
-  %0 = load ptr, ptr %lev.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 0
-  store ptr %add.ptr, ptr %lev_e, align 8
-  %1 = load ptr, ptr %lev_e, align 8
-  %listener = getelementptr inbounds %struct.evconnlistener_event, ptr %1, i32 0, i32 1
-  %call = call ptr @event_get_base(ptr noundef %listener)
-  ret ptr %call
+define internal i32 @event_listener_disable(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %6, i32 0, i32 1
+  %8 = call i32 @event_del(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i32 %8
 }
 
-declare i32 @event_add(ptr noundef, ptr noundef) #2
+; Function Attrs: nounwind uwtable
+define internal void @event_listener_destroy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %6, i32 0, i32 1
+  %8 = call i32 @event_del(ptr noundef %7)
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.evconnlistener, ptr %9, i32 0, i32 5
+  %11 = load i32, ptr %10, align 8
+  %12 = and i32 %11, 2
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %19
 
-declare i32 @event_del(ptr noundef) #2
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %15, i32 0, i32 1
+  %17 = call i32 @event_get_fd(ptr noundef %16)
+  %18 = call i32 @evutil_closesocket(i32 noundef %17)
+  br label %19
 
-declare i32 @event_get_fd(ptr noundef) #2
+19:                                               ; preds = %14, %1
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %20, i32 0, i32 1
+  call void @event_debug_unassign(ptr noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret void
+}
 
-declare void @event_debug_unassign(ptr noundef) #2
+; Function Attrs: nounwind uwtable
+define internal i32 @event_listener_getfd(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %6, i32 0, i32 1
+  %8 = call i32 @event_get_fd(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret i32 %8
+}
 
-declare ptr @event_get_base(ptr noundef) #2
+; Function Attrs: nounwind uwtable
+define internal ptr @event_listener_getbase(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 0
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.evconnlistener_event, ptr %6, i32 0, i32 1
+  %8 = call ptr @event_get_base(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  ret ptr %8
+}
 
-declare void @event_mm_free_(ptr noundef) #2
+declare i32 @event_add(ptr noundef, ptr noundef) #3
 
-declare i32 @evutil_accept4_(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @event_del(ptr noundef) #3
 
-declare void @event_sock_warn(i32 noundef, ptr noundef, ...) #2
+declare i32 @event_get_fd(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
+declare void @event_debug_unassign(ptr noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+declare ptr @event_get_base(ptr noundef) #3
+
+declare void @event_mm_free_(ptr noundef) #3
+
+declare i32 @evutil_accept4_(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #3
+
+declare void @event_sock_warn(i32 noundef, ptr noundef, ...) #3
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

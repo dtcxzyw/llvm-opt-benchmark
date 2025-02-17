@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libevent/original/evutil_time.ll'
 source_filename = "bench/libevent/original/evutil_time.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
@@ -30,351 +30,352 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"%s, %02d %s %4d %02d:%02d:%02d GMT\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr noundef readonly captures(none) %tv) local_unnamed_addr #0 {
-entry:
-  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
-  %0 = load i64, ptr %tv_usec, align 8
-  %cmp = icmp sgt i64 %0, 1000000
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i64, ptr %2, align 8
+  %4 = icmp sgt i64 %3, 1000000
+  br i1 %4, label %13, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i64, ptr %tv, align 8
-  %cmp1 = icmp sgt i64 %1, 9223372036854774
-  br i1 %cmp1, label %return, label %if.end
+5:                                                ; preds = %1
+  %6 = load i64, ptr %0, align 8
+  %7 = icmp sgt i64 %6, 9223372036854774
+  br i1 %7, label %13, label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %mul = mul nsw i64 %1, 1000
-  %add = add nsw i64 %0, 999
-  %div = sdiv i64 %add, 1000
-  %add4 = add nsw i64 %mul, %div
-  br label %return
+8:                                                ; preds = %5
+  %9 = mul nsw i64 %6, 1000
+  %10 = add nsw i64 %3, 999
+  %11 = sdiv i64 %10, 1000
+  %12 = add nsw i64 %9, %11
+  br label %13
 
-return:                                           ; preds = %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i64 [ %add4, %if.end ], [ -1, %lor.lhs.false ], [ -1, %entry ]
-  ret i64 %retval.0
+13:                                               ; preds = %1, %5, %8
+  %.0 = phi i64 [ %12, %8 ], [ -1, %5 ], [ -1, %1 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %tv) local_unnamed_addr #1 {
-entry:
-  %ts = alloca %struct.timespec, align 8
-  %tobool.not = icmp eq ptr %tv, null
-  br i1 %tobool.not, label %return, label %if.end
+define void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+  %2 = alloca %struct.timespec, align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %10, label %3
 
-if.end:                                           ; preds = %entry
-  %0 = load i64, ptr %tv, align 8
-  store i64 %0, ptr %ts, align 8
-  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
-  %1 = load i64, ptr %tv_usec, align 8
-  %mul = mul nsw i64 %1, 1000
-  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
-  store i64 %mul, ptr %tv_nsec, align 8
-  %call = call i32 @nanosleep(ptr noundef nonnull %ts, ptr noundef null) #8
-  br label %return
+3:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  %4 = load i64, ptr %0, align 8
+  store i64 %4, ptr %2, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = mul nsw i64 %6, 1000
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %7, ptr %8, align 8
+  %9 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  br label %10
 
-return:                                           ; preds = %entry, %if.end
+10:                                               ; preds = %1, %3
   ret void
 }
 
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_date_rfc1123(ptr noundef %date, i64 noundef %datelen, ptr noundef readonly captures(address_is_null) %tm) local_unnamed_addr #1 {
-entry:
-  %t = alloca i64, align 8
-  %sys = alloca %struct.tm, align 8
-  %call = tail call i64 @time(ptr noundef null) #8
-  store i64 %call, ptr %t, align 8
-  %cmp = icmp eq ptr %tm, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
+  %4 = alloca i64, align 8
+  %5 = alloca %struct.tm, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  %6 = tail call i64 @time(ptr noundef null) #8
+  store i64 %6, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  %7 = icmp eq ptr %2, null
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %call1 = call ptr @gmtime_r(ptr noundef nonnull %t, ptr noundef nonnull %sys) #8
-  br label %if.end
+8:                                                ; preds = %3
+  %9 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
-  %tm.addr.0.sroa.phi24 = phi ptr [ %sys, %if.then ], [ %tm, %entry ]
-  %tm.addr.0.sroa.phi24.sroa.phi72 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 4
-  %tm.addr.0.sroa.phi24.sroa.phi69 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 8
-  %tm.addr.0.sroa.phi24.sroa.phi66 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 20
-  %tm.addr.0.sroa.phi24.sroa.phi = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 16
-  %tm.addr.0.sroa.phi24.sroa.phi61 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 12
-  %tm.addr.0.sroa.phi24.sroa.phi59 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 24
-  %0 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi59, align 8
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  %2 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi61, align 4
-  %3 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi, align 8
-  %idxprom2 = sext i32 %3 to i64
-  %arrayidx3 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %idxprom2
-  %4 = load ptr, ptr %arrayidx3, align 8
-  %5 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi66, align 4
-  %add = add nsw i32 %5, 1900
-  %6 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi69, align 8
-  %7 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi72, align 4
-  %8 = load i32, ptr %tm.addr.0.sroa.phi24, align 8
-  %call4 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %date, i64 noundef %datelen, ptr noundef nonnull @.str.19, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %add, i32 noundef %6, i32 noundef %7, i32 noundef %8) #8
-  ret i32 %call4
+10:                                               ; preds = %8, %3
+  %.0.sroa.phi25 = phi ptr [ %5, %8 ], [ %2, %3 ]
+  %.0.sroa.phi25.sroa.phi73 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 4
+  %.0.sroa.phi25.sroa.phi70 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 8
+  %.0.sroa.phi25.sroa.phi67 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 20
+  %.0.sroa.phi25.sroa.phi = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 16
+  %.0.sroa.phi25.sroa.phi62 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 12
+  %.0.sroa.phi25.sroa.phi60 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 24
+  %11 = load i32, ptr %.0.sroa.phi25.sroa.phi60, align 8
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %.0.sroa.phi25.sroa.phi62, align 4
+  %16 = load i32, ptr %.0.sroa.phi25.sroa.phi, align 8
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %.0.sroa.phi25.sroa.phi67, align 4
+  %21 = add nsw i32 %20, 1900
+  %22 = load i32, ptr %.0.sroa.phi25.sroa.phi70, align 8
+  %23 = load i32, ptr %.0.sroa.phi25.sroa.phi73, align 4
+  %24 = load i32, ptr %.0.sroa.phi25, align 8
+  %25 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.19, ptr noundef %14, i32 noundef %15, ptr noundef %19, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24) #8
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #3
+declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @evutil_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evutil_monotonic_timer_new() local_unnamed_addr #1 {
-entry:
-  %call = tail call ptr @event_mm_malloc_(i64 noundef 40) #8
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %done, label %if.end
+define ptr @evutil_monotonic_timer_new() local_unnamed_addr #1 {
+  %1 = tail call ptr @event_mm_malloc_(i64 noundef 40) #8
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %2
 
-if.end:                                           ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  br label %done
+2:                                                ; preds = %0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
+  br label %3
 
-done:                                             ; preds = %entry, %if.end
-  ret ptr %call
+3:                                                ; preds = %0, %2
+  ret ptr %1
 }
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evutil_monotonic_timer_free(ptr noundef %timer) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %timer, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define void @evutil_monotonic_timer_free(ptr noundef %0) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %2
 
-if.then:                                          ; preds = %entry
-  tail call void @event_mm_free_(ptr noundef nonnull %timer) #8
-  br label %if.end
+2:                                                ; preds = %1
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #8
+  br label %3
 
-if.end:                                           ; preds = %if.then, %entry
+3:                                                ; preds = %2, %1
   ret void
 }
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time(ptr noundef writeonly captures(none) initializes((0, 4)) %timer, i32 noundef %flags) local_unnamed_addr #1 {
-entry:
-  %ts.i = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  %and1.i = and i32 %flags, 2
-  %tobool2.not.i = icmp eq i32 %and1.i, 0
-  %0 = and i32 %flags, 3
-  %or.cond.not.i = icmp eq i32 %0, 0
-  br i1 %or.cond.not.i, label %if.then.i, label %if.end4.i
+define noundef i32 @evutil_configure_monotonic_time(ptr noundef writeonly captures(none) initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = alloca %struct.timespec, align 8
+  %4 = and i32 %1, 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  %.not.i = icmp eq i32 %4, 0
+  %5 = and i32 %1, 3
+  %or.cond.not.i = icmp eq i32 %5, 0
+  br i1 %or.cond.not.i, label %6, label %9
 
-if.then.i:                                        ; preds = %entry
-  %call.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i) #8
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %evutil_configure_monotonic_time_.exit, label %if.end4.i
+6:                                                ; preds = %2
+  %7 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %3) #8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %evutil_configure_monotonic_time_.exit, label %9
 
-if.end4.i:                                        ; preds = %if.then.i, %entry
-  br i1 %tobool2.not.i, label %land.lhs.true6.i, label %if.end11.i
+9:                                                ; preds = %6, %2
+  br i1 %.not.i, label %10, label %13
 
-land.lhs.true6.i:                                 ; preds = %if.end4.i
-  %call7.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #8
-  %cmp8.i = icmp eq i32 %call7.i, 0
-  br i1 %cmp8.i, label %evutil_configure_monotonic_time_.exit, label %if.end11.i
+10:                                               ; preds = %9
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #8
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %evutil_configure_monotonic_time_.exit, label %13
 
-if.end11.i:                                       ; preds = %land.lhs.true6.i, %if.end4.i
+13:                                               ; preds = %10, %9
   br label %evutil_configure_monotonic_time_.exit
 
-evutil_configure_monotonic_time_.exit:            ; preds = %if.then.i, %land.lhs.true6.i, %if.end11.i
-  %.sink.i = phi i32 [ -1, %if.end11.i ], [ 6, %if.then.i ], [ 1, %land.lhs.true6.i ]
-  store i32 %.sink.i, ptr %timer, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
+evutil_configure_monotonic_time_.exit:            ; preds = %6, %10, %13
+  %.sink.i = phi i32 [ -1, %13 ], [ 6, %6 ], [ 1, %10 ]
+  store i32 %.sink.i, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr noundef writeonly captures(none) initializes((0, 4)) %base, i32 noundef %flags) local_unnamed_addr #1 {
-entry:
-  %ts = alloca %struct.timespec, align 8
-  %and1 = and i32 %flags, 2
-  %tobool2.not = icmp eq i32 %and1, 0
-  %0 = and i32 %flags, 3
-  %or.cond.not = icmp eq i32 %0, 0
-  br i1 %or.cond.not, label %if.then, label %if.end4
+define noundef i32 @evutil_configure_monotonic_time_(ptr noundef writeonly captures(none) initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = alloca %struct.timespec, align 8
+  %4 = and i32 %1, 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  %.not = icmp eq i32 %4, 0
+  %5 = and i32 %1, 3
+  %or.cond.not = icmp eq i32 %5, 0
+  br i1 %or.cond.not, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %call = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts) #8
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %return, label %if.end4
+6:                                                ; preds = %2
+  %7 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %3) #8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %14, label %9
 
-if.end4:                                          ; preds = %if.then, %entry
-  br i1 %tobool2.not, label %land.lhs.true6, label %if.end11
+9:                                                ; preds = %6, %2
+  br i1 %.not, label %10, label %13
 
-land.lhs.true6:                                   ; preds = %if.end4
-  %call7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts) #8
-  %cmp8 = icmp eq i32 %call7, 0
-  br i1 %cmp8, label %return, label %if.end11
+10:                                               ; preds = %9
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #8
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %14, label %13
 
-if.end11:                                         ; preds = %land.lhs.true6, %if.end4
-  br label %return
+13:                                               ; preds = %10, %9
+  br label %14
 
-return:                                           ; preds = %land.lhs.true6, %if.then, %if.end11
-  %.sink = phi i32 [ -1, %if.end11 ], [ 6, %if.then ], [ 1, %land.lhs.true6 ]
-  store i32 %.sink, ptr %base, align 8
+14:                                               ; preds = %10, %6, %13
+  %.sink = phi i32 [ -1, %13 ], [ 6, %6 ], [ 1, %10 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr noundef captures(none) %timer, ptr noundef captures(none) %tp) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @evutil_gettime_monotonic_(ptr noundef %timer, ptr noundef %tp)
-  ret i32 %call
+define range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = tail call i32 @evutil_gettime_monotonic_(ptr noundef %0, ptr noundef %1)
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr noundef captures(none) %base, ptr noundef captures(none) %tp) local_unnamed_addr #1 {
-entry:
-  %ts = alloca %struct.timespec, align 8
-  %0 = load i32, ptr %base, align 8
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end3
+define range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  %4 = load i32, ptr %0, align 8
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %6, label %50
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @gettimeofday(ptr noundef %tp, ptr noundef null) #8
-  %cmp1 = icmp slt i32 %call, 0
-  br i1 %cmp1, label %return, label %if.end
+6:                                                ; preds = %2
+  %7 = tail call i32 @gettimeofday(ptr noundef %1, ptr noundef null) #8
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %59, label %9
 
-if.end:                                           ; preds = %if.then
-  %1 = load i64, ptr %tp, align 8
-  %adjust_monotonic_clock.i = getelementptr inbounds nuw i8, ptr %base, i64 8
-  %2 = load i64, ptr %adjust_monotonic_clock.i, align 8
-  %add.i = add nsw i64 %2, %1
-  store i64 %add.i, ptr %tp, align 8
-  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tp, i64 8
-  %3 = load i64, ptr %tv_usec.i, align 8
-  %tv_usec4.i = getelementptr inbounds nuw i8, ptr %base, i64 16
-  %4 = load i64, ptr %tv_usec4.i, align 8
-  %add5.i = add nsw i64 %4, %3
-  store i64 %add5.i, ptr %tv_usec.i, align 8
-  %cmp.i = icmp sgt i64 %add5.i, 999999
-  br i1 %cmp.i, label %if.then.i, label %do.end.i
+9:                                                ; preds = %6
+  %10 = load i64, ptr %1, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = add nsw i64 %12, %10
+  store i64 %13, ptr %1, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = add nsw i64 %17, %15
+  store i64 %18, ptr %14, align 8
+  %19 = icmp sgt i64 %18, 999999
+  br i1 %19, label %20, label %23
 
-if.then.i:                                        ; preds = %if.end
-  %inc.i = add nsw i64 %add.i, 1
-  store i64 %inc.i, ptr %tp, align 8
-  %sub.i = add nsw i64 %add5.i, -1000000
-  store i64 %sub.i, ptr %tv_usec.i, align 8
-  br label %do.end.i
+20:                                               ; preds = %9
+  %21 = add nsw i64 %13, 1
+  store i64 %21, ptr %1, align 8
+  %22 = add nsw i64 %18, -1000000
+  store i64 %22, ptr %14, align 8
+  br label %23
 
-do.end.i:                                         ; preds = %if.then.i, %if.end
-  %5 = phi i64 [ %add5.i, %if.end ], [ %sub.i, %if.then.i ]
-  %6 = phi i64 [ %add.i, %if.end ], [ %inc.i, %if.then.i ]
-  %last_time.i = getelementptr inbounds nuw i8, ptr %base, i64 24
-  %7 = load i64, ptr %last_time.i, align 8
-  %cmp12.i = icmp eq i64 %6, %7
-  br i1 %cmp12.i, label %cond.true.i, label %cond.false.i
+23:                                               ; preds = %20, %9
+  %24 = phi i64 [ %18, %9 ], [ %22, %20 ]
+  %25 = phi i64 [ %13, %9 ], [ %21, %20 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp eq i64 %25, %27
+  br i1 %28, label %29, label %33
 
-cond.true.i:                                      ; preds = %do.end.i
-  %tv_usec15.i = getelementptr inbounds nuw i8, ptr %base, i64 32
-  %8 = load i64, ptr %tv_usec15.i, align 8
-  %cmp16.i = icmp slt i64 %5, %8
-  br i1 %cmp16.i, label %do.body22.i, label %adjust_monotonic_time.exit
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp slt i64 %24, %31
+  br i1 %32, label %35, label %adjust_monotonic_time.exit
 
-cond.false.i:                                     ; preds = %do.end.i
-  %cmp20.i = icmp slt i64 %6, %7
-  br i1 %cmp20.i, label %cond.false.do.body22_crit_edge.i, label %adjust_monotonic_time.exit
+33:                                               ; preds = %23
+  %34 = icmp slt i64 %25, %27
+  br i1 %34, label %._crit_edge.i, label %adjust_monotonic_time.exit
 
-cond.false.do.body22_crit_edge.i:                 ; preds = %cond.false.i
-  %tv_usec29.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %base, i64 32
-  %.pre.i = load i64, ptr %tv_usec29.phi.trans.insert.i, align 8
-  br label %do.body22.i
+._crit_edge.i:                                    ; preds = %33
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
+  br label %35
 
-do.body22.i:                                      ; preds = %cond.false.do.body22_crit_edge.i, %cond.true.i
-  %9 = phi i64 [ %.pre.i, %cond.false.do.body22_crit_edge.i ], [ %8, %cond.true.i ]
-  %sub26.i = sub i64 %7, %6
-  %sub31.i = sub nsw i64 %9, %5
-  %cmp34.i = icmp slt i64 %sub31.i, 0
-  %add38.i = add nsw i64 %sub31.i, 1000000
-  %adjust.sroa.4.0.i = select i1 %cmp34.i, i64 %add38.i, i64 %sub31.i
-  %sub31.lobit.i = ashr i64 %sub31.i, 63
-  %10 = load i64, ptr %adjust_monotonic_clock.i, align 8
-  %adjust.sroa.0.0.i = add i64 %sub26.i, %10
-  %add45.i = add i64 %adjust.sroa.0.0.i, %sub31.lobit.i
-  store i64 %add45.i, ptr %adjust_monotonic_clock.i, align 8
-  %11 = load i64, ptr %tv_usec4.i, align 8
-  %add51.i = add nsw i64 %adjust.sroa.4.0.i, %11
-  store i64 %add51.i, ptr %tv_usec4.i, align 8
-  %cmp56.i = icmp sgt i64 %add51.i, 999999
-  br i1 %cmp56.i, label %if.then57.i, label %do.end65.i
+35:                                               ; preds = %._crit_edge.i, %29
+  %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %29 ]
+  %37 = sub i64 %27, %25
+  %38 = sub nsw i64 %36, %24
+  %39 = icmp slt i64 %38, 0
+  %40 = add nsw i64 %38, 1000000
+  %.sroa.6.0.i = select i1 %39, i64 %40, i64 %38
+  %.lobit.i = ashr i64 %38, 63
+  %41 = load i64, ptr %11, align 8
+  %.sroa.0.0.i = add i64 %37, %41
+  %42 = add i64 %.sroa.0.0.i, %.lobit.i
+  store i64 %42, ptr %11, align 8
+  %43 = load i64, ptr %16, align 8
+  %44 = add nsw i64 %.sroa.6.0.i, %43
+  store i64 %44, ptr %16, align 8
+  %45 = icmp sgt i64 %44, 999999
+  br i1 %45, label %46, label %49
 
-if.then57.i:                                      ; preds = %do.body22.i
-  %inc60.i = add nsw i64 %add45.i, 1
-  store i64 %inc60.i, ptr %adjust_monotonic_clock.i, align 8
-  %sub63.i = add nsw i64 %add51.i, -1000000
-  store i64 %sub63.i, ptr %tv_usec4.i, align 8
-  br label %do.end65.i
+46:                                               ; preds = %35
+  %47 = add nsw i64 %42, 1
+  store i64 %47, ptr %11, align 8
+  %48 = add nsw i64 %44, -1000000
+  store i64 %48, ptr %16, align 8
+  br label %49
 
-do.end65.i:                                       ; preds = %if.then57.i, %do.body22.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tp, ptr noundef nonnull align 8 dereferenceable(16) %last_time.i, i64 16, i1 false)
+49:                                               ; preds = %46, %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   br label %adjust_monotonic_time.exit
 
-adjust_monotonic_time.exit:                       ; preds = %cond.true.i, %cond.false.i, %do.end65.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_time.i, ptr noundef nonnull align 8 dereferenceable(16) %tp, i64 16, i1 false)
-  br label %return
+adjust_monotonic_time.exit:                       ; preds = %29, %33, %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %59
 
-if.end3:                                          ; preds = %entry
-  %call5 = call i32 @clock_gettime(i32 noundef %0, ptr noundef nonnull %ts) #8
-  %cmp6 = icmp eq i32 %call5, -1
-  br i1 %cmp6, label %return, label %if.end8
+50:                                               ; preds = %2
+  %51 = call i32 @clock_gettime(i32 noundef %4, ptr noundef nonnull %3) #8
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %59, label %53
 
-if.end8:                                          ; preds = %if.end3
-  %12 = load i64, ptr %ts, align 8
-  store i64 %12, ptr %tp, align 8
-  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
-  %13 = load i64, ptr %tv_nsec, align 8
-  %div = sdiv i64 %13, 1000
-  %tv_usec = getelementptr inbounds nuw i8, ptr %tp, i64 8
-  store i64 %div, ptr %tv_usec, align 8
-  br label %return
+53:                                               ; preds = %50
+  %54 = load i64, ptr %3, align 8
+  store i64 %54, ptr %1, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %56 = load i64, ptr %55, align 8
+  %57 = sdiv i64 %56, 1000
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %57, ptr %58, align 8
+  br label %59
 
-return:                                           ; preds = %if.end3, %if.then, %if.end8, %adjust_monotonic_time.exit
-  %retval.0 = phi i32 [ 0, %adjust_monotonic_time.exit ], [ 0, %if.end8 ], [ -1, %if.then ], [ -1, %if.end3 ]
-  ret i32 %retval.0
+59:                                               ; preds = %50, %6, %53, %adjust_monotonic_time.exit
+  %.0 = phi i32 [ 0, %adjust_monotonic_time.exit ], [ 0, %53 ], [ -1, %6 ], [ -1, %50 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

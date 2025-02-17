@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
 %union.evwatch_cb = type { ptr }
@@ -30,377 +30,398 @@ target triple = "x86_64-unknown-linux-gnu"
 @evthread_lock_fns_ = external global %struct.evthread_lock_callbacks, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evwatch_prepare_new(ptr noundef %base, ptr noundef %callback, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %callback.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %cb = alloca %union.evwatch_cb, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %callback, ptr %callback.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %callback.addr, align 8
-  store ptr %0, ptr %cb, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.evwatch_cb, ptr %cb, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @evwatch_new(ptr noundef %1, ptr %3, ptr noundef %2, i32 noundef 0)
-  ret ptr %call
+define ptr @evwatch_prepare_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.evwatch_cb, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %8 = load ptr, ptr %5, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %union.evwatch_cb, ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @evwatch_new(ptr noundef %9, ptr %12, ptr noundef %10, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret ptr %13
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @evwatch_new(ptr noundef %0, ptr %1, ptr noundef %2, i32 noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca %union.evwatch_cb, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = getelementptr inbounds nuw %union.evwatch_cb, ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %13 = call ptr @event_mm_malloc_(i64 noundef 48)
+  store ptr %13, ptr %10, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %97
+
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr inbounds nuw %struct.evwatch, ptr %19, i32 0, i32 1
+  store ptr %18, ptr %20, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.evwatch, ptr %22, i32 0, i32 2
+  store i32 %21, ptr %23, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds nuw %struct.evwatch, ptr %24, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %6, i64 8, i1 false)
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds nuw %struct.evwatch, ptr %27, i32 0, i32 4
+  store ptr %26, ptr %28, align 8
+  br label %29
+
+29:                                               ; preds = %17
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %7, align 8
+  %32 = getelementptr inbounds nuw %struct.event_base, ptr %31, i32 0, i32 31
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %41
+
+35:                                               ; preds = %30
+  %36 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct.event_base, ptr %37, i32 0, i32 31
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 %36(i32 noundef 0, ptr noundef %39)
+  br label %41
+
+41:                                               ; preds = %35, %30
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds nuw %struct.evwatch, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.anon, ptr %48, i32 0, i32 0
+  store ptr null, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.event_base, ptr %50, i32 0, i32 45
+  %52 = load i32, ptr %9, align 4
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %51, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw %struct.evwatch_list, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw %struct.evwatch, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i32 0, i32 1
+  store ptr %56, ptr %59, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.event_base, ptr %61, i32 0, i32 45
+  %63 = load i32, ptr %9, align 4
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %62, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw %struct.evwatch_list, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8
+  store ptr %60, ptr %67, align 8
+  %68 = load ptr, ptr %10, align 8
+  %69 = getelementptr inbounds nuw %struct.evwatch, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.anon, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds nuw %struct.event_base, ptr %71, i32 0, i32 45
+  %73 = load i32, ptr %9, align 4
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %72, i64 0, i64 %74
+  %76 = getelementptr inbounds nuw %struct.evwatch_list, ptr %75, i32 0, i32 1
+  store ptr %70, ptr %76, align 8
+  br label %77
+
+77:                                               ; preds = %46
+  br label %78
+
+78:                                               ; preds = %77
+  br label %79
+
+79:                                               ; preds = %78
+  br label %80
+
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds nuw %struct.event_base, ptr %81, i32 0, i32 31
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %91
+
+85:                                               ; preds = %80
+  %86 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds nuw %struct.event_base, ptr %87, i32 0, i32 31
+  %89 = load ptr, ptr %88, align 8
+  %90 = call i32 %86(i32 noundef 0, ptr noundef %89)
+  br label %91
+
+91:                                               ; preds = %85, %80
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92
+  br label %94
+
+94:                                               ; preds = %93
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %10, align 8
+  store ptr %96, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %97
+
+97:                                               ; preds = %95, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %98 = load ptr, ptr %5, align 8
+  ret ptr %98
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define ptr @evwatch_check_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.evwatch_cb, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %8 = load ptr, ptr %5, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %union.evwatch_cb, ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @evwatch_new(ptr noundef %9, ptr %12, ptr noundef %10, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @evwatch_new(ptr noundef %base, ptr %callback.coerce, ptr noundef %arg, i32 noundef %type) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %callback = alloca %union.evwatch_cb, align 8
-  %base.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %type.addr = alloca i32, align 4
-  %watcher = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.evwatch_cb, ptr %callback, i32 0, i32 0
-  store ptr %callback.coerce, ptr %coerce.dive, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  store i32 %type, ptr %type.addr, align 4
-  %call = call ptr @event_mm_malloc_(i64 noundef 48)
-  store ptr %call, ptr %watcher, align 8
-  %0 = load ptr, ptr %watcher, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %base.addr, align 8
-  %2 = load ptr, ptr %watcher, align 8
-  %base1 = getelementptr inbounds %struct.evwatch, ptr %2, i32 0, i32 1
-  store ptr %1, ptr %base1, align 8
-  %3 = load i32, ptr %type.addr, align 4
-  %4 = load ptr, ptr %watcher, align 8
-  %type2 = getelementptr inbounds %struct.evwatch, ptr %4, i32 0, i32 2
-  store i32 %3, ptr %type2, align 8
-  %5 = load ptr, ptr %watcher, align 8
-  %callback3 = getelementptr inbounds %struct.evwatch, ptr %5, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback3, ptr align 8 %callback, i64 8, i1 false)
-  %6 = load ptr, ptr %arg.addr, align 8
-  %7 = load ptr, ptr %watcher, align 8
-  %arg4 = getelementptr inbounds %struct.evwatch, ptr %7, i32 0, i32 4
-  store ptr %6, ptr %arg4, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  br label %do.body5
-
-do.body5:                                         ; preds = %do.body
-  %8 = load ptr, ptr %base.addr, align 8
-  %th_base_lock = getelementptr inbounds %struct.event_base, ptr %8, i32 0, i32 31
-  %9 = load ptr, ptr %th_base_lock, align 8
-  %tobool6 = icmp ne ptr %9, null
-  br i1 %tobool6, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %do.body5
-  %10 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %base.addr, align 8
-  %th_base_lock8 = getelementptr inbounds %struct.event_base, ptr %12, i32 0, i32 31
-  %13 = load ptr, ptr %th_base_lock8, align 8
-  %call9 = call i32 %11(i32 noundef 0, ptr noundef %13)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then7, %do.body5
-  br label %do.end
-
-do.end:                                           ; preds = %if.end10
-  br label %do.end11
-
-do.end11:                                         ; preds = %do.end
-  br label %do.body12
-
-do.body12:                                        ; preds = %do.end11
-  %14 = load ptr, ptr %watcher, align 8
-  %next = getelementptr inbounds %struct.evwatch, ptr %14, i32 0, i32 0
-  %tqe_next = getelementptr inbounds %struct.anon, ptr %next, i32 0, i32 0
-  store ptr null, ptr %tqe_next, align 8
-  %15 = load ptr, ptr %base.addr, align 8
-  %watchers = getelementptr inbounds %struct.event_base, ptr %15, i32 0, i32 45
-  %16 = load i32, ptr %type.addr, align 4
-  %idxprom = zext i32 %16 to i64
-  %arrayidx = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers, i64 0, i64 %idxprom
-  %tqh_last = getelementptr inbounds %struct.evwatch_list, ptr %arrayidx, i32 0, i32 1
-  %17 = load ptr, ptr %tqh_last, align 8
-  %18 = load ptr, ptr %watcher, align 8
-  %next13 = getelementptr inbounds %struct.evwatch, ptr %18, i32 0, i32 0
-  %tqe_prev = getelementptr inbounds %struct.anon, ptr %next13, i32 0, i32 1
-  store ptr %17, ptr %tqe_prev, align 8
-  %19 = load ptr, ptr %watcher, align 8
-  %20 = load ptr, ptr %base.addr, align 8
-  %watchers14 = getelementptr inbounds %struct.event_base, ptr %20, i32 0, i32 45
-  %21 = load i32, ptr %type.addr, align 4
-  %idxprom15 = zext i32 %21 to i64
-  %arrayidx16 = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers14, i64 0, i64 %idxprom15
-  %tqh_last17 = getelementptr inbounds %struct.evwatch_list, ptr %arrayidx16, i32 0, i32 1
-  %22 = load ptr, ptr %tqh_last17, align 8
-  store ptr %19, ptr %22, align 8
-  %23 = load ptr, ptr %watcher, align 8
-  %next18 = getelementptr inbounds %struct.evwatch, ptr %23, i32 0, i32 0
-  %tqe_next19 = getelementptr inbounds %struct.anon, ptr %next18, i32 0, i32 0
-  %24 = load ptr, ptr %base.addr, align 8
-  %watchers20 = getelementptr inbounds %struct.event_base, ptr %24, i32 0, i32 45
-  %25 = load i32, ptr %type.addr, align 4
-  %idxprom21 = zext i32 %25 to i64
-  %arrayidx22 = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers20, i64 0, i64 %idxprom21
-  %tqh_last23 = getelementptr inbounds %struct.evwatch_list, ptr %arrayidx22, i32 0, i32 1
-  store ptr %tqe_next19, ptr %tqh_last23, align 8
-  br label %do.end24
-
-do.end24:                                         ; preds = %do.body12
-  br label %do.body25
-
-do.body25:                                        ; preds = %do.end24
-  br label %do.body26
-
-do.body26:                                        ; preds = %do.body25
-  %26 = load ptr, ptr %base.addr, align 8
-  %th_base_lock27 = getelementptr inbounds %struct.event_base, ptr %26, i32 0, i32 31
-  %27 = load ptr, ptr %th_base_lock27, align 8
-  %tobool28 = icmp ne ptr %27, null
-  br i1 %tobool28, label %if.then29, label %if.end32
-
-if.then29:                                        ; preds = %do.body26
-  %28 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %base.addr, align 8
-  %th_base_lock30 = getelementptr inbounds %struct.event_base, ptr %30, i32 0, i32 31
-  %31 = load ptr, ptr %th_base_lock30, align 8
-  %call31 = call i32 %29(i32 noundef 0, ptr noundef %31)
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.then29, %do.body26
-  br label %do.end33
-
-do.end33:                                         ; preds = %if.end32
-  br label %do.end34
-
-do.end34:                                         ; preds = %do.end33
-  %32 = load ptr, ptr %watcher, align 8
-  store ptr %32, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end34, %if.then
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+define ptr @evwatch_base(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.evwatch, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evwatch_check_new(ptr noundef %base, ptr noundef %callback, ptr noundef %arg) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %callback.addr = alloca ptr, align 8
-  %arg.addr = alloca ptr, align 8
-  %cb = alloca %union.evwatch_cb, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %callback, ptr %callback.addr, align 8
-  store ptr %arg, ptr %arg.addr, align 8
-  %0 = load ptr, ptr %callback.addr, align 8
-  store ptr %0, ptr %cb, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %2 = load ptr, ptr %arg.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.evwatch_cb, ptr %cb, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @evwatch_new(ptr noundef %1, ptr %3, ptr noundef %2, i32 noundef 1)
-  ret ptr %call
-}
+define void @evwatch_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
 
-; Function Attrs: nounwind uwtable
-define dso_local ptr @evwatch_base(ptr noundef %watcher) #0 {
-entry:
-  %watcher.addr = alloca ptr, align 8
-  store ptr %watcher, ptr %watcher.addr, align 8
-  %0 = load ptr, ptr %watcher.addr, align 8
-  %base = getelementptr inbounds %struct.evwatch, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %base, align 8
-  ret ptr %1
-}
+3:                                                ; preds = %1
+  br label %4
 
-; Function Attrs: nounwind uwtable
-define dso_local void @evwatch_free(ptr noundef %watcher) #0 {
-entry:
-  %watcher.addr = alloca ptr, align 8
-  store ptr %watcher, ptr %watcher.addr, align 8
-  br label %do.body
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %struct.evwatch, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %struct.event_base, ptr %7, i32 0, i32 31
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %19
 
-do.body:                                          ; preds = %entry
-  br label %do.body1
+11:                                               ; preds = %4
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw %struct.evwatch, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct.event_base, ptr %15, i32 0, i32 31
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 %12(i32 noundef 0, ptr noundef %17)
+  br label %19
 
-do.body1:                                         ; preds = %do.body
-  %0 = load ptr, ptr %watcher.addr, align 8
-  %base = getelementptr inbounds %struct.evwatch, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %base, align 8
-  %th_base_lock = getelementptr inbounds %struct.event_base, ptr %1, i32 0, i32 31
-  %2 = load ptr, ptr %th_base_lock, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then, label %if.end
+19:                                               ; preds = %11, %4
+  br label %20
 
-if.then:                                          ; preds = %do.body1
-  %3 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
-  %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %watcher.addr, align 8
-  %base2 = getelementptr inbounds %struct.evwatch, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %base2, align 8
-  %th_base_lock3 = getelementptr inbounds %struct.event_base, ptr %6, i32 0, i32 31
-  %7 = load ptr, ptr %th_base_lock3, align 8
-  %call = call i32 %4(i32 noundef 0, ptr noundef %7)
-  br label %if.end
+20:                                               ; preds = %19
+  br label %21
 
-if.end:                                           ; preds = %if.then, %do.body1
-  br label %do.end
+21:                                               ; preds = %20
+  br label %22
 
-do.end:                                           ; preds = %if.end
-  br label %do.end4
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.evwatch, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.anon, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %39
 
-do.end4:                                          ; preds = %do.end
-  br label %do.body5
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.evwatch, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.anon, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw %struct.evwatch, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.anon, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.evwatch, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.anon, ptr %37, i32 0, i32 1
+  store ptr %32, ptr %38, align 8
+  br label %54
 
-do.body5:                                         ; preds = %do.end4
-  %8 = load ptr, ptr %watcher.addr, align 8
-  %next = getelementptr inbounds %struct.evwatch, ptr %8, i32 0, i32 0
-  %tqe_next = getelementptr inbounds %struct.anon, ptr %next, i32 0, i32 0
-  %9 = load ptr, ptr %tqe_next, align 8
-  %cmp = icmp ne ptr %9, null
-  br i1 %cmp, label %if.then6, label %if.else
+39:                                               ; preds = %22
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.evwatch, ptr %40, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.anon, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds nuw %struct.evwatch, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct.event_base, ptr %46, i32 0, i32 45
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw %struct.evwatch, ptr %48, i32 0, i32 2
+  %50 = load i32, ptr %49, align 8
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw [2 x %struct.evwatch_list], ptr %47, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw %struct.evwatch_list, ptr %52, i32 0, i32 1
+  store ptr %43, ptr %53, align 8
+  br label %54
 
-if.then6:                                         ; preds = %do.body5
-  %10 = load ptr, ptr %watcher.addr, align 8
-  %next7 = getelementptr inbounds %struct.evwatch, ptr %10, i32 0, i32 0
-  %tqe_prev = getelementptr inbounds %struct.anon, ptr %next7, i32 0, i32 1
-  %11 = load ptr, ptr %tqe_prev, align 8
-  %12 = load ptr, ptr %watcher.addr, align 8
-  %next8 = getelementptr inbounds %struct.evwatch, ptr %12, i32 0, i32 0
-  %tqe_next9 = getelementptr inbounds %struct.anon, ptr %next8, i32 0, i32 0
-  %13 = load ptr, ptr %tqe_next9, align 8
-  %next10 = getelementptr inbounds %struct.evwatch, ptr %13, i32 0, i32 0
-  %tqe_prev11 = getelementptr inbounds %struct.anon, ptr %next10, i32 0, i32 1
-  store ptr %11, ptr %tqe_prev11, align 8
-  br label %if.end15
+54:                                               ; preds = %39, %28
+  %55 = load ptr, ptr %2, align 8
+  %56 = getelementptr inbounds nuw %struct.evwatch, ptr %55, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct.anon, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds nuw %struct.evwatch, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.anon, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  store ptr %58, ptr %62, align 8
+  br label %63
 
-if.else:                                          ; preds = %do.body5
-  %14 = load ptr, ptr %watcher.addr, align 8
-  %next12 = getelementptr inbounds %struct.evwatch, ptr %14, i32 0, i32 0
-  %tqe_prev13 = getelementptr inbounds %struct.anon, ptr %next12, i32 0, i32 1
-  %15 = load ptr, ptr %tqe_prev13, align 8
-  %16 = load ptr, ptr %watcher.addr, align 8
-  %base14 = getelementptr inbounds %struct.evwatch, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %base14, align 8
-  %watchers = getelementptr inbounds %struct.event_base, ptr %17, i32 0, i32 45
-  %18 = load ptr, ptr %watcher.addr, align 8
-  %type = getelementptr inbounds %struct.evwatch, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %type, align 8
-  %idxprom = zext i32 %19 to i64
-  %arrayidx = getelementptr inbounds [2 x %struct.evwatch_list], ptr %watchers, i64 0, i64 %idxprom
-  %tqh_last = getelementptr inbounds %struct.evwatch_list, ptr %arrayidx, i32 0, i32 1
-  store ptr %15, ptr %tqh_last, align 8
-  br label %if.end15
+63:                                               ; preds = %54
+  br label %64
 
-if.end15:                                         ; preds = %if.else, %if.then6
-  %20 = load ptr, ptr %watcher.addr, align 8
-  %next16 = getelementptr inbounds %struct.evwatch, ptr %20, i32 0, i32 0
-  %tqe_next17 = getelementptr inbounds %struct.anon, ptr %next16, i32 0, i32 0
-  %21 = load ptr, ptr %tqe_next17, align 8
-  %22 = load ptr, ptr %watcher.addr, align 8
-  %next18 = getelementptr inbounds %struct.evwatch, ptr %22, i32 0, i32 0
-  %tqe_prev19 = getelementptr inbounds %struct.anon, ptr %next18, i32 0, i32 1
-  %23 = load ptr, ptr %tqe_prev19, align 8
-  store ptr %21, ptr %23, align 8
-  br label %do.end20
+64:                                               ; preds = %63
+  br label %65
 
-do.end20:                                         ; preds = %if.end15
-  br label %do.body21
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds nuw %struct.evwatch, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %struct.event_base, ptr %68, i32 0, i32 31
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %80
 
-do.body21:                                        ; preds = %do.end20
-  br label %do.body22
+72:                                               ; preds = %65
+  %73 = load ptr, ptr getelementptr inbounds nuw (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %struct.evwatch, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw %struct.event_base, ptr %76, i32 0, i32 31
+  %78 = load ptr, ptr %77, align 8
+  %79 = call i32 %73(i32 noundef 0, ptr noundef %78)
+  br label %80
 
-do.body22:                                        ; preds = %do.body21
-  %24 = load ptr, ptr %watcher.addr, align 8
-  %base23 = getelementptr inbounds %struct.evwatch, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %base23, align 8
-  %th_base_lock24 = getelementptr inbounds %struct.event_base, ptr %25, i32 0, i32 31
-  %26 = load ptr, ptr %th_base_lock24, align 8
-  %tobool25 = icmp ne ptr %26, null
-  br i1 %tobool25, label %if.then26, label %if.end30
+80:                                               ; preds = %72, %65
+  br label %81
 
-if.then26:                                        ; preds = %do.body22
-  %27 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %watcher.addr, align 8
-  %base27 = getelementptr inbounds %struct.evwatch, ptr %29, i32 0, i32 1
-  %30 = load ptr, ptr %base27, align 8
-  %th_base_lock28 = getelementptr inbounds %struct.event_base, ptr %30, i32 0, i32 31
-  %31 = load ptr, ptr %th_base_lock28, align 8
-  %call29 = call i32 %28(i32 noundef 0, ptr noundef %31)
-  br label %if.end30
+81:                                               ; preds = %80
+  br label %82
 
-if.end30:                                         ; preds = %if.then26, %do.body22
-  br label %do.end31
-
-do.end31:                                         ; preds = %if.end30
-  br label %do.end32
-
-do.end32:                                         ; preds = %do.end31
-  %32 = load ptr, ptr %watcher.addr, align 8
-  call void @event_mm_free_(ptr noundef %32)
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %2, align 8
+  call void @event_mm_free_(ptr noundef %83)
   ret void
 }
 
-declare void @event_mm_free_(ptr noundef) #1
+declare void @event_mm_free_(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evwatch_prepare_get_timeout(ptr noundef %info, ptr noundef %timeout) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %info.addr = alloca ptr, align 8
-  %timeout.addr = alloca ptr, align 8
-  store ptr %info, ptr %info.addr, align 8
-  store ptr %timeout, ptr %timeout.addr, align 8
-  %0 = load ptr, ptr %info.addr, align 8
-  %timeout1 = getelementptr inbounds %struct.evwatch_prepare_cb_info, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %timeout1, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+define i32 @evwatch_prepare_get_timeout(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %struct.evwatch_prepare_cb_info, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %timeout.addr, align 8
-  %3 = load ptr, ptr %info.addr, align 8
-  %timeout2 = getelementptr inbounds %struct.evwatch_prepare_cb_info, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %timeout2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %4, i64 16, i1 false)
-  store i32 1, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.evwatch_prepare_cb_info, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %14, i64 16, i1 false)
+  store i32 1, ptr %3, align 4
+  br label %16
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %16
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+16:                                               ; preds = %15, %10
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @event_mm_malloc_(i64 noundef) #1
+declare ptr @event_mm_malloc_(i64 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}

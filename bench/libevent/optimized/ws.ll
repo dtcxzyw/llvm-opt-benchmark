@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/libevent/original/ws.ll'
 source_filename = "bench/libevent/original/ws.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [8 x i8] c"Upgrade\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"websocket\00", align 1
@@ -19,896 +19,892 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_ws_frame = private unnamed_addr constant [13 x i8] c"get_ws_frame\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @evws_connection_free(ptr noundef %evws) local_unnamed_addr #0 {
-entry:
-  %cbclose = getelementptr inbounds nuw i8, ptr %evws, i64 40
-  %0 = load ptr, ptr %cbclose, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define void @evws_connection_free(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %7, label %4
 
-if.then:                                          ; preds = %entry
-  %cbclose_arg = getelementptr inbounds nuw i8, ptr %evws, i64 48
-  %1 = load ptr, ptr %cbclose_arg, align 8
-  tail call void %0(ptr noundef nonnull %evws, ptr noundef %1) #9
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load ptr, ptr %5, align 8
+  tail call void %3(ptr noundef nonnull %0, ptr noundef %6) #9
+  br label %7
 
-if.end:                                           ; preds = %if.then, %entry
-  %http_server = getelementptr inbounds nuw i8, ptr %evws, i64 56
-  %2 = load ptr, ptr %http_server, align 8
-  %cmp2.not = icmp eq ptr %2, null
-  br i1 %cmp2.not, label %if.end19, label %if.then3
+7:                                                ; preds = %4, %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = load ptr, ptr %8, align 8
+  %.not23 = icmp eq ptr %9, null
+  br i1 %.not23, label %23, label %10
 
-if.then3:                                         ; preds = %if.end
-  %3 = load ptr, ptr %evws, align 8
-  %cmp5.not = icmp eq ptr %3, null
-  %tqe_prev13 = getelementptr inbounds nuw i8, ptr %evws, i64 8
-  %4 = load ptr, ptr %tqe_prev13, align 8
-  br i1 %cmp5.not, label %if.else, label %if.then6
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %0, align 8
+  %.not24 = icmp eq ptr %11, null
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  br i1 %.not24, label %16, label %14
 
-if.then6:                                         ; preds = %if.then3
-  %tqe_prev11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %tqe_prev11, align 8
-  br label %if.end14
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %13, ptr %15, align 8
+  br label %18
 
-if.else:                                          ; preds = %if.then3
-  %tqh_last = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %4, ptr %tqh_last, align 8
-  br label %if.end14
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr %13, ptr %17, align 8
+  br label %18
 
-if.end14:                                         ; preds = %if.else, %if.then6
-  %5 = load ptr, ptr %evws, align 8
-  store ptr %5, ptr %4, align 8
-  %connection_cnt = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %6 = load i32, ptr %connection_cnt, align 4
-  %dec = add nsw i32 %6, -1
-  store i32 %dec, ptr %connection_cnt, align 4
-  br label %if.end19
+18:                                               ; preds = %16, %14
+  %19 = load ptr, ptr %0, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 84
+  %21 = load i32, ptr %20, align 4
+  %22 = add nsw i32 %21, -1
+  store i32 %22, ptr %20, align 4
+  br label %23
 
-if.end19:                                         ; preds = %if.end14, %if.end
-  %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
-  %7 = load ptr, ptr %bufev, align 8
-  %cmp20.not = icmp eq ptr %7, null
-  br i1 %cmp20.not, label %if.end23, label %if.then21
+23:                                               ; preds = %18, %7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %.not25 = icmp eq ptr %25, null
+  br i1 %.not25, label %27, label %26
 
-if.then21:                                        ; preds = %if.end19
-  tail call void @bufferevent_free(ptr noundef nonnull %7) #9
-  br label %if.end23
+26:                                               ; preds = %23
+  tail call void @bufferevent_free(ptr noundef nonnull %25) #9
+  br label %27
 
-if.end23:                                         ; preds = %if.then21, %if.end19
-  %incomplete_frames = getelementptr inbounds nuw i8, ptr %evws, i64 64
-  %8 = load ptr, ptr %incomplete_frames, align 8
-  %cmp24.not = icmp eq ptr %8, null
-  br i1 %cmp24.not, label %if.end27, label %if.then25
+27:                                               ; preds = %26, %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %.not26 = icmp eq ptr %29, null
+  br i1 %.not26, label %31, label %30
 
-if.then25:                                        ; preds = %if.end23
-  tail call void @evbuffer_free(ptr noundef nonnull %8) #9
-  br label %if.end27
+30:                                               ; preds = %27
+  tail call void @evbuffer_free(ptr noundef nonnull %29) #9
+  br label %31
 
-if.end27:                                         ; preds = %if.then25, %if.end23
-  tail call void @event_mm_free_(ptr noundef nonnull %evws) #9
+31:                                               ; preds = %30, %27
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #9
   ret void
 }
 
-declare void @bufferevent_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @evbuffer_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
+declare void @bufferevent_free(ptr noundef) local_unnamed_addr #2
+
+declare void @evbuffer_free(ptr noundef) local_unnamed_addr #2
+
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @evws_close(ptr noundef %evws, i16 noundef zeroext %reason) local_unnamed_addr #0 {
-entry:
-  %fr = alloca [4 x i8], align 4
-  store i32 648, ptr %fr, align 4
-  %closed = getelementptr inbounds nuw i8, ptr %evws, i64 72
-  %0 = load i8, ptr %closed, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %return, label %if.end
+define void @evws_close(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+  %3 = alloca [4 x i8], align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  store i32 648, ptr %3, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %14, label %7
 
-if.end:                                           ; preds = %entry
-  store i8 1, ptr %closed, align 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %fr, i64 2
-  %call = tail call zeroext i16 @htons(i16 noundef zeroext %reason) #10
-  store i16 %call, ptr %arrayidx, align 2
-  %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
-  %1 = load ptr, ptr %bufev, align 8
-  %call2 = tail call ptr @bufferevent_get_output(ptr noundef %1) #9
-  %call3 = call i32 @evbuffer_add(ptr noundef %call2, ptr noundef nonnull %fr, i64 noundef 4) #9
-  %2 = load ptr, ptr %bufev, align 8
-  call void @bufferevent_setcb(ptr noundef %2, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %evws) #9
-  br label %return
+7:                                                ; preds = %2
+  store i8 1, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %1)
+  store i16 %rev.i, ptr %8, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call ptr @bufferevent_get_output(ptr noundef %10) #9
+  %12 = call i32 @evbuffer_add(ptr noundef %11, ptr noundef nonnull %3, i64 noundef 4) #9
+  %13 = load ptr, ptr %9, align 8
+  call void @bufferevent_setcb(ptr noundef %13, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %0) #9
+  br label %14
 
-return:                                           ; preds = %entry, %if.end
+14:                                               ; preds = %2, %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @bufferevent_get_output(ptr noundef) local_unnamed_addr #2
 
-declare ptr @bufferevent_get_output(ptr noundef) local_unnamed_addr #1
+declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @close_after_write_cb(ptr noundef %bev, ptr noundef %ctx) #0 {
-entry:
-  %call = tail call ptr @bufferevent_get_output(ptr noundef %bev) #9
-  %call1 = tail call i64 @evbuffer_get_length(ptr noundef %call) #9
-  %cmp = icmp eq i64 %call1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @close_after_write_cb(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = tail call ptr @bufferevent_get_output(ptr noundef %0) #9
+  %4 = tail call i64 @evbuffer_get_length(ptr noundef %3) #9
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %6, label %36
 
-if.then:                                          ; preds = %entry
-  %cbclose.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %0 = load ptr, ptr %cbclose.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %12, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %cbclose_arg.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
-  %1 = load ptr, ptr %cbclose_arg.i, align 8
-  tail call void %0(ptr noundef nonnull %ctx, ptr noundef %1) #9
-  br label %if.end.i
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = load ptr, ptr %10, align 8
+  tail call void %8(ptr noundef nonnull %1, ptr noundef %11) #9
+  br label %12
 
-if.end.i:                                         ; preds = %if.then.i, %if.then
-  %http_server.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
-  %2 = load ptr, ptr %http_server.i, align 8
-  %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
+12:                                               ; preds = %9, %6
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %.not23.i = icmp eq ptr %14, null
+  br i1 %.not23.i, label %28, label %15
 
-if.then3.i:                                       ; preds = %if.end.i
-  %3 = load ptr, ptr %ctx, align 8
-  %cmp5.not.i = icmp eq ptr %3, null
-  %tqe_prev13.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %4 = load ptr, ptr %tqe_prev13.i, align 8
-  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %1, align 8
+  %.not24.i = icmp eq ptr %16, null
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8
+  br i1 %.not24.i, label %21, label %19
 
-if.then6.i:                                       ; preds = %if.then3.i
-  %tqe_prev11.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %tqe_prev11.i, align 8
-  br label %if.end14.i
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %18, ptr %20, align 8
+  br label %23
 
-if.else.i:                                        ; preds = %if.then3.i
-  %tqh_last.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %4, ptr %tqh_last.i, align 8
-  br label %if.end14.i
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store ptr %18, ptr %22, align 8
+  br label %23
 
-if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
-  %5 = load ptr, ptr %ctx, align 8
-  store ptr %5, ptr %4, align 8
-  %connection_cnt.i = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %6 = load i32, ptr %connection_cnt.i, align 4
-  %dec.i = add nsw i32 %6, -1
-  store i32 %dec.i, ptr %connection_cnt.i, align 4
-  br label %if.end19.i
+23:                                               ; preds = %21, %19
+  %24 = load ptr, ptr %1, align 8
+  store ptr %24, ptr %18, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 84
+  %26 = load i32, ptr %25, align 4
+  %27 = add nsw i32 %26, -1
+  store i32 %27, ptr %25, align 4
+  br label %28
 
-if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
-  %bufev.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  %7 = load ptr, ptr %bufev.i, align 8
-  %cmp20.not.i = icmp eq ptr %7, null
-  br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
+28:                                               ; preds = %23, %12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not25.i = icmp eq ptr %30, null
+  br i1 %.not25.i, label %32, label %31
 
-if.then21.i:                                      ; preds = %if.end19.i
-  tail call void @bufferevent_free(ptr noundef nonnull %7) #9
-  br label %if.end23.i
+31:                                               ; preds = %28
+  tail call void @bufferevent_free(ptr noundef nonnull %30) #9
+  br label %32
 
-if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
-  %8 = load ptr, ptr %incomplete_frames.i, align 8
-  %cmp24.not.i = icmp eq ptr %8, null
-  br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
+32:                                               ; preds = %31, %28
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %34 = load ptr, ptr %33, align 8
+  %.not26.i = icmp eq ptr %34, null
+  br i1 %.not26.i, label %evws_connection_free.exit, label %35
 
-if.then25.i:                                      ; preds = %if.end23.i
-  tail call void @evbuffer_free(ptr noundef nonnull %8) #9
+35:                                               ; preds = %32
+  tail call void @evbuffer_free(ptr noundef nonnull %34) #9
   br label %evws_connection_free.exit
 
-evws_connection_free.exit:                        ; preds = %if.end23.i, %if.then25.i
-  tail call void @event_mm_free_(ptr noundef nonnull %ctx) #9
-  br label %if.end
+evws_connection_free.exit:                        ; preds = %32, %35
+  tail call void @event_mm_free_(ptr noundef nonnull %1) #9
+  br label %36
 
-if.end:                                           ; preds = %evws_connection_free.exit, %entry
+36:                                               ; preds = %evws_connection_free.exit, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @close_event_cb(ptr readnone captures(none) %bev, i16 signext %what, ptr noundef %ctx) #0 {
-entry:
-  %cbclose.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
-  %0 = load ptr, ptr %cbclose.i, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+define internal void @close_event_cb(ptr readnone captures(none) %0, i16 signext %1, ptr noundef %2) #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %5 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %9, label %6
 
-if.then.i:                                        ; preds = %entry
-  %cbclose_arg.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
-  %1 = load ptr, ptr %cbclose_arg.i, align 8
-  tail call void %0(ptr noundef nonnull %ctx, ptr noundef %1) #9
-  br label %if.end.i
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %8 = load ptr, ptr %7, align 8
+  tail call void %5(ptr noundef nonnull %2, ptr noundef %8) #9
+  br label %9
 
-if.end.i:                                         ; preds = %if.then.i, %entry
-  %http_server.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
-  %2 = load ptr, ptr %http_server.i, align 8
-  %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
+9:                                                ; preds = %6, %3
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %.not23.i = icmp eq ptr %11, null
+  br i1 %.not23.i, label %25, label %12
 
-if.then3.i:                                       ; preds = %if.end.i
-  %3 = load ptr, ptr %ctx, align 8
-  %cmp5.not.i = icmp eq ptr %3, null
-  %tqe_prev13.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %4 = load ptr, ptr %tqe_prev13.i, align 8
-  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %2, align 8
+  %.not24.i = icmp eq ptr %13, null
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8
+  br i1 %.not24.i, label %18, label %16
 
-if.then6.i:                                       ; preds = %if.then3.i
-  %tqe_prev11.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %tqe_prev11.i, align 8
-  br label %if.end14.i
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %17, align 8
+  br label %20
 
-if.else.i:                                        ; preds = %if.then3.i
-  %tqh_last.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %4, ptr %tqh_last.i, align 8
-  br label %if.end14.i
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %15, ptr %19, align 8
+  br label %20
 
-if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
-  %5 = load ptr, ptr %ctx, align 8
-  store ptr %5, ptr %4, align 8
-  %connection_cnt.i = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %6 = load i32, ptr %connection_cnt.i, align 4
-  %dec.i = add nsw i32 %6, -1
-  store i32 %dec.i, ptr %connection_cnt.i, align 4
-  br label %if.end19.i
+20:                                               ; preds = %18, %16
+  %21 = load ptr, ptr %2, align 8
+  store ptr %21, ptr %15, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %22, align 4
+  br label %25
 
-if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
-  %bufev.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  %7 = load ptr, ptr %bufev.i, align 8
-  %cmp20.not.i = icmp eq ptr %7, null
-  br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
+25:                                               ; preds = %20, %9
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %.not25.i = icmp eq ptr %27, null
+  br i1 %.not25.i, label %29, label %28
 
-if.then21.i:                                      ; preds = %if.end19.i
-  tail call void @bufferevent_free(ptr noundef nonnull %7) #9
-  br label %if.end23.i
+28:                                               ; preds = %25
+  tail call void @bufferevent_free(ptr noundef nonnull %27) #9
+  br label %29
 
-if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
-  %8 = load ptr, ptr %incomplete_frames.i, align 8
-  %cmp24.not.i = icmp eq ptr %8, null
-  br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
+29:                                               ; preds = %28, %25
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %31 = load ptr, ptr %30, align 8
+  %.not26.i = icmp eq ptr %31, null
+  br i1 %.not26.i, label %evws_connection_free.exit, label %32
 
-if.then25.i:                                      ; preds = %if.end23.i
-  tail call void @evbuffer_free(ptr noundef nonnull %8) #9
+32:                                               ; preds = %29
+  tail call void @evbuffer_free(ptr noundef nonnull %31) #9
   br label %evws_connection_free.exit
 
-evws_connection_free.exit:                        ; preds = %if.end23.i, %if.then25.i
-  tail call void @event_mm_free_(ptr noundef nonnull %ctx) #9
+evws_connection_free.exit:                        ; preds = %29, %32
+  tail call void @event_mm_free_(ptr noundef nonnull %2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evws_new_session(ptr noundef %req, ptr noundef %cb, ptr noundef %arg, i32 noundef %options) local_unnamed_addr #0 {
-entry:
-  %buf.i = alloca [1024 x i8], align 16
-  %digest.i = alloca [20 x i8], align 16
-  %.compoundliteral = alloca [32 x i8], align 1
-  %call = tail call ptr @evhttp_request_get_input_headers(ptr noundef %req) #9
-  %call1 = tail call ptr @evhttp_find_header(ptr noundef %call, ptr noundef nonnull @.str) #9
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %if.end54, label %lor.lhs.false
+define ptr @evws_new_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca [1024 x i8], align 16
+  %6 = alloca [20 x i8], align 16
+  %7 = alloca [32 x i8], align 1
+  %8 = tail call ptr @evhttp_request_get_input_headers(ptr noundef %0) #9
+  %9 = tail call ptr @evhttp_find_header(ptr noundef %8, ptr noundef nonnull @.str) #9
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %.thread, label %11
 
-lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1) #9
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %if.end, label %if.end54
+11:                                               ; preds = %4
+  %12 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %9, ptr noundef nonnull @.str.1) #9
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %.thread
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call3 = tail call ptr @evhttp_find_header(ptr noundef %call, ptr noundef nonnull @.str.2) #9
-  %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %if.end54, label %lor.lhs.false5
+13:                                               ; preds = %11
+  %14 = tail call ptr @evhttp_find_header(ptr noundef %8, ptr noundef nonnull @.str.2) #9
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.thread, label %16
 
-lor.lhs.false5:                                   ; preds = %if.end
-  %call6 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %call3, ptr noundef nonnull @.str) #9
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.end9, label %if.end54
+16:                                               ; preds = %13
+  %17 = tail call ptr @evutil_ascii_strcasestr(ptr noundef nonnull %14, ptr noundef nonnull @.str) #9
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.thread, label %19
 
-if.end9:                                          ; preds = %lor.lhs.false5
-  %call10 = tail call ptr @evhttp_find_header(ptr noundef %call, ptr noundef nonnull @.str.3) #9
-  %cmp11 = icmp eq ptr %call10, null
-  br i1 %cmp11, label %if.end54, label %if.end13
+19:                                               ; preds = %16
+  %20 = tail call ptr @evhttp_find_header(ptr noundef %8, ptr noundef nonnull @.str.3) #9
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %.thread, label %22
 
-if.end13:                                         ; preds = %if.end9
-  %call14 = tail call ptr @evhttp_request_get_output_headers(ptr noundef %req) #9
-  %call15 = tail call i32 @evhttp_add_header(ptr noundef %call14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
-  %call16 = tail call i32 @evhttp_add_header(ptr noundef %call14, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.compoundliteral, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %digest.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef nonnull %call10) #9
-  %call4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #11
-  %conv.i = trunc i64 %call4.i to i32
-  call void @builtin_SHA1(ptr noundef nonnull %digest.i, ptr noundef nonnull %buf.i, i32 noundef %conv.i) #9
-  br label %for.body.i.i
+22:                                               ; preds = %19
+  %23 = tail call ptr @evhttp_request_get_output_headers(ptr noundef %0) #9
+  %24 = tail call i32 @evhttp_add_header(ptr noundef %23, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  %25 = tail call i32 @evhttp_add_header(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #9
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef nonnull %20) #9
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
+  %28 = trunc i64 %27 to i32
+  call void @builtin_SHA1(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %28) #9
+  br label %29
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %if.end13
-  %indvars.iv.i.i = phi i64 [ 0, %if.end13 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %p.043.i.i = phi ptr [ %.compoundliteral, %if.end13 ], [ %incdec.ptr38.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %digest.i, i64 %indvars.iv.i.i
-  %0 = load i8, ptr %arrayidx.i.i, align 1
-  %1 = lshr i8 %0, 2
-  %idxprom1.i.i = zext nneg i8 %1 to i64
-  %arrayidx2.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom1.i.i
-  %2 = load i8, ptr %arrayidx2.i.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 1
-  store i8 %2, ptr %p.043.i.i, align 1
-  %3 = shl i8 %0, 4
-  %4 = and i8 %3, 48
-  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
-  %5 = load i8, ptr %arrayidx8.i.i, align 1
-  %6 = lshr i8 %5, 4
-  %or40.i.i = or disjoint i8 %6, %4
-  %idxprom12.i.i = zext nneg i8 %or40.i.i to i64
-  %arrayidx13.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom12.i.i
-  %7 = load i8, ptr %arrayidx13.i.i, align 1
-  %incdec.ptr14.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 2
-  store i8 %7, ptr %incdec.ptr.i.i, align 1
-  %8 = shl i8 %5, 2
-  %9 = and i8 %8, 60
-  %arrayidx23.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 2
-  %10 = load i8, ptr %arrayidx23.i.i, align 1
-  %11 = lshr i8 %10, 6
-  %or2741.i.i = or disjoint i8 %11, %9
-  %idxprom28.i.i = zext nneg i8 %or2741.i.i to i64
-  %arrayidx29.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom28.i.i
-  %12 = load i8, ptr %arrayidx29.i.i, align 1
-  %incdec.ptr30.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 3
-  store i8 %12, ptr %incdec.ptr14.i.i, align 1
-  %13 = and i8 %10, 63
-  %idxprom36.i.i = zext nneg i8 %13 to i64
-  %arrayidx37.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom36.i.i
-  %14 = load i8, ptr %arrayidx37.i.i, align 1
-  %incdec.ptr38.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 4
-  store i8 %14, ptr %incdec.ptr30.i.i, align 1
+29:                                               ; preds = %29, %22
+  %indvars.iv.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i, %29 ]
+  %.045.i.i = phi ptr [ %7, %22 ], [ %61, %29 ]
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
+  %31 = load i8, ptr %30, align 1
+  %32 = lshr i8 %31, 2
+  %33 = zext nneg i8 %32 to i64
+  %34 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 1
+  store i8 %35, ptr %.045.i.i, align 1
+  %37 = shl i8 %31, 4
+  %38 = and i8 %37, 48
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = lshr i8 %40, 4
+  %42 = or disjoint i8 %41, %38
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 2
+  store i8 %45, ptr %36, align 1
+  %47 = shl i8 %40, 2
+  %48 = and i8 %47, 60
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = lshr i8 %50, 6
+  %52 = or disjoint i8 %51, %48
+  %53 = zext nneg i8 %52 to i64
+  %54 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 3
+  store i8 %55, ptr %46, align 1
+  %57 = and i8 %50, 63
+  %58 = zext nneg i8 %57 to i64
+  %59 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 4
+  store i8 %60, ptr %56, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 3
-  %cmp.i.i = icmp samesign ult i64 %indvars.iv.i.i, 15
-  br i1 %cmp.i.i, label %for.body.i.i, label %ws_gen_accept_key.exit, !llvm.loop !4
+  %62 = icmp samesign ult i64 %indvars.iv.i.i, 15
+  br i1 %62, label %29, label %ws_gen_accept_key.exit, !llvm.loop !5
 
-ws_gen_accept_key.exit:                           ; preds = %for.body.i.i
-  %arrayidx43.i.i = getelementptr inbounds nuw i8, ptr %digest.i, i64 18
-  %15 = load i8, ptr %arrayidx43.i.i, align 2
-  %16 = lshr i8 %15, 2
-  %idxprom47.i.i = zext nneg i8 %16 to i64
-  %arrayidx48.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom47.i.i
-  %17 = load i8, ptr %arrayidx48.i.i, align 1
-  store i8 %17, ptr %incdec.ptr38.i.i, align 1
-  %incdec.ptr49.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 5
-  %18 = shl i8 %15, 4
-  %19 = and i8 %18, 48
-  %arrayidx70.i.i = getelementptr inbounds nuw i8, ptr %digest.i, i64 19
-  %20 = load i8, ptr %arrayidx70.i.i, align 1
-  %21 = lshr i8 %20, 4
-  %or7439.i.i = or disjoint i8 %21, %19
-  %idxprom75.i.i = zext nneg i8 %or7439.i.i to i64
-  %arrayidx76.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom75.i.i
-  %22 = load i8, ptr %arrayidx76.i.i, align 1
-  store i8 %22, ptr %incdec.ptr49.i.i, align 1
-  %23 = shl i8 %20, 2
-  %24 = and i8 %23, 60
-  %idxprom84.i.i = zext nneg i8 %24 to i64
-  %arrayidx85.i.i = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %idxprom84.i.i
-  %25 = load i8, ptr %arrayidx85.i.i, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 6
-  store i8 %25, ptr %26, align 1
-  %p.2.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 7
-  store i8 61, ptr %p.2.i.i, align 1
-  %incdec.ptr87.i.i = getelementptr inbounds nuw i8, ptr %p.043.i.i, i64 8
-  store i8 0, ptr %incdec.ptr87.i.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digest.i)
-  %call18 = call i32 @evhttp_add_header(ptr noundef %call14, ptr noundef nonnull @.str.4, ptr noundef nonnull %.compoundliteral) #9
-  %call19 = call ptr @evhttp_find_header(ptr noundef %call, ptr noundef nonnull @.str.5) #9
-  %cmp20.not = icmp eq ptr %call19, null
-  br i1 %cmp20.not, label %if.end23, label %if.then21
+ws_gen_accept_key.exit:                           ; preds = %29
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 18
+  %64 = load i8, ptr %63, align 2
+  %65 = lshr i8 %64, 2
+  %66 = zext nneg i8 %65 to i64
+  %67 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %66
+  %68 = load i8, ptr %67, align 1
+  store i8 %68, ptr %61, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 5
+  %70 = shl i8 %64, 4
+  %71 = and i8 %70, 48
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 19
+  %73 = load i8, ptr %72, align 1
+  %74 = lshr i8 %73, 4
+  %75 = or disjoint i8 %74, %71
+  %76 = zext nneg i8 %75 to i64
+  %77 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %76
+  %78 = load i8, ptr %77, align 1
+  store i8 %78, ptr %69, align 1
+  %79 = shl i8 %73, 2
+  %80 = and i8 %79, 60
+  %81 = zext nneg i8 %80 to i64
+  %82 = getelementptr inbounds nuw [65 x i8], ptr @basis_64, i64 0, i64 %81
+  %83 = load i8, ptr %82, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 6
+  store i8 %83, ptr %84, align 1
+  %.2.i.i = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 7
+  store i8 61, ptr %.2.i.i, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
+  store i8 0, ptr %85, align 1
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #9
+  %86 = call i32 @evhttp_add_header(ptr noundef %23, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #9
+  %87 = call ptr @evhttp_find_header(ptr noundef %8, ptr noundef nonnull @.str.5) #9
+  %.not51 = icmp eq ptr %87, null
+  br i1 %.not51, label %90, label %88
 
-if.then21:                                        ; preds = %ws_gen_accept_key.exit
-  %call22 = call i32 @evhttp_add_header(ptr noundef %call14, ptr noundef nonnull @.str.5, ptr noundef nonnull %call19) #9
-  br label %if.end23
+88:                                               ; preds = %ws_gen_accept_key.exit
+  %89 = call i32 @evhttp_add_header(ptr noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %87) #9
+  br label %90
 
-if.end23:                                         ; preds = %if.then21, %ws_gen_accept_key.exit
-  %call24 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 80) #9
-  %cmp25 = icmp eq ptr %call24, null
-  br i1 %cmp25, label %if.then26, label %if.end27
+90:                                               ; preds = %88, %ws_gen_accept_key.exit
+  %91 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 80) #9
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %93, label %94
 
-if.then26:                                        ; preds = %if.end23
+93:                                               ; preds = %90
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.evws_new_session) #9
-  br label %if.end54
+  br label %.thread
 
-if.end27:                                         ; preds = %if.end23
-  %cb28 = getelementptr inbounds nuw i8, ptr %call24, i64 24
-  store ptr %cb, ptr %cb28, align 8
-  %cb_arg = getelementptr inbounds nuw i8, ptr %call24, i64 32
-  store ptr %arg, ptr %cb_arg, align 8
-  %call29 = call ptr @evhttp_request_get_connection(ptr noundef %req) #9
-  %http_server = getelementptr inbounds nuw i8, ptr %call29, i64 288
-  %27 = load ptr, ptr %http_server, align 8
-  %http_server30 = getelementptr inbounds nuw i8, ptr %call24, i64 56
-  store ptr %27, ptr %http_server30, align 8
-  %call31 = call ptr @evhttp_start_ws_(ptr noundef %req) #9
-  %bufev = getelementptr inbounds nuw i8, ptr %call24, i64 16
-  store ptr %call31, ptr %bufev, align 8
-  %and = and i32 %options, 2
-  %tobool32.not = icmp eq i32 %and, 0
-  br i1 %tobool32.not, label %if.end39, label %if.then33
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  store ptr %1, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  store ptr %2, ptr %96, align 8
+  %97 = call ptr @evhttp_request_get_connection(ptr noundef %0) #9
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 288
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  store ptr %99, ptr %100, align 8
+  %101 = call ptr @evhttp_start_ws_(ptr noundef %0) #9
+  %102 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  store ptr %101, ptr %102, align 8
+  %103 = icmp eq ptr %101, null
+  br i1 %103, label %121, label %104
 
-if.then33:                                        ; preds = %if.end27
-  %call35 = call i32 @bufferevent_enable_locking_(ptr noundef %call31, ptr noundef null) #9
-  %cmp36 = icmp slt i32 %call35, 0
-  br i1 %cmp36, label %if.then53, label %if.then33.if.end39_crit_edge
+104:                                              ; preds = %94
+  %105 = and i32 %3, 2
+  %.not52 = icmp eq i32 %105, 0
+  br i1 %.not52, label %109, label %106
 
-if.then33.if.end39_crit_edge:                     ; preds = %if.then33
-  %.pre = load ptr, ptr %bufev, align 8
-  br label %if.end39
+106:                                              ; preds = %104
+  %107 = call i32 @bufferevent_enable_locking_(ptr noundef nonnull %101, ptr noundef null) #9
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %121, label %._crit_edge
 
-if.end39:                                         ; preds = %if.then33.if.end39_crit_edge, %if.end27
-  %28 = phi ptr [ %.pre, %if.then33.if.end39_crit_edge ], [ %call31, %if.end27 ]
-  call void @bufferevent_setcb(ptr noundef %28, ptr noundef nonnull @ws_evhttp_read_cb, ptr noundef null, ptr noundef nonnull @ws_evhttp_error_cb, ptr noundef nonnull %call24) #9
-  store ptr null, ptr %call24, align 8
-  %29 = load ptr, ptr %http_server30, align 8
-  %tqh_last = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %30 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds nuw i8, ptr %call24, i64 8
-  store ptr %30, ptr %tqe_prev, align 8
-  store ptr %call24, ptr %30, align 8
-  %31 = load ptr, ptr %http_server30, align 8
-  %tqh_last50 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store ptr %call24, ptr %tqh_last50, align 8
-  %32 = load ptr, ptr %http_server30, align 8
-  %connection_cnt = getelementptr inbounds nuw i8, ptr %32, i64 84
-  %33 = load i32, ptr %connection_cnt, align 4
-  %inc = add nsw i32 %33, 1
-  store i32 %inc, ptr %connection_cnt, align 4
-  br label %return
+._crit_edge:                                      ; preds = %106
+  %.pre = load ptr, ptr %102, align 8
+  br label %109
 
-if.then53:                                        ; preds = %if.then33
-  %cbclose.i = getelementptr inbounds nuw i8, ptr %call24, i64 40
-  %34 = load ptr, ptr %cbclose.i, align 8
-  %cmp.not.i = icmp eq ptr %34, null
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
+109:                                              ; preds = %._crit_edge, %104
+  %110 = phi ptr [ %.pre, %._crit_edge ], [ %101, %104 ]
+  call void @bufferevent_setcb(ptr noundef %110, ptr noundef nonnull @ws_evhttp_read_cb, ptr noundef null, ptr noundef nonnull @ws_evhttp_error_cb, ptr noundef nonnull %91) #9
+  store ptr null, ptr %91, align 8
+  %111 = load ptr, ptr %100, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 72
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store ptr %113, ptr %114, align 8
+  store ptr %91, ptr %113, align 8
+  %115 = load ptr, ptr %100, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 72
+  store ptr %91, ptr %116, align 8
+  %117 = load ptr, ptr %100, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 84
+  %119 = load i32, ptr %118, align 4
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %118, align 4
+  br label %149
 
-if.then.i:                                        ; preds = %if.then53
-  %cbclose_arg.i = getelementptr inbounds nuw i8, ptr %call24, i64 48
-  %35 = load ptr, ptr %cbclose_arg.i, align 8
-  call void %34(ptr noundef nonnull %call24, ptr noundef %35) #9
-  br label %if.end.i
+121:                                              ; preds = %94, %106
+  %122 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %.not.i = icmp eq ptr %123, null
+  br i1 %.not.i, label %127, label %124
 
-if.end.i:                                         ; preds = %if.then.i, %if.then53
-  %36 = load ptr, ptr %http_server30, align 8
-  %cmp2.not.i = icmp eq ptr %36, null
-  br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds nuw i8, ptr %91, i64 48
+  %126 = load ptr, ptr %125, align 8
+  call void %123(ptr noundef nonnull %91, ptr noundef %126) #9
+  br label %127
 
-if.then3.i:                                       ; preds = %if.end.i
-  %37 = load ptr, ptr %call24, align 8
-  %cmp5.not.i = icmp eq ptr %37, null
-  %tqe_prev13.i = getelementptr inbounds nuw i8, ptr %call24, i64 8
-  %38 = load ptr, ptr %tqe_prev13.i, align 8
-  br i1 %cmp5.not.i, label %if.else.i, label %if.then6.i
+127:                                              ; preds = %124, %121
+  %128 = load ptr, ptr %100, align 8
+  %.not23.i = icmp eq ptr %128, null
+  br i1 %.not23.i, label %142, label %129
 
-if.then6.i:                                       ; preds = %if.then3.i
-  %tqe_prev11.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %38, ptr %tqe_prev11.i, align 8
-  br label %if.end14.i
+129:                                              ; preds = %127
+  %130 = load ptr, ptr %91, align 8
+  %.not24.i = icmp eq ptr %130, null
+  %131 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %132 = load ptr, ptr %131, align 8
+  br i1 %.not24.i, label %135, label %133
 
-if.else.i:                                        ; preds = %if.then3.i
-  %tqh_last.i = getelementptr inbounds nuw i8, ptr %36, i64 72
-  store ptr %38, ptr %tqh_last.i, align 8
-  br label %if.end14.i
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  store ptr %132, ptr %134, align 8
+  br label %137
 
-if.end14.i:                                       ; preds = %if.else.i, %if.then6.i
-  %39 = load ptr, ptr %call24, align 8
-  store ptr %39, ptr %38, align 8
-  %connection_cnt.i = getelementptr inbounds nuw i8, ptr %36, i64 84
-  %40 = load i32, ptr %connection_cnt.i, align 4
-  %dec.i = add nsw i32 %40, -1
-  store i32 %dec.i, ptr %connection_cnt.i, align 4
-  br label %if.end19.i
+135:                                              ; preds = %129
+  %136 = getelementptr inbounds nuw i8, ptr %128, i64 72
+  store ptr %132, ptr %136, align 8
+  br label %137
 
-if.end19.i:                                       ; preds = %if.end14.i, %if.end.i
-  %41 = load ptr, ptr %bufev, align 8
-  %cmp20.not.i = icmp eq ptr %41, null
-  br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
+137:                                              ; preds = %135, %133
+  %138 = load ptr, ptr %91, align 8
+  store ptr %138, ptr %132, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %128, i64 84
+  %140 = load i32, ptr %139, align 4
+  %141 = add nsw i32 %140, -1
+  store i32 %141, ptr %139, align 4
+  br label %142
 
-if.then21.i:                                      ; preds = %if.end19.i
-  call void @bufferevent_free(ptr noundef nonnull %41) #9
-  br label %if.end23.i
+142:                                              ; preds = %137, %127
+  %143 = load ptr, ptr %102, align 8
+  %.not25.i = icmp eq ptr %143, null
+  br i1 %.not25.i, label %145, label %144
 
-if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds nuw i8, ptr %call24, i64 64
-  %42 = load ptr, ptr %incomplete_frames.i, align 8
-  %cmp24.not.i = icmp eq ptr %42, null
-  br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
+144:                                              ; preds = %142
+  call void @bufferevent_free(ptr noundef nonnull %143) #9
+  br label %145
 
-if.then25.i:                                      ; preds = %if.end23.i
-  call void @evbuffer_free(ptr noundef nonnull %42) #9
+145:                                              ; preds = %144, %142
+  %146 = getelementptr inbounds nuw i8, ptr %91, i64 64
+  %147 = load ptr, ptr %146, align 8
+  %.not26.i = icmp eq ptr %147, null
+  br i1 %.not26.i, label %evws_connection_free.exit, label %148
+
+148:                                              ; preds = %145
+  call void @evbuffer_free(ptr noundef nonnull %147) #9
   br label %evws_connection_free.exit
 
-evws_connection_free.exit:                        ; preds = %if.end23.i, %if.then25.i
-  call void @event_mm_free_(ptr noundef nonnull %call24) #9
-  br label %if.end54
+evws_connection_free.exit:                        ; preds = %145, %148
+  call void @event_mm_free_(ptr noundef nonnull %91) #9
+  br label %.thread
 
-if.end54:                                         ; preds = %if.then26, %if.end9, %lor.lhs.false5, %if.end, %lor.lhs.false, %entry, %evws_connection_free.exit
-  call void @evhttp_send_reply(ptr noundef %req, i32 noundef 400, ptr noundef null, ptr noundef null) #9
-  br label %return
+.thread:                                          ; preds = %93, %19, %16, %13, %11, %4, %evws_connection_free.exit
+  call void @evhttp_send_reply(ptr noundef %0, i32 noundef 400, ptr noundef null, ptr noundef null) #9
+  br label %149
 
-return:                                           ; preds = %if.end54, %if.end39
-  %retval.0 = phi ptr [ null, %if.end54 ], [ %call24, %if.end39 ]
-  ret ptr %retval.0
+149:                                              ; preds = %.thread, %109
+  %.0 = phi ptr [ null, %.thread ], [ %91, %109 ]
+  ret ptr %.0
 }
 
-declare ptr @evhttp_request_get_input_headers(ptr noundef) local_unnamed_addr #1
+declare ptr @evhttp_request_get_input_headers(ptr noundef) local_unnamed_addr #2
 
-declare ptr @evhttp_find_header(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @evhttp_find_header(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @evutil_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @evutil_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @evhttp_request_get_output_headers(ptr noundef) local_unnamed_addr #1
+declare ptr @evutil_ascii_strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @evhttp_add_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @evhttp_request_get_output_headers(ptr noundef) local_unnamed_addr #2
+
+declare i32 @evhttp_add_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @event_warn(ptr noundef, ...) local_unnamed_addr #1
+declare void @event_warn(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @evhttp_request_get_connection(ptr noundef) local_unnamed_addr #1
+declare ptr @evhttp_request_get_connection(ptr noundef) local_unnamed_addr #2
 
-declare ptr @evhttp_start_ws_(ptr noundef) local_unnamed_addr #1
+declare ptr @evhttp_start_ws_(ptr noundef) local_unnamed_addr #2
 
-declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %bufev, ptr noundef %arg) #0 {
-entry:
-  %fr.i.i35 = alloca [4 x i8], align 4
-  %fr.i.i = alloca [4 x i8], align 4
-  %bufev1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
-  %0 = load ptr, ptr %bufev1, align 8
-  %call = tail call ptr @bufferevent_get_input(ptr noundef %0) #9
-  %1 = load ptr, ptr %bufev1, align 8
-  tail call void @bufferevent_incref_and_lock_(ptr noundef %1) #9
-  %call363 = tail call i64 @evbuffer_get_length(ptr noundef %call) #9
-  %tobool.not64 = icmp eq i64 %call363, 0
-  br i1 %tobool.not64, label %bailout, label %while.body.lr.ph
+define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+  %3 = alloca [4 x i8], align 4
+  %4 = alloca [4 x i8], align 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call ptr @bufferevent_get_input(ptr noundef %6) #9
+  %8 = load ptr, ptr %5, align 8
+  tail call void @bufferevent_incref_and_lock_(ptr noundef %8) #9
+  %9 = tail call i64 @evbuffer_get_length(ptr noundef %7) #9
+  %.not77 = icmp eq i64 %9, 0
+  br i1 %.not77, label %.thread, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %entry
-  %incomplete_frames25 = getelementptr inbounds nuw i8, ptr %arg, i64 64
-  %cb = getelementptr inbounds nuw i8, ptr %arg, i64 24
-  %cb_arg = getelementptr inbounds nuw i8, ptr %arg, i64 32
-  %closed.i.i36 = getelementptr inbounds nuw i8, ptr %arg, i64 72
-  %arrayidx.i.i39 = getelementptr inbounds nuw i8, ptr %fr.i.i35, i64 2
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %fr.i.i, i64 2
-  br label %while.body
+.lr.ph:                                           ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %14
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %call365 = phi i64 [ %call363, %while.body.lr.ph ], [ %call3, %while.cond.backedge ]
-  %call4 = call ptr @evbuffer_pullup(ptr noundef %call, i64 noundef %call365) #9
-  %cmp = icmp eq ptr %call4, null
-  %cmp.i = icmp eq i64 %call365, 1
-  %or.cond = or i1 %cmp.i, %cmp
-  br i1 %or.cond, label %bailout, label %if.end.i
+14:                                               ; preds = %.lr.ph, %118
+  %15 = phi i64 [ %9, %.lr.ph ], [ %119, %118 ]
+  %16 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef %15) #9
+  %17 = icmp eq ptr %16, null
+  %18 = icmp eq i64 %15, 1
+  %or.cond = or i1 %18, %17
+  br i1 %or.cond, label %.thread, label %19
 
-if.end.i:                                         ; preds = %while.body
-  %2 = load i8, ptr %call4, align 1
-  %and.i = and i8 %2, 15
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call4, i64 1
-  %3 = load i8, ptr %arrayidx6.i, align 1
-  %4 = and i8 %3, 127
-  %cmp14.i = icmp samesign ult i8 %4, 126
-  br i1 %cmp14.i, label %if.then16.i, label %if.else.i
+19:                                               ; preds = %14
+  %20 = load i8, ptr %16, align 1
+  %21 = and i8 %20, 15
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = and i8 %23, 127
+  %25 = icmp samesign ult i8 %24, 126
+  br i1 %25, label %26, label %28
 
-if.then16.i:                                      ; preds = %if.end.i
-  %conv17.i = zext nneg i8 %4 to i64
-  br label %if.end45.i
+26:                                               ; preds = %19
+  %27 = zext nneg i8 %24 to i64
+  br label %46
 
-if.else.i:                                        ; preds = %if.end.i
-  %cmp18.i = icmp eq i8 %4, 126
-  br i1 %cmp18.i, label %if.then20.i, label %if.then29.i
+28:                                               ; preds = %19
+  %29 = icmp eq i8 %24, 126
+  br i1 %29, label %30, label %34
 
-if.then20.i:                                      ; preds = %if.else.i
-  %cmp21.i = icmp ult i64 %call365, 4
-  br i1 %cmp21.i, label %bailout, label %if.end24.i
+30:                                               ; preds = %28
+  %31 = icmp ugt i64 %15, 3
+  br i1 %31, label %.thread.i, label %.thread
 
-if.end24.i:                                       ; preds = %if.then20.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call4, i64 2
-  %tmp16.0.copyload.i = load i16, ptr %add.ptr.i, align 1
-  %call.i = call zeroext i16 @ntohs(i16 noundef zeroext %tmp16.0.copyload.i) #10
-  %conv25.i = zext i16 %call.i to i64
-  br label %if.end45.i
+.thread.i:                                        ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %.0.copyload.i = load i16, ptr %32, align 1
+  %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i)
+  %33 = zext i16 %rev.i.i to i64
+  br label %46
 
-if.then29.i:                                      ; preds = %if.else.i
-  %cmp30.i = icmp ult i64 %call365, 10
-  br i1 %cmp30.i, label %bailout, label %for.body.i
+34:                                               ; preds = %28
+  %35 = icmp ult i64 %15, 10
+  br i1 %35, label %.thread, label %.preheader.i
 
-for.body.i:                                       ; preds = %if.then29.i, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 56, %if.then29.i ]
-  %tmp64.048.i = phi i64 [ %or.i, %for.body.i ], [ 0, %if.then29.i ]
-  %pos.146.i = phi i64 [ %inc.i, %for.body.i ], [ 2, %if.then29.i ]
-  %inc.i = add nuw nsw i64 %pos.146.i, 1
-  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %call4, i64 %pos.146.i
-  %5 = load i8, ptr %arrayidx36.i, align 1
-  %conv37.i = zext i8 %5 to i64
-  %shl.i = shl i64 %conv37.i, %indvars.iv.i
-  %or.i = or i64 %shl.i, %tmp64.048.i
+.preheader.i:                                     ; preds = %34, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 56, %34 ]
+  %.07291.i = phi i64 [ %41, %.preheader.i ], [ 0, %34 ]
+  %.389.i = phi i64 [ %36, %.preheader.i ], [ 2, %34 ]
+  %36 = add nuw nsw i64 %.389.i, 1
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 %.389.i
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %40 = shl i64 %39, %indvars.iv.i
+  %41 = or i64 %40, %.07291.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  %exitcond.not.i = icmp eq i64 %inc.i, 10
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  %exitcond.not.i = icmp eq i64 %36, 10
+  br i1 %exitcond.not.i, label %42, label %.preheader.i, !llvm.loop !7
 
-for.end.i:                                        ; preds = %for.body.i
-  %cmp38.i = icmp ugt i64 %or.i, 10485760
-  br i1 %cmp38.i, label %if.then40.i, label %if.end45.i
+42:                                               ; preds = %.preheader.i
+  %43 = icmp ugt i64 %41, 10485760
+  br i1 %43, label %44, label %46
 
-if.then40.i:                                      ; preds = %for.end.i
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.get_ws_frame, i64 noundef %or.i, i64 noundef 10485760) #9
-  %add.ptr41.i = getelementptr inbounds nuw i8, ptr %call4, i64 10
-  br label %if.end8.thread
+44:                                               ; preds = %42
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.get_ws_frame, i64 noundef %41, i64 noundef 10485760) #9
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  br label %get_ws_frame.exit.thread58
 
-if.end45.i:                                       ; preds = %for.end.i, %if.end24.i, %if.then16.i
-  %pos.0.i = phi i64 [ 2, %if.then16.i ], [ 4, %if.end24.i ], [ 10, %for.end.i ]
-  %payload_len.0.i = phi i64 [ %conv17.i, %if.then16.i ], [ %conv25.i, %if.end24.i ], [ %or.i, %for.end.i ]
-  %6 = lshr i8 %3, 5
-  %7 = and i8 %6, 4
-  %conv48.i = zext nneg i8 %7 to i64
-  %add46.i = add nuw nsw i64 %pos.0.i, %conv48.i
-  %add49.i = add nuw nsw i64 %add46.i, %payload_len.0.i
-  %cmp50.i = icmp ult i64 %call365, %add49.i
-  br i1 %cmp50.i, label %bailout, label %if.end53.i
+46:                                               ; preds = %42, %.thread.i, %26
+  %.074.i = phi i64 [ 2, %26 ], [ 4, %.thread.i ], [ 10, %42 ]
+  %.069.i = phi i64 [ %27, %26 ], [ %33, %.thread.i ], [ %41, %42 ]
+  %47 = lshr i8 %23, 5
+  %48 = and i8 %47, 4
+  %49 = zext nneg i8 %48 to i64
+  %50 = add nuw nsw i64 %.074.i, %49
+  %51 = add nuw nsw i64 %50, %.069.i
+  %52 = icmp ult i64 %15, %51
+  br i1 %52, label %.thread, label %53
 
-if.end53.i:                                       ; preds = %if.end45.i
-  %tobool54.not.i = icmp sgt i8 %3, -1
-  br i1 %tobool54.not.i, label %if.end73.i, label %if.then55.i
+53:                                               ; preds = %46
+  %.not.i = icmp sgt i8 %23, -1
+  br i1 %.not.i, label %.loopexit.i, label %54
 
-if.then55.i:                                      ; preds = %if.end53.i
-  %add.ptr57.i = getelementptr inbounds nuw i8, ptr %call4, i64 %pos.0.i
-  %add58.i = add nuw nsw i64 %pos.0.i, 4
-  %add.ptr59.i = getelementptr inbounds nuw i8, ptr %call4, i64 %add58.i
-  %cmp6149.not.i = icmp eq i64 %payload_len.0.i, 0
-  br i1 %cmp6149.not.i, label %if.end73.i, label %for.body63.i
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 %.074.i
+  %56 = add nuw nsw i64 %.074.i, 4
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 %56
+  %.not93.i = icmp eq i64 %.069.i, 0
+  br i1 %.not93.i, label %.loopexit.i, label %.lr.ph.i
 
-for.body63.i:                                     ; preds = %if.then55.i, %for.body63.i
-  %i56.050.i = phi i64 [ %inc71.i, %for.body63.i ], [ 0, %if.then55.i ]
-  %arrayidx64.i = getelementptr inbounds nuw i8, ptr %add.ptr59.i, i64 %i56.050.i
-  %8 = load i8, ptr %arrayidx64.i, align 1
-  %rem.i = and i64 %i56.050.i, 3
-  %arrayidx66.i = getelementptr inbounds nuw i8, ptr %add.ptr57.i, i64 %rem.i
-  %9 = load i8, ptr %arrayidx66.i, align 1
-  %xor45.i = xor i8 %9, %8
-  store i8 %xor45.i, ptr %arrayidx64.i, align 1
-  %inc71.i = add nuw nsw i64 %i56.050.i, 1
-  %exitcond52.not.i = icmp eq i64 %inc71.i, %payload_len.0.i
-  br i1 %exitcond52.not.i, label %if.end73.i, label %for.body63.i, !llvm.loop !7
+.lr.ph.i:                                         ; preds = %54, %.lr.ph.i
+  %.092.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %54 ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.092.i
+  %59 = load i8, ptr %58, align 1
+  %60 = and i64 %.092.i, 3
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = xor i8 %62, %59
+  store i8 %63, ptr %58, align 1
+  %64 = add nuw nsw i64 %.092.i, 1
+  %exitcond96.not.i = icmp eq i64 %64, %.069.i
+  br i1 %exitcond96.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
-if.end73.i:                                       ; preds = %for.body63.i, %if.then55.i, %if.end53.i
-  %pos.2.i = phi i64 [ %pos.0.i, %if.end53.i ], [ %add58.i, %if.then55.i ], [ %add58.i, %for.body63.i ]
-  %add.ptr74.i = getelementptr inbounds i8, ptr %call4, i64 %pos.2.i
-  %10 = add nsw i8 %and.i, -3
-  %or.cond.i = icmp ult i8 %10, 5
-  %cmp82.i = icmp samesign ugt i8 %and.i, 10
-  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp82.i
-  br i1 %or.cond1.i, label %if.end8.thread, label %if.end8
+.loopexit.i:                                      ; preds = %.lr.ph.i, %54, %53
+  %.4.i = phi i64 [ %.074.i, %53 ], [ %56, %54 ], [ %56, %.lr.ph.i ]
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 %.4.i
+  %66 = add nsw i8 %21, -3
+  %or.cond.i = icmp ult i8 %66, 5
+  %67 = icmp samesign ugt i8 %21, 10
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %67
+  br i1 %or.cond6.i, label %get_ws_frame.exit.thread58, label %68
 
-if.end8.thread:                                   ; preds = %if.then40.i, %if.end73.i
-  %payload.1.ph = phi ptr [ %add.ptr41.i, %if.then40.i ], [ %add.ptr74.i, %if.end73.i ]
-  %msg_len.1.ph = phi i64 [ 0, %if.then40.i ], [ %payload_len.0.i, %if.end73.i ]
-  %sub.ptr.lhs.cast55 = ptrtoint ptr %payload.1.ph to i64
-  %sub.ptr.rhs.cast56 = ptrtoint ptr %call4 to i64
-  %sub.ptr.sub57 = sub i64 %sub.ptr.lhs.cast55, %sub.ptr.rhs.cast56
-  %call958 = call i32 @evbuffer_drain(ptr noundef %call, i64 noundef %sub.ptr.sub57) #9
-  %call1059 = call ptr @evbuffer_pullup(ptr noundef %call, i64 noundef -1) #9
-  br label %sw.bb33
+68:                                               ; preds = %.loopexit.i
+  %69 = zext nneg i8 %21 to i32
+  %70 = icmp samesign ugt i8 %21, 3
+  %71 = icmp slt i8 %20, 0
+  %or.cond8.i = or i1 %71, %70
+  %72 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.4.i) #9
+  %73 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
+  br i1 %or.cond8.i, label %get_ws_frame.exit, label %get_ws_frame.exit.thread66
 
-if.end8:                                          ; preds = %if.end73.i
-  %conv75.i = zext nneg i8 %and.i to i32
-  %cmp87.i = icmp samesign ugt i8 %and.i, 3
-  %tobool90.i = icmp slt i8 %2, 0
-  %or.cond2.i = or i1 %tobool90.i, %cmp87.i
-  %conv75..i = select i1 %or.cond2.i, i32 %conv75.i, i32 129
-  %call9 = call i32 @evbuffer_drain(ptr noundef %call, i64 noundef %pos.2.i) #9
-  %call10 = call ptr @evbuffer_pullup(ptr noundef %call, i64 noundef -1) #9
-  %trunc = trunc nuw i32 %conv75..i to i8
-  switch i8 %trunc, label %sw.default [
-    i8 1, label %sw.bb
-    i8 2, label %sw.bb
-    i8 -127, label %sw.bb24
-    i8 8, label %sw.bb33
-    i8 10, label %sw.epilog
-    i8 9, label %sw.epilog
+get_ws_frame.exit.thread66:                       ; preds = %68
+  %74 = load ptr, ptr %10, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %95, label %97
+
+get_ws_frame.exit.thread58:                       ; preds = %.loopexit.i, %44
+  %.253.ph = phi ptr [ %45, %44 ], [ %65, %.loopexit.i ]
+  %.2.ph = phi i64 [ 0, %44 ], [ %.069.i, %.loopexit.i ]
+  %76 = ptrtoint ptr %.253.ph to i64
+  %77 = ptrtoint ptr %16 to i64
+  %78 = sub i64 %76, %77
+  %79 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %78) #9
+  %80 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
+  br label %100
+
+get_ws_frame.exit:                                ; preds = %68
+  switch i8 %21, label %108 [
+    i8 1, label %81
+    i8 2, label %81
+    i8 10, label %116
+    i8 8, label %100
+    i8 9, label %116
   ]
 
-sw.bb:                                            ; preds = %if.end8, %if.end8
-  %11 = load ptr, ptr %incomplete_frames25, align 8
-  %cmp11.not = icmp eq ptr %11, null
-  br i1 %cmp11.not, label %if.else, label %if.then12
+81:                                               ; preds = %get_ws_frame.exit, %get_ws_frame.exit
+  %82 = load ptr, ptr %10, align 8
+  %.not45 = icmp eq ptr %82, null
+  br i1 %.not45, label %92, label %83
 
-if.then12:                                        ; preds = %sw.bb
-  %call14 = call i32 @evbuffer_add(ptr noundef nonnull %11, ptr noundef %call10, i64 noundef %payload_len.0.i) #9
-  %12 = load ptr, ptr %incomplete_frames25, align 8
-  %call16 = call ptr @evbuffer_pullup(ptr noundef %12, i64 noundef -1) #9
-  %13 = load ptr, ptr %cb, align 8
-  %14 = load ptr, ptr %incomplete_frames25, align 8
-  %call18 = call i64 @evbuffer_get_length(ptr noundef %14) #9
-  %15 = load ptr, ptr %cb_arg, align 8
-  call void %13(ptr noundef nonnull %arg, i32 noundef %conv75..i, ptr noundef %call16, i64 noundef %call18, ptr noundef %15) #9
-  %16 = load ptr, ptr %incomplete_frames25, align 8
-  call void @evbuffer_free(ptr noundef %16) #9
-  store ptr null, ptr %incomplete_frames25, align 8
-  br label %sw.epilog
+83:                                               ; preds = %81
+  %84 = call i32 @evbuffer_add(ptr noundef nonnull %82, ptr noundef %73, i64 noundef %.069.i) #9
+  %85 = load ptr, ptr %10, align 8
+  %86 = call ptr @evbuffer_pullup(ptr noundef %85, i64 noundef -1) #9
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = call i64 @evbuffer_get_length(ptr noundef %88) #9
+  %90 = load ptr, ptr %12, align 8
+  call void %87(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %86, i64 noundef %89, ptr noundef %90) #9
+  %91 = load ptr, ptr %10, align 8
+  call void @evbuffer_free(ptr noundef %91) #9
+  store ptr null, ptr %10, align 8
+  br label %116
 
-if.else:                                          ; preds = %sw.bb
-  %17 = load ptr, ptr %cb, align 8
-  %18 = load ptr, ptr %cb_arg, align 8
-  call void %17(ptr noundef nonnull %arg, i32 noundef %conv75..i, ptr noundef %call10, i64 noundef %payload_len.0.i, ptr noundef %18) #9
-  br label %sw.epilog
+92:                                               ; preds = %81
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %12, align 8
+  call void %93(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %73, i64 noundef %.069.i, ptr noundef %94) #9
+  br label %116
 
-sw.bb24:                                          ; preds = %if.end8
-  %19 = load ptr, ptr %incomplete_frames25, align 8
-  %cmp26 = icmp eq ptr %19, null
-  br i1 %cmp26, label %if.then27, label %if.end30
+95:                                               ; preds = %get_ws_frame.exit.thread66
+  %96 = call ptr @evbuffer_new() #9
+  store ptr %96, ptr %10, align 8
+  br label %97
 
-if.then27:                                        ; preds = %sw.bb24
-  %call28 = call ptr @evbuffer_new() #9
-  store ptr %call28, ptr %incomplete_frames25, align 8
-  br label %if.end30
+97:                                               ; preds = %95, %get_ws_frame.exit.thread66
+  %98 = phi ptr [ %96, %95 ], [ %74, %get_ws_frame.exit.thread66 ]
+  %99 = call i32 @evbuffer_remove_buffer(ptr noundef %7, ptr noundef %98, i64 noundef %.069.i) #9
+  br label %118, !llvm.loop !9
 
-if.end30:                                         ; preds = %if.then27, %sw.bb24
-  %20 = phi ptr [ %call28, %if.then27 ], [ %19, %sw.bb24 ]
-  %call32 = call i32 @evbuffer_remove_buffer(ptr noundef %call, ptr noundef %20, i64 noundef %payload_len.0.i) #9
-  br label %while.cond.backedge
+100:                                              ; preds = %get_ws_frame.exit.thread58, %get_ws_frame.exit
+  %.265 = phi i64 [ %.2.ph, %get_ws_frame.exit.thread58 ], [ %.069.i, %get_ws_frame.exit ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  store i32 648, ptr %4, align 4
+  %101 = load i8, ptr %13, align 8, !range !3, !noundef !4
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %evws_force_disconnect_.exit, label %103
 
-while.cond.backedge:                              ; preds = %if.end30, %sw.epilog
-  %call3 = call i64 @evbuffer_get_length(ptr noundef %call) #9
-  %tobool.not = icmp eq i64 %call3, 0
-  br i1 %tobool.not, label %bailout, label %while.body, !llvm.loop !8
-
-sw.bb33:                                          ; preds = %if.end8.thread, %if.end8
-  %msg_len.162 = phi i64 [ %msg_len.1.ph, %if.end8.thread ], [ %payload_len.0.i, %if.end8 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fr.i.i)
-  store i32 648, ptr %fr.i.i, align 4
-  %21 = load i8, ptr %closed.i.i36, align 8
-  %tobool.i.i = trunc i8 %21 to i1
-  br i1 %tobool.i.i, label %evws_force_disconnect_.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %sw.bb33
-  store i8 1, ptr %closed.i.i36, align 8
-  %call.i.i = call zeroext i16 @htons(i16 noundef zeroext 0) #10
-  store i16 %call.i.i, ptr %arrayidx.i.i, align 2
-  %22 = load ptr, ptr %bufev1, align 8
-  %call2.i.i = call ptr @bufferevent_get_output(ptr noundef %22) #9
-  %call3.i.i = call i32 @evbuffer_add(ptr noundef %call2.i.i, ptr noundef nonnull %fr.i.i, i64 noundef 4) #9
-  %23 = load ptr, ptr %bufev1, align 8
-  call void @bufferevent_setcb(ptr noundef %23, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
+103:                                              ; preds = %100
+  store i8 1, ptr %13, align 8
+  %104 = load ptr, ptr %5, align 8
+  %105 = call ptr @bufferevent_get_output(ptr noundef %104) #9
+  %106 = call i32 @evbuffer_add(ptr noundef %105, ptr noundef nonnull %4, i64 noundef 4) #9
+  %107 = load ptr, ptr %5, align 8
+  call void @bufferevent_setcb(ptr noundef %107, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
   br label %evws_force_disconnect_.exit
 
-evws_force_disconnect_.exit:                      ; preds = %sw.bb33, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fr.i.i)
-  br label %sw.epilog
+evws_force_disconnect_.exit:                      ; preds = %100, %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  br label %116
 
-sw.default:                                       ; preds = %if.end8
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.ws_evhttp_read_cb, i32 noundef %conv75..i) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fr.i.i35)
-  store i32 648, ptr %fr.i.i35, align 4
-  %24 = load i8, ptr %closed.i.i36, align 8
-  %tobool.i.i37 = trunc i8 %24 to i1
-  br i1 %tobool.i.i37, label %evws_force_disconnect_.exit44, label %if.end.i.i38
+108:                                              ; preds = %get_ws_frame.exit
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.ws_evhttp_read_cb, i32 noundef %69) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  store i32 648, ptr %3, align 4
+  %109 = load i8, ptr %13, align 8, !range !3, !noundef !4
+  %110 = trunc nuw i8 %109 to i1
+  br i1 %110, label %evws_force_disconnect_.exit46, label %111
 
-if.end.i.i38:                                     ; preds = %sw.default
-  store i8 1, ptr %closed.i.i36, align 8
-  %call.i.i40 = call zeroext i16 @htons(i16 noundef zeroext 0) #10
-  store i16 %call.i.i40, ptr %arrayidx.i.i39, align 2
-  %25 = load ptr, ptr %bufev1, align 8
-  %call2.i.i42 = call ptr @bufferevent_get_output(ptr noundef %25) #9
-  %call3.i.i43 = call i32 @evbuffer_add(ptr noundef %call2.i.i42, ptr noundef nonnull %fr.i.i35, i64 noundef 4) #9
-  %26 = load ptr, ptr %bufev1, align 8
-  call void @bufferevent_setcb(ptr noundef %26, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %arg) #9
-  br label %evws_force_disconnect_.exit44
+111:                                              ; preds = %108
+  store i8 1, ptr %13, align 8
+  %112 = load ptr, ptr %5, align 8
+  %113 = call ptr @bufferevent_get_output(ptr noundef %112) #9
+  %114 = call i32 @evbuffer_add(ptr noundef %113, ptr noundef nonnull %3, i64 noundef 4) #9
+  %115 = load ptr, ptr %5, align 8
+  call void @bufferevent_setcb(ptr noundef %115, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
+  br label %evws_force_disconnect_.exit46
 
-evws_force_disconnect_.exit44:                    ; preds = %sw.default, %if.end.i.i38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fr.i.i35)
-  br label %sw.epilog
+evws_force_disconnect_.exit46:                    ; preds = %108, %111
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  br label %116
 
-sw.epilog:                                        ; preds = %if.end8, %if.end8, %if.then12, %if.else, %evws_force_disconnect_.exit44, %evws_force_disconnect_.exit
-  %msg_len.161 = phi i64 [ %payload_len.0.i, %if.end8 ], [ %payload_len.0.i, %if.end8 ], [ %payload_len.0.i, %if.then12 ], [ %payload_len.0.i, %if.else ], [ %payload_len.0.i, %evws_force_disconnect_.exit44 ], [ %msg_len.162, %evws_force_disconnect_.exit ]
-  %call35 = call i32 @evbuffer_drain(ptr noundef %call, i64 noundef %msg_len.161) #9
-  br label %while.cond.backedge
+116:                                              ; preds = %get_ws_frame.exit, %get_ws_frame.exit, %83, %92, %evws_force_disconnect_.exit46, %evws_force_disconnect_.exit
+  %.264 = phi i64 [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %83 ], [ %.069.i, %92 ], [ %.069.i, %evws_force_disconnect_.exit46 ], [ %.265, %evws_force_disconnect_.exit ]
+  %117 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.264) #9
+  br label %118
 
-bailout:                                          ; preds = %while.body, %while.cond.backedge, %if.then20.i, %if.then29.i, %if.end45.i, %entry
-  %27 = load ptr, ptr %bufev1, align 8
-  %call37 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %27) #9
+118:                                              ; preds = %116, %97
+  %119 = call i64 @evbuffer_get_length(ptr noundef %7) #9
+  %.not = icmp eq i64 %119, 0
+  br i1 %.not, label %.thread, label %14
+
+.thread:                                          ; preds = %118, %14, %46, %30, %34, %2
+  %120 = load ptr, ptr %5, align 8
+  %121 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %120) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ws_evhttp_error_cb(ptr noundef %bufev, i16 noundef signext %what, ptr noundef %arg) #0 {
-entry:
-  %0 = and i16 %what, 16
-  %tobool.not = icmp eq i16 %0, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal void @ws_evhttp_error_cb(ptr noundef %0, i16 noundef signext %1, ptr noundef %2) #0 {
+  %4 = and i16 %1, 16
+  %.not = icmp eq i16 %4, 0
+  br i1 %.not, label %6, label %5
 
-if.then:                                          ; preds = %entry
-  tail call void @close_after_write_cb(ptr noundef %bufev, ptr noundef %arg)
-  br label %if.end
+5:                                                ; preds = %3
+  tail call void @close_after_write_cb(ptr noundef %0, ptr noundef %2)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %5, %3
   ret void
 }
 
-declare void @evhttp_send_reply(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @evhttp_send_reply(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @evws_send_text(ptr noundef readonly captures(none) %evws, ptr noundef %packet_str) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %packet_str) #11
-  tail call fastcc void @evws_send(ptr noundef %evws, i32 noundef 1, ptr noundef nonnull %packet_str, i64 noundef %call)
+define void @evws_send_text(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  tail call fastcc void @evws_send(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evws_send(ptr noundef readonly captures(none) %evws, i32 noundef range(i32 1, 3) %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
-entry:
-  %header.i = alloca [16 x i8], align 16
-  %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
-  %0 = load ptr, ptr %bufev, align 8
-  tail call void @bufferevent_lock(ptr noundef %0) #9
-  %1 = load ptr, ptr %bufev, align 8
-  %call = tail call ptr @bufferevent_get_output(ptr noundef %1) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %header.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %header.i, i8 0, i64 16, i1 false)
-  %2 = trunc nuw nsw i32 %frame_type to i8
-  %conv2.i = or disjoint i8 %2, -128
-  store i8 %conv2.i, ptr %header.i, align 16
-  %cmp.i = icmp ult i64 %str_len, 126
-  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %header.i, i64 3
-  %.sink.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %header.i, i64 1
-  br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
+define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+  %5 = alloca [16 x i8], align 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  tail call void @bufferevent_lock(ptr noundef %7) #9
+  %8 = load ptr, ptr %6, align 8
+  %9 = tail call ptr @bufferevent_get_output(ptr noundef %8) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  %10 = trunc nuw nsw i32 %1 to i8
+  %11 = or disjoint i8 %10, -128
+  store i8 %11, ptr %5, align 16
+  %12 = icmp ult i64 %3, 126
+  %.sink29.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %.sink29.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  br i1 %12, label %.loopexit.sink.split.i, label %13
 
-if.else.i:                                        ; preds = %entry
-  %cmp7.i = icmp ult i64 %str_len, 65536
-  br i1 %cmp7.i, label %if.then9.i, label %if.else19.i
+13:                                               ; preds = %4
+  %14 = icmp ult i64 %3, 65536
+  br i1 %14, label %15, label %19
 
-if.then9.i:                                       ; preds = %if.else.i
-  store i8 126, ptr %.sink.i.sroa.gep3, align 1
-  %shr.i = lshr i64 %str_len, 8
-  %conv12.i = trunc nuw i64 %shr.i to i8
-  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %header.i, i64 2
-  store i8 %conv12.i, ptr %arrayidx14.i, align 2
-  br label %if.end29.sink.split.i
+15:                                               ; preds = %13
+  store i8 126, ptr %.sink29.i.sroa.gep6, align 1
+  %16 = lshr i64 %3, 8
+  %17 = trunc nuw i64 %16 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %17, ptr %18, align 2
+  br label %.loopexit.sink.split.i
 
-if.else19.i:                                      ; preds = %if.else.i
-  store i8 127, ptr %.sink.i.sroa.gep3, align 1
-  br label %for.body.i
+19:                                               ; preds = %13
+  store i8 127, ptr %.sink29.i.sroa.gep6, align 1
+  br label %20
 
-for.body.i:                                       ; preds = %for.body.i, %if.else19.i
-  %indvars.iv.i = phi i64 [ 56, %if.else19.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %pos.118.i = phi i64 [ 2, %if.else19.i ], [ %inc27.i, %for.body.i ]
-  %shr24.i = lshr i64 %str_len, %indvars.iv.i
-  %conv26.i = trunc i64 %shr24.i to i8
-  %inc27.i = add nuw nsw i64 %pos.118.i, 1
-  %arrayidx28.i = getelementptr inbounds nuw [16 x i8], ptr %header.i, i64 0, i64 %pos.118.i
-  store i8 %conv26.i, ptr %arrayidx28.i, align 1
+20:                                               ; preds = %20, %19
+  %indvars.iv.i = phi i64 [ 56, %19 ], [ %indvars.iv.next.i, %20 ]
+  %.126.i = phi i64 [ 2, %19 ], [ %23, %20 ]
+  %21 = lshr i64 %3, %indvars.iv.i
+  %22 = trunc i64 %21 to i8
+  %23 = add nuw nsw i64 %.126.i, 1
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.126.i
+  store i8 %22, ptr %24, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  %exitcond.not.i = icmp eq i64 %inc27.i, 10
-  br i1 %exitcond.not.i, label %make_ws_frame.exit, label %for.body.i, !llvm.loop !9
+  %exitcond.not.i = icmp eq i64 %23, 10
+  br i1 %exitcond.not.i, label %make_ws_frame.exit, label %20, !llvm.loop !10
 
-if.end29.sink.split.i:                            ; preds = %if.then9.i, %entry
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then9.i ], [ %.sink.i.sroa.gep3, %entry ]
-  %pos.0.ph.i = phi i64 [ 4, %if.then9.i ], [ 2, %entry ]
-  %conv16.i = trunc i64 %str_len to i8
-  store i8 %conv16.i, ptr %.sink.i.sroa.phi, align 1
+.loopexit.sink.split.i:                           ; preds = %15, %4
+  %.sink29.i.sroa.phi = phi ptr [ %.sink29.i.sroa.gep, %15 ], [ %.sink29.i.sroa.gep6, %4 ]
+  %.0.ph.i = phi i64 [ 4, %15 ], [ 2, %4 ]
+  %25 = trunc i64 %3 to i8
+  store i8 %25, ptr %.sink29.i.sroa.phi, align 1
   br label %make_ws_frame.exit
 
-make_ws_frame.exit:                               ; preds = %for.body.i, %if.end29.sink.split.i
-  %pos.0.i = phi i64 [ %pos.0.ph.i, %if.end29.sink.split.i ], [ 10, %for.body.i ]
-  %call.i = call i32 @evbuffer_add(ptr noundef %call, ptr noundef nonnull %header.i, i64 noundef %pos.0.i) #9
-  %call30.i = call i32 @evbuffer_add(ptr noundef %call, ptr noundef %packet_str, i64 noundef %str_len) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %header.i)
-  %3 = load ptr, ptr %bufev, align 8
-  call void @bufferevent_unlock(ptr noundef %3) #9
+make_ws_frame.exit:                               ; preds = %20, %.loopexit.sink.split.i
+  %.0.i = phi i64 [ %.0.ph.i, %.loopexit.sink.split.i ], [ 10, %20 ]
+  %26 = call i32 @evbuffer_add(ptr noundef %9, ptr noundef nonnull %5, i64 noundef %.0.i) #9
+  %27 = call i32 @evbuffer_add(ptr noundef %9, ptr noundef %2, i64 noundef %3) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  %28 = load ptr, ptr %6, align 8
+  call void @bufferevent_unlock(ptr noundef %28) #9
   ret void
 }
 
@@ -916,86 +912,77 @@ make_ws_frame.exit:                               ; preds = %for.body.i, %if.end
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @evws_send_binary(ptr noundef readonly captures(none) %evws, ptr noundef %packet_data, i64 noundef %packet_len) local_unnamed_addr #0 {
-entry:
-  tail call fastcc void @evws_send(ptr noundef %evws, i32 noundef 2, ptr noundef %packet_data, i64 noundef %packet_len)
+define void @evws_send_binary(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  tail call fastcc void @evws_send(ptr noundef %0, i32 noundef 2, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evws_connection_set_closecb(ptr noundef writeonly captures(none) initializes((40, 56)) %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
-entry:
-  %cbclose = getelementptr inbounds nuw i8, ptr %evws, i64 40
-  store ptr %cb, ptr %cbclose, align 8
-  %cbclose_arg = getelementptr inbounds nuw i8, ptr %evws, i64 48
-  store ptr %cbarg, ptr %cbclose_arg, align 8
+define void @evws_connection_set_closecb(ptr noundef writeonly captures(none) initializes((40, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @evws_connection_get_bufferevent(ptr noundef readonly captures(none) %evws) local_unnamed_addr #6 {
-entry:
-  %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
-  %0 = load ptr, ptr %bufev, align 8
-  ret ptr %0
+define ptr @evws_connection_get_bufferevent(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
 }
 
-declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
+declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
-declare void @builtin_SHA1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @builtin_SHA1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @bufferevent_get_input(ptr noundef) local_unnamed_addr #1
+declare ptr @bufferevent_get_input(ptr noundef) local_unnamed_addr #2
 
-declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #1
+declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #2
 
-declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @evbuffer_pullup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @evbuffer_drain(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @evbuffer_new() local_unnamed_addr #1
+declare ptr @evbuffer_new() local_unnamed_addr #2
 
-declare i32 @evbuffer_remove_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @evbuffer_remove_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @bufferevent_decref_and_unlock_(ptr noundef) local_unnamed_addr #1
+declare i32 @bufferevent_decref_and_unlock_(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #2
+declare void @bufferevent_lock(ptr noundef) local_unnamed_addr #2
 
-declare void @bufferevent_lock(ptr noundef) local_unnamed_addr #1
+declare void @bufferevent_unlock(ptr noundef) local_unnamed_addr #2
 
-declare void @bufferevent_unlock(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{i8 0, i8 2}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
