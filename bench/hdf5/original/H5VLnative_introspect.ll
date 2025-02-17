@@ -28,29 +28,31 @@ define i32 @H5VL__native_introspect_opt_query(ptr noundef %0, i32 noundef %1, i3
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  store i8 0, ptr %10, align 1
-  %11 = load ptr, ptr %8, align 8
-  store i64 1, ptr %11, align 8
-  %12 = load i32, ptr %6, align 4
-  switch i32 %12, label %290 [
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  store i32 0, ptr %9, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  store i8 0, ptr %10, align 1, !tbaa !11
+  %11 = load ptr, ptr %8, align 8, !tbaa !9
+  store i64 1, ptr %11, align 8, !tbaa !13
+  %12 = load i32, ptr %6, align 4, !tbaa !7
+  switch i32 %12, label %342 [
     i32 0, label %13
-    i32 1, label %28
-    i32 2, label %43
-    i32 3, label %58
-    i32 4, label %80
-    i32 5, label %114
-    i32 6, label %129
-    i32 7, label %173
-    i32 8, label %199
-    i32 9, label %214
-    i32 10, label %245
-    i32 11, label %260
-    i32 12, label %275
+    i32 1, label %32
+    i32 2, label %51
+    i32 3, label %70
+    i32 4, label %96
+    i32 5, label %134
+    i32 6, label %153
+    i32 7, label %201
+    i32 8, label %231
+    i32 9, label %250
+    i32 10, label %285
+    i32 11, label %304
+    i32 12, label %323
   ]
 
 13:                                               ; preds = %4
@@ -63,33 +65,33 @@ define i32 @H5VL__native_introspect_opt_query(ptr noundef %0, i32 noundef %1, i3
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load i64, ptr @H5E_ARGS_g, align 8
-  %18 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %17 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %18 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
   %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 86, i64 noundef %17, i64 noundef %18, ptr noundef @.str.1)
   br label %20
 
 20:                                               ; preds = %16
-  store i8 1, ptr %10, align 1
-  %21 = load i8, ptr %10, align 1
-  %22 = trunc i8 %21 to i1
-  %23 = zext i1 %22 to i8
-  store i8 %23, ptr %10, align 1
-  br label %24
+  br label %21
 
-24:                                               ; preds = %20
+21:                                               ; preds = %20
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %22 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %23 = trunc i8 %22 to i1
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %10, align 1, !tbaa !11
   br label %25
 
-25:                                               ; preds = %24
-  store i32 -1, ptr %9, align 4
-  br label %306
+25:                                               ; preds = %21
+  br label %26
 
-26:                                               ; No predecessors!
+26:                                               ; preds = %25
   br label %27
 
 27:                                               ; preds = %26
-  br label %28
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
 
-28:                                               ; preds = %27, %4
+28:                                               ; No predecessors!
   br label %29
 
 29:                                               ; preds = %28
@@ -99,203 +101,212 @@ define i32 @H5VL__native_introspect_opt_query(ptr noundef %0, i32 noundef %1, i3
   br label %31
 
 31:                                               ; preds = %30
-  %32 = load i64, ptr @H5E_ARGS_g, align 8
-  %33 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 89, i64 noundef %32, i64 noundef %33, ptr noundef @.str.2)
+  br label %32
+
+32:                                               ; preds = %4, %31
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
   br label %35
 
-35:                                               ; preds = %31
-  store i8 1, ptr %10, align 1
-  %36 = load i8, ptr %10, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = zext i1 %37 to i8
-  store i8 %38, ptr %10, align 1
+35:                                               ; preds = %34
+  %36 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %37 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 89, i64 noundef %36, i64 noundef %37, ptr noundef @.str.2)
   br label %39
 
 39:                                               ; preds = %35
   br label %40
 
 40:                                               ; preds = %39
-  store i32 -1, ptr %9, align 4
-  br label %306
-
-41:                                               ; No predecessors!
-  br label %42
-
-42:                                               ; preds = %41
-  br label %43
-
-43:                                               ; preds = %42, %4
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %41 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %42 = trunc i8 %41 to i1
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %10, align 1, !tbaa !11
   br label %44
 
-44:                                               ; preds = %43
+44:                                               ; preds = %40
   br label %45
 
 45:                                               ; preds = %44
   br label %46
 
 46:                                               ; preds = %45
-  %47 = load i64, ptr @H5E_ARGS_g, align 8
-  %48 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 92, i64 noundef %47, i64 noundef %48, ptr noundef @.str.3)
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+47:                                               ; No predecessors!
+  br label %48
+
+48:                                               ; preds = %47
+  br label %49
+
+49:                                               ; preds = %48
   br label %50
 
-50:                                               ; preds = %46
-  store i8 1, ptr %10, align 1
-  %51 = load i8, ptr %10, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %10, align 1
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %4, %50
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
   br label %54
 
-54:                                               ; preds = %50
-  br label %55
-
-55:                                               ; preds = %54
-  store i32 -1, ptr %9, align 4
-  br label %306
-
-56:                                               ; No predecessors!
-  br label %57
-
-57:                                               ; preds = %56
+54:                                               ; preds = %53
+  %55 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %56 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 92, i64 noundef %55, i64 noundef %56, ptr noundef @.str.3)
   br label %58
 
-58:                                               ; preds = %57, %4
-  %59 = load i32, ptr %7, align 4
-  switch i32 %59, label %64 [
-    i32 0, label %60
-  ]
+58:                                               ; preds = %54
+  br label %59
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %8, align 8
-  %62 = load i64, ptr %61, align 8
-  %63 = or i64 %62, 64
-  store i64 %63, ptr %61, align 8
-  br label %79
+59:                                               ; preds = %58
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %60 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i8
+  store i8 %62, ptr %10, align 1, !tbaa !11
+  br label %63
 
-64:                                               ; preds = %58
+63:                                               ; preds = %59
+  br label %64
+
+64:                                               ; preds = %63
   br label %65
 
 65:                                               ; preds = %64
-  br label %66
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
 
-66:                                               ; preds = %65
+66:                                               ; No predecessors!
   br label %67
 
 67:                                               ; preds = %66
-  %68 = load i64, ptr @H5E_ARGS_g, align 8
-  %69 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 104, i64 noundef %68, i64 noundef %69, ptr noundef @.str.4)
-  br label %71
+  br label %68
 
-71:                                               ; preds = %67
-  store i8 1, ptr %10, align 1
-  %72 = load i8, ptr %10, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = zext i1 %73 to i8
-  store i8 %74, ptr %10, align 1
-  br label %75
+68:                                               ; preds = %67
+  br label %69
 
-75:                                               ; preds = %71
-  br label %76
+69:                                               ; preds = %68
+  br label %70
 
-76:                                               ; preds = %75
-  store i32 -1, ptr %9, align 4
-  br label %306
+70:                                               ; preds = %4, %69
+  %71 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %71, label %76 [
+    i32 0, label %72
+  ]
 
-77:                                               ; No predecessors!
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %8, align 8, !tbaa !9
+  %74 = load i64, ptr %73, align 8, !tbaa !13
+  %75 = or i64 %74, 64
+  store i64 %75, ptr %73, align 8, !tbaa !13
+  br label %95
+
+76:                                               ; preds = %70
+  br label %77
+
+77:                                               ; preds = %76
   br label %78
 
 78:                                               ; preds = %77
   br label %79
 
-79:                                               ; preds = %78, %60
-  br label %305
+79:                                               ; preds = %78
+  %80 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %81 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %82 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 104, i64 noundef %80, i64 noundef %81, ptr noundef @.str.4)
+  br label %83
 
-80:                                               ; preds = %4
-  %81 = load i32, ptr %7, align 4
-  switch i32 %81, label %98 [
-    i32 0, label %82
-    i32 1, label %86
-    i32 2, label %86
-    i32 3, label %86
-    i32 4, label %86
-    i32 5, label %86
-    i32 8, label %86
-    i32 9, label %86
-    i32 6, label %90
-    i32 7, label %94
+83:                                               ; preds = %79
+  br label %84
+
+84:                                               ; preds = %83
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %85 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %86 = trunc i8 %85 to i1
+  %87 = zext i1 %86 to i8
+  store i8 %87, ptr %10, align 1, !tbaa !11
+  br label %88
+
+88:                                               ; preds = %84
+  br label %89
+
+89:                                               ; preds = %88
+  br label %90
+
+90:                                               ; preds = %89
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+91:                                               ; No predecessors!
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92
+  br label %94
+
+94:                                               ; preds = %93
+  br label %95
+
+95:                                               ; preds = %94, %72
+  br label %361
+
+96:                                               ; preds = %4
+  %97 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %97, label %114 [
+    i32 0, label %98
+    i32 1, label %102
+    i32 2, label %102
+    i32 3, label %102
+    i32 4, label %102
+    i32 5, label %102
+    i32 8, label %102
+    i32 9, label %102
+    i32 6, label %106
+    i32 7, label %110
   ]
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i64, ptr %83, align 8
-  %85 = or i64 %84, 16
-  store i64 %85, ptr %83, align 8
-  br label %113
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %8, align 8, !tbaa !9
+  %100 = load i64, ptr %99, align 8, !tbaa !13
+  %101 = or i64 %100, 16
+  store i64 %101, ptr %99, align 8, !tbaa !13
+  br label %133
 
-86:                                               ; preds = %80, %80, %80, %80, %80, %80, %80
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i64, ptr %87, align 8
-  %89 = or i64 %88, 8
-  store i64 %89, ptr %87, align 8
-  br label %113
+102:                                              ; preds = %96, %96, %96, %96, %96, %96, %96
+  %103 = load ptr, ptr %8, align 8, !tbaa !9
+  %104 = load i64, ptr %103, align 8, !tbaa !13
+  %105 = or i64 %104, 8
+  store i64 %105, ptr %103, align 8, !tbaa !13
+  br label %133
 
-90:                                               ; preds = %80
-  %91 = load ptr, ptr %8, align 8
-  %92 = load i64, ptr %91, align 8
-  %93 = or i64 %92, 2
-  store i64 %93, ptr %91, align 8
-  br label %113
+106:                                              ; preds = %96
+  %107 = load ptr, ptr %8, align 8, !tbaa !9
+  %108 = load i64, ptr %107, align 8, !tbaa !13
+  %109 = or i64 %108, 2
+  store i64 %109, ptr %107, align 8, !tbaa !13
+  br label %133
 
-94:                                               ; preds = %80
-  %95 = load ptr, ptr %8, align 8
-  %96 = load i64, ptr %95, align 8
-  %97 = or i64 %96, 4
-  store i64 %97, ptr %95, align 8
-  br label %113
+110:                                              ; preds = %96
+  %111 = load ptr, ptr %8, align 8, !tbaa !9
+  %112 = load i64, ptr %111, align 8, !tbaa !13
+  %113 = or i64 %112, 4
+  store i64 %113, ptr %111, align 8, !tbaa !13
+  br label %133
 
-98:                                               ; preds = %80
-  br label %99
-
-99:                                               ; preds = %98
-  br label %100
-
-100:                                              ; preds = %99
-  br label %101
-
-101:                                              ; preds = %100
-  %102 = load i64, ptr @H5E_ARGS_g, align 8
-  %103 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 134, i64 noundef %102, i64 noundef %103, ptr noundef @.str.5)
-  br label %105
-
-105:                                              ; preds = %101
-  store i8 1, ptr %10, align 1
-  %106 = load i8, ptr %10, align 1
-  %107 = trunc i8 %106 to i1
-  %108 = zext i1 %107 to i8
-  store i8 %108, ptr %10, align 1
-  br label %109
-
-109:                                              ; preds = %105
-  br label %110
-
-110:                                              ; preds = %109
-  store i32 -1, ptr %9, align 4
-  br label %306
-
-111:                                              ; No predecessors!
-  br label %112
-
-112:                                              ; preds = %111
-  br label %113
-
-113:                                              ; preds = %112, %94, %90, %86, %82
-  br label %305
-
-114:                                              ; preds = %4
+114:                                              ; preds = %96
   br label %115
 
 115:                                              ; preds = %114
@@ -305,196 +316,205 @@ define i32 @H5VL__native_introspect_opt_query(ptr noundef %0, i32 noundef %1, i3
   br label %117
 
 117:                                              ; preds = %116
-  %118 = load i64, ptr @H5E_ARGS_g, align 8
-  %119 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 140, i64 noundef %118, i64 noundef %119, ptr noundef @.str.6)
+  %118 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %119 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 134, i64 noundef %118, i64 noundef %119, ptr noundef @.str.5)
   br label %121
 
 121:                                              ; preds = %117
-  store i8 1, ptr %10, align 1
-  %122 = load i8, ptr %10, align 1
-  %123 = trunc i8 %122 to i1
-  %124 = zext i1 %123 to i8
-  store i8 %124, ptr %10, align 1
-  br label %125
+  br label %122
 
-125:                                              ; preds = %121
+122:                                              ; preds = %121
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %123 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %124 = trunc i8 %123 to i1
+  %125 = zext i1 %124 to i8
+  store i8 %125, ptr %10, align 1, !tbaa !11
   br label %126
 
-126:                                              ; preds = %125
-  store i32 -1, ptr %9, align 4
-  br label %306
+126:                                              ; preds = %122
+  br label %127
 
-127:                                              ; No predecessors!
+127:                                              ; preds = %126
   br label %128
 
 128:                                              ; preds = %127
-  br label %129
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
 
-129:                                              ; preds = %128, %4
-  %130 = load i32, ptr %7, align 4
-  switch i32 %130, label %157 [
-    i32 0, label %131
-    i32 10, label %131
-    i32 11, label %131
-    i32 1, label %135
-    i32 2, label %142
-    i32 3, label %142
-    i32 4, label %142
-    i32 5, label %142
-    i32 6, label %142
-    i32 7, label %142
-    i32 8, label %142
-    i32 9, label %142
-    i32 12, label %142
-    i32 13, label %146
-    i32 14, label %156
-    i32 15, label %156
-    i32 16, label %156
-    i32 17, label %156
-    i32 18, label %156
-    i32 19, label %156
-    i32 20, label %156
-    i32 21, label %156
-    i32 22, label %156
-    i32 23, label %156
-    i32 24, label %156
-    i32 25, label %156
-    i32 28, label %156
+129:                                              ; No predecessors!
+  br label %130
+
+130:                                              ; preds = %129
+  br label %131
+
+131:                                              ; preds = %130
+  br label %132
+
+132:                                              ; preds = %131
+  br label %133
+
+133:                                              ; preds = %132, %110, %106, %102, %98
+  br label %361
+
+134:                                              ; preds = %4
+  br label %135
+
+135:                                              ; preds = %134
+  br label %136
+
+136:                                              ; preds = %135
+  br label %137
+
+137:                                              ; preds = %136
+  %138 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %139 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %140 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 140, i64 noundef %138, i64 noundef %139, ptr noundef @.str.6)
+  br label %141
+
+141:                                              ; preds = %137
+  br label %142
+
+142:                                              ; preds = %141
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %143 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %144 = trunc i8 %143 to i1
+  %145 = zext i1 %144 to i8
+  store i8 %145, ptr %10, align 1, !tbaa !11
+  br label %146
+
+146:                                              ; preds = %142
+  br label %147
+
+147:                                              ; preds = %146
+  br label %148
+
+148:                                              ; preds = %147
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+149:                                              ; No predecessors!
+  br label %150
+
+150:                                              ; preds = %149
+  br label %151
+
+151:                                              ; preds = %150
+  br label %152
+
+152:                                              ; preds = %151
+  br label %153
+
+153:                                              ; preds = %4, %152
+  %154 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %154, label %181 [
+    i32 0, label %155
+    i32 10, label %155
+    i32 11, label %155
+    i32 1, label %159
+    i32 2, label %166
+    i32 3, label %166
+    i32 4, label %166
+    i32 5, label %166
+    i32 6, label %166
+    i32 7, label %166
+    i32 8, label %166
+    i32 9, label %166
+    i32 12, label %166
+    i32 13, label %170
+    i32 14, label %180
+    i32 15, label %180
+    i32 16, label %180
+    i32 17, label %180
+    i32 18, label %180
+    i32 19, label %180
+    i32 20, label %180
+    i32 21, label %180
+    i32 22, label %180
+    i32 23, label %180
+    i32 24, label %180
+    i32 25, label %180
+    i32 28, label %180
   ]
 
-131:                                              ; preds = %129, %129, %129
-  %132 = load ptr, ptr %8, align 8
-  %133 = load i64, ptr %132, align 8
-  %134 = or i64 %133, 16
-  store i64 %134, ptr %132, align 8
-  br label %172
+155:                                              ; preds = %153, %153, %153
+  %156 = load ptr, ptr %8, align 8, !tbaa !9
+  %157 = load i64, ptr %156, align 8, !tbaa !13
+  %158 = or i64 %157, 16
+  store i64 %158, ptr %156, align 8, !tbaa !13
+  br label %200
 
-135:                                              ; preds = %129
-  %136 = load ptr, ptr %8, align 8
-  %137 = load i64, ptr %136, align 8
-  %138 = or i64 %137, 8
-  store i64 %138, ptr %136, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = load i64, ptr %139, align 8
-  %141 = or i64 %140, 2
-  store i64 %141, ptr %139, align 8
-  br label %172
+159:                                              ; preds = %153
+  %160 = load ptr, ptr %8, align 8, !tbaa !9
+  %161 = load i64, ptr %160, align 8, !tbaa !13
+  %162 = or i64 %161, 8
+  store i64 %162, ptr %160, align 8, !tbaa !13
+  %163 = load ptr, ptr %8, align 8, !tbaa !9
+  %164 = load i64, ptr %163, align 8, !tbaa !13
+  %165 = or i64 %164, 2
+  store i64 %165, ptr %163, align 8, !tbaa !13
+  br label %200
 
-142:                                              ; preds = %129, %129, %129, %129, %129, %129, %129, %129, %129
-  %143 = load ptr, ptr %8, align 8
-  %144 = load i64, ptr %143, align 8
-  %145 = or i64 %144, 8
-  store i64 %145, ptr %143, align 8
-  br label %172
+166:                                              ; preds = %153, %153, %153, %153, %153, %153, %153, %153, %153
+  %167 = load ptr, ptr %8, align 8, !tbaa !9
+  %168 = load i64, ptr %167, align 8, !tbaa !13
+  %169 = or i64 %168, 8
+  store i64 %169, ptr %167, align 8, !tbaa !13
+  br label %200
 
-146:                                              ; preds = %129
-  %147 = load ptr, ptr %8, align 8
-  %148 = load i64, ptr %147, align 8
-  %149 = or i64 %148, 16
-  store i64 %149, ptr %147, align 8
-  %150 = load ptr, ptr %8, align 8
-  %151 = load i64, ptr %150, align 8
-  %152 = or i64 %151, 4
-  store i64 %152, ptr %150, align 8
-  %153 = load ptr, ptr %8, align 8
-  %154 = load i64, ptr %153, align 8
-  %155 = or i64 %154, 64
-  store i64 %155, ptr %153, align 8
-  br label %172
+170:                                              ; preds = %153
+  %171 = load ptr, ptr %8, align 8, !tbaa !9
+  %172 = load i64, ptr %171, align 8, !tbaa !13
+  %173 = or i64 %172, 16
+  store i64 %173, ptr %171, align 8, !tbaa !13
+  %174 = load ptr, ptr %8, align 8, !tbaa !9
+  %175 = load i64, ptr %174, align 8, !tbaa !13
+  %176 = or i64 %175, 4
+  store i64 %176, ptr %174, align 8, !tbaa !13
+  %177 = load ptr, ptr %8, align 8, !tbaa !9
+  %178 = load i64, ptr %177, align 8, !tbaa !13
+  %179 = or i64 %178, 64
+  store i64 %179, ptr %177, align 8, !tbaa !13
+  br label %200
 
-156:                                              ; preds = %129, %129, %129, %129, %129, %129, %129, %129, %129, %129, %129, %129, %129
-  br label %172
+180:                                              ; preds = %153, %153, %153, %153, %153, %153, %153, %153, %153, %153, %153, %153, %153
+  br label %200
 
-157:                                              ; preds = %129
-  br label %158
+181:                                              ; preds = %153
+  br label %182
 
-158:                                              ; preds = %157
-  br label %159
+182:                                              ; preds = %181
+  br label %183
 
-159:                                              ; preds = %158
-  br label %160
-
-160:                                              ; preds = %159
-  %161 = load i64, ptr @H5E_ARGS_g, align 8
-  %162 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 193, i64 noundef %161, i64 noundef %162, ptr noundef @.str.7)
-  br label %164
-
-164:                                              ; preds = %160
-  store i8 1, ptr %10, align 1
-  %165 = load i8, ptr %10, align 1
-  %166 = trunc i8 %165 to i1
-  %167 = zext i1 %166 to i8
-  store i8 %167, ptr %10, align 1
-  br label %168
-
-168:                                              ; preds = %164
-  br label %169
-
-169:                                              ; preds = %168
-  store i32 -1, ptr %9, align 4
-  br label %306
-
-170:                                              ; No predecessors!
-  br label %171
-
-171:                                              ; preds = %170
-  br label %172
-
-172:                                              ; preds = %171, %156, %146, %142, %135, %131
-  br label %305
-
-173:                                              ; preds = %4
-  %174 = load i32, ptr %7, align 4
-  switch i32 %174, label %183 [
-    i32 0, label %175
-    i32 1, label %179
-  ]
-
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %8, align 8
-  %177 = load i64, ptr %176, align 8
-  %178 = or i64 %177, 64
-  store i64 %178, ptr %176, align 8
-  br label %198
-
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %8, align 8
-  %181 = load i64, ptr %180, align 8
-  %182 = or i64 %181, 8
-  store i64 %182, ptr %180, align 8
-  br label %198
-
-183:                                              ; preds = %173
+183:                                              ; preds = %182
   br label %184
 
 184:                                              ; preds = %183
-  br label %185
+  %185 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %186 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %187 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 193, i64 noundef %185, i64 noundef %186, ptr noundef @.str.7)
+  br label %188
 
-185:                                              ; preds = %184
-  br label %186
+188:                                              ; preds = %184
+  br label %189
 
-186:                                              ; preds = %185
-  %187 = load i64, ptr @H5E_ARGS_g, align 8
-  %188 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %189 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 212, i64 noundef %187, i64 noundef %188, ptr noundef @.str.8)
-  br label %190
+189:                                              ; preds = %188
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %190 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %191 = trunc i8 %190 to i1
+  %192 = zext i1 %191 to i8
+  store i8 %192, ptr %10, align 1, !tbaa !11
+  br label %193
 
-190:                                              ; preds = %186
-  store i8 1, ptr %10, align 1
-  %191 = load i8, ptr %10, align 1
-  %192 = trunc i8 %191 to i1
-  %193 = zext i1 %192 to i8
-  store i8 %193, ptr %10, align 1
+193:                                              ; preds = %189
   br label %194
 
-194:                                              ; preds = %190
+194:                                              ; preds = %193
   br label %195
 
 195:                                              ; preds = %194
-  store i32 -1, ptr %9, align 4
-  br label %306
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
 
 196:                                              ; No predecessors!
   br label %197
@@ -502,279 +522,452 @@ define i32 @H5VL__native_introspect_opt_query(ptr noundef %0, i32 noundef %1, i3
 197:                                              ; preds = %196
   br label %198
 
-198:                                              ; preds = %197, %179, %175
-  br label %305
+198:                                              ; preds = %197
+  br label %199
 
-199:                                              ; preds = %4
+199:                                              ; preds = %198
   br label %200
 
-200:                                              ; preds = %199
-  br label %201
+200:                                              ; preds = %199, %180, %170, %166, %159, %155
+  br label %361
 
-201:                                              ; preds = %200
-  br label %202
+201:                                              ; preds = %4
+  %202 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %202, label %211 [
+    i32 0, label %203
+    i32 1, label %207
+  ]
 
-202:                                              ; preds = %201
-  %203 = load i64, ptr @H5E_ARGS_g, align 8
-  %204 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %205 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 218, i64 noundef %203, i64 noundef %204, ptr noundef @.str.9)
-  br label %206
+203:                                              ; preds = %201
+  %204 = load ptr, ptr %8, align 8, !tbaa !9
+  %205 = load i64, ptr %204, align 8, !tbaa !13
+  %206 = or i64 %205, 64
+  store i64 %206, ptr %204, align 8, !tbaa !13
+  br label %230
 
-206:                                              ; preds = %202
-  store i8 1, ptr %10, align 1
-  %207 = load i8, ptr %10, align 1
-  %208 = trunc i8 %207 to i1
-  %209 = zext i1 %208 to i8
-  store i8 %209, ptr %10, align 1
-  br label %210
+207:                                              ; preds = %201
+  %208 = load ptr, ptr %8, align 8, !tbaa !9
+  %209 = load i64, ptr %208, align 8, !tbaa !13
+  %210 = or i64 %209, 8
+  store i64 %210, ptr %208, align 8, !tbaa !13
+  br label %230
 
-210:                                              ; preds = %206
-  br label %211
+211:                                              ; preds = %201
+  br label %212
 
-211:                                              ; preds = %210
-  store i32 -1, ptr %9, align 4
-  br label %306
-
-212:                                              ; No predecessors!
+212:                                              ; preds = %211
   br label %213
 
 213:                                              ; preds = %212
   br label %214
 
-214:                                              ; preds = %213, %4
-  %215 = load i32, ptr %7, align 4
-  switch i32 %215, label %229 [
-    i32 0, label %216
-    i32 1, label %220
-    i32 2, label %224
-    i32 3, label %224
-    i32 4, label %224
-    i32 5, label %225
-  ]
+214:                                              ; preds = %213
+  %215 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %216 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %217 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 212, i64 noundef %215, i64 noundef %216, ptr noundef @.str.8)
+  br label %218
 
-216:                                              ; preds = %214
-  %217 = load ptr, ptr %8, align 8
-  %218 = load i64, ptr %217, align 8
-  %219 = or i64 %218, 8
-  store i64 %219, ptr %217, align 8
-  br label %244
+218:                                              ; preds = %214
+  br label %219
 
-220:                                              ; preds = %214
-  %221 = load ptr, ptr %8, align 8
-  %222 = load i64, ptr %221, align 8
-  %223 = or i64 %222, 16
-  store i64 %223, ptr %221, align 8
-  br label %244
+219:                                              ; preds = %218
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %220 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %221 = trunc i8 %220 to i1
+  %222 = zext i1 %221 to i8
+  store i8 %222, ptr %10, align 1, !tbaa !11
+  br label %223
 
-224:                                              ; preds = %214, %214, %214
-  br label %244
+223:                                              ; preds = %219
+  br label %224
 
-225:                                              ; preds = %214
-  %226 = load ptr, ptr %8, align 8
-  %227 = load i64, ptr %226, align 8
-  %228 = or i64 %227, 8
-  store i64 %228, ptr %226, align 8
-  br label %244
+224:                                              ; preds = %223
+  br label %225
 
-229:                                              ; preds = %214
+225:                                              ; preds = %224
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+226:                                              ; No predecessors!
+  br label %227
+
+227:                                              ; preds = %226
+  br label %228
+
+228:                                              ; preds = %227
+  br label %229
+
+229:                                              ; preds = %228
   br label %230
 
-230:                                              ; preds = %229
-  br label %231
+230:                                              ; preds = %229, %207, %203
+  br label %361
 
-231:                                              ; preds = %230
+231:                                              ; preds = %4
   br label %232
 
 232:                                              ; preds = %231
-  %233 = load i64, ptr @H5E_ARGS_g, align 8
-  %234 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %235 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 240, i64 noundef %233, i64 noundef %234, ptr noundef @.str.10)
-  br label %236
+  br label %233
 
-236:                                              ; preds = %232
-  store i8 1, ptr %10, align 1
-  %237 = load i8, ptr %10, align 1
-  %238 = trunc i8 %237 to i1
-  %239 = zext i1 %238 to i8
-  store i8 %239, ptr %10, align 1
-  br label %240
+233:                                              ; preds = %232
+  br label %234
 
-240:                                              ; preds = %236
-  br label %241
+234:                                              ; preds = %233
+  %235 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %236 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %237 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 218, i64 noundef %235, i64 noundef %236, ptr noundef @.str.9)
+  br label %238
 
-241:                                              ; preds = %240
-  store i32 -1, ptr %9, align 4
-  br label %306
+238:                                              ; preds = %234
+  br label %239
 
-242:                                              ; No predecessors!
+239:                                              ; preds = %238
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %240 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %241 = trunc i8 %240 to i1
+  %242 = zext i1 %241 to i8
+  store i8 %242, ptr %10, align 1, !tbaa !11
   br label %243
 
-243:                                              ; preds = %242
+243:                                              ; preds = %239
   br label %244
 
-244:                                              ; preds = %243, %225, %224, %220, %216
-  br label %305
+244:                                              ; preds = %243
+  br label %245
 
-245:                                              ; preds = %4
-  br label %246
+245:                                              ; preds = %244
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
 
-246:                                              ; preds = %245
+246:                                              ; No predecessors!
   br label %247
 
 247:                                              ; preds = %246
   br label %248
 
 248:                                              ; preds = %247
-  %249 = load i64, ptr @H5E_ARGS_g, align 8
-  %250 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %251 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 246, i64 noundef %249, i64 noundef %250, ptr noundef @.str.11)
-  br label %252
+  br label %249
 
-252:                                              ; preds = %248
-  store i8 1, ptr %10, align 1
-  %253 = load i8, ptr %10, align 1
-  %254 = trunc i8 %253 to i1
-  %255 = zext i1 %254 to i8
-  store i8 %255, ptr %10, align 1
-  br label %256
+249:                                              ; preds = %248
+  br label %250
 
-256:                                              ; preds = %252
-  br label %257
+250:                                              ; preds = %4, %249
+  %251 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %251, label %265 [
+    i32 0, label %252
+    i32 1, label %256
+    i32 2, label %260
+    i32 3, label %260
+    i32 4, label %260
+    i32 5, label %261
+  ]
 
-257:                                              ; preds = %256
-  store i32 -1, ptr %9, align 4
-  br label %306
+252:                                              ; preds = %250
+  %253 = load ptr, ptr %8, align 8, !tbaa !9
+  %254 = load i64, ptr %253, align 8, !tbaa !13
+  %255 = or i64 %254, 8
+  store i64 %255, ptr %253, align 8, !tbaa !13
+  br label %284
 
-258:                                              ; No predecessors!
-  br label %259
+256:                                              ; preds = %250
+  %257 = load ptr, ptr %8, align 8, !tbaa !9
+  %258 = load i64, ptr %257, align 8, !tbaa !13
+  %259 = or i64 %258, 16
+  store i64 %259, ptr %257, align 8, !tbaa !13
+  br label %284
 
-259:                                              ; preds = %258
-  br label %260
+260:                                              ; preds = %250, %250, %250
+  br label %284
 
-260:                                              ; preds = %259, %4
-  br label %261
+261:                                              ; preds = %250
+  %262 = load ptr, ptr %8, align 8, !tbaa !9
+  %263 = load i64, ptr %262, align 8, !tbaa !13
+  %264 = or i64 %263, 8
+  store i64 %264, ptr %262, align 8, !tbaa !13
+  br label %284
 
-261:                                              ; preds = %260
-  br label %262
+265:                                              ; preds = %250
+  br label %266
 
-262:                                              ; preds = %261
-  br label %263
-
-263:                                              ; preds = %262
-  %264 = load i64, ptr @H5E_ARGS_g, align 8
-  %265 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %266 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 249, i64 noundef %264, i64 noundef %265, ptr noundef @.str.12)
+266:                                              ; preds = %265
   br label %267
 
-267:                                              ; preds = %263
-  store i8 1, ptr %10, align 1
-  %268 = load i8, ptr %10, align 1
-  %269 = trunc i8 %268 to i1
-  %270 = zext i1 %269 to i8
-  store i8 %270, ptr %10, align 1
-  br label %271
+267:                                              ; preds = %266
+  br label %268
 
-271:                                              ; preds = %267
+268:                                              ; preds = %267
+  %269 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %270 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %271 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 240, i64 noundef %269, i64 noundef %270, ptr noundef @.str.10)
   br label %272
 
-272:                                              ; preds = %271
-  store i32 -1, ptr %9, align 4
-  br label %306
+272:                                              ; preds = %268
+  br label %273
 
-273:                                              ; No predecessors!
-  br label %274
-
-274:                                              ; preds = %273
-  br label %275
-
-275:                                              ; preds = %274, %4
-  br label %276
-
-276:                                              ; preds = %275
+273:                                              ; preds = %272
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %274 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %275 = trunc i8 %274 to i1
+  %276 = zext i1 %275 to i8
+  store i8 %276, ptr %10, align 1, !tbaa !11
   br label %277
 
-277:                                              ; preds = %276
+277:                                              ; preds = %273
   br label %278
 
 278:                                              ; preds = %277
-  %279 = load i64, ptr @H5E_ARGS_g, align 8
-  %280 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %281 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 252, i64 noundef %279, i64 noundef %280, ptr noundef @.str.13)
+  br label %279
+
+279:                                              ; preds = %278
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+280:                                              ; No predecessors!
+  br label %281
+
+281:                                              ; preds = %280
   br label %282
 
-282:                                              ; preds = %278
-  store i8 1, ptr %10, align 1
-  %283 = load i8, ptr %10, align 1
-  %284 = trunc i8 %283 to i1
-  %285 = zext i1 %284 to i8
-  store i8 %285, ptr %10, align 1
+282:                                              ; preds = %281
+  br label %283
+
+283:                                              ; preds = %282
+  br label %284
+
+284:                                              ; preds = %283, %261, %260, %256, %252
+  br label %361
+
+285:                                              ; preds = %4
   br label %286
 
-286:                                              ; preds = %282
+286:                                              ; preds = %285
   br label %287
 
 287:                                              ; preds = %286
-  store i32 -1, ptr %9, align 4
-  br label %306
+  br label %288
 
-288:                                              ; No predecessors!
-  br label %289
-
-289:                                              ; preds = %288
-  br label %290
-
-290:                                              ; preds = %289, %4
-  br label %291
-
-291:                                              ; preds = %290
+288:                                              ; preds = %287
+  %289 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %290 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %291 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 246, i64 noundef %289, i64 noundef %290, ptr noundef @.str.11)
   br label %292
 
-292:                                              ; preds = %291
+292:                                              ; preds = %288
   br label %293
 
 293:                                              ; preds = %292
-  %294 = load i64, ptr @H5E_ARGS_g, align 8
-  %295 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %296 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 255, i64 noundef %294, i64 noundef %295, ptr noundef @.str.14)
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %294 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %295 = trunc i8 %294 to i1
+  %296 = zext i1 %295 to i8
+  store i8 %296, ptr %10, align 1, !tbaa !11
   br label %297
 
 297:                                              ; preds = %293
-  store i8 1, ptr %10, align 1
-  %298 = load i8, ptr %10, align 1
-  %299 = trunc i8 %298 to i1
-  %300 = zext i1 %299 to i8
-  store i8 %300, ptr %10, align 1
+  br label %298
+
+298:                                              ; preds = %297
+  br label %299
+
+299:                                              ; preds = %298
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+300:                                              ; No predecessors!
   br label %301
 
-301:                                              ; preds = %297
+301:                                              ; preds = %300
   br label %302
 
 302:                                              ; preds = %301
-  store i32 -1, ptr %9, align 4
-  br label %306
+  br label %303
 
-303:                                              ; No predecessors!
+303:                                              ; preds = %302
   br label %304
 
-304:                                              ; preds = %303
+304:                                              ; preds = %4, %303
   br label %305
 
-305:                                              ; preds = %304, %244, %198, %172, %113, %79
+305:                                              ; preds = %304
   br label %306
 
-306:                                              ; preds = %305, %302, %287, %272, %257, %241, %211, %195, %169, %126, %110, %76, %55, %40, %25
-  %307 = load i32, ptr %9, align 4
-  ret i32 %307
+306:                                              ; preds = %305
+  br label %307
+
+307:                                              ; preds = %306
+  %308 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %309 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %310 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 249, i64 noundef %308, i64 noundef %309, ptr noundef @.str.12)
+  br label %311
+
+311:                                              ; preds = %307
+  br label %312
+
+312:                                              ; preds = %311
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %313 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %314 = trunc i8 %313 to i1
+  %315 = zext i1 %314 to i8
+  store i8 %315, ptr %10, align 1, !tbaa !11
+  br label %316
+
+316:                                              ; preds = %312
+  br label %317
+
+317:                                              ; preds = %316
+  br label %318
+
+318:                                              ; preds = %317
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+319:                                              ; No predecessors!
+  br label %320
+
+320:                                              ; preds = %319
+  br label %321
+
+321:                                              ; preds = %320
+  br label %322
+
+322:                                              ; preds = %321
+  br label %323
+
+323:                                              ; preds = %4, %322
+  br label %324
+
+324:                                              ; preds = %323
+  br label %325
+
+325:                                              ; preds = %324
+  br label %326
+
+326:                                              ; preds = %325
+  %327 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %328 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %329 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 252, i64 noundef %327, i64 noundef %328, ptr noundef @.str.13)
+  br label %330
+
+330:                                              ; preds = %326
+  br label %331
+
+331:                                              ; preds = %330
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %332 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %333 = trunc i8 %332 to i1
+  %334 = zext i1 %333 to i8
+  store i8 %334, ptr %10, align 1, !tbaa !11
+  br label %335
+
+335:                                              ; preds = %331
+  br label %336
+
+336:                                              ; preds = %335
+  br label %337
+
+337:                                              ; preds = %336
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+338:                                              ; No predecessors!
+  br label %339
+
+339:                                              ; preds = %338
+  br label %340
+
+340:                                              ; preds = %339
+  br label %341
+
+341:                                              ; preds = %340
+  br label %342
+
+342:                                              ; preds = %4, %341
+  br label %343
+
+343:                                              ; preds = %342
+  br label %344
+
+344:                                              ; preds = %343
+  br label %345
+
+345:                                              ; preds = %344
+  %346 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
+  %347 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
+  %348 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5VL__native_introspect_opt_query, i32 noundef 255, i64 noundef %346, i64 noundef %347, ptr noundef @.str.14)
+  br label %349
+
+349:                                              ; preds = %345
+  br label %350
+
+350:                                              ; preds = %349
+  store i8 1, ptr %10, align 1, !tbaa !11
+  %351 = load i8, ptr %10, align 1, !tbaa !11, !range !15, !noundef !16
+  %352 = trunc i8 %351 to i1
+  %353 = zext i1 %352 to i8
+  store i8 %353, ptr %10, align 1, !tbaa !11
+  br label %354
+
+354:                                              ; preds = %350
+  br label %355
+
+355:                                              ; preds = %354
+  br label %356
+
+356:                                              ; preds = %355
+  store i32 -1, ptr %9, align 4, !tbaa !7
+  br label %362
+
+357:                                              ; No predecessors!
+  br label %358
+
+358:                                              ; preds = %357
+  br label %359
+
+359:                                              ; preds = %358
+  br label %360
+
+360:                                              ; preds = %359
+  br label %361
+
+361:                                              ; preds = %360, %284, %230, %200, %133, %95
+  br label %362
+
+362:                                              ; preds = %361, %356, %337, %318, %299, %279, %245, %225, %195, %148, %128, %90, %65, %46, %27
+  %363 = load i32, ptr %9, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret i32 %363
 }
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 long", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_Bool", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{i8 0, i8 2}
+!16 = !{}

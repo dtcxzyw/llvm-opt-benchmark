@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5F_t = type { ptr, ptr, ptr, ptr, i32, ptr, i8, i8, ptr, i32 }
-%struct.H5F_shared_t = type { ptr, ptr, ptr, i8, i32, i32, %struct.H5F_mtab_t, ptr, i8, i8, i64, i32, i32, i64, i64, ptr, ptr, %struct.H5AC_cache_config_t, %struct.H5AC_cache_image_config_t, i8, i8, ptr, i64, i32, i8, i64, i64, double, i64, i64, i64, i32, i32, i32, i8, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i64, i64, ptr, ptr, i32, i64, i8, i32, i8, i64, i8, [13 x i32], [13 x i64], [13 x ptr], i8, i64, i64, [7 x i32], [7 x i32], %struct.H5F_blk_aggr_t, %struct.H5F_blk_aggr_t, i64, i64, %struct.H5F_meta_accum_t, i32, i32, [30 x ptr], %struct.H5F_object_flush_t, i8, ptr }
+%struct.H5F_shared_t = type { ptr, ptr, ptr, i8, i32, i32, %struct.H5F_mtab_t, ptr, i8, i8, i64, i32, i32, i64, i64, ptr, ptr, %struct.H5AC_cache_config_t, %struct.H5AC_cache_image_config_t, i8, i8, ptr, i64, i32, i8, i64, i64, double, i64, i64, i64, i32, i32, i32, i8, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i64, ptr, ptr, i32, i64, i8, i32, i8, i64, i8, [13 x i32], [13 x i64], [13 x ptr], i8, i64, i64, [7 x i32], [7 x i32], %struct.H5F_blk_aggr_t, %struct.H5F_blk_aggr_t, i64, i64, %struct.H5F_meta_accum_t, i32, i32, [30 x ptr], %struct.H5F_object_flush_t, i8, ptr }
 %struct.H5F_mtab_t = type { i32, i32, ptr }
 %struct.H5AC_cache_config_t = type { i32, i8, i8, i8, [1025 x i8], i8, i8, i64, double, i64, i64, i64, i32, double, double, i8, i64, i32, double, double, i32, double, double, i8, i64, i32, i8, double, i64, i32 }
 %struct.H5AC_cache_image_config_t = type { i32, i8, i8, i32 }
@@ -10,17 +10,24 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5F_meta_accum_t = type { ptr, i64, i64, i64, i64, i64, i8 }
 %struct.H5F_object_flush_t = type { ptr, ptr }
 
+@H5F_init_g = external global i8, align 1
+@H5_libterm_g = external global i8, align 1
 @.str = private unnamed_addr constant [101 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5Fcwfs.c\00", align 1
 @__func__.H5F_cwfs_add = private unnamed_addr constant [13 x i8] c"H5F_cwfs_add\00", align 1
+@H5E_FUNC_g = external global i64, align 8
+@H5E_CANTINIT_g = external global i64, align 8
+@.str.1 = private unnamed_addr constant [32 x i8] c"interface initialization failed\00", align 1
 @H5E_FILE_g = external global i64, align 8
 @H5E_CANTALLOC_g = external global i64, align 8
-@.str.1 = private unnamed_addr constant [29 x i8] c"can't allocate CWFS for file\00", align 1
+@.str.2 = private unnamed_addr constant [29 x i8] c"can't allocate CWFS for file\00", align 1
 @__func__.H5F_cwfs_find_free_heap = private unnamed_addr constant [24 x i8] c"H5F_cwfs_find_free_heap\00", align 1
 @H5E_HEAP_g = external global i64, align 8
 @H5E_CANTEXTEND_g = external global i64, align 8
-@.str.2 = private unnamed_addr constant [28 x i8] c"error trying to extend heap\00", align 1
+@.str.3 = private unnamed_addr constant [28 x i8] c"error trying to extend heap\00", align 1
 @H5E_CANTRESIZE_g = external global i64, align 8
-@.str.3 = private unnamed_addr constant [40 x i8] c"unable to extend global heap collection\00", align 1
+@.str.4 = private unnamed_addr constant [40 x i8] c"unable to extend global heap collection\00", align 1
+@__func__.H5F_cwfs_advance_heap = private unnamed_addr constant [22 x i8] c"H5F_cwfs_advance_heap\00", align 1
+@__func__.H5F_cwfs_remove_heap = private unnamed_addr constant [21 x i8] c"H5F_cwfs_remove_heap\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5F_cwfs_add(ptr noundef %0, ptr noundef %1) #0 {
@@ -29,593 +36,899 @@ define i32 @H5F_cwfs_add(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %5, align 4
-  store i8 0, ptr %6, align 1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.H5F_t, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.H5F_shared_t, ptr %10, i32 0, i32 36
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr null, %12
-  br i1 %13, label %14, label %48
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #6
+  store i8 0, ptr %6, align 1, !tbaa !12
+  %8 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %14, label %10
 
-14:                                               ; preds = %2
-  %15 = call noalias ptr @malloc(i64 noundef 128) #4
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.H5F_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.H5F_shared_t, ptr %18, i32 0, i32 36
-  store ptr %15, ptr %19, align 8
-  %20 = icmp eq ptr null, %15
-  br i1 %20, label %21, label %36
+10:                                               ; preds = %2
+  %11 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %12 = trunc i8 %11 to i1
+  %13 = xor i1 %12, true
+  br label %14
 
-21:                                               ; preds = %14
-  br label %22
+14:                                               ; preds = %10, %2
+  %15 = phi i1 [ false, %2 ], [ %13, %10 ]
+  %16 = xor i1 %15, true
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %45
 
-22:                                               ; preds = %21
-  br label %23
+22:                                               ; preds = %14
+  store i8 1, ptr @H5F_init_g, align 1, !tbaa !12
+  %23 = call i32 @H5F__init_package()
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %44
 
-23:                                               ; preds = %22
-  br label %24
+25:                                               ; preds = %22
+  store i8 0, ptr @H5F_init_g, align 1, !tbaa !12
+  br label %26
 
-24:                                               ; preds = %23
-  %25 = load i64, ptr @H5E_FILE_g, align 8
-  %26 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_add, i32 noundef 107, i64 noundef %25, i64 noundef %26, ptr noundef @.str.1)
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %24
-  store i8 1, ptr %6, align 1
-  %29 = load i8, ptr %6, align 1
-  %30 = trunc i8 %29 to i1
-  %31 = zext i1 %30 to i8
-  store i8 %31, ptr %6, align 1
+28:                                               ; preds = %27
+  %29 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !16
+  %30 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
+  %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_add, i32 noundef 93, i64 noundef %29, i64 noundef %30, ptr noundef @.str.1)
   br label %32
 
 32:                                               ; preds = %28
   br label %33
 
 33:                                               ; preds = %32
-  store i32 -1, ptr %5, align 4
-  br label %134
+  store i8 1, ptr %6, align 1, !tbaa !12
+  %34 = load i8, ptr %6, align 1, !tbaa !12, !range !14, !noundef !15
+  %35 = trunc i8 %34 to i1
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %6, align 1, !tbaa !12
+  br label %37
 
-34:                                               ; No predecessors!
+37:                                               ; preds = %33
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  store i32 -1, ptr %5, align 4, !tbaa !10
+  br label %191
+
+40:                                               ; No predecessors!
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43, %22
+  br label %45
+
+45:                                               ; preds = %44, %14
+  %46 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %52, label %48
+
+48:                                               ; preds = %45
+  %49 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %50 = trunc i8 %49 to i1
+  %51 = xor i1 %50, true
+  br label %52
+
+52:                                               ; preds = %48, %45
+  %53 = phi i1 [ true, %45 ], [ %51, %48 ]
+  %54 = xor i1 %53, true
+  %55 = xor i1 %54, true
+  %56 = zext i1 %55 to i32
+  %57 = sext i32 %56 to i64
+  %58 = call i64 @llvm.expect.i64(i64 %57, i64 1)
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %192
+
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %3, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.H5F_t, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !18
+  %64 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %63, i32 0, i32 36
+  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %66 = icmp eq ptr null, %65
+  br i1 %66, label %67, label %105
+
+67:                                               ; preds = %60
+  %68 = call noalias ptr @malloc(i64 noundef 128) #7
+  %69 = load ptr, ptr %3, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.H5F_t, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  %72 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %71, i32 0, i32 36
+  store ptr %68, ptr %72, align 8, !tbaa !24
+  %73 = icmp eq ptr null, %68
+  br i1 %73, label %74, label %93
+
+74:                                               ; preds = %67
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
+  %79 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !16
+  %80 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_add, i32 noundef 107, i64 noundef %78, i64 noundef %79, ptr noundef @.str.2)
+  br label %81
+
+81:                                               ; preds = %77
+  br label %82
+
+82:                                               ; preds = %81
+  store i8 1, ptr %6, align 1, !tbaa !12
+  %83 = load i8, ptr %6, align 1, !tbaa !12, !range !14, !noundef !15
+  %84 = trunc i8 %83 to i1
+  %85 = zext i1 %84 to i8
+  store i8 %85, ptr %6, align 1, !tbaa !12
+  br label %86
+
+86:                                               ; preds = %82
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  store i32 -1, ptr %5, align 4, !tbaa !10
+  br label %191
+
+89:                                               ; No predecessors!
+  br label %90
+
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
+  br label %92
+
+92:                                               ; preds = %91
+  br label %93
+
+93:                                               ; preds = %92, %67
+  %94 = load ptr, ptr %4, align 8, !tbaa !8
+  %95 = load ptr, ptr %3, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.H5F_t, ptr %95, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8, !tbaa !18
+  %98 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %97, i32 0, i32 36
+  %99 = load ptr, ptr %98, align 8, !tbaa !24
+  %100 = getelementptr inbounds ptr, ptr %99, i64 0
+  store ptr %94, ptr %100, align 8, !tbaa !8
+  %101 = load ptr, ptr %3, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.H5F_t, ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8, !tbaa !18
+  %104 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %103, i32 0, i32 35
+  store i32 1, ptr %104, align 8, !tbaa !44
+  br label %190
+
+105:                                              ; preds = %60
+  %106 = load ptr, ptr %3, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.H5F_t, ptr %106, i32 0, i32 2
+  %108 = load ptr, ptr %107, align 8, !tbaa !18
+  %109 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %108, i32 0, i32 35
+  %110 = load i32, ptr %109, align 8, !tbaa !44
+  %111 = icmp eq i32 16, %110
+  br i1 %111, label %112, label %157
+
+112:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 15, ptr %7, align 4, !tbaa !10
+  br label %113
+
+113:                                              ; preds = %153, %112
+  %114 = load i32, ptr %7, align 4, !tbaa !10
+  %115 = icmp sge i32 %114, 0
+  br i1 %115, label %116, label %156
+
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %3, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.H5F_t, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !18
+  %120 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %119, i32 0, i32 36
+  %121 = load ptr, ptr %120, align 8, !tbaa !24
+  %122 = load i32, ptr %7, align 4, !tbaa !10
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds ptr, ptr %121, i64 %123
+  %125 = load ptr, ptr %124, align 8, !tbaa !8
+  %126 = call i64 @H5HG_get_free_size(ptr noundef %125)
+  %127 = load ptr, ptr %4, align 8, !tbaa !8
+  %128 = call i64 @H5HG_get_free_size(ptr noundef %127)
+  %129 = icmp ult i64 %126, %128
+  br i1 %129, label %130, label %152
+
+130:                                              ; preds = %116
+  %131 = load ptr, ptr %3, align 8, !tbaa !3
+  %132 = getelementptr inbounds nuw %struct.H5F_t, ptr %131, i32 0, i32 2
+  %133 = load ptr, ptr %132, align 8, !tbaa !18
+  %134 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %133, i32 0, i32 36
+  %135 = load ptr, ptr %134, align 8, !tbaa !24
+  %136 = getelementptr inbounds ptr, ptr %135, i64 1
+  %137 = load ptr, ptr %3, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.H5F_t, ptr %137, i32 0, i32 2
+  %139 = load ptr, ptr %138, align 8, !tbaa !18
+  %140 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %139, i32 0, i32 36
+  %141 = load ptr, ptr %140, align 8, !tbaa !24
+  %142 = load i32, ptr %7, align 4, !tbaa !10
+  %143 = sext i32 %142 to i64
+  %144 = mul i64 %143, 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %136, ptr align 8 %141, i64 %144, i1 false)
+  %145 = load ptr, ptr %4, align 8, !tbaa !8
+  %146 = load ptr, ptr %3, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.H5F_t, ptr %146, i32 0, i32 2
+  %148 = load ptr, ptr %147, align 8, !tbaa !18
+  %149 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %148, i32 0, i32 36
+  %150 = load ptr, ptr %149, align 8, !tbaa !24
+  %151 = getelementptr inbounds ptr, ptr %150, i64 0
+  store ptr %145, ptr %151, align 8, !tbaa !8
+  br label %156
+
+152:                                              ; preds = %116
+  br label %153
+
+153:                                              ; preds = %152
+  %154 = load i32, ptr %7, align 4, !tbaa !10
+  %155 = add nsw i32 %154, -1
+  store i32 %155, ptr %7, align 4, !tbaa !10
+  br label %113, !llvm.loop !45
+
+156:                                              ; preds = %130, %113
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  br label %189
+
+157:                                              ; preds = %105
+  %158 = load ptr, ptr %3, align 8, !tbaa !3
+  %159 = getelementptr inbounds nuw %struct.H5F_t, ptr %158, i32 0, i32 2
+  %160 = load ptr, ptr %159, align 8, !tbaa !18
+  %161 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %160, i32 0, i32 36
+  %162 = load ptr, ptr %161, align 8, !tbaa !24
+  %163 = getelementptr inbounds ptr, ptr %162, i64 1
+  %164 = load ptr, ptr %3, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.H5F_t, ptr %164, i32 0, i32 2
+  %166 = load ptr, ptr %165, align 8, !tbaa !18
+  %167 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %166, i32 0, i32 36
+  %168 = load ptr, ptr %167, align 8, !tbaa !24
+  %169 = load ptr, ptr %3, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.H5F_t, ptr %169, i32 0, i32 2
+  %171 = load ptr, ptr %170, align 8, !tbaa !18
+  %172 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %171, i32 0, i32 35
+  %173 = load i32, ptr %172, align 8, !tbaa !44
+  %174 = zext i32 %173 to i64
+  %175 = mul i64 %174, 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %163, ptr align 8 %168, i64 %175, i1 false)
+  %176 = load ptr, ptr %4, align 8, !tbaa !8
+  %177 = load ptr, ptr %3, align 8, !tbaa !3
+  %178 = getelementptr inbounds nuw %struct.H5F_t, ptr %177, i32 0, i32 2
+  %179 = load ptr, ptr %178, align 8, !tbaa !18
+  %180 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %179, i32 0, i32 36
+  %181 = load ptr, ptr %180, align 8, !tbaa !24
+  %182 = getelementptr inbounds ptr, ptr %181, i64 0
+  store ptr %176, ptr %182, align 8, !tbaa !8
+  %183 = load ptr, ptr %3, align 8, !tbaa !3
+  %184 = getelementptr inbounds nuw %struct.H5F_t, ptr %183, i32 0, i32 2
+  %185 = load ptr, ptr %184, align 8, !tbaa !18
+  %186 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %185, i32 0, i32 35
+  %187 = load i32, ptr %186, align 8, !tbaa !44
+  %188 = add i32 %187, 1
+  store i32 %188, ptr %186, align 8, !tbaa !44
+  br label %189
+
+189:                                              ; preds = %157, %156
+  br label %190
+
+190:                                              ; preds = %189, %93
+  br label %191
+
+191:                                              ; preds = %190, %88, %39
+  br label %192
+
+192:                                              ; preds = %191, %52
+  %193 = load i32, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret i32 %193
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #2
+
+declare i32 @H5F__init_package() #3
+
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) #3
+
+; Function Attrs: nounwind allocsize(0)
+declare noalias ptr @malloc(i64 noundef) #4
+
+declare i64 @H5HG_get_free_size(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !16
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  store i8 0, ptr %9, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  store i8 0, ptr %11, align 1, !tbaa !12
+  %16 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %22, label %18
+
+18:                                               ; preds = %3
+  %19 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %20 = trunc i8 %19 to i1
+  %21 = xor i1 %20, true
+  br label %22
+
+22:                                               ; preds = %18, %3
+  %23 = phi i1 [ false, %3 ], [ %21, %18 ]
+  %24 = xor i1 %23, true
+  %25 = xor i1 %24, true
+  %26 = zext i1 %25 to i32
+  %27 = sext i32 %26 to i64
+  %28 = call i64 @llvm.expect.i64(i64 %27, i64 0)
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %53
+
+30:                                               ; preds = %22
+  store i8 1, ptr @H5F_init_g, align 1, !tbaa !12
+  %31 = call i32 @H5F__init_package()
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %52
+
+33:                                               ; preds = %30
+  store i8 0, ptr @H5F_init_g, align 1, !tbaa !12
+  br label %34
+
+34:                                               ; preds = %33
   br label %35
 
 35:                                               ; preds = %34
   br label %36
 
-36:                                               ; preds = %35, %14
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.H5F_t, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.H5F_shared_t, ptr %40, i32 0, i32 36
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 0
-  store ptr %37, ptr %43, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.H5F_t, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.H5F_shared_t, ptr %46, i32 0, i32 35
-  store i32 1, ptr %47, align 8
-  br label %133
+36:                                               ; preds = %35
+  %37 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !16
+  %38 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
+  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_find_free_heap, i32 noundef 149, i64 noundef %37, i64 noundef %38, ptr noundef @.str.1)
+  br label %40
 
-48:                                               ; preds = %2
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.H5F_t, ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.H5F_shared_t, ptr %51, i32 0, i32 35
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 16, %53
-  br i1 %54, label %55, label %100
+40:                                               ; preds = %36
+  br label %41
 
-55:                                               ; preds = %48
-  store i32 15, ptr %7, align 4
-  br label %56
+41:                                               ; preds = %40
+  store i8 1, ptr %11, align 1, !tbaa !12
+  %42 = load i8, ptr %11, align 1, !tbaa !12, !range !14, !noundef !15
+  %43 = trunc i8 %42 to i1
+  %44 = zext i1 %43 to i8
+  store i8 %44, ptr %11, align 1, !tbaa !12
+  br label %45
 
-56:                                               ; preds = %96, %55
-  %57 = load i32, ptr %7, align 4
-  %58 = icmp sge i32 %57, 0
-  br i1 %58, label %59, label %99
+45:                                               ; preds = %41
+  br label %46
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.H5F_t, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.H5F_shared_t, ptr %62, i32 0, i32 36
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %7, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = call i64 @H5HG_get_free_size(ptr noundef %68)
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i64 @H5HG_get_free_size(ptr noundef %70)
-  %72 = icmp ult i64 %69, %71
-  br i1 %72, label %73, label %95
+46:                                               ; preds = %45
+  br label %47
 
-73:                                               ; preds = %59
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.H5F_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.H5F_shared_t, ptr %76, i32 0, i32 36
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds ptr, ptr %78, i64 1
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.H5F_t, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.H5F_shared_t, ptr %82, i32 0, i32 36
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %7, align 4
-  %86 = sext i32 %85 to i64
-  %87 = mul i64 %86, 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %79, ptr align 8 %84, i64 %87, i1 false)
-  %88 = load ptr, ptr %4, align 8
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.H5F_t, ptr %89, i32 0, i32 2
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct.H5F_shared_t, ptr %91, i32 0, i32 36
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 0
-  store ptr %88, ptr %94, align 8
-  br label %99
+47:                                               ; preds = %46
+  store i32 -1, ptr %10, align 4, !tbaa !10
+  br label %325
 
-95:                                               ; preds = %59
-  br label %96
+48:                                               ; No predecessors!
+  br label %49
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr %7, align 4
-  %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %7, align 4
-  br label %56
+49:                                               ; preds = %48
+  br label %50
 
-99:                                               ; preds = %73, %56
-  br label %132
-
-100:                                              ; preds = %48
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.H5F_t, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.H5F_shared_t, ptr %103, i32 0, i32 36
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 1
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.H5F_t, ptr %107, i32 0, i32 2
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.H5F_shared_t, ptr %109, i32 0, i32 36
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.H5F_t, ptr %112, i32 0, i32 2
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.H5F_shared_t, ptr %114, i32 0, i32 35
-  %116 = load i32, ptr %115, align 8
-  %117 = zext i32 %116 to i64
-  %118 = mul i64 %117, 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %106, ptr align 8 %111, i64 %118, i1 false)
-  %119 = load ptr, ptr %4, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.H5F_t, ptr %120, i32 0, i32 2
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.H5F_shared_t, ptr %122, i32 0, i32 36
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %124, i64 0
-  store ptr %119, ptr %125, align 8
-  %126 = load ptr, ptr %3, align 8
-  %127 = getelementptr inbounds %struct.H5F_t, ptr %126, i32 0, i32 2
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.H5F_shared_t, ptr %128, i32 0, i32 35
-  %130 = load i32, ptr %129, align 8
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %129, align 8
-  br label %132
-
-132:                                              ; preds = %100, %99
-  br label %133
-
-133:                                              ; preds = %132, %36
-  br label %134
-
-134:                                              ; preds = %133, %33
-  %135 = load i32, ptr %5, align 4
-  ret i32 %135
-}
-
-; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
-
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) #2
-
-declare i64 @H5HG_get_free_size(ptr noundef) #2
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
-
-; Function Attrs: nounwind uwtable
-define i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i8, align 1
-  %9 = alloca i32, align 4
-  %10 = alloca i8, align 1
-  %11 = alloca i64, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 0, ptr %8, align 1
-  store i32 0, ptr %9, align 4
-  store i8 0, ptr %10, align 1
-  store i32 0, ptr %7, align 4
-  br label %14
-
-14:                                               ; preds = %48, %3
-  %15 = load i32, ptr %7, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.H5F_t, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.H5F_shared_t, ptr %18, i32 0, i32 35
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp ult i32 %15, %20
-  br i1 %21, label %22, label %51
-
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.H5F_t, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.H5F_shared_t, ptr %25, i32 0, i32 36
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i64 @H5HG_get_free_size(ptr noundef %31)
-  %33 = load i64, ptr %5, align 8
-  %34 = icmp uge i64 %32, %33
-  br i1 %34, label %35, label %47
-
-35:                                               ; preds = %22
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.H5F_t, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.H5F_shared_t, ptr %38, i32 0, i32 36
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %7, align 4
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @H5HG_get_addr(ptr noundef %44)
-  %46 = load ptr, ptr %6, align 8
-  store i64 %45, ptr %46, align 8
-  store i8 1, ptr %8, align 1
+50:                                               ; preds = %49
   br label %51
 
-47:                                               ; preds = %22
-  br label %48
+51:                                               ; preds = %50
+  br label %52
 
-48:                                               ; preds = %47
-  %49 = load i32, ptr %7, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %7, align 4
-  br label %14
+52:                                               ; preds = %51, %30
+  br label %53
 
-51:                                               ; preds = %35, %14
-  %52 = load i8, ptr %8, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %210, label %54
+53:                                               ; preds = %52, %22
+  %54 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %60, label %56
 
-54:                                               ; preds = %51
-  store i32 0, ptr %7, align 4
-  br label %55
+56:                                               ; preds = %53
+  %57 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %58 = trunc i8 %57 to i1
+  %59 = xor i1 %58, true
+  br label %60
 
-55:                                               ; preds = %206, %54
-  %56 = load i32, ptr %7, align 4
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.H5F_t, ptr %57, i32 0, i32 2
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.H5F_shared_t, ptr %59, i32 0, i32 35
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp ult i32 %56, %61
-  br i1 %62, label %63, label %209
+60:                                               ; preds = %56, %53
+  %61 = phi i1 [ true, %53 ], [ %59, %56 ]
+  %62 = xor i1 %61, true
+  %63 = xor i1 %62, true
+  %64 = zext i1 %63 to i32
+  %65 = sext i32 %64 to i64
+  %66 = call i64 @llvm.expect.i64(i64 %65, i64 1)
+  %67 = icmp ne i64 %66, 0
+  br i1 %67, label %68, label %326
 
-63:                                               ; preds = %55
-  %64 = load i64, ptr %5, align 8
-  store i64 %64, ptr %11, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.H5F_t, ptr %65, i32 0, i32 2
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.H5F_shared_t, ptr %67, i32 0, i32 36
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %7, align 4
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i64 @H5HG_get_free_size(ptr noundef %73)
-  %75 = load i64, ptr %11, align 8
-  %76 = sub i64 %75, %74
-  store i64 %76, ptr %11, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.H5F_t, ptr %77, i32 0, i32 2
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.H5F_shared_t, ptr %79, i32 0, i32 36
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr %7, align 4
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %81, i64 %83
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i64 @H5HG_get_size(ptr noundef %85)
-  %87 = load i64, ptr %11, align 8
-  %88 = icmp ugt i64 %86, %87
-  br i1 %88, label %89, label %100
+68:                                               ; preds = %60
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %69
 
-89:                                               ; preds = %63
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.H5F_t, ptr %90, i32 0, i32 2
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.H5F_shared_t, ptr %92, i32 0, i32 36
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %7, align 4
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %94, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i64 @H5HG_get_size(ptr noundef %98)
-  br label %102
+69:                                               ; preds = %103, %68
+  %70 = load i32, ptr %8, align 4, !tbaa !10
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.H5F_t, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !18
+  %74 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %73, i32 0, i32 35
+  %75 = load i32, ptr %74, align 8, !tbaa !44
+  %76 = icmp ult i32 %70, %75
+  br i1 %76, label %77, label %106
 
-100:                                              ; preds = %63
-  %101 = load i64, ptr %11, align 8
-  br label %102
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %5, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.H5F_t, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8, !tbaa !18
+  %81 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %80, i32 0, i32 36
+  %82 = load ptr, ptr %81, align 8, !tbaa !24
+  %83 = load i32, ptr %8, align 4, !tbaa !10
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !8
+  %87 = call i64 @H5HG_get_free_size(ptr noundef %86)
+  %88 = load i64, ptr %6, align 8, !tbaa !16
+  %89 = icmp uge i64 %87, %88
+  br i1 %89, label %90, label %102
 
-102:                                              ; preds = %100, %89
-  %103 = phi i64 [ %99, %89 ], [ %101, %100 ]
-  store i64 %103, ptr %11, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds %struct.H5F_t, ptr %104, i32 0, i32 2
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.H5F_shared_t, ptr %106, i32 0, i32 36
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %7, align 4
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %108, i64 %110
-  %112 = load ptr, ptr %111, align 8
-  %113 = call i64 @H5HG_get_size(ptr noundef %112)
-  %114 = load i64, ptr %11, align 8
-  %115 = add i64 %113, %114
-  %116 = icmp ule i64 %115, 65536
-  br i1 %116, label %117, label %205
+90:                                               ; preds = %77
+  %91 = load ptr, ptr %5, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.H5F_t, ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %92, align 8, !tbaa !18
+  %94 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %93, i32 0, i32 36
+  %95 = load ptr, ptr %94, align 8, !tbaa !24
+  %96 = load i32, ptr %8, align 4, !tbaa !10
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !8
+  %100 = call i64 @H5HG_get_addr(ptr noundef %99)
+  %101 = load ptr, ptr %7, align 8, !tbaa !47
+  store i64 %100, ptr %101, align 8, !tbaa !16
+  store i8 1, ptr %9, align 1, !tbaa !12
+  br label %106
 
-117:                                              ; preds = %102
-  %118 = load ptr, ptr %4, align 8
-  %119 = load ptr, ptr %4, align 8
-  %120 = getelementptr inbounds %struct.H5F_t, ptr %119, i32 0, i32 2
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.H5F_shared_t, ptr %121, i32 0, i32 36
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %7, align 4
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = call i64 @H5HG_get_addr(ptr noundef %127)
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.H5F_t, ptr %129, i32 0, i32 2
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct.H5F_shared_t, ptr %131, i32 0, i32 36
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %7, align 4
-  %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds ptr, ptr %133, i64 %135
-  %137 = load ptr, ptr %136, align 8
-  %138 = call i64 @H5HG_get_size(ptr noundef %137)
-  %139 = load i64, ptr %11, align 8
-  %140 = call i32 @H5MF_try_extend(ptr noundef %118, i32 noundef 4, i64 noundef %128, i64 noundef %138, i64 noundef %139)
-  store i32 %140, ptr %12, align 4
-  %141 = load i32, ptr %12, align 4
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %143, label %158
+102:                                              ; preds = %77
+  br label %103
 
-143:                                              ; preds = %117
-  br label %144
+103:                                              ; preds = %102
+  %104 = load i32, ptr %8, align 4, !tbaa !10
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %8, align 4, !tbaa !10
+  br label %69, !llvm.loop !49
 
-144:                                              ; preds = %143
-  br label %145
+106:                                              ; preds = %90, %69
+  %107 = load i8, ptr %9, align 1, !tbaa !12, !range !14, !noundef !15
+  %108 = trunc i8 %107 to i1
+  br i1 %108, label %279, label %109
 
-145:                                              ; preds = %144
-  br label %146
+109:                                              ; preds = %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %110
 
-146:                                              ; preds = %145
-  %147 = load i64, ptr @H5E_HEAP_g, align 8
-  %148 = load i64, ptr @H5E_CANTEXTEND_g, align 8
-  %149 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_find_free_heap, i32 noundef 198, i64 noundef %147, i64 noundef %148, ptr noundef @.str.2)
-  br label %150
+110:                                              ; preds = %272, %109
+  %111 = load i32, ptr %8, align 4, !tbaa !10
+  %112 = load ptr, ptr %5, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.H5F_t, ptr %112, i32 0, i32 2
+  %114 = load ptr, ptr %113, align 8, !tbaa !18
+  %115 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %114, i32 0, i32 35
+  %116 = load i32, ptr %115, align 8, !tbaa !44
+  %117 = icmp ult i32 %111, %116
+  br i1 %117, label %118, label %275
 
-150:                                              ; preds = %146
-  store i8 1, ptr %10, align 1
-  %151 = load i8, ptr %10, align 1
-  %152 = trunc i8 %151 to i1
-  %153 = zext i1 %152 to i8
-  store i8 %153, ptr %10, align 1
-  br label %154
+118:                                              ; preds = %110
+  %119 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %119, ptr %12, align 8, !tbaa !16
+  %120 = load ptr, ptr %5, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.H5F_t, ptr %120, i32 0, i32 2
+  %122 = load ptr, ptr %121, align 8, !tbaa !18
+  %123 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %122, i32 0, i32 36
+  %124 = load ptr, ptr %123, align 8, !tbaa !24
+  %125 = load i32, ptr %8, align 4, !tbaa !10
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
+  %128 = load ptr, ptr %127, align 8, !tbaa !8
+  %129 = call i64 @H5HG_get_free_size(ptr noundef %128)
+  %130 = load i64, ptr %12, align 8, !tbaa !16
+  %131 = sub i64 %130, %129
+  store i64 %131, ptr %12, align 8, !tbaa !16
+  %132 = load ptr, ptr %5, align 8, !tbaa !3
+  %133 = getelementptr inbounds nuw %struct.H5F_t, ptr %132, i32 0, i32 2
+  %134 = load ptr, ptr %133, align 8, !tbaa !18
+  %135 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %134, i32 0, i32 36
+  %136 = load ptr, ptr %135, align 8, !tbaa !24
+  %137 = load i32, ptr %8, align 4, !tbaa !10
+  %138 = zext i32 %137 to i64
+  %139 = getelementptr inbounds nuw ptr, ptr %136, i64 %138
+  %140 = load ptr, ptr %139, align 8, !tbaa !8
+  %141 = call i64 @H5HG_get_size(ptr noundef %140)
+  %142 = load i64, ptr %12, align 8, !tbaa !16
+  %143 = icmp ugt i64 %141, %142
+  br i1 %143, label %144, label %155
 
-154:                                              ; preds = %150
-  br label %155
-
-155:                                              ; preds = %154
-  store i32 -1, ptr %9, align 4
-  br label %256
-
-156:                                              ; No predecessors!
+144:                                              ; preds = %118
+  %145 = load ptr, ptr %5, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw %struct.H5F_t, ptr %145, i32 0, i32 2
+  %147 = load ptr, ptr %146, align 8, !tbaa !18
+  %148 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %147, i32 0, i32 36
+  %149 = load ptr, ptr %148, align 8, !tbaa !24
+  %150 = load i32, ptr %8, align 4, !tbaa !10
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds nuw ptr, ptr %149, i64 %151
+  %153 = load ptr, ptr %152, align 8, !tbaa !8
+  %154 = call i64 @H5HG_get_size(ptr noundef %153)
   br label %157
 
-157:                                              ; preds = %156
-  br label %204
+155:                                              ; preds = %118
+  %156 = load i64, ptr %12, align 8, !tbaa !16
+  br label %157
 
-158:                                              ; preds = %117
-  %159 = load i32, ptr %12, align 4
-  %160 = icmp eq i32 %159, 1
-  br i1 %160, label %161, label %203
+157:                                              ; preds = %155, %144
+  %158 = phi i64 [ %154, %144 ], [ %156, %155 ]
+  store i64 %158, ptr %12, align 8, !tbaa !16
+  %159 = load ptr, ptr %5, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.H5F_t, ptr %159, i32 0, i32 2
+  %161 = load ptr, ptr %160, align 8, !tbaa !18
+  %162 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %161, i32 0, i32 36
+  %163 = load ptr, ptr %162, align 8, !tbaa !24
+  %164 = load i32, ptr %8, align 4, !tbaa !10
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds nuw ptr, ptr %163, i64 %165
+  %167 = load ptr, ptr %166, align 8, !tbaa !8
+  %168 = call i64 @H5HG_get_size(ptr noundef %167)
+  %169 = load i64, ptr %12, align 8, !tbaa !16
+  %170 = add i64 %168, %169
+  %171 = icmp ule i64 %170, 65536
+  br i1 %171, label %172, label %271
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %4, align 8
-  %163 = load ptr, ptr %4, align 8
-  %164 = getelementptr inbounds %struct.H5F_t, ptr %163, i32 0, i32 2
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds %struct.H5F_shared_t, ptr %165, i32 0, i32 36
-  %167 = load ptr, ptr %166, align 8
-  %168 = load i32, ptr %7, align 4
-  %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %167, i64 %169
-  %171 = load ptr, ptr %170, align 8
-  %172 = call i64 @H5HG_get_addr(ptr noundef %171)
-  %173 = load i64, ptr %11, align 8
-  %174 = call i32 @H5HG_extend(ptr noundef %162, i64 noundef %172, i64 noundef %173)
-  %175 = icmp slt i32 %174, 0
-  br i1 %175, label %176, label %191
+172:                                              ; preds = %157
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %173 = load ptr, ptr %5, align 8, !tbaa !3
+  %174 = load ptr, ptr %5, align 8, !tbaa !3
+  %175 = getelementptr inbounds nuw %struct.H5F_t, ptr %174, i32 0, i32 2
+  %176 = load ptr, ptr %175, align 8, !tbaa !18
+  %177 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %176, i32 0, i32 36
+  %178 = load ptr, ptr %177, align 8, !tbaa !24
+  %179 = load i32, ptr %8, align 4, !tbaa !10
+  %180 = zext i32 %179 to i64
+  %181 = getelementptr inbounds nuw ptr, ptr %178, i64 %180
+  %182 = load ptr, ptr %181, align 8, !tbaa !8
+  %183 = call i64 @H5HG_get_addr(ptr noundef %182)
+  %184 = load ptr, ptr %5, align 8, !tbaa !3
+  %185 = getelementptr inbounds nuw %struct.H5F_t, ptr %184, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8, !tbaa !18
+  %187 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %186, i32 0, i32 36
+  %188 = load ptr, ptr %187, align 8, !tbaa !24
+  %189 = load i32, ptr %8, align 4, !tbaa !10
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds nuw ptr, ptr %188, i64 %190
+  %192 = load ptr, ptr %191, align 8, !tbaa !8
+  %193 = call i64 @H5HG_get_size(ptr noundef %192)
+  %194 = load i64, ptr %12, align 8, !tbaa !16
+  %195 = call i32 @H5MF_try_extend(ptr noundef %173, i32 noundef 4, i64 noundef %183, i64 noundef %193, i64 noundef %194)
+  store i32 %195, ptr %13, align 4, !tbaa !10
+  %196 = load i32, ptr %13, align 4, !tbaa !10
+  %197 = icmp slt i32 %196, 0
+  br i1 %197, label %198, label %217
 
-176:                                              ; preds = %161
-  br label %177
+198:                                              ; preds = %172
+  br label %199
 
-177:                                              ; preds = %176
-  br label %178
+199:                                              ; preds = %198
+  br label %200
 
-178:                                              ; preds = %177
-  br label %179
+200:                                              ; preds = %199
+  br label %201
 
-179:                                              ; preds = %178
-  %180 = load i64, ptr @H5E_HEAP_g, align 8
-  %181 = load i64, ptr @H5E_CANTRESIZE_g, align 8
-  %182 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_find_free_heap, i32 noundef 202, i64 noundef %180, i64 noundef %181, ptr noundef @.str.3)
-  br label %183
-
-183:                                              ; preds = %179
-  store i8 1, ptr %10, align 1
-  %184 = load i8, ptr %10, align 1
-  %185 = trunc i8 %184 to i1
-  %186 = zext i1 %185 to i8
-  store i8 %186, ptr %10, align 1
-  br label %187
-
-187:                                              ; preds = %183
-  br label %188
-
-188:                                              ; preds = %187
-  store i32 -1, ptr %9, align 4
-  br label %256
-
-189:                                              ; No predecessors!
-  br label %190
-
-190:                                              ; preds = %189
-  br label %191
-
-191:                                              ; preds = %190, %161
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct.H5F_t, ptr %192, i32 0, i32 2
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %struct.H5F_shared_t, ptr %194, i32 0, i32 36
-  %196 = load ptr, ptr %195, align 8
-  %197 = load i32, ptr %7, align 4
-  %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds ptr, ptr %196, i64 %198
-  %200 = load ptr, ptr %199, align 8
-  %201 = call i64 @H5HG_get_addr(ptr noundef %200)
-  %202 = load ptr, ptr %6, align 8
-  store i64 %201, ptr %202, align 8
-  store i8 1, ptr %8, align 1
-  br label %209
-
-203:                                              ; preds = %158
-  br label %204
-
-204:                                              ; preds = %203, %157
+201:                                              ; preds = %200
+  %202 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !16
+  %203 = load i64, ptr @H5E_CANTEXTEND_g, align 8, !tbaa !16
+  %204 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_find_free_heap, i32 noundef 198, i64 noundef %202, i64 noundef %203, ptr noundef @.str.3)
   br label %205
 
-205:                                              ; preds = %204, %102
+205:                                              ; preds = %201
   br label %206
 
 206:                                              ; preds = %205
-  %207 = load i32, ptr %7, align 4
-  %208 = add i32 %207, 1
-  store i32 %208, ptr %7, align 4
-  br label %55
-
-209:                                              ; preds = %191, %55
+  store i8 1, ptr %11, align 1, !tbaa !12
+  %207 = load i8, ptr %11, align 1, !tbaa !12, !range !14, !noundef !15
+  %208 = trunc i8 %207 to i1
+  %209 = zext i1 %208 to i8
+  store i8 %209, ptr %11, align 1, !tbaa !12
   br label %210
 
-210:                                              ; preds = %209, %51
-  %211 = load i8, ptr %8, align 1
-  %212 = trunc i8 %211 to i1
-  br i1 %212, label %213, label %255
+210:                                              ; preds = %206
+  br label %211
 
-213:                                              ; preds = %210
-  %214 = load i32, ptr %7, align 4
-  %215 = icmp ugt i32 %214, 0
-  br i1 %215, label %216, label %254
+211:                                              ; preds = %210
+  br label %212
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %4, align 8
-  %218 = getelementptr inbounds %struct.H5F_t, ptr %217, i32 0, i32 2
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds %struct.H5F_shared_t, ptr %219, i32 0, i32 36
-  %221 = load ptr, ptr %220, align 8
-  %222 = load i32, ptr %7, align 4
-  %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds ptr, ptr %221, i64 %223
-  %225 = load ptr, ptr %224, align 8
-  store ptr %225, ptr %13, align 8
-  %226 = load ptr, ptr %4, align 8
-  %227 = getelementptr inbounds %struct.H5F_t, ptr %226, i32 0, i32 2
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds %struct.H5F_shared_t, ptr %228, i32 0, i32 36
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %7, align 4
-  %232 = sub i32 %231, 1
-  %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds ptr, ptr %230, i64 %233
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %4, align 8
-  %237 = getelementptr inbounds %struct.H5F_t, ptr %236, i32 0, i32 2
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.H5F_shared_t, ptr %238, i32 0, i32 36
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i32, ptr %7, align 4
-  %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds ptr, ptr %240, i64 %242
-  store ptr %235, ptr %243, align 8
-  %244 = load ptr, ptr %13, align 8
-  %245 = load ptr, ptr %4, align 8
-  %246 = getelementptr inbounds %struct.H5F_t, ptr %245, i32 0, i32 2
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.H5F_shared_t, ptr %247, i32 0, i32 36
-  %249 = load ptr, ptr %248, align 8
-  %250 = load i32, ptr %7, align 4
-  %251 = sub i32 %250, 1
-  %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr %249, i64 %252
-  store ptr %244, ptr %253, align 8
+212:                                              ; preds = %211
+  store i32 -1, ptr %10, align 4, !tbaa !10
+  store i32 10, ptr %14, align 4
+  br label %268
+
+213:                                              ; No predecessors!
+  br label %214
+
+214:                                              ; preds = %213
+  br label %215
+
+215:                                              ; preds = %214
+  br label %216
+
+216:                                              ; preds = %215
+  br label %267
+
+217:                                              ; preds = %172
+  %218 = load i32, ptr %13, align 4, !tbaa !10
+  %219 = icmp eq i32 %218, 1
+  br i1 %219, label %220, label %266
+
+220:                                              ; preds = %217
+  %221 = load ptr, ptr %5, align 8, !tbaa !3
+  %222 = load ptr, ptr %5, align 8, !tbaa !3
+  %223 = getelementptr inbounds nuw %struct.H5F_t, ptr %222, i32 0, i32 2
+  %224 = load ptr, ptr %223, align 8, !tbaa !18
+  %225 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %224, i32 0, i32 36
+  %226 = load ptr, ptr %225, align 8, !tbaa !24
+  %227 = load i32, ptr %8, align 4, !tbaa !10
+  %228 = zext i32 %227 to i64
+  %229 = getelementptr inbounds nuw ptr, ptr %226, i64 %228
+  %230 = load ptr, ptr %229, align 8, !tbaa !8
+  %231 = call i64 @H5HG_get_addr(ptr noundef %230)
+  %232 = load i64, ptr %12, align 8, !tbaa !16
+  %233 = call i32 @H5HG_extend(ptr noundef %221, i64 noundef %231, i64 noundef %232)
+  %234 = icmp slt i32 %233, 0
+  br i1 %234, label %235, label %254
+
+235:                                              ; preds = %220
+  br label %236
+
+236:                                              ; preds = %235
+  br label %237
+
+237:                                              ; preds = %236
+  br label %238
+
+238:                                              ; preds = %237
+  %239 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !16
+  %240 = load i64, ptr @H5E_CANTRESIZE_g, align 8, !tbaa !16
+  %241 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_find_free_heap, i32 noundef 202, i64 noundef %239, i64 noundef %240, ptr noundef @.str.4)
+  br label %242
+
+242:                                              ; preds = %238
+  br label %243
+
+243:                                              ; preds = %242
+  store i8 1, ptr %11, align 1, !tbaa !12
+  %244 = load i8, ptr %11, align 1, !tbaa !12, !range !14, !noundef !15
+  %245 = trunc i8 %244 to i1
+  %246 = zext i1 %245 to i8
+  store i8 %246, ptr %11, align 1, !tbaa !12
+  br label %247
+
+247:                                              ; preds = %243
+  br label %248
+
+248:                                              ; preds = %247
+  br label %249
+
+249:                                              ; preds = %248
+  store i32 -1, ptr %10, align 4, !tbaa !10
+  store i32 10, ptr %14, align 4
+  br label %268
+
+250:                                              ; No predecessors!
+  br label %251
+
+251:                                              ; preds = %250
+  br label %252
+
+252:                                              ; preds = %251
+  br label %253
+
+253:                                              ; preds = %252
   br label %254
 
-254:                                              ; preds = %216, %213
-  br label %255
+254:                                              ; preds = %253, %220
+  %255 = load ptr, ptr %5, align 8, !tbaa !3
+  %256 = getelementptr inbounds nuw %struct.H5F_t, ptr %255, i32 0, i32 2
+  %257 = load ptr, ptr %256, align 8, !tbaa !18
+  %258 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %257, i32 0, i32 36
+  %259 = load ptr, ptr %258, align 8, !tbaa !24
+  %260 = load i32, ptr %8, align 4, !tbaa !10
+  %261 = zext i32 %260 to i64
+  %262 = getelementptr inbounds nuw ptr, ptr %259, i64 %261
+  %263 = load ptr, ptr %262, align 8, !tbaa !8
+  %264 = call i64 @H5HG_get_addr(ptr noundef %263)
+  %265 = load ptr, ptr %7, align 8, !tbaa !47
+  store i64 %264, ptr %265, align 8, !tbaa !16
+  store i8 1, ptr %9, align 1, !tbaa !12
+  store i32 14, ptr %14, align 4
+  br label %268
 
-255:                                              ; preds = %254, %210
-  br label %256
+266:                                              ; preds = %217
+  br label %267
 
-256:                                              ; preds = %255, %188, %155
-  %257 = load i32, ptr %9, align 4
-  ret i32 %257
+267:                                              ; preds = %266, %216
+  store i32 0, ptr %14, align 4
+  br label %268
+
+268:                                              ; preds = %249, %212, %267, %254
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  %269 = load i32, ptr %14, align 4
+  switch i32 %269, label %276 [
+    i32 0, label %270
+    i32 14, label %275
+  ]
+
+270:                                              ; preds = %268
+  br label %271
+
+271:                                              ; preds = %270, %157
+  br label %272
+
+272:                                              ; preds = %271
+  %273 = load i32, ptr %8, align 4, !tbaa !10
+  %274 = add i32 %273, 1
+  store i32 %274, ptr %8, align 4, !tbaa !10
+  br label %110, !llvm.loop !50
+
+275:                                              ; preds = %268, %110
+  store i32 0, ptr %14, align 4
+  br label %276
+
+276:                                              ; preds = %275, %268
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %277 = load i32, ptr %14, align 4
+  switch i32 %277, label %328 [
+    i32 0, label %278
+    i32 10, label %325
+  ]
+
+278:                                              ; preds = %276
+  br label %279
+
+279:                                              ; preds = %278, %106
+  %280 = load i8, ptr %9, align 1, !tbaa !12, !range !14, !noundef !15
+  %281 = trunc i8 %280 to i1
+  br i1 %281, label %282, label %324
+
+282:                                              ; preds = %279
+  %283 = load i32, ptr %8, align 4, !tbaa !10
+  %284 = icmp ugt i32 %283, 0
+  br i1 %284, label %285, label %323
+
+285:                                              ; preds = %282
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %286 = load ptr, ptr %5, align 8, !tbaa !3
+  %287 = getelementptr inbounds nuw %struct.H5F_t, ptr %286, i32 0, i32 2
+  %288 = load ptr, ptr %287, align 8, !tbaa !18
+  %289 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %288, i32 0, i32 36
+  %290 = load ptr, ptr %289, align 8, !tbaa !24
+  %291 = load i32, ptr %8, align 4, !tbaa !10
+  %292 = zext i32 %291 to i64
+  %293 = getelementptr inbounds nuw ptr, ptr %290, i64 %292
+  %294 = load ptr, ptr %293, align 8, !tbaa !8
+  store ptr %294, ptr %15, align 8, !tbaa !8
+  %295 = load ptr, ptr %5, align 8, !tbaa !3
+  %296 = getelementptr inbounds nuw %struct.H5F_t, ptr %295, i32 0, i32 2
+  %297 = load ptr, ptr %296, align 8, !tbaa !18
+  %298 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %297, i32 0, i32 36
+  %299 = load ptr, ptr %298, align 8, !tbaa !24
+  %300 = load i32, ptr %8, align 4, !tbaa !10
+  %301 = sub i32 %300, 1
+  %302 = zext i32 %301 to i64
+  %303 = getelementptr inbounds nuw ptr, ptr %299, i64 %302
+  %304 = load ptr, ptr %303, align 8, !tbaa !8
+  %305 = load ptr, ptr %5, align 8, !tbaa !3
+  %306 = getelementptr inbounds nuw %struct.H5F_t, ptr %305, i32 0, i32 2
+  %307 = load ptr, ptr %306, align 8, !tbaa !18
+  %308 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %307, i32 0, i32 36
+  %309 = load ptr, ptr %308, align 8, !tbaa !24
+  %310 = load i32, ptr %8, align 4, !tbaa !10
+  %311 = zext i32 %310 to i64
+  %312 = getelementptr inbounds nuw ptr, ptr %309, i64 %311
+  store ptr %304, ptr %312, align 8, !tbaa !8
+  %313 = load ptr, ptr %15, align 8, !tbaa !8
+  %314 = load ptr, ptr %5, align 8, !tbaa !3
+  %315 = getelementptr inbounds nuw %struct.H5F_t, ptr %314, i32 0, i32 2
+  %316 = load ptr, ptr %315, align 8, !tbaa !18
+  %317 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %316, i32 0, i32 36
+  %318 = load ptr, ptr %317, align 8, !tbaa !24
+  %319 = load i32, ptr %8, align 4, !tbaa !10
+  %320 = sub i32 %319, 1
+  %321 = zext i32 %320 to i64
+  %322 = getelementptr inbounds nuw ptr, ptr %318, i64 %321
+  store ptr %313, ptr %322, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  br label %323
+
+323:                                              ; preds = %285, %282
+  br label %324
+
+324:                                              ; preds = %323, %279
+  br label %325
+
+325:                                              ; preds = %324, %276, %47
+  br label %326
+
+326:                                              ; preds = %325, %60
+  %327 = load i32, ptr %10, align 4, !tbaa !10
+  store i32 %327, ptr %4, align 4
+  store i32 1, ptr %14, align 4
+  br label %328
+
+328:                                              ; preds = %326, %276
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %329 = load i32, ptr %4, align 4
+  ret i32 %329
 }
 
-declare i64 @H5HG_get_addr(ptr noundef) #2
+declare i64 @H5HG_get_addr(ptr noundef) #3
 
-declare i64 @H5HG_get_size(ptr noundef) #2
+declare i64 @H5HG_get_size(ptr noundef) #3
 
-declare i32 @H5MF_try_extend(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare i32 @H5MF_try_extend(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
-declare i32 @H5HG_extend(ptr noundef, i64 noundef, i64 noundef) #2
+declare i32 @H5HG_extend(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5F_cwfs_advance_heap(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
@@ -624,152 +937,266 @@ define i32 @H5F_cwfs_advance_heap(ptr noundef %0, ptr noundef %1, i1 noundef zer
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = zext i1 %2 to i8
-  store i8 %9, ptr %6, align 1
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 4
-  br label %10
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %10 = zext i1 %2 to i8
+  store i8 %10, ptr %6, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 0, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  store i8 0, ptr %9, align 1, !tbaa !12
+  %11 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %17, label %13
 
-10:                                               ; preds = %64, %3
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.H5F_t, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.H5F_shared_t, ptr %14, i32 0, i32 35
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ult i32 %11, %16
-  br i1 %17, label %18, label %67
+13:                                               ; preds = %3
+  %14 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %15 = trunc i8 %14 to i1
+  %16 = xor i1 %15, true
+  br label %17
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.H5F_t, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.H5F_shared_t, ptr %21, i32 0, i32 36
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %63
+17:                                               ; preds = %13, %3
+  %18 = phi i1 [ false, %3 ], [ %16, %13 ]
+  %19 = xor i1 %18, true
+  %20 = xor i1 %19, true
+  %21 = zext i1 %20 to i32
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 0)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %48
 
-30:                                               ; preds = %18
-  %31 = load i32, ptr %7, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %62
+25:                                               ; preds = %17
+  store i8 1, ptr @H5F_init_g, align 1, !tbaa !12
+  %26 = call i32 @H5F__init_package()
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %47
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.H5F_t, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.H5F_shared_t, ptr %36, i32 0, i32 36
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %7, align 4
-  %40 = sub i32 %39, 1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.H5F_t, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.H5F_shared_t, ptr %46, i32 0, i32 36
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %7, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
-  store ptr %43, ptr %51, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.H5F_t, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.H5F_shared_t, ptr %55, i32 0, i32 36
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = sub i32 %58, 1
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %57, i64 %60
-  store ptr %52, ptr %61, align 8
-  br label %62
+28:                                               ; preds = %25
+  store i8 0, ptr @H5F_init_g, align 1, !tbaa !12
+  br label %29
 
-62:                                               ; preds = %33, %30
-  br label %67
+29:                                               ; preds = %28
+  br label %30
 
-63:                                               ; preds = %18
+30:                                               ; preds = %29
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !16
+  %33 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
+  %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_advance_heap, i32 noundef 243, i64 noundef %32, i64 noundef %33, ptr noundef @.str.1)
+  br label %35
+
+35:                                               ; preds = %31
+  br label %36
+
+36:                                               ; preds = %35
+  store i8 1, ptr %9, align 1, !tbaa !12
+  %37 = load i8, ptr %9, align 1, !tbaa !12, !range !14, !noundef !15
+  %38 = trunc i8 %37 to i1
+  %39 = zext i1 %38 to i8
+  store i8 %39, ptr %9, align 1, !tbaa !12
+  br label %40
+
+40:                                               ; preds = %36
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  store i32 -1, ptr %8, align 4, !tbaa !10
+  br label %169
+
+43:                                               ; No predecessors!
+  br label %44
+
+44:                                               ; preds = %43
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46, %25
+  br label %48
+
+48:                                               ; preds = %47, %17
+  %49 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %55, label %51
+
+51:                                               ; preds = %48
+  %52 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %53 = trunc i8 %52 to i1
+  %54 = xor i1 %53, true
+  br label %55
+
+55:                                               ; preds = %51, %48
+  %56 = phi i1 [ true, %48 ], [ %54, %51 ]
+  %57 = xor i1 %56, true
+  %58 = xor i1 %57, true
+  %59 = zext i1 %58 to i32
+  %60 = sext i32 %59 to i64
+  %61 = call i64 @llvm.expect.i64(i64 %60, i64 1)
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %63, label %170
+
+63:                                               ; preds = %55
+  store i32 0, ptr %7, align 4, !tbaa !10
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr %7, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %7, align 4
-  br label %10
+64:                                               ; preds = %118, %63
+  %65 = load i32, ptr %7, align 4, !tbaa !10
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.H5F_t, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8, !tbaa !18
+  %69 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %68, i32 0, i32 35
+  %70 = load i32, ptr %69, align 8, !tbaa !44
+  %71 = icmp ult i32 %65, %70
+  br i1 %71, label %72, label %121
 
-67:                                               ; preds = %62, %10
-  %68 = load i8, ptr %6, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %114
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.H5F_t, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8, !tbaa !18
+  %76 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %75, i32 0, i32 36
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = load i32, ptr %7, align 4, !tbaa !10
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %81 = load ptr, ptr %80, align 8, !tbaa !8
+  %82 = load ptr, ptr %5, align 8, !tbaa !8
+  %83 = icmp eq ptr %81, %82
+  br i1 %83, label %84, label %117
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %7, align 4
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %struct.H5F_t, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.H5F_shared_t, ptr %74, i32 0, i32 35
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp uge i32 %71, %76
-  br i1 %77, label %78, label %114
+84:                                               ; preds = %72
+  %85 = load i32, ptr %7, align 4, !tbaa !10
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %116
 
-78:                                               ; preds = %70
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.H5F_t, ptr %79, i32 0, i32 2
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds %struct.H5F_shared_t, ptr %81, i32 0, i32 35
-  %83 = load i32, ptr %82, align 8
-  %84 = add i32 %83, 1
-  %85 = icmp ult i32 %84, 16
-  br i1 %85, label %86, label %93
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %4, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.H5F_t, ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8, !tbaa !18
+  %91 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %90, i32 0, i32 36
+  %92 = load ptr, ptr %91, align 8, !tbaa !24
+  %93 = load i32, ptr %7, align 4, !tbaa !10
+  %94 = sub i32 %93, 1
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !8
+  %98 = load ptr, ptr %4, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.H5F_t, ptr %98, i32 0, i32 2
+  %100 = load ptr, ptr %99, align 8, !tbaa !18
+  %101 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %100, i32 0, i32 36
+  %102 = load ptr, ptr %101, align 8, !tbaa !24
+  %103 = load i32, ptr %7, align 4, !tbaa !10
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %104
+  store ptr %97, ptr %105, align 8, !tbaa !8
+  %106 = load ptr, ptr %5, align 8, !tbaa !8
+  %107 = load ptr, ptr %4, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.H5F_t, ptr %107, i32 0, i32 2
+  %109 = load ptr, ptr %108, align 8, !tbaa !18
+  %110 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %109, i32 0, i32 36
+  %111 = load ptr, ptr %110, align 8, !tbaa !24
+  %112 = load i32, ptr %7, align 4, !tbaa !10
+  %113 = sub i32 %112, 1
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds nuw ptr, ptr %111, i64 %114
+  store ptr %106, ptr %115, align 8, !tbaa !8
+  br label %116
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.H5F_t, ptr %87, i32 0, i32 2
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.H5F_shared_t, ptr %89, i32 0, i32 35
-  %91 = load i32, ptr %90, align 8
-  %92 = add i32 %91, 1
-  br label %94
+116:                                              ; preds = %87, %84
+  br label %121
 
-93:                                               ; preds = %78
-  br label %94
+117:                                              ; preds = %72
+  br label %118
 
-94:                                               ; preds = %93, %86
-  %95 = phi i32 [ %92, %86 ], [ 16, %93 ]
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.H5F_t, ptr %96, i32 0, i32 2
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.H5F_shared_t, ptr %98, i32 0, i32 35
-  store i32 %95, ptr %99, align 8
-  %100 = load ptr, ptr %5, align 8
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.H5F_t, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.H5F_shared_t, ptr %103, i32 0, i32 36
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.H5F_t, ptr %106, i32 0, i32 2
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.H5F_shared_t, ptr %108, i32 0, i32 35
-  %110 = load i32, ptr %109, align 8
-  %111 = sub i32 %110, 1
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr %105, i64 %112
-  store ptr %100, ptr %113, align 8
-  br label %114
+118:                                              ; preds = %117
+  %119 = load i32, ptr %7, align 4, !tbaa !10
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %7, align 4, !tbaa !10
+  br label %64, !llvm.loop !51
 
-114:                                              ; preds = %94, %70, %67
-  %115 = load i32, ptr %8, align 4
-  ret i32 %115
+121:                                              ; preds = %116, %64
+  %122 = load i8, ptr %6, align 1, !tbaa !12, !range !14, !noundef !15
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %168
+
+124:                                              ; preds = %121
+  %125 = load i32, ptr %7, align 4, !tbaa !10
+  %126 = load ptr, ptr %4, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct.H5F_t, ptr %126, i32 0, i32 2
+  %128 = load ptr, ptr %127, align 8, !tbaa !18
+  %129 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %128, i32 0, i32 35
+  %130 = load i32, ptr %129, align 8, !tbaa !44
+  %131 = icmp uge i32 %125, %130
+  br i1 %131, label %132, label %168
+
+132:                                              ; preds = %124
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.H5F_t, ptr %133, i32 0, i32 2
+  %135 = load ptr, ptr %134, align 8, !tbaa !18
+  %136 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %135, i32 0, i32 35
+  %137 = load i32, ptr %136, align 8, !tbaa !44
+  %138 = add i32 %137, 1
+  %139 = icmp ult i32 %138, 16
+  br i1 %139, label %140, label %147
+
+140:                                              ; preds = %132
+  %141 = load ptr, ptr %4, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw %struct.H5F_t, ptr %141, i32 0, i32 2
+  %143 = load ptr, ptr %142, align 8, !tbaa !18
+  %144 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %143, i32 0, i32 35
+  %145 = load i32, ptr %144, align 8, !tbaa !44
+  %146 = add i32 %145, 1
+  br label %148
+
+147:                                              ; preds = %132
+  br label %148
+
+148:                                              ; preds = %147, %140
+  %149 = phi i32 [ %146, %140 ], [ 16, %147 ]
+  %150 = load ptr, ptr %4, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw %struct.H5F_t, ptr %150, i32 0, i32 2
+  %152 = load ptr, ptr %151, align 8, !tbaa !18
+  %153 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %152, i32 0, i32 35
+  store i32 %149, ptr %153, align 8, !tbaa !44
+  %154 = load ptr, ptr %5, align 8, !tbaa !8
+  %155 = load ptr, ptr %4, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.H5F_t, ptr %155, i32 0, i32 2
+  %157 = load ptr, ptr %156, align 8, !tbaa !18
+  %158 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %157, i32 0, i32 36
+  %159 = load ptr, ptr %158, align 8, !tbaa !24
+  %160 = load ptr, ptr %4, align 8, !tbaa !3
+  %161 = getelementptr inbounds nuw %struct.H5F_t, ptr %160, i32 0, i32 2
+  %162 = load ptr, ptr %161, align 8, !tbaa !18
+  %163 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %162, i32 0, i32 35
+  %164 = load i32, ptr %163, align 8, !tbaa !44
+  %165 = sub i32 %164, 1
+  %166 = zext i32 %165 to i64
+  %167 = getelementptr inbounds nuw ptr, ptr %159, i64 %166
+  store ptr %154, ptr %167, align 8, !tbaa !8
+  br label %168
+
+168:                                              ; preds = %148, %124, %121
+  br label %169
+
+169:                                              ; preds = %168, %42
+  br label %170
+
+170:                                              ; preds = %169, %55
+  %171 = load i32, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -778,84 +1205,251 @@ define i32 @H5F_cwfs_remove_heap(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %5, align 4
-  br label %7
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 0, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
+  store i8 0, ptr %7, align 1, !tbaa !12
+  %8 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %14, label %10
 
-7:                                                ; preds = %49, %2
-  %8 = load i32, ptr %5, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.H5F_shared_t, ptr %9, i32 0, i32 35
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp ult i32 %8, %11
-  br i1 %12, label %13, label %52
+10:                                               ; preds = %2
+  %11 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %12 = trunc i8 %11 to i1
+  %13 = xor i1 %12, true
+  br label %14
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.H5F_shared_t, ptr %14, i32 0, i32 36
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %5, align 4
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = icmp eq ptr %20, %21
-  br i1 %22, label %23, label %48
+14:                                               ; preds = %10, %2
+  %15 = phi i1 [ false, %2 ], [ %13, %10 ]
+  %16 = xor i1 %15, true
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i32
+  %19 = sext i32 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %45
 
-23:                                               ; preds = %13
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.H5F_shared_t, ptr %24, i32 0, i32 35
-  %26 = load i32, ptr %25, align 8
-  %27 = sub i32 %26, 1
-  store i32 %27, ptr %25, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.H5F_shared_t, ptr %28, i32 0, i32 36
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %5, align 4
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.H5F_shared_t, ptr %34, i32 0, i32 36
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %5, align 4
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  %40 = getelementptr inbounds ptr, ptr %39, i64 1
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.H5F_shared_t, ptr %41, i32 0, i32 35
-  %43 = load i32, ptr %42, align 8
-  %44 = load i32, ptr %5, align 4
-  %45 = sub i32 %43, %44
-  %46 = zext i32 %45 to i64
-  %47 = mul i64 %46, 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %40, i64 %47, i1 false)
+22:                                               ; preds = %14
+  store i8 1, ptr @H5F_init_g, align 1, !tbaa !12
+  %23 = call i32 @H5F__init_package()
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %44
+
+25:                                               ; preds = %22
+  store i8 0, ptr @H5F_init_g, align 1, !tbaa !12
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !16
+  %30 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
+  %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef @.str, ptr noundef @__func__.H5F_cwfs_remove_heap, i32 noundef 283, i64 noundef %29, i64 noundef %30, ptr noundef @.str.1)
+  br label %32
+
+32:                                               ; preds = %28
+  br label %33
+
+33:                                               ; preds = %32
+  store i8 1, ptr %7, align 1, !tbaa !12
+  %34 = load i8, ptr %7, align 1, !tbaa !12, !range !14, !noundef !15
+  %35 = trunc i8 %34 to i1
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %7, align 1, !tbaa !12
+  br label %37
+
+37:                                               ; preds = %33
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  store i32 -1, ptr %6, align 4, !tbaa !10
+  br label %107
+
+40:                                               ; No predecessors!
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43, %22
+  br label %45
+
+45:                                               ; preds = %44, %14
+  %46 = load i8, ptr @H5F_init_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %52, label %48
+
+48:                                               ; preds = %45
+  %49 = load i8, ptr @H5_libterm_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %50 = trunc i8 %49 to i1
+  %51 = xor i1 %50, true
   br label %52
 
-48:                                               ; preds = %13
-  br label %49
+52:                                               ; preds = %48, %45
+  %53 = phi i1 [ true, %45 ], [ %51, %48 ]
+  %54 = xor i1 %53, true
+  %55 = xor i1 %54, true
+  %56 = zext i1 %55 to i32
+  %57 = sext i32 %56 to i64
+  %58 = call i64 @llvm.expect.i64(i64 %57, i64 1)
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %108
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %5, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %5, align 4
-  br label %7
+60:                                               ; preds = %52
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %61
 
-52:                                               ; preds = %23, %7
-  %53 = load i32, ptr %6, align 4
-  ret i32 %53
+61:                                               ; preds = %103, %60
+  %62 = load i32, ptr %5, align 4, !tbaa !10
+  %63 = load ptr, ptr %3, align 8, !tbaa !52
+  %64 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %63, i32 0, i32 35
+  %65 = load i32, ptr %64, align 8, !tbaa !44
+  %66 = icmp ult i32 %62, %65
+  br i1 %66, label %67, label %106
+
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %3, align 8, !tbaa !52
+  %69 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %68, i32 0, i32 36
+  %70 = load ptr, ptr %69, align 8, !tbaa !24
+  %71 = load i32, ptr %5, align 4, !tbaa !10
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %72
+  %74 = load ptr, ptr %73, align 8, !tbaa !8
+  %75 = load ptr, ptr %4, align 8, !tbaa !8
+  %76 = icmp eq ptr %74, %75
+  br i1 %76, label %77, label %102
+
+77:                                               ; preds = %67
+  %78 = load ptr, ptr %3, align 8, !tbaa !52
+  %79 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %78, i32 0, i32 35
+  %80 = load i32, ptr %79, align 8, !tbaa !44
+  %81 = sub i32 %80, 1
+  store i32 %81, ptr %79, align 8, !tbaa !44
+  %82 = load ptr, ptr %3, align 8, !tbaa !52
+  %83 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %82, i32 0, i32 36
+  %84 = load ptr, ptr %83, align 8, !tbaa !24
+  %85 = load i32, ptr %5, align 4, !tbaa !10
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw ptr, ptr %84, i64 %86
+  %88 = load ptr, ptr %3, align 8, !tbaa !52
+  %89 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %88, i32 0, i32 36
+  %90 = load ptr, ptr %89, align 8, !tbaa !24
+  %91 = load i32, ptr %5, align 4, !tbaa !10
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  %94 = getelementptr inbounds ptr, ptr %93, i64 1
+  %95 = load ptr, ptr %3, align 8, !tbaa !52
+  %96 = getelementptr inbounds nuw %struct.H5F_shared_t, ptr %95, i32 0, i32 35
+  %97 = load i32, ptr %96, align 8, !tbaa !44
+  %98 = load i32, ptr %5, align 4, !tbaa !10
+  %99 = sub i32 %97, %98
+  %100 = zext i32 %99 to i64
+  %101 = mul i64 %100, 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 8 %94, i64 %101, i1 false)
+  br label %106
+
+102:                                              ; preds = %67
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load i32, ptr %5, align 4, !tbaa !10
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %5, align 4, !tbaa !10
+  br label %61, !llvm.loop !53
+
+106:                                              ; preds = %77, %61
+  br label %107
+
+107:                                              ; preds = %106, %39
+  br label %108
+
+108:                                              ; preds = %107, %52
+  %109 = load i32, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret i32 %109
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS5H5F_t", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS11H5HG_heap_t", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"_Bool", !6, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!19, !21, i64 16}
+!19 = !{!"H5F_t", !20, i64 0, !20, i64 8, !21, i64 16, !22, i64 24, !11, i64 32, !23, i64 40, !13, i64 48, !13, i64 49, !4, i64 56, !11, i64 64}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"p1 _ZTS12H5F_shared_t", !5, i64 0}
+!22 = !{!"p1 _ZTS13H5VL_object_t", !5, i64 0}
+!23 = !{!"p1 _ZTS6H5SL_t", !5, i64 0}
+!24 = !{!25, !37, i64 1448}
+!25 = !{!"H5F_shared_t", !26, i64 0, !27, i64 8, !28, i64 16, !13, i64 24, !11, i64 28, !11, i64 32, !29, i64 40, !31, i64 56, !6, i64 64, !6, i64 65, !17, i64 72, !11, i64 80, !11, i64 84, !17, i64 88, !17, i64 96, !32, i64 104, !33, i64 112, !34, i64 120, !36, i64 1336, !13, i64 1348, !13, i64 1349, !20, i64 1352, !17, i64 1360, !11, i64 1368, !13, i64 1372, !17, i64 1376, !17, i64 1384, !35, i64 1392, !17, i64 1400, !17, i64 1408, !17, i64 1416, !11, i64 1424, !11, i64 1428, !11, i64 1432, !13, i64 1436, !11, i64 1440, !37, i64 1448, !38, i64 1456, !23, i64 1464, !39, i64 1472, !13, i64 1480, !13, i64 1481, !13, i64 1482, !17, i64 1488, !40, i64 1496, !5, i64 1504, !11, i64 1512, !17, i64 1520, !13, i64 1528, !11, i64 1532, !13, i64 1536, !17, i64 1544, !13, i64 1552, !6, i64 1556, !6, i64 1608, !6, i64 1712, !13, i64 1816, !17, i64 1824, !17, i64 1832, !6, i64 1840, !6, i64 1868, !41, i64 1896, !41, i64 1936, !17, i64 1976, !17, i64 1984, !42, i64 1992, !11, i64 2048, !11, i64 2052, !6, i64 2056, !43, i64 2296, !13, i64 2312, !20, i64 2320}
+!26 = !{!"p1 _ZTS6H5FD_t", !5, i64 0}
+!27 = !{!"p1 _ZTS11H5F_super_t", !5, i64 0}
+!28 = !{!"p1 _ZTS13H5O_drvinfo_t", !5, i64 0}
+!29 = !{!"H5F_mtab_t", !11, i64 0, !11, i64 4, !30, i64 8}
+!30 = !{!"p1 _ZTS11H5F_mount_t", !5, i64 0}
+!31 = !{!"p1 _ZTS9H5F_efc_t", !5, i64 0}
+!32 = !{!"p1 _ZTS6H5PB_t", !5, i64 0}
+!33 = !{!"p1 _ZTS5H5C_t", !5, i64 0}
+!34 = !{!"H5AC_cache_config_t", !11, i64 0, !13, i64 4, !13, i64 5, !13, i64 6, !6, i64 7, !13, i64 1032, !13, i64 1033, !17, i64 1040, !35, i64 1048, !17, i64 1056, !17, i64 1064, !17, i64 1072, !11, i64 1080, !35, i64 1088, !35, i64 1096, !13, i64 1104, !17, i64 1112, !11, i64 1120, !35, i64 1128, !35, i64 1136, !11, i64 1144, !35, i64 1152, !35, i64 1160, !13, i64 1168, !17, i64 1176, !11, i64 1184, !13, i64 1188, !35, i64 1192, !17, i64 1200, !11, i64 1208}
+!35 = !{!"double", !6, i64 0}
+!36 = !{!"H5AC_cache_image_config_t", !11, i64 0, !13, i64 4, !13, i64 5, !11, i64 8}
+!37 = !{!"p2 _ZTS11H5HG_heap_t", !5, i64 0}
+!38 = !{!"p1 _ZTS5H5G_t", !5, i64 0}
+!39 = !{!"p1 _ZTS6H5UC_t", !5, i64 0}
+!40 = !{!"p1 _ZTS16H5VL_connector_t", !5, i64 0}
+!41 = !{!"H5F_blk_aggr_t", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32}
+!42 = !{!"H5F_meta_accum_t", !20, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !13, i64 48}
+!43 = !{!"H5F_object_flush_t", !5, i64 0, !5, i64 8}
+!44 = !{!25, !11, i64 1440}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.mustprogress"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 long", !5, i64 0}
+!49 = distinct !{!49, !46}
+!50 = distinct !{!50, !46}
+!51 = distinct !{!51, !46}
+!52 = !{!21, !21, i64 0}
+!53 = distinct !{!53, !46}

@@ -3,9 +3,8 @@ source_filename = "bench/hdf5/original/H5Fsfile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5FL_reg_head_t = type { i8, i32, i32, ptr, i64, ptr }
-
-@H5_H5F_sfile_node_t_reg_free_list = internal global %struct.H5FL_reg_head_t { i8 0, i32 0, i32 0, ptr @.str.3, i64 16, ptr null }, align 8
+@H5F_init_g = external local_unnamed_addr global i8, align 1
+@H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5Fsfile.c\00", align 1
 @__func__.H5F__sfile_add = private unnamed_addr constant [15 x i8] c"H5F__sfile_add\00", align 1
 @H5E_RESOURCE_g = external local_unnamed_addr global i64, align 8
@@ -17,6 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5E_NOTFOUND_g = external local_unnamed_addr global i64, align 8
 @.str.2 = private unnamed_addr constant [28 x i8] c"can't find shared file info\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"H5F_sfile_node_t\00", align 1
+@H5_H5F_sfile_node_t_reg_free_list = internal global { i8, [3 x i8], i32, i32, [4 x i8], ptr, i64, ptr } { i8 0, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @.str.3, i64 16, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @H5F_sfile_assert_num(i32 noundef %0) local_unnamed_addr #0 {
@@ -25,26 +25,35 @@ define void @H5F_sfile_assert_num(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F__sfile_add(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list) #3
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %8
-
-4:                                                ; preds = %1
-  %5 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %6 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__sfile_add, i32 noundef 105, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.1) #3
-  br label %11
+  %2 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %3 = trunc nuw i8 %2 to i1
+  %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %5 = trunc nuw i8 %4 to i1
+  %6 = xor i1 %5, true
+  %7 = select i1 %3, i1 true, i1 %6
+  br i1 %7, label %8, label %18, !prof !9
 
 8:                                                ; preds = %1
-  store ptr %0, ptr %2, align 8
-  %9 = load ptr, ptr @H5F_sfile_head_s, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %9, ptr %10, align 8
-  store ptr %2, ptr @H5F_sfile_head_s, align 8
-  br label %11
+  %9 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list) #3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %15
 
-11:                                               ; preds = %8, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %8 ]
+11:                                               ; preds = %8
+  %12 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
+  %13 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__sfile_add, i32 noundef 105, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.1) #3
+  br label %18
+
+15:                                               ; preds = %8
+  store ptr %0, ptr %9, align 8, !tbaa !12
+  %16 = load ptr, ptr @H5F_sfile_head_s, align 8, !tbaa !17
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !18
+  store ptr %9, ptr @H5F_sfile_head_s, align 8, !tbaa !17
+  br label %18
+
+18:                                               ; preds = %11, %15, %1
+  %.0 = phi i32 [ -1, %11 ], [ 0, %15 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -54,30 +63,37 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5F__sfile_search(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %3 = trunc nuw i8 %2 to i1
+  %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %5 = trunc nuw i8 %4 to i1
+  %not. = xor i1 %3, true
+  %.not11 = select i1 %not., i1 %5, i1 false
   %.068 = load ptr, ptr @H5F_sfile_head_s, align 8
   %.not9 = icmp eq ptr %.068, null
-  br i1 %.not9, label %.loopexit, label %.lr.ph
+  %or.cond = select i1 %.not11, i1 true, i1 %.not9
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !prof !19
 
-.lr.ph:                                           ; preds = %1, %8
-  %.0610 = phi ptr [ %.06, %8 ], [ %.068, %1 ]
-  %2 = load ptr, ptr %.0610, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @H5FD_cmp(ptr noundef %3, ptr noundef %0) #3
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %8
+.lr.ph:                                           ; preds = %1, %12
+  %.0610 = phi ptr [ %.06, %12 ], [ %.068, %1 ]
+  %6 = load ptr, ptr %.0610, align 8, !tbaa !12
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %8 = tail call i32 @H5FD_cmp(ptr noundef %7, ptr noundef %0) #3
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %12
 
-6:                                                ; preds = %.lr.ph
-  %7 = load ptr, ptr %.0610, align 8
+10:                                               ; preds = %.lr.ph
+  %11 = load ptr, ptr %.0610, align 8, !tbaa !12
   br label %.loopexit
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.0610, i64 8
-  %.06 = load ptr, ptr %9, align 8
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.0610, i64 8
+  %.06 = load ptr, ptr %13, align 8, !tbaa !17
   %.not = icmp eq ptr %.06, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
-.loopexit:                                        ; preds = %8, %1, %6
-  %.0 = phi ptr [ %7, %6 ], [ null, %1 ], [ null, %8 ]
+.loopexit:                                        ; preds = %12, %10, %1
+  %.0 = phi ptr [ %11, %10 ], [ null, %1 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -85,69 +101,120 @@ declare i32 @H5FD_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone captures(address) %0) local_unnamed_addr #1 {
-  %.01318 = load ptr, ptr @H5F_sfile_head_s, align 8
+  %2 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %3 = trunc nuw i8 %2 to i1
+  %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %5 = trunc nuw i8 %4 to i1
+  %6 = xor i1 %5, true
+  %7 = select i1 %3, i1 true, i1 %6
+  br i1 %7, label %.preheader, label %21, !prof !9
+
+.preheader:                                       ; preds = %1
+  %.01318 = load ptr, ptr @H5F_sfile_head_s, align 8, !tbaa !17
   %cond19 = icmp eq ptr %.01318, null
   br i1 %cond19, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %1
-  %2 = load ptr, ptr %.01318, align 8
-  %.not1428 = icmp eq ptr %2, %0
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %8 = load ptr, ptr %.01318, align 8, !tbaa !12
+  %.not1428 = icmp eq ptr %8, %0
   br i1 %.not1428, label %.critedge, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph30
-  %3 = load ptr, ptr %.013, align 8
-  %.not14 = icmp eq ptr %3, %0
-  br i1 %.not14, label %.critedge, label %.lr.ph30
+  %9 = load ptr, ptr %.013, align 8, !tbaa !12
+  %.not14 = icmp eq ptr %9, %0
+  br i1 %.not14, label %.critedge, label %.lr.ph30, !llvm.loop !45
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0132129 = phi ptr [ %.013, %.lr.ph ], [ %.01318, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.0132129, i64 8
-  %.013 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0132129, i64 8
+  %.013 = load ptr, ptr %10, align 8, !tbaa !17
   %cond = icmp eq ptr %.013, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph30, %1
-  %5 = load i64, ptr @H5E_FILE_g, align 8
-  %6 = load i64, ptr @H5E_NOTFOUND_g, align 8
-  %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__sfile_remove, i32 noundef 186, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #3
-  br label %15
+._crit_edge:                                      ; preds = %.lr.ph30, %.preheader
+  %11 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
+  %12 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !10
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__sfile_remove, i32 noundef 186, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.2) #3
+  br label %21
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.01321.lcssa = phi ptr [ %.01318, %.lr.ph.preheader ], [ %.013, %.lr.ph ]
   %.01220.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0132129, %.lr.ph ]
   %.not15 = icmp eq ptr %.01220.lcssa, null
-  %8 = getelementptr inbounds nuw i8, ptr %.01321.lcssa, i64 8
-  %9 = load ptr, ptr %8, align 8
-  br i1 %.not15, label %12, label %10
+  %14 = getelementptr inbounds nuw i8, ptr %.01321.lcssa, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  br i1 %.not15, label %18, label %16
 
-10:                                               ; preds = %.critedge
-  %11 = getelementptr inbounds nuw i8, ptr %.01220.lcssa, i64 8
-  store ptr %9, ptr %11, align 8
-  br label %13
+16:                                               ; preds = %.critedge
+  %17 = getelementptr inbounds nuw i8, ptr %.01220.lcssa, i64 8
+  store ptr %15, ptr %17, align 8, !tbaa !18
+  br label %19
 
-12:                                               ; preds = %.critedge
-  store ptr %9, ptr @H5F_sfile_head_s, align 8
-  br label %13
+18:                                               ; preds = %.critedge
+  store ptr %15, ptr @H5F_sfile_head_s, align 8, !tbaa !17
+  br label %19
 
-13:                                               ; preds = %12, %10
-  %14 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list, ptr noundef nonnull %.01321.lcssa) #3
-  br label %15
+19:                                               ; preds = %18, %16
+  %20 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_sfile_node_t_reg_free_list, ptr noundef nonnull %.01321.lcssa) #3
+  br label %21
 
-15:                                               ; preds = %13, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ 0, %13 ]
+21:                                               ; preds = %._crit_edge, %19, %1
+  %.0 = phi i32 [ -1, %._crit_edge ], [ 0, %19 ], [ 0, %1 ]
   ret i32 %.0
 }
 
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_Bool", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"H5F_sfile_node_t", !14, i64 0, !16, i64 8}
+!14 = !{!"p1 _ZTS12H5F_shared_t", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!"p1 _ZTS16H5F_sfile_node_t", !15, i64 0}
+!17 = !{!16, !16, i64 0}
+!18 = !{!13, !16, i64 8}
+!19 = !{!"branch_weights", i32 2002, i32 2000}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"H5F_shared_t", !22, i64 0, !23, i64 8, !24, i64 16, !4, i64 24, !25, i64 28, !25, i64 32, !26, i64 40, !28, i64 56, !5, i64 64, !5, i64 65, !11, i64 72, !25, i64 80, !25, i64 84, !11, i64 88, !11, i64 96, !29, i64 104, !30, i64 112, !31, i64 120, !33, i64 1336, !4, i64 1348, !4, i64 1349, !34, i64 1352, !11, i64 1360, !25, i64 1368, !4, i64 1372, !11, i64 1376, !11, i64 1384, !32, i64 1392, !11, i64 1400, !11, i64 1408, !11, i64 1416, !25, i64 1424, !25, i64 1428, !25, i64 1432, !4, i64 1436, !25, i64 1440, !35, i64 1448, !36, i64 1456, !37, i64 1464, !38, i64 1472, !4, i64 1480, !4, i64 1481, !4, i64 1482, !11, i64 1488, !39, i64 1496, !15, i64 1504, !25, i64 1512, !11, i64 1520, !4, i64 1528, !25, i64 1532, !4, i64 1536, !11, i64 1544, !4, i64 1552, !5, i64 1556, !5, i64 1608, !5, i64 1712, !4, i64 1816, !11, i64 1824, !11, i64 1832, !5, i64 1840, !5, i64 1868, !40, i64 1896, !40, i64 1936, !11, i64 1976, !11, i64 1984, !41, i64 1992, !25, i64 2048, !25, i64 2052, !5, i64 2056, !42, i64 2296, !4, i64 2312, !34, i64 2320}
+!22 = !{!"p1 _ZTS6H5FD_t", !15, i64 0}
+!23 = !{!"p1 _ZTS11H5F_super_t", !15, i64 0}
+!24 = !{!"p1 _ZTS13H5O_drvinfo_t", !15, i64 0}
+!25 = !{!"int", !5, i64 0}
+!26 = !{!"H5F_mtab_t", !25, i64 0, !25, i64 4, !27, i64 8}
+!27 = !{!"p1 _ZTS11H5F_mount_t", !15, i64 0}
+!28 = !{!"p1 _ZTS9H5F_efc_t", !15, i64 0}
+!29 = !{!"p1 _ZTS6H5PB_t", !15, i64 0}
+!30 = !{!"p1 _ZTS5H5C_t", !15, i64 0}
+!31 = !{!"H5AC_cache_config_t", !25, i64 0, !4, i64 4, !4, i64 5, !4, i64 6, !5, i64 7, !4, i64 1032, !4, i64 1033, !11, i64 1040, !32, i64 1048, !11, i64 1056, !11, i64 1064, !11, i64 1072, !25, i64 1080, !32, i64 1088, !32, i64 1096, !4, i64 1104, !11, i64 1112, !25, i64 1120, !32, i64 1128, !32, i64 1136, !25, i64 1144, !32, i64 1152, !32, i64 1160, !4, i64 1168, !11, i64 1176, !25, i64 1184, !4, i64 1188, !32, i64 1192, !11, i64 1200, !25, i64 1208}
+!32 = !{!"double", !5, i64 0}
+!33 = !{!"H5AC_cache_image_config_t", !25, i64 0, !4, i64 4, !4, i64 5, !25, i64 8}
+!34 = !{!"p1 omnipotent char", !15, i64 0}
+!35 = !{!"p2 _ZTS11H5HG_heap_t", !15, i64 0}
+!36 = !{!"p1 _ZTS5H5G_t", !15, i64 0}
+!37 = !{!"p1 _ZTS6H5SL_t", !15, i64 0}
+!38 = !{!"p1 _ZTS6H5UC_t", !15, i64 0}
+!39 = !{!"p1 _ZTS16H5VL_connector_t", !15, i64 0}
+!40 = !{!"H5F_blk_aggr_t", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
+!41 = !{!"H5F_meta_accum_t", !34, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !4, i64 48}
+!42 = !{!"H5F_object_flush_t", !15, i64 0, !15, i64 8}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = distinct !{!45, !44}

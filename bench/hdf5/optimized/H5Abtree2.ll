@@ -3,13 +3,14 @@ source_filename = "bench/hdf5/original/H5Abtree2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5B2_class_t = type { i32, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5A_fh_ud_cmp_t = type { ptr, ptr, ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [24 x i8] c"H5B2_ATTR_DENSE_NAME_ID\00", align 1
-@H5A_BT2_NAME = local_unnamed_addr constant [1 x %struct.H5B2_class_t] [%struct.H5B2_class_t { i32 8, ptr @.str, i64 24, ptr null, ptr null, ptr @H5A__dense_btree2_name_store, ptr @H5A__dense_btree2_name_compare, ptr @H5A__dense_btree2_name_encode, ptr @H5A__dense_btree2_name_decode, ptr @H5A__dense_btree2_name_debug }], align 16
+@H5A_BT2_NAME = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str, i64 24, ptr null, ptr null, ptr @H5A__dense_btree2_name_store, ptr @H5A__dense_btree2_name_compare, ptr @H5A__dense_btree2_name_encode, ptr @H5A__dense_btree2_name_decode, ptr @H5A__dense_btree2_name_debug }], align 16
 @.str.1 = private unnamed_addr constant [26 x i8] c"H5B2_ATTR_DENSE_CORDER_ID\00", align 1
-@H5A_BT2_CORDER = local_unnamed_addr constant [1 x %struct.H5B2_class_t] [%struct.H5B2_class_t { i32 9, ptr @.str.1, i64 16, ptr null, ptr null, ptr @H5A__dense_btree2_corder_store, ptr @H5A__dense_btree2_corder_compare, ptr @H5A__dense_btree2_corder_encode, ptr @H5A__dense_btree2_corder_decode, ptr @H5A__dense_btree2_corder_debug }], align 16
+@H5A_BT2_CORDER = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1, i64 16, ptr null, ptr null, ptr @H5A__dense_btree2_corder_store, ptr @H5A__dense_btree2_corder_compare, ptr @H5A__dense_btree2_corder_encode, ptr @H5A__dense_btree2_corder_decode, ptr @H5A__dense_btree2_corder_debug }], align 16
+@H5A_init_g = external local_unnamed_addr global i8, align 1
+@H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str.2 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5Abtree2.c\00", align 1
 @__func__.H5A__dense_btree2_name_compare = private unnamed_addr constant [31 x i8] c"H5A__dense_btree2_name_compare\00", align 1
 @H5E_HEAP_g = external local_unnamed_addr global i64, align 8
@@ -26,437 +27,634 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [8 x i8] c"Record:\00", align 1
 @.str.9 = private unnamed_addr constant [28 x i8] c"%*s%-*s {%016lx, %02x, %u}\0A\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_store(ptr noundef writeonly captures(none) initializes((0, 9), (12, 20)) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = load i64, ptr %3, align 8
-  store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %12, ptr %13, align 8
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_name_store(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %4 = trunc nuw i8 %3 to i1
+  %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %6 = trunc nuw i8 %5 to i1
+  %7 = xor i1 %6, true
+  %8 = select i1 %4, i1 true, i1 %7
+  br i1 %8, label %9, label %21, !prof !9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !tbaa !10
+  store i64 %11, ptr %0, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %13 = load i8, ptr %12, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %13, ptr %14, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %16 = load i32, ptr %15, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %16, ptr %17, align 4, !tbaa !22
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load i32, ptr %18, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %19, ptr %20, align 8, !tbaa !24
+  br label %21
+
+21:                                               ; preds = %9, %2
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   %4 = alloca %struct.H5A_fh_ud_cmp_t, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp ult i32 %6, %8
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %3
-  store i32 -1, ptr %2, align 4
-  br label %38
+  %5 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %6 = trunc nuw i8 %5 to i1
+  %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = xor i1 %8, true
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %11, label %46, !prof !9
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i32 %6, %8
-  br i1 %12, label %13, label %14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load i32, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !24
+  %16 = icmp ult i32 %13, %15
+  br i1 %16, label %17, label %18
 
-13:                                               ; preds = %11
-  store i32 1, ptr %2, align 4
-  br label %38
+17:                                               ; preds = %11
+  store i32 -1, ptr %2, align 4, !tbaa !26
+  br label %46
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %0, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, 2
-  %.not = icmp eq i8 %29, 0
-  %.0.in.v = select i1 %.not, i64 8, i64 16
-  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
-  %.0 = load ptr, ptr %.0.in, align 8
-  %30 = call i32 @H5HF_op(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @H5A__dense_fh_name_cmp, ptr noundef nonnull %4) #7
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %36
+18:                                               ; preds = %11
+  %19 = icmp ugt i32 %13, %15
+  br i1 %19, label %20, label %21
 
-32:                                               ; preds = %14
-  %33 = load i64, ptr @H5E_HEAP_g, align 8
-  %34 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
-  %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_btree2_name_compare, i32 noundef 264, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.3) #7
-  br label %38
+20:                                               ; preds = %18
+  store i32 1, ptr %2, align 4, !tbaa !26
+  br label %46
 
-36:                                               ; preds = %14
-  %37 = load i32, ptr %26, align 8
-  store i32 %37, ptr %2, align 4
-  br label %38
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
+  %22 = load ptr, ptr %0, align 8, !tbaa !27
+  store ptr %22, ptr %4, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %24, ptr %25, align 8, !tbaa !32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %1, ptr %26, align 8, !tbaa !33
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %28, ptr %29, align 8, !tbaa !35
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %31, ptr %32, align 8, !tbaa !37
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 0, ptr %33, align 8, !tbaa !38
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %35 = load i8, ptr %34, align 8, !tbaa !19
+  %36 = and i8 %35, 2
+  %.not = icmp eq i8 %36, 0
+  %.022.in.v = select i1 %.not, i64 8, i64 16
+  %.022.in = getelementptr inbounds nuw i8, ptr %0, i64 %.022.in.v
+  %.022 = load ptr, ptr %.022.in, align 8, !tbaa !39
+  %37 = call i32 @H5HF_op(ptr noundef %.022, ptr noundef nonnull %1, ptr noundef nonnull @H5A__dense_fh_name_cmp, ptr noundef nonnull %4) #8
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %10, %36, %13, %32
-  %.020 = phi i32 [ 0, %10 ], [ 0, %13 ], [ -1, %32 ], [ 0, %36 ]
-  ret i32 %.020
+39:                                               ; preds = %21
+  %40 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !40
+  %41 = load i64, ptr @H5E_CANTCOMPARE_g, align 8, !tbaa !40
+  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_btree2_name_compare, i32 noundef 264, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.3) #8
+  br label %45
+
+43:                                               ; preds = %21
+  %44 = load i32, ptr %33, align 8, !tbaa !38
+  store i32 %44, ptr %2, align 4, !tbaa !26
+  br label %45
+
+45:                                               ; preds = %43, %39
+  %.1 = phi i32 [ -1, %39 ], [ 0, %43 ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
+  br label %46
+
+46:                                               ; preds = %45, %3, %17, %20
+  %.024 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %.1, %45 ], [ 0, %3 ]
+  ret i32 %.024
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_encode(ptr noundef writeonly captures(none) initializes((0, 17)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
-  %4 = load i64, ptr %1, align 8
-  store i64 %4, ptr %0, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %7, ptr %5, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = trunc i32 %10 to i8
-  store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 8
-  %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %12, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %17 = load i32, ptr %9, align 4
-  %18 = lshr i32 %17, 16
-  %19 = trunc i32 %18 to i8
-  store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %9, align 4
-  %22 = lshr i32 %21, 24
-  %23 = trunc nuw i32 %22 to i8
-  store i8 %23, ptr %20, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load i32, ptr %25, align 8
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %24, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %29 = load i32, ptr %25, align 8
-  %30 = lshr i32 %29, 8
-  %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %28, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %33 = load i32, ptr %25, align 8
-  %34 = lshr i32 %33, 16
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %32, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i32, ptr %25, align 8
-  %38 = lshr i32 %37, 24
-  %39 = trunc nuw i32 %38 to i8
-  store i8 %39, ptr %36, align 1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_name_encode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
+  %4 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %47, !prof !9
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %1, align 8
+  store i64 %11, ptr %0, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %14, ptr %12, align 1, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %17 = load i32, ptr %16, align 4, !tbaa !22
+  %18 = trunc i32 %17 to i8
+  store i8 %18, ptr %15, align 1, !tbaa !10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %20 = load i32, ptr %16, align 4, !tbaa !22
+  %21 = lshr i32 %20, 8
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %19, align 1, !tbaa !10
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %24 = load i32, ptr %16, align 4, !tbaa !22
+  %25 = lshr i32 %24, 16
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %23, align 1, !tbaa !10
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %28 = load i32, ptr %16, align 4, !tbaa !22
+  %29 = lshr i32 %28, 24
+  %30 = trunc nuw i32 %29 to i8
+  store i8 %30, ptr %27, align 1, !tbaa !10
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %33 = load i32, ptr %32, align 8, !tbaa !24
+  %34 = trunc i32 %33 to i8
+  store i8 %34, ptr %31, align 1, !tbaa !10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %36 = load i32, ptr %32, align 8, !tbaa !24
+  %37 = lshr i32 %36, 8
+  %38 = trunc i32 %37 to i8
+  store i8 %38, ptr %35, align 1, !tbaa !10
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %40 = load i32, ptr %32, align 8, !tbaa !24
+  %41 = lshr i32 %40, 16
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %39, align 1, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i32, ptr %32, align 8, !tbaa !24
+  %45 = lshr i32 %44, 24
+  %46 = trunc nuw i32 %45 to i8
+  store i8 %46, ptr %43, align 1, !tbaa !10
+  br label %47
+
+47:                                               ; preds = %10, %3
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9), (12, 20)) %1, ptr readnone captures(none) %2) #0 {
-  %4 = load i64, ptr %0, align 1
-  store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %7 = load i8, ptr %5, align 1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %7, ptr %8, align 8
-  %9 = load i8, ptr %6, align 1
-  %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 8
-  %16 = or disjoint i32 %15, %10
-  store i32 %16, ptr %11, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = or disjoint i32 %20, %16
-  store i32 %21, ptr %11, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = shl nuw i32 %24, 24
-  %26 = or disjoint i32 %25, %21
-  store i32 %26, ptr %11, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = shl nuw nsw i32 %33, 8
-  %35 = or disjoint i32 %34, %29
-  store i32 %35, ptr %30, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = shl nuw nsw i32 %38, 16
-  %40 = or disjoint i32 %39, %35
-  store i32 %40, ptr %30, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, 24
-  %45 = or disjoint i32 %44, %40
-  store i32 %45, ptr %30, align 8
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_name_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2) #0 {
+  %4 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %53, !prof !9
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %0, align 1
+  store i64 %11, ptr %1, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %14 = load i8, ptr %12, align 1, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 %14, ptr %15, align 8, !tbaa !19
+  %16 = load i8, ptr %13, align 1, !tbaa !10
+  %17 = zext i8 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %17, ptr %18, align 4, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 8
+  %23 = or disjoint i32 %22, %17
+  store i32 %23, ptr %18, align 4, !tbaa !22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %25 = load i8, ptr %24, align 1, !tbaa !10
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw nsw i32 %26, 16
+  %28 = or disjoint i32 %27, %23
+  store i32 %28, ptr %18, align 4, !tbaa !22
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %30 = load i8, ptr %29, align 1, !tbaa !10
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw i32 %31, 24
+  %33 = or disjoint i32 %32, %28
+  store i32 %33, ptr %18, align 4, !tbaa !22
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %35 = load i8, ptr %34, align 1, !tbaa !10
+  %36 = zext i8 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %36, ptr %37, align 8, !tbaa !24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %40 = zext i8 %39 to i32
+  %41 = shl nuw nsw i32 %40, 8
+  %42 = or disjoint i32 %41, %36
+  store i32 %42, ptr %37, align 8, !tbaa !24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %44 = load i8, ptr %43, align 1, !tbaa !10
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw nsw i32 %45, 16
+  %47 = or disjoint i32 %46, %42
+  store i32 %47, ptr %37, align 8, !tbaa !24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load i8, ptr %48, align 1, !tbaa !10
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw i32 %50, 24
+  %52 = or disjoint i32 %51, %47
+  store i32 %52, ptr %37, align 8, !tbaa !24
+  br label %53
+
+53:                                               ; preds = %10, %3
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5A__dense_btree2_name_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #2 {
-  %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8
-  %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i32, ptr %12, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11, i32 noundef %13) #7
+  %6 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %7 = trunc nuw i8 %6 to i1
+  %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %9 = trunc nuw i8 %8 to i1
+  %10 = xor i1 %9, true
+  %11 = select i1 %7, i1 true, i1 %10
+  br i1 %11, label %12, label %22, !prof !9
+
+12:                                               ; preds = %5
+  %13 = load i64, ptr %3, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = load i8, ptr %14, align 8, !tbaa !19
+  %16 = zext i8 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = load i32, ptr %19, align 8, !tbaa !24
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %13, i32 noundef %16, i32 noundef %18, i32 noundef %20) #8
+  br label %22
+
+22:                                               ; preds = %12, %5
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_store(ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %4 = load i64, ptr %3, align 8
-  store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %9, ptr %10, align 4
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_corder_store(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %4 = trunc nuw i8 %3 to i1
+  %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %6 = trunc nuw i8 %5 to i1
+  %7 = xor i1 %6, true
+  %8 = select i1 %4, i1 true, i1 %7
+  br i1 %8, label %9, label %18, !prof !9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !tbaa !10
+  store i64 %11, ptr %0, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %13 = load i8, ptr %12, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %13, ptr %14, align 8, !tbaa !42
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %16 = load i32, ptr %15, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %16, ptr %17, align 4, !tbaa !44
+  br label %18
+
+18:                                               ; preds = %9, %2
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %7 = load i32, ptr %6, align 4
-  %.sink = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
-  store i32 %.sink, ptr %2, align 4
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
+  %4 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %.sink.split, label %14, !prof !9
+
+.sink.split:                                      ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !45
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %.sink = tail call i32 @llvm.ucmp.i32.i32(i32 %11, i32 %13)
+  store i32 %.sink, ptr %2, align 4, !tbaa !26
+  br label %14
+
+14:                                               ; preds = %.sink.split, %3
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr noundef writeonly captures(none) initializes((0, 13)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
-  %4 = load i64, ptr %1, align 8
-  store i64 %4, ptr %0, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %7, ptr %5, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = trunc i32 %10 to i8
-  store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 8
-  %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %12, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %17 = load i32, ptr %9, align 4
-  %18 = lshr i32 %17, 16
-  %19 = trunc i32 %18 to i8
-  store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %9, align 4
-  %22 = lshr i32 %21, 24
-  %23 = trunc nuw i32 %22 to i8
-  store i8 %23, ptr %20, align 1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
+  %4 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %31, !prof !9
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %1, align 8
+  store i64 %11, ptr %0, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !42
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %14, ptr %12, align 1, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %17 = load i32, ptr %16, align 4, !tbaa !44
+  %18 = trunc i32 %17 to i8
+  store i8 %18, ptr %15, align 1, !tbaa !10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %20 = load i32, ptr %16, align 4, !tbaa !44
+  %21 = lshr i32 %20, 8
+  %22 = trunc i32 %21 to i8
+  store i8 %22, ptr %19, align 1, !tbaa !10
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %24 = load i32, ptr %16, align 4, !tbaa !44
+  %25 = lshr i32 %24, 16
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %23, align 1, !tbaa !10
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %28 = load i32, ptr %16, align 4, !tbaa !44
+  %29 = lshr i32 %28, 24
+  %30 = trunc nuw i32 %29 to i8
+  store i8 %30, ptr %27, align 1, !tbaa !10
+  br label %31
+
+31:                                               ; preds = %10, %3
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %1, ptr readnone captures(none) %2) #0 {
-  %4 = load i64, ptr %0, align 1
-  store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %7 = load i8, ptr %5, align 1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %7, ptr %8, align 8
-  %9 = load i8, ptr %6, align 1
-  %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 8
-  %16 = or disjoint i32 %15, %10
-  store i32 %16, ptr %11, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = shl nuw nsw i32 %19, 16
-  %21 = or disjoint i32 %20, %16
-  store i32 %21, ptr %11, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = shl nuw i32 %24, 24
-  %26 = or disjoint i32 %25, %21
-  store i32 %26, ptr %11, align 4
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2) #0 {
+  %4 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %34, !prof !9
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %0, align 1
+  store i64 %11, ptr %1, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %14 = load i8, ptr %12, align 1, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 %14, ptr %15, align 8, !tbaa !42
+  %16 = load i8, ptr %13, align 1, !tbaa !10
+  %17 = zext i8 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %17, ptr %18, align 4, !tbaa !44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 8
+  %23 = or disjoint i32 %22, %17
+  store i32 %23, ptr %18, align 4, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %25 = load i8, ptr %24, align 1, !tbaa !10
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw nsw i32 %26, 16
+  %28 = or disjoint i32 %27, %23
+  store i32 %28, ptr %18, align 4, !tbaa !44
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %30 = load i8, ptr %29, align 1, !tbaa !10
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw i32 %31, 24
+  %33 = or disjoint i32 %32, %28
+  store i32 %33, ptr %18, align 4, !tbaa !44
+  br label %34
+
+34:                                               ; preds = %10, %3
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #2 {
-  %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i8, ptr %7, align 8
-  %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11) #7
+  %6 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %7 = trunc nuw i8 %6 to i1
+  %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %9 = trunc nuw i8 %8 to i1
+  %10 = xor i1 %9, true
+  %11 = select i1 %7, i1 true, i1 %10
+  br i1 %11, label %12, label %20, !prof !9
+
+12:                                               ; preds = %5
+  %13 = load i64, ptr %3, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = load i8, ptr %14, align 8, !tbaa !42
+  %16 = zext i8 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !44
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %13, i32 noundef %16, i32 noundef %18) #8
+  br label %20
+
+20:                                               ; preds = %12, %5
   ret i32 0
 }
 
-declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca i8, align 1
-  store i8 0, ptr %4, align 1
-  %5 = load ptr, ptr %2, align 8
-  %6 = tail call ptr @H5O_msg_decode(ptr noundef %5, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #7
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %46, label %8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  store i8 0, ptr %4, align 1, !tbaa !3
+  %5 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %6 = trunc nuw i8 %5 to i1
+  %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = xor i1 %8, true
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %11, label %62, !prof !9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %14) #8
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %15, ptr %16, align 8
-  %17 = icmp eq i32 %15, 0
-  br i1 %17, label %18, label %50
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %2, align 8, !tbaa !28
+  %13 = tail call ptr @H5O_msg_decode(ptr noundef %12, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %53, label %15
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %50, label %21
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !53
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %21) #9
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %22, ptr %23, align 8, !tbaa !38
+  %24 = icmp eq i32 %22, 0
+  br i1 %24, label %25, label %57
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 2
-  %.not23 = icmp eq i8 %26, 0
-  br i1 %.not23, label %31, label %27
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %57, label %28
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %2, align 8
-  %29 = load i64, ptr %23, align 8
-  %30 = tail call i32 @H5SM_reconstitute(ptr noundef nonnull %6, ptr noundef %28, i32 noundef 12, i64 %29) #7
-  %.pre = load ptr, ptr %22, align 8
-  br label %31
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i8, ptr %31, align 8, !tbaa !19
+  %33 = and i8 %32, 2
+  %.not24 = icmp eq i8 %33, 0
+  br i1 %.not24, label %38, label %34
 
-31:                                               ; preds = %27, %21
-  %32 = phi ptr [ %.pre, %27 ], [ %23, %21 ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store i32 %34, ptr %36, align 8
-  %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 %37(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %39) #7
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %50
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %2, align 8, !tbaa !28
+  %36 = load i64, ptr %30, align 8
+  %37 = tail call i32 @H5SM_reconstitute(ptr noundef nonnull %13, ptr noundef %35, i32 noundef 12, i64 %36) #8
+  %.pre = load ptr, ptr %29, align 8, !tbaa !33
+  %.pre28 = load ptr, ptr %18, align 8, !tbaa !46
+  %.pre29 = load ptr, ptr %26, align 8, !tbaa !35
+  br label %38
 
-42:                                               ; preds = %31
-  %43 = load i64, ptr @H5E_OHDR_g, align 8
-  %44 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 170, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.5) #7
-  br label %50
+38:                                               ; preds = %34, %28
+  %39 = phi ptr [ %.pre29, %34 ], [ %27, %28 ]
+  %40 = phi ptr [ %.pre28, %34 ], [ %19, %28 ]
+  %41 = phi ptr [ %.pre, %34 ], [ %30, %28 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !22
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  store i32 %43, ptr %44, align 8, !tbaa !57
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !37
+  %47 = call i32 %39(ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef %46) #8
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %57
 
-46:                                               ; preds = %3
-  %47 = load i64, ptr @H5E_OHDR_g, align 8
-  %48 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 154, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.4) #7
-  br label %55
+49:                                               ; preds = %38
+  %50 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !40
+  %51 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !40
+  %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 170, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.5) #8
+  br label %57
 
-50:                                               ; preds = %8, %18, %31, %42
-  %.0.ph = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %31 ], [ -1, %42 ]
-  %51 = load i8, ptr %4, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %55, label %53
+53:                                               ; preds = %11
+  %54 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !40
+  %55 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !40
+  %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 154, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.4) #8
+  br label %62
 
-53:                                               ; preds = %50
-  %54 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %6) #7
-  br label %55
+57:                                               ; preds = %15, %25, %38, %49
+  %.1.ph = phi i32 [ 0, %15 ], [ 0, %25 ], [ 0, %38 ], [ -1, %49 ]
+  %58 = load i8, ptr %4, align 1, !tbaa !3, !range !7, !noundef !8
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %62, label %60
 
-55:                                               ; preds = %46, %53, %50
-  %.027 = phi i32 [ %.0.ph, %53 ], [ %.0.ph, %50 ], [ -1, %46 ]
-  ret i32 %.027
+60:                                               ; preds = %57
+  %61 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %13) #8
+  br label %62
+
+62:                                               ; preds = %53, %57, %60, %3
+  %.0 = phi i32 [ %.1.ph, %57 ], [ %.1.ph, %60 ], [ -1, %53 ], [ 0, %3 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  ret i32 %.0
 }
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @H5O_msg_decode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @H5O_msg_decode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @H5SM_reconstitute(ptr noundef, ptr noundef, i32 noundef, i64) local_unnamed_addr #3
+declare i32 @H5SM_reconstitute(ptr noundef, ptr noundef, i32 noundef, i64) local_unnamed_addr #4
 
-declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_Bool", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !5, i64 36}
+!12 = !{!"H5A_bt2_ud_ins_t", !13, i64 0, !5, i64 64}
+!13 = !{!"H5A_bt2_ud_common_t", !14, i64 0, !16, i64 8, !16, i64 16, !17, i64 24, !18, i64 32, !5, i64 36, !18, i64 40, !15, i64 48, !15, i64 56}
+!14 = !{!"p1 _ZTS5H5F_t", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!"p1 _ZTS6H5HF_t", !15, i64 0}
+!17 = !{!"p1 omnipotent char", !15, i64 0}
+!18 = !{!"int", !5, i64 0}
+!19 = !{!20, !5, i64 8}
+!20 = !{!"H5A_dense_bt2_name_rec_t", !5, i64 0, !5, i64 8, !18, i64 12, !18, i64 16}
+!21 = !{!12, !18, i64 40}
+!22 = !{!20, !18, i64 12}
+!23 = !{!12, !18, i64 32}
+!24 = !{!20, !18, i64 16}
+!25 = !{!13, !18, i64 32}
+!26 = !{!18, !18, i64 0}
+!27 = !{!13, !14, i64 0}
+!28 = !{!29, !14, i64 0}
+!29 = !{!"H5A_fh_ud_cmp_t", !14, i64 0, !17, i64 8, !30, i64 16, !15, i64 24, !15, i64 32, !18, i64 40}
+!30 = !{!"p1 _ZTS24H5A_dense_bt2_name_rec_t", !15, i64 0}
+!31 = !{!13, !17, i64 24}
+!32 = !{!29, !17, i64 8}
+!33 = !{!29, !30, i64 16}
+!34 = !{!13, !15, i64 48}
+!35 = !{!29, !15, i64 24}
+!36 = !{!13, !15, i64 56}
+!37 = !{!29, !15, i64 32}
+!38 = !{!29, !18, i64 40}
+!39 = !{!16, !16, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"long", !5, i64 0}
+!42 = !{!43, !5, i64 8}
+!43 = !{!"H5A_dense_bt2_corder_rec_t", !5, i64 0, !5, i64 8, !18, i64 12}
+!44 = !{!43, !18, i64 12}
+!45 = !{!13, !18, i64 40}
+!46 = !{!47, !52, i64 96}
+!47 = !{!"H5A_t", !48, i64 0, !49, i64 40, !4, i64 64, !50, i64 72, !52, i64 96}
+!48 = !{!"H5O_shared_t", !18, i64 0, !14, i64 8, !18, i64 16, !5, i64 24}
+!49 = !{!"H5O_loc_t", !14, i64 0, !41, i64 8, !4, i64 16}
+!50 = !{!"H5G_name_t", !51, i64 0, !51, i64 8, !18, i64 16}
+!51 = !{!"p1 _ZTS10H5RS_str_t", !15, i64 0}
+!52 = !{!"p1 _ZTS12H5A_shared_t", !15, i64 0}
+!53 = !{!54, !17, i64 8}
+!54 = !{!"H5A_shared_t", !5, i64 0, !17, i64 8, !18, i64 16, !55, i64 24, !41, i64 32, !56, i64 40, !41, i64 48, !15, i64 56, !41, i64 64, !18, i64 72, !18, i64 76}
+!55 = !{!"p1 _ZTS5H5T_t", !15, i64 0}
+!56 = !{!"p1 _ZTS5H5S_t", !15, i64 0}
+!57 = !{!54, !18, i64 72}

@@ -3,6 +3,8 @@ source_filename = "bench/hdf5/original/H5HFtiny.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+@H5HF_init_g = external local_unnamed_addr global i8, align 1
+@H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5HFtiny.c\00", align 1
 @__func__.H5HF__tiny_insert = private unnamed_addr constant [18 x i8] c"H5HF__tiny_insert\00", align 1
 @H5E_HEAP_g = external local_unnamed_addr global i64, align 8
@@ -16,85 +18,105 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5HF__tiny_op_real = private unnamed_addr constant [19 x i8] c"H5HF__tiny_op_real\00", align 1
 @.str.3 = private unnamed_addr constant [30 x i8] c"application's callback failed\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_init(ptr noundef captures(none) initializes((688, 697)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load i32, ptr %2, align 8
-  %4 = add i32 %3, -1
-  %5 = icmp ugt i32 %4, 16
-  %.not = icmp eq i32 %4, 17
-  %6 = add i32 %3, -2
-  %spec.select = select i1 %.not, i32 16, i32 %6
-  %.sink11.shrunk = select i1 %5, i32 %spec.select, i32 %4
-  %narrow = icmp ugt i32 %4, 17
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @H5HF__tiny_init(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %3 = trunc nuw i8 %2 to i1
+  %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %5 = trunc nuw i8 %4 to i1
+  %6 = xor i1 %5, true
+  %7 = select i1 %3, i1 true, i1 %6
+  br i1 %7, label %.sink.split, label %15, !prof !9
+
+.sink.split:                                      ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %9 = load i32, ptr %8, align 8, !tbaa !10
+  %10 = add i32 %9, -1
+  %11 = icmp ugt i32 %10, 16
+  %.not = icmp eq i32 %10, 17
+  %12 = add i32 %9, -2
+  %spec.select = select i1 %.not, i32 16, i32 %12
+  %.sink11.shrunk = select i1 %11, i32 %spec.select, i32 %10
+  %narrow = icmp ugt i32 %10, 17
   %.sink = zext i1 %narrow to i8
   %.sink11 = zext i32 %.sink11.shrunk to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i64 %.sink11, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store i8 %.sink, ptr %8, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  store i64 %.sink11, ptr %13, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store i8 %.sink, ptr %14, align 8, !tbaa !34
+  br label %15
+
+15:                                               ; preds = %.sink.split, %1
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
-  %5 = add i64 %1, -1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %11, label %9
-
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  br label %16
+  %5 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %6 = trunc nuw i8 %5 to i1
+  %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = xor i1 %8, true
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %11, label %44, !prof !9
 
 11:                                               ; preds = %4
-  %12 = lshr i64 %5, 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %14 = trunc i64 %5 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %14, ptr %13, align 1
-  br label %16
+  %12 = add i64 %1, -1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %14 = load i8, ptr %13, align 8, !tbaa !34, !range !7, !noundef !8
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %18, label %16
 
-16:                                               ; preds = %11, %9
-  %.sink.in.in.in = phi i64 [ %12, %11 ], [ %5, %9 ]
-  %.022 = phi ptr [ %15, %11 ], [ %10, %9 ]
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  br label %23
+
+18:                                               ; preds = %11
+  %19 = lshr i64 %12, 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %21 = trunc i64 %12 to i8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 %21, ptr %20, align 1, !tbaa !35
+  br label %23
+
+23:                                               ; preds = %18, %16
+  %.sink.in.in.in = phi i64 [ %19, %18 ], [ %12, %16 ]
+  %.022 = phi ptr [ %22, %18 ], [ %17, %16 ]
   %.sink.in.in = trunc i64 %.sink.in.in.in to i8
   %.sink.in = and i8 %.sink.in.in, 15
   %.sink = or disjoint i8 %.sink.in, 32
-  store i8 %.sink, ptr %3, align 1
+  store i8 %.sink, ptr %3, align 1, !tbaa !35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.022, ptr align 1 %2, i64 %1, i1 false)
-  %17 = getelementptr inbounds i8, ptr %.022, i64 %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  %21 = load i8, ptr %6, align 8
-  %22 = and i8 %21, 1
-  %narrow = add nuw nsw i8 %22, 1
-  %23 = zext nneg i8 %narrow to i64
-  %24 = add i64 %1, %23
-  %25 = sub i64 %20, %24
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %25, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %1
-  store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %30 = load i64, ptr %29, align 8
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8
-  %32 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %38
+  %24 = getelementptr inbounds nuw i8, ptr %.022, i64 %1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %26 = load i32, ptr %25, align 8, !tbaa !10
+  %27 = zext i32 %26 to i64
+  %28 = load i8, ptr %13, align 8, !tbaa !34, !range !7, !noundef !8
+  %narrow = add nuw nsw i8 %28, 1
+  %29 = zext nneg i8 %narrow to i64
+  %30 = add i64 %1, %29
+  %31 = sub i64 %27, %30
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %31, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %33 = load i64, ptr %32, align 8, !tbaa !36
+  %34 = add i64 %33, %1
+  store i64 %34, ptr %32, align 8, !tbaa !36
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %36 = load i64, ptr %35, align 8, !tbaa !37
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8, !tbaa !37
+  %38 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %44
 
-34:                                               ; preds = %16
-  %35 = load i64, ptr @H5E_HEAP_g, align 8
-  %36 = load i64, ptr @H5E_CANTDIRTY_g, align 8
-  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_insert, i32 noundef 163, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.1) #5
-  br label %38
+40:                                               ; preds = %23
+  %41 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %42 = load i64, ptr @H5E_CANTDIRTY_g, align 8, !tbaa !38
+  %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_insert, i32 noundef 163, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.1) #5
+  br label %44
 
-38:                                               ; preds = %16, %34
-  %.0 = phi i32 [ -1, %34 ], [ 0, %16 ]
+44:                                               ; preds = %40, %23, %4
+  %.0 = phi i32 [ -1, %40 ], [ 0, %23 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -108,69 +130,90 @@ declare i32 @H5HF__hdr_dirty(ptr noundef) local_unnamed_addr #4
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_get_obj_len(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %10, label %7
-
-7:                                                ; preds = %3
-  %8 = load i8, ptr %1, align 1
-  %9 = and i8 %8, 15
-  br label %13
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @H5HF__tiny_get_obj_len(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+  %4 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %22, !prof !9
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %12 = load i8, ptr %11, align 8, !tbaa !34, !range !7, !noundef !8
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %17, label %14
 
-13:                                               ; preds = %10, %7
-  %.0.in = phi i8 [ %12, %10 ], [ %9, %7 ]
+14:                                               ; preds = %10
+  %15 = load i8, ptr %1, align 1, !tbaa !35
+  %16 = and i8 %15, 15
+  br label %20
+
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !35
+  br label %20
+
+20:                                               ; preds = %17, %14
+  %.0.in = phi i8 [ %19, %17 ], [ %16, %14 ]
   %.0 = zext i8 %.0.in to i64
-  %14 = add nuw nsw i64 %.0, 1
-  store i64 %14, ptr %2, align 8
+  %21 = add nuw nsw i64 %.0, 1
+  store i64 %21, ptr %2, align 8, !tbaa !38
+  br label %22
+
+22:                                               ; preds = %20, %3
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr i8, ptr %0, i64 696
-  %.val = load i8, ptr %4, align 8
-  %5 = trunc i8 %.val to i1
-  br i1 %5, label %9, label %6
+  %4 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %7 = trunc nuw i8 %6 to i1
+  %8 = xor i1 %7, true
+  %9 = select i1 %5, i1 true, i1 %8
+  br i1 %9, label %10, label %H5HF__tiny_op_real.exit, !prof !9
 
-6:                                                ; preds = %3
-  %7 = load i8, ptr %1, align 1
-  %8 = and i8 %7, 15
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %12 = load i8, ptr %11, align 8, !tbaa !34, !range !7, !noundef !8
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %17, label %14
+
+14:                                               ; preds = %10
+  %15 = load i8, ptr %1, align 1, !tbaa !35
+  %16 = and i8 %15, 15
   br label %H5HF__tiny_get_obj_len.exit.i
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %11 = load i8, ptr %10, align 1
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !35
   br label %H5HF__tiny_get_obj_len.exit.i
 
-H5HF__tiny_get_obj_len.exit.i:                    ; preds = %9, %6
-  %.010.v.i = phi i64 [ 2, %9 ], [ 1, %6 ]
-  %.0.in.i.i = phi i8 [ %11, %9 ], [ %8, %6 ]
+H5HF__tiny_get_obj_len.exit.i:                    ; preds = %17, %14
+  %.010.v.i = phi i64 [ 2, %17 ], [ 1, %14 ]
+  %.0.in.i.i = phi i8 [ %19, %17 ], [ %16, %14 ]
   %.0.i.i = zext i8 %.0.in.i.i to i64
-  %12 = add nuw nsw i64 %.0.i.i, 1
+  %20 = add nuw nsw i64 %.0.i.i, 1
   %.010.i = getelementptr inbounds nuw i8, ptr %1, i64 %.010.v.i
-  %13 = tail call i32 @H5HF__op_read(ptr noundef nonnull %.010.i, i64 noundef %12, ptr noundef %2) #5
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %H5HF__tiny_op_real.exit
+  %21 = tail call i32 @H5HF__op_read(ptr noundef nonnull %.010.i, i64 noundef %20, ptr noundef %2) #5
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %H5HF__tiny_op_real.exit
 
-15:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
-  %16 = load i64, ptr @H5E_HEAP_g, align 8
-  %17 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op_real, i32 noundef 248, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.3) #5
-  %19 = load i64, ptr @H5E_HEAP_g, align 8
-  %20 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_read, i32 noundef 279, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.2) #5
+23:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
+  %24 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %25 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !38
+  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op_real, i32 noundef 248, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.3) #5
+  %27 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %28 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !38
+  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_read, i32 noundef 279, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.2) #5
   br label %H5HF__tiny_op_real.exit
 
-H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %15
-  %.0 = phi i32 [ -1, %15 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
+H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %23, %3
+  %.0 = phi i32 [ -1, %23 ], [ 0, %3 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
   ret i32 %.0
 }
 
@@ -178,99 +221,152 @@ declare i32 @H5HF__op_read(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_op(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr i8, ptr %0, i64 696
-  %.val = load i8, ptr %5, align 8
-  %6 = trunc i8 %.val to i1
-  br i1 %6, label %10, label %7
+  %5 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %6 = trunc nuw i8 %5 to i1
+  %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = xor i1 %8, true
+  %10 = select i1 %6, i1 true, i1 %9
+  br i1 %10, label %11, label %H5HF__tiny_op_real.exit, !prof !9
 
-7:                                                ; preds = %4
-  %8 = load i8, ptr %1, align 1
-  %9 = and i8 %8, 15
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %13 = load i8, ptr %12, align 8, !tbaa !34, !range !7, !noundef !8
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %18, label %15
+
+15:                                               ; preds = %11
+  %16 = load i8, ptr %1, align 1, !tbaa !35
+  %17 = and i8 %16, 15
   br label %H5HF__tiny_get_obj_len.exit.i
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   br label %H5HF__tiny_get_obj_len.exit.i
 
-H5HF__tiny_get_obj_len.exit.i:                    ; preds = %10, %7
-  %.010.v.i = phi i64 [ 2, %10 ], [ 1, %7 ]
-  %.0.in.i.i = phi i8 [ %12, %10 ], [ %9, %7 ]
+H5HF__tiny_get_obj_len.exit.i:                    ; preds = %18, %15
+  %.010.v.i = phi i64 [ 2, %18 ], [ 1, %15 ]
+  %.0.in.i.i = phi i8 [ %20, %18 ], [ %17, %15 ]
   %.0.i.i = zext i8 %.0.in.i.i to i64
-  %13 = add nuw nsw i64 %.0.i.i, 1
+  %21 = add nuw nsw i64 %.0.i.i, 1
   %.010.i = getelementptr inbounds nuw i8, ptr %1, i64 %.010.v.i
-  %14 = tail call i32 %2(ptr noundef nonnull %.010.i, i64 noundef %13, ptr noundef %3) #5
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %H5HF__tiny_op_real.exit
+  %22 = tail call i32 %2(ptr noundef nonnull %.010.i, i64 noundef %21, ptr noundef %3) #5
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %H5HF__tiny_op_real.exit
 
-16:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
-  %17 = load i64, ptr @H5E_HEAP_g, align 8
-  %18 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op_real, i32 noundef 248, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.3) #5
-  %20 = load i64, ptr @H5E_HEAP_g, align 8
-  %21 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op, i32 noundef 310, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.2) #5
+24:                                               ; preds = %H5HF__tiny_get_obj_len.exit.i
+  %25 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %26 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !38
+  %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op_real, i32 noundef 248, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.3) #5
+  %28 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %29 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !38
+  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_op, i32 noundef 310, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #5
   br label %H5HF__tiny_op_real.exit
 
-H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
+H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_len.exit.i, %24, %4
+  %.0 = phi i32 [ -1, %24 ], [ 0, %4 ], [ 0, %H5HF__tiny_get_obj_len.exit.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_remove(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %4 = load i8, ptr %3, align 8
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %9, label %6
-
-6:                                                ; preds = %2
-  %7 = load i8, ptr %1, align 1
-  %8 = and i8 %7, 15
-  br label %H5HF__tiny_get_obj_len.exit
+  %3 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %4 = trunc nuw i8 %3 to i1
+  %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %6 = trunc nuw i8 %5 to i1
+  %7 = xor i1 %6, true
+  %8 = select i1 %4, i1 true, i1 %7
+  br i1 %8, label %9, label %31, !prof !9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %11 = load i8, ptr %10, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %11 = load i8, ptr %10, align 8, !tbaa !34, !range !7, !noundef !8
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %16, label %13
+
+13:                                               ; preds = %9
+  %14 = load i8, ptr %1, align 1, !tbaa !35
+  %15 = and i8 %14, 15
   br label %H5HF__tiny_get_obj_len.exit
 
-H5HF__tiny_get_obj_len.exit:                      ; preds = %6, %9
-  %.0.in.i = phi i8 [ %11, %9 ], [ %8, %6 ]
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !35
+  br label %H5HF__tiny_get_obj_len.exit
+
+H5HF__tiny_get_obj_len.exit:                      ; preds = %13, %16
+  %.0.in.i = phi i8 [ %18, %16 ], [ %15, %13 ]
   %.0.i = zext i8 %.0.in.i to i64
   %.neg = xor i64 %.0.i, -1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, %.neg
-  store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %15, align 8
-  %18 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %20 = load i64, ptr %19, align 8, !tbaa !36
+  %21 = add i64 %20, %.neg
+  store i64 %21, ptr %19, align 8, !tbaa !36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %23 = load i64, ptr %22, align 8, !tbaa !37
+  %24 = add i64 %23, -1
+  store i64 %24, ptr %22, align 8, !tbaa !37
+  %25 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %31
 
-20:                                               ; preds = %H5HF__tiny_get_obj_len.exit
-  %21 = load i64, ptr @H5E_HEAP_g, align 8
-  %22 = load i64, ptr @H5E_CANTDIRTY_g, align 8
-  %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_remove, i32 noundef 349, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.1) #5
-  br label %24
+27:                                               ; preds = %H5HF__tiny_get_obj_len.exit
+  %28 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !38
+  %29 = load i64, ptr @H5E_CANTDIRTY_g, align 8, !tbaa !38
+  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_remove, i32 noundef 349, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.1) #5
+  br label %31
 
-24:                                               ; preds = %H5HF__tiny_get_obj_len.exit, %20
-  %.0 = phi i32 [ -1, %20 ], [ 0, %H5HF__tiny_get_obj_len.exit ]
+31:                                               ; preds = %27, %H5HF__tiny_get_obj_len.exit, %2
+  %.0 = phi i32 [ -1, %27 ], [ 0, %H5HF__tiny_get_obj_len.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_Bool", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!11, !17, i64 248}
+!11 = !{!"H5HF_hdr_t", !12, i64 0, !17, i64 248, !17, i64 252, !4, i64 256, !4, i64 257, !4, i64 258, !4, i64 259, !22, i64 264, !15, i64 376, !15, i64 384, !17, i64 392, !15, i64 400, !15, i64 408, !24, i64 416, !15, i64 488, !17, i64 496, !15, i64 504, !15, i64 512, !15, i64 520, !15, i64 528, !15, i64 536, !15, i64 544, !15, i64 552, !15, i64 560, !15, i64 568, !15, i64 576, !15, i64 584, !17, i64 592, !26, i64 600, !15, i64 608, !4, i64 616, !5, i64 617, !5, i64 618, !28, i64 624, !17, i64 632, !29, i64 640, !30, i64 648, !32, i64 664, !15, i64 672, !5, i64 680, !4, i64 681, !15, i64 688, !4, i64 696, !5, i64 697, !5, i64 698, !4, i64 699}
+!12 = !{!"H5C_cache_entry_t", !13, i64 0, !15, i64 8, !15, i64 16, !14, i64 24, !4, i64 32, !16, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !17, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !17, i64 64, !18, i64 72, !17, i64 80, !17, i64 84, !17, i64 88, !17, i64 92, !17, i64 96, !4, i64 100, !4, i64 101, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !4, i64 152, !17, i64 156, !4, i64 160, !15, i64 168, !20, i64 176, !15, i64 184, !15, i64 192, !17, i64 200, !4, i64 204, !17, i64 208, !17, i64 212, !4, i64 216, !19, i64 224, !19, i64 232, !21, i64 240}
+!13 = !{!"p1 _ZTS5H5C_t", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!"p1 _ZTS11H5C_class_t", !14, i64 0}
+!17 = !{!"int", !5, i64 0}
+!18 = !{!"p2 _ZTS17H5C_cache_entry_t", !14, i64 0}
+!19 = !{!"p1 _ZTS17H5C_cache_entry_t", !14, i64 0}
+!20 = !{!"p1 long", !14, i64 0}
+!21 = !{!"p1 _ZTS14H5C_tag_info_t", !14, i64 0}
+!22 = !{!"H5HF_dtable_t", !23, i64 0, !15, i64 32, !17, i64 40, !17, i64 44, !17, i64 48, !17, i64 52, !17, i64 56, !17, i64 60, !17, i64 64, !15, i64 72, !20, i64 80, !20, i64 88, !20, i64 96, !20, i64 104}
+!23 = !{!"H5HF_dtable_cparam_t", !17, i64 0, !15, i64 8, !15, i64 16, !17, i64 24, !17, i64 28}
+!24 = !{!"H5O_pline_t", !25, i64 0, !17, i64 40, !15, i64 48, !15, i64 56, !27, i64 64}
+!25 = !{!"H5O_shared_t", !17, i64 0, !26, i64 8, !17, i64 16, !5, i64 24}
+!26 = !{!"p1 _ZTS5H5F_t", !14, i64 0}
+!27 = !{!"p1 _ZTS17H5Z_filter_info_t", !14, i64 0}
+!28 = !{!"p1 _ZTS15H5HF_indirect_t", !14, i64 0}
+!29 = !{!"p1 _ZTS6H5FS_t", !14, i64 0}
+!30 = !{!"H5HF_block_iter_t", !4, i64 0, !31, i64 8}
+!31 = !{!"p1 _ZTS16H5HF_block_loc_t", !14, i64 0}
+!32 = !{!"p1 _ZTS6H5B2_t", !14, i64 0}
+!33 = !{!11, !15, i64 688}
+!34 = !{!11, !4, i64 696}
+!35 = !{!5, !5, i64 0}
+!36 = !{!11, !15, i64 552}
+!37 = !{!11, !15, i64 560}
+!38 = !{!15, !15, i64 0}

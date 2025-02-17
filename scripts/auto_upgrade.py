@@ -20,6 +20,7 @@ supported_project = [
     "freetype",
     "git",
     "graphviz",
+    "hdf5",
 ]
 
 modify_only = [
