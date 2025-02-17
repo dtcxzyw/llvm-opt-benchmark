@@ -9,19 +9,19 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @VP8InitRandom(ptr noundef %0, float noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca float, align 4
-  store ptr %0, ptr %3, align 8
-  store float %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.VP8Random, ptr %5, i32 0, i32 2
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store float %1, ptr %4, align 4, !tbaa !7
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.VP8Random, ptr %5, i32 0, i32 2
   %7 = getelementptr inbounds [55 x i32], ptr %6, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 16 @kRandomTable, i64 220, i1 false)
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.VP8Random, ptr %8, i32 0, i32 0
-  store i32 0, ptr %9, align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.VP8Random, ptr %10, i32 0, i32 1
-  store i32 31, ptr %11, align 4
-  %12 = load float, ptr %4, align 4
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.VP8Random, ptr %8, i32 0, i32 0
+  store i32 0, ptr %9, align 4, !tbaa !9
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.VP8Random, ptr %10, i32 0, i32 1
+  store i32 31, ptr %11, align 4, !tbaa !12
+  %12 = load float, ptr %4, align 4, !tbaa !7
   %13 = fpext float %12 to double
   %14 = fcmp olt double %13, 0.000000e+00
   br i1 %14, label %15, label %16
@@ -30,7 +30,7 @@ define hidden void @VP8InitRandom(ptr noundef %0, float noundef %1) #0 {
   br label %27
 
 16:                                               ; preds = %2
-  %17 = load float, ptr %4, align 4
+  %17 = load float, ptr %4, align 4, !tbaa !7
   %18 = fpext float %17 to double
   %19 = fcmp ogt double %18, 1.000000e+00
   br i1 %19, label %20, label %21
@@ -39,7 +39,7 @@ define hidden void @VP8InitRandom(ptr noundef %0, float noundef %1) #0 {
   br label %25
 
 21:                                               ; preds = %16
-  %22 = load float, ptr %4, align 4
+  %22 = load float, ptr %4, align 4, !tbaa !7
   %23 = fmul float 2.560000e+02, %22
   %24 = fptoui float %23 to i32
   br label %25
@@ -50,21 +50,31 @@ define hidden void @VP8InitRandom(ptr noundef %0, float noundef %1) #0 {
 
 27:                                               ; preds = %25, %15
   %28 = phi i32 [ 0, %15 ], [ %26, %25 ]
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.VP8Random, ptr %29, i32 0, i32 3
-  store i32 %28, ptr %30, align 4
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.VP8Random, ptr %29, i32 0, i32 3
+  store i32 %28, ptr %30, align 4, !tbaa !13
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"float", !5, i64 0}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"", !11, i64 0, !11, i64 4, !5, i64 8, !11, i64 228}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!10, !11, i64 4}
+!13 = !{!10, !11, i64 228}

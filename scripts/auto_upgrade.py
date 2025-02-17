@@ -32,6 +32,7 @@ supported_project = [
     "libquic",
     "libsodium",
     "libuv",
+    "libwebp",
 ]
 
 modify_only = [

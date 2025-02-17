@@ -41,35 +41,35 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @PrintWebPError(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str, ptr noundef %6) #3
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.1, i32 noundef %9) #3
-  %11 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str, ptr noundef %6) #5
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %9 = load i32, ptr %4, align 4, !tbaa !9
+  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.1, i32 noundef %9) #5
+  %11 = load i32, ptr %4, align 4, !tbaa !9
   %12 = icmp sge i32 %11, 0
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %4, align 4
+  %14 = load i32, ptr %4, align 4, !tbaa !9
   %15 = icmp sle i32 %14, 7
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %18 = load i32, ptr %4, align 4, !tbaa !9
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [8 x ptr], ptr @kStatusMessages, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.2, ptr noundef %21) #3
+  %21 = load ptr, ptr %20, align 8, !tbaa !4
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.2, ptr noundef %21) #5
   br label %23
 
 23:                                               ; preds = %16, %13, %2
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.3) #3
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.3) #5
   ret void
 }
 
@@ -85,83 +85,97 @@ define hidden i32 @LoadWebP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca %struct.WebPBitstreamFeatures, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call i32 @ImgIoUtilReadFile(ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %18, label %17
-
-17:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %39
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !13
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store ptr %3, ptr %9, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #5
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = load ptr, ptr %7, align 8, !tbaa !13
+  %15 = load ptr, ptr %8, align 8, !tbaa !15
+  %16 = call i32 @ImgIoUtilReadFile(ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %19, label %18
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %9, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %18
-  store ptr %11, ptr %9, align 8
-  br label %22
-
-22:                                               ; preds = %21, %18
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i64, ptr %25, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = call i32 @WebPGetFeatures(ptr noundef %24, i64 noundef %26, ptr noundef %27)
-  store i32 %28, ptr %10, align 4
-  %29 = load i32, ptr %10, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %38
-
-31:                                               ; preds = %22
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %32, align 8
-  call void @WebPFree(ptr noundef %33)
-  %34 = load ptr, ptr %7, align 8
-  store ptr null, ptr %34, align 8
-  %35 = load ptr, ptr %8, align 8
-  store i64 0, ptr %35, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %10, align 4
-  call void @PrintWebPError(ptr noundef %36, i32 noundef %37)
   store i32 0, ptr %5, align 4
-  br label %39
+  store i32 1, ptr %12, align 4
+  br label %40
 
-38:                                               ; preds = %22
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %9, align 8, !tbaa !17
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %19
+  store ptr %11, ptr %9, align 8, !tbaa !17
+  br label %23
+
+23:                                               ; preds = %22, %19
+  %24 = load ptr, ptr %7, align 8, !tbaa !13
+  %25 = load ptr, ptr %24, align 8, !tbaa !4
+  %26 = load ptr, ptr %8, align 8, !tbaa !15
+  %27 = load i64, ptr %26, align 8, !tbaa !19
+  %28 = load ptr, ptr %9, align 8, !tbaa !17
+  %29 = call i32 @WebPGetFeatures(ptr noundef %25, i64 noundef %27, ptr noundef %28)
+  store i32 %29, ptr %10, align 4, !tbaa !9
+  %30 = load i32, ptr %10, align 4, !tbaa !9
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %23
+  %33 = load ptr, ptr %7, align 8, !tbaa !13
+  %34 = load ptr, ptr %33, align 8, !tbaa !4
+  call void @WebPFree(ptr noundef %34)
+  %35 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr null, ptr %35, align 8, !tbaa !4
+  %36 = load ptr, ptr %8, align 8, !tbaa !15
+  store i64 0, ptr %36, align 8, !tbaa !19
+  %37 = load ptr, ptr %6, align 8, !tbaa !4
+  %38 = load i32, ptr %10, align 4, !tbaa !9
+  call void @PrintWebPError(ptr noundef %37, i32 noundef %38)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %40
+
+39:                                               ; preds = %23
   store i32 1, ptr %5, align 4
-  br label %39
+  store i32 1, ptr %12, align 4
+  br label %40
 
-39:                                               ; preds = %38, %31, %17
-  %40 = load i32, ptr %5, align 4
-  ret i32 %40
+40:                                               ; preds = %39, %32, %18
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %41 = load i32, ptr %5, align 4
+  ret i32 %41
 }
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef %7, i64 noundef %8, ptr noundef %9, i32 noundef 521)
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load i64, ptr %5, align 8, !tbaa !19
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef %7, i64 noundef %8, ptr noundef %9, i32 noundef 528)
   ret i32 %10
 }
 
-declare void @WebPFree(ptr noundef) #2
+declare void @WebPFree(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -169,10 +183,10 @@ define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -181,11 +195,11 @@ define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0
   br label %17
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8, !tbaa !21
   call void @PrintAnimationWarning(ptr noundef %12)
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i64, ptr %6, align 8
-  %15 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  %14 = load i64, ptr %6, align 8, !tbaa !19
+  %15 = load ptr, ptr %7, align 8, !tbaa !21
   %16 = call i32 @WebPDecode(ptr noundef %13, i64 noundef %14, ptr noundef %15)
   store i32 %16, ptr %4, align 4
   br label %17
@@ -198,24 +212,24 @@ define hidden i32 @DecodeWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0
 ; Function Attrs: nounwind uwtable
 define internal void @PrintAnimationWarning(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WebPDecoderConfig, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %4, i32 0, i32 3
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = getelementptr inbounds nuw %struct.WebPDecoderConfig, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %4, i32 0, i32 3
+  %6 = load i32, ptr %5, align 4, !tbaa !23
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.16) #3
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.16) #5
   br label %11
 
 11:                                               ; preds = %8, %1
   ret void
 }
 
-declare i32 @WebPDecode(ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @WebPDecode(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @DecodeWebPIncremental(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -224,62 +238,80 @@ define hidden i32 @DecodeWebPIncremental(ptr noundef %0, i64 noundef %1, ptr nou
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 0, ptr %8, align 4
-  %10 = load ptr, ptr %7, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %3
-  store i32 2, ptr %4, align 4
-  br label %32
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !9
+  %11 = load ptr, ptr %7, align 8, !tbaa !21
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %7, align 8
-  call void @PrintAnimationWarning(ptr noundef %14)
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i64, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = call ptr @WebPIDecode(ptr noundef %15, i64 noundef %16, ptr noundef %17)
-  store ptr %18, ptr %9, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %24
+  store i32 2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.4) #3
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %7, align 8, !tbaa !21
+  call void @PrintAnimationWarning(ptr noundef %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = load i64, ptr %6, align 8, !tbaa !19
+  %18 = load ptr, ptr %7, align 8, !tbaa !21
+  %19 = call ptr @WebPIDecode(ptr noundef %16, i64 noundef %17, ptr noundef %18)
+  store ptr %19, ptr %10, align 8, !tbaa !28
+  %20 = load ptr, ptr %10, align 8, !tbaa !28
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %14
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.4) #5
   store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
   br label %32
 
-24:                                               ; preds = %13
-  %25 = load ptr, ptr %9, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i64, ptr %6, align 8
-  %28 = call i32 @WebPIUpdate(ptr noundef %25, ptr noundef %26, i64 noundef %27)
-  store i32 %28, ptr %8, align 4
-  %29 = load ptr, ptr %9, align 8
-  call void @WebPIDelete(ptr noundef %29)
-  br label %30
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %10, align 8, !tbaa !28
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = load i64, ptr %6, align 8, !tbaa !19
+  %29 = call i32 @WebPIUpdate(ptr noundef %26, ptr noundef %27, i64 noundef %28)
+  store i32 %29, ptr %8, align 4, !tbaa !9
+  %30 = load ptr, ptr %10, align 8, !tbaa !28
+  call void @WebPIDelete(ptr noundef %30)
+  br label %31
 
-30:                                               ; preds = %24
-  %31 = load i32, ptr %8, align 4
-  store i32 %31, ptr %4, align 4
+31:                                               ; preds = %25
+  store i32 0, ptr %9, align 4
   br label %32
 
-32:                                               ; preds = %30, %21, %12
-  %33 = load i32, ptr %4, align 4
-  ret i32 %33
+32:                                               ; preds = %31, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %33 = load i32, ptr %9, align 4
+  switch i32 %33, label %36 [
+    i32 0, label %34
+  ]
+
+34:                                               ; preds = %32
+  %35 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %35, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %36
+
+36:                                               ; preds = %34, %32, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %37 = load i32, ptr %4, align 4
+  ret i32 %37
 }
 
-declare ptr @WebPIDecode(ptr noundef, i64 noundef, ptr noundef) #2
+declare ptr @WebPIDecode(ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i32 @WebPIUpdate(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @WebPIUpdate(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare void @WebPIDelete(ptr noundef) #2
+declare void @WebPIDelete(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -295,510 +327,554 @@ define hidden i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
   %20 = alloca i32, align 4
-  %21 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store i64 %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store ptr %4, ptr %11, align 8
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %13, align 4
-  %22 = getelementptr inbounds %struct.WebPDecoderConfig, ptr %14, i32 0, i32 1
-  store ptr %22, ptr %15, align 8
-  %23 = getelementptr inbounds %struct.WebPDecoderConfig, ptr %14, i32 0, i32 0
-  store ptr %23, ptr %16, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %32, label %26
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store i64 %1, ptr %8, align 8, !tbaa !19
+  store ptr %2, ptr %9, align 8, !tbaa !30
+  store i32 %3, ptr %10, align 4, !tbaa !9
+  store ptr %4, ptr %11, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 0, ptr %12, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 0, ptr %13, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 240, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %23 = getelementptr inbounds nuw %struct.WebPDecoderConfig, ptr %14, i32 0, i32 1
+  store ptr %23, ptr %15, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %24 = getelementptr inbounds nuw %struct.WebPDecoderConfig, ptr %14, i32 0, i32 0
+  store ptr %24, ptr %16, align 8, !tbaa !17
+  %25 = load ptr, ptr %7, align 8, !tbaa !4
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %33, label %27
 
-26:                                               ; preds = %5
-  %27 = load i64, ptr %8, align 8
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %32, label %29
+27:                                               ; preds = %5
+  %28 = load i64, ptr %8, align 8, !tbaa !19
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %33, label %30
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %9, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %9, align 8, !tbaa !30
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %29, %26, %5
+33:                                               ; preds = %30, %27, %5
   store i32 0, ptr %6, align 4
-  br label %346
+  store i32 1, ptr %17, align 4
+  br label %351
 
-33:                                               ; preds = %29
-  %34 = call i32 @WebPInitDecoderConfig(ptr noundef %14)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %39, label %36
+34:                                               ; preds = %30
+  %35 = call i32 @WebPInitDecoderConfig(ptr noundef %14)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %40, label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.5) #3
+37:                                               ; preds = %34
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.5) #5
   store i32 0, ptr %6, align 4
-  br label %346
+  store i32 1, ptr %17, align 4
+  br label %351
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i64, ptr %8, align 8
-  %42 = load ptr, ptr %16, align 8
-  %43 = call i32 @WebPGetFeatures(ptr noundef %40, i64 noundef %41, ptr noundef %42)
-  store i32 %43, ptr %13, align 4
-  %44 = load i32, ptr %13, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %48
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %7, align 8, !tbaa !4
+  %42 = load i64, ptr %8, align 8, !tbaa !19
+  %43 = load ptr, ptr %16, align 8, !tbaa !17
+  %44 = call i32 @WebPGetFeatures(ptr noundef %41, i64 noundef %42, ptr noundef %43)
+  store i32 %44, ptr %13, align 4, !tbaa !9
+  %45 = load i32, ptr %13, align 4, !tbaa !9
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %39
-  %47 = load i32, ptr %13, align 4
-  call void @PrintWebPError(ptr noundef @.str.6, i32 noundef %47)
+47:                                               ; preds = %40
+  %48 = load i32, ptr %13, align 4, !tbaa !9
+  call void @PrintWebPError(ptr noundef @.str.6, i32 noundef %48)
   store i32 0, ptr %6, align 4
-  br label %346
+  store i32 1, ptr %17, align 4
+  br label %351
 
-48:                                               ; preds = %39
-  br label %49
+49:                                               ; preds = %40
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %10, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %57
+50:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %51 = load i32, ptr %10, align 4, !tbaa !9
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %16, align 8
-  %54 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %53, i32 0, i32 2
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp ne i32 %55, 0
-  br label %57
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %16, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %54, i32 0, i32 2
+  %56 = load i32, ptr %55, align 4, !tbaa !36
+  %57 = icmp ne i32 %56, 0
+  br label %58
 
-57:                                               ; preds = %52, %49
-  %58 = phi i1 [ false, %49 ], [ %56, %52 ]
-  %59 = zext i1 %58 to i32
-  store i32 %59, ptr %17, align 4
-  %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 4
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds %struct.WebPPicture, ptr %63, i32 0, i32 2
-  store i32 %62, ptr %64, align 8
-  %65 = load ptr, ptr %16, align 8
-  %66 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %65, i32 0, i32 1
-  %67 = load i32, ptr %66, align 4
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds %struct.WebPPicture, ptr %68, i32 0, i32 3
-  store i32 %67, ptr %69, align 4
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.WebPPicture, ptr %70, i32 0, i32 0
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %80
+58:                                               ; preds = %53, %50
+  %59 = phi i1 [ false, %50 ], [ %57, %53 ]
+  %60 = zext i1 %59 to i32
+  store i32 %60, ptr %18, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %61 = load ptr, ptr %16, align 8, !tbaa !17
+  %62 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 4, !tbaa !37
+  %64 = load ptr, ptr %9, align 8, !tbaa !30
+  %65 = getelementptr inbounds nuw %struct.WebPPicture, ptr %64, i32 0, i32 2
+  store i32 %63, ptr %65, align 8, !tbaa !38
+  %66 = load ptr, ptr %16, align 8, !tbaa !17
+  %67 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %66, i32 0, i32 1
+  %68 = load i32, ptr %67, align 4, !tbaa !42
+  %69 = load ptr, ptr %9, align 8, !tbaa !30
+  %70 = getelementptr inbounds nuw %struct.WebPPicture, ptr %69, i32 0, i32 3
+  store i32 %68, ptr %70, align 4, !tbaa !43
+  %71 = load ptr, ptr %9, align 8, !tbaa !30
+  %72 = getelementptr inbounds nuw %struct.WebPPicture, ptr %71, i32 0, i32 0
+  %73 = load i32, ptr %72, align 8, !tbaa !44
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %81
 
-74:                                               ; preds = %57
-  %75 = load ptr, ptr %16, align 8
-  %76 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  %79 = mul i64 %78, 4
-  store i64 %79, ptr %18, align 8
-  br label %96
+75:                                               ; preds = %58
+  %76 = load ptr, ptr %16, align 8, !tbaa !17
+  %77 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4, !tbaa !37
+  %79 = sext i32 %78 to i64
+  %80 = mul i64 %79, 4
+  store i64 %80, ptr %19, align 8, !tbaa !19
+  br label %97
 
-80:                                               ; preds = %57
-  %81 = load ptr, ptr %16, align 8
-  %82 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 4
-  %84 = sext i32 %83 to i64
-  %85 = load i32, ptr %17, align 4
-  %86 = icmp ne i32 %85, 0
-  %87 = select i1 %86, i32 5, i32 3
-  %88 = sext i32 %87 to i64
-  %89 = mul i64 %84, %88
-  %90 = udiv i64 %89, 2
-  store i64 %90, ptr %18, align 8
-  %91 = load i32, ptr %17, align 4
-  %92 = icmp ne i32 %91, 0
-  %93 = select i1 %92, i32 4, i32 0
-  %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds %struct.WebPPicture, ptr %94, i32 0, i32 1
-  store i32 %93, ptr %95, align 4
-  br label %96
+81:                                               ; preds = %58
+  %82 = load ptr, ptr %16, align 8, !tbaa !17
+  %83 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 4, !tbaa !37
+  %85 = sext i32 %84 to i64
+  %86 = load i32, ptr %18, align 4, !tbaa !9
+  %87 = icmp ne i32 %86, 0
+  %88 = select i1 %87, i32 5, i32 3
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 %85, %89
+  %91 = udiv i64 %90, 2
+  store i64 %91, ptr %19, align 8, !tbaa !19
+  %92 = load i32, ptr %18, align 4, !tbaa !9
+  %93 = icmp ne i32 %92, 0
+  %94 = select i1 %93, i32 4, i32 0
+  %95 = load ptr, ptr %9, align 8, !tbaa !30
+  %96 = getelementptr inbounds nuw %struct.WebPPicture, ptr %95, i32 0, i32 1
+  store i32 %94, ptr %96, align 4, !tbaa !45
+  br label %97
 
-96:                                               ; preds = %80, %74
-  %97 = load i64, ptr %18, align 8
-  %98 = load ptr, ptr %16, align 8
-  %99 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = call i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef %97, i64 noundef %101)
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %105, label %104
+97:                                               ; preds = %81, %75
+  %98 = load i64, ptr %19, align 8, !tbaa !19
+  %99 = load ptr, ptr %16, align 8, !tbaa !17
+  %100 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 4, !tbaa !42
+  %102 = sext i32 %101 to i64
+  %103 = call i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef %98, i64 noundef %102)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %106, label %105
 
-104:                                              ; preds = %96
-  store i32 1, ptr %13, align 4
+105:                                              ; preds = %97
+  store i32 1, ptr %13, align 4, !tbaa !9
+  store i32 2, ptr %17, align 4
+  br label %319
+
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %9, align 8, !tbaa !30
+  %108 = call i32 @WebPPictureAlloc(ptr noundef %107)
+  store i32 %108, ptr %12, align 4, !tbaa !9
+  %109 = load i32, ptr %12, align 4, !tbaa !9
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %112, label %111
+
+111:                                              ; preds = %106
+  store i32 1, ptr %13, align 4, !tbaa !9
+  store i32 2, ptr %17, align 4
+  br label %319
+
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %9, align 8, !tbaa !30
+  %114 = getelementptr inbounds nuw %struct.WebPPicture, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8, !tbaa !44
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %147
+
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %15, align 8, !tbaa !34
+  %119 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %118, i32 0, i32 0
+  store i32 3, ptr %119, align 8, !tbaa !46
+  %120 = load ptr, ptr %9, align 8, !tbaa !30
+  %121 = getelementptr inbounds nuw %struct.WebPPicture, ptr %120, i32 0, i32 12
+  %122 = load ptr, ptr %121, align 8, !tbaa !47
+  %123 = load ptr, ptr %15, align 8, !tbaa !34
+  %124 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %123, i32 0, i32 4
+  %125 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %124, i32 0, i32 0
+  store ptr %122, ptr %125, align 8, !tbaa !48
+  %126 = load ptr, ptr %9, align 8, !tbaa !30
+  %127 = getelementptr inbounds nuw %struct.WebPPicture, ptr %126, i32 0, i32 13
+  %128 = load i32, ptr %127, align 8, !tbaa !49
+  %129 = sext i32 %128 to i64
+  %130 = mul i64 %129, 4
+  %131 = trunc i64 %130 to i32
+  %132 = load ptr, ptr %15, align 8, !tbaa !34
+  %133 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %132, i32 0, i32 4
+  %134 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %133, i32 0, i32 1
+  store i32 %131, ptr %134, align 8, !tbaa !48
+  %135 = load ptr, ptr %15, align 8, !tbaa !34
+  %136 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %135, i32 0, i32 4
+  %137 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %136, i32 0, i32 1
+  %138 = load i32, ptr %137, align 8, !tbaa !48
+  %139 = load ptr, ptr %9, align 8, !tbaa !30
+  %140 = getelementptr inbounds nuw %struct.WebPPicture, ptr %139, i32 0, i32 3
+  %141 = load i32, ptr %140, align 4, !tbaa !43
+  %142 = mul nsw i32 %138, %141
+  %143 = sext i32 %142 to i64
+  %144 = load ptr, ptr %15, align 8, !tbaa !34
+  %145 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %144, i32 0, i32 4
+  %146 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %145, i32 0, i32 2
+  store i64 %143, ptr %146, align 8, !tbaa !48
+  br label %261
+
+147:                                              ; preds = %112
+  %148 = load i32, ptr %18, align 4, !tbaa !9
+  %149 = icmp ne i32 %148, 0
+  %150 = select i1 %149, i32 12, i32 11
+  %151 = load ptr, ptr %15, align 8, !tbaa !34
+  %152 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %151, i32 0, i32 0
+  store i32 %150, ptr %152, align 8, !tbaa !46
+  %153 = load ptr, ptr %9, align 8, !tbaa !30
+  %154 = getelementptr inbounds nuw %struct.WebPPicture, ptr %153, i32 0, i32 4
+  %155 = load ptr, ptr %154, align 8, !tbaa !50
+  %156 = load ptr, ptr %15, align 8, !tbaa !34
+  %157 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %156, i32 0, i32 4
+  %158 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %157, i32 0, i32 0
+  store ptr %155, ptr %158, align 8, !tbaa !48
+  %159 = load ptr, ptr %9, align 8, !tbaa !30
+  %160 = getelementptr inbounds nuw %struct.WebPPicture, ptr %159, i32 0, i32 5
+  %161 = load ptr, ptr %160, align 8, !tbaa !51
+  %162 = load ptr, ptr %15, align 8, !tbaa !34
+  %163 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %162, i32 0, i32 4
+  %164 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %163, i32 0, i32 1
+  store ptr %161, ptr %164, align 8, !tbaa !48
+  %165 = load ptr, ptr %9, align 8, !tbaa !30
+  %166 = getelementptr inbounds nuw %struct.WebPPicture, ptr %165, i32 0, i32 6
+  %167 = load ptr, ptr %166, align 8, !tbaa !52
+  %168 = load ptr, ptr %15, align 8, !tbaa !34
+  %169 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %168, i32 0, i32 4
+  %170 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %169, i32 0, i32 2
+  store ptr %167, ptr %170, align 8, !tbaa !48
+  %171 = load i32, ptr %18, align 4, !tbaa !9
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %177
+
+173:                                              ; preds = %147
+  %174 = load ptr, ptr %9, align 8, !tbaa !30
+  %175 = getelementptr inbounds nuw %struct.WebPPicture, ptr %174, i32 0, i32 9
+  %176 = load ptr, ptr %175, align 8, !tbaa !53
+  br label %178
+
+177:                                              ; preds = %147
+  br label %178
+
+178:                                              ; preds = %177, %173
+  %179 = phi ptr [ %176, %173 ], [ null, %177 ]
+  %180 = load ptr, ptr %15, align 8, !tbaa !34
+  %181 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %180, i32 0, i32 4
+  %182 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %181, i32 0, i32 3
+  store ptr %179, ptr %182, align 8, !tbaa !48
+  %183 = load ptr, ptr %9, align 8, !tbaa !30
+  %184 = getelementptr inbounds nuw %struct.WebPPicture, ptr %183, i32 0, i32 7
+  %185 = load i32, ptr %184, align 8, !tbaa !54
+  %186 = load ptr, ptr %15, align 8, !tbaa !34
+  %187 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %186, i32 0, i32 4
+  %188 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %187, i32 0, i32 4
+  store i32 %185, ptr %188, align 8, !tbaa !48
+  %189 = load ptr, ptr %9, align 8, !tbaa !30
+  %190 = getelementptr inbounds nuw %struct.WebPPicture, ptr %189, i32 0, i32 8
+  %191 = load i32, ptr %190, align 4, !tbaa !55
+  %192 = load ptr, ptr %15, align 8, !tbaa !34
+  %193 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %192, i32 0, i32 4
+  %194 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %193, i32 0, i32 5
+  store i32 %191, ptr %194, align 4, !tbaa !48
+  %195 = load ptr, ptr %9, align 8, !tbaa !30
+  %196 = getelementptr inbounds nuw %struct.WebPPicture, ptr %195, i32 0, i32 8
+  %197 = load i32, ptr %196, align 4, !tbaa !55
+  %198 = load ptr, ptr %15, align 8, !tbaa !34
+  %199 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %198, i32 0, i32 4
+  %200 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %199, i32 0, i32 6
+  store i32 %197, ptr %200, align 8, !tbaa !48
+  %201 = load i32, ptr %18, align 4, !tbaa !9
+  %202 = icmp ne i32 %201, 0
+  br i1 %202, label %203, label %207
+
+203:                                              ; preds = %178
+  %204 = load ptr, ptr %9, align 8, !tbaa !30
+  %205 = getelementptr inbounds nuw %struct.WebPPicture, ptr %204, i32 0, i32 10
+  %206 = load i32, ptr %205, align 8, !tbaa !56
+  br label %208
+
+207:                                              ; preds = %178
+  br label %208
+
+208:                                              ; preds = %207, %203
+  %209 = phi i32 [ %206, %203 ], [ 0, %207 ]
+  %210 = load ptr, ptr %15, align 8, !tbaa !34
+  %211 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %210, i32 0, i32 4
+  %212 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %211, i32 0, i32 7
+  store i32 %209, ptr %212, align 4, !tbaa !48
+  %213 = load ptr, ptr %9, align 8, !tbaa !30
+  %214 = getelementptr inbounds nuw %struct.WebPPicture, ptr %213, i32 0, i32 3
+  %215 = load i32, ptr %214, align 4, !tbaa !43
+  %216 = load ptr, ptr %9, align 8, !tbaa !30
+  %217 = getelementptr inbounds nuw %struct.WebPPicture, ptr %216, i32 0, i32 7
+  %218 = load i32, ptr %217, align 8, !tbaa !54
+  %219 = mul nsw i32 %215, %218
+  %220 = sext i32 %219 to i64
+  %221 = load ptr, ptr %15, align 8, !tbaa !34
+  %222 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %221, i32 0, i32 4
+  %223 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %222, i32 0, i32 8
+  store i64 %220, ptr %223, align 8, !tbaa !48
+  %224 = load ptr, ptr %9, align 8, !tbaa !30
+  %225 = getelementptr inbounds nuw %struct.WebPPicture, ptr %224, i32 0, i32 3
+  %226 = load i32, ptr %225, align 4, !tbaa !43
+  %227 = add nsw i32 %226, 1
+  %228 = sdiv i32 %227, 2
+  %229 = load ptr, ptr %9, align 8, !tbaa !30
+  %230 = getelementptr inbounds nuw %struct.WebPPicture, ptr %229, i32 0, i32 8
+  %231 = load i32, ptr %230, align 4, !tbaa !55
+  %232 = mul nsw i32 %228, %231
+  %233 = sext i32 %232 to i64
+  %234 = load ptr, ptr %15, align 8, !tbaa !34
+  %235 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %234, i32 0, i32 4
+  %236 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %235, i32 0, i32 9
+  store i64 %233, ptr %236, align 8, !tbaa !48
+  %237 = load ptr, ptr %9, align 8, !tbaa !30
+  %238 = getelementptr inbounds nuw %struct.WebPPicture, ptr %237, i32 0, i32 3
+  %239 = load i32, ptr %238, align 4, !tbaa !43
+  %240 = add nsw i32 %239, 1
+  %241 = sdiv i32 %240, 2
+  %242 = load ptr, ptr %9, align 8, !tbaa !30
+  %243 = getelementptr inbounds nuw %struct.WebPPicture, ptr %242, i32 0, i32 8
+  %244 = load i32, ptr %243, align 4, !tbaa !55
+  %245 = mul nsw i32 %241, %244
+  %246 = sext i32 %245 to i64
+  %247 = load ptr, ptr %15, align 8, !tbaa !34
+  %248 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %247, i32 0, i32 4
+  %249 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %248, i32 0, i32 10
+  store i64 %246, ptr %249, align 8, !tbaa !48
+  %250 = load ptr, ptr %9, align 8, !tbaa !30
+  %251 = getelementptr inbounds nuw %struct.WebPPicture, ptr %250, i32 0, i32 3
+  %252 = load i32, ptr %251, align 4, !tbaa !43
+  %253 = load ptr, ptr %9, align 8, !tbaa !30
+  %254 = getelementptr inbounds nuw %struct.WebPPicture, ptr %253, i32 0, i32 10
+  %255 = load i32, ptr %254, align 8, !tbaa !56
+  %256 = mul nsw i32 %252, %255
+  %257 = sext i32 %256 to i64
+  %258 = load ptr, ptr %15, align 8, !tbaa !34
+  %259 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %258, i32 0, i32 4
+  %260 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %259, i32 0, i32 11
+  store i64 %257, ptr %260, align 8, !tbaa !48
+  br label %261
+
+261:                                              ; preds = %208, %117
+  %262 = load ptr, ptr %15, align 8, !tbaa !34
+  %263 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %262, i32 0, i32 3
+  store i32 1, ptr %263, align 4, !tbaa !57
+  %264 = load ptr, ptr %7, align 8, !tbaa !4
+  %265 = load i64, ptr %8, align 8, !tbaa !19
+  %266 = call i32 @DecodeWebP(ptr noundef %264, i64 noundef %265, ptr noundef %14)
+  store i32 %266, ptr %13, align 4, !tbaa !9
+  %267 = load i32, ptr %13, align 4, !tbaa !9
+  %268 = icmp eq i32 %267, 0
+  %269 = zext i1 %268 to i32
+  store i32 %269, ptr %12, align 4, !tbaa !9
+  %270 = load i32, ptr %12, align 4, !tbaa !9
+  %271 = icmp ne i32 %270, 0
+  br i1 %271, label %272, label %318
+
+272:                                              ; preds = %261
+  %273 = load i32, ptr %10, align 4, !tbaa !9
+  %274 = icmp ne i32 %273, 0
+  br i1 %274, label %318, label %275
+
+275:                                              ; preds = %272
+  %276 = load ptr, ptr %9, align 8, !tbaa !30
+  %277 = getelementptr inbounds nuw %struct.WebPPicture, ptr %276, i32 0, i32 0
+  %278 = load i32, ptr %277, align 8, !tbaa !44
+  %279 = icmp ne i32 %278, 0
+  br i1 %279, label %280, label %318
+
+280:                                              ; preds = %275
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %281 = load ptr, ptr %9, align 8, !tbaa !30
+  %282 = getelementptr inbounds nuw %struct.WebPPicture, ptr %281, i32 0, i32 12
+  %283 = load ptr, ptr %282, align 8, !tbaa !47
+  store ptr %283, ptr %22, align 8, !tbaa !58
+  store i32 0, ptr %21, align 4, !tbaa !9
+  br label %284
+
+284:                                              ; preds = %314, %280
+  %285 = load i32, ptr %21, align 4, !tbaa !9
+  %286 = load ptr, ptr %9, align 8, !tbaa !30
+  %287 = getelementptr inbounds nuw %struct.WebPPicture, ptr %286, i32 0, i32 3
+  %288 = load i32, ptr %287, align 4, !tbaa !43
+  %289 = icmp slt i32 %285, %288
+  br i1 %289, label %290, label %317
+
+290:                                              ; preds = %284
+  store i32 0, ptr %20, align 4, !tbaa !9
+  br label %291
+
+291:                                              ; preds = %304, %290
+  %292 = load i32, ptr %20, align 4, !tbaa !9
+  %293 = load ptr, ptr %9, align 8, !tbaa !30
+  %294 = getelementptr inbounds nuw %struct.WebPPicture, ptr %293, i32 0, i32 2
+  %295 = load i32, ptr %294, align 8, !tbaa !38
+  %296 = icmp slt i32 %292, %295
+  br i1 %296, label %297, label %307
+
+297:                                              ; preds = %291
+  %298 = load ptr, ptr %22, align 8, !tbaa !58
+  %299 = load i32, ptr %20, align 4, !tbaa !9
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds i32, ptr %298, i64 %300
+  %302 = load i32, ptr %301, align 4, !tbaa !9
+  %303 = or i32 %302, -16777216
+  store i32 %303, ptr %301, align 4, !tbaa !9
+  br label %304
+
+304:                                              ; preds = %297
+  %305 = load i32, ptr %20, align 4, !tbaa !9
+  %306 = add nsw i32 %305, 1
+  store i32 %306, ptr %20, align 4, !tbaa !9
+  br label %291, !llvm.loop !59
+
+307:                                              ; preds = %291
+  %308 = load ptr, ptr %9, align 8, !tbaa !30
+  %309 = getelementptr inbounds nuw %struct.WebPPicture, ptr %308, i32 0, i32 13
+  %310 = load i32, ptr %309, align 8, !tbaa !49
+  %311 = load ptr, ptr %22, align 8, !tbaa !58
+  %312 = sext i32 %310 to i64
+  %313 = getelementptr inbounds i32, ptr %311, i64 %312
+  store ptr %313, ptr %22, align 8, !tbaa !58
+  br label %314
+
+314:                                              ; preds = %307
+  %315 = load i32, ptr %21, align 4, !tbaa !9
+  %316 = add nsw i32 %315, 1
+  store i32 %316, ptr %21, align 4, !tbaa !9
+  br label %284, !llvm.loop !61
+
+317:                                              ; preds = %284
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
   br label %318
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr %9, align 8
-  %107 = call i32 @WebPPictureAlloc(ptr noundef %106)
-  store i32 %107, ptr %12, align 4
-  %108 = load i32, ptr %12, align 4
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %111, label %110
+318:                                              ; preds = %317, %275, %272, %261
+  store i32 0, ptr %17, align 4
+  br label %319
 
-110:                                              ; preds = %105
-  store i32 1, ptr %13, align 4
-  br label %318
+319:                                              ; preds = %318, %111, %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  %320 = load i32, ptr %17, align 4
+  switch i32 %320, label %353 [
+    i32 0, label %321
+    i32 2, label %323
+  ]
 
-111:                                              ; preds = %105
-  %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct.WebPPicture, ptr %112, i32 0, i32 0
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %146
+321:                                              ; preds = %319
+  br label %322
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %15, align 8
-  %118 = getelementptr inbounds %struct.WebPDecBuffer, ptr %117, i32 0, i32 0
-  store i32 3, ptr %118, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr inbounds %struct.WebPPicture, ptr %119, i32 0, i32 12
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds %struct.WebPDecBuffer, ptr %122, i32 0, i32 4
-  %124 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %123, i32 0, i32 0
-  store ptr %121, ptr %124, align 8
-  %125 = load ptr, ptr %9, align 8
-  %126 = getelementptr inbounds %struct.WebPPicture, ptr %125, i32 0, i32 13
-  %127 = load i32, ptr %126, align 8
-  %128 = sext i32 %127 to i64
-  %129 = mul i64 %128, 4
-  %130 = trunc i64 %129 to i32
-  %131 = load ptr, ptr %15, align 8
-  %132 = getelementptr inbounds %struct.WebPDecBuffer, ptr %131, i32 0, i32 4
-  %133 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %132, i32 0, i32 1
-  store i32 %130, ptr %133, align 8
-  %134 = load ptr, ptr %15, align 8
-  %135 = getelementptr inbounds %struct.WebPDecBuffer, ptr %134, i32 0, i32 4
-  %136 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %135, i32 0, i32 1
-  %137 = load i32, ptr %136, align 8
-  %138 = load ptr, ptr %9, align 8
-  %139 = getelementptr inbounds %struct.WebPPicture, ptr %138, i32 0, i32 3
-  %140 = load i32, ptr %139, align 4
-  %141 = mul nsw i32 %137, %140
-  %142 = sext i32 %141 to i64
-  %143 = load ptr, ptr %15, align 8
-  %144 = getelementptr inbounds %struct.WebPDecBuffer, ptr %143, i32 0, i32 4
-  %145 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %144, i32 0, i32 2
-  store i64 %142, ptr %145, align 8
-  br label %260
-
-146:                                              ; preds = %111
-  %147 = load i32, ptr %17, align 4
-  %148 = icmp ne i32 %147, 0
-  %149 = select i1 %148, i32 12, i32 11
-  %150 = load ptr, ptr %15, align 8
-  %151 = getelementptr inbounds %struct.WebPDecBuffer, ptr %150, i32 0, i32 0
-  store i32 %149, ptr %151, align 8
-  %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr inbounds %struct.WebPPicture, ptr %152, i32 0, i32 4
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %15, align 8
-  %156 = getelementptr inbounds %struct.WebPDecBuffer, ptr %155, i32 0, i32 4
-  %157 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %156, i32 0, i32 0
-  store ptr %154, ptr %157, align 8
-  %158 = load ptr, ptr %9, align 8
-  %159 = getelementptr inbounds %struct.WebPPicture, ptr %158, i32 0, i32 5
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %15, align 8
-  %162 = getelementptr inbounds %struct.WebPDecBuffer, ptr %161, i32 0, i32 4
-  %163 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %162, i32 0, i32 1
-  store ptr %160, ptr %163, align 8
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds %struct.WebPPicture, ptr %164, i32 0, i32 6
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %15, align 8
-  %168 = getelementptr inbounds %struct.WebPDecBuffer, ptr %167, i32 0, i32 4
-  %169 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %168, i32 0, i32 2
-  store ptr %166, ptr %169, align 8
-  %170 = load i32, ptr %17, align 4
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %176
-
-172:                                              ; preds = %146
-  %173 = load ptr, ptr %9, align 8
-  %174 = getelementptr inbounds %struct.WebPPicture, ptr %173, i32 0, i32 9
-  %175 = load ptr, ptr %174, align 8
-  br label %177
-
-176:                                              ; preds = %146
-  br label %177
-
-177:                                              ; preds = %176, %172
-  %178 = phi ptr [ %175, %172 ], [ null, %176 ]
-  %179 = load ptr, ptr %15, align 8
-  %180 = getelementptr inbounds %struct.WebPDecBuffer, ptr %179, i32 0, i32 4
-  %181 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %180, i32 0, i32 3
-  store ptr %178, ptr %181, align 8
-  %182 = load ptr, ptr %9, align 8
-  %183 = getelementptr inbounds %struct.WebPPicture, ptr %182, i32 0, i32 7
-  %184 = load i32, ptr %183, align 8
-  %185 = load ptr, ptr %15, align 8
-  %186 = getelementptr inbounds %struct.WebPDecBuffer, ptr %185, i32 0, i32 4
-  %187 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %186, i32 0, i32 4
-  store i32 %184, ptr %187, align 8
-  %188 = load ptr, ptr %9, align 8
-  %189 = getelementptr inbounds %struct.WebPPicture, ptr %188, i32 0, i32 8
-  %190 = load i32, ptr %189, align 4
-  %191 = load ptr, ptr %15, align 8
-  %192 = getelementptr inbounds %struct.WebPDecBuffer, ptr %191, i32 0, i32 4
-  %193 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %192, i32 0, i32 5
-  store i32 %190, ptr %193, align 4
-  %194 = load ptr, ptr %9, align 8
-  %195 = getelementptr inbounds %struct.WebPPicture, ptr %194, i32 0, i32 8
-  %196 = load i32, ptr %195, align 4
-  %197 = load ptr, ptr %15, align 8
-  %198 = getelementptr inbounds %struct.WebPDecBuffer, ptr %197, i32 0, i32 4
-  %199 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %198, i32 0, i32 6
-  store i32 %196, ptr %199, align 8
-  %200 = load i32, ptr %17, align 4
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %206
-
-202:                                              ; preds = %177
-  %203 = load ptr, ptr %9, align 8
-  %204 = getelementptr inbounds %struct.WebPPicture, ptr %203, i32 0, i32 10
-  %205 = load i32, ptr %204, align 8
-  br label %207
-
-206:                                              ; preds = %177
-  br label %207
-
-207:                                              ; preds = %206, %202
-  %208 = phi i32 [ %205, %202 ], [ 0, %206 ]
-  %209 = load ptr, ptr %15, align 8
-  %210 = getelementptr inbounds %struct.WebPDecBuffer, ptr %209, i32 0, i32 4
-  %211 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %210, i32 0, i32 7
-  store i32 %208, ptr %211, align 4
-  %212 = load ptr, ptr %9, align 8
-  %213 = getelementptr inbounds %struct.WebPPicture, ptr %212, i32 0, i32 3
-  %214 = load i32, ptr %213, align 4
-  %215 = load ptr, ptr %9, align 8
-  %216 = getelementptr inbounds %struct.WebPPicture, ptr %215, i32 0, i32 7
-  %217 = load i32, ptr %216, align 8
-  %218 = mul nsw i32 %214, %217
-  %219 = sext i32 %218 to i64
-  %220 = load ptr, ptr %15, align 8
-  %221 = getelementptr inbounds %struct.WebPDecBuffer, ptr %220, i32 0, i32 4
-  %222 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %221, i32 0, i32 8
-  store i64 %219, ptr %222, align 8
-  %223 = load ptr, ptr %9, align 8
-  %224 = getelementptr inbounds %struct.WebPPicture, ptr %223, i32 0, i32 3
-  %225 = load i32, ptr %224, align 4
-  %226 = add nsw i32 %225, 1
-  %227 = sdiv i32 %226, 2
-  %228 = load ptr, ptr %9, align 8
-  %229 = getelementptr inbounds %struct.WebPPicture, ptr %228, i32 0, i32 8
-  %230 = load i32, ptr %229, align 4
-  %231 = mul nsw i32 %227, %230
-  %232 = sext i32 %231 to i64
-  %233 = load ptr, ptr %15, align 8
-  %234 = getelementptr inbounds %struct.WebPDecBuffer, ptr %233, i32 0, i32 4
-  %235 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %234, i32 0, i32 9
-  store i64 %232, ptr %235, align 8
-  %236 = load ptr, ptr %9, align 8
-  %237 = getelementptr inbounds %struct.WebPPicture, ptr %236, i32 0, i32 3
-  %238 = load i32, ptr %237, align 4
-  %239 = add nsw i32 %238, 1
-  %240 = sdiv i32 %239, 2
-  %241 = load ptr, ptr %9, align 8
-  %242 = getelementptr inbounds %struct.WebPPicture, ptr %241, i32 0, i32 8
-  %243 = load i32, ptr %242, align 4
-  %244 = mul nsw i32 %240, %243
-  %245 = sext i32 %244 to i64
-  %246 = load ptr, ptr %15, align 8
-  %247 = getelementptr inbounds %struct.WebPDecBuffer, ptr %246, i32 0, i32 4
-  %248 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %247, i32 0, i32 10
-  store i64 %245, ptr %248, align 8
-  %249 = load ptr, ptr %9, align 8
-  %250 = getelementptr inbounds %struct.WebPPicture, ptr %249, i32 0, i32 3
-  %251 = load i32, ptr %250, align 4
-  %252 = load ptr, ptr %9, align 8
-  %253 = getelementptr inbounds %struct.WebPPicture, ptr %252, i32 0, i32 10
-  %254 = load i32, ptr %253, align 8
-  %255 = mul nsw i32 %251, %254
-  %256 = sext i32 %255 to i64
-  %257 = load ptr, ptr %15, align 8
-  %258 = getelementptr inbounds %struct.WebPDecBuffer, ptr %257, i32 0, i32 4
-  %259 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %258, i32 0, i32 11
-  store i64 %256, ptr %259, align 8
-  br label %260
-
-260:                                              ; preds = %207, %116
-  %261 = load ptr, ptr %15, align 8
-  %262 = getelementptr inbounds %struct.WebPDecBuffer, ptr %261, i32 0, i32 3
-  store i32 1, ptr %262, align 4
-  %263 = load ptr, ptr %7, align 8
-  %264 = load i64, ptr %8, align 8
-  %265 = call i32 @DecodeWebP(ptr noundef %263, i64 noundef %264, ptr noundef %14)
-  store i32 %265, ptr %13, align 4
-  %266 = load i32, ptr %13, align 4
-  %267 = icmp eq i32 %266, 0
-  %268 = zext i1 %267 to i32
-  store i32 %268, ptr %12, align 4
-  %269 = load i32, ptr %12, align 4
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %317
-
-271:                                              ; preds = %260
-  %272 = load i32, ptr %10, align 4
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %317, label %274
-
-274:                                              ; preds = %271
-  %275 = load ptr, ptr %9, align 8
-  %276 = getelementptr inbounds %struct.WebPPicture, ptr %275, i32 0, i32 0
-  %277 = load i32, ptr %276, align 8
-  %278 = icmp ne i32 %277, 0
-  br i1 %278, label %279, label %317
-
-279:                                              ; preds = %274
-  %280 = load ptr, ptr %9, align 8
-  %281 = getelementptr inbounds %struct.WebPPicture, ptr %280, i32 0, i32 12
-  %282 = load ptr, ptr %281, align 8
-  store ptr %282, ptr %21, align 8
-  store i32 0, ptr %20, align 4
-  br label %283
-
-283:                                              ; preds = %313, %279
-  %284 = load i32, ptr %20, align 4
-  %285 = load ptr, ptr %9, align 8
-  %286 = getelementptr inbounds %struct.WebPPicture, ptr %285, i32 0, i32 3
-  %287 = load i32, ptr %286, align 4
-  %288 = icmp slt i32 %284, %287
-  br i1 %288, label %289, label %316
-
-289:                                              ; preds = %283
-  store i32 0, ptr %19, align 4
-  br label %290
-
-290:                                              ; preds = %303, %289
-  %291 = load i32, ptr %19, align 4
-  %292 = load ptr, ptr %9, align 8
-  %293 = getelementptr inbounds %struct.WebPPicture, ptr %292, i32 0, i32 2
-  %294 = load i32, ptr %293, align 8
-  %295 = icmp slt i32 %291, %294
-  br i1 %295, label %296, label %306
-
-296:                                              ; preds = %290
-  %297 = load ptr, ptr %21, align 8
-  %298 = load i32, ptr %19, align 4
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds i32, ptr %297, i64 %299
-  %301 = load i32, ptr %300, align 4
-  %302 = or i32 %301, -16777216
-  store i32 %302, ptr %300, align 4
-  br label %303
-
-303:                                              ; preds = %296
-  %304 = load i32, ptr %19, align 4
-  %305 = add nsw i32 %304, 1
-  store i32 %305, ptr %19, align 4
-  br label %290, !llvm.loop !5
-
-306:                                              ; preds = %290
-  %307 = load ptr, ptr %9, align 8
-  %308 = getelementptr inbounds %struct.WebPPicture, ptr %307, i32 0, i32 13
-  %309 = load i32, ptr %308, align 8
-  %310 = load ptr, ptr %21, align 8
-  %311 = sext i32 %309 to i64
-  %312 = getelementptr inbounds i32, ptr %310, i64 %311
-  store ptr %312, ptr %21, align 8
-  br label %313
-
-313:                                              ; preds = %306
-  %314 = load i32, ptr %20, align 4
-  %315 = add nsw i32 %314, 1
-  store i32 %315, ptr %20, align 4
-  br label %283, !llvm.loop !7
-
-316:                                              ; preds = %283
-  br label %317
-
-317:                                              ; preds = %316, %274, %271, %260
-  br label %318
-
-318:                                              ; preds = %317, %110, %104
-  %319 = load i32, ptr %13, align 4
-  %320 = icmp ne i32 %319, 0
-  br i1 %320, label %321, label %323
-
-321:                                              ; preds = %318
-  %322 = load i32, ptr %13, align 4
-  call void @PrintWebPError(ptr noundef @.str.6, i32 noundef %322)
-  store i32 0, ptr %12, align 4
+322:                                              ; preds = %321
   br label %323
 
-323:                                              ; preds = %321, %318
-  %324 = load ptr, ptr %15, align 8
-  call void @WebPFreeDecBuffer(ptr noundef %324)
-  %325 = load i32, ptr %12, align 4
-  %326 = icmp ne i32 %325, 0
-  br i1 %326, label %327, label %339
+323:                                              ; preds = %322, %319
+  %324 = load i32, ptr %13, align 4, !tbaa !9
+  %325 = icmp ne i32 %324, 0
+  br i1 %325, label %326, label %328
 
-327:                                              ; preds = %323
-  %328 = load ptr, ptr %11, align 8
-  %329 = icmp ne ptr %328, null
-  br i1 %329, label %330, label %339
+326:                                              ; preds = %323
+  %327 = load i32, ptr %13, align 4, !tbaa !9
+  call void @PrintWebPError(ptr noundef @.str.6, i32 noundef %327)
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %328
 
-330:                                              ; preds = %327
-  %331 = load ptr, ptr %7, align 8
-  %332 = load i64, ptr %8, align 8
-  %333 = load ptr, ptr %11, align 8
-  %334 = call i32 @ExtractMetadata(ptr noundef %331, i64 noundef %332, ptr noundef %333)
-  store i32 %334, ptr %12, align 4
-  %335 = load i32, ptr %12, align 4
-  %336 = icmp ne i32 %335, 0
-  br i1 %336, label %338, label %337
+328:                                              ; preds = %326, %323
+  %329 = load ptr, ptr %15, align 8, !tbaa !34
+  call void @WebPFreeDecBuffer(ptr noundef %329)
+  %330 = load i32, ptr %12, align 4, !tbaa !9
+  %331 = icmp ne i32 %330, 0
+  br i1 %331, label %332, label %344
 
-337:                                              ; preds = %330
-  call void @PrintWebPError(ptr noundef @.str.7, i32 noundef 3)
-  br label %338
+332:                                              ; preds = %328
+  %333 = load ptr, ptr %11, align 8, !tbaa !32
+  %334 = icmp ne ptr %333, null
+  br i1 %334, label %335, label %344
 
-338:                                              ; preds = %337, %330
-  br label %339
-
-339:                                              ; preds = %338, %327, %323
-  %340 = load i32, ptr %12, align 4
+335:                                              ; preds = %332
+  %336 = load ptr, ptr %7, align 8, !tbaa !4
+  %337 = load i64, ptr %8, align 8, !tbaa !19
+  %338 = load ptr, ptr %11, align 8, !tbaa !32
+  %339 = call i32 @ExtractMetadata(ptr noundef %336, i64 noundef %337, ptr noundef %338)
+  store i32 %339, ptr %12, align 4, !tbaa !9
+  %340 = load i32, ptr %12, align 4, !tbaa !9
   %341 = icmp ne i32 %340, 0
-  br i1 %341, label %344, label %342
+  br i1 %341, label %343, label %342
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %9, align 8
-  call void @WebPPictureFree(ptr noundef %343)
+342:                                              ; preds = %335
+  call void @PrintWebPError(ptr noundef @.str.7, i32 noundef 3)
+  br label %343
+
+343:                                              ; preds = %342, %335
   br label %344
 
-344:                                              ; preds = %342, %339
-  %345 = load i32, ptr %12, align 4
-  store i32 %345, ptr %6, align 4
-  br label %346
+344:                                              ; preds = %343, %332, %328
+  %345 = load i32, ptr %12, align 4, !tbaa !9
+  %346 = icmp ne i32 %345, 0
+  br i1 %346, label %349, label %347
 
-346:                                              ; preds = %344, %46, %36, %32
-  %347 = load i32, ptr %6, align 4
-  ret i32 %347
+347:                                              ; preds = %344
+  %348 = load ptr, ptr %9, align 8, !tbaa !30
+  call void @WebPPictureFree(ptr noundef %348)
+  br label %349
+
+349:                                              ; preds = %347, %344
+  %350 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %350, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %351
+
+351:                                              ; preds = %349, %47, %37, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 240, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  %352 = load i32, ptr %6, align 4
+  ret i32 %352
+
+353:                                              ; preds = %319
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPInitDecoderConfig(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPInitDecoderConfig(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @WebPInitDecoderConfigInternal(ptr noundef %3, i32 noundef 521)
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = call i32 @WebPInitDecoderConfigInternal(ptr noundef %3, i32 noundef 528)
   ret i32 %4
 }
 
-declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) #2
+declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) #3
 
-declare i32 @WebPPictureAlloc(ptr noundef) #2
+declare i32 @WebPPictureAlloc(ptr noundef) #3
 
-declare void @WebPFreeDecBuffer(ptr noundef) #2
+declare void @WebPFreeDecBuffer(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ExtractMetadata(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -810,153 +886,230 @@ define internal i32 @ExtractMetadata(ptr noundef %0, i64 noundef %1, ptr noundef
   %9 = alloca ptr, align 8
   %10 = alloca %struct.WebPChunkIterator, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.WebPData, ptr %8, i32 0, i32 0
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.WebPData, ptr %8, i32 0, i32 1
-  %15 = load i64, ptr %6, align 8
-  store i64 %15, ptr %14, align 8
-  %16 = call ptr @WebPDemux(ptr noundef %8)
-  store ptr %16, ptr %9, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %78
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !19
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #5
+  %13 = getelementptr inbounds nuw %struct.WebPData, ptr %8, i32 0, i32 0
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %14, ptr %13, align 8, !tbaa !62
+  %15 = getelementptr inbounds nuw %struct.WebPData, ptr %8, i32 0, i32 1
+  %16 = load i64, ptr %6, align 8, !tbaa !19
+  store i64 %16, ptr %15, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %17 = call ptr @WebPDemux(ptr noundef %8)
+  store ptr %17, ptr %9, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 56, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %18 = load ptr, ptr %9, align 8, !tbaa !65
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %9, align 8
-  %22 = call i32 @WebPDemuxGetI(ptr noundef %21, i32 noundef 0)
-  store i32 %22, ptr %11, align 4
-  %23 = load i32, ptr %11, align 4
-  %24 = and i32 %23, 32
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %40
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %79
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %9, align 8
-  %28 = call i32 @WebPDemuxGetChunk(ptr noundef %27, ptr noundef @.str.17, i32 noundef 1, ptr noundef %10)
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %40
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %9, align 8, !tbaa !65
+  %23 = call i32 @WebPDemuxGetI(ptr noundef %22, i32 noundef 0)
+  store i32 %23, ptr %11, align 4, !tbaa !9
+  %24 = load i32, ptr %11, align 4, !tbaa !9
+  %25 = and i32 %24, 32
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %41
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %32 = getelementptr inbounds %struct.WebPData, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %35 = getelementptr inbounds %struct.WebPData, ptr %34, i32 0, i32 1
-  %36 = load i64, ptr %35, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.Metadata, ptr %37, i32 0, i32 1
-  %39 = call i32 @MetadataCopy(ptr noundef %33, i64 noundef %36, ptr noundef %38)
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %9, align 8, !tbaa !65
+  %29 = call i32 @WebPDemuxGetChunk(ptr noundef %28, ptr noundef @.str.17, i32 noundef 1, ptr noundef %10)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %41
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.WebPData, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
+  %35 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct.WebPData, ptr %35, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8, !tbaa !69
+  %38 = load ptr, ptr %7, align 8, !tbaa !32
+  %39 = getelementptr inbounds nuw %struct.Metadata, ptr %38, i32 0, i32 1
+  %40 = call i32 @MetadataCopy(ptr noundef %34, i64 noundef %37, ptr noundef %39)
   call void @WebPDemuxReleaseChunkIterator(ptr noundef %10)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %30, %26, %20
-  %41 = load i32, ptr %11, align 4
-  %42 = and i32 %41, 8
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %58
+41:                                               ; preds = %31, %27, %21
+  %42 = load i32, ptr %11, align 4, !tbaa !9
+  %43 = and i32 %42, 8
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %59
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %9, align 8
-  %46 = call i32 @WebPDemuxGetChunk(ptr noundef %45, ptr noundef @.str.18, i32 noundef 1, ptr noundef %10)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %58
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %9, align 8, !tbaa !65
+  %47 = call i32 @WebPDemuxGetChunk(ptr noundef %46, ptr noundef @.str.18, i32 noundef 1, ptr noundef %10)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %59
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %50 = getelementptr inbounds %struct.WebPData, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %53 = getelementptr inbounds %struct.WebPData, ptr %52, i32 0, i32 1
-  %54 = load i64, ptr %53, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.Metadata, ptr %55, i32 0, i32 0
-  %57 = call i32 @MetadataCopy(ptr noundef %51, i64 noundef %54, ptr noundef %56)
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.WebPData, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !67
+  %53 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %54 = getelementptr inbounds nuw %struct.WebPData, ptr %53, i32 0, i32 1
+  %55 = load i64, ptr %54, align 8, !tbaa !69
+  %56 = load ptr, ptr %7, align 8, !tbaa !32
+  %57 = getelementptr inbounds nuw %struct.Metadata, ptr %56, i32 0, i32 0
+  %58 = call i32 @MetadataCopy(ptr noundef %52, i64 noundef %55, ptr noundef %57)
   call void @WebPDemuxReleaseChunkIterator(ptr noundef %10)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %48, %44, %40
-  %59 = load i32, ptr %11, align 4
-  %60 = and i32 %59, 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %76
+59:                                               ; preds = %49, %45, %41
+  %60 = load i32, ptr %11, align 4, !tbaa !9
+  %61 = and i32 %60, 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %77
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %9, align 8
-  %64 = call i32 @WebPDemuxGetChunk(ptr noundef %63, ptr noundef @.str.19, i32 noundef 1, ptr noundef %10)
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %76
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %9, align 8, !tbaa !65
+  %65 = call i32 @WebPDemuxGetChunk(ptr noundef %64, ptr noundef @.str.19, i32 noundef 1, ptr noundef %10)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %77
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %68 = getelementptr inbounds %struct.WebPData, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
-  %71 = getelementptr inbounds %struct.WebPData, ptr %70, i32 0, i32 1
-  %72 = load i64, ptr %71, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %struct.Metadata, ptr %73, i32 0, i32 2
-  %75 = call i32 @MetadataCopy(ptr noundef %69, i64 noundef %72, ptr noundef %74)
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %struct.WebPData, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !67
+  %71 = getelementptr inbounds nuw %struct.WebPChunkIterator, ptr %10, i32 0, i32 2
+  %72 = getelementptr inbounds nuw %struct.WebPData, ptr %71, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8, !tbaa !69
+  %74 = load ptr, ptr %7, align 8, !tbaa !32
+  %75 = getelementptr inbounds nuw %struct.Metadata, ptr %74, i32 0, i32 2
+  %76 = call i32 @MetadataCopy(ptr noundef %70, i64 noundef %73, ptr noundef %75)
   call void @WebPDemuxReleaseChunkIterator(ptr noundef %10)
-  br label %76
+  br label %77
 
-76:                                               ; preds = %66, %62, %58
-  %77 = load ptr, ptr %9, align 8
-  call void @WebPDemuxDelete(ptr noundef %77)
+77:                                               ; preds = %67, %63, %59
+  %78 = load ptr, ptr %9, align 8, !tbaa !65
+  call void @WebPDemuxDelete(ptr noundef %78)
   store i32 1, ptr %4, align 4
-  br label %78
+  store i32 1, ptr %12, align 4
+  br label %79
 
-78:                                               ; preds = %76, %19
-  %79 = load i32, ptr %4, align 4
-  ret i32 %79
+79:                                               ; preds = %77, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 56, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #5
+  %80 = load i32, ptr %4, align 4
+  ret i32 %80
 }
 
-declare void @WebPPictureFree(ptr noundef) #2
+declare void @WebPPictureFree(ptr noundef) #3
 
-declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #2
+declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @WebPInitDecoderConfigInternal(ptr noundef, i32 noundef) #2
+declare i32 @WebPInitDecoderConfigInternal(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @WebPDemux(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @WebPDemux(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   %4 = call ptr @WebPDemuxInternal(ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 263)
   ret ptr %4
 }
 
-declare i32 @WebPDemuxGetI(ptr noundef, i32 noundef) #2
+declare i32 @WebPDemuxGetI(ptr noundef, i32 noundef) #3
 
-declare i32 @WebPDemuxGetChunk(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+declare i32 @WebPDemuxGetChunk(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) #3
 
-declare void @WebPDemuxReleaseChunkIterator(ptr noundef) #2
+declare void @WebPDemuxReleaseChunkIterator(ptr noundef) #3
 
-declare void @WebPDemuxDelete(ptr noundef) #2
+declare void @WebPDemuxDelete(ptr noundef) #3
 
-declare ptr @WebPDemuxInternal(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare ptr @WebPDemuxInternal(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 omnipotent char", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 long", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS21WebPBitstreamFeatures", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS17WebPDecoderConfig", !6, i64 0}
+!23 = !{!24, !10, i64 12}
+!24 = !{!"WebPDecoderConfig", !25, i64 0, !26, i64 40, !27, i64 160}
+!25 = !{!"WebPBitstreamFeatures", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !7, i64 20}
+!26 = !{!"WebPDecBuffer", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !7, i64 16, !7, i64 96, !5, i64 112}
+!27 = !{!"WebPDecoderOptions", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !7, i64 56}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS12WebPIDecoder", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS11WebPPicture", !6, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS8Metadata", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS13WebPDecBuffer", !6, i64 0}
+!36 = !{!25, !10, i64 8}
+!37 = !{!25, !10, i64 0}
+!38 = !{!39, !10, i64 8}
+!39 = !{!"WebPPicture", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !5, i64 16, !5, i64 24, !5, i64 32, !10, i64 40, !10, i64 44, !5, i64 48, !10, i64 56, !7, i64 60, !40, i64 72, !10, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !10, i64 112, !5, i64 120, !41, i64 128, !10, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !5, i64 176, !5, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
+!40 = !{!"p1 int", !6, i64 0}
+!41 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
+!42 = !{!25, !10, i64 4}
+!43 = !{!39, !10, i64 12}
+!44 = !{!39, !10, i64 0}
+!45 = !{!39, !10, i64 4}
+!46 = !{!26, !10, i64 0}
+!47 = !{!39, !40, i64 72}
+!48 = !{!7, !7, i64 0}
+!49 = !{!39, !10, i64 80}
+!50 = !{!39, !5, i64 16}
+!51 = !{!39, !5, i64 24}
+!52 = !{!39, !5, i64 32}
+!53 = !{!39, !5, i64 48}
+!54 = !{!39, !10, i64 40}
+!55 = !{!39, !10, i64 44}
+!56 = !{!39, !10, i64 56}
+!57 = !{!26, !10, i64 12}
+!58 = !{!40, !40, i64 0}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.mustprogress"}
+!61 = distinct !{!61, !60}
+!62 = !{!63, !5, i64 0}
+!63 = !{!"WebPData", !5, i64 0, !20, i64 8}
+!64 = !{!63, !20, i64 8}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS11WebPDemuxer", !6, i64 0}
+!67 = !{!68, !5, i64 8}
+!68 = !{!"WebPChunkIterator", !10, i64 0, !10, i64 4, !63, i64 8, !7, i64 24, !6, i64 48}
+!69 = !{!68, !20, i64 16}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8WebPData", !6, i64 0}

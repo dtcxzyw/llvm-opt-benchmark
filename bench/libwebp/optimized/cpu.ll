@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
-  %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #1, !srcloc !4
+  %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #1, !srcloc !3
   %3 = extractvalue { i32, i32, i32, i32 } %2, 0
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %CheckSlowModel.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #1, !srcloc !4
+  %6 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #1, !srcloc !3
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = extractvalue { i32, i32, i32, i32 } %6, 2
   switch i32 %0, label %CheckSlowModel.exit [
@@ -61,14 +61,14 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
   br i1 %29, label %.preheader.i, label %CheckSlowModel.exit
 
 30:                                               ; preds = %.preheader.i
-  %31 = add nuw nsw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %31, 6
-  br i1 %exitcond.not.i, label %CheckSlowModel.exit, label %.preheader.i, !llvm.loop !5
+  %31 = add nuw nsw i64 %.01012.i, 1
+  %exitcond.i = icmp eq i64 %31, 6
+  br i1 %exitcond.i, label %CheckSlowModel.exit, label %.preheader.i, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %22, %30
-  %.010.i = phi i64 [ %31, %30 ], [ 0, %22 ]
-  %32 = getelementptr inbounds nuw [6 x i8], ptr @CheckSlowModel.kSlowModels, i64 0, i64 %.010.i
-  %33 = load i8, ptr %32, align 1
+  %.01012.i = phi i64 [ %31, %30 ], [ 0, %22 ]
+  %32 = getelementptr inbounds nuw [6 x i8], ptr @CheckSlowModel.kSlowModels, i64 0, i64 %.01012.i
+  %33 = load i8, ptr %32, align 1, !tbaa !6
   %34 = zext i8 %33 to i32
   %35 = icmp eq i32 %27, %34
   br i1 %35, label %CheckSlowModel.exit, label %30
@@ -84,7 +84,7 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
   br i1 %40, label %41, label %CheckSlowModel.exit
 
 41:                                               ; preds = %38
-  %42 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !7
+  %42 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !9
   %43 = extractvalue { i32, i32 } %42, 0
   %44 = and i32 %43, 6
   %45 = icmp eq i32 %44, 6
@@ -92,20 +92,20 @@ define internal range(i32 0, 2) i32 @x86CPUInfo(i32 noundef %0) #0 {
   br label %CheckSlowModel.exit
 
 47:                                               ; preds = %5
-  %48 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #1, !srcloc !4
+  %48 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #1, !srcloc !3
   %49 = extractvalue { i32, i32, i32, i32 } %48, 0
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %CheckSlowModel.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #1, !srcloc !4
+  %52 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #1, !srcloc !3
   %53 = extractvalue { i32, i32, i32, i32 } %52, 2
   %54 = and i32 %53, 402653184
   %55 = icmp eq i32 %54, 402653184
   br i1 %55, label %x86CPUInfo.exit, label %CheckSlowModel.exit
 
 x86CPUInfo.exit:                                  ; preds = %51
-  %56 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !7
+  %56 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !9
   %57 = extractvalue { i32, i32 } %56, 0
   %58 = and i32 %57, 6
   %59 = icmp eq i32 %58, 6
@@ -114,7 +114,7 @@ x86CPUInfo.exit:                                  ; preds = %51
   br i1 %or.cond4, label %61, label %CheckSlowModel.exit
 
 61:                                               ; preds = %x86CPUInfo.exit
-  %62 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #1, !srcloc !4
+  %62 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #1, !srcloc !3
   %63 = extractvalue { i32, i32, i32, i32 } %62, 1
   %64 = lshr i32 %63, 5
   %.lobit = and i32 %64, 1
@@ -125,16 +125,18 @@ CheckSlowModel.exit:                              ; preds = %.preheader.i, %30, 
   ret i32 %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 1359}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 2177}
+!3 = !{i64 1359}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{i64 2177}

@@ -14,19 +14,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @VP8EncDspInitSSE41() local_unnamed_addr #0 {
-  store ptr @CollectHistogram_SSE41, ptr @VP8CollectHistogram, align 8
-  store ptr @QuantizeBlock_SSE41, ptr @VP8EncQuantizeBlock, align 8
-  store ptr @Quantize2Blocks_SSE41, ptr @VP8EncQuantize2Blocks, align 8
-  store ptr @QuantizeBlockWHT_SSE41, ptr @VP8EncQuantizeBlockWHT, align 8
-  store ptr @Disto4x4_SSE41, ptr @VP8TDisto4x4, align 8
-  store ptr @Disto16x16_SSE41, ptr @VP8TDisto16x16, align 8
+  store ptr @CollectHistogram_SSE41, ptr @VP8CollectHistogram, align 8, !tbaa !3
+  store ptr @QuantizeBlock_SSE41, ptr @VP8EncQuantizeBlock, align 8, !tbaa !3
+  store ptr @Quantize2Blocks_SSE41, ptr @VP8EncQuantize2Blocks, align 8, !tbaa !3
+  store ptr @QuantizeBlockWHT_SSE41, ptr @VP8EncQuantizeBlockWHT, align 8, !tbaa !3
+  store ptr @Disto4x4_SSE41, ptr @VP8TDisto4x4, align 8, !tbaa !3
+  store ptr @Disto16x16_SSE41, ptr @VP8TDisto16x16, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
+define internal void @CollectHistogram_SSE41(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #1 {
   %6 = alloca [32 x i32], align 16
   %7 = alloca [16 x i16], align 16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %8 = icmp slt i32 %2, %3
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -38,67 +39,70 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
   br label %11
 
 11:                                               ; preds = %.lr.ph, %33
-  %indvars.iv58 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next59, %33 ]
-  %12 = load ptr, ptr @VP8FTransform, align 8
-  %13 = getelementptr inbounds [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv58
-  %14 = load i32, ptr %13, align 4
+  %indvars.iv25 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next26, %33 ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  %12 = load ptr, ptr @VP8FTransform, align 8, !tbaa !3
+  %13 = getelementptr inbounds [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv25
+  %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr inbounds i8, ptr %1, i64 %15
-  call void %12(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %7) #9
-  %18 = load <8 x i16>, ptr %7, align 16
-  %19 = load <8 x i16>, ptr %9, align 16
+  call void %12(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %7) #11
+  %18 = load <8 x i16>, ptr %7, align 16, !tbaa !9
+  %19 = load <8 x i16>, ptr %9, align 16, !tbaa !9
   %20 = call <8 x i16> @llvm.abs.v8i16(<8 x i16> %18, i1 false)
   %21 = call <8 x i16> @llvm.abs.v8i16(<8 x i16> %19, i1 false)
   %22 = ashr <8 x i16> %20, splat (i16 3)
   %23 = ashr <8 x i16> %21, splat (i16 3)
   %24 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %22, <8 x i16> splat (i16 31))
   %25 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %23, <8 x i16> splat (i16 31))
-  store <8 x i16> %24, ptr %7, align 16
-  store <8 x i16> %25, ptr %9, align 16
+  store <8 x i16> %24, ptr %7, align 16, !tbaa !9
+  store <8 x i16> %25, ptr %9, align 16, !tbaa !9
   br label %26
 
 26:                                               ; preds = %11, %26
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2
+  %28 = load i16, ptr %27, align 2, !tbaa !10
   %29 = sext i16 %28 to i64
   %30 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %30, align 4
+  store i32 %32, ptr %30, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %33, label %26, !llvm.loop !4
+  br i1 %exitcond.not, label %33, label %26, !llvm.loop !12
 
 33:                                               ; preds = %26
-  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond61.not, label %._crit_edge, label %11, !llvm.loop !6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
+  br i1 %exitcond28.not, label %._crit_edge, label %11, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %33, %5
-  call void @VP8SetHistogramData(ptr noundef nonnull %6, ptr noundef %4) #9
+  call void @VP8SetHistogramData(ptr noundef nonnull %6, ptr noundef %4) #11
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #2 {
+define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noalias noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %5 = load <8 x i16>, ptr %0, align 1
+  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load <8 x i16>, ptr %6, align 1
+  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load <8 x i16>, ptr %8, align 1
+  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %11 = load <8 x i16>, ptr %10, align 1
-  %12 = load <8 x i16>, ptr %2, align 1
+  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !9
+  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load <8 x i16>, ptr %13, align 1
+  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !9
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %5, i1 false)
   %16 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %7, i1 false)
-  %17 = load <8 x i16>, ptr %4, align 1
+  %17 = load <8 x i16>, ptr %4, align 1, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %19 = load <8 x i16>, ptr %18, align 1
+  %19 = load <8 x i16>, ptr %18, align 1, !tbaa !9
   %20 = add <8 x i16> %17, %15
   %21 = add <8 x i16> %19, %16
   %22 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %20, <8 x i16> %9)
@@ -110,13 +114,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(no
   %28 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %29 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %31 = load <4 x i32>, ptr %30, align 1
+  %31 = load <4 x i32>, ptr %30, align 1, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %33 = load <4 x i32>, ptr %32, align 1
+  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %35 = load <4 x i32>, ptr %34, align 1
+  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %37 = load <4 x i32>, ptr %36, align 1
+  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !9
   %38 = bitcast <8 x i16> %26 to <4 x i32>
   %39 = add <4 x i32> %31, %38
   %40 = bitcast <8 x i16> %27 to <4 x i32>
@@ -137,8 +141,8 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(no
   %55 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %53, <8 x i16> %7)
   %56 = mul <8 x i16> %54, %12
   %57 = mul <8 x i16> %55, %14
-  store <8 x i16> %56, ptr %0, align 1
-  store <8 x i16> %57, ptr %6, align 1
+  store <8 x i16> %56, ptr %0, align 1, !tbaa !9
+  store <8 x i16> %57, ptr %6, align 1, !tbaa !9
   %58 = bitcast <8 x i16> %54 to <16 x i8>
   %59 = shufflevector <16 x i8> %58, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 16, i32 16, i32 10, i32 11, i32 4, i32 5, i32 6, i32 7, i32 12, i32 13>
   %60 = shufflevector <16 x i8> %58, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 14, i32 15, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -147,9 +151,9 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(no
   %63 = shufflevector <16 x i8> %61, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %64 = or <16 x i8> %63, %59
   %65 = or <16 x i8> %62, %60
-  store <16 x i8> %64, ptr %1, align 1
+  store <16 x i8> %64, ptr %1, align 1, !tbaa !9
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <16 x i8> %65, ptr %66, align 1
+  store <16 x i8> %65, ptr %66, align 1, !tbaa !9
   %67 = bitcast <16 x i8> %64 to <8 x i16>
   %68 = bitcast <16 x i8> %65 to <8 x i16>
   %69 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %67, <8 x i16> %68)
@@ -161,23 +165,23 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2) #2 {
+define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noalias noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %5 = load <8 x i16>, ptr %0, align 1
+  %5 = load <8 x i16>, ptr %0, align 1, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load <8 x i16>, ptr %6, align 1
+  %7 = load <8 x i16>, ptr %6, align 1, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load <8 x i16>, ptr %8, align 1
+  %9 = load <8 x i16>, ptr %8, align 1, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %11 = load <8 x i16>, ptr %10, align 1
-  %12 = load <8 x i16>, ptr %2, align 1
+  %11 = load <8 x i16>, ptr %10, align 1, !tbaa !9
+  %12 = load <8 x i16>, ptr %2, align 1, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load <8 x i16>, ptr %13, align 1
+  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !9
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %5, i1 false)
   %16 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %7, i1 false)
-  %17 = load <8 x i16>, ptr %4, align 1
+  %17 = load <8 x i16>, ptr %4, align 1, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %19 = load <8 x i16>, ptr %18, align 1
+  %19 = load <8 x i16>, ptr %18, align 1, !tbaa !9
   %20 = add <8 x i16> %17, %15
   %21 = add <8 x i16> %19, %16
   %22 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %20, <8 x i16> %9)
@@ -189,13 +193,13 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(
   %28 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %29 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %31 = load <4 x i32>, ptr %30, align 1
+  %31 = load <4 x i32>, ptr %30, align 1, !tbaa !9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %33 = load <4 x i32>, ptr %32, align 1
+  %33 = load <4 x i32>, ptr %32, align 1, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %35 = load <4 x i32>, ptr %34, align 1
+  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %37 = load <4 x i32>, ptr %36, align 1
+  %37 = load <4 x i32>, ptr %36, align 1, !tbaa !9
   %38 = bitcast <8 x i16> %26 to <4 x i32>
   %39 = add <4 x i32> %31, %38
   %40 = bitcast <8 x i16> %27 to <4 x i32>
@@ -216,8 +220,8 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(
   %55 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %53, <8 x i16> %7)
   %56 = mul <8 x i16> %54, %12
   %57 = mul <8 x i16> %55, %14
-  store <8 x i16> %56, ptr %0, align 1
-  store <8 x i16> %57, ptr %6, align 1
+  store <8 x i16> %56, ptr %0, align 1, !tbaa !9
+  store <8 x i16> %57, ptr %6, align 1, !tbaa !9
   %58 = bitcast <8 x i16> %54 to <16 x i8>
   %59 = shufflevector <16 x i8> %58, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 16, i32 16, i32 10, i32 11, i32 4, i32 5, i32 6, i32 7, i32 12, i32 13>
   %60 = shufflevector <16 x i8> %58, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 14, i32 15, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -226,9 +230,9 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(
   %63 = shufflevector <16 x i8> %61, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %64 = or <16 x i8> %63, %59
   %65 = or <16 x i8> %62, %60
-  store <16 x i8> %64, ptr %1, align 1
+  store <16 x i8> %64, ptr %1, align 1, !tbaa !9
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <16 x i8> %65, ptr %66, align 1
+  store <16 x i8> %65, ptr %66, align 1, !tbaa !9
   %67 = bitcast <16 x i8> %64 to <8 x i16>
   %68 = bitcast <16 x i8> %65 to <8 x i16>
   %69 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %67, <8 x i16> %68)
@@ -238,87 +242,77 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(
   %73 = zext i1 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %76 = load <8 x i16>, ptr %74, align 1
+  %76 = load <8 x i16>, ptr %74, align 1, !tbaa !9
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %78 = load <8 x i16>, ptr %77, align 1
-  %79 = load <8 x i16>, ptr %8, align 1
-  %80 = load <8 x i16>, ptr %10, align 1
-  %81 = load <8 x i16>, ptr %2, align 1
-  %82 = load <8 x i16>, ptr %13, align 1
-  %83 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %76, i1 false)
-  %84 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %78, i1 false)
-  %85 = load <8 x i16>, ptr %4, align 1
-  %86 = load <8 x i16>, ptr %18, align 1
-  %87 = add <8 x i16> %85, %83
-  %88 = add <8 x i16> %86, %84
-  %89 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %87, <8 x i16> %79)
-  %90 = mul <8 x i16> %87, %79
-  %91 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %88, <8 x i16> %80)
-  %92 = mul <8 x i16> %88, %80
-  %93 = shufflevector <8 x i16> %90, <8 x i16> %89, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %94 = shufflevector <8 x i16> %90, <8 x i16> %89, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %95 = shufflevector <8 x i16> %92, <8 x i16> %91, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %96 = shufflevector <8 x i16> %92, <8 x i16> %91, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %97 = load <4 x i32>, ptr %30, align 1
-  %98 = load <4 x i32>, ptr %32, align 1
-  %99 = load <4 x i32>, ptr %34, align 1
-  %100 = load <4 x i32>, ptr %36, align 1
-  %101 = bitcast <8 x i16> %93 to <4 x i32>
-  %102 = add <4 x i32> %97, %101
-  %103 = bitcast <8 x i16> %94 to <4 x i32>
-  %104 = add <4 x i32> %98, %103
-  %105 = bitcast <8 x i16> %95 to <4 x i32>
-  %106 = add <4 x i32> %99, %105
-  %107 = bitcast <8 x i16> %96 to <4 x i32>
-  %108 = add <4 x i32> %100, %107
-  %109 = ashr <4 x i32> %102, splat (i32 17)
-  %110 = ashr <4 x i32> %104, splat (i32 17)
-  %111 = ashr <4 x i32> %106, splat (i32 17)
-  %112 = ashr <4 x i32> %108, splat (i32 17)
-  %113 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %109, <4 x i32> %110)
-  %114 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %111, <4 x i32> %112)
-  %115 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %113, <8 x i16> splat (i16 2047))
-  %116 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %114, <8 x i16> splat (i16 2047))
-  %117 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %115, <8 x i16> %76)
-  %118 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %116, <8 x i16> %78)
-  %119 = mul <8 x i16> %117, %81
-  %120 = mul <8 x i16> %118, %82
-  store <8 x i16> %119, ptr %74, align 1
-  store <8 x i16> %120, ptr %77, align 1
-  %121 = bitcast <8 x i16> %117 to <16 x i8>
-  %122 = shufflevector <16 x i8> %121, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 16, i32 16, i32 10, i32 11, i32 4, i32 5, i32 6, i32 7, i32 12, i32 13>
-  %123 = shufflevector <16 x i8> %121, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 14, i32 15, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %124 = bitcast <8 x i16> %118 to <16 x i8>
-  %125 = shufflevector <16 x i8> %124, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 3, i32 8, i32 9, i32 10, i32 11, i32 4, i32 5, i32 16, i32 16, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
-  %126 = shufflevector <16 x i8> %124, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %127 = or <16 x i8> %126, %122
-  %128 = or <16 x i8> %125, %123
-  store <16 x i8> %127, ptr %75, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store <16 x i8> %128, ptr %129, align 1
-  %130 = bitcast <16 x i8> %127 to <8 x i16>
-  %131 = bitcast <16 x i8> %128 to <8 x i16>
-  %132 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %130, <8 x i16> %131)
-  %133 = icmp ne <16 x i8> %132, zeroinitializer
-  %134 = bitcast <16 x i1> %133 to i16
-  %.not = icmp eq i16 %134, 0
-  %135 = select i1 %.not, i32 0, i32 2
-  %136 = or disjoint i32 %135, %73
-  ret i32 %136
+  %78 = load <8 x i16>, ptr %77, align 1, !tbaa !9
+  %79 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %76, i1 false)
+  %80 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %78, i1 false)
+  %81 = add <8 x i16> %79, %17
+  %82 = add <8 x i16> %80, %19
+  %83 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %81, <8 x i16> %9)
+  %84 = mul <8 x i16> %81, %9
+  %85 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %82, <8 x i16> %11)
+  %86 = mul <8 x i16> %82, %11
+  %87 = shufflevector <8 x i16> %84, <8 x i16> %83, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %88 = shufflevector <8 x i16> %84, <8 x i16> %83, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %89 = shufflevector <8 x i16> %86, <8 x i16> %85, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %90 = shufflevector <8 x i16> %86, <8 x i16> %85, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %91 = bitcast <8 x i16> %87 to <4 x i32>
+  %92 = add <4 x i32> %31, %91
+  %93 = bitcast <8 x i16> %88 to <4 x i32>
+  %94 = add <4 x i32> %33, %93
+  %95 = bitcast <8 x i16> %89 to <4 x i32>
+  %96 = add <4 x i32> %35, %95
+  %97 = bitcast <8 x i16> %90 to <4 x i32>
+  %98 = add <4 x i32> %37, %97
+  %99 = ashr <4 x i32> %92, splat (i32 17)
+  %100 = ashr <4 x i32> %94, splat (i32 17)
+  %101 = ashr <4 x i32> %96, splat (i32 17)
+  %102 = ashr <4 x i32> %98, splat (i32 17)
+  %103 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %99, <4 x i32> %100)
+  %104 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %101, <4 x i32> %102)
+  %105 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %103, <8 x i16> splat (i16 2047))
+  %106 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %104, <8 x i16> splat (i16 2047))
+  %107 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %105, <8 x i16> %76)
+  %108 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %106, <8 x i16> %78)
+  %109 = mul <8 x i16> %107, %12
+  %110 = mul <8 x i16> %108, %14
+  store <8 x i16> %109, ptr %74, align 1, !tbaa !9
+  store <8 x i16> %110, ptr %77, align 1, !tbaa !9
+  %111 = bitcast <8 x i16> %107 to <16 x i8>
+  %112 = shufflevector <16 x i8> %111, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 16, i32 16, i32 10, i32 11, i32 4, i32 5, i32 6, i32 7, i32 12, i32 13>
+  %113 = shufflevector <16 x i8> %111, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 14, i32 15, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %114 = bitcast <8 x i16> %108 to <16 x i8>
+  %115 = shufflevector <16 x i8> %114, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 3, i32 8, i32 9, i32 10, i32 11, i32 4, i32 5, i32 16, i32 16, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %116 = shufflevector <16 x i8> %114, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %117 = or <16 x i8> %116, %112
+  %118 = or <16 x i8> %115, %113
+  store <16 x i8> %117, ptr %75, align 1, !tbaa !9
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store <16 x i8> %118, ptr %119, align 1, !tbaa !9
+  %120 = bitcast <16 x i8> %117 to <8 x i16>
+  %121 = bitcast <16 x i8> %118 to <8 x i16>
+  %122 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %120, <8 x i16> %121)
+  %123 = icmp ne <16 x i8> %122, zeroinitializer
+  %124 = bitcast <16 x i1> %123 to i16
+  %.not = icmp eq i16 %124, 0
+  %125 = select i1 %.not, i32 0, i32 2
+  %126 = or disjoint i32 %125, %73
+  ret i32 %126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #2 {
-  %4 = load <8 x i16>, ptr %0, align 1
+define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noalias noundef readonly captures(none) %2) #2 {
+  %4 = load <8 x i16>, ptr %0, align 1, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load <8 x i16>, ptr %5, align 1
+  %6 = load <8 x i16>, ptr %5, align 1, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %8 = load <8 x i16>, ptr %7, align 1
+  %8 = load <8 x i16>, ptr %7, align 1, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %10 = load <8 x i16>, ptr %9, align 1
-  %11 = load <8 x i16>, ptr %2, align 1
+  %10 = load <8 x i16>, ptr %9, align 1, !tbaa !9
+  %11 = load <8 x i16>, ptr %2, align 1, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load <8 x i16>, ptr %12, align 1
+  %13 = load <8 x i16>, ptr %12, align 1, !tbaa !9
   %14 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %4, i1 false)
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %6, i1 false)
   %16 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %14, <8 x i16> %8)
@@ -330,13 +324,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures
   %22 = shufflevector <8 x i16> %19, <8 x i16> %18, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %23 = shufflevector <8 x i16> %19, <8 x i16> %18, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %25 = load <4 x i32>, ptr %24, align 1
+  %25 = load <4 x i32>, ptr %24, align 1, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %27 = load <4 x i32>, ptr %26, align 1
+  %27 = load <4 x i32>, ptr %26, align 1, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %29 = load <4 x i32>, ptr %28, align 1
+  %29 = load <4 x i32>, ptr %28, align 1, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %31 = load <4 x i32>, ptr %30, align 1
+  %31 = load <4 x i32>, ptr %30, align 1, !tbaa !9
   %32 = bitcast <8 x i16> %20 to <4 x i32>
   %33 = add <4 x i32> %25, %32
   %34 = bitcast <8 x i16> %21 to <4 x i32>
@@ -357,8 +351,8 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures
   %49 = tail call <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16> %47, <8 x i16> %6)
   %50 = mul <8 x i16> %48, %11
   %51 = mul <8 x i16> %49, %13
-  store <8 x i16> %50, ptr %0, align 1
-  store <8 x i16> %51, ptr %5, align 1
+  store <8 x i16> %50, ptr %0, align 1, !tbaa !9
+  store <8 x i16> %51, ptr %5, align 1, !tbaa !9
   %52 = bitcast <8 x i16> %48 to <16 x i8>
   %53 = shufflevector <16 x i8> %52, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 16, i32 16, i32 10, i32 11, i32 4, i32 5, i32 6, i32 7, i32 12, i32 13>
   %54 = shufflevector <16 x i8> %52, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 14, i32 15, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -367,9 +361,9 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures
   %57 = shufflevector <16 x i8> %55, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 0, i32 1, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %58 = or <16 x i8> %57, %53
   %59 = or <16 x i8> %56, %54
-  store <16 x i8> %58, ptr %1, align 1
+  store <16 x i8> %58, ptr %1, align 1, !tbaa !9
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store <16 x i8> %59, ptr %60, align 1
+  store <16 x i8> %59, ptr %60, align 1, !tbaa !9
   %61 = bitcast <16 x i8> %58 to <8 x i16>
   %62 = bitcast <16 x i8> %59 to <8 x i16>
   %63 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %61, <8 x i16> %62)
@@ -381,25 +375,25 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
-  %.val = load <8 x i16>, ptr %2, align 1
+define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2) #3 {
+  %.val4 = load <8 x i16>, ptr %2, align 1, !tbaa !9
   %4 = getelementptr i8, ptr %2, i64 16
-  %.val3 = load <8 x i16>, ptr %4, align 1
-  %5 = load <4 x i32>, ptr %0, align 1
+  %.val35 = load <8 x i16>, ptr %4, align 1, !tbaa !9
+  %5 = load <4 x i32>, ptr %0, align 1, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load <4 x i32>, ptr %6, align 1
+  %7 = load <4 x i32>, ptr %6, align 1, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load <4 x i32>, ptr %8, align 1
+  %9 = load <4 x i32>, ptr %8, align 1, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load i64, ptr %10, align 1
+  %11 = load i64, ptr %10, align 1, !tbaa !9
   %12 = insertelement <2 x i64> poison, i64 %11, i64 0
-  %13 = load <4 x i32>, ptr %1, align 1
+  %13 = load <4 x i32>, ptr %1, align 1, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load <4 x i32>, ptr %14, align 1
+  %15 = load <4 x i32>, ptr %14, align 1, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = load <4 x i32>, ptr %16, align 1
+  %17 = load <4 x i32>, ptr %16, align 1, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %19 = load i64, ptr %18, align 1
+  %19 = load i64, ptr %18, align 1, !tbaa !9
   %20 = insertelement <2 x i64> poison, i64 %19, i64 0
   %21 = shufflevector <4 x i32> %5, <4 x i32> %13, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %22 = shufflevector <4 x i32> %7, <4 x i32> %15, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
@@ -475,30 +469,30 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noundef readonly 
   %92 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %91, i1 false)
   %93 = bitcast <2 x i64> %86 to <8 x i16>
   %94 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %93, i1 false)
-  %95 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %88, <8 x i16> %.val)
-  %96 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %90, <8 x i16> %.val3)
-  %97 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %92, <8 x i16> %.val)
-  %98 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %94, <8 x i16> %.val3)
-  %.neg5 = add <4 x i32> %96, %95
+  %95 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %88, <8 x i16> %.val4)
+  %96 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %90, <8 x i16> %.val35)
+  %97 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %92, <8 x i16> %.val4)
+  %98 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %94, <8 x i16> %.val35)
+  %.neg7 = add <4 x i32> %96, %95
   %99 = add <4 x i32> %97, %98
-  %100 = sub <4 x i32> %.neg5, %99
+  %100 = sub <4 x i32> %.neg7, %99
   %shift = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %101 = add nsw <4 x i32> %100, %shift
-  %shift6 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %102 = add nsw <4 x i32> %101, %shift6
-  %shift7 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %103 = add nsw <4 x i32> %102, %shift7
+  %shift8 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %102 = add nsw <4 x i32> %101, %shift8
+  %shift9 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %103 = add nsw <4 x i32> %102, %shift9
   %104 = extractelement <4 x i32> %103, i64 0
   %105 = tail call i32 @llvm.abs.i32(i32 %104, i1 true)
   %106 = lshr i32 %105, 5
   ret i32 %106
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @Disto16x16_SSE41(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
-  %.val.i = load <8 x i16>, ptr %2, align 1
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
+define internal i32 @Disto16x16_SSE41(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2) #4 {
+  %.val4.i = load <8 x i16>, ptr %2, align 1, !tbaa !9, !alias.scope !15, !noalias !18
   %4 = getelementptr i8, ptr %2, i64 16
-  %.val3.i = load <8 x i16>, ptr %4, align 1
+  %.val35.i = load <8 x i16>, ptr %4, align 1, !tbaa !9, !alias.scope !15, !noalias !18
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %110
@@ -513,21 +507,24 @@ define internal i32 @Disto16x16_SSE41(ptr noundef readonly captures(none) %0, pt
   %.118 = phi i32 [ %.01320, %.preheader ], [ %108, %5 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %gep17 = getelementptr inbounds nuw i8, ptr %invariant.gep16, i64 %indvars.iv
-  %6 = load <4 x i32>, ptr %gep, align 1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  %6 = load <4 x i32>, ptr %gep, align 1, !tbaa !9, !alias.scope !21, !noalias !23
   %7 = getelementptr inbounds nuw i8, ptr %gep, i64 32
-  %8 = load <4 x i32>, ptr %7, align 1
+  %8 = load <4 x i32>, ptr %7, align 1, !tbaa !9, !alias.scope !21, !noalias !23
   %9 = getelementptr inbounds nuw i8, ptr %gep, i64 64
-  %10 = load <4 x i32>, ptr %9, align 1
+  %10 = load <4 x i32>, ptr %9, align 1, !tbaa !9, !alias.scope !21, !noalias !23
   %11 = getelementptr inbounds nuw i8, ptr %gep, i64 96
-  %12 = load i64, ptr %11, align 1
+  %12 = load i64, ptr %11, align 1, !tbaa !9, !alias.scope !21, !noalias !23
   %13 = insertelement <2 x i64> poison, i64 %12, i64 0
-  %14 = load <4 x i32>, ptr %gep17, align 1
+  %14 = load <4 x i32>, ptr %gep17, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %15 = getelementptr inbounds nuw i8, ptr %gep17, i64 32
-  %16 = load <4 x i32>, ptr %15, align 1
+  %16 = load <4 x i32>, ptr %15, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %17 = getelementptr inbounds nuw i8, ptr %gep17, i64 64
-  %18 = load <4 x i32>, ptr %17, align 1
+  %18 = load <4 x i32>, ptr %17, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %19 = getelementptr inbounds nuw i8, ptr %gep17, i64 96
-  %20 = load i64, ptr %19, align 1
+  %20 = load i64, ptr %19, align 1, !tbaa !9, !alias.scope !22, !noalias !24
   %21 = insertelement <2 x i64> poison, i64 %20, i64 0
   %22 = shufflevector <4 x i32> %6, <4 x i32> %14, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %23 = shufflevector <4 x i32> %8, <4 x i32> %16, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
@@ -603,10 +600,10 @@ define internal i32 @Disto16x16_SSE41(ptr noundef readonly captures(none) %0, pt
   %93 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %92, i1 false)
   %94 = bitcast <2 x i64> %87 to <8 x i16>
   %95 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %94, i1 false)
-  %96 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %89, <8 x i16> %.val.i)
-  %97 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %91, <8 x i16> %.val3.i)
-  %98 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %93, <8 x i16> %.val.i)
-  %99 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %95, <8 x i16> %.val3.i)
+  %96 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %89, <8 x i16> %.val4.i)
+  %97 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %91, <8 x i16> %.val35.i)
+  %98 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %93, <8 x i16> %.val4.i)
+  %99 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %95, <8 x i16> %.val35.i)
   %.neg15 = add <4 x i32> %97, %96
   %100 = add <4 x i32> %98, %99
   %101 = sub <4 x i32> %.neg15, %100
@@ -622,65 +619,94 @@ define internal i32 @Disto16x16_SSE41(ptr noundef readonly captures(none) %0, pt
   %108 = add nsw i32 %107, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %109 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %109, label %5, label %110, !llvm.loop !7
+  br i1 %109, label %5, label %110, !llvm.loop !25
 
 110:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
   %111 = icmp samesign ult i64 %indvars.iv23, 384
-  br i1 %111, label %.preheader, label %112, !llvm.loop !8
+  br i1 %111, label %.preheader, label %112, !llvm.loop !26
 
 112:                                              ; preds = %110
   ret i32 %108
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @VP8SetHistogramData(ptr noundef, ptr noundef) local_unnamed_addr #6
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.abs.v8i16(<8 x i16>, i1 immarg) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16>, <8 x i16>) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #8
+declare void @VP8SetHistogramData(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare <8 x i16> @llvm.abs.v8i16(<8 x i16>, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #8
+declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #9
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i16> @llvm.x86.ssse3.psign.w.128(<8 x i16>, <8 x i16>) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!5, !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"short", !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"Disto4x4_SSE41: argument 2"}
+!17 = distinct !{!17, !"Disto4x4_SSE41"}
+!18 = !{!19, !20}
+!19 = distinct !{!19, !17, !"Disto4x4_SSE41: argument 0"}
+!20 = distinct !{!20, !17, !"Disto4x4_SSE41: argument 1"}
+!21 = !{!19}
+!22 = !{!20}
+!23 = !{!20, !16}
+!24 = !{!19, !16}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}

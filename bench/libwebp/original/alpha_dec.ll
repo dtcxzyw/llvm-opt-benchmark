@@ -30,24 +30,24 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPDeallocateAlphaMemory(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.VP8Decoder, ptr %3, i32 0, i32 50
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %3, i32 0, i32 50
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
   call void @WebPSafeFree(ptr noundef %5)
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.VP8Decoder, ptr %6, i32 0, i32 50
-  store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.VP8Decoder, ptr %8, i32 0, i32 51
-  store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.VP8Decoder, ptr %10, i32 0, i32 46
-  %12 = load ptr, ptr %11, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %6, i32 0, i32 50
+  store ptr null, ptr %7, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %8, i32 0, i32 51
+  store ptr null, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %10, i32 0, i32 46
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   call void @ALPHDelete(ptr noundef %12)
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.VP8Decoder, ptr %13, i32 0, i32 46
-  store ptr null, ptr %14, align 8
+  %13 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %13, i32 0, i32 46
+  store ptr null, ptr %14, align 8, !tbaa !26
   ret void
 }
 
@@ -56,20 +56,20 @@ declare void @WebPSafeFree(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @ALPHDelete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.ALPHDecoder, ptr %6, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %6, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   call void @VP8LDelete(ptr noundef %8)
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.ALPHDecoder, ptr %9, i32 0, i32 5
-  store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !27
+  %10 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %9, i32 0, i32 5
+  store ptr null, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %2, align 8, !tbaa !27
   call void @WebPSafeFree(ptr noundef %11)
   br label %12
 
@@ -86,264 +86,298 @@ define hidden ptr @VP8DecompressAlphaRows(ptr noundef %0, ptr noundef %1, i32 no
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %struct.VP8Io, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %10, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.VP8Io, ptr %17, i32 0, i32 22
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %11, align 4
-  %20 = load i32, ptr %8, align 4
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %31, label %22
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !31
+  store i32 %2, ptr %8, align 4, !tbaa !33
+  store i32 %3, ptr %9, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %15 = load ptr, ptr %7, align 8, !tbaa !31
+  %16 = getelementptr inbounds nuw %struct.VP8Io, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8, !tbaa !34
+  store i32 %17, ptr %10, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %18 = load ptr, ptr %7, align 8, !tbaa !31
+  %19 = getelementptr inbounds nuw %struct.VP8Io, ptr %18, i32 0, i32 22
+  %20 = load i32, ptr %19, align 4, !tbaa !35
+  store i32 %20, ptr %11, align 4, !tbaa !33
+  %21 = load i32, ptr %8, align 4, !tbaa !33
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %32, label %23
 
-22:                                               ; preds = %4
-  %23 = load i32, ptr %9, align 4
-  %24 = icmp sle i32 %23, 0
-  br i1 %24, label %31, label %25
+23:                                               ; preds = %4
+  %24 = load i32, ptr %9, align 4, !tbaa !33
+  %25 = icmp sle i32 %24, 0
+  br i1 %25, label %32, label %26
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %8, align 4
-  %27 = load i32, ptr %9, align 4
-  %28 = add nsw i32 %26, %27
-  %29 = load i32, ptr %11, align 4
-  %30 = icmp sgt i32 %28, %29
-  br i1 %30, label %31, label %32
+26:                                               ; preds = %23
+  %27 = load i32, ptr %8, align 4, !tbaa !33
+  %28 = load i32, ptr %9, align 4, !tbaa !33
+  %29 = add nsw i32 %27, %28
+  %30 = load i32, ptr %11, align 4, !tbaa !33
+  %31 = icmp sgt i32 %29, %30
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %25, %22, %4
+32:                                               ; preds = %26, %23, %4
   store ptr null, ptr %5, align 8
-  br label %181
+  store i32 1, ptr %12, align 4
+  br label %186
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.VP8Decoder, ptr %33, i32 0, i32 49
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %170, label %37
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %6, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %34, i32 0, i32 49
+  %36 = load i32, ptr %35, align 8, !tbaa !36
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %175, label %38
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.VP8Decoder, ptr %38, i32 0, i32 46
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %107
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %39, i32 0, i32 46
+  %41 = load ptr, ptr %40, align 8, !tbaa !26
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %109
 
-42:                                               ; preds = %37
-  %43 = call ptr @ALPHNew()
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.VP8Decoder, ptr %44, i32 0, i32 46
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.VP8Decoder, ptr %46, i32 0, i32 46
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %53
+43:                                               ; preds = %38
+  %44 = call ptr @ALPHNew()
+  %45 = load ptr, ptr %6, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %45, i32 0, i32 46
+  store ptr %44, ptr %46, align 8, !tbaa !26
+  %47 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %47, i32 0, i32 46
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @VP8SetError(ptr noundef %51, i32 noundef 1, ptr noundef @.str)
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %53 = call i32 @VP8SetError(ptr noundef %52, i32 noundef 1, ptr noundef @.str)
   store ptr null, ptr %5, align 8
-  br label %181
+  store i32 1, ptr %12, align 4
+  br label %186
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %6, align 8
-  %55 = load ptr, ptr %7, align 8
-  %56 = call i32 @AllocateAlphaPlane(ptr noundef %54, ptr noundef %55)
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %59, label %58
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %6, align 8, !tbaa !3
+  %56 = load ptr, ptr %7, align 8, !tbaa !31
+  %57 = call i32 @AllocateAlphaPlane(ptr noundef %55, ptr noundef %56)
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %53
-  br label %179
+59:                                               ; preds = %54
+  br label %184
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct.VP8Decoder, ptr %60, i32 0, i32 46
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.VP8Decoder, ptr %63, i32 0, i32 47
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct.VP8Decoder, ptr %66, i32 0, i32 48
-  %68 = load i64, ptr %67, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.VP8Decoder, ptr %70, i32 0, i32 51
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @ALPHInit(ptr noundef %62, ptr noundef %65, i64 noundef %68, ptr noundef %69, ptr noundef %72)
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %92, label %75
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %6, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %61, i32 0, i32 46
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  %64 = load ptr, ptr %6, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %64, i32 0, i32 47
+  %66 = load ptr, ptr %65, align 8, !tbaa !37
+  %67 = load ptr, ptr %6, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %67, i32 0, i32 48
+  %69 = load i64, ptr %68, align 8, !tbaa !38
+  %70 = load ptr, ptr %7, align 8, !tbaa !31
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %71, i32 0, i32 51
+  %73 = load ptr, ptr %72, align 8, !tbaa !25
+  %74 = call i32 @ALPHInit(ptr noundef %63, ptr noundef %66, i64 noundef %69, ptr noundef %70, ptr noundef %73)
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %94, label %76
 
-75:                                               ; preds = %59
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.VP8Decoder, ptr %76, i32 0, i32 46
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.ALPHDecoder, ptr %78, i32 0, i32 5
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %12, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %85
+76:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %77 = load ptr, ptr %6, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %77, i32 0, i32 46
+  %79 = load ptr, ptr %78, align 8, !tbaa !26
+  %80 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %79, i32 0, i32 5
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  store ptr %81, ptr %13, align 8, !tbaa !39
+  %82 = load ptr, ptr %6, align 8, !tbaa !3
+  %83 = load ptr, ptr %13, align 8, !tbaa !39
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %75
-  br label %89
+85:                                               ; preds = %76
+  br label %90
 
-85:                                               ; preds = %75
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %struct.VP8LDecoder, ptr %86, i32 0, i32 0
-  %88 = load i32, ptr %87, align 8
-  br label %89
+86:                                               ; preds = %76
+  %87 = load ptr, ptr %13, align 8, !tbaa !39
+  %88 = getelementptr inbounds nuw %struct.VP8LDecoder, ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8, !tbaa !40
+  br label %90
 
-89:                                               ; preds = %85, %84
-  %90 = phi i32 [ 1, %84 ], [ %88, %85 ]
-  %91 = call i32 @VP8SetError(ptr noundef %81, i32 noundef %90, ptr noundef @.str)
-  br label %179
+90:                                               ; preds = %86, %85
+  %91 = phi i32 [ 1, %85 ], [ %89, %86 ]
+  %92 = call i32 @VP8SetError(ptr noundef %82, i32 noundef %91, ptr noundef @.str)
+  store i32 2, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  %93 = load i32, ptr %12, align 4
+  switch i32 %93, label %186 [
+    i32 2, label %184
+  ]
 
-92:                                               ; preds = %59
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.VP8Decoder, ptr %93, i32 0, i32 46
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.ALPHDecoder, ptr %95, i32 0, i32 4
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp ne i32 %97, 1
-  br i1 %98, label %99, label %102
+94:                                               ; preds = %60
+  %95 = load ptr, ptr %6, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %95, i32 0, i32 46
+  %97 = load ptr, ptr %96, align 8, !tbaa !26
+  %98 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %97, i32 0, i32 4
+  %99 = load i32, ptr %98, align 8, !tbaa !52
+  %100 = icmp ne i32 %99, 1
+  br i1 %100, label %101, label %104
 
-99:                                               ; preds = %92
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.VP8Decoder, ptr %100, i32 0, i32 53
-  store i32 0, ptr %101, align 8
-  br label %106
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %6, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %102, i32 0, i32 53
+  store i32 0, ptr %103, align 8, !tbaa !53
+  br label %108
 
-102:                                              ; preds = %92
-  %103 = load i32, ptr %11, align 4
-  %104 = load i32, ptr %8, align 4
-  %105 = sub nsw i32 %103, %104
-  store i32 %105, ptr %9, align 4
-  br label %106
+104:                                              ; preds = %94
+  %105 = load i32, ptr %11, align 4, !tbaa !33
+  %106 = load i32, ptr %8, align 4, !tbaa !33
+  %107 = sub nsw i32 %105, %106
+  store i32 %107, ptr %9, align 4, !tbaa !33
+  br label %108
 
-106:                                              ; preds = %102, %99
-  br label %107
+108:                                              ; preds = %104, %101
+  br label %109
 
-107:                                              ; preds = %106, %37
-  %108 = load ptr, ptr %6, align 8
-  %109 = load i32, ptr %8, align 4
-  %110 = load i32, ptr %9, align 4
-  %111 = call i32 @ALPHDecode(ptr noundef %108, i32 noundef %109, i32 noundef %110)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %114, label %113
+109:                                              ; preds = %108, %38
+  %110 = load ptr, ptr %6, align 8, !tbaa !3
+  %111 = load i32, ptr %8, align 4, !tbaa !33
+  %112 = load i32, ptr %9, align 4, !tbaa !33
+  %113 = call i32 @ALPHDecode(ptr noundef %110, i32 noundef %111, i32 noundef %112)
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %116, label %115
 
-113:                                              ; preds = %107
-  br label %179
+115:                                              ; preds = %109
+  br label %184
 
-114:                                              ; preds = %107
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.VP8Decoder, ptr %115, i32 0, i32 49
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %169
+116:                                              ; preds = %109
+  %117 = load ptr, ptr %6, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %117, i32 0, i32 49
+  %119 = load i32, ptr %118, align 8, !tbaa !36
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %174
 
-119:                                              ; preds = %114
-  %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct.VP8Decoder, ptr %120, i32 0, i32 46
-  %122 = load ptr, ptr %121, align 8
-  call void @ALPHDelete(ptr noundef %122)
-  %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds %struct.VP8Decoder, ptr %123, i32 0, i32 46
-  store ptr null, ptr %124, align 8
-  %125 = load ptr, ptr %6, align 8
-  %126 = getelementptr inbounds %struct.VP8Decoder, ptr %125, i32 0, i32 53
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %129, label %168
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %6, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %122, i32 0, i32 46
+  %124 = load ptr, ptr %123, align 8, !tbaa !26
+  call void @ALPHDelete(ptr noundef %124)
+  %125 = load ptr, ptr %6, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %125, i32 0, i32 46
+  store ptr null, ptr %126, align 8, !tbaa !26
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %127, i32 0, i32 53
+  %129 = load i32, ptr %128, align 8, !tbaa !53
+  %130 = icmp sgt i32 %129, 0
+  br i1 %130, label %131, label %173
 
-129:                                              ; preds = %119
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.VP8Decoder, ptr %130, i32 0, i32 51
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds %struct.VP8Io, ptr %133, i32 0, i32 21
-  %135 = load i32, ptr %134, align 8
-  %136 = load i32, ptr %10, align 4
-  %137 = mul nsw i32 %135, %136
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %132, i64 %138
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.VP8Io, ptr %140, i32 0, i32 19
-  %142 = load i32, ptr %141, align 8
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i8, ptr %139, i64 %143
-  store ptr %144, ptr %13, align 8
-  %145 = load ptr, ptr %13, align 8
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.VP8Io, ptr %146, i32 0, i32 20
-  %148 = load i32, ptr %147, align 4
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.VP8Io, ptr %149, i32 0, i32 19
-  %151 = load i32, ptr %150, align 8
-  %152 = sub nsw i32 %148, %151
-  %153 = load ptr, ptr %7, align 8
-  %154 = getelementptr inbounds %struct.VP8Io, ptr %153, i32 0, i32 22
-  %155 = load i32, ptr %154, align 4
-  %156 = load ptr, ptr %7, align 8
-  %157 = getelementptr inbounds %struct.VP8Io, ptr %156, i32 0, i32 21
-  %158 = load i32, ptr %157, align 8
-  %159 = sub nsw i32 %155, %158
-  %160 = load i32, ptr %10, align 4
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds %struct.VP8Decoder, ptr %161, i32 0, i32 53
-  %163 = load i32, ptr %162, align 8
-  %164 = call i32 @WebPDequantizeLevels(ptr noundef %145, i32 noundef %152, i32 noundef %159, i32 noundef %160, i32 noundef %163)
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %167, label %166
+131:                                              ; preds = %121
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %132 = load ptr, ptr %6, align 8, !tbaa !3
+  %133 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %132, i32 0, i32 51
+  %134 = load ptr, ptr %133, align 8, !tbaa !25
+  %135 = load ptr, ptr %7, align 8, !tbaa !31
+  %136 = getelementptr inbounds nuw %struct.VP8Io, ptr %135, i32 0, i32 21
+  %137 = load i32, ptr %136, align 8, !tbaa !54
+  %138 = load i32, ptr %10, align 4, !tbaa !33
+  %139 = mul nsw i32 %137, %138
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %134, i64 %140
+  %142 = load ptr, ptr %7, align 8, !tbaa !31
+  %143 = getelementptr inbounds nuw %struct.VP8Io, ptr %142, i32 0, i32 19
+  %144 = load i32, ptr %143, align 8, !tbaa !55
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i8, ptr %141, i64 %145
+  store ptr %146, ptr %14, align 8, !tbaa !56
+  %147 = load ptr, ptr %14, align 8, !tbaa !56
+  %148 = load ptr, ptr %7, align 8, !tbaa !31
+  %149 = getelementptr inbounds nuw %struct.VP8Io, ptr %148, i32 0, i32 20
+  %150 = load i32, ptr %149, align 4, !tbaa !57
+  %151 = load ptr, ptr %7, align 8, !tbaa !31
+  %152 = getelementptr inbounds nuw %struct.VP8Io, ptr %151, i32 0, i32 19
+  %153 = load i32, ptr %152, align 8, !tbaa !55
+  %154 = sub nsw i32 %150, %153
+  %155 = load ptr, ptr %7, align 8, !tbaa !31
+  %156 = getelementptr inbounds nuw %struct.VP8Io, ptr %155, i32 0, i32 22
+  %157 = load i32, ptr %156, align 4, !tbaa !35
+  %158 = load ptr, ptr %7, align 8, !tbaa !31
+  %159 = getelementptr inbounds nuw %struct.VP8Io, ptr %158, i32 0, i32 21
+  %160 = load i32, ptr %159, align 8, !tbaa !54
+  %161 = sub nsw i32 %157, %160
+  %162 = load i32, ptr %10, align 4, !tbaa !33
+  %163 = load ptr, ptr %6, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %163, i32 0, i32 53
+  %165 = load i32, ptr %164, align 8, !tbaa !53
+  %166 = call i32 @WebPDequantizeLevels(ptr noundef %147, i32 noundef %154, i32 noundef %161, i32 noundef %162, i32 noundef %165)
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %169, label %168
 
-166:                                              ; preds = %129
-  br label %179
-
-167:                                              ; preds = %129
-  br label %168
-
-168:                                              ; preds = %167, %119
-  br label %169
-
-169:                                              ; preds = %168, %114
+168:                                              ; preds = %131
+  store i32 2, ptr %12, align 4
   br label %170
 
-170:                                              ; preds = %169, %32
-  %171 = load ptr, ptr %6, align 8
-  %172 = getelementptr inbounds %struct.VP8Decoder, ptr %171, i32 0, i32 51
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i32, ptr %8, align 4
-  %175 = load i32, ptr %10, align 4
-  %176 = mul nsw i32 %174, %175
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i8, ptr %173, i64 %177
-  store ptr %178, ptr %5, align 8
-  br label %181
+169:                                              ; preds = %131
+  store i32 0, ptr %12, align 4
+  br label %170
 
-179:                                              ; preds = %166, %113, %89, %58
-  %180 = load ptr, ptr %6, align 8
-  call void @WebPDeallocateAlphaMemory(ptr noundef %180)
+170:                                              ; preds = %168, %169
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  %171 = load i32, ptr %12, align 4
+  switch i32 %171, label %186 [
+    i32 0, label %172
+    i32 2, label %184
+  ]
+
+172:                                              ; preds = %170
+  br label %173
+
+173:                                              ; preds = %172, %121
+  br label %174
+
+174:                                              ; preds = %173, %116
+  br label %175
+
+175:                                              ; preds = %174, %33
+  %176 = load ptr, ptr %6, align 8, !tbaa !3
+  %177 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %176, i32 0, i32 51
+  %178 = load ptr, ptr %177, align 8, !tbaa !25
+  %179 = load i32, ptr %8, align 4, !tbaa !33
+  %180 = load i32, ptr %10, align 4, !tbaa !33
+  %181 = mul nsw i32 %179, %180
+  %182 = sext i32 %181 to i64
+  %183 = getelementptr inbounds i8, ptr %178, i64 %182
+  store ptr %183, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %186
+
+184:                                              ; preds = %170, %90, %115, %59
+  %185 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @WebPDeallocateAlphaMemory(ptr noundef %185)
   store ptr null, ptr %5, align 8
-  br label %181
+  store i32 1, ptr %12, align 4
+  br label %186
 
-181:                                              ; preds = %179, %170, %50, %31
-  %182 = load ptr, ptr %5, align 8
-  ret ptr %182
+186:                                              ; preds = %184, %90, %175, %170, %51, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %187 = load ptr, ptr %5, align 8
+  ret ptr %187
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ALPHNew() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 216)
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %1, align 8, !tbaa !27
+  %3 = load ptr, ptr %1, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret ptr %3
 }
 
@@ -357,55 +391,64 @@ define internal i32 @AllocateAlphaPlane(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.VP8Io, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
-  store i32 %11, ptr %6, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.VP8Io, ptr %12, i32 0, i32 22
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %7, align 4
-  %15 = load i32, ptr %6, align 4
-  %16 = sext i32 %15 to i64
-  %17 = load i32, ptr %7, align 4
-  %18 = sext i32 %17 to i64
-  %19 = mul i64 %16, %18
-  store i64 %19, ptr %8, align 8
-  %20 = load i64, ptr %8, align 8
-  %21 = call ptr @WebPSafeMalloc(i64 noundef %20, i64 noundef 1)
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.VP8Decoder, ptr %22, i32 0, i32 50
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.VP8Decoder, ptr %24, i32 0, i32 50
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %31
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %10 = load ptr, ptr %5, align 8, !tbaa !31
+  %11 = getelementptr inbounds nuw %struct.VP8Io, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !34
+  store i32 %12, ptr %6, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %13 = load ptr, ptr %5, align 8, !tbaa !31
+  %14 = getelementptr inbounds nuw %struct.VP8Io, ptr %13, i32 0, i32 22
+  %15 = load i32, ptr %14, align 4, !tbaa !35
+  store i32 %15, ptr %7, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %16 = load i32, ptr %6, align 4, !tbaa !33
+  %17 = sext i32 %16 to i64
+  %18 = load i32, ptr %7, align 4, !tbaa !33
+  %19 = sext i32 %18 to i64
+  %20 = mul i64 %17, %19
+  store i64 %20, ptr %8, align 8, !tbaa !58
+  %21 = load i64, ptr %8, align 8, !tbaa !58
+  %22 = call ptr @WebPSafeMalloc(i64 noundef %21, i64 noundef 1)
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %23, i32 0, i32 50
+  store ptr %22, ptr %24, align 8, !tbaa !8
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %25, i32 0, i32 50
+  %27 = load ptr, ptr %26, align 8, !tbaa !8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %2
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @VP8SetError(ptr noundef %29, i32 noundef 1, ptr noundef @.str)
-  store i32 %30, ptr %3, align 4
-  br label %39
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = call i32 @VP8SetError(ptr noundef %30, i32 noundef 1, ptr noundef @.str)
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %40
 
-31:                                               ; preds = %2
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.VP8Decoder, ptr %32, i32 0, i32 50
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.VP8Decoder, ptr %35, i32 0, i32 51
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.VP8Decoder, ptr %37, i32 0, i32 52
-  store ptr null, ptr %38, align 8
+32:                                               ; preds = %2
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %33, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8, !tbaa !8
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %36, i32 0, i32 51
+  store ptr %35, ptr %37, align 8, !tbaa !25
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %38, i32 0, i32 52
+  store ptr null, ptr %39, align 8, !tbaa !59
   store i32 1, ptr %3, align 4
-  br label %39
+  store i32 1, ptr %9, align 4
+  br label %40
 
-39:                                               ; preds = %31, %28
-  %40 = load i32, ptr %3, align 4
-  ret i32 %40
+40:                                               ; preds = %32, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %41 = load i32, ptr %3, align 4
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -421,217 +464,237 @@ define internal i32 @ALPHInit(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  %17 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store i32 0, ptr %12, align 4
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
-  store ptr %19, ptr %13, align 8
-  %20 = load i64, ptr %9, align 8
-  %21 = sub i64 %20, 1
-  store i64 %21, ptr %14, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.ALPHDecoder, ptr %22, i32 0, i32 6
-  store ptr %23, ptr %16, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !27
+  store ptr %1, ptr %8, align 8, !tbaa !56
+  store i64 %2, ptr %9, align 8, !tbaa !58
+  store ptr %3, ptr %10, align 8, !tbaa !31
+  store ptr %4, ptr %11, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  store i32 0, ptr %12, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %19 = load ptr, ptr %8, align 8, !tbaa !56
+  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %20, ptr %13, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %21 = load i64, ptr %9, align 8, !tbaa !58
+  %22 = sub i64 %21, 1
+  store i64 %22, ptr %14, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  %23 = load ptr, ptr %7, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %23, i32 0, i32 6
+  store ptr %24, ptr %16, align 8, !tbaa !31
   call void @VP8FiltersInit()
-  %24 = load ptr, ptr %11, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.ALPHDecoder, ptr %25, i32 0, i32 8
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct.VP8Io, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.ALPHDecoder, ptr %30, i32 0, i32 0
-  store i32 %29, ptr %31, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct.VP8Io, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.ALPHDecoder, ptr %35, i32 0, i32 1
-  store i32 %34, ptr %36, align 4
-  %37 = load i64, ptr %9, align 8
-  %38 = icmp ule i64 %37, 1
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %5
-  store i32 0, ptr %6, align 4
-  br label %163
+  %25 = load ptr, ptr %11, align 8, !tbaa !56
+  %26 = load ptr, ptr %7, align 8, !tbaa !27
+  %27 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %26, i32 0, i32 8
+  store ptr %25, ptr %27, align 8, !tbaa !60
+  %28 = load ptr, ptr %10, align 8, !tbaa !31
+  %29 = getelementptr inbounds nuw %struct.VP8Io, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8, !tbaa !34
+  %31 = load ptr, ptr %7, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %31, i32 0, i32 0
+  store i32 %30, ptr %32, align 8, !tbaa !61
+  %33 = load ptr, ptr %10, align 8, !tbaa !31
+  %34 = getelementptr inbounds nuw %struct.VP8Io, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !62
+  %36 = load ptr, ptr %7, align 8, !tbaa !27
+  %37 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %36, i32 0, i32 1
+  store i32 %35, ptr %37, align 4, !tbaa !63
+  %38 = load i64, ptr %9, align 8, !tbaa !58
+  %39 = icmp ule i64 %38, 1
+  br i1 %39, label %40, label %41
 
 40:                                               ; preds = %5
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 0
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = ashr i32 %44, 0
-  %46 = and i32 %45, 3
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.ALPHDecoder, ptr %47, i32 0, i32 2
-  store i32 %46, ptr %48, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = ashr i32 %52, 2
-  %54 = and i32 %53, 3
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.ALPHDecoder, ptr %55, i32 0, i32 3
-  store i32 %54, ptr %56, align 4
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 0
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = ashr i32 %60, 4
-  %62 = and i32 %61, 3
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.ALPHDecoder, ptr %63, i32 0, i32 4
-  store i32 %62, ptr %64, align 8
-  %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 0
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = ashr i32 %68, 6
-  %70 = and i32 %69, 3
-  store i32 %70, ptr %15, align 4
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.ALPHDecoder, ptr %71, i32 0, i32 2
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %93, label %75
-
-75:                                               ; preds = %40
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct.ALPHDecoder, ptr %76, i32 0, i32 2
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %93, label %80
-
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct.ALPHDecoder, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp uge i32 %83, 4
-  br i1 %84, label %93, label %85
-
-85:                                               ; preds = %80
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.ALPHDecoder, ptr %86, i32 0, i32 4
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp sgt i32 %88, 1
-  br i1 %89, label %93, label %90
-
-90:                                               ; preds = %85
-  %91 = load i32, ptr %15, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %94
-
-93:                                               ; preds = %90, %85, %80, %75, %40
   store i32 0, ptr %6, align 4
-  br label %163
+  store i32 1, ptr %17, align 4
+  br label %164
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %16, align 8
-  %96 = call i32 @VP8InitIo(ptr noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %99, label %98
+41:                                               ; preds = %5
+  %42 = load ptr, ptr %8, align 8, !tbaa !56
+  %43 = getelementptr inbounds i8, ptr %42, i64 0
+  %44 = load i8, ptr %43, align 1, !tbaa !64
+  %45 = zext i8 %44 to i32
+  %46 = ashr i32 %45, 0
+  %47 = and i32 %46, 3
+  %48 = load ptr, ptr %7, align 8, !tbaa !27
+  %49 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %48, i32 0, i32 2
+  store i32 %47, ptr %49, align 8, !tbaa !65
+  %50 = load ptr, ptr %8, align 8, !tbaa !56
+  %51 = getelementptr inbounds i8, ptr %50, i64 0
+  %52 = load i8, ptr %51, align 1, !tbaa !64
+  %53 = zext i8 %52 to i32
+  %54 = ashr i32 %53, 2
+  %55 = and i32 %54, 3
+  %56 = load ptr, ptr %7, align 8, !tbaa !27
+  %57 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %56, i32 0, i32 3
+  store i32 %55, ptr %57, align 4, !tbaa !66
+  %58 = load ptr, ptr %8, align 8, !tbaa !56
+  %59 = getelementptr inbounds i8, ptr %58, i64 0
+  %60 = load i8, ptr %59, align 1, !tbaa !64
+  %61 = zext i8 %60 to i32
+  %62 = ashr i32 %61, 4
+  %63 = and i32 %62, 3
+  %64 = load ptr, ptr %7, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %64, i32 0, i32 4
+  store i32 %63, ptr %65, align 8, !tbaa !52
+  %66 = load ptr, ptr %8, align 8, !tbaa !56
+  %67 = getelementptr inbounds i8, ptr %66, i64 0
+  %68 = load i8, ptr %67, align 1, !tbaa !64
+  %69 = zext i8 %68 to i32
+  %70 = ashr i32 %69, 6
+  %71 = and i32 %70, 3
+  store i32 %71, ptr %15, align 4, !tbaa !33
+  %72 = load ptr, ptr %7, align 8, !tbaa !27
+  %73 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %72, i32 0, i32 2
+  %74 = load i32, ptr %73, align 8, !tbaa !65
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %94, label %76
 
-98:                                               ; preds = %94
+76:                                               ; preds = %41
+  %77 = load ptr, ptr %7, align 8, !tbaa !27
+  %78 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %77, i32 0, i32 2
+  %79 = load i32, ptr %78, align 8, !tbaa !65
+  %80 = icmp sgt i32 %79, 1
+  br i1 %80, label %94, label %81
+
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %7, align 8, !tbaa !27
+  %83 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 4, !tbaa !66
+  %85 = icmp uge i32 %84, 4
+  br i1 %85, label %94, label %86
+
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %7, align 8, !tbaa !27
+  %88 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %87, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8, !tbaa !52
+  %90 = icmp sgt i32 %89, 1
+  br i1 %90, label %94, label %91
+
+91:                                               ; preds = %86
+  %92 = load i32, ptr %15, align 4, !tbaa !33
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %91, %86, %81, %76, %41
   store i32 0, ptr %6, align 4
-  br label %163
+  store i32 1, ptr %17, align 4
+  br label %164
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %16, align 8
-  call void @WebPInitCustomIo(ptr noundef null, ptr noundef %100)
-  %101 = load ptr, ptr %7, align 8
-  %102 = load ptr, ptr %16, align 8
-  %103 = getelementptr inbounds %struct.VP8Io, ptr %102, i32 0, i32 10
-  store ptr %101, ptr %103, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct.VP8Io, ptr %104, i32 0, i32 0
-  %106 = load i32, ptr %105, align 8
-  %107 = load ptr, ptr %16, align 8
-  %108 = getelementptr inbounds %struct.VP8Io, ptr %107, i32 0, i32 0
-  store i32 %106, ptr %108, align 8
-  %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds %struct.VP8Io, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %16, align 8
-  %113 = getelementptr inbounds %struct.VP8Io, ptr %112, i32 0, i32 1
-  store i32 %111, ptr %113, align 4
-  %114 = load ptr, ptr %10, align 8
-  %115 = getelementptr inbounds %struct.VP8Io, ptr %114, i32 0, i32 18
-  %116 = load i32, ptr %115, align 4
-  %117 = load ptr, ptr %16, align 8
-  %118 = getelementptr inbounds %struct.VP8Io, ptr %117, i32 0, i32 18
-  store i32 %116, ptr %118, align 4
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.VP8Io, ptr %119, i32 0, i32 19
-  %121 = load i32, ptr %120, align 8
-  %122 = load ptr, ptr %16, align 8
-  %123 = getelementptr inbounds %struct.VP8Io, ptr %122, i32 0, i32 19
-  store i32 %121, ptr %123, align 8
-  %124 = load ptr, ptr %10, align 8
-  %125 = getelementptr inbounds %struct.VP8Io, ptr %124, i32 0, i32 20
-  %126 = load i32, ptr %125, align 4
-  %127 = load ptr, ptr %16, align 8
-  %128 = getelementptr inbounds %struct.VP8Io, ptr %127, i32 0, i32 20
-  store i32 %126, ptr %128, align 4
-  %129 = load ptr, ptr %10, align 8
-  %130 = getelementptr inbounds %struct.VP8Io, ptr %129, i32 0, i32 21
-  %131 = load i32, ptr %130, align 8
-  %132 = load ptr, ptr %16, align 8
-  %133 = getelementptr inbounds %struct.VP8Io, ptr %132, i32 0, i32 21
-  store i32 %131, ptr %133, align 8
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct.VP8Io, ptr %134, i32 0, i32 22
-  %136 = load i32, ptr %135, align 4
-  %137 = load ptr, ptr %16, align 8
-  %138 = getelementptr inbounds %struct.VP8Io, ptr %137, i32 0, i32 22
-  store i32 %136, ptr %138, align 4
-  %139 = load ptr, ptr %7, align 8
-  %140 = getelementptr inbounds %struct.ALPHDecoder, ptr %139, i32 0, i32 2
-  %141 = load i32, ptr %140, align 8
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %156
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %16, align 8, !tbaa !31
+  %97 = call i32 @VP8InitIo(ptr noundef %96)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %100, label %99
 
-143:                                              ; preds = %99
-  %144 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds %struct.ALPHDecoder, ptr %144, i32 0, i32 0
-  %146 = load i32, ptr %145, align 8
-  %147 = load ptr, ptr %7, align 8
-  %148 = getelementptr inbounds %struct.ALPHDecoder, ptr %147, i32 0, i32 1
-  %149 = load i32, ptr %148, align 4
-  %150 = mul nsw i32 %146, %149
-  %151 = sext i32 %150 to i64
-  store i64 %151, ptr %17, align 8
-  %152 = load i64, ptr %14, align 8
-  %153 = load i64, ptr %17, align 8
-  %154 = icmp uge i64 %152, %153
-  %155 = zext i1 %154 to i32
-  store i32 %155, ptr %12, align 4
-  br label %161
+99:                                               ; preds = %95
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %164
 
-156:                                              ; preds = %99
-  %157 = load ptr, ptr %7, align 8
-  %158 = load ptr, ptr %13, align 8
-  %159 = load i64, ptr %14, align 8
-  %160 = call i32 @VP8LDecodeAlphaHeader(ptr noundef %157, ptr noundef %158, i64 noundef %159)
-  store i32 %160, ptr %12, align 4
-  br label %161
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %16, align 8, !tbaa !31
+  call void @WebPInitCustomIo(ptr noundef null, ptr noundef %101)
+  %102 = load ptr, ptr %7, align 8, !tbaa !27
+  %103 = load ptr, ptr %16, align 8, !tbaa !31
+  %104 = getelementptr inbounds nuw %struct.VP8Io, ptr %103, i32 0, i32 10
+  store ptr %102, ptr %104, align 8, !tbaa !67
+  %105 = load ptr, ptr %10, align 8, !tbaa !31
+  %106 = getelementptr inbounds nuw %struct.VP8Io, ptr %105, i32 0, i32 0
+  %107 = load i32, ptr %106, align 8, !tbaa !34
+  %108 = load ptr, ptr %16, align 8, !tbaa !31
+  %109 = getelementptr inbounds nuw %struct.VP8Io, ptr %108, i32 0, i32 0
+  store i32 %107, ptr %109, align 8, !tbaa !34
+  %110 = load ptr, ptr %10, align 8, !tbaa !31
+  %111 = getelementptr inbounds nuw %struct.VP8Io, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4, !tbaa !62
+  %113 = load ptr, ptr %16, align 8, !tbaa !31
+  %114 = getelementptr inbounds nuw %struct.VP8Io, ptr %113, i32 0, i32 1
+  store i32 %112, ptr %114, align 4, !tbaa !62
+  %115 = load ptr, ptr %10, align 8, !tbaa !31
+  %116 = getelementptr inbounds nuw %struct.VP8Io, ptr %115, i32 0, i32 18
+  %117 = load i32, ptr %116, align 4, !tbaa !68
+  %118 = load ptr, ptr %16, align 8, !tbaa !31
+  %119 = getelementptr inbounds nuw %struct.VP8Io, ptr %118, i32 0, i32 18
+  store i32 %117, ptr %119, align 4, !tbaa !68
+  %120 = load ptr, ptr %10, align 8, !tbaa !31
+  %121 = getelementptr inbounds nuw %struct.VP8Io, ptr %120, i32 0, i32 19
+  %122 = load i32, ptr %121, align 8, !tbaa !55
+  %123 = load ptr, ptr %16, align 8, !tbaa !31
+  %124 = getelementptr inbounds nuw %struct.VP8Io, ptr %123, i32 0, i32 19
+  store i32 %122, ptr %124, align 8, !tbaa !55
+  %125 = load ptr, ptr %10, align 8, !tbaa !31
+  %126 = getelementptr inbounds nuw %struct.VP8Io, ptr %125, i32 0, i32 20
+  %127 = load i32, ptr %126, align 4, !tbaa !57
+  %128 = load ptr, ptr %16, align 8, !tbaa !31
+  %129 = getelementptr inbounds nuw %struct.VP8Io, ptr %128, i32 0, i32 20
+  store i32 %127, ptr %129, align 4, !tbaa !57
+  %130 = load ptr, ptr %10, align 8, !tbaa !31
+  %131 = getelementptr inbounds nuw %struct.VP8Io, ptr %130, i32 0, i32 21
+  %132 = load i32, ptr %131, align 8, !tbaa !54
+  %133 = load ptr, ptr %16, align 8, !tbaa !31
+  %134 = getelementptr inbounds nuw %struct.VP8Io, ptr %133, i32 0, i32 21
+  store i32 %132, ptr %134, align 8, !tbaa !54
+  %135 = load ptr, ptr %10, align 8, !tbaa !31
+  %136 = getelementptr inbounds nuw %struct.VP8Io, ptr %135, i32 0, i32 22
+  %137 = load i32, ptr %136, align 4, !tbaa !35
+  %138 = load ptr, ptr %16, align 8, !tbaa !31
+  %139 = getelementptr inbounds nuw %struct.VP8Io, ptr %138, i32 0, i32 22
+  store i32 %137, ptr %139, align 4, !tbaa !35
+  %140 = load ptr, ptr %7, align 8, !tbaa !27
+  %141 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %140, i32 0, i32 2
+  %142 = load i32, ptr %141, align 8, !tbaa !65
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %157
 
-161:                                              ; preds = %156, %143
-  %162 = load i32, ptr %12, align 4
-  store i32 %162, ptr %6, align 4
-  br label %163
+144:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  %145 = load ptr, ptr %7, align 8, !tbaa !27
+  %146 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %145, i32 0, i32 0
+  %147 = load i32, ptr %146, align 8, !tbaa !61
+  %148 = load ptr, ptr %7, align 8, !tbaa !27
+  %149 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %148, i32 0, i32 1
+  %150 = load i32, ptr %149, align 4, !tbaa !63
+  %151 = mul nsw i32 %147, %150
+  %152 = sext i32 %151 to i64
+  store i64 %152, ptr %18, align 8, !tbaa !58
+  %153 = load i64, ptr %14, align 8, !tbaa !58
+  %154 = load i64, ptr %18, align 8, !tbaa !58
+  %155 = icmp uge i64 %153, %154
+  %156 = zext i1 %155 to i32
+  store i32 %156, ptr %12, align 4, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  br label %162
 
-163:                                              ; preds = %161, %98, %93, %39
-  %164 = load i32, ptr %6, align 4
-  ret i32 %164
+157:                                              ; preds = %100
+  %158 = load ptr, ptr %7, align 8, !tbaa !27
+  %159 = load ptr, ptr %13, align 8, !tbaa !56
+  %160 = load i64, ptr %14, align 8, !tbaa !58
+  %161 = call i32 @VP8LDecodeAlphaHeader(ptr noundef %158, ptr noundef %159, i64 noundef %160)
+  store i32 %161, ptr %12, align 4, !tbaa !33
+  br label %162
+
+162:                                              ; preds = %157, %144
+  %163 = load i32, ptr %12, align 4, !tbaa !33
+  store i32 %163, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %164
+
+164:                                              ; preds = %162, %99, %94, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  %165 = load i32, ptr %6, align 4
+  ret i32 %165
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ALPHDecode(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -646,137 +709,154 @@ define internal i32 @ALPHDecode(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.VP8Decoder, ptr %15, i32 0, i32 46
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.ALPHDecoder, ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %9, align 4
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.ALPHDecoder, ptr %21, i32 0, i32 6
-  %23 = getelementptr inbounds %struct.VP8Io, ptr %22, i32 0, i32 22
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %10, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.ALPHDecoder, ptr %25, i32 0, i32 2
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %81
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !33
+  store i32 %2, ptr %7, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %16, i32 0, i32 46
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  store ptr %18, ptr %8, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %19 = load ptr, ptr %8, align 8, !tbaa !27
+  %20 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8, !tbaa !61
+  store i32 %21, ptr %9, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %22 = load ptr, ptr %8, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %22, i32 0, i32 6
+  %24 = getelementptr inbounds nuw %struct.VP8Io, ptr %23, i32 0, i32 22
+  %25 = load i32, ptr %24, align 4, !tbaa !69
+  store i32 %25, ptr %10, align 4, !tbaa !33
+  %26 = load ptr, ptr %8, align 8, !tbaa !27
+  %27 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8, !tbaa !65
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %82
 
-29:                                               ; preds = %3
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.VP8Decoder, ptr %30, i32 0, i32 52
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %12, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.VP8Decoder, ptr %33, i32 0, i32 47
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
-  %37 = load i32, ptr %6, align 4
-  %38 = load i32, ptr %9, align 4
-  %39 = mul nsw i32 %37, %38
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %36, i64 %40
-  store ptr %41, ptr %13, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.VP8Decoder, ptr %42, i32 0, i32 51
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = load i32, ptr %9, align 4
-  %47 = mul nsw i32 %45, %46
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %44, i64 %48
-  store ptr %49, ptr %14, align 8
-  store i32 0, ptr %11, align 4
-  br label %50
+30:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %31 = load ptr, ptr %5, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %31, i32 0, i32 52
+  %33 = load ptr, ptr %32, align 8, !tbaa !59
+  store ptr %33, ptr %12, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %34 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %34, i32 0, i32 47
+  %36 = load ptr, ptr %35, align 8, !tbaa !37
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = load i32, ptr %6, align 4, !tbaa !33
+  %39 = load i32, ptr %9, align 4, !tbaa !33
+  %40 = mul nsw i32 %38, %39
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
+  store ptr %42, ptr %13, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %43 = load ptr, ptr %5, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %43, i32 0, i32 51
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %46 = load i32, ptr %6, align 4, !tbaa !33
+  %47 = load i32, ptr %9, align 4, !tbaa !33
+  %48 = mul nsw i32 %46, %47
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %45, i64 %49
+  store ptr %50, ptr %14, align 8, !tbaa !56
+  store i32 0, ptr %11, align 4, !tbaa !33
+  br label %51
 
-50:                                               ; preds = %74, %29
-  %51 = load i32, ptr %11, align 4
-  %52 = load i32, ptr %7, align 4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %77
+51:                                               ; preds = %75, %30
+  %52 = load i32, ptr %11, align 4, !tbaa !33
+  %53 = load i32, ptr %7, align 4, !tbaa !33
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %78
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.ALPHDecoder, ptr %55, i32 0, i32 3
-  %57 = load i32, ptr %56, align 4
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds [4 x ptr], ptr @WebPUnfilters, i64 0, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load ptr, ptr %13, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = load i32, ptr %9, align 4
-  call void %60(ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64)
-  %65 = load ptr, ptr %14, align 8
-  store ptr %65, ptr %12, align 8
-  %66 = load i32, ptr %9, align 4
-  %67 = load ptr, ptr %14, align 8
-  %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store ptr %69, ptr %14, align 8
-  %70 = load i32, ptr %9, align 4
-  %71 = load ptr, ptr %13, align 8
-  %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  store ptr %73, ptr %13, align 8
-  br label %74
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %8, align 8, !tbaa !27
+  %57 = getelementptr inbounds nuw %struct.ALPHDecoder, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 4, !tbaa !66
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw [4 x ptr], ptr @WebPUnfilters, i64 0, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !70
+  %62 = load ptr, ptr %12, align 8, !tbaa !56
+  %63 = load ptr, ptr %13, align 8, !tbaa !56
+  %64 = load ptr, ptr %14, align 8, !tbaa !56
+  %65 = load i32, ptr %9, align 4, !tbaa !33
+  call void %61(ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65)
+  %66 = load ptr, ptr %14, align 8, !tbaa !56
+  store ptr %66, ptr %12, align 8, !tbaa !56
+  %67 = load i32, ptr %9, align 4, !tbaa !33
+  %68 = load ptr, ptr %14, align 8, !tbaa !56
+  %69 = sext i32 %67 to i64
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
+  store ptr %70, ptr %14, align 8, !tbaa !56
+  %71 = load i32, ptr %9, align 4, !tbaa !33
+  %72 = load ptr, ptr %13, align 8, !tbaa !56
+  %73 = sext i32 %71 to i64
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  store ptr %74, ptr %13, align 8, !tbaa !56
+  br label %75
 
-74:                                               ; preds = %54
-  %75 = load i32, ptr %11, align 4
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %11, align 4
-  br label %50, !llvm.loop !4
+75:                                               ; preds = %55
+  %76 = load i32, ptr %11, align 4, !tbaa !33
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %11, align 4, !tbaa !33
+  br label %51, !llvm.loop !71
 
-77:                                               ; preds = %50
-  %78 = load ptr, ptr %12, align 8
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.VP8Decoder, ptr %79, i32 0, i32 52
-  store ptr %78, ptr %80, align 8
-  br label %90
+78:                                               ; preds = %51
+  %79 = load ptr, ptr %12, align 8, !tbaa !56
+  %80 = load ptr, ptr %5, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %80, i32 0, i32 52
+  store ptr %79, ptr %81, align 8, !tbaa !59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  br label %91
 
-81:                                               ; preds = %3
-  %82 = load ptr, ptr %8, align 8
-  %83 = load i32, ptr %6, align 4
-  %84 = load i32, ptr %7, align 4
-  %85 = add nsw i32 %83, %84
-  %86 = call i32 @VP8LDecodeAlphaImageStream(ptr noundef %82, i32 noundef %85)
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %89, label %88
+82:                                               ; preds = %3
+  %83 = load ptr, ptr %8, align 8, !tbaa !27
+  %84 = load i32, ptr %6, align 4, !tbaa !33
+  %85 = load i32, ptr %7, align 4, !tbaa !33
+  %86 = add nsw i32 %84, %85
+  %87 = call i32 @VP8LDecodeAlphaImageStream(ptr noundef %83, i32 noundef %86)
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %90, label %89
 
-88:                                               ; preds = %81
+89:                                               ; preds = %82
   store i32 0, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %101
+
+90:                                               ; preds = %82
+  br label %91
+
+91:                                               ; preds = %90, %78
+  %92 = load i32, ptr %6, align 4, !tbaa !33
+  %93 = load i32, ptr %7, align 4, !tbaa !33
+  %94 = add nsw i32 %92, %93
+  %95 = load i32, ptr %10, align 4, !tbaa !33
+  %96 = icmp sge i32 %94, %95
+  br i1 %96, label %97, label %100
+
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.VP8Decoder, ptr %98, i32 0, i32 49
+  store i32 1, ptr %99, align 8, !tbaa !36
   br label %100
 
-89:                                               ; preds = %81
-  br label %90
-
-90:                                               ; preds = %89, %77
-  %91 = load i32, ptr %6, align 4
-  %92 = load i32, ptr %7, align 4
-  %93 = add nsw i32 %91, %92
-  %94 = load i32, ptr %10, align 4
-  %95 = icmp sge i32 %93, %94
-  br i1 %95, label %96, label %99
-
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.VP8Decoder, ptr %97, i32 0, i32 49
-  store i32 1, ptr %98, align 8
-  br label %99
-
-99:                                               ; preds = %96, %90
+100:                                              ; preds = %97, %91
   store i32 1, ptr %4, align 4
-  br label %100
+  store i32 1, ptr %15, align 4
+  br label %101
 
-100:                                              ; preds = %99, %88
-  %101 = load i32, ptr %4, align 4
-  ret i32 %101
+101:                                              ; preds = %100, %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %102 = load i32, ptr %4, align 4
+  ret i32 %102
 }
 
 declare i32 @WebPDequantizeLevels(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
@@ -789,12 +869,12 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) #1
 
 declare void @VP8FiltersInit() #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @VP8InitIo(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @VP8InitIo(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @VP8InitIoInternal(ptr noundef %3, i32 noundef 521)
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %4 = call i32 @VP8InitIoInternal(ptr noundef %3, i32 noundef 528)
   ret i32 %4
 }
 
@@ -806,14 +886,84 @@ declare i32 @VP8InitIoInternal(ptr noundef, i32 noundef) #1
 
 declare i32 @VP8LDecodeAlphaImageStream(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10VP8Decoder", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !11, i64 2992}
+!9 = !{!"VP8Decoder", !10, i64 0, !10, i64 4, !11, i64 8, !12, i64 16, !10, i64 64, !14, i64 68, !15, i64 76, !17, i64 84, !18, i64 132, !19, i64 152, !10, i64 200, !10, i64 204, !10, i64 208, !20, i64 216, !10, i64 408, !10, i64 412, !10, i64 416, !10, i64 420, !10, i64 424, !10, i64 428, !10, i64 432, !6, i64 440, !10, i64 824, !22, i64 828, !6, i64 1060, !23, i64 1192, !10, i64 2800, !6, i64 2804, !11, i64 2808, !6, i64 2816, !5, i64 2824, !5, i64 2832, !5, i64 2840, !11, i64 2848, !11, i64 2856, !11, i64 2864, !11, i64 2872, !10, i64 2880, !10, i64 2884, !5, i64 2888, !13, i64 2896, !10, i64 2904, !10, i64 2908, !5, i64 2912, !10, i64 2920, !6, i64 2924, !24, i64 2960, !11, i64 2968, !13, i64 2976, !10, i64 2984, !11, i64 2992, !11, i64 3000, !11, i64 3008, !10, i64 3016}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!"VP8BitReader", !13, i64 0, !10, i64 8, !10, i64 12, !11, i64 16, !11, i64 24, !11, i64 32, !10, i64 40}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !10, i64 4}
+!15 = !{!"", !16, i64 0, !16, i64 2, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7}
+!16 = !{!"short", !6, i64 0}
+!17 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !6, i64 16, !6, i64 32}
+!18 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 12, !6, i64 16}
+!19 = !{!"", !5, i64 0, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !10, i64 40}
+!20 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 16, !5, i64 24, !21, i64 32}
+!21 = !{!"VP8Io", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !10, i64 48, !10, i64 52, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !10, i64 88, !13, i64 96, !11, i64 104, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !10, i64 128, !10, i64 132, !10, i64 136, !10, i64 140, !10, i64 144, !11, i64 152}
+!22 = !{!"", !10, i64 0, !10, i64 4, !6, i64 8, !10, i64 228}
+!23 = !{!"", !6, i64 0, !6, i64 3, !6, i64 1064}
+!24 = !{!"p1 _ZTS11ALPHDecoder", !5, i64 0}
+!25 = !{!9, !11, i64 3000}
+!26 = !{!9, !24, i64 2960}
+!27 = !{!24, !24, i64 0}
+!28 = !{!29, !30, i64 24}
+!29 = !{!"ALPHDecoder", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !30, i64 24, !21, i64 32, !10, i64 192, !11, i64 200, !11, i64 208}
+!30 = !{!"p1 _ZTS11VP8LDecoder", !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS5VP8Io", !5, i64 0}
+!33 = !{!10, !10, i64 0}
+!34 = !{!21, !10, i64 0}
+!35 = !{!21, !10, i64 132}
+!36 = !{!9, !10, i64 2984}
+!37 = !{!9, !11, i64 2968}
+!38 = !{!9, !13, i64 2976}
+!39 = !{!30, !30, i64 0}
+!40 = !{!41, !10, i64 0}
+!41 = !{!"VP8LDecoder", !10, i64 0, !10, i64 4, !32, i64 8, !42, i64 16, !43, i64 24, !43, i64 32, !44, i64 40, !10, i64 80, !44, i64 88, !10, i64 128, !10, i64 132, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !45, i64 152, !10, i64 272, !6, i64 280, !10, i64 376, !11, i64 384, !51, i64 392}
+!42 = !{!"p1 _ZTS13WebPDecBuffer", !5, i64 0}
+!43 = !{!"p1 int", !5, i64 0}
+!44 = !{!"", !13, i64 0, !11, i64 8, !13, i64 16, !13, i64 24, !10, i64 32, !10, i64 36}
+!45 = !{!"", !10, i64 0, !46, i64 8, !46, i64 24, !10, i64 40, !10, i64 44, !10, i64 48, !43, i64 56, !10, i64 64, !47, i64 72, !48, i64 80}
+!46 = !{!"", !43, i64 0, !10, i64 8, !10, i64 12}
+!47 = !{!"p1 _ZTS10HTreeGroup", !5, i64 0}
+!48 = !{!"HuffmanTables", !49, i64 0, !50, i64 32}
+!49 = !{!"HuffmanTablesSegment", !5, i64 0, !5, i64 8, !50, i64 16, !10, i64 24}
+!50 = !{!"p1 _ZTS20HuffmanTablesSegment", !5, i64 0}
+!51 = !{!"p1 _ZTS12WebPRescaler", !5, i64 0}
+!52 = !{!29, !10, i64 16}
+!53 = !{!9, !10, i64 3016}
+!54 = !{!21, !10, i64 128}
+!55 = !{!21, !10, i64 120}
+!56 = !{!11, !11, i64 0}
+!57 = !{!21, !10, i64 124}
+!58 = !{!13, !13, i64 0}
+!59 = !{!9, !11, i64 3008}
+!60 = !{!29, !11, i64 200}
+!61 = !{!29, !10, i64 0}
+!62 = !{!21, !10, i64 4}
+!63 = !{!29, !10, i64 4}
+!64 = !{!6, !6, i64 0}
+!65 = !{!29, !10, i64 8}
+!66 = !{!29, !10, i64 12}
+!67 = !{!21, !5, i64 56}
+!68 = !{!21, !10, i64 116}
+!69 = !{!29, !10, i64 164}
+!70 = !{!5, !5, i64 0}
+!71 = distinct !{!71, !72}
+!72 = !{!"llvm.loop.mustprogress"}

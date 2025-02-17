@@ -19,39 +19,39 @@ define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly captu
   br i1 %or.cond, label %5, label %51
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr %0, align 1
+  %6 = load i8, ptr %0, align 1, !tbaa !4
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
   %17 = or disjoint i32 %12, %8
   %18 = or disjoint i32 %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i8, ptr %23, align 1
+  %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 16
   %31 = or disjoint i32 %30, %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %33 = load i8, ptr %32, align 1
+  %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
   %36 = or disjoint i32 %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %38 = load i8, ptr %37, align 1
+  %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = icmp eq i32 %22, -1991225785
@@ -83,8 +83,8 @@ define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly captu
   %spec.select = select i1 %or.cond9, i32 4, i32 5
   br label %51
 
-51:                                               ; preds = %49, %44, %43, %43, %42, %5, %47, %2
-  %.0 = phi i32 [ 5, %47 ], [ 5, %2 ], [ 0, %5 ], [ 1, %42 ], [ 2, %43 ], [ 2, %43 ], [ 3, %44 ], [ %spec.select, %49 ]
+51:                                               ; preds = %47, %49, %5, %42, %43, %43, %44, %2
+  %.0 = phi i32 [ 5, %2 ], [ %spec.select, %49 ], [ 5, %47 ], [ 0, %5 ], [ 1, %42 ], [ 2, %43 ], [ 2, %43 ], [ 3, %44 ]
   ret i32 %.0
 }
 
@@ -127,39 +127,39 @@ define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly cap
   br i1 %or.cond.i, label %5, label %50
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr %0, align 1
+  %6 = load i8, ptr %0, align 1, !tbaa !4
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
   %17 = or disjoint i32 %12, %8
   %18 = or disjoint i32 %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i8, ptr %23, align 1
+  %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 16
   %31 = or disjoint i32 %30, %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %33 = load i8, ptr %32, align 1
+  %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
   %36 = or disjoint i32 %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %38 = load i8, ptr %37, align 1
+  %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = icmp eq i32 %22, -1991225785
@@ -188,7 +188,7 @@ define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly cap
   %or.cond = select i1 %48, i1 %or.cond9.i, i1 false
   br i1 %or.cond, label %WebPGetImageReader.exit, label %50
 
-50:                                               ; preds = %47, %2
+50:                                               ; preds = %2, %47
   br label %WebPGetImageReader.exit
 
 WebPGetImageReader.exit:                          ; preds = %47, %5, %44, %43, %43, %42, %50
@@ -196,14 +196,16 @@ WebPGetImageReader.exit:                          ; preds = %47, %5, %44, %43, %
   ret ptr %.0.i1
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

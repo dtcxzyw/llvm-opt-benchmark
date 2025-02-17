@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @WebPGetMuxVersion() local_unnamed_addr #0 {
-  ret i32 66560
+  ret i32 66816
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -29,19 +29,19 @@ define hidden ptr @ChunkRelease(ptr noundef captures(address_is_null) %0) local_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void @WebPFree(ptr noundef %8) #12
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %8) #13
   br label %9
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %12
 
@@ -50,8 +50,14 @@ define hidden ptr @ChunkRelease(ptr noundef captures(address_is_null) %0) local_
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #4 {
+define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %1, %5
@@ -63,9 +69,9 @@ define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #4 {
 5:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !15
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %.split.loop.exit, label %2, !llvm.loop !4
+  br i1 %exitcond, label %.split.loop.exit, label %2, !llvm.loop !17
 
 .split.loop.exit10:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -77,7 +83,7 @@ define hidden i32 @ChunkGetIndexFromTag(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
+define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq i32 %0, 1480085590
   br i1 %2, label %._crit_edge, label %.lr.ph
 
@@ -85,18 +91,18 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
   %indvars.iv14 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv14, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !6
+  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !19
 
 3:                                                ; preds = %.lr.ph
   %4 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = icmp eq i32 %0, %5
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %3, %1
   %.lcssa = phi ptr [ @kChunks, %1 ], [ %4, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
@@ -105,21 +111,21 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1
+define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+  %2 = load i8, ptr %0, align 1, !tbaa !21
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !21
   %6 = sext i8 %5 to i32
   %7 = shl nsw i32 %6, 8
   %8 = or i32 %7, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = sext i8 %10 to i32
   %12 = shl nsw i32 %11, 16
   %13 = or i32 %8, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = sext i8 %15 to i32
   %17 = shl nsw i32 %16, 24
   %18 = or i32 %13, %17
@@ -127,21 +133,21 @@ define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = load i8, ptr %0, align 1
+define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+  %2 = load i8, ptr %0, align 1, !tbaa !21
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !21
   %6 = sext i8 %5 to i32
   %7 = shl nsw i32 %6, 8
   %8 = or i32 %7, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = sext i8 %10 to i32
   %12 = shl nsw i32 %11, 16
   %13 = or i32 %8, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = sext i8 %15 to i32
   %17 = shl nsw i32 %16, 24
   %18 = or i32 %13, %17
@@ -156,9 +162,9 @@ define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %
 22:                                               ; preds = %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !15
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.i, label %ChunkGetIndexFromTag.exit, label %19, !llvm.loop !4
+  br i1 %exitcond.i, label %ChunkGetIndexFromTag.exit, label %19, !llvm.loop !17
 
 .split.loop.exit10.i:                             ; preds = %19
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -170,62 +176,62 @@ ChunkGetIndexFromTag.exit:                        ; preds = %22, %.split.loop.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @ChunkSearchList(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden noundef ptr @ChunkSearchList(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %ChunkSearchNextInList.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %6
   %.06.i = phi ptr [ %8, %6 ], [ %0, %3 ]
-  %4 = load i32, ptr %.06.i, align 8
+  %4 = load i32, ptr %.06.i, align 8, !tbaa !22
   %.not4.i = icmp eq i32 %4, %2
   br i1 %.not4.i, label %ChunkSearchNextInList.exit.preheader, label %6
 
 ChunkSearchNextInList.exit.preheader:             ; preds = %.lr.ph.i
   %5 = add i32 %1, -1
-  %.not33 = icmp eq i32 %5, 0
-  br i1 %.not33, label %ChunkSearchNextInList.exit24.thread, label %.lr.ph
+  %.not36 = icmp eq i32 %5, 0
+  br i1 %.not36, label %ChunkSearchNextInList.exit26.thread, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph.i
   %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %ChunkSearchNextInList.exit.thread, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %ChunkSearchNextInList.exit.thread, label %.lr.ph.i, !llvm.loop !23
 
-ChunkSearchNextInList.exit.loopexit:              ; preds = %.lr.ph.i19
+ChunkSearchNextInList.exit.loopexit:              ; preds = %.lr.ph.i21
   %9 = add i32 %10, -1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %ChunkSearchNextInList.exit24.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %ChunkSearchNextInList.exit26.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ChunkSearchNextInList.exit.preheader, %ChunkSearchNextInList.exit.loopexit
   %10 = phi i32 [ %9, %ChunkSearchNextInList.exit.loopexit ], [ %5, %ChunkSearchNextInList.exit.preheader ]
-  %.01434 = phi ptr [ %.06.i20, %ChunkSearchNextInList.exit.loopexit ], [ %.06.i, %ChunkSearchNextInList.exit.preheader ]
-  %11 = getelementptr inbounds nuw i8, ptr %.01434, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %.not5.i18 = icmp eq ptr %12, null
-  br i1 %.not5.i18, label %ChunkSearchNextInList.exit24.thread, label %.lr.ph.i19
+  %.01637 = phi ptr [ %.06.i22, %ChunkSearchNextInList.exit.loopexit ], [ %.06.i, %ChunkSearchNextInList.exit.preheader ]
+  %11 = getelementptr inbounds nuw i8, ptr %.01637, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
+  %.not5.i20 = icmp eq ptr %12, null
+  br i1 %.not5.i20, label %ChunkSearchNextInList.exit26.thread, label %.lr.ph.i21
 
-.lr.ph.i19:                                       ; preds = %.lr.ph, %14
-  %.06.i20 = phi ptr [ %16, %14 ], [ %12, %.lr.ph ]
-  %13 = load i32, ptr %.06.i20, align 8
-  %.not4.i21 = icmp eq i32 %13, %2
-  br i1 %.not4.i21, label %ChunkSearchNextInList.exit.loopexit, label %14
+.lr.ph.i21:                                       ; preds = %.lr.ph, %14
+  %.06.i22 = phi ptr [ %16, %14 ], [ %12, %.lr.ph ]
+  %13 = load i32, ptr %.06.i22, align 8, !tbaa !22
+  %.not4.i23 = icmp eq i32 %13, %2
+  br i1 %.not4.i23, label %ChunkSearchNextInList.exit.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph.i19
-  %15 = getelementptr inbounds nuw i8, ptr %.06.i20, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %.not.i22 = icmp eq ptr %16, null
-  br i1 %.not.i22, label %ChunkSearchNextInList.exit24.thread, label %.lr.ph.i19, !llvm.loop !7
+14:                                               ; preds = %.lr.ph.i21
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i22, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %.not.i24 = icmp eq ptr %16, null
+  br i1 %.not.i24, label %ChunkSearchNextInList.exit26.thread, label %.lr.ph.i21, !llvm.loop !23
 
-ChunkSearchNextInList.exit24.thread:              ; preds = %ChunkSearchNextInList.exit.loopexit, %.lr.ph, %14, %ChunkSearchNextInList.exit.preheader
-  %.01431 = phi ptr [ %.06.i, %ChunkSearchNextInList.exit.preheader ], [ %.01434, %14 ], [ %.06.i20, %ChunkSearchNextInList.exit.loopexit ], [ %.01434, %.lr.ph ]
-  %17 = phi i1 [ false, %ChunkSearchNextInList.exit.preheader ], [ true, %14 ], [ %.not5.i18, %.lr.ph ], [ %.not5.i18, %ChunkSearchNextInList.exit.loopexit ]
+ChunkSearchNextInList.exit26.thread:              ; preds = %ChunkSearchNextInList.exit.loopexit, %.lr.ph, %14, %ChunkSearchNextInList.exit.preheader
+  %.01634 = phi ptr [ %.06.i, %ChunkSearchNextInList.exit.preheader ], [ %.01637, %14 ], [ %.06.i22, %ChunkSearchNextInList.exit.loopexit ], [ %.01637, %.lr.ph ]
+  %17 = phi i1 [ false, %ChunkSearchNextInList.exit.preheader ], [ true, %14 ], [ %.not5.i20, %.lr.ph ], [ %.not5.i20, %ChunkSearchNextInList.exit.loopexit ]
   %18 = icmp ne i32 %1, 0
   %or.cond = and i1 %18, %17
-  %19 = select i1 %or.cond, ptr null, ptr %.01431
+  %19 = select i1 %or.cond, ptr null, ptr %.01634
   br label %ChunkSearchNextInList.exit.thread
 
-ChunkSearchNextInList.exit.thread:                ; preds = %6, %3, %ChunkSearchNextInList.exit24.thread
-  %.0 = phi ptr [ %19, %ChunkSearchNextInList.exit24.thread ], [ null, %3 ], [ null, %6 ]
+ChunkSearchNextInList.exit.thread:                ; preds = %6, %3, %ChunkSearchNextInList.exit26.thread
+  %.0 = phi ptr [ %19, %ChunkSearchNextInList.exit26.thread ], [ null, %3 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -246,14 +252,14 @@ define hidden range(i32 -3, 2) i32 @ChunkAssignData(ptr noundef captures(address
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !3
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  tail call void @WebPFree(ptr noundef %13) #12
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %13) #13
   br label %14
 
 14:                                               ; preds = %11, %8
@@ -271,42 +277,42 @@ ChunkRelease.exit:                                ; preds = %6, %14
 
 17:                                               ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %18 = load ptr, ptr %1, align 8
+  %18 = load ptr, ptr %1, align 8, !tbaa !13
   %.not.i17 = icmp eq ptr %18, null
   br i1 %.not.i17, label %30, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !24
   %.not18.i = icmp eq i64 %21, 0
   br i1 %.not18.i, label %30, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @WebPMalloc(i64 noundef %21) #12
-  store ptr %23, ptr %16, align 8
+  %23 = tail call ptr @WebPMalloc(i64 noundef %21) #13
+  store ptr %23, ptr %16, align 8, !tbaa !13
   %24 = icmp eq ptr %23, null
   br i1 %24, label %WebPDataCopy.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %1, align 8
-  %27 = load i64, ptr %20, align 8
+  %26 = load ptr, ptr %1, align 8, !tbaa !13
+  %27 = load i64, ptr %20, align 8, !tbaa !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %26, i64 %27, i1 false)
-  %28 = load i64, ptr %20, align 8
+  %28 = load i64, ptr %20, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %28, ptr %29, align 8
+  store i64 %28, ptr %29, align 8, !tbaa !24
   br label %30
 
 30:                                               ; preds = %25, %19, %17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 1, ptr %31, align 4
+  store i32 1, ptr %31, align 4, !tbaa !3
   br label %33
 
 32:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   br label %33
 
 33:                                               ; preds = %30, %32, %ChunkRelease.exit
-  store i32 %3, ptr %0, align 8
+  store i32 %3, ptr %0, align 8, !tbaa !22
   br label %WebPDataCopy.exit
 
 WebPDataCopy.exit:                                ; preds = %22, %33
@@ -315,26 +321,26 @@ WebPDataCopy.exit:                                ; preds = %22, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %1, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %10
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #12
+  %5 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false), !tbaa.struct !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr null, ptr %9, align 8
-  store ptr %5, ptr %1, align 8
+  store ptr null, ptr %9, align 8, !tbaa !14
+  store ptr %5, ptr %1, align 8, !tbaa !28
   br label %10
 
 10:                                               ; preds = %4, %2, %7
@@ -342,50 +348,50 @@ define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr noundef captures(none) %0, 
   ret i32 %.0
 }
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 2) i32 @ChunkAppend(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = load ptr, ptr %3, align 8
+  %3 = load ptr, ptr %1, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #12
+  %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %ChunkSetHead.exit, label %9
 
 9:                                                ; preds = %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false), !tbaa.struct !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr null, ptr %11, align 8
-  store ptr %7, ptr %3, align 8
+  store ptr null, ptr %11, align 8, !tbaa !14
+  store ptr %7, ptr %3, align 8, !tbaa !28
   br label %ChunkSetHead.exit
 
 .preheader:                                       ; preds = %2, %.preheader
   %.0 = phi ptr [ %13, %.preheader ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %.preheader, !llvm.loop !9
+  br i1 %.not, label %14, label %.preheader, !llvm.loop !33
 
 14:                                               ; preds = %.preheader
-  %15 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #12
+  %15 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 32) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ChunkSetHead.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false), !tbaa.struct !29
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %19, align 4
+  store i32 0, ptr %19, align 4, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr null, ptr %20, align 8
-  store ptr %15, ptr %18, align 8
-  store ptr %18, ptr %1, align 8
+  store ptr null, ptr %20, align 8, !tbaa !14
+  store ptr %15, ptr %18, align 8, !tbaa !28
+  store ptr %18, ptr %1, align 8, !tbaa !31
   br label %ChunkSetHead.exit
 
 ChunkSetHead.exit:                                ; preds = %14, %9, %6, %17
@@ -400,64 +406,64 @@ define hidden ptr @ChunkDelete(ptr noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void @WebPFree(ptr noundef %8) #12
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %8) #13
   br label %9
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %ChunkRelease.exit
 
 ChunkRelease.exit:                                ; preds = %1, %9
   %.0.i = phi ptr [ %11, %9 ], [ null, %1 ]
-  tail call void @WebPSafeFree(ptr noundef %0) #12
+  tail call void @WebPSafeFree(ptr noundef %0) #13
   ret ptr %.0.i
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #9
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ChunkListDelete(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  %.pr = load ptr, ptr %0, align 8
+  %.pr = load ptr, ptr %0, align 8, !tbaa !28
   %.not3 = icmp eq ptr %.pr, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %ChunkDelete.exit
   %2 = phi ptr [ %9, %ChunkDelete.exit ], [ %.pr, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !3
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %ChunkDelete.exit, label %5
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8
-  tail call void @WebPFree(ptr noundef %7) #12
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %7) #13
   br label %ChunkDelete.exit
 
 ChunkDelete.exit:                                 ; preds = %.lr.ph, %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %2) #12
-  store ptr %9, ptr %0, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %2) #13
+  store ptr %9, ptr %0, align 8, !tbaa !28
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %ChunkDelete.exit, %1
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
+define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #11 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -466,39 +472,39 @@ define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) 
   %.057 = phi ptr [ %39, %ChunkEmit.exit ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %.057, i64 16
-  %5 = load i64, ptr %4, align 8
-  %6 = load i32, ptr %.057, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !35
+  %6 = load i32, ptr %.057, align 8, !tbaa !22
   %7 = trunc i32 %6 to i8
-  store i8 %7, ptr %.08, align 1
+  store i8 %7, ptr %.08, align 1, !tbaa !21
   %8 = lshr i32 %6, 8
   %9 = trunc i32 %8 to i8
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 1
-  store i8 %9, ptr %10, align 1
+  store i8 %9, ptr %10, align 1, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %.08, i64 2
   %12 = lshr i32 %6, 16
   %13 = trunc i32 %12 to i8
-  store i8 %13, ptr %11, align 1
+  store i8 %13, ptr %11, align 1, !tbaa !21
   %14 = lshr i32 %6, 24
   %15 = trunc nuw i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %.08, i64 3
-  store i8 %15, ptr %16, align 1
+  store i8 %15, ptr %16, align 1, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %18 = trunc i64 %5 to i8
-  store i8 %18, ptr %17, align 1
+  store i8 %18, ptr %17, align 1, !tbaa !21
   %19 = lshr i64 %5, 8
   %20 = trunc i64 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.08, i64 5
-  store i8 %20, ptr %21, align 1
+  store i8 %20, ptr %21, align 1, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %.08, i64 6
   %23 = lshr i64 %5, 16
   %24 = trunc i64 %23 to i8
-  store i8 %24, ptr %22, align 1
+  store i8 %24, ptr %22, align 1, !tbaa !21
   %25 = lshr i64 %5, 24
   %26 = trunc i64 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.08, i64 7
-  store i8 %26, ptr %27, align 1
+  store i8 %26, ptr %27, align 1, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %.08, i64 8
-  %29 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %29, i64 %5, i1 false)
   %30 = and i64 %5, 1
   %.not.i = icmp eq i64 %30, 0
@@ -507,19 +513,19 @@ define hidden ptr @ChunkListEmit(ptr noundef readonly captures(address_is_null) 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr i8, ptr %.08, i64 %5
   %33 = getelementptr i8, ptr %32, i64 8
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 1, !tbaa !21
   br label %ChunkEmit.exit
 
 ChunkEmit.exit:                                   ; preds = %.lr.ph, %31
-  %.val.i = load i64, ptr %4, align 8
+  %.val.i = load i64, ptr %4, align 8, !tbaa !35
   %34 = add i64 %.val.i, 1
   %35 = and i64 %34, 4294967294
   %36 = getelementptr inbounds nuw i8, ptr %.08, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.057, i64 24
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !14
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %ChunkEmit.exit, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %37, %ChunkEmit.exit ]
@@ -527,7 +533,7 @@ ChunkEmit.exit:                                   ; preds = %.lr.ph, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @ChunkListDiskSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden i64 @ChunkListDiskSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -535,15 +541,15 @@ define hidden i64 @ChunkListDiskSize(ptr noundef readonly captures(address_is_nu
   %.07 = phi i64 [ %6, %.lr.ph ], [ 0, %1 ]
   %.046 = phi ptr [ %8, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.046, i64 16
-  %.04.val = load i64, ptr %2, align 8
+  %.04.val = load i64, ptr %2, align 8, !tbaa !35
   %3 = add i64 %.04.val, 1
   %4 = and i64 %3, 4294967294
   %5 = add i64 %.07, 8
   %6 = add i64 %5, %4
   %7 = getelementptr inbounds nuw i8, ptr %.046, i64 24
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %6, %.lr.ph ]
@@ -562,119 +568,119 @@ define hidden ptr @MuxImageRelease(ptr noundef captures(address_is_null) %0) loc
   br i1 %2, label %41, label %3
 
 3:                                                ; preds = %1
-  %.pr.i = load ptr, ptr %0, align 8
+  %.pr.i = load ptr, ptr %0, align 8, !tbaa !28
   %.not3.i = icmp eq ptr %.pr.i, null
   br i1 %.not3.i, label %ChunkListDelete.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %ChunkDelete.exit.i
   %4 = phi ptr [ %11, %ChunkDelete.exit.i ], [ %.pr.i, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !3
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %ChunkDelete.exit.i, label %7
 
 7:                                                ; preds = %.lr.ph.i
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void @WebPFree(ptr noundef %9) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %9) #13
   br label %ChunkDelete.exit.i
 
 ChunkDelete.exit.i:                               ; preds = %7, %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %4) #12
-  store ptr %11, ptr %0, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %4) #13
+  store ptr %11, ptr %0, align 8, !tbaa !28
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %ChunkListDelete.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %ChunkListDelete.exit, label %.lr.ph.i, !llvm.loop !34
 
 ChunkListDelete.exit:                             ; preds = %ChunkDelete.exit.i, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pr.i10 = load ptr, ptr %12, align 8
+  %.pr.i10 = load ptr, ptr %12, align 8, !tbaa !28
   %.not3.i11 = icmp eq ptr %.pr.i10, null
   br i1 %.not3.i11, label %ChunkListDelete.exit16, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %ChunkListDelete.exit, %ChunkDelete.exit.i14
   %13 = phi ptr [ %20, %ChunkDelete.exit.i14 ], [ %.pr.i10, %ChunkListDelete.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !3
   %.not.i.i.i13 = icmp eq i32 %15, 0
   br i1 %.not.i.i.i13, label %ChunkDelete.exit.i14, label %16
 
 16:                                               ; preds = %.lr.ph.i12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void @WebPFree(ptr noundef %18) #12
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %18) #13
   br label %ChunkDelete.exit.i14
 
 ChunkDelete.exit.i14:                             ; preds = %16, %.lr.ph.i12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %13) #12
-  store ptr %20, ptr %12, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %13) #13
+  store ptr %20, ptr %12, align 8, !tbaa !28
   %.not.i15 = icmp eq ptr %20, null
-  br i1 %.not.i15, label %ChunkListDelete.exit16, label %.lr.ph.i12, !llvm.loop !10
+  br i1 %.not.i15, label %ChunkListDelete.exit16, label %.lr.ph.i12, !llvm.loop !34
 
 ChunkListDelete.exit16:                           ; preds = %ChunkDelete.exit.i14, %ChunkListDelete.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pr.i17 = load ptr, ptr %21, align 8
+  %.pr.i17 = load ptr, ptr %21, align 8, !tbaa !28
   %.not3.i18 = icmp eq ptr %.pr.i17, null
   br i1 %.not3.i18, label %ChunkListDelete.exit23, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %ChunkListDelete.exit16, %ChunkDelete.exit.i21
   %22 = phi ptr [ %29, %ChunkDelete.exit.i21 ], [ %.pr.i17, %ChunkListDelete.exit16 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !3
   %.not.i.i.i20 = icmp eq i32 %24, 0
   br i1 %.not.i.i.i20, label %ChunkDelete.exit.i21, label %25
 
 25:                                               ; preds = %.lr.ph.i19
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void @WebPFree(ptr noundef %27) #12
+  %27 = load ptr, ptr %26, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %27) #13
   br label %ChunkDelete.exit.i21
 
 ChunkDelete.exit.i21:                             ; preds = %25, %.lr.ph.i19
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %22) #12
-  store ptr %29, ptr %21, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %22) #13
+  store ptr %29, ptr %21, align 8, !tbaa !28
   %.not.i22 = icmp eq ptr %29, null
-  br i1 %.not.i22, label %ChunkListDelete.exit23, label %.lr.ph.i19, !llvm.loop !10
+  br i1 %.not.i22, label %ChunkListDelete.exit23, label %.lr.ph.i19, !llvm.loop !34
 
 ChunkListDelete.exit23:                           ; preds = %ChunkDelete.exit.i21, %ChunkListDelete.exit16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pr.i24 = load ptr, ptr %30, align 8
+  %.pr.i24 = load ptr, ptr %30, align 8, !tbaa !28
   %.not3.i25 = icmp eq ptr %.pr.i24, null
   br i1 %.not3.i25, label %ChunkListDelete.exit30, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %ChunkListDelete.exit23, %ChunkDelete.exit.i28
   %31 = phi ptr [ %38, %ChunkDelete.exit.i28 ], [ %.pr.i24, %ChunkListDelete.exit23 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 4, !tbaa !3
   %.not.i.i.i27 = icmp eq i32 %33, 0
   br i1 %.not.i.i.i27, label %ChunkDelete.exit.i28, label %34
 
 34:                                               ; preds = %.lr.ph.i26
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void @WebPFree(ptr noundef %36) #12
+  %36 = load ptr, ptr %35, align 8, !tbaa !13
+  tail call void @WebPFree(ptr noundef %36) #13
   br label %ChunkDelete.exit.i28
 
 ChunkDelete.exit.i28:                             ; preds = %34, %.lr.ph.i26
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %31) #12
-  store ptr %38, ptr %30, align 8
+  tail call void @WebPSafeFree(ptr noundef nonnull %31) #13
+  store ptr %38, ptr %30, align 8, !tbaa !28
   %.not.i29 = icmp eq ptr %38, null
-  br i1 %.not.i29, label %ChunkListDelete.exit30, label %.lr.ph.i26, !llvm.loop !10
+  br i1 %.not.i29, label %ChunkListDelete.exit30, label %.lr.ph.i26, !llvm.loop !34
 
 ChunkListDelete.exit30:                           ; preds = %ChunkDelete.exit.i28, %ChunkListDelete.exit23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   br label %41
 
@@ -684,12 +690,12 @@ ChunkListDelete.exit30:                           ; preds = %ChunkDelete.exit.i2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not19 = icmp eq ptr %0, null
   br i1 %.not19, label %._crit_edge25, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %2, %22
-  %.022 = phi i32 [ %.1, %22 ], [ 0, %2 ]
+  %.022 = phi i32 [ %.3, %22 ], [ 0, %2 ]
   %.01220 = phi ptr [ %24, %22 ], [ %0, %2 ]
   switch i32 %1, label %9 [
     i32 10, label %3
@@ -715,12 +721,12 @@ define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) 
 
 GetChunkListFromId.exit:                          ; preds = %.lr.ph24, %5, %7
   %.0.i = phi ptr [ %8, %7 ], [ %6, %5 ], [ %.01220, %.lr.ph24 ]
-  %10 = load ptr, ptr %.0.i, align 8
+  %10 = load ptr, ptr %.0.i, align 8, !tbaa !28
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %22, label %11
 
 11:                                               ; preds = %GetChunkListFromId.exit
-  %12 = load i32, ptr %10, align 8
+  %12 = load i32, ptr %10, align 8, !tbaa !22
   %13 = icmp eq i32 %12, 1480085590
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -728,18 +734,18 @@ GetChunkListFromId.exit:                          ; preds = %.lr.ph24, %5, %7
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %11 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.i, label %ChunkGetIdFromTag.exit, label %14, !llvm.loop !6
+  br i1 %exitcond.i, label %ChunkGetIdFromTag.exit, label %14, !llvm.loop !19
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = icmp eq i32 %12, %16
-  br i1 %17, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %17, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %14, %11
   %.lcssa = phi ptr [ @kChunks, %11 ], [ %15, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   br label %ChunkGetIdFromTag.exit
 
 ChunkGetIdFromTag.exit:                           ; preds = %.lr.ph, %._crit_edge
@@ -749,71 +755,71 @@ ChunkGetIdFromTag.exit:                           ; preds = %.lr.ph, %._crit_edg
   %spec.select = add nsw i32 %.022, %21
   br label %22
 
-22:                                               ; preds = %ChunkGetIdFromTag.exit, %3, %GetChunkListFromId.exit
-  %.1 = phi i32 [ %4, %3 ], [ %.022, %GetChunkListFromId.exit ], [ %spec.select, %ChunkGetIdFromTag.exit ]
+22:                                               ; preds = %GetChunkListFromId.exit, %ChunkGetIdFromTag.exit, %3
+  %.3 = phi i32 [ %4, %3 ], [ %spec.select, %ChunkGetIdFromTag.exit ], [ %.022, %GetChunkListFromId.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %.01220, i64 48
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !39
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !13
+  br i1 %.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !42
 
 ._crit_edge25:                                    ; preds = %22, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %22 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.3, %22 ]
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-  %.pr = load ptr, ptr %1, align 8
-  %.not18 = icmp eq ptr %.pr, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.pre = load ptr, ptr %1, align 8, !tbaa !43
+  %.not20 = icmp eq ptr %.pre, null
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01319 = phi ptr [ %4, %.lr.ph ], [ %1, %2 ]
-  %3 = phi ptr [ %5, %.lr.ph ], [ %.pr, %2 ]
+  %.01521 = phi ptr [ %4, %.lr.ph ], [ %1, %2 ]
+  %3 = phi ptr [ %5, %.lr.ph ], [ %.pre, %2 ]
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.013.lcssa = phi ptr [ %1, %2 ], [ %.01319, %.lr.ph ]
-  %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #12
+  %.015.lcssa = phi ptr [ %1, %2 ], [ %.01521, %.lr.ph ]
+  %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %._crit_edge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false), !tbaa.struct !44
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr %.013.lcssa, align 8
-  %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %14, label %12
+  store ptr null, ptr %10, align 8, !tbaa !39
+  %11 = load ptr, ptr %.015.lcssa, align 8, !tbaa !43
+  %.not19 = icmp eq ptr %11, null
+  br i1 %.not19, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %7, ptr %13, align 8
+  store ptr %7, ptr %13, align 8, !tbaa !39
   br label %15
 
 14:                                               ; preds = %9
-  store ptr %7, ptr %.013.lcssa, align 8
+  store ptr %7, ptr %.015.lcssa, align 8, !tbaa !43
   br label %15
 
 15:                                               ; preds = %12, %14, %._crit_edge
-  %.0 = phi i32 [ -3, %._crit_edge ], [ 1, %14 ], [ 1, %12 ]
-  ret i32 %.0
+  %.014 = phi i32 [ -3, %._crit_edge ], [ 1, %14 ], [ 1, %12 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @MuxImageDelete(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call ptr @MuxImageRelease(ptr noundef %0)
-  tail call void @WebPSafeFree(ptr noundef %0) #12
+  tail call void @WebPSafeFree(ptr noundef %0) #13
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 0
-  %.pre.i = load ptr, ptr %0, align 8
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
   br i1 %3, label %4, label %MuxImageCount.exit.i
 
 4:                                                ; preds = %2
@@ -825,42 +831,42 @@ define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) 
   %.01220.i.i = phi ptr [ %7, %.lr.ph24.i.i ], [ %.pre.i, %4 ]
   %5 = add nuw nsw i32 %.022.i.i, 1
   %6 = getelementptr inbounds nuw i8, ptr %.01220.i.i, i64 48
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !42
 
 MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %2
-  %.015.i = phi i32 [ %1, %2 ], [ %5, %.lr.ph24.i.i ]
-  %.not21.i = icmp eq ptr %.pre.i, null
-  br i1 %.not21.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
+  %.018.i = phi i32 [ %1, %2 ], [ %5, %.lr.ph24.i.i ]
+  %.not25.i = icmp eq ptr %.pre.i, null
+  br i1 %.not25.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %8 = icmp eq i32 %.015.i, 1
-  br i1 %8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
+  %.not22.i8 = icmp eq i32 %.018.i, 1
+  br i1 %.not22.i8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %9 = add i32 %11, 1
-  %10 = icmp eq i32 %9, %.015.i
-  br i1 %10, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph, !llvm.loop !15
+  %8 = add i32 %9, 1
+  %.not22.i = icmp eq i32 %8, %.018.i
+  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %11 = phi i32 [ %9, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %12 = phi ptr [ %14, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  %9 = phi i32 [ %8, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %10 = phi ptr [ %12, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !43
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i
 
 SearchImageToGetOrDelete.exit.loopexit:           ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %SearchImageToGetOrDelete.exit
 
 SearchImageToGetOrDelete.exit:                    ; preds = %SearchImageToGetOrDelete.exit.loopexit, %.lr.ph.i.preheader
-  %16 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %14, %SearchImageToGetOrDelete.exit.loopexit ]
-  %.03.lcssa = phi ptr [ %0, %.lr.ph.i.preheader ], [ %15, %SearchImageToGetOrDelete.exit.loopexit ]
-  %17 = tail call ptr @MuxImageRelease(ptr noundef nonnull %16)
-  tail call void @WebPSafeFree(ptr noundef nonnull %16) #12
-  store ptr %17, ptr %.03.lcssa, align 8
+  %14 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %12, %SearchImageToGetOrDelete.exit.loopexit ]
+  %.03.lcssa = phi ptr [ %0, %.lr.ph.i.preheader ], [ %13, %SearchImageToGetOrDelete.exit.loopexit ]
+  %15 = tail call ptr @MuxImageRelease(ptr noundef nonnull %14)
+  tail call void @WebPSafeFree(ptr noundef nonnull %14) #13
+  store ptr %15, ptr %.03.lcssa, align 8, !tbaa !43
   br label %SearchImageToGetOrDelete.exit.thread
 
 SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCount.exit.i, %4, %SearchImageToGetOrDelete.exit
@@ -869,9 +875,9 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = icmp eq i32 %1, 0
-  %.pre.i = load ptr, ptr %0, align 8
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
   br i1 %4, label %5, label %MuxImageCount.exit.i
 
 5:                                                ; preds = %3
@@ -883,35 +889,35 @@ define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(
   %.01220.i.i = phi ptr [ %8, %.lr.ph24.i.i ], [ %.pre.i, %5 ]
   %6 = add nuw nsw i32 %.022.i.i, 1
   %7 = getelementptr inbounds nuw i8, ptr %.01220.i.i, i64 48
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !42
 
 MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %3
-  %.015.i = phi i32 [ %1, %3 ], [ %6, %.lr.ph24.i.i ]
-  %.not21.i = icmp eq ptr %.pre.i, null
-  br i1 %.not21.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
+  %.018.i = phi i32 [ %1, %3 ], [ %6, %.lr.ph24.i.i ]
+  %.not25.i = icmp eq ptr %.pre.i, null
+  br i1 %.not25.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %9 = icmp eq i32 %.015.i, 1
-  br i1 %9, label %SearchImageToGetOrDelete.exit, label %.lr.ph
+  %.not22.i7 = icmp eq i32 %.018.i, 1
+  br i1 %.not22.i7, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %10 = add i32 %12, 1
-  %11 = icmp eq i32 %10, %.015.i
-  br i1 %11, label %SearchImageToGetOrDelete.exit, label %.lr.ph, !llvm.loop !15
+  %9 = add i32 %10, 1
+  %.not22.i = icmp eq i32 %9, %.018.i
+  br i1 %.not22.i, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %12 = phi i32 [ %10, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %13 = phi ptr [ %15, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  %10 = phi i32 [ %9, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %11 = phi ptr [ %13, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i
 
 SearchImageToGetOrDelete.exit:                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %16 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %15, %.lr.ph.i ]
-  store ptr %16, ptr %2, align 8
+  %14 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
+  store ptr %14, ptr %2, align 8, !tbaa !43
   br label %SearchImageToGetOrDelete.exit.thread
 
 SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCount.exit.i, %5, %SearchImageToGetOrDelete.exit
@@ -920,14 +926,14 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
-  %2 = load ptr, ptr %0, align 8
+define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %2, i64 16
-  %.val20 = load i64, ptr %4, align 8
+  %.val20 = load i64, ptr %4, align 8, !tbaa !35
   %5 = add i64 %.val20, 1
   %6 = and i64 %5, 4294967294
   %7 = add nuw nsw i64 %6, 8
@@ -936,13 +942,13 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 8:                                                ; preds = %3, %1
   %.0 = phi i64 [ %7, %3 ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %17, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %10, i64 16
-  %.val19 = load i64, ptr %12, align 8
+  %.val19 = load i64, ptr %12, align 8, !tbaa !35
   %13 = add i64 %.val19, 1
   %14 = and i64 %13, 4294967294
   %15 = add nuw nsw i64 %.0, 8
@@ -952,13 +958,13 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 17:                                               ; preds = %11, %8
   %.1 = phi i64 [ %16, %11 ], [ %.0, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !47
   %.not17 = icmp eq ptr %19, null
   br i1 %.not17, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %19, i64 16
-  %.val = load i64, ptr %21, align 8
+  %.val = load i64, ptr %21, align 8, !tbaa !35
   %22 = add i64 %.val, 1
   %23 = and i64 %22, 4294967294
   %24 = add nuw nsw i64 %.1, 8
@@ -968,7 +974,7 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
 26:                                               ; preds = %20, %17
   %.2 = phi i64 [ %25, %20 ], [ %.1, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %37, label %.lr.ph.i
 
@@ -976,15 +982,15 @@ define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) loca
   %.07.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %26 ]
   %.046.i = phi ptr [ %35, %.lr.ph.i ], [ %28, %26 ]
   %29 = getelementptr i8, ptr %.046.i, i64 16
-  %.04.val.i = load i64, ptr %29, align 8
+  %.04.val.i = load i64, ptr %29, align 8, !tbaa !35
   %30 = add i64 %.04.val.i, 1
   %31 = and i64 %30, 4294967294
   %32 = add i64 %.07.i, 8
   %33 = add i64 %32, %31
   %34 = getelementptr inbounds nuw i8, ptr %.046.i, i64 24
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %ChunkListDiskSize.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %ChunkListDiskSize.exit, label %.lr.ph.i, !llvm.loop !38
 
 ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
   %36 = add i64 %33, %.2
@@ -996,25 +1002,25 @@ ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #10 {
-  %3 = load ptr, ptr %0, align 8
+define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #11 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %72, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %3, i64 16
-  %.val20.i = load i64, ptr %5, align 8
+  %.val20.i = load i64, ptr %5, align 8, !tbaa !35
   %6 = add i64 %.val20.i, 1
   %7 = and i64 %6, 4294967294
   %8 = add nuw nsw i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not16.i = icmp eq ptr %10, null
   br i1 %.not16.i, label %17, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %10, i64 16
-  %.val19.i = load i64, ptr %12, align 8
+  %.val19.i = load i64, ptr %12, align 8, !tbaa !35
   %13 = add i64 %.val19.i, 1
   %14 = and i64 %13, 4294967294
   %15 = add nuw nsw i64 %7, 16
@@ -1024,13 +1030,13 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
 17:                                               ; preds = %11, %4
   %.1.i = phi i64 [ %16, %11 ], [ %8, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !47
   %.not17.i = icmp eq ptr %19, null
   br i1 %.not17.i, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %19, i64 16
-  %.val.i = load i64, ptr %21, align 8
+  %.val.i = load i64, ptr %21, align 8, !tbaa !35
   %22 = add i64 %.val.i, 1
   %23 = and i64 %22, 4294967294
   %24 = add nuw nsw i64 %.1.i, 8
@@ -1040,7 +1046,7 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
 26:                                               ; preds = %20, %17
   %.2.i = phi i64 [ %25, %20 ], [ %.1.i, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   %.not18.i = icmp eq ptr %28, null
   br i1 %.not18.i, label %MuxImageDiskSize.exit, label %.lr.ph.i.i
 
@@ -1048,15 +1054,15 @@ define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noun
   %.07.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %26 ]
   %.046.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %28, %26 ]
   %29 = getelementptr i8, ptr %.046.i.i, i64 16
-  %.04.val.i.i = load i64, ptr %29, align 8
+  %.04.val.i.i = load i64, ptr %29, align 8, !tbaa !35
   %30 = add i64 %.04.val.i.i, 1
   %31 = and i64 %30, 4294967294
   %32 = add i64 %.07.i.i, 8
   %33 = add i64 %32, %31
   %34 = getelementptr inbounds nuw i8, ptr %.046.i.i, i64 24
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %ChunkListDiskSize.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %ChunkListDiskSize.exit.i, label %.lr.ph.i.i, !llvm.loop !38
 
 ChunkListDiskSize.exit.i:                         ; preds = %.lr.ph.i.i
   %36 = add i64 %33, %.2.i
@@ -1065,40 +1071,40 @@ ChunkListDiskSize.exit.i:                         ; preds = %.lr.ph.i.i
 MuxImageDiskSize.exit:                            ; preds = %26, %ChunkListDiskSize.exit.i
   %.3.i = phi i64 [ %36, %ChunkListDiskSize.exit.i ], [ %.2.i, %26 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i32, ptr %3, align 8
+  %38 = load i32, ptr %3, align 8, !tbaa !22
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %1, align 1
+  store i8 %39, ptr %1, align 1, !tbaa !21
   %40 = lshr i32 %38, 8
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %41, ptr %42, align 1
+  store i8 %41, ptr %42, align 1, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = lshr i32 %38, 16
   %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %43, align 1
+  store i8 %45, ptr %43, align 1, !tbaa !21
   %46 = lshr i32 %38, 24
   %47 = trunc nuw i32 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %47, ptr %48, align 1
+  store i8 %47, ptr %48, align 1, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = trunc i64 %.3.i to i32
   %51 = add i32 %50, -8
   %52 = trunc i32 %51 to i8
-  store i8 %52, ptr %49, align 1
+  store i8 %52, ptr %49, align 1, !tbaa !21
   %53 = lshr i32 %51, 8
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %54, ptr %55, align 1
+  store i8 %54, ptr %55, align 1, !tbaa !21
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %57 = lshr i32 %51, 16
   %58 = trunc i32 %57 to i8
-  store i8 %58, ptr %56, align 1
+  store i8 %58, ptr %56, align 1, !tbaa !21
   %59 = lshr i32 %51, 24
   %60 = trunc nuw i32 %59 to i8
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %60, ptr %61, align 1
+  store i8 %60, ptr %61, align 1, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load ptr, ptr %37, align 8
+  %63 = load ptr, ptr %37, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %63, i64 %.val20.i, i1 false)
   %64 = and i64 %.val20.i, 1
   %.not.i21 = icmp eq i64 %64, 0
@@ -1107,11 +1113,11 @@ MuxImageDiskSize.exit:                            ; preds = %26, %ChunkListDiskS
 65:                                               ; preds = %MuxImageDiskSize.exit
   %66 = getelementptr i8, ptr %1, i64 %.val20.i
   %67 = getelementptr i8, ptr %66, i64 8
-  store i8 0, ptr %67, align 1
+  store i8 0, ptr %67, align 1, !tbaa !21
   br label %ChunkEmitSpecial.exit
 
 ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.exit, %65
-  %.val.i22 = load i64, ptr %5, align 8
+  %.val.i22 = load i64, ptr %5, align 8, !tbaa !35
   %68 = add i64 %.val.i22, 1
   %69 = and i64 %68, 4294967294
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
@@ -1121,46 +1127,46 @@ ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.ex
 72:                                               ; preds = %ChunkEmitSpecial.exit, %2
   %.0 = phi ptr [ %71, %ChunkEmitSpecial.exit ], [ %1, %2 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !46
   %.not18 = icmp eq ptr %74, null
   br i1 %.not18, label %111, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load i64, ptr %77, align 8
-  %79 = load i32, ptr %74, align 8
+  %78 = load i64, ptr %77, align 8, !tbaa !35
+  %79 = load i32, ptr %74, align 8, !tbaa !22
   %80 = trunc i32 %79 to i8
-  store i8 %80, ptr %.0, align 1
+  store i8 %80, ptr %.0, align 1, !tbaa !21
   %81 = lshr i32 %79, 8
   %82 = trunc i32 %81 to i8
   %83 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  store i8 %82, ptr %83, align 1
+  store i8 %82, ptr %83, align 1, !tbaa !21
   %84 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %85 = lshr i32 %79, 16
   %86 = trunc i32 %85 to i8
-  store i8 %86, ptr %84, align 1
+  store i8 %86, ptr %84, align 1, !tbaa !21
   %87 = lshr i32 %79, 24
   %88 = trunc nuw i32 %87 to i8
   %89 = getelementptr inbounds nuw i8, ptr %.0, i64 3
-  store i8 %88, ptr %89, align 1
+  store i8 %88, ptr %89, align 1, !tbaa !21
   %90 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %91 = trunc i64 %78 to i8
-  store i8 %91, ptr %90, align 1
+  store i8 %91, ptr %90, align 1, !tbaa !21
   %92 = lshr i64 %78, 8
   %93 = trunc i64 %92 to i8
   %94 = getelementptr inbounds nuw i8, ptr %.0, i64 5
-  store i8 %93, ptr %94, align 1
+  store i8 %93, ptr %94, align 1, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %.0, i64 6
   %96 = lshr i64 %78, 16
   %97 = trunc i64 %96 to i8
-  store i8 %97, ptr %95, align 1
+  store i8 %97, ptr %95, align 1, !tbaa !21
   %98 = lshr i64 %78, 24
   %99 = trunc i64 %98 to i8
   %100 = getelementptr inbounds nuw i8, ptr %.0, i64 7
-  store i8 %99, ptr %100, align 1
+  store i8 %99, ptr %100, align 1, !tbaa !21
   %101 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %102 = load ptr, ptr %76, align 8
+  %102 = load ptr, ptr %76, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %102, i64 %78, i1 false)
   %103 = and i64 %78, 1
   %.not.i23 = icmp eq i64 %103, 0
@@ -1169,11 +1175,11 @@ ChunkEmitSpecial.exit:                            ; preds = %MuxImageDiskSize.ex
 104:                                              ; preds = %75
   %105 = getelementptr i8, ptr %.0, i64 %78
   %106 = getelementptr i8, ptr %105, i64 8
-  store i8 0, ptr %106, align 1
+  store i8 0, ptr %106, align 1, !tbaa !21
   br label %ChunkEmit.exit
 
 ChunkEmit.exit:                                   ; preds = %75, %104
-  %.val.i24 = load i64, ptr %77, align 8
+  %.val.i24 = load i64, ptr %77, align 8, !tbaa !35
   %107 = add i64 %.val.i24, 1
   %108 = and i64 %107, 4294967294
   %109 = getelementptr inbounds nuw i8, ptr %.0, i64 %108
@@ -1183,46 +1189,46 @@ ChunkEmit.exit:                                   ; preds = %75, %104
 111:                                              ; preds = %ChunkEmit.exit, %72
   %.1 = phi ptr [ %110, %ChunkEmit.exit ], [ %.0, %72 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %113 = load ptr, ptr %112, align 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !47
   %.not19 = icmp eq ptr %113, null
   br i1 %.not19, label %150, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %117 = load i64, ptr %116, align 8
-  %118 = load i32, ptr %113, align 8
+  %117 = load i64, ptr %116, align 8, !tbaa !35
+  %118 = load i32, ptr %113, align 8, !tbaa !22
   %119 = trunc i32 %118 to i8
-  store i8 %119, ptr %.1, align 1
+  store i8 %119, ptr %.1, align 1, !tbaa !21
   %120 = lshr i32 %118, 8
   %121 = trunc i32 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  store i8 %121, ptr %122, align 1
+  store i8 %121, ptr %122, align 1, !tbaa !21
   %123 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %124 = lshr i32 %118, 16
   %125 = trunc i32 %124 to i8
-  store i8 %125, ptr %123, align 1
+  store i8 %125, ptr %123, align 1, !tbaa !21
   %126 = lshr i32 %118, 24
   %127 = trunc nuw i32 %126 to i8
   %128 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  store i8 %127, ptr %128, align 1
+  store i8 %127, ptr %128, align 1, !tbaa !21
   %129 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %130 = trunc i64 %117 to i8
-  store i8 %130, ptr %129, align 1
+  store i8 %130, ptr %129, align 1, !tbaa !21
   %131 = lshr i64 %117, 8
   %132 = trunc i64 %131 to i8
   %133 = getelementptr inbounds nuw i8, ptr %.1, i64 5
-  store i8 %132, ptr %133, align 1
+  store i8 %132, ptr %133, align 1, !tbaa !21
   %134 = getelementptr inbounds nuw i8, ptr %.1, i64 6
   %135 = lshr i64 %117, 16
   %136 = trunc i64 %135 to i8
-  store i8 %136, ptr %134, align 1
+  store i8 %136, ptr %134, align 1, !tbaa !21
   %137 = lshr i64 %117, 24
   %138 = trunc i64 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %.1, i64 7
-  store i8 %138, ptr %139, align 1
+  store i8 %138, ptr %139, align 1, !tbaa !21
   %140 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %141 = load ptr, ptr %115, align 8
+  %141 = load ptr, ptr %115, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %140, ptr align 1 %141, i64 %117, i1 false)
   %142 = and i64 %117, 1
   %.not.i25 = icmp eq i64 %142, 0
@@ -1231,11 +1237,11 @@ ChunkEmit.exit:                                   ; preds = %75, %104
 143:                                              ; preds = %114
   %144 = getelementptr i8, ptr %.1, i64 %117
   %145 = getelementptr i8, ptr %144, i64 8
-  store i8 0, ptr %145, align 1
+  store i8 0, ptr %145, align 1, !tbaa !21
   br label %ChunkEmit.exit27
 
 ChunkEmit.exit27:                                 ; preds = %114, %143
-  %.val.i26 = load i64, ptr %116, align 8
+  %.val.i26 = load i64, ptr %116, align 8, !tbaa !35
   %146 = add i64 %.val.i26, 1
   %147 = and i64 %146, 4294967294
   %148 = getelementptr inbounds nuw i8, ptr %.1, i64 %147
@@ -1245,7 +1251,7 @@ ChunkEmit.exit27:                                 ; preds = %114, %143
 150:                                              ; preds = %ChunkEmit.exit27, %111
   %.2 = phi ptr [ %149, %ChunkEmit.exit27 ], [ %.1, %111 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %152 = load ptr, ptr %151, align 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !48
   %.not20 = icmp eq ptr %152, null
   br i1 %.not20, label %ChunkListEmit.exit, label %.lr.ph.i
 
@@ -1254,39 +1260,39 @@ ChunkEmit.exit27:                                 ; preds = %114, %143
   %.057.i = phi ptr [ %189, %ChunkEmit.exit.i ], [ %152, %150 ]
   %153 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
-  %155 = load i64, ptr %154, align 8
-  %156 = load i32, ptr %.057.i, align 8
+  %155 = load i64, ptr %154, align 8, !tbaa !35
+  %156 = load i32, ptr %.057.i, align 8, !tbaa !22
   %157 = trunc i32 %156 to i8
-  store i8 %157, ptr %.08.i, align 1
+  store i8 %157, ptr %.08.i, align 1, !tbaa !21
   %158 = lshr i32 %156, 8
   %159 = trunc i32 %158 to i8
   %160 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  store i8 %159, ptr %160, align 1
+  store i8 %159, ptr %160, align 1, !tbaa !21
   %161 = getelementptr inbounds nuw i8, ptr %.08.i, i64 2
   %162 = lshr i32 %156, 16
   %163 = trunc i32 %162 to i8
-  store i8 %163, ptr %161, align 1
+  store i8 %163, ptr %161, align 1, !tbaa !21
   %164 = lshr i32 %156, 24
   %165 = trunc nuw i32 %164 to i8
   %166 = getelementptr inbounds nuw i8, ptr %.08.i, i64 3
-  store i8 %165, ptr %166, align 1
+  store i8 %165, ptr %166, align 1, !tbaa !21
   %167 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %168 = trunc i64 %155 to i8
-  store i8 %168, ptr %167, align 1
+  store i8 %168, ptr %167, align 1, !tbaa !21
   %169 = lshr i64 %155, 8
   %170 = trunc i64 %169 to i8
   %171 = getelementptr inbounds nuw i8, ptr %.08.i, i64 5
-  store i8 %170, ptr %171, align 1
+  store i8 %170, ptr %171, align 1, !tbaa !21
   %172 = getelementptr inbounds nuw i8, ptr %.08.i, i64 6
   %173 = lshr i64 %155, 16
   %174 = trunc i64 %173 to i8
-  store i8 %174, ptr %172, align 1
+  store i8 %174, ptr %172, align 1, !tbaa !21
   %175 = lshr i64 %155, 24
   %176 = trunc i64 %175 to i8
   %177 = getelementptr inbounds nuw i8, ptr %.08.i, i64 7
-  store i8 %176, ptr %177, align 1
+  store i8 %176, ptr %177, align 1, !tbaa !21
   %178 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %179 = load ptr, ptr %153, align 8
+  %179 = load ptr, ptr %153, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %178, ptr align 1 %179, i64 %155, i1 false)
   %180 = and i64 %155, 1
   %.not.i.i28 = icmp eq i64 %180, 0
@@ -1295,19 +1301,19 @@ ChunkEmit.exit27:                                 ; preds = %114, %143
 181:                                              ; preds = %.lr.ph.i
   %182 = getelementptr i8, ptr %.08.i, i64 %155
   %183 = getelementptr i8, ptr %182, i64 8
-  store i8 0, ptr %183, align 1
+  store i8 0, ptr %183, align 1, !tbaa !21
   br label %ChunkEmit.exit.i
 
 ChunkEmit.exit.i:                                 ; preds = %181, %.lr.ph.i
-  %.val.i.i = load i64, ptr %154, align 8
+  %.val.i.i = load i64, ptr %154, align 8, !tbaa !35
   %184 = add i64 %.val.i.i, 1
   %185 = and i64 %184, 4294967294
   %186 = getelementptr inbounds nuw i8, ptr %.08.i, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = getelementptr inbounds nuw i8, ptr %.057.i, i64 24
-  %189 = load ptr, ptr %188, align 8
+  %189 = load ptr, ptr %188, align 8, !tbaa !14
   %.not.i29 = icmp eq ptr %189, null
-  br i1 %.not.i29, label %ChunkListEmit.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i29, label %ChunkListEmit.exit, label %.lr.ph.i, !llvm.loop !37
 
 ChunkListEmit.exit:                               ; preds = %ChunkEmit.exit.i, %150
   %.3 = phi ptr [ %.2, %150 ], [ %187, %ChunkEmit.exit.i ]
@@ -1315,22 +1321,22 @@ ChunkListEmit.exit:                               ; preds = %ChunkEmit.exit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %4
   %.06 = phi ptr [ %6, %4 ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.06, i64 40
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !49
   %.not4 = icmp eq i32 %3, 0
   br i1 %.not4, label %4, label %._crit_edge
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 48
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %1
   %.03 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 1, %.lr.ph ]
@@ -1339,38 +1345,38 @@ define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly captures(add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden nonnull ptr @MuxEmitRiffHeader(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 12)) %0, i64 noundef %1) local_unnamed_addr #1 {
-  store i8 82, ptr %0, align 1
+  store i8 82, ptr %0, align 1, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 73, ptr %3, align 1
+  store i8 73, ptr %3, align 1, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 70, ptr %4, align 1
+  store i8 70, ptr %4, align 1, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 70, ptr %5, align 1
+  store i8 70, ptr %5, align 1, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = trunc i64 %1 to i32
   %8 = add i32 %7, -8
   %9 = trunc i32 %8 to i8
-  store i8 %9, ptr %6, align 1
+  store i8 %9, ptr %6, align 1, !tbaa !21
   %10 = lshr i32 %8, 8
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %11, ptr %12, align 1
+  store i8 %11, ptr %12, align 1, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %14 = lshr i32 %8, 16
   %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %13, align 1
+  store i8 %15, ptr %13, align 1, !tbaa !21
   %16 = lshr i32 %8, 24
   %17 = trunc nuw i32 %16 to i8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %17, ptr %18, align 1
+  store i8 %17, ptr %18, align 1, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 87, ptr %19, align 1
+  store i8 87, ptr %19, align 1, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 69, ptr %20, align 1
+  store i8 69, ptr %20, align 1, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 66, ptr %21, align 1
+  store i8 66, ptr %21, align 1, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 80, ptr %22, align 1
+  store i8 80, ptr %22, align 1, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   ret ptr %23
 }
@@ -1403,246 +1409,305 @@ define hidden i32 @MuxValidate(ptr noundef %0) local_unnamed_addr #3 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %ValidateChunk.exit87, label %12
+  br i1 %11, label %.critedge81, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %0, align 8
+  %13 = load ptr, ptr %0, align 8, !tbaa !51
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %ValidateChunk.exit87, label %15
+  br i1 %14, label %.critedge81, label %15
 
 15:                                               ; preds = %12
-  %16 = call i32 @WebPMuxGetFeatures(ptr noundef nonnull %0, ptr noundef nonnull %10) #12
+  %16 = call i32 @WebPMuxGetFeatures(ptr noundef nonnull %0, ptr noundef nonnull %10) #13
   %.not = icmp eq i32 %16, 1
-  br i1 %.not, label %17, label %ValidateChunk.exit87
+  br i1 %.not, label %17, label %.critedge81
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr %10, align 4
-  %19 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2) #12
+  %18 = load i32, ptr %10, align 4, !tbaa !30
+  %19 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2) #13
   %.not.i = icmp eq i32 %19, 1
-  br i1 %.not.i, label %20, label %ValidateChunk.exit87
+  br i1 %.not.i, label %20, label %.critedge81
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %2, align 4
+  %21 = load i32, ptr %2, align 4, !tbaa !30
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %ValidateChunk.exit87, label %23
+  br i1 %22, label %.critedge81, label %23
 
 23:                                               ; preds = %20
   %24 = and i32 %18, 32
   %25 = icmp ne i32 %24, 0
   %26 = icmp ne i32 %21, 1
   %.not16.i = xor i1 %25, %26
-  br i1 %.not16.i, label %ValidateChunk.exit, label %ValidateChunk.exit87
+  br i1 %.not16.i, label %ValidateChunk.exit, label %.critedge81
 
 ValidateChunk.exit:                               ; preds = %23
-  %27 = load i32, ptr %10, align 4
-  %28 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %3) #12
-  %.not.i74 = icmp eq i32 %28, 1
-  br i1 %.not.i74, label %29, label %ValidateChunk.exit87
+  %27 = load i32, ptr %10, align 4, !tbaa !30
+  %28 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull %3) #13
+  %.not.i82 = icmp eq i32 %28, 1
+  br i1 %.not.i82, label %29, label %.critedge81
 
 29:                                               ; preds = %ValidateChunk.exit
-  %30 = load i32, ptr %3, align 4
+  %30 = load i32, ptr %3, align 4, !tbaa !30
   %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %ValidateChunk.exit87, label %32
+  br i1 %31, label %.critedge81, label %32
 
 32:                                               ; preds = %29
   %33 = and i32 %27, 8
   %34 = icmp ne i32 %33, 0
   %35 = icmp ne i32 %30, 1
-  %.not16.i76 = xor i1 %34, %35
-  br i1 %.not16.i76, label %ValidateChunk.exit77, label %ValidateChunk.exit87
+  %.not16.i84 = xor i1 %34, %35
+  br i1 %.not16.i84, label %ValidateChunk.exit85, label %.critedge81
 
-ValidateChunk.exit77:                             ; preds = %32
-  %36 = load i32, ptr %10, align 4
-  %37 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %4) #12
-  %.not.i78 = icmp eq i32 %37, 1
-  br i1 %.not.i78, label %38, label %ValidateChunk.exit87
+ValidateChunk.exit85:                             ; preds = %32
+  %36 = load i32, ptr %10, align 4, !tbaa !30
+  %37 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %4) #13
+  %.not.i86 = icmp eq i32 %37, 1
+  br i1 %.not.i86, label %38, label %.critedge81
 
-38:                                               ; preds = %ValidateChunk.exit77
-  %39 = load i32, ptr %4, align 4
+38:                                               ; preds = %ValidateChunk.exit85
+  %39 = load i32, ptr %4, align 4, !tbaa !30
   %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %ValidateChunk.exit87, label %41
+  br i1 %40, label %.critedge81, label %41
 
 41:                                               ; preds = %38
   %42 = and i32 %36, 4
   %43 = icmp ne i32 %42, 0
   %44 = icmp ne i32 %39, 1
-  %.not16.i80 = xor i1 %43, %44
-  br i1 %.not16.i80, label %ValidateChunk.exit81, label %ValidateChunk.exit87
+  %.not16.i88 = xor i1 %43, %44
+  br i1 %.not16.i88, label %ValidateChunk.exit89, label %.critedge81
 
-ValidateChunk.exit81:                             ; preds = %41
-  %45 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %5) #12
-  %.not.i82 = icmp eq i32 %45, 1
-  br i1 %.not.i82, label %46, label %ValidateChunk.exit87
+ValidateChunk.exit89:                             ; preds = %41
+  %45 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %5) #13
+  %.not.i90 = icmp eq i32 %45, 1
+  br i1 %.not.i90, label %46, label %.critedge81
 
-46:                                               ; preds = %ValidateChunk.exit81
-  %47 = load i32, ptr %5, align 4
+46:                                               ; preds = %ValidateChunk.exit89
+  %47 = load i32, ptr %5, align 4, !tbaa !30
   %48 = icmp sgt i32 %47, 1
-  br i1 %48, label %ValidateChunk.exit87, label %ValidateChunk.exit84
+  br i1 %48, label %.critedge81, label %ValidateChunk.exit92
 
-ValidateChunk.exit84:                             ; preds = %46
-  %49 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6) #12
-  %.not.i85 = icmp eq i32 %49, 1
-  br i1 %.not.i85, label %50, label %ValidateChunk.exit87
+ValidateChunk.exit92:                             ; preds = %46
+  %49 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %6) #13
+  %.not.i93 = icmp eq i32 %49, 1
+  br i1 %.not.i93, label %50, label %.critedge81
 
-50:                                               ; preds = %ValidateChunk.exit84
-  %51 = load i32, ptr %10, align 4
+50:                                               ; preds = %ValidateChunk.exit92
+  %51 = load i32, ptr %10, align 4, !tbaa !30
   %52 = and i32 %51, 2
-  %.not63 = icmp eq i32 %52, 0
-  %53 = load i32, ptr %5, align 4
+  %.not68 = icmp eq i32 %52, 0
+  %53 = load i32, ptr %5, align 4, !tbaa !30
   %54 = load i32, ptr %6, align 4
-  br i1 %.not63, label %.critedge, label %55
+  br i1 %.not68, label %.critedge, label %55
 
 55:                                               ; preds = %50
   %56 = icmp eq i32 %53, 0
   %57 = icmp eq i32 %54, 0
   %or.cond = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond, label %ValidateChunk.exit87, label %.critedge73
+  br i1 %or.cond, label %.critedge81, label %.critedge78
 
 .critedge:                                        ; preds = %50
   %58 = icmp eq i32 %53, 1
   %59 = icmp sgt i32 %54, 0
-  %or.cond3 = select i1 %58, i1 true, i1 %59
-  br i1 %or.cond3, label %ValidateChunk.exit87, label %60
+  %or.cond4 = select i1 %58, i1 true, i1 %59
+  br i1 %or.cond4, label %.critedge81, label %60
 
 60:                                               ; preds = %.critedge
-  %61 = load ptr, ptr %0, align 8
+  %61 = load ptr, ptr %0, align 8, !tbaa !51
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %ValidateChunk.exit87, label %63
+  br i1 %62, label %.critedge81, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %65 = load ptr, ptr %64, align 8
-  %.not64 = icmp eq ptr %65, null
-  br i1 %.not64, label %66, label %ValidateChunk.exit87
+  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %.not69 = icmp eq ptr %65, null
+  br i1 %.not69, label %66, label %.critedge81
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = load i32, ptr %67, align 8
+  %68 = load i32, ptr %67, align 8, !tbaa !53
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %.critedge73
+  br i1 %69, label %70, label %.critedge78
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %72 = load i32, ptr %71, align 8
-  %.not65 = icmp eq i32 %72, %68
-  br i1 %.not65, label %73, label %ValidateChunk.exit87
+  %72 = load i32, ptr %71, align 8, !tbaa !54
+  %.not70 = icmp eq i32 %72, %68
+  br i1 %.not70, label %73, label %.critedge81
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %75 = load i32, ptr %74, align 4
+  %75 = load i32, ptr %74, align 4, !tbaa !55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %77 = load i32, ptr %76, align 4
-  %.not66 = icmp eq i32 %75, %77
-  br i1 %.not66, label %.critedge73, label %ValidateChunk.exit87
+  %77 = load i32, ptr %76, align 4, !tbaa !56
+  %.not71 = icmp eq i32 %75, %77
+  br i1 %.not71, label %.critedge78, label %.critedge81
 
-.critedge73:                                      ; preds = %55, %66, %73
-  %78 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %7) #12
-  %.not.i88 = icmp eq i32 %78, 1
-  br i1 %.not.i88, label %79, label %ValidateChunk.exit87
+.critedge78:                                      ; preds = %55, %66, %73
+  %78 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %7) #13
+  %.not.i96 = icmp eq i32 %78, 1
+  br i1 %.not.i96, label %79, label %.critedge81
 
-79:                                               ; preds = %.critedge73
-  %80 = load i32, ptr %7, align 4
+79:                                               ; preds = %.critedge78
+  %80 = load i32, ptr %7, align 4, !tbaa !30
   %81 = icmp sgt i32 %80, 1
-  br i1 %81, label %ValidateChunk.exit87, label %ValidateChunk.exit90
+  br i1 %81, label %.critedge81, label %ValidateChunk.exit98
 
-ValidateChunk.exit90:                             ; preds = %79
-  %82 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %8) #12
-  %.not.i91 = icmp eq i32 %82, 1
-  br i1 %.not.i91, label %83, label %ValidateChunk.exit87
+ValidateChunk.exit98:                             ; preds = %79
+  %82 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %8) #13
+  %.not.i99 = icmp eq i32 %82, 1
+  br i1 %.not.i99, label %83, label %.critedge81
 
-83:                                               ; preds = %ValidateChunk.exit90
-  %84 = load i32, ptr %7, align 4
+83:                                               ; preds = %ValidateChunk.exit98
+  %84 = load i32, ptr %7, align 4, !tbaa !30
   %85 = icmp eq i32 %84, 0
   %86 = load i32, ptr %8, align 4
   %87 = icmp ne i32 %86, 1
-  %or.cond5 = select i1 %85, i1 %87, i1 false
-  br i1 %or.cond5, label %ValidateChunk.exit87, label %88
+  %or.cond6 = select i1 %85, i1 %87, i1 false
+  br i1 %or.cond6, label %.critedge81, label %88
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %0, align 8
+  %89 = load ptr, ptr %0, align 8, !tbaa !51
   %.not5.i = icmp eq ptr %89, null
   br i1 %.not5.i, label %MuxHasAlpha.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88, %92
   %.06.i = phi ptr [ %94, %92 ], [ %89, %88 ]
   %90 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
-  %91 = load i32, ptr %90, align 8
+  %91 = load i32, ptr %90, align 8, !tbaa !49
   %.not4.i = icmp eq i32 %91, 0
   br i1 %.not4.i, label %92, label %MuxHasAlpha.exit
 
 92:                                               ; preds = %.lr.ph.i
   %93 = getelementptr inbounds nuw i8, ptr %.06.i, i64 48
-  %94 = load ptr, ptr %93, align 8
-  %.not.i94 = icmp eq ptr %94, null
-  br i1 %.not.i94, label %MuxHasAlpha.exit.thread, label %.lr.ph.i, !llvm.loop !16
+  %94 = load ptr, ptr %93, align 8, !tbaa !39
+  %.not.i102 = icmp eq ptr %94, null
+  br i1 %.not.i102, label %MuxHasAlpha.exit.thread, label %.lr.ph.i, !llvm.loop !50
 
 MuxHasAlpha.exit:                                 ; preds = %.lr.ph.i
   %95 = icmp sgt i32 %84, 0
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %MuxHasAlpha.exit
-  %97 = load i32, ptr %10, align 4
+  %97 = load i32, ptr %10, align 4, !tbaa !30
   %98 = and i32 %97, 16
-  %.not71 = icmp eq i32 %98, 0
-  br i1 %.not71, label %ValidateChunk.exit87, label %MuxHasAlpha.exit.thread
+  %.not76 = icmp eq i32 %98, 0
+  br i1 %.not76, label %.critedge81, label %MuxHasAlpha.exit.thread
 
 99:                                               ; preds = %MuxHasAlpha.exit
-  %100 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %9) #12
-  %.not70 = icmp eq i32 %100, 1
-  br i1 %.not70, label %101, label %ValidateChunk.exit87
+  %100 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %9) #13
+  %.not75 = icmp eq i32 %100, 1
+  br i1 %.not75, label %101, label %.critedge81
 
 101:                                              ; preds = %99
-  %102 = load i32, ptr %9, align 4
+  %102 = load i32, ptr %9, align 4, !tbaa !30
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %ValidateChunk.exit87, label %MuxHasAlpha.exit.thread
+  br i1 %103, label %.critedge81, label %MuxHasAlpha.exit.thread
 
 MuxHasAlpha.exit.thread:                          ; preds = %92, %88, %96, %101
-  br label %ValidateChunk.exit87
+  br label %.critedge81
 
-ValidateChunk.exit87:                             ; preds = %79, %.critedge73, %46, %ValidateChunk.exit81, %41, %38, %ValidateChunk.exit77, %32, %29, %ValidateChunk.exit, %23, %20, %17, %ValidateChunk.exit90, %ValidateChunk.exit84, %101, %99, %96, %83, %70, %73, %60, %63, %.critedge, %55, %15, %12, %1, %MuxHasAlpha.exit.thread
-  %.0 = phi i32 [ 1, %MuxHasAlpha.exit.thread ], [ -1, %1 ], [ -1, %12 ], [ %16, %15 ], [ -1, %55 ], [ -1, %.critedge ], [ -1, %63 ], [ -1, %60 ], [ -1, %73 ], [ -1, %70 ], [ -1, %83 ], [ -1, %96 ], [ %100, %99 ], [ -1, %101 ], [ %49, %ValidateChunk.exit84 ], [ %82, %ValidateChunk.exit90 ], [ -1, %23 ], [ -1, %20 ], [ %19, %17 ], [ -1, %32 ], [ -1, %29 ], [ %28, %ValidateChunk.exit ], [ -1, %41 ], [ -1, %38 ], [ %37, %ValidateChunk.exit77 ], [ -1, %46 ], [ %45, %ValidateChunk.exit81 ], [ -1, %79 ], [ %78, %.critedge73 ]
+.critedge81:                                      ; preds = %79, %.critedge78, %46, %ValidateChunk.exit89, %41, %38, %ValidateChunk.exit85, %32, %29, %ValidateChunk.exit, %23, %20, %17, %ValidateChunk.exit98, %ValidateChunk.exit92, %55, %.critedge, %70, %73, %60, %63, %101, %99, %96, %83, %15, %12, %1, %MuxHasAlpha.exit.thread
+  %.0 = phi i32 [ 1, %MuxHasAlpha.exit.thread ], [ -1, %1 ], [ -1, %12 ], [ %16, %15 ], [ -1, %83 ], [ -1, %96 ], [ %100, %99 ], [ -1, %101 ], [ -1, %63 ], [ -1, %60 ], [ -1, %73 ], [ -1, %70 ], [ -1, %.critedge ], [ -1, %55 ], [ %49, %ValidateChunk.exit92 ], [ %82, %ValidateChunk.exit98 ], [ -1, %23 ], [ -1, %20 ], [ %19, %17 ], [ -1, %32 ], [ -1, %29 ], [ %28, %ValidateChunk.exit ], [ -1, %41 ], [ -1, %38 ], [ %37, %ValidateChunk.exit85 ], [ -1, %46 ], [ %45, %ValidateChunk.exit89 ], [ -1, %79 ], [ %78, %.critedge78 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
   ret i32 %.0
 }
 
-declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #10
 
-declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #9
+declare void @WebPFree(ptr noundef) local_unnamed_addr #10
 
-declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #9
+declare ptr @WebPMalloc(i64 noundef) local_unnamed_addr #10
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!3 = !{!4, !5, i64 4}
+!4 = !{!"WebPChunk", !5, i64 0, !5, i64 4, !8, i64 8, !12, i64 24}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"WebPData", !9, i64 0, !11, i64 8}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!"p1 _ZTS9WebPChunk", !10, i64 0}
+!13 = !{!8, !9, i64 0}
+!14 = !{!4, !12, i64 24}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = !{!16, !5, i64 4}
+!21 = !{!6, !6, i64 0}
+!22 = !{!4, !5, i64 0}
+!23 = distinct !{!23, !18}
+!24 = !{!8, !11, i64 8}
+!25 = !{i64 0, i64 8, !26, i64 8, i64 8, !27}
+!26 = !{!9, !9, i64 0}
+!27 = !{!11, !11, i64 0}
+!28 = !{!12, !12, i64 0}
+!29 = !{i64 0, i64 4, !30, i64 4, i64 4, !30, i64 8, i64 8, !26, i64 16, i64 8, !27, i64 24, i64 8, !28}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p2 _ZTS9WebPChunk", !10, i64 0}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}
+!35 = !{!4, !11, i64 16}
+!36 = !{!4, !9, i64 8}
+!37 = distinct !{!37, !18}
+!38 = distinct !{!38, !18}
+!39 = !{!40, !41, i64 48}
+!40 = !{!"WebPMuxImage", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !41, i64 48}
+!41 = !{!"p1 _ZTS12WebPMuxImage", !10, i64 0}
+!42 = distinct !{!42, !18}
+!43 = !{!41, !41, i64 0}
+!44 = !{i64 0, i64 8, !28, i64 8, i64 8, !28, i64 16, i64 8, !28, i64 24, i64 8, !28, i64 32, i64 4, !30, i64 36, i64 4, !30, i64 40, i64 4, !30, i64 44, i64 4, !30, i64 48, i64 8, !43}
+!45 = !{!40, !12, i64 0}
+!46 = !{!40, !12, i64 8}
+!47 = !{!40, !12, i64 16}
+!48 = !{!40, !12, i64 24}
+!49 = !{!40, !5, i64 40}
+!50 = distinct !{!50, !18}
+!51 = !{!52, !41, i64 0}
+!52 = !{!"WebPMux", !41, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !5, i64 56, !5, i64 60}
+!53 = !{!52, !5, i64 56}
+!54 = !{!40, !5, i64 32}
+!55 = !{!40, !5, i64 36}
+!56 = !{!52, !5, i64 60}

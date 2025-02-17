@@ -20,21 +20,21 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @WebPInitCustomIo(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.VP8Io, ptr %5, i32 0, i32 11
-  store ptr @CustomPut, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.VP8Io, ptr %7, i32 0, i32 12
-  store ptr @CustomSetup, ptr %8, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.VP8Io, ptr %9, i32 0, i32 13
-  store ptr @CustomTeardown, ptr %10, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.VP8Io, ptr %12, i32 0, i32 10
-  store ptr %11, ptr %13, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.VP8Io, ptr %5, i32 0, i32 11
+  store ptr @CustomPut, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.VP8Io, ptr %7, i32 0, i32 12
+  store ptr @CustomSetup, ptr %8, align 8, !tbaa !15
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.VP8Io, ptr %9, i32 0, i32 13
+  store ptr @CustomTeardown, ptr %10, align 8, !tbaa !16
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.VP8Io, ptr %12, i32 0, i32 10
+  store ptr %11, ptr %13, align 8, !tbaa !17
   ret void
 }
 
@@ -46,69 +46,80 @@ define internal i32 @CustomPut(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.VP8Io, ptr %8, i32 0, i32 10
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.VP8Io, ptr %11, i32 0, i32 3
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %5, align 4
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.VP8Io, ptr %14, i32 0, i32 4
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %6, align 4
-  %17 = load i32, ptr %5, align 4
-  %18 = icmp sle i32 %17, 0
-  br i1 %18, label %22, label %19
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.VP8Io, ptr %9, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  store ptr %11, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.VP8Io, ptr %12, i32 0, i32 3
+  %14 = load i32, ptr %13, align 4, !tbaa !18
+  store i32 %14, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.VP8Io, ptr %15, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8, !tbaa !20
+  store i32 %17, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %18 = load i32, ptr %5, align 4, !tbaa !19
+  %19 = icmp sle i32 %18, 0
+  br i1 %19, label %23, label %20
 
-19:                                               ; preds = %1
-  %20 = load i32, ptr %6, align 4
-  %21 = icmp sle i32 %20, 0
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %1
+  %21 = load i32, ptr %6, align 4, !tbaa !19
+  %22 = icmp sle i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19, %1
+23:                                               ; preds = %20, %1
   store i32 0, ptr %2, align 4
-  br label %48
+  store i32 1, ptr %8, align 4
+  br label %49
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.WebPDecParams, ptr %24, i32 0, i32 11
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = call i32 %26(ptr noundef %27, ptr noundef %28)
-  store i32 %29, ptr %7, align 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.WebPDecParams, ptr %30, i32 0, i32 12
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %42
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %25, i32 0, i32 11
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = call i32 %27(ptr noundef %28, ptr noundef %29)
+  store i32 %30, ptr %7, align 4, !tbaa !19
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %31, i32 0, i32 12
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.WebPDecParams, ptr %35, i32 0, i32 12
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i32, ptr %7, align 4
-  %41 = call i32 %37(ptr noundef %38, ptr noundef %39, i32 noundef %40)
-  br label %42
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %36, i32 0, i32 12
+  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %39 = load ptr, ptr %3, align 8, !tbaa !8
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = load i32, ptr %7, align 4, !tbaa !19
+  %42 = call i32 %38(ptr noundef %39, ptr noundef %40, i32 noundef %41)
+  br label %43
 
-42:                                               ; preds = %34, %23
-  %43 = load i32, ptr %7, align 4
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.WebPDecParams, ptr %44, i32 0, i32 4
-  %46 = load i32, ptr %45, align 8
-  %47 = add nsw i32 %46, %43
-  store i32 %47, ptr %45, align 8
+43:                                               ; preds = %35, %24
+  %44 = load i32, ptr %7, align 4, !tbaa !19
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8, !tbaa !27
+  %48 = add nsw i32 %47, %44
+  store i32 %48, ptr %46, align 8, !tbaa !27
   store i32 1, ptr %2, align 4
-  br label %48
+  store i32 1, ptr %8, align 4
+  br label %49
 
-48:                                               ; preds = %42, %22
-  %49 = load i32, ptr %2, align 4
-  ret i32 %49
+49:                                               ; preds = %43, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %50 = load i32, ptr %2, align 4
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -121,300 +132,345 @@ define internal i32 @CustomSetup(ptr noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.VP8Io, ptr %10, i32 0, i32 10
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %4, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.WebPDecParams, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.WebPDecBuffer, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  store i32 %17, ptr %5, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = call i32 @WebPIsRGBMode(i32 noundef %18)
-  store i32 %19, ptr %6, align 4
-  %20 = load i32, ptr %5, align 4
-  %21 = call i32 @WebPIsAlphaMode(i32 noundef %20)
-  store i32 %21, ptr %7, align 4
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.WebPDecParams, ptr %22, i32 0, i32 10
-  store ptr null, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.WebPDecParams, ptr %24, i32 0, i32 11
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.WebPDecParams, ptr %26, i32 0, i32 12
-  store ptr null, ptr %27, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.WebPDecParams, ptr %28, i32 0, i32 13
-  store ptr null, ptr %29, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.WebPDecParams, ptr %30, i32 0, i32 5
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = icmp ne i32 %34, 0
-  %36 = select i1 %35, i32 11, i32 12
-  %37 = call i32 @WebPIoInitFromOptions(ptr noundef %32, ptr noundef %33, i32 noundef %36)
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %40, label %39
-
-39:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %155
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.VP8Io, ptr %11, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  store ptr %13, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8, !tbaa !29
+  store i32 %18, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %19 = load i32, ptr %5, align 4, !tbaa !19
+  %20 = call i32 @WebPIsRGBMode(i32 noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %21 = load i32, ptr %5, align 4, !tbaa !19
+  %22 = call i32 @WebPIsAlphaMode(i32 noundef %21)
+  store i32 %22, ptr %7, align 4, !tbaa !19
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %23, i32 0, i32 10
+  store ptr null, ptr %24, align 8, !tbaa !31
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %25, i32 0, i32 11
+  store ptr null, ptr %26, align 8, !tbaa !21
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %27, i32 0, i32 12
+  store ptr null, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %29, i32 0, i32 13
+  store ptr null, ptr %30, align 8, !tbaa !32
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = load i32, ptr %7, align 4, !tbaa !19
+  %36 = icmp ne i32 %35, 0
+  %37 = select i1 %36, i32 11, i32 12
+  %38 = call i32 @WebPIoInitFromOptions(ptr noundef %33, ptr noundef %34, i32 noundef %37)
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %41, label %40
 
 40:                                               ; preds = %1
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %48
-
-43:                                               ; preds = %40
-  %44 = load i32, ptr %5, align 4
-  %45 = call i32 @WebPIsPremultipliedMode(i32 noundef %44)
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %48
-
-47:                                               ; preds = %43
-  call void @WebPInitUpsamplers()
-  br label %48
-
-48:                                               ; preds = %47, %43, %40
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.VP8Io, ptr %49, i32 0, i32 23
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %70
-
-53:                                               ; preds = %48
-  %54 = load i32, ptr %6, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %60
-
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %3, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = call i32 @InitRGBRescaler(ptr noundef %57, ptr noundef %58)
-  br label %64
-
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %3, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = call i32 @InitYUVRescaler(ptr noundef %61, ptr noundef %62)
-  br label %64
-
-64:                                               ; preds = %60, %56
-  %65 = phi i32 [ %59, %56 ], [ %63, %60 ]
-  store i32 %65, ptr %8, align 4
-  %66 = load i32, ptr %8, align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %69, label %68
-
-68:                                               ; preds = %64
   store i32 0, ptr %2, align 4
-  br label %155
+  store i32 1, ptr %8, align 4
+  br label %162
 
-69:                                               ; preds = %64
-  br label %154
+41:                                               ; preds = %1
+  %42 = load i32, ptr %7, align 4, !tbaa !19
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %49
 
-70:                                               ; preds = %48
-  %71 = load i32, ptr %6, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %128
+44:                                               ; preds = %41
+  %45 = load i32, ptr %5, align 4, !tbaa !19
+  %46 = call i32 @WebPIsPremultipliedMode(i32 noundef %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-73:                                               ; preds = %70
+48:                                               ; preds = %44
+  call void @WebPInitUpsamplers()
+  br label %49
+
+49:                                               ; preds = %48, %44, %41
+  %50 = load ptr, ptr %3, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.VP8Io, ptr %50, i32 0, i32 23
+  %52 = load i32, ptr %51, align 8, !tbaa !34
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %74
+
+54:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %55 = load i32, ptr %6, align 4, !tbaa !19
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %61
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %3, align 8, !tbaa !8
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = call i32 @InitRGBRescaler(ptr noundef %58, ptr noundef %59)
+  br label %65
+
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %3, align 8, !tbaa !8
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = call i32 @InitYUVRescaler(ptr noundef %62, ptr noundef %63)
+  br label %65
+
+65:                                               ; preds = %61, %57
+  %66 = phi i32 [ %60, %57 ], [ %64, %61 ]
+  store i32 %66, ptr %9, align 4, !tbaa !19
+  %67 = load i32, ptr %9, align 4, !tbaa !19
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %70, label %69
+
+69:                                               ; preds = %65
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %71
+
+70:                                               ; preds = %65
+  store i32 0, ptr %8, align 4
+  br label %71
+
+71:                                               ; preds = %70, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  %72 = load i32, ptr %8, align 4
+  switch i32 %72, label %162 [
+    i32 0, label %73
+  ]
+
+73:                                               ; preds = %71
+  br label %161
+
+74:                                               ; preds = %49
+  %75 = load i32, ptr %6, align 4, !tbaa !19
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %135
+
+77:                                               ; preds = %74
   call void @WebPInitSamplers()
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.WebPDecParams, ptr %74, i32 0, i32 11
-  store ptr @EmitSampledRGB, ptr %75, align 8
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.VP8Io, ptr %76, i32 0, i32 14
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %127
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %78, i32 0, i32 11
+  store ptr @EmitSampledRGB, ptr %79, align 8, !tbaa !21
+  %80 = load ptr, ptr %3, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.VP8Io, ptr %80, i32 0, i32 14
+  %82 = load i32, ptr %81, align 8, !tbaa !35
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %134
 
-80:                                               ; preds = %73
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.VP8Io, ptr %81, i32 0, i32 3
-  %83 = load i32, ptr %82, align 4
-  %84 = add nsw i32 %83, 1
-  %85 = ashr i32 %84, 1
-  store i32 %85, ptr %9, align 4
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds %struct.VP8Io, ptr %86, i32 0, i32 3
-  %88 = load i32, ptr %87, align 4
-  %89 = load i32, ptr %9, align 4
-  %90 = mul nsw i32 2, %89
-  %91 = add nsw i32 %88, %90
-  %92 = sext i32 %91 to i64
-  %93 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %92)
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.WebPDecParams, ptr %94, i32 0, i32 10
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.WebPDecParams, ptr %96, i32 0, i32 10
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %101
+84:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %85 = load ptr, ptr %3, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw %struct.VP8Io, ptr %85, i32 0, i32 3
+  %87 = load i32, ptr %86, align 4, !tbaa !18
+  %88 = add nsw i32 %87, 1
+  %89 = ashr i32 %88, 1
+  store i32 %89, ptr %10, align 4, !tbaa !19
+  %90 = load ptr, ptr %3, align 8, !tbaa !8
+  %91 = getelementptr inbounds nuw %struct.VP8Io, ptr %90, i32 0, i32 3
+  %92 = load i32, ptr %91, align 4, !tbaa !18
+  %93 = load i32, ptr %10, align 4, !tbaa !19
+  %94 = mul nsw i32 2, %93
+  %95 = add nsw i32 %92, %94
+  %96 = sext i32 %95 to i64
+  %97 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %96)
+  %98 = load ptr, ptr %4, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %98, i32 0, i32 10
+  store ptr %97, ptr %99, align 8, !tbaa !31
+  %100 = load ptr, ptr %4, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %100, i32 0, i32 10
+  %102 = load ptr, ptr %101, align 8, !tbaa !31
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %105
 
-100:                                              ; preds = %80
+104:                                              ; preds = %84
   store i32 0, ptr %2, align 4
-  br label %155
+  store i32 1, ptr %8, align 4
+  br label %131
 
-101:                                              ; preds = %80
-  %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds %struct.WebPDecParams, ptr %102, i32 0, i32 10
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds %struct.WebPDecParams, ptr %105, i32 0, i32 1
-  store ptr %104, ptr %106, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.WebPDecParams, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.VP8Io, ptr %110, i32 0, i32 3
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %109, i64 %113
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.WebPDecParams, ptr %115, i32 0, i32 2
-  store ptr %114, ptr %116, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.WebPDecParams, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %9, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %119, i64 %121
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds %struct.WebPDecParams, ptr %123, i32 0, i32 3
-  store ptr %122, ptr %124, align 8
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.WebPDecParams, ptr %125, i32 0, i32 11
-  store ptr @EmitFancyRGB, ptr %126, align 8
+105:                                              ; preds = %84
+  %106 = load ptr, ptr %4, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %106, i32 0, i32 10
+  %108 = load ptr, ptr %107, align 8, !tbaa !31
+  %109 = load ptr, ptr %4, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %109, i32 0, i32 1
+  store ptr %108, ptr %110, align 8, !tbaa !36
+  %111 = load ptr, ptr %4, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8, !tbaa !36
+  %114 = load ptr, ptr %3, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw %struct.VP8Io, ptr %114, i32 0, i32 3
+  %116 = load i32, ptr %115, align 4, !tbaa !18
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i8, ptr %113, i64 %117
+  %119 = load ptr, ptr %4, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %119, i32 0, i32 2
+  store ptr %118, ptr %120, align 8, !tbaa !37
+  %121 = load ptr, ptr %4, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %121, i32 0, i32 2
+  %123 = load ptr, ptr %122, align 8, !tbaa !37
+  %124 = load i32, ptr %10, align 4, !tbaa !19
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %123, i64 %125
+  %127 = load ptr, ptr %4, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %127, i32 0, i32 3
+  store ptr %126, ptr %128, align 8, !tbaa !38
+  %129 = load ptr, ptr %4, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %129, i32 0, i32 11
+  store ptr @EmitFancyRGB, ptr %130, align 8, !tbaa !21
   call void @WebPInitUpsamplers()
-  br label %127
-
-127:                                              ; preds = %101, %73
+  store i32 0, ptr %8, align 4
   br label %131
 
-128:                                              ; preds = %70
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.WebPDecParams, ptr %129, i32 0, i32 11
-  store ptr @EmitYUV, ptr %130, align 8
-  br label %131
+131:                                              ; preds = %105, %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %132 = load i32, ptr %8, align 4
+  switch i32 %132, label %162 [
+    i32 0, label %133
+  ]
 
-131:                                              ; preds = %128, %127
-  %132 = load i32, ptr %7, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %153
+133:                                              ; preds = %131
+  br label %134
 
-134:                                              ; preds = %131
-  %135 = load i32, ptr %5, align 4
-  %136 = icmp eq i32 %135, 5
-  br i1 %136, label %140, label %137
+134:                                              ; preds = %133, %77
+  br label %138
 
-137:                                              ; preds = %134
-  %138 = load i32, ptr %5, align 4
-  %139 = icmp eq i32 %138, 10
-  br i1 %139, label %140, label %141
+135:                                              ; preds = %74
+  %136 = load ptr, ptr %4, align 8, !tbaa !3
+  %137 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %136, i32 0, i32 11
+  store ptr @EmitYUV, ptr %137, align 8, !tbaa !21
+  br label %138
 
-140:                                              ; preds = %137, %134
-  br label %145
+138:                                              ; preds = %135, %134
+  %139 = load i32, ptr %7, align 4, !tbaa !19
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %160
 
-141:                                              ; preds = %137
-  %142 = load i32, ptr %6, align 4
-  %143 = icmp ne i32 %142, 0
-  %144 = select i1 %143, ptr @EmitAlphaRGB, ptr @EmitAlphaYUV
-  br label %145
+141:                                              ; preds = %138
+  %142 = load i32, ptr %5, align 4, !tbaa !19
+  %143 = icmp eq i32 %142, 5
+  br i1 %143, label %147, label %144
 
-145:                                              ; preds = %141, %140
-  %146 = phi ptr [ @EmitAlphaRGBA4444, %140 ], [ %144, %141 ]
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds %struct.WebPDecParams, ptr %147, i32 0, i32 12
-  store ptr %146, ptr %148, align 8
-  %149 = load i32, ptr %6, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %152
+144:                                              ; preds = %141
+  %145 = load i32, ptr %5, align 4, !tbaa !19
+  %146 = icmp eq i32 %145, 10
+  br i1 %146, label %147, label %148
 
-151:                                              ; preds = %145
-  call void @WebPInitAlphaProcessing()
+147:                                              ; preds = %144, %141
   br label %152
 
-152:                                              ; preds = %151, %145
-  br label %153
+148:                                              ; preds = %144
+  %149 = load i32, ptr %6, align 4, !tbaa !19
+  %150 = icmp ne i32 %149, 0
+  %151 = select i1 %150, ptr @EmitAlphaRGB, ptr @EmitAlphaYUV
+  br label %152
 
-153:                                              ; preds = %152, %131
-  br label %154
+152:                                              ; preds = %148, %147
+  %153 = phi ptr [ @EmitAlphaRGBA4444, %147 ], [ %151, %148 ]
+  %154 = load ptr, ptr %4, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %154, i32 0, i32 12
+  store ptr %153, ptr %155, align 8, !tbaa !26
+  %156 = load i32, ptr %6, align 4, !tbaa !19
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %159
 
-154:                                              ; preds = %153, %69
+158:                                              ; preds = %152
+  call void @WebPInitAlphaProcessing()
+  br label %159
+
+159:                                              ; preds = %158, %152
+  br label %160
+
+160:                                              ; preds = %159, %138
+  br label %161
+
+161:                                              ; preds = %160, %73
   store i32 1, ptr %2, align 4
-  br label %155
+  store i32 1, ptr %8, align 4
+  br label %162
 
-155:                                              ; preds = %154, %100, %68, %39
-  %156 = load i32, ptr %2, align 4
-  ret i32 %156
+162:                                              ; preds = %161, %131, %71, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %163 = load i32, ptr %2, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @CustomTeardown(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.VP8Io, ptr %4, i32 0, i32 10
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.WebPDecParams, ptr %7, i32 0, i32 10
-  %9 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.VP8Io, ptr %4, i32 0, i32 10
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %6, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %7, i32 0, i32 10
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
   call void @WebPSafeFree(ptr noundef %9)
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.WebPDecParams, ptr %10, i32 0, i32 10
-  store ptr null, ptr %11, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %10, i32 0, i32 10
+  store ptr null, ptr %11, align 8, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPIsRGBMode(i32 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPIsRGBMode(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp ult i32 %3, 11
   %5 = zext i1 %4 to i32
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPIsAlphaMode(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPIsAlphaMode(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !19
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4, !tbaa !19
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4, !tbaa !19
   %13 = icmp eq i32 %12, 5
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %2, align 4
+  %15 = load i32, ptr %2, align 4, !tbaa !19
   %16 = icmp eq i32 %15, 12
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %2, align 4
+  %18 = load i32, ptr %2, align 4, !tbaa !19
   %19 = call i32 @WebPIsPremultipliedMode(i32 noundef %18)
   %20 = icmp ne i32 %19, 0
   br label %21
@@ -425,28 +481,28 @@ define internal i32 @WebPIsAlphaMode(i32 noundef %0) #0 {
   ret i32 %23
 }
 
-declare i32 @WebPIoInitFromOptions(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @WebPIoInitFromOptions(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPIsPremultipliedMode(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPIsPremultipliedMode(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp eq i32 %3, 7
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !19
   %7 = icmp eq i32 %6, 8
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4, !tbaa !19
   %10 = icmp eq i32 %9, 9
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4, !tbaa !19
   %13 = icmp eq i32 %12, 10
   br label %14
 
@@ -456,7 +512,7 @@ define internal i32 @WebPIsPremultipliedMode(i32 noundef %0) #0 {
   ret i32 %16
 }
 
-declare void @WebPInitUpsamplers() #1
+declare void @WebPInitUpsamplers() #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @InitRGBRescaler(ptr noundef %0, ptr noundef %1) #0 {
@@ -477,298 +533,332 @@ define internal i32 @InitRGBRescaler(ptr noundef %0, ptr noundef %1) #0 {
   %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.WebPDecParams, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.WebPDecBuffer, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
-  %25 = call i32 @WebPIsAlphaMode(i32 noundef %24)
-  store i32 %25, ptr %6, align 4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.VP8Io, ptr %26, i32 0, i32 24
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %7, align 4
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.VP8Io, ptr %29, i32 0, i32 25
-  %31 = load i32, ptr %30, align 8
-  store i32 %31, ptr %8, align 4
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.VP8Io, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, 1
-  %36 = ashr i32 %35, 1
-  store i32 %36, ptr %9, align 4
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.VP8Io, ptr %37, i32 0, i32 4
-  %39 = load i32, ptr %38, align 8
-  %40 = add nsw i32 %39, 1
-  %41 = ashr i32 %40, 1
-  store i32 %41, ptr %10, align 4
-  %42 = load i32, ptr %7, align 4
-  %43 = sext i32 %42 to i64
-  %44 = mul i64 2, %43
-  store i64 %44, ptr %11, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = icmp ne i32 %45, 0
-  %47 = select i1 %46, i32 4, i32 3
-  store i32 %47, ptr %19, align 4
-  %48 = load i32, ptr %19, align 4
-  %49 = sext i32 %48 to i64
-  %50 = load i64, ptr %11, align 8
-  %51 = mul i64 %49, %50
-  store i64 %51, ptr %14, align 8
-  %52 = load i32, ptr %19, align 4
-  %53 = sext i32 %52 to i64
-  %54 = load i32, ptr %7, align 4
-  %55 = sext i32 %54 to i64
-  %56 = mul i64 %53, %55
-  store i64 %56, ptr %15, align 8
-  %57 = load i64, ptr %14, align 8
-  %58 = mul i64 %57, 4
-  %59 = load i64, ptr %15, align 8
-  %60 = mul i64 %59, 1
-  %61 = add i64 %58, %60
-  store i64 %61, ptr %16, align 8
-  %62 = load i32, ptr %19, align 4
-  %63 = sext i32 %62 to i64
-  %64 = mul i64 %63, 104
-  %65 = add i64 %64, 31
-  store i64 %65, ptr %17, align 8
-  %66 = load i64, ptr %17, align 8
-  %67 = load i64, ptr %16, align 8
-  %68 = add i64 %67, %66
-  store i64 %68, ptr %16, align 8
-  %69 = load i64, ptr %16, align 8
-  %70 = call i32 @CheckSizeOverflow(i64 noundef %69)
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %73, label %72
-
-72:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %236
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 8, !tbaa !29
+  %26 = call i32 @WebPIsAlphaMode(i32 noundef %25)
+  store i32 %26, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.VP8Io, ptr %27, i32 0, i32 24
+  %29 = load i32, ptr %28, align 4, !tbaa !39
+  store i32 %29, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.VP8Io, ptr %30, i32 0, i32 25
+  %32 = load i32, ptr %31, align 8, !tbaa !40
+  store i32 %32, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.VP8Io, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !18
+  %36 = add nsw i32 %35, 1
+  %37 = ashr i32 %36, 1
+  store i32 %37, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.VP8Io, ptr %38, i32 0, i32 4
+  %40 = load i32, ptr %39, align 8, !tbaa !20
+  %41 = add nsw i32 %40, 1
+  %42 = ashr i32 %41, 1
+  store i32 %42, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %43 = load i32, ptr %7, align 4, !tbaa !19
+  %44 = sext i32 %43 to i64
+  %45 = mul i64 2, %44
+  store i64 %45, ptr %11, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %46 = load i32, ptr %6, align 4, !tbaa !19
+  %47 = icmp ne i32 %46, 0
+  %48 = select i1 %47, i32 4, i32 3
+  store i32 %48, ptr %19, align 4, !tbaa !19
+  %49 = load i32, ptr %19, align 4, !tbaa !19
+  %50 = sext i32 %49 to i64
+  %51 = load i64, ptr %11, align 8, !tbaa !41
+  %52 = mul i64 %50, %51
+  store i64 %52, ptr %14, align 8, !tbaa !41
+  %53 = load i32, ptr %19, align 4, !tbaa !19
+  %54 = sext i32 %53 to i64
+  %55 = load i32, ptr %7, align 4, !tbaa !19
+  %56 = sext i32 %55 to i64
+  %57 = mul i64 %54, %56
+  store i64 %57, ptr %15, align 8, !tbaa !41
+  %58 = load i64, ptr %14, align 8, !tbaa !41
+  %59 = mul i64 %58, 4
+  %60 = load i64, ptr %15, align 8, !tbaa !41
+  %61 = mul i64 %60, 1
+  %62 = add i64 %59, %61
+  store i64 %62, ptr %16, align 8, !tbaa !41
+  %63 = load i32, ptr %19, align 4, !tbaa !19
+  %64 = sext i32 %63 to i64
+  %65 = mul i64 %64, 104
+  %66 = add i64 %65, 31
+  store i64 %66, ptr %17, align 8, !tbaa !41
+  %67 = load i64, ptr %17, align 8, !tbaa !41
+  %68 = load i64, ptr %16, align 8, !tbaa !41
+  %69 = add i64 %68, %67
+  store i64 %69, ptr %16, align 8, !tbaa !41
+  %70 = load i64, ptr %16, align 8, !tbaa !41
+  %71 = call i32 @CheckSizeOverflow(i64 noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %74, label %73
 
 73:                                               ; preds = %2
-  %74 = load i64, ptr %16, align 8
-  %75 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %74)
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.WebPDecParams, ptr %76, i32 0, i32 10
-  store ptr %75, ptr %77, align 8
-  %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct.WebPDecParams, ptr %78, i32 0, i32 10
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %73
   store i32 0, ptr %3, align 4
-  br label %236
+  store i32 1, ptr %20, align 4
+  br label %237
 
-83:                                               ; preds = %73
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.WebPDecParams, ptr %84, i32 0, i32 10
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %12, align 8
-  %87 = load ptr, ptr %12, align 8
-  %88 = load i64, ptr %14, align 8
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
-  store ptr %89, ptr %13, align 8
-  %90 = load ptr, ptr %12, align 8
-  %91 = load i64, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 %91
-  %93 = load i64, ptr %17, align 8
-  %94 = sub i64 0, %93
-  %95 = getelementptr inbounds i8, ptr %92, i64 %94
-  %96 = ptrtoint ptr %95 to i64
-  %97 = add i64 %96, 31
-  %98 = and i64 %97, -32
-  %99 = inttoptr i64 %98 to ptr
-  store ptr %99, ptr %18, align 8
-  %100 = load ptr, ptr %18, align 8
-  %101 = getelementptr inbounds %struct.WebPRescaler, ptr %100, i64 0
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.WebPDecParams, ptr %102, i32 0, i32 6
-  store ptr %101, ptr %103, align 8
-  %104 = load ptr, ptr %18, align 8
-  %105 = getelementptr inbounds %struct.WebPRescaler, ptr %104, i64 1
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.WebPDecParams, ptr %106, i32 0, i32 7
-  store ptr %105, ptr %107, align 8
-  %108 = load ptr, ptr %18, align 8
-  %109 = getelementptr inbounds %struct.WebPRescaler, ptr %108, i64 2
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.WebPDecParams, ptr %110, i32 0, i32 8
-  store ptr %109, ptr %111, align 8
-  %112 = load i32, ptr %6, align 4
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %114, label %117
+74:                                               ; preds = %2
+  %75 = load i64, ptr %16, align 8, !tbaa !41
+  %76 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %75)
+  %77 = load ptr, ptr %5, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %77, i32 0, i32 10
+  store ptr %76, ptr %78, align 8, !tbaa !31
+  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !31
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %84
 
-114:                                              ; preds = %83
-  %115 = load ptr, ptr %18, align 8
-  %116 = getelementptr inbounds %struct.WebPRescaler, ptr %115, i64 3
-  br label %118
-
-117:                                              ; preds = %83
-  br label %118
-
-118:                                              ; preds = %117, %114
-  %119 = phi ptr [ %116, %114 ], [ null, %117 ]
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.WebPDecParams, ptr %120, i32 0, i32 9
-  store ptr %119, ptr %121, align 8
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.WebPDecParams, ptr %122, i32 0, i32 6
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.VP8Io, ptr %125, i32 0, i32 3
-  %127 = load i32, ptr %126, align 4
-  %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr inbounds %struct.VP8Io, ptr %128, i32 0, i32 4
-  %130 = load i32, ptr %129, align 8
-  %131 = load ptr, ptr %13, align 8
-  %132 = load i32, ptr %7, align 4
-  %133 = mul nsw i32 0, %132
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %131, i64 %134
-  %136 = load i32, ptr %7, align 4
-  %137 = load i32, ptr %8, align 4
-  %138 = load ptr, ptr %12, align 8
-  %139 = load i64, ptr %11, align 8
-  %140 = mul i64 0, %139
-  %141 = getelementptr inbounds i32, ptr %138, i64 %140
-  %142 = call i32 @WebPRescalerInit(ptr noundef %124, i32 noundef %127, i32 noundef %130, ptr noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef 0, i32 noundef 1, ptr noundef %141)
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %182
-
-144:                                              ; preds = %118
-  %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds %struct.WebPDecParams, ptr %145, i32 0, i32 7
-  %147 = load ptr, ptr %146, align 8
-  %148 = load i32, ptr %9, align 4
-  %149 = load i32, ptr %10, align 4
-  %150 = load ptr, ptr %13, align 8
-  %151 = load i32, ptr %7, align 4
-  %152 = mul nsw i32 1, %151
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i8, ptr %150, i64 %153
-  %155 = load i32, ptr %7, align 4
-  %156 = load i32, ptr %8, align 4
-  %157 = load ptr, ptr %12, align 8
-  %158 = load i64, ptr %11, align 8
-  %159 = mul i64 1, %158
-  %160 = getelementptr inbounds i32, ptr %157, i64 %159
-  %161 = call i32 @WebPRescalerInit(ptr noundef %147, i32 noundef %148, i32 noundef %149, ptr noundef %154, i32 noundef %155, i32 noundef %156, i32 noundef 0, i32 noundef 1, ptr noundef %160)
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %182
-
-163:                                              ; preds = %144
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.WebPDecParams, ptr %164, i32 0, i32 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = load i32, ptr %9, align 4
-  %168 = load i32, ptr %10, align 4
-  %169 = load ptr, ptr %13, align 8
-  %170 = load i32, ptr %7, align 4
-  %171 = mul nsw i32 2, %170
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i8, ptr %169, i64 %172
-  %174 = load i32, ptr %7, align 4
-  %175 = load i32, ptr %8, align 4
-  %176 = load ptr, ptr %12, align 8
-  %177 = load i64, ptr %11, align 8
-  %178 = mul i64 2, %177
-  %179 = getelementptr inbounds i32, ptr %176, i64 %178
-  %180 = call i32 @WebPRescalerInit(ptr noundef %166, i32 noundef %167, i32 noundef %168, ptr noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef 0, i32 noundef 1, ptr noundef %179)
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %183, label %182
-
-182:                                              ; preds = %163, %144, %118
+83:                                               ; preds = %74
   store i32 0, ptr %3, align 4
-  br label %236
+  store i32 1, ptr %20, align 4
+  br label %237
 
-183:                                              ; preds = %163
-  %184 = load ptr, ptr %5, align 8
-  %185 = getelementptr inbounds %struct.WebPDecParams, ptr %184, i32 0, i32 11
-  store ptr @EmitRescaledRGB, ptr %185, align 8
+84:                                               ; preds = %74
+  %85 = load ptr, ptr %5, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %85, i32 0, i32 10
+  %87 = load ptr, ptr %86, align 8, !tbaa !31
+  store ptr %87, ptr %12, align 8, !tbaa !42
+  %88 = load ptr, ptr %12, align 8, !tbaa !42
+  %89 = load i64, ptr %14, align 8, !tbaa !41
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  store ptr %90, ptr %13, align 8, !tbaa !44
+  %91 = load ptr, ptr %12, align 8, !tbaa !42
+  %92 = load i64, ptr %16, align 8, !tbaa !41
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
+  %94 = load i64, ptr %17, align 8, !tbaa !41
+  %95 = sub i64 0, %94
+  %96 = getelementptr inbounds i8, ptr %93, i64 %95
+  %97 = ptrtoint ptr %96 to i64
+  %98 = add i64 %97, 31
+  %99 = and i64 %98, -32
+  %100 = inttoptr i64 %99 to ptr
+  store ptr %100, ptr %18, align 8, !tbaa !45
+  %101 = load ptr, ptr %18, align 8, !tbaa !45
+  %102 = getelementptr inbounds %struct.WebPRescaler, ptr %101, i64 0
+  %103 = load ptr, ptr %5, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %103, i32 0, i32 6
+  store ptr %102, ptr %104, align 8, !tbaa !46
+  %105 = load ptr, ptr %18, align 8, !tbaa !45
+  %106 = getelementptr inbounds %struct.WebPRescaler, ptr %105, i64 1
+  %107 = load ptr, ptr %5, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %107, i32 0, i32 7
+  store ptr %106, ptr %108, align 8, !tbaa !47
+  %109 = load ptr, ptr %18, align 8, !tbaa !45
+  %110 = getelementptr inbounds %struct.WebPRescaler, ptr %109, i64 2
+  %111 = load ptr, ptr %5, align 8, !tbaa !3
+  %112 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %111, i32 0, i32 8
+  store ptr %110, ptr %112, align 8, !tbaa !48
+  %113 = load i32, ptr %6, align 4, !tbaa !19
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %118
+
+115:                                              ; preds = %84
+  %116 = load ptr, ptr %18, align 8, !tbaa !45
+  %117 = getelementptr inbounds %struct.WebPRescaler, ptr %116, i64 3
+  br label %119
+
+118:                                              ; preds = %84
+  br label %119
+
+119:                                              ; preds = %118, %115
+  %120 = phi ptr [ %117, %115 ], [ null, %118 ]
+  %121 = load ptr, ptr %5, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %121, i32 0, i32 9
+  store ptr %120, ptr %122, align 8, !tbaa !49
+  %123 = load ptr, ptr %5, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %123, i32 0, i32 6
+  %125 = load ptr, ptr %124, align 8, !tbaa !46
+  %126 = load ptr, ptr %4, align 8, !tbaa !8
+  %127 = getelementptr inbounds nuw %struct.VP8Io, ptr %126, i32 0, i32 3
+  %128 = load i32, ptr %127, align 4, !tbaa !18
+  %129 = load ptr, ptr %4, align 8, !tbaa !8
+  %130 = getelementptr inbounds nuw %struct.VP8Io, ptr %129, i32 0, i32 4
+  %131 = load i32, ptr %130, align 8, !tbaa !20
+  %132 = load ptr, ptr %13, align 8, !tbaa !44
+  %133 = load i32, ptr %7, align 4, !tbaa !19
+  %134 = mul nsw i32 0, %133
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %137 = load i32, ptr %7, align 4, !tbaa !19
+  %138 = load i32, ptr %8, align 4, !tbaa !19
+  %139 = load ptr, ptr %12, align 8, !tbaa !42
+  %140 = load i64, ptr %11, align 8, !tbaa !41
+  %141 = mul i64 0, %140
+  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %141
+  %143 = call i32 @WebPRescalerInit(ptr noundef %125, i32 noundef %128, i32 noundef %131, ptr noundef %136, i32 noundef %137, i32 noundef %138, i32 noundef 0, i32 noundef 1, ptr noundef %142)
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %183
+
+145:                                              ; preds = %119
+  %146 = load ptr, ptr %5, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %146, i32 0, i32 7
+  %148 = load ptr, ptr %147, align 8, !tbaa !47
+  %149 = load i32, ptr %9, align 4, !tbaa !19
+  %150 = load i32, ptr %10, align 4, !tbaa !19
+  %151 = load ptr, ptr %13, align 8, !tbaa !44
+  %152 = load i32, ptr %7, align 4, !tbaa !19
+  %153 = mul nsw i32 1, %152
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %151, i64 %154
+  %156 = load i32, ptr %7, align 4, !tbaa !19
+  %157 = load i32, ptr %8, align 4, !tbaa !19
+  %158 = load ptr, ptr %12, align 8, !tbaa !42
+  %159 = load i64, ptr %11, align 8, !tbaa !41
+  %160 = mul i64 1, %159
+  %161 = getelementptr inbounds nuw i32, ptr %158, i64 %160
+  %162 = call i32 @WebPRescalerInit(ptr noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef %155, i32 noundef %156, i32 noundef %157, i32 noundef 0, i32 noundef 1, ptr noundef %161)
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %183
+
+164:                                              ; preds = %145
+  %165 = load ptr, ptr %5, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %165, i32 0, i32 8
+  %167 = load ptr, ptr %166, align 8, !tbaa !48
+  %168 = load i32, ptr %9, align 4, !tbaa !19
+  %169 = load i32, ptr %10, align 4, !tbaa !19
+  %170 = load ptr, ptr %13, align 8, !tbaa !44
+  %171 = load i32, ptr %7, align 4, !tbaa !19
+  %172 = mul nsw i32 2, %171
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds i8, ptr %170, i64 %173
+  %175 = load i32, ptr %7, align 4, !tbaa !19
+  %176 = load i32, ptr %8, align 4, !tbaa !19
+  %177 = load ptr, ptr %12, align 8, !tbaa !42
+  %178 = load i64, ptr %11, align 8, !tbaa !41
+  %179 = mul i64 2, %178
+  %180 = getelementptr inbounds nuw i32, ptr %177, i64 %179
+  %181 = call i32 @WebPRescalerInit(ptr noundef %167, i32 noundef %168, i32 noundef %169, ptr noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef 0, i32 noundef 1, ptr noundef %180)
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %184, label %183
+
+183:                                              ; preds = %164, %145, %119
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %237
+
+184:                                              ; preds = %164
+  %185 = load ptr, ptr %5, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %185, i32 0, i32 11
+  store ptr @EmitRescaledRGB, ptr %186, align 8, !tbaa !21
   call void @WebPInitYUV444Converters()
-  %186 = load i32, ptr %6, align 4
-  %187 = icmp ne i32 %186, 0
-  br i1 %187, label %188, label %235
+  %187 = load i32, ptr %6, align 4, !tbaa !19
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %236
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct.WebPDecParams, ptr %189, i32 0, i32 9
-  %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct.VP8Io, ptr %192, i32 0, i32 3
-  %194 = load i32, ptr %193, align 4
-  %195 = load ptr, ptr %4, align 8
-  %196 = getelementptr inbounds %struct.VP8Io, ptr %195, i32 0, i32 4
-  %197 = load i32, ptr %196, align 8
-  %198 = load ptr, ptr %13, align 8
-  %199 = load i32, ptr %7, align 4
-  %200 = mul nsw i32 3, %199
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i8, ptr %198, i64 %201
-  %203 = load i32, ptr %7, align 4
-  %204 = load i32, ptr %8, align 4
-  %205 = load ptr, ptr %12, align 8
-  %206 = load i64, ptr %11, align 8
-  %207 = mul i64 3, %206
-  %208 = getelementptr inbounds i32, ptr %205, i64 %207
-  %209 = call i32 @WebPRescalerInit(ptr noundef %191, i32 noundef %194, i32 noundef %197, ptr noundef %202, i32 noundef %203, i32 noundef %204, i32 noundef 0, i32 noundef 1, ptr noundef %208)
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %212, label %211
+189:                                              ; preds = %184
+  %190 = load ptr, ptr %5, align 8, !tbaa !3
+  %191 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %190, i32 0, i32 9
+  %192 = load ptr, ptr %191, align 8, !tbaa !49
+  %193 = load ptr, ptr %4, align 8, !tbaa !8
+  %194 = getelementptr inbounds nuw %struct.VP8Io, ptr %193, i32 0, i32 3
+  %195 = load i32, ptr %194, align 4, !tbaa !18
+  %196 = load ptr, ptr %4, align 8, !tbaa !8
+  %197 = getelementptr inbounds nuw %struct.VP8Io, ptr %196, i32 0, i32 4
+  %198 = load i32, ptr %197, align 8, !tbaa !20
+  %199 = load ptr, ptr %13, align 8, !tbaa !44
+  %200 = load i32, ptr %7, align 4, !tbaa !19
+  %201 = mul nsw i32 3, %200
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i8, ptr %199, i64 %202
+  %204 = load i32, ptr %7, align 4, !tbaa !19
+  %205 = load i32, ptr %8, align 4, !tbaa !19
+  %206 = load ptr, ptr %12, align 8, !tbaa !42
+  %207 = load i64, ptr %11, align 8, !tbaa !41
+  %208 = mul i64 3, %207
+  %209 = getelementptr inbounds nuw i32, ptr %206, i64 %208
+  %210 = call i32 @WebPRescalerInit(ptr noundef %192, i32 noundef %195, i32 noundef %198, ptr noundef %203, i32 noundef %204, i32 noundef %205, i32 noundef 0, i32 noundef 1, ptr noundef %209)
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %213, label %212
 
-211:                                              ; preds = %188
+212:                                              ; preds = %189
   store i32 0, ptr %3, align 4
-  br label %236
+  store i32 1, ptr %20, align 4
+  br label %237
 
-212:                                              ; preds = %188
-  %213 = load ptr, ptr %5, align 8
-  %214 = getelementptr inbounds %struct.WebPDecParams, ptr %213, i32 0, i32 12
-  store ptr @EmitRescaledAlphaRGB, ptr %214, align 8
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct.WebPDecParams, ptr %215, i32 0, i32 0
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.WebPDecBuffer, ptr %217, i32 0, i32 0
-  %219 = load i32, ptr %218, align 8
-  %220 = icmp eq i32 %219, 5
-  br i1 %220, label %228, label %221
+213:                                              ; preds = %189
+  %214 = load ptr, ptr %5, align 8, !tbaa !3
+  %215 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %214, i32 0, i32 12
+  store ptr @EmitRescaledAlphaRGB, ptr %215, align 8, !tbaa !26
+  %216 = load ptr, ptr %5, align 8, !tbaa !3
+  %217 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %216, i32 0, i32 0
+  %218 = load ptr, ptr %217, align 8, !tbaa !28
+  %219 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %218, i32 0, i32 0
+  %220 = load i32, ptr %219, align 8, !tbaa !29
+  %221 = icmp eq i32 %220, 5
+  br i1 %221, label %229, label %222
 
-221:                                              ; preds = %212
-  %222 = load ptr, ptr %5, align 8
-  %223 = getelementptr inbounds %struct.WebPDecParams, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds %struct.WebPDecBuffer, ptr %224, i32 0, i32 0
-  %226 = load i32, ptr %225, align 8
-  %227 = icmp eq i32 %226, 10
-  br i1 %227, label %228, label %231
+222:                                              ; preds = %213
+  %223 = load ptr, ptr %5, align 8, !tbaa !3
+  %224 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8, !tbaa !28
+  %226 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %225, i32 0, i32 0
+  %227 = load i32, ptr %226, align 8, !tbaa !29
+  %228 = icmp eq i32 %227, 10
+  br i1 %228, label %229, label %232
 
-228:                                              ; preds = %221, %212
-  %229 = load ptr, ptr %5, align 8
-  %230 = getelementptr inbounds %struct.WebPDecParams, ptr %229, i32 0, i32 13
-  store ptr @ExportAlphaRGBA4444, ptr %230, align 8
-  br label %234
-
-231:                                              ; preds = %221
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds %struct.WebPDecParams, ptr %232, i32 0, i32 13
-  store ptr @ExportAlpha, ptr %233, align 8
-  br label %234
-
-234:                                              ; preds = %231, %228
-  call void @WebPInitAlphaProcessing()
+229:                                              ; preds = %222, %213
+  %230 = load ptr, ptr %5, align 8, !tbaa !3
+  %231 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %230, i32 0, i32 13
+  store ptr @ExportAlphaRGBA4444, ptr %231, align 8, !tbaa !32
   br label %235
 
-235:                                              ; preds = %234, %183
-  store i32 1, ptr %3, align 4
+232:                                              ; preds = %222
+  %233 = load ptr, ptr %5, align 8, !tbaa !3
+  %234 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %233, i32 0, i32 13
+  store ptr @ExportAlpha, ptr %234, align 8, !tbaa !32
+  br label %235
+
+235:                                              ; preds = %232, %229
+  call void @WebPInitAlphaProcessing()
   br label %236
 
-236:                                              ; preds = %235, %211, %182, %82, %72
-  %237 = load i32, ptr %3, align 4
-  ret i32 %237
+236:                                              ; preds = %235, %184
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %237
+
+237:                                              ; preds = %236, %212, %183, %83, %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %238 = load i32, ptr %3, align 4
+  ret i32 %238
 }
 
 ; Function Attrs: nounwind uwtable
@@ -791,288 +881,324 @@ define internal i32 @InitYUVRescaler(ptr noundef %0, ptr noundef %1) #0 {
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.WebPDecParams, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.WebPDecBuffer, ptr %23, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  %26 = call i32 @WebPIsAlphaMode(i32 noundef %25)
-  store i32 %26, ptr %6, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.WebPDecParams, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.WebPDecBuffer, ptr %29, i32 0, i32 4
-  store ptr %30, ptr %7, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.VP8Io, ptr %31, i32 0, i32 24
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %8, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.VP8Io, ptr %34, i32 0, i32 25
-  %36 = load i32, ptr %35, align 8
-  store i32 %36, ptr %9, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = add nsw i32 %37, 1
-  %39 = ashr i32 %38, 1
-  store i32 %39, ptr %10, align 4
-  %40 = load i32, ptr %9, align 4
-  %41 = add nsw i32 %40, 1
-  %42 = ashr i32 %41, 1
-  store i32 %42, ptr %11, align 4
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.VP8Io, ptr %43, i32 0, i32 3
-  %45 = load i32, ptr %44, align 4
-  %46 = add nsw i32 %45, 1
-  %47 = ashr i32 %46, 1
-  store i32 %47, ptr %12, align 4
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.VP8Io, ptr %48, i32 0, i32 4
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, 1
-  %52 = ashr i32 %51, 1
-  store i32 %52, ptr %13, align 4
-  %53 = load i32, ptr %8, align 4
-  %54 = sext i32 %53 to i64
-  %55 = mul i64 2, %54
-  store i64 %55, ptr %14, align 8
-  %56 = load i32, ptr %10, align 4
-  %57 = mul nsw i32 2, %56
-  %58 = sext i32 %57 to i64
-  store i64 %58, ptr %15, align 8
-  %59 = load i32, ptr %6, align 4
-  %60 = icmp ne i32 %59, 0
-  %61 = select i1 %60, i32 4, i32 3
-  store i32 %61, ptr %20, align 4
-  %62 = load i64, ptr %14, align 8
-  %63 = load i64, ptr %15, align 8
-  %64 = mul i64 2, %63
-  %65 = add i64 %62, %64
-  %66 = mul i64 %65, 4
-  store i64 %66, ptr %16, align 8
-  %67 = load i32, ptr %6, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %74
+  %21 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8, !tbaa !29
+  %27 = call i32 @WebPIsAlphaMode(i32 noundef %26)
+  store i32 %27, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %30, i32 0, i32 4
+  store ptr %31, ptr %7, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.VP8Io, ptr %32, i32 0, i32 24
+  %34 = load i32, ptr %33, align 4, !tbaa !39
+  store i32 %34, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %35 = load ptr, ptr %4, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.VP8Io, ptr %35, i32 0, i32 25
+  %37 = load i32, ptr %36, align 8, !tbaa !40
+  store i32 %37, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %38 = load i32, ptr %8, align 4, !tbaa !19
+  %39 = add nsw i32 %38, 1
+  %40 = ashr i32 %39, 1
+  store i32 %40, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %41 = load i32, ptr %9, align 4, !tbaa !19
+  %42 = add nsw i32 %41, 1
+  %43 = ashr i32 %42, 1
+  store i32 %43, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.VP8Io, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 4, !tbaa !18
+  %47 = add nsw i32 %46, 1
+  %48 = ashr i32 %47, 1
+  store i32 %48, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %49 = load ptr, ptr %4, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.VP8Io, ptr %49, i32 0, i32 4
+  %51 = load i32, ptr %50, align 8, !tbaa !20
+  %52 = add nsw i32 %51, 1
+  %53 = ashr i32 %52, 1
+  store i32 %53, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %54 = load i32, ptr %8, align 4, !tbaa !19
+  %55 = sext i32 %54 to i64
+  %56 = mul i64 2, %55
+  store i64 %56, ptr %14, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %57 = load i32, ptr %10, align 4, !tbaa !19
+  %58 = mul nsw i32 2, %57
+  %59 = sext i32 %58 to i64
+  store i64 %59, ptr %15, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %60 = load i32, ptr %6, align 4, !tbaa !19
+  %61 = icmp ne i32 %60, 0
+  %62 = select i1 %61, i32 4, i32 3
+  store i32 %62, ptr %20, align 4, !tbaa !19
+  %63 = load i64, ptr %14, align 8, !tbaa !41
+  %64 = load i64, ptr %15, align 8, !tbaa !41
+  %65 = mul i64 2, %64
+  %66 = add i64 %63, %65
+  %67 = mul i64 %66, 4
+  store i64 %67, ptr %16, align 8, !tbaa !41
+  %68 = load i32, ptr %6, align 4, !tbaa !19
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %75
 
-69:                                               ; preds = %2
-  %70 = load i64, ptr %14, align 8
-  %71 = mul i64 %70, 4
-  %72 = load i64, ptr %16, align 8
-  %73 = add i64 %72, %71
-  store i64 %73, ptr %16, align 8
-  br label %74
+70:                                               ; preds = %2
+  %71 = load i64, ptr %14, align 8, !tbaa !41
+  %72 = mul i64 %71, 4
+  %73 = load i64, ptr %16, align 8, !tbaa !41
+  %74 = add i64 %73, %72
+  store i64 %74, ptr %16, align 8, !tbaa !41
+  br label %75
 
-74:                                               ; preds = %69, %2
-  %75 = load i32, ptr %20, align 4
-  %76 = sext i32 %75 to i64
-  %77 = mul i64 %76, 104
-  %78 = add i64 %77, 31
-  store i64 %78, ptr %17, align 8
-  %79 = load i64, ptr %17, align 8
-  %80 = load i64, ptr %16, align 8
-  %81 = add i64 %80, %79
-  store i64 %81, ptr %16, align 8
-  %82 = load i64, ptr %16, align 8
-  %83 = call i32 @CheckSizeOverflow(i64 noundef %82)
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %86, label %85
+75:                                               ; preds = %70, %2
+  %76 = load i32, ptr %20, align 4, !tbaa !19
+  %77 = sext i32 %76 to i64
+  %78 = mul i64 %77, 104
+  %79 = add i64 %78, 31
+  store i64 %79, ptr %17, align 8, !tbaa !41
+  %80 = load i64, ptr %17, align 8, !tbaa !41
+  %81 = load i64, ptr %16, align 8, !tbaa !41
+  %82 = add i64 %81, %80
+  store i64 %82, ptr %16, align 8, !tbaa !41
+  %83 = load i64, ptr %16, align 8, !tbaa !41
+  %84 = call i32 @CheckSizeOverflow(i64 noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %87, label %86
 
-85:                                               ; preds = %74
+86:                                               ; preds = %75
   store i32 0, ptr %3, align 4
-  br label %229
+  store i32 1, ptr %21, align 4
+  br label %230
 
-86:                                               ; preds = %74
-  %87 = load i64, ptr %16, align 8
-  %88 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %87)
-  %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds %struct.WebPDecParams, ptr %89, i32 0, i32 10
-  store ptr %88, ptr %90, align 8
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.WebPDecParams, ptr %91, i32 0, i32 10
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %96
+87:                                               ; preds = %75
+  %88 = load i64, ptr %16, align 8, !tbaa !41
+  %89 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %88)
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %90, i32 0, i32 10
+  store ptr %89, ptr %91, align 8, !tbaa !31
+  %92 = load ptr, ptr %5, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %92, i32 0, i32 10
+  %94 = load ptr, ptr %93, align 8, !tbaa !31
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
 
-95:                                               ; preds = %86
+96:                                               ; preds = %87
   store i32 0, ptr %3, align 4
-  br label %229
+  store i32 1, ptr %21, align 4
+  br label %230
 
-96:                                               ; preds = %86
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.WebPDecParams, ptr %97, i32 0, i32 10
-  %99 = load ptr, ptr %98, align 8
-  store ptr %99, ptr %18, align 8
-  %100 = load ptr, ptr %18, align 8
-  %101 = load i64, ptr %16, align 8
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  %103 = load i64, ptr %17, align 8
-  %104 = sub i64 0, %103
-  %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = ptrtoint ptr %105 to i64
-  %107 = add i64 %106, 31
-  %108 = and i64 %107, -32
-  %109 = inttoptr i64 %108 to ptr
-  store ptr %109, ptr %19, align 8
-  %110 = load ptr, ptr %19, align 8
-  %111 = getelementptr inbounds %struct.WebPRescaler, ptr %110, i64 0
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds %struct.WebPDecParams, ptr %112, i32 0, i32 6
-  store ptr %111, ptr %113, align 8
-  %114 = load ptr, ptr %19, align 8
-  %115 = getelementptr inbounds %struct.WebPRescaler, ptr %114, i64 1
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct.WebPDecParams, ptr %116, i32 0, i32 7
-  store ptr %115, ptr %117, align 8
-  %118 = load ptr, ptr %19, align 8
-  %119 = getelementptr inbounds %struct.WebPRescaler, ptr %118, i64 2
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.WebPDecParams, ptr %120, i32 0, i32 8
-  store ptr %119, ptr %121, align 8
-  %122 = load i32, ptr %6, align 4
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %127
+97:                                               ; preds = %87
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %98, i32 0, i32 10
+  %100 = load ptr, ptr %99, align 8, !tbaa !31
+  store ptr %100, ptr %18, align 8, !tbaa !42
+  %101 = load ptr, ptr %18, align 8, !tbaa !42
+  %102 = load i64, ptr %16, align 8, !tbaa !41
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
+  %104 = load i64, ptr %17, align 8, !tbaa !41
+  %105 = sub i64 0, %104
+  %106 = getelementptr inbounds i8, ptr %103, i64 %105
+  %107 = ptrtoint ptr %106 to i64
+  %108 = add i64 %107, 31
+  %109 = and i64 %108, -32
+  %110 = inttoptr i64 %109 to ptr
+  store ptr %110, ptr %19, align 8, !tbaa !45
+  %111 = load ptr, ptr %19, align 8, !tbaa !45
+  %112 = getelementptr inbounds %struct.WebPRescaler, ptr %111, i64 0
+  %113 = load ptr, ptr %5, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %113, i32 0, i32 6
+  store ptr %112, ptr %114, align 8, !tbaa !46
+  %115 = load ptr, ptr %19, align 8, !tbaa !45
+  %116 = getelementptr inbounds %struct.WebPRescaler, ptr %115, i64 1
+  %117 = load ptr, ptr %5, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %117, i32 0, i32 7
+  store ptr %116, ptr %118, align 8, !tbaa !47
+  %119 = load ptr, ptr %19, align 8, !tbaa !45
+  %120 = getelementptr inbounds %struct.WebPRescaler, ptr %119, i64 2
+  %121 = load ptr, ptr %5, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %121, i32 0, i32 8
+  store ptr %120, ptr %122, align 8, !tbaa !48
+  %123 = load i32, ptr %6, align 4, !tbaa !19
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %125, label %128
 
-124:                                              ; preds = %96
-  %125 = load ptr, ptr %19, align 8
-  %126 = getelementptr inbounds %struct.WebPRescaler, ptr %125, i64 3
-  br label %128
+125:                                              ; preds = %97
+  %126 = load ptr, ptr %19, align 8, !tbaa !45
+  %127 = getelementptr inbounds %struct.WebPRescaler, ptr %126, i64 3
+  br label %129
 
-127:                                              ; preds = %96
-  br label %128
+128:                                              ; preds = %97
+  br label %129
 
-128:                                              ; preds = %127, %124
-  %129 = phi ptr [ %126, %124 ], [ null, %127 ]
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds %struct.WebPDecParams, ptr %130, i32 0, i32 9
-  store ptr %129, ptr %131, align 8
-  %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds %struct.WebPDecParams, ptr %132, i32 0, i32 6
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %struct.VP8Io, ptr %135, i32 0, i32 3
-  %137 = load i32, ptr %136, align 4
-  %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds %struct.VP8Io, ptr %138, i32 0, i32 4
-  %140 = load i32, ptr %139, align 8
-  %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %141, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i32, ptr %8, align 4
-  %145 = load i32, ptr %9, align 4
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %146, i32 0, i32 4
-  %148 = load i32, ptr %147, align 8
-  %149 = load ptr, ptr %18, align 8
-  %150 = call i32 @WebPRescalerInit(ptr noundef %134, i32 noundef %137, i32 noundef %140, ptr noundef %143, i32 noundef %144, i32 noundef %145, i32 noundef %148, i32 noundef 1, ptr noundef %149)
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %192
+129:                                              ; preds = %128, %125
+  %130 = phi ptr [ %127, %125 ], [ null, %128 ]
+  %131 = load ptr, ptr %5, align 8, !tbaa !3
+  %132 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %131, i32 0, i32 9
+  store ptr %130, ptr %132, align 8, !tbaa !49
+  %133 = load ptr, ptr %5, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %133, i32 0, i32 6
+  %135 = load ptr, ptr %134, align 8, !tbaa !46
+  %136 = load ptr, ptr %4, align 8, !tbaa !8
+  %137 = getelementptr inbounds nuw %struct.VP8Io, ptr %136, i32 0, i32 3
+  %138 = load i32, ptr %137, align 4, !tbaa !18
+  %139 = load ptr, ptr %4, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw %struct.VP8Io, ptr %139, i32 0, i32 4
+  %141 = load i32, ptr %140, align 8, !tbaa !20
+  %142 = load ptr, ptr %7, align 8, !tbaa !50
+  %143 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %142, i32 0, i32 0
+  %144 = load ptr, ptr %143, align 8, !tbaa !52
+  %145 = load i32, ptr %8, align 4, !tbaa !19
+  %146 = load i32, ptr %9, align 4, !tbaa !19
+  %147 = load ptr, ptr %7, align 8, !tbaa !50
+  %148 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %147, i32 0, i32 4
+  %149 = load i32, ptr %148, align 8, !tbaa !54
+  %150 = load ptr, ptr %18, align 8, !tbaa !42
+  %151 = call i32 @WebPRescalerInit(ptr noundef %135, i32 noundef %138, i32 noundef %141, ptr noundef %144, i32 noundef %145, i32 noundef %146, i32 noundef %149, i32 noundef 1, ptr noundef %150)
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %193
 
-152:                                              ; preds = %128
-  %153 = load ptr, ptr %5, align 8
-  %154 = getelementptr inbounds %struct.WebPDecParams, ptr %153, i32 0, i32 7
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i32, ptr %12, align 4
-  %157 = load i32, ptr %13, align 4
-  %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %158, i32 0, i32 1
-  %160 = load ptr, ptr %159, align 8
-  %161 = load i32, ptr %10, align 4
-  %162 = load i32, ptr %11, align 4
-  %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %163, i32 0, i32 5
-  %165 = load i32, ptr %164, align 4
-  %166 = load ptr, ptr %18, align 8
-  %167 = load i64, ptr %14, align 8
-  %168 = getelementptr inbounds i32, ptr %166, i64 %167
-  %169 = call i32 @WebPRescalerInit(ptr noundef %155, i32 noundef %156, i32 noundef %157, ptr noundef %160, i32 noundef %161, i32 noundef %162, i32 noundef %165, i32 noundef 1, ptr noundef %168)
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %192
+153:                                              ; preds = %129
+  %154 = load ptr, ptr %5, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %154, i32 0, i32 7
+  %156 = load ptr, ptr %155, align 8, !tbaa !47
+  %157 = load i32, ptr %12, align 4, !tbaa !19
+  %158 = load i32, ptr %13, align 4, !tbaa !19
+  %159 = load ptr, ptr %7, align 8, !tbaa !50
+  %160 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %159, i32 0, i32 1
+  %161 = load ptr, ptr %160, align 8, !tbaa !55
+  %162 = load i32, ptr %10, align 4, !tbaa !19
+  %163 = load i32, ptr %11, align 4, !tbaa !19
+  %164 = load ptr, ptr %7, align 8, !tbaa !50
+  %165 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %164, i32 0, i32 5
+  %166 = load i32, ptr %165, align 4, !tbaa !56
+  %167 = load ptr, ptr %18, align 8, !tbaa !42
+  %168 = load i64, ptr %14, align 8, !tbaa !41
+  %169 = getelementptr inbounds nuw i32, ptr %167, i64 %168
+  %170 = call i32 @WebPRescalerInit(ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef %161, i32 noundef %162, i32 noundef %163, i32 noundef %166, i32 noundef 1, ptr noundef %169)
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %172, label %193
 
-171:                                              ; preds = %152
-  %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds %struct.WebPDecParams, ptr %172, i32 0, i32 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = load i32, ptr %12, align 4
-  %176 = load i32, ptr %13, align 4
-  %177 = load ptr, ptr %7, align 8
-  %178 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %177, i32 0, i32 2
-  %179 = load ptr, ptr %178, align 8
-  %180 = load i32, ptr %10, align 4
-  %181 = load i32, ptr %11, align 4
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %182, i32 0, i32 6
-  %184 = load i32, ptr %183, align 8
-  %185 = load ptr, ptr %18, align 8
-  %186 = load i64, ptr %14, align 8
-  %187 = getelementptr inbounds i32, ptr %185, i64 %186
-  %188 = load i64, ptr %15, align 8
-  %189 = getelementptr inbounds i32, ptr %187, i64 %188
-  %190 = call i32 @WebPRescalerInit(ptr noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef %179, i32 noundef %180, i32 noundef %181, i32 noundef %184, i32 noundef 1, ptr noundef %189)
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %193, label %192
+172:                                              ; preds = %153
+  %173 = load ptr, ptr %5, align 8, !tbaa !3
+  %174 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %173, i32 0, i32 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !48
+  %176 = load i32, ptr %12, align 4, !tbaa !19
+  %177 = load i32, ptr %13, align 4, !tbaa !19
+  %178 = load ptr, ptr %7, align 8, !tbaa !50
+  %179 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %178, i32 0, i32 2
+  %180 = load ptr, ptr %179, align 8, !tbaa !57
+  %181 = load i32, ptr %10, align 4, !tbaa !19
+  %182 = load i32, ptr %11, align 4, !tbaa !19
+  %183 = load ptr, ptr %7, align 8, !tbaa !50
+  %184 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %183, i32 0, i32 6
+  %185 = load i32, ptr %184, align 8, !tbaa !58
+  %186 = load ptr, ptr %18, align 8, !tbaa !42
+  %187 = load i64, ptr %14, align 8, !tbaa !41
+  %188 = getelementptr inbounds nuw i32, ptr %186, i64 %187
+  %189 = load i64, ptr %15, align 8, !tbaa !41
+  %190 = getelementptr inbounds nuw i32, ptr %188, i64 %189
+  %191 = call i32 @WebPRescalerInit(ptr noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef %180, i32 noundef %181, i32 noundef %182, i32 noundef %185, i32 noundef 1, ptr noundef %190)
+  %192 = icmp ne i32 %191, 0
+  br i1 %192, label %194, label %193
 
-192:                                              ; preds = %171, %152, %128
+193:                                              ; preds = %172, %153, %129
   store i32 0, ptr %3, align 4
-  br label %229
+  store i32 1, ptr %21, align 4
+  br label %230
 
-193:                                              ; preds = %171
-  %194 = load ptr, ptr %5, align 8
-  %195 = getelementptr inbounds %struct.WebPDecParams, ptr %194, i32 0, i32 11
-  store ptr @EmitRescaledYUV, ptr %195, align 8
-  %196 = load i32, ptr %6, align 4
-  %197 = icmp ne i32 %196, 0
-  br i1 %197, label %198, label %228
+194:                                              ; preds = %172
+  %195 = load ptr, ptr %5, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %195, i32 0, i32 11
+  store ptr @EmitRescaledYUV, ptr %196, align 8, !tbaa !21
+  %197 = load i32, ptr %6, align 4, !tbaa !19
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %229
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr %5, align 8
-  %200 = getelementptr inbounds %struct.WebPDecParams, ptr %199, i32 0, i32 9
-  %201 = load ptr, ptr %200, align 8
-  %202 = load ptr, ptr %4, align 8
-  %203 = getelementptr inbounds %struct.VP8Io, ptr %202, i32 0, i32 3
-  %204 = load i32, ptr %203, align 4
-  %205 = load ptr, ptr %4, align 8
-  %206 = getelementptr inbounds %struct.VP8Io, ptr %205, i32 0, i32 4
-  %207 = load i32, ptr %206, align 8
-  %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %208, i32 0, i32 3
-  %210 = load ptr, ptr %209, align 8
-  %211 = load i32, ptr %8, align 4
-  %212 = load i32, ptr %9, align 4
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %213, i32 0, i32 7
-  %215 = load i32, ptr %214, align 4
-  %216 = load ptr, ptr %18, align 8
-  %217 = load i64, ptr %14, align 8
-  %218 = getelementptr inbounds i32, ptr %216, i64 %217
-  %219 = load i64, ptr %15, align 8
-  %220 = mul i64 2, %219
-  %221 = getelementptr inbounds i32, ptr %218, i64 %220
-  %222 = call i32 @WebPRescalerInit(ptr noundef %201, i32 noundef %204, i32 noundef %207, ptr noundef %210, i32 noundef %211, i32 noundef %212, i32 noundef %215, i32 noundef 1, ptr noundef %221)
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %225, label %224
+199:                                              ; preds = %194
+  %200 = load ptr, ptr %5, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %200, i32 0, i32 9
+  %202 = load ptr, ptr %201, align 8, !tbaa !49
+  %203 = load ptr, ptr %4, align 8, !tbaa !8
+  %204 = getelementptr inbounds nuw %struct.VP8Io, ptr %203, i32 0, i32 3
+  %205 = load i32, ptr %204, align 4, !tbaa !18
+  %206 = load ptr, ptr %4, align 8, !tbaa !8
+  %207 = getelementptr inbounds nuw %struct.VP8Io, ptr %206, i32 0, i32 4
+  %208 = load i32, ptr %207, align 8, !tbaa !20
+  %209 = load ptr, ptr %7, align 8, !tbaa !50
+  %210 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %209, i32 0, i32 3
+  %211 = load ptr, ptr %210, align 8, !tbaa !59
+  %212 = load i32, ptr %8, align 4, !tbaa !19
+  %213 = load i32, ptr %9, align 4, !tbaa !19
+  %214 = load ptr, ptr %7, align 8, !tbaa !50
+  %215 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %214, i32 0, i32 7
+  %216 = load i32, ptr %215, align 4, !tbaa !60
+  %217 = load ptr, ptr %18, align 8, !tbaa !42
+  %218 = load i64, ptr %14, align 8, !tbaa !41
+  %219 = getelementptr inbounds nuw i32, ptr %217, i64 %218
+  %220 = load i64, ptr %15, align 8, !tbaa !41
+  %221 = mul i64 2, %220
+  %222 = getelementptr inbounds nuw i32, ptr %219, i64 %221
+  %223 = call i32 @WebPRescalerInit(ptr noundef %202, i32 noundef %205, i32 noundef %208, ptr noundef %211, i32 noundef %212, i32 noundef %213, i32 noundef %216, i32 noundef 1, ptr noundef %222)
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %226, label %225
 
-224:                                              ; preds = %198
+225:                                              ; preds = %199
   store i32 0, ptr %3, align 4
-  br label %229
+  store i32 1, ptr %21, align 4
+  br label %230
 
-225:                                              ; preds = %198
-  %226 = load ptr, ptr %5, align 8
-  %227 = getelementptr inbounds %struct.WebPDecParams, ptr %226, i32 0, i32 12
-  store ptr @EmitRescaledAlphaYUV, ptr %227, align 8
+226:                                              ; preds = %199
+  %227 = load ptr, ptr %5, align 8, !tbaa !3
+  %228 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %227, i32 0, i32 12
+  store ptr @EmitRescaledAlphaYUV, ptr %228, align 8, !tbaa !26
   call void @WebPInitAlphaProcessing()
-  br label %228
-
-228:                                              ; preds = %225, %193
-  store i32 1, ptr %3, align 4
   br label %229
 
-229:                                              ; preds = %228, %224, %192, %95, %85
-  %230 = load i32, ptr %3, align 4
-  ret i32 %230
+229:                                              ; preds = %226, %194
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %21, align 4
+  br label %230
+
+230:                                              ; preds = %229, %225, %193, %96, %86
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %231 = load i32, ptr %3, align 4
+  ret i32 %231
 }
 
-declare void @WebPInitSamplers() #1
+declare void @WebPInitSamplers() #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @EmitSampledRGB(ptr noundef %0, ptr noundef %1) #0 {
@@ -1081,68 +1207,74 @@ define internal i32 @EmitSampledRGB(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.WebPDecParams, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.WebPDecBuffer, ptr %11, i32 0, i32 4
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.VP8Io, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  store ptr %10, ptr %5, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !61
+  %12 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %11, i32 0, i32 4
+  store ptr %12, ptr %6, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %13 = load ptr, ptr %6, align 8, !tbaa !62
+  %14 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.VP8Io, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8, !tbaa !66
   %19 = sext i32 %18 to i64
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
+  %20 = load ptr, ptr %6, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 8, !tbaa !67
   %23 = sext i32 %22 to i64
-  %24 = mul i64 %19, %23
+  %24 = mul nsw i64 %19, %23
   %25 = getelementptr inbounds i8, ptr %15, i64 %24
-  store ptr %25, ptr %7, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.VP8Io, ptr %26, i32 0, i32 5
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.VP8Io, ptr %29, i32 0, i32 8
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.VP8Io, ptr %32, i32 0, i32 6
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.VP8Io, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.VP8Io, ptr %38, i32 0, i32 9
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %7, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %42, i32 0, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.VP8Io, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 4
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.VP8Io, ptr %48, i32 0, i32 4
-  %50 = load i32, ptr %49, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.WebPDecBuffer, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
+  store ptr %25, ptr %7, align 8, !tbaa !44
+  %26 = load ptr, ptr %3, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.VP8Io, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !68
+  %29 = load ptr, ptr %3, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.VP8Io, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !69
+  %32 = load ptr, ptr %3, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.VP8Io, ptr %32, i32 0, i32 6
+  %34 = load ptr, ptr %33, align 8, !tbaa !70
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.VP8Io, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !71
+  %38 = load ptr, ptr %3, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.VP8Io, ptr %38, i32 0, i32 9
+  %40 = load i32, ptr %39, align 4, !tbaa !72
+  %41 = load ptr, ptr %7, align 8, !tbaa !44
+  %42 = load ptr, ptr %6, align 8, !tbaa !62
+  %43 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8, !tbaa !67
+  %45 = load ptr, ptr %3, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.VP8Io, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 4, !tbaa !18
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.VP8Io, ptr %48, i32 0, i32 4
+  %50 = load i32, ptr %49, align 8, !tbaa !20
+  %51 = load ptr, ptr %5, align 8, !tbaa !61
+  %52 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !29
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds [0 x ptr], ptr @WebPSamplers, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
+  %55 = getelementptr inbounds nuw [0 x ptr], ptr @WebPSamplers, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !73
   call void @WebPSamplerProcessPlane(ptr noundef %28, i32 noundef %31, ptr noundef %34, ptr noundef %37, i32 noundef %40, ptr noundef %41, i32 noundef %44, i32 noundef %47, i32 noundef %50, ptr noundef %56)
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.VP8Io, ptr %57, i32 0, i32 4
-  %59 = load i32, ptr %58, align 8
+  %57 = load ptr, ptr %3, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.VP8Io, ptr %57, i32 0, i32 4
+  %59 = load i32, ptr %58, align 8, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 %59
 }
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) #1
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @EmitFancyRGB(ptr noundef %0, ptr noundef %1) #0 {
@@ -1161,266 +1293,279 @@ define internal i32 @EmitFancyRGB(ptr noundef %0, ptr noundef %1) #0 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.VP8Io, ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %5, align 4
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.WebPDecParams, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.WebPDecBuffer, ptr %23, i32 0, i32 4
-  store ptr %24, ptr %6, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.VP8Io, ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.VP8Io, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !20
+  store i32 %20, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %23, i32 0, i32 4
+  store ptr %24, ptr %6, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %25 = load ptr, ptr %6, align 8, !tbaa !62
+  %26 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !64
+  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.VP8Io, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8, !tbaa !66
   %31 = sext i32 %30 to i64
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
+  %32 = load ptr, ptr %6, align 8, !tbaa !62
+  %33 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8, !tbaa !67
   %35 = sext i32 %34 to i64
-  %36 = mul i64 %31, %35
+  %36 = mul nsw i64 %31, %35
   %37 = getelementptr inbounds i8, ptr %27, i64 %36
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.WebPDecParams, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.WebPDecBuffer, ptr %40, i32 0, i32 0
-  %42 = load i32, ptr %41, align 8
+  store ptr %37, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !28
+  %41 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8, !tbaa !29
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds [0 x ptr], ptr @WebPUpsamplers, i64 0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %8, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.VP8Io, ptr %46, i32 0, i32 5
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %9, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.VP8Io, ptr %49, i32 0, i32 6
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.VP8Io, ptr %52, i32 0, i32 7
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %11, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.WebPDecParams, ptr %55, i32 0, i32 2
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %12, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.WebPDecParams, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %13, align 8
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.VP8Io, ptr %61, i32 0, i32 2
-  %63 = load i32, ptr %62, align 8
-  store i32 %63, ptr %14, align 4
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.VP8Io, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.VP8Io, ptr %67, i32 0, i32 4
-  %69 = load i32, ptr %68, align 8
+  %44 = getelementptr inbounds nuw [0 x ptr], ptr @WebPUpsamplers, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !73
+  store ptr %45, ptr %8, align 8, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %46 = load ptr, ptr %3, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw %struct.VP8Io, ptr %46, i32 0, i32 5
+  %48 = load ptr, ptr %47, align 8, !tbaa !68
+  store ptr %48, ptr %9, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %49 = load ptr, ptr %3, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.VP8Io, ptr %49, i32 0, i32 6
+  %51 = load ptr, ptr %50, align 8, !tbaa !70
+  store ptr %51, ptr %10, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %52 = load ptr, ptr %3, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.VP8Io, ptr %52, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8, !tbaa !71
+  store ptr %54, ptr %11, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !37
+  store ptr %57, ptr %12, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %59, align 8, !tbaa !38
+  store ptr %60, ptr %13, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %61 = load ptr, ptr %3, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.VP8Io, ptr %61, i32 0, i32 2
+  %63 = load i32, ptr %62, align 8, !tbaa !66
+  store i32 %63, ptr %14, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %64 = load ptr, ptr %3, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.VP8Io, ptr %64, i32 0, i32 2
+  %66 = load i32, ptr %65, align 8, !tbaa !66
+  %67 = load ptr, ptr %3, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.VP8Io, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %68, align 8, !tbaa !20
   %70 = add nsw i32 %66, %69
-  store i32 %70, ptr %15, align 4
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.VP8Io, ptr %71, i32 0, i32 3
-  %73 = load i32, ptr %72, align 4
-  store i32 %73, ptr %16, align 4
-  %74 = load i32, ptr %16, align 4
+  store i32 %70, ptr %15, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %71 = load ptr, ptr %3, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.VP8Io, ptr %71, i32 0, i32 3
+  %73 = load i32, ptr %72, align 4, !tbaa !18
+  store i32 %73, ptr %16, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %74 = load i32, ptr %16, align 4, !tbaa !19
   %75 = add nsw i32 %74, 1
   %76 = sdiv i32 %75, 2
-  store i32 %76, ptr %17, align 4
-  %77 = load i32, ptr %14, align 4
+  store i32 %76, ptr %17, align 4, !tbaa !19
+  %77 = load i32, ptr %14, align 4, !tbaa !19
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %88
 
 79:                                               ; preds = %2
-  %80 = load ptr, ptr %8, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = load ptr, ptr %10, align 8
-  %83 = load ptr, ptr %11, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = load ptr, ptr %11, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %16, align 4
+  %80 = load ptr, ptr %8, align 8, !tbaa !73
+  %81 = load ptr, ptr %9, align 8, !tbaa !44
+  %82 = load ptr, ptr %10, align 8, !tbaa !44
+  %83 = load ptr, ptr %11, align 8, !tbaa !44
+  %84 = load ptr, ptr %10, align 8, !tbaa !44
+  %85 = load ptr, ptr %11, align 8, !tbaa !44
+  %86 = load ptr, ptr %7, align 8, !tbaa !44
+  %87 = load i32, ptr %16, align 4, !tbaa !19
   call void %80(ptr noundef %81, ptr noundef null, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef null, i32 noundef %87)
   br label %109
 
 88:                                               ; preds = %2
-  %89 = load ptr, ptr %8, align 8
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.WebPDecParams, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %9, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = load ptr, ptr %13, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %99, i32 0, i32 1
-  %101 = load i32, ptr %100, align 8
+  %89 = load ptr, ptr %8, align 8, !tbaa !73
+  %90 = load ptr, ptr %4, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !36
+  %93 = load ptr, ptr %9, align 8, !tbaa !44
+  %94 = load ptr, ptr %12, align 8, !tbaa !44
+  %95 = load ptr, ptr %13, align 8, !tbaa !44
+  %96 = load ptr, ptr %10, align 8, !tbaa !44
+  %97 = load ptr, ptr %11, align 8, !tbaa !44
+  %98 = load ptr, ptr %7, align 8, !tbaa !44
+  %99 = load ptr, ptr %6, align 8, !tbaa !62
+  %100 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 8, !tbaa !67
   %102 = sext i32 %101 to i64
   %103 = sub i64 0, %102
   %104 = getelementptr inbounds i8, ptr %98, i64 %103
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr %16, align 4
+  %105 = load ptr, ptr %7, align 8, !tbaa !44
+  %106 = load i32, ptr %16, align 4, !tbaa !19
   call void %89(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %104, ptr noundef %105, i32 noundef %106)
-  %107 = load i32, ptr %5, align 4
+  %107 = load i32, ptr %5, align 4, !tbaa !19
   %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %5, align 4
+  store i32 %108, ptr %5, align 4, !tbaa !19
   br label %109
 
 109:                                              ; preds = %88, %79
   br label %110
 
 110:                                              ; preds = %166, %109
-  %111 = load i32, ptr %14, align 4
+  %111 = load i32, ptr %14, align 4, !tbaa !19
   %112 = add nsw i32 %111, 2
-  %113 = load i32, ptr %15, align 4
+  %113 = load i32, ptr %15, align 4, !tbaa !19
   %114 = icmp slt i32 %112, %113
   br i1 %114, label %115, label %169
 
 115:                                              ; preds = %110
-  %116 = load ptr, ptr %10, align 8
-  store ptr %116, ptr %12, align 8
-  %117 = load ptr, ptr %11, align 8
-  store ptr %117, ptr %13, align 8
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.VP8Io, ptr %118, i32 0, i32 9
-  %120 = load i32, ptr %119, align 4
-  %121 = load ptr, ptr %10, align 8
+  %116 = load ptr, ptr %10, align 8, !tbaa !44
+  store ptr %116, ptr %12, align 8, !tbaa !44
+  %117 = load ptr, ptr %11, align 8, !tbaa !44
+  store ptr %117, ptr %13, align 8, !tbaa !44
+  %118 = load ptr, ptr %3, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw %struct.VP8Io, ptr %118, i32 0, i32 9
+  %120 = load i32, ptr %119, align 4, !tbaa !72
+  %121 = load ptr, ptr %10, align 8, !tbaa !44
   %122 = sext i32 %120 to i64
   %123 = getelementptr inbounds i8, ptr %121, i64 %122
-  store ptr %123, ptr %10, align 8
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.VP8Io, ptr %124, i32 0, i32 9
-  %126 = load i32, ptr %125, align 4
-  %127 = load ptr, ptr %11, align 8
+  store ptr %123, ptr %10, align 8, !tbaa !44
+  %124 = load ptr, ptr %3, align 8, !tbaa !8
+  %125 = getelementptr inbounds nuw %struct.VP8Io, ptr %124, i32 0, i32 9
+  %126 = load i32, ptr %125, align 4, !tbaa !72
+  %127 = load ptr, ptr %11, align 8, !tbaa !44
   %128 = sext i32 %126 to i64
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  store ptr %129, ptr %11, align 8
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %130, i32 0, i32 1
-  %132 = load i32, ptr %131, align 8
+  store ptr %129, ptr %11, align 8, !tbaa !44
+  %130 = load ptr, ptr %6, align 8, !tbaa !62
+  %131 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %130, i32 0, i32 1
+  %132 = load i32, ptr %131, align 8, !tbaa !67
   %133 = mul nsw i32 2, %132
-  %134 = load ptr, ptr %7, align 8
+  %134 = load ptr, ptr %7, align 8, !tbaa !44
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds i8, ptr %134, i64 %135
-  store ptr %136, ptr %7, align 8
-  %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds %struct.VP8Io, ptr %137, i32 0, i32 8
-  %139 = load i32, ptr %138, align 8
+  store ptr %136, ptr %7, align 8, !tbaa !44
+  %137 = load ptr, ptr %3, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw %struct.VP8Io, ptr %137, i32 0, i32 8
+  %139 = load i32, ptr %138, align 8, !tbaa !69
   %140 = mul nsw i32 2, %139
-  %141 = load ptr, ptr %9, align 8
+  %141 = load ptr, ptr %9, align 8, !tbaa !44
   %142 = sext i32 %140 to i64
   %143 = getelementptr inbounds i8, ptr %141, i64 %142
-  store ptr %143, ptr %9, align 8
-  %144 = load ptr, ptr %8, align 8
-  %145 = load ptr, ptr %9, align 8
-  %146 = load ptr, ptr %3, align 8
-  %147 = getelementptr inbounds %struct.VP8Io, ptr %146, i32 0, i32 8
-  %148 = load i32, ptr %147, align 8
+  store ptr %143, ptr %9, align 8, !tbaa !44
+  %144 = load ptr, ptr %8, align 8, !tbaa !73
+  %145 = load ptr, ptr %9, align 8, !tbaa !44
+  %146 = load ptr, ptr %3, align 8, !tbaa !8
+  %147 = getelementptr inbounds nuw %struct.VP8Io, ptr %146, i32 0, i32 8
+  %148 = load i32, ptr %147, align 8, !tbaa !69
   %149 = sext i32 %148 to i64
   %150 = sub i64 0, %149
   %151 = getelementptr inbounds i8, ptr %145, i64 %150
-  %152 = load ptr, ptr %9, align 8
-  %153 = load ptr, ptr %12, align 8
-  %154 = load ptr, ptr %13, align 8
-  %155 = load ptr, ptr %10, align 8
-  %156 = load ptr, ptr %11, align 8
-  %157 = load ptr, ptr %7, align 8
-  %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %158, i32 0, i32 1
-  %160 = load i32, ptr %159, align 8
+  %152 = load ptr, ptr %9, align 8, !tbaa !44
+  %153 = load ptr, ptr %12, align 8, !tbaa !44
+  %154 = load ptr, ptr %13, align 8, !tbaa !44
+  %155 = load ptr, ptr %10, align 8, !tbaa !44
+  %156 = load ptr, ptr %11, align 8, !tbaa !44
+  %157 = load ptr, ptr %7, align 8, !tbaa !44
+  %158 = load ptr, ptr %6, align 8, !tbaa !62
+  %159 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %158, i32 0, i32 1
+  %160 = load i32, ptr %159, align 8, !tbaa !67
   %161 = sext i32 %160 to i64
   %162 = sub i64 0, %161
   %163 = getelementptr inbounds i8, ptr %157, i64 %162
-  %164 = load ptr, ptr %7, align 8
-  %165 = load i32, ptr %16, align 4
+  %164 = load ptr, ptr %7, align 8, !tbaa !44
+  %165 = load i32, ptr %16, align 4, !tbaa !19
   call void %144(ptr noundef %151, ptr noundef %152, ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156, ptr noundef %163, ptr noundef %164, i32 noundef %165)
   br label %166
 
 166:                                              ; preds = %115
-  %167 = load i32, ptr %14, align 4
+  %167 = load i32, ptr %14, align 4, !tbaa !19
   %168 = add nsw i32 %167, 2
-  store i32 %168, ptr %14, align 4
-  br label %110, !llvm.loop !4
+  store i32 %168, ptr %14, align 4, !tbaa !19
+  br label %110, !llvm.loop !74
 
 169:                                              ; preds = %110
-  %170 = load ptr, ptr %3, align 8
-  %171 = getelementptr inbounds %struct.VP8Io, ptr %170, i32 0, i32 8
-  %172 = load i32, ptr %171, align 8
-  %173 = load ptr, ptr %9, align 8
+  %170 = load ptr, ptr %3, align 8, !tbaa !8
+  %171 = getelementptr inbounds nuw %struct.VP8Io, ptr %170, i32 0, i32 8
+  %172 = load i32, ptr %171, align 8, !tbaa !69
+  %173 = load ptr, ptr %9, align 8, !tbaa !44
   %174 = sext i32 %172 to i64
   %175 = getelementptr inbounds i8, ptr %173, i64 %174
-  store ptr %175, ptr %9, align 8
-  %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds %struct.VP8Io, ptr %176, i32 0, i32 21
-  %178 = load i32, ptr %177, align 8
-  %179 = load i32, ptr %15, align 4
+  store ptr %175, ptr %9, align 8, !tbaa !44
+  %176 = load ptr, ptr %3, align 8, !tbaa !8
+  %177 = getelementptr inbounds nuw %struct.VP8Io, ptr %176, i32 0, i32 21
+  %178 = load i32, ptr %177, align 8, !tbaa !76
+  %179 = load i32, ptr %15, align 4, !tbaa !19
   %180 = add nsw i32 %178, %179
-  %181 = load ptr, ptr %3, align 8
-  %182 = getelementptr inbounds %struct.VP8Io, ptr %181, i32 0, i32 22
-  %183 = load i32, ptr %182, align 4
+  %181 = load ptr, ptr %3, align 8, !tbaa !8
+  %182 = getelementptr inbounds nuw %struct.VP8Io, ptr %181, i32 0, i32 22
+  %183 = load i32, ptr %182, align 4, !tbaa !77
   %184 = icmp slt i32 %180, %183
   br i1 %184, label %185, label %209
 
 185:                                              ; preds = %169
-  %186 = load ptr, ptr %4, align 8
-  %187 = getelementptr inbounds %struct.WebPDecParams, ptr %186, i32 0, i32 1
-  %188 = load ptr, ptr %187, align 8
-  %189 = load ptr, ptr %9, align 8
-  %190 = load i32, ptr %16, align 4
+  %186 = load ptr, ptr %4, align 8, !tbaa !3
+  %187 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %186, i32 0, i32 1
+  %188 = load ptr, ptr %187, align 8, !tbaa !36
+  %189 = load ptr, ptr %9, align 8, !tbaa !44
+  %190 = load i32, ptr %16, align 4, !tbaa !19
   %191 = sext i32 %190 to i64
   %192 = mul i64 %191, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 1 %189, i64 %192, i1 false)
-  %193 = load ptr, ptr %4, align 8
-  %194 = getelementptr inbounds %struct.WebPDecParams, ptr %193, i32 0, i32 2
-  %195 = load ptr, ptr %194, align 8
-  %196 = load ptr, ptr %10, align 8
-  %197 = load i32, ptr %17, align 4
+  %193 = load ptr, ptr %4, align 8, !tbaa !3
+  %194 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %193, i32 0, i32 2
+  %195 = load ptr, ptr %194, align 8, !tbaa !37
+  %196 = load ptr, ptr %10, align 8, !tbaa !44
+  %197 = load i32, ptr %17, align 4, !tbaa !19
   %198 = sext i32 %197 to i64
   %199 = mul i64 %198, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr align 1 %196, i64 %199, i1 false)
-  %200 = load ptr, ptr %4, align 8
-  %201 = getelementptr inbounds %struct.WebPDecParams, ptr %200, i32 0, i32 3
-  %202 = load ptr, ptr %201, align 8
-  %203 = load ptr, ptr %11, align 8
-  %204 = load i32, ptr %17, align 4
+  %200 = load ptr, ptr %4, align 8, !tbaa !3
+  %201 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %200, i32 0, i32 3
+  %202 = load ptr, ptr %201, align 8, !tbaa !38
+  %203 = load ptr, ptr %11, align 8, !tbaa !44
+  %204 = load i32, ptr %17, align 4, !tbaa !19
   %205 = sext i32 %204 to i64
   %206 = mul i64 %205, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %202, ptr align 1 %203, i64 %206, i1 false)
-  %207 = load i32, ptr %5, align 4
+  %207 = load i32, ptr %5, align 4, !tbaa !19
   %208 = add nsw i32 %207, -1
-  store i32 %208, ptr %5, align 4
+  store i32 %208, ptr %5, align 4, !tbaa !19
   br label %228
 
 209:                                              ; preds = %169
-  %210 = load i32, ptr %15, align 4
+  %210 = load i32, ptr %15, align 4, !tbaa !19
   %211 = and i32 %210, 1
   %212 = icmp ne i32 %211, 0
   br i1 %212, label %227, label %213
 
 213:                                              ; preds = %209
-  %214 = load ptr, ptr %8, align 8
-  %215 = load ptr, ptr %9, align 8
-  %216 = load ptr, ptr %10, align 8
-  %217 = load ptr, ptr %11, align 8
-  %218 = load ptr, ptr %10, align 8
-  %219 = load ptr, ptr %11, align 8
-  %220 = load ptr, ptr %7, align 8
-  %221 = load ptr, ptr %6, align 8
-  %222 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %221, i32 0, i32 1
-  %223 = load i32, ptr %222, align 8
+  %214 = load ptr, ptr %8, align 8, !tbaa !73
+  %215 = load ptr, ptr %9, align 8, !tbaa !44
+  %216 = load ptr, ptr %10, align 8, !tbaa !44
+  %217 = load ptr, ptr %11, align 8, !tbaa !44
+  %218 = load ptr, ptr %10, align 8, !tbaa !44
+  %219 = load ptr, ptr %11, align 8, !tbaa !44
+  %220 = load ptr, ptr %7, align 8, !tbaa !44
+  %221 = load ptr, ptr %6, align 8, !tbaa !62
+  %222 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %221, i32 0, i32 1
+  %223 = load i32, ptr %222, align 8, !tbaa !67
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds i8, ptr %220, i64 %224
-  %226 = load i32, ptr %16, align 4
+  %226 = load i32, ptr %16, align 4, !tbaa !19
   call void %214(ptr noundef %215, ptr noundef null, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef %225, ptr noundef null, i32 noundef %226)
   br label %227
 
@@ -1428,7 +1573,20 @@ define internal i32 @EmitFancyRGB(ptr noundef %0, ptr noundef %1) #0 {
   br label %228
 
 228:                                              ; preds = %227, %185
-  %229 = load i32, ptr %5, align 4
+  %229 = load i32, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret i32 %229
 }
 
@@ -1445,117 +1603,135 @@ define internal i32 @EmitYUV(ptr noundef %0, ptr noundef %1) #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.WebPDecParams, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %5, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.WebPDecBuffer, ptr %17, i32 0, i32 4
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.VP8Io, ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %23, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
+  store ptr %16, ptr %5, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %17 = load ptr, ptr %5, align 8, !tbaa !61
+  %18 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %17, i32 0, i32 4
+  store ptr %18, ptr %6, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %19 = load ptr, ptr %6, align 8, !tbaa !50
+  %20 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %22 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.VP8Io, ptr %22, i32 0, i32 2
+  %24 = load i32, ptr %23, align 8, !tbaa !66
   %25 = sext i32 %24 to i64
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %26, i32 0, i32 4
-  %28 = load i32, ptr %27, align 8
+  %26 = load ptr, ptr %6, align 8, !tbaa !50
+  %27 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8, !tbaa !54
   %29 = sext i32 %28 to i64
-  %30 = mul i64 %25, %29
+  %30 = mul nsw i64 %25, %29
   %31 = getelementptr inbounds i8, ptr %21, i64 %30
-  store ptr %31, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.VP8Io, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 8
+  store ptr %31, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %32 = load ptr, ptr %6, align 8, !tbaa !50
+  %33 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.VP8Io, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 8, !tbaa !66
   %38 = ashr i32 %37, 1
   %39 = sext i32 %38 to i64
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %40, i32 0, i32 5
-  %42 = load i32, ptr %41, align 4
+  %40 = load ptr, ptr %6, align 8, !tbaa !50
+  %41 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %40, i32 0, i32 5
+  %42 = load i32, ptr %41, align 4, !tbaa !56
   %43 = sext i32 %42 to i64
-  %44 = mul i64 %39, %43
+  %44 = mul nsw i64 %39, %43
   %45 = getelementptr inbounds i8, ptr %34, i64 %44
-  store ptr %45, ptr %8, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.VP8Io, ptr %49, i32 0, i32 2
-  %51 = load i32, ptr %50, align 8
+  store ptr %45, ptr %8, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %46 = load ptr, ptr %6, align 8, !tbaa !50
+  %47 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !57
+  %49 = load ptr, ptr %3, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.VP8Io, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8, !tbaa !66
   %52 = ashr i32 %51, 1
   %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %54, i32 0, i32 6
-  %56 = load i32, ptr %55, align 8
+  %54 = load ptr, ptr %6, align 8, !tbaa !50
+  %55 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %54, i32 0, i32 6
+  %56 = load i32, ptr %55, align 8, !tbaa !58
   %57 = sext i32 %56 to i64
-  %58 = mul i64 %53, %57
+  %58 = mul nsw i64 %53, %57
   %59 = getelementptr inbounds i8, ptr %48, i64 %58
-  store ptr %59, ptr %9, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.VP8Io, ptr %60, i32 0, i32 3
-  %62 = load i32, ptr %61, align 4
-  store i32 %62, ptr %10, align 4
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.VP8Io, ptr %63, i32 0, i32 4
-  %65 = load i32, ptr %64, align 8
-  store i32 %65, ptr %11, align 4
-  %66 = load i32, ptr %10, align 4
+  store ptr %59, ptr %9, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %60 = load ptr, ptr %3, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw %struct.VP8Io, ptr %60, i32 0, i32 3
+  %62 = load i32, ptr %61, align 4, !tbaa !18
+  store i32 %62, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %63 = load ptr, ptr %3, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct.VP8Io, ptr %63, i32 0, i32 4
+  %65 = load i32, ptr %64, align 8, !tbaa !20
+  store i32 %65, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %66 = load i32, ptr %10, align 4, !tbaa !19
   %67 = add nsw i32 %66, 1
   %68 = sdiv i32 %67, 2
-  store i32 %68, ptr %12, align 4
-  %69 = load i32, ptr %11, align 4
+  store i32 %68, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %69 = load i32, ptr %11, align 4, !tbaa !19
   %70 = add nsw i32 %69, 1
   %71 = sdiv i32 %70, 2
-  store i32 %71, ptr %13, align 4
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.VP8Io, ptr %72, i32 0, i32 5
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.VP8Io, ptr %75, i32 0, i32 8
-  %77 = load i32, ptr %76, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %79, i32 0, i32 4
-  %81 = load i32, ptr %80, align 8
-  %82 = load i32, ptr %10, align 4
-  %83 = load i32, ptr %11, align 4
+  store i32 %71, ptr %13, align 4, !tbaa !19
+  %72 = load ptr, ptr %3, align 8, !tbaa !8
+  %73 = getelementptr inbounds nuw %struct.VP8Io, ptr %72, i32 0, i32 5
+  %74 = load ptr, ptr %73, align 8, !tbaa !68
+  %75 = load ptr, ptr %3, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct.VP8Io, ptr %75, i32 0, i32 8
+  %77 = load i32, ptr %76, align 8, !tbaa !69
+  %78 = load ptr, ptr %7, align 8, !tbaa !44
+  %79 = load ptr, ptr %6, align 8, !tbaa !50
+  %80 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 8, !tbaa !54
+  %82 = load i32, ptr %10, align 4, !tbaa !19
+  %83 = load i32, ptr %11, align 4, !tbaa !19
   call void @WebPCopyPlane(ptr noundef %74, i32 noundef %77, ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef %83)
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.VP8Io, ptr %84, i32 0, i32 6
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.VP8Io, ptr %87, i32 0, i32 9
-  %89 = load i32, ptr %88, align 4
-  %90 = load ptr, ptr %8, align 8
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %91, i32 0, i32 5
-  %93 = load i32, ptr %92, align 4
-  %94 = load i32, ptr %12, align 4
-  %95 = load i32, ptr %13, align 4
+  %84 = load ptr, ptr %3, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw %struct.VP8Io, ptr %84, i32 0, i32 6
+  %86 = load ptr, ptr %85, align 8, !tbaa !70
+  %87 = load ptr, ptr %3, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw %struct.VP8Io, ptr %87, i32 0, i32 9
+  %89 = load i32, ptr %88, align 4, !tbaa !72
+  %90 = load ptr, ptr %8, align 8, !tbaa !44
+  %91 = load ptr, ptr %6, align 8, !tbaa !50
+  %92 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %91, i32 0, i32 5
+  %93 = load i32, ptr %92, align 4, !tbaa !56
+  %94 = load i32, ptr %12, align 4, !tbaa !19
+  %95 = load i32, ptr %13, align 4, !tbaa !19
   call void @WebPCopyPlane(ptr noundef %86, i32 noundef %89, ptr noundef %90, i32 noundef %93, i32 noundef %94, i32 noundef %95)
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.VP8Io, ptr %96, i32 0, i32 7
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.VP8Io, ptr %99, i32 0, i32 9
-  %101 = load i32, ptr %100, align 4
-  %102 = load ptr, ptr %9, align 8
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %103, i32 0, i32 6
-  %105 = load i32, ptr %104, align 8
-  %106 = load i32, ptr %12, align 4
-  %107 = load i32, ptr %13, align 4
+  %96 = load ptr, ptr %3, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw %struct.VP8Io, ptr %96, i32 0, i32 7
+  %98 = load ptr, ptr %97, align 8, !tbaa !71
+  %99 = load ptr, ptr %3, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct.VP8Io, ptr %99, i32 0, i32 9
+  %101 = load i32, ptr %100, align 4, !tbaa !72
+  %102 = load ptr, ptr %9, align 8, !tbaa !44
+  %103 = load ptr, ptr %6, align 8, !tbaa !50
+  %104 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %103, i32 0, i32 6
+  %105 = load i32, ptr %104, align 8, !tbaa !58
+  %106 = load i32, ptr %12, align 4, !tbaa !19
+  %107 = load i32, ptr %13, align 4, !tbaa !19
   call void @WebPCopyPlane(ptr noundef %98, i32 noundef %101, ptr noundef %102, i32 noundef %105, i32 noundef %106, i32 noundef %107)
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.VP8Io, ptr %108, i32 0, i32 4
-  %110 = load i32, ptr %109, align 8
+  %108 = load ptr, ptr %3, align 8, !tbaa !8
+  %109 = getelementptr inbounds nuw %struct.VP8Io, ptr %108, i32 0, i32 4
+  %110 = load i32, ptr %109, align 8, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 %110
 }
 
@@ -1569,165 +1745,189 @@ define internal i32 @EmitAlphaRGBA4444(ptr noundef %0, ptr noundef %1, i32 nound
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i64, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.VP8Io, ptr %19, i32 0, i32 26
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %7, align 8
-  %22 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.VP8Io, ptr %19, i32 0, i32 26
+  %21 = load ptr, ptr %20, align 8, !tbaa !78
+  store ptr %21, ptr %7, align 8, !tbaa !44
+  %22 = load ptr, ptr %7, align 8, !tbaa !44
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %123
 
 24:                                               ; preds = %3
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.VP8Io, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %8, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.WebPDecParams, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.WebPDecBuffer, ptr %30, i32 0, i32 0
-  %32 = load i32, ptr %31, align 8
-  store i32 %32, ptr %9, align 4
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.WebPDecParams, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.WebPDecBuffer, ptr %35, i32 0, i32 4
-  store ptr %36, ptr %10, align 8
-  %37 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.VP8Io, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 4, !tbaa !18
+  store i32 %27, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !29
+  store i32 %32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %35, i32 0, i32 4
+  store ptr %36, ptr %10, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %37 = load ptr, ptr %4, align 8, !tbaa !8
   %38 = call i32 @GetAlphaSourceRow(ptr noundef %37, ptr noundef %7, ptr noundef %11)
-  %39 = sext i32 %38 to i64
-  store i64 %39, ptr %12, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i64, ptr %12, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %44, i32 0, i32 1
-  %46 = load i32, ptr %45, align 8
+  store i32 %38, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %39 = load ptr, ptr %10, align 8, !tbaa !62
+  %40 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !64
+  %42 = load i32, ptr %12, align 4, !tbaa !19
+  %43 = sext i32 %42 to i64
+  %44 = load ptr, ptr %10, align 8, !tbaa !62
+  %45 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %44, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8, !tbaa !67
   %47 = sext i32 %46 to i64
-  %48 = mul i64 %43, %47
-  %49 = getelementptr inbounds i8, ptr %42, i64 %48
-  store ptr %49, ptr %13, align 8
-  %50 = load ptr, ptr %13, align 8
+  %48 = mul nsw i64 %43, %47
+  %49 = getelementptr inbounds i8, ptr %41, i64 %48
+  store ptr %49, ptr %13, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %50 = load ptr, ptr %13, align 8, !tbaa !44
   %51 = getelementptr inbounds i8, ptr %50, i64 1
-  store ptr %51, ptr %14, align 8
-  store i32 15, ptr %15, align 4
-  store i32 0, ptr %17, align 4
+  store ptr %51, ptr %14, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  store i32 15, ptr %15, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  store i32 0, ptr %17, align 4, !tbaa !19
   br label %52
 
 52:                                               ; preds = %104, %24
-  %53 = load i32, ptr %17, align 4
-  %54 = load i32, ptr %11, align 4
+  %53 = load i32, ptr %17, align 4, !tbaa !19
+  %54 = load i32, ptr %11, align 4, !tbaa !19
   %55 = icmp slt i32 %53, %54
   br i1 %55, label %56, label %107
 
 56:                                               ; preds = %52
-  store i32 0, ptr %16, align 4
+  store i32 0, ptr %16, align 4, !tbaa !19
   br label %57
 
 57:                                               ; preds = %88, %56
-  %58 = load i32, ptr %16, align 4
-  %59 = load i32, ptr %8, align 4
+  %58 = load i32, ptr %16, align 4, !tbaa !19
+  %59 = load i32, ptr %8, align 4, !tbaa !19
   %60 = icmp slt i32 %58, %59
   br i1 %60, label %61, label %91
 
 61:                                               ; preds = %57
-  %62 = load ptr, ptr %7, align 8
-  %63 = load i32, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %62 = load ptr, ptr %7, align 8, !tbaa !44
+  %63 = load i32, ptr %16, align 4, !tbaa !19
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %62, i64 %64
-  %66 = load i8, ptr %65, align 1
+  %66 = load i8, ptr %65, align 1, !tbaa !79
   %67 = zext i8 %66 to i32
   %68 = ashr i32 %67, 4
-  store i32 %68, ptr %18, align 4
-  %69 = load ptr, ptr %14, align 8
-  %70 = load i32, ptr %16, align 4
+  store i32 %68, ptr %18, align 4, !tbaa !19
+  %69 = load ptr, ptr %14, align 8, !tbaa !44
+  %70 = load i32, ptr %16, align 4, !tbaa !19
   %71 = mul nsw i32 2, %70
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %69, i64 %72
-  %74 = load i8, ptr %73, align 1
+  %74 = load i8, ptr %73, align 1, !tbaa !79
   %75 = zext i8 %74 to i32
   %76 = and i32 %75, 240
-  %77 = load i32, ptr %18, align 4
+  %77 = load i32, ptr %18, align 4, !tbaa !19
   %78 = or i32 %76, %77
   %79 = trunc i32 %78 to i8
-  %80 = load ptr, ptr %14, align 8
-  %81 = load i32, ptr %16, align 4
+  %80 = load ptr, ptr %14, align 8, !tbaa !44
+  %81 = load i32, ptr %16, align 4, !tbaa !19
   %82 = mul nsw i32 2, %81
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %80, i64 %83
-  store i8 %79, ptr %84, align 1
-  %85 = load i32, ptr %18, align 4
-  %86 = load i32, ptr %15, align 4
+  store i8 %79, ptr %84, align 1, !tbaa !79
+  %85 = load i32, ptr %18, align 4, !tbaa !19
+  %86 = load i32, ptr %15, align 4, !tbaa !19
   %87 = and i32 %86, %85
-  store i32 %87, ptr %15, align 4
+  store i32 %87, ptr %15, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
   br label %88
 
 88:                                               ; preds = %61
-  %89 = load i32, ptr %16, align 4
+  %89 = load i32, ptr %16, align 4, !tbaa !19
   %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %16, align 4
-  br label %57, !llvm.loop !6
+  store i32 %90, ptr %16, align 4, !tbaa !19
+  br label %57, !llvm.loop !80
 
 91:                                               ; preds = %57
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds %struct.VP8Io, ptr %92, i32 0, i32 0
-  %94 = load i32, ptr %93, align 8
-  %95 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %4, align 8, !tbaa !8
+  %93 = getelementptr inbounds nuw %struct.VP8Io, ptr %92, i32 0, i32 0
+  %94 = load i32, ptr %93, align 8, !tbaa !81
+  %95 = load ptr, ptr %7, align 8, !tbaa !44
   %96 = sext i32 %94 to i64
   %97 = getelementptr inbounds i8, ptr %95, i64 %96
-  store ptr %97, ptr %7, align 8
-  %98 = load ptr, ptr %10, align 8
-  %99 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %98, i32 0, i32 1
-  %100 = load i32, ptr %99, align 8
-  %101 = load ptr, ptr %14, align 8
+  store ptr %97, ptr %7, align 8, !tbaa !44
+  %98 = load ptr, ptr %10, align 8, !tbaa !62
+  %99 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %98, i32 0, i32 1
+  %100 = load i32, ptr %99, align 8, !tbaa !67
+  %101 = load ptr, ptr %14, align 8, !tbaa !44
   %102 = sext i32 %100 to i64
   %103 = getelementptr inbounds i8, ptr %101, i64 %102
-  store ptr %103, ptr %14, align 8
+  store ptr %103, ptr %14, align 8, !tbaa !44
   br label %104
 
 104:                                              ; preds = %91
-  %105 = load i32, ptr %17, align 4
+  %105 = load i32, ptr %17, align 4, !tbaa !19
   %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %17, align 4
-  br label %52, !llvm.loop !7
+  store i32 %106, ptr %17, align 4, !tbaa !19
+  br label %52, !llvm.loop !82
 
 107:                                              ; preds = %52
-  %108 = load i32, ptr %15, align 4
+  %108 = load i32, ptr %15, align 4, !tbaa !19
   %109 = icmp ne i32 %108, 15
   br i1 %109, label %110, label %122
 
 110:                                              ; preds = %107
-  %111 = load i32, ptr %9, align 4
+  %111 = load i32, ptr %9, align 4, !tbaa !19
   %112 = call i32 @WebPIsPremultipliedMode(i32 noundef %111)
   %113 = icmp ne i32 %112, 0
   br i1 %113, label %114, label %122
 
 114:                                              ; preds = %110
-  %115 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8
-  %116 = load ptr, ptr %13, align 8
-  %117 = load i32, ptr %8, align 4
-  %118 = load i32, ptr %11, align 4
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %119, i32 0, i32 1
-  %121 = load i32, ptr %120, align 8
+  %115 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !73
+  %116 = load ptr, ptr %13, align 8, !tbaa !44
+  %117 = load i32, ptr %8, align 4, !tbaa !19
+  %118 = load i32, ptr %11, align 4, !tbaa !19
+  %119 = load ptr, ptr %10, align 8, !tbaa !62
+  %120 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %120, align 8, !tbaa !67
   call void %115(ptr noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %121)
   br label %122
 
 122:                                              ; preds = %114, %110, %107
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
   br label %123
 
 123:                                              ; preds = %122, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 0
 }
 
@@ -1742,111 +1942,131 @@ define internal i32 @EmitAlphaRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i64, align 8
+  %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.VP8Io, ptr %17, i32 0, i32 26
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.VP8Io, ptr %17, i32 0, i32 26
+  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  store ptr %19, ptr %7, align 8, !tbaa !44
+  %20 = load ptr, ptr %7, align 8, !tbaa !44
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %90
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.VP8Io, ptr %23, i32 0, i32 3
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %8, align 4
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.WebPDecParams, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.WebPDecBuffer, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8
-  store i32 %30, ptr %9, align 4
-  %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.VP8Io, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4, !tbaa !18
+  store i32 %25, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %29 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 8, !tbaa !29
+  store i32 %30, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %31 = load i32, ptr %9, align 4, !tbaa !19
   %32 = icmp eq i32 %31, 4
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %22
-  %34 = load i32, ptr %9, align 4
+  %34 = load i32, ptr %9, align 4, !tbaa !19
   %35 = icmp eq i32 %34, 9
   br label %36
 
 36:                                               ; preds = %33, %22
   %37 = phi i1 [ true, %22 ], [ %35, %33 ]
   %38 = zext i1 %37 to i32
-  store i32 %38, ptr %10, align 4
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.WebPDecParams, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.WebPDecBuffer, ptr %41, i32 0, i32 4
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %4, align 8
+  store i32 %38, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %41, i32 0, i32 4
+  store ptr %42, ptr %11, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %43 = load ptr, ptr %4, align 8, !tbaa !8
   %44 = call i32 @GetAlphaSourceRow(ptr noundef %43, ptr noundef %7, ptr noundef %12)
-  %45 = sext i32 %44 to i64
-  store i64 %45, ptr %13, align 8
-  %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i64, ptr %13, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 8
+  store i32 %44, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %45 = load ptr, ptr %11, align 8, !tbaa !62
+  %46 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !64
+  %48 = load i32, ptr %13, align 4, !tbaa !19
+  %49 = sext i32 %48 to i64
+  %50 = load ptr, ptr %11, align 8, !tbaa !62
+  %51 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8, !tbaa !67
   %53 = sext i32 %52 to i64
-  %54 = mul i64 %49, %53
-  %55 = getelementptr inbounds i8, ptr %48, i64 %54
-  store ptr %55, ptr %14, align 8
-  %56 = load ptr, ptr %14, align 8
-  %57 = load i32, ptr %10, align 4
+  %54 = mul nsw i64 %49, %53
+  %55 = getelementptr inbounds i8, ptr %47, i64 %54
+  store ptr %55, ptr %14, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %56 = load ptr, ptr %14, align 8, !tbaa !44
+  %57 = load i32, ptr %10, align 4, !tbaa !19
   %58 = icmp ne i32 %57, 0
   %59 = select i1 %58, i32 0, i32 3
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %56, i64 %60
-  store ptr %61, ptr %15, align 8
-  %62 = load ptr, ptr @WebPDispatchAlpha, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.VP8Io, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = load i32, ptr %8, align 4
-  %68 = load i32, ptr %12, align 4
-  %69 = load ptr, ptr %15, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %70, i32 0, i32 1
-  %72 = load i32, ptr %71, align 8
+  store ptr %61, ptr %15, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %62 = load ptr, ptr @WebPDispatchAlpha, align 8, !tbaa !73
+  %63 = load ptr, ptr %7, align 8, !tbaa !44
+  %64 = load ptr, ptr %4, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.VP8Io, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %65, align 8, !tbaa !81
+  %67 = load i32, ptr %8, align 4, !tbaa !19
+  %68 = load i32, ptr %12, align 4, !tbaa !19
+  %69 = load ptr, ptr %15, align 8, !tbaa !44
+  %70 = load ptr, ptr %11, align 8, !tbaa !62
+  %71 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8, !tbaa !67
   %73 = call i32 %62(ptr noundef %63, i32 noundef %66, i32 noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %72)
-  store i32 %73, ptr %16, align 4
-  %74 = load i32, ptr %16, align 4
+  store i32 %73, ptr %16, align 4, !tbaa !19
+  %74 = load i32, ptr %16, align 4, !tbaa !19
   %75 = icmp ne i32 %74, 0
   br i1 %75, label %76, label %89
 
 76:                                               ; preds = %36
-  %77 = load i32, ptr %9, align 4
+  %77 = load i32, ptr %9, align 4, !tbaa !19
   %78 = call i32 @WebPIsPremultipliedMode(i32 noundef %77)
   %79 = icmp ne i32 %78, 0
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %76
-  %81 = load ptr, ptr @WebPApplyAlphaMultiply, align 8
-  %82 = load ptr, ptr %14, align 8
-  %83 = load i32, ptr %10, align 4
-  %84 = load i32, ptr %8, align 4
-  %85 = load i32, ptr %12, align 4
-  %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %86, i32 0, i32 1
-  %88 = load i32, ptr %87, align 8
+  %81 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !73
+  %82 = load ptr, ptr %14, align 8, !tbaa !44
+  %83 = load i32, ptr %10, align 4, !tbaa !19
+  %84 = load i32, ptr %8, align 4, !tbaa !19
+  %85 = load i32, ptr %12, align 4, !tbaa !19
+  %86 = load ptr, ptr %11, align 8, !tbaa !62
+  %87 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %86, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8, !tbaa !67
   call void %81(ptr noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %88)
   br label %89
 
 89:                                               ; preds = %80, %76, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
   br label %90
 
 90:                                               ; preds = %89, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 0
 }
 
@@ -1861,100 +2081,106 @@ define internal i32 @EmitAlphaYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.VP8Io, ptr %13, i32 0, i32 26
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.WebPDecParams, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.WebPDecBuffer, ptr %18, i32 0, i32 4
-  store ptr %19, ptr %8, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.VP8Io, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %9, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.VP8Io, ptr %23, i32 0, i32 4
-  %25 = load i32, ptr %24, align 8
-  store i32 %25, ptr %10, align 4
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %26, i32 0, i32 3
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.VP8Io, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.VP8Io, ptr %13, i32 0, i32 26
+  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  store ptr %15, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %18, i32 0, i32 4
+  store ptr %19, ptr %8, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.VP8Io, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4, !tbaa !18
+  store i32 %22, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %23 = load ptr, ptr %4, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.VP8Io, ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8, !tbaa !20
+  store i32 %25, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %26 = load ptr, ptr %8, align 8, !tbaa !50
+  %27 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8, !tbaa !59
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.VP8Io, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 8, !tbaa !66
   %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %33, i32 0, i32 7
-  %35 = load i32, ptr %34, align 4
+  %33 = load ptr, ptr %8, align 8, !tbaa !50
+  %34 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %33, i32 0, i32 7
+  %35 = load i32, ptr %34, align 4, !tbaa !60
   %36 = sext i32 %35 to i64
-  %37 = mul i64 %32, %36
+  %37 = mul nsw i64 %32, %36
   %38 = getelementptr inbounds i8, ptr %28, i64 %37
-  store ptr %38, ptr %11, align 8
-  %39 = load ptr, ptr %7, align 8
+  store ptr %38, ptr %11, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %39 = load ptr, ptr %7, align 8, !tbaa !44
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %68
 
 41:                                               ; preds = %3
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %12, align 4, !tbaa !19
   br label %42
 
 42:                                               ; preds = %64, %41
-  %43 = load i32, ptr %12, align 4
-  %44 = load i32, ptr %10, align 4
+  %43 = load i32, ptr %12, align 4, !tbaa !19
+  %44 = load i32, ptr %10, align 4, !tbaa !19
   %45 = icmp slt i32 %43, %44
   br i1 %45, label %46, label %67
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %11, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = load i32, ptr %9, align 4
+  %47 = load ptr, ptr %11, align 8, !tbaa !44
+  %48 = load ptr, ptr %7, align 8, !tbaa !44
+  %49 = load i32, ptr %9, align 4, !tbaa !19
   %50 = sext i32 %49 to i64
   %51 = mul i64 %50, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %48, i64 %51, i1 false)
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.VP8Io, ptr %52, i32 0, i32 0
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.VP8Io, ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8, !tbaa !81
+  %55 = load ptr, ptr %7, align 8, !tbaa !44
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
-  store ptr %57, ptr %7, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %58, i32 0, i32 7
-  %60 = load i32, ptr %59, align 4
-  %61 = load ptr, ptr %11, align 8
+  store ptr %57, ptr %7, align 8, !tbaa !44
+  %58 = load ptr, ptr %8, align 8, !tbaa !50
+  %59 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %58, i32 0, i32 7
+  %60 = load i32, ptr %59, align 4, !tbaa !60
+  %61 = load ptr, ptr %11, align 8, !tbaa !44
   %62 = sext i32 %60 to i64
   %63 = getelementptr inbounds i8, ptr %61, i64 %62
-  store ptr %63, ptr %11, align 8
+  store ptr %63, ptr %11, align 8, !tbaa !44
   br label %64
 
 64:                                               ; preds = %46
-  %65 = load i32, ptr %12, align 4
+  %65 = load i32, ptr %12, align 4, !tbaa !19
   %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %12, align 4
-  br label %42, !llvm.loop !8
+  store i32 %66, ptr %12, align 4, !tbaa !19
+  br label %42, !llvm.loop !83
 
 67:                                               ; preds = %42
   br label %81
 
 68:                                               ; preds = %3
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
+  %69 = load ptr, ptr %8, align 8, !tbaa !50
+  %70 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %70, align 8, !tbaa !59
   %72 = icmp ne ptr %71, null
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr %11, align 8
-  %75 = load i32, ptr %9, align 4
-  %76 = load i32, ptr %10, align 4
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %77, i32 0, i32 7
-  %79 = load i32, ptr %78, align 4
+  %74 = load ptr, ptr %11, align 8, !tbaa !44
+  %75 = load i32, ptr %9, align 4, !tbaa !19
+  %76 = load i32, ptr %10, align 4, !tbaa !19
+  %77 = load ptr, ptr %8, align 8, !tbaa !50
+  %78 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %77, i32 0, i32 7
+  %79 = load i32, ptr %78, align 4, !tbaa !60
   call void @FillAlphaPlane(ptr noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef %79)
   br label %80
 
@@ -1962,23 +2188,29 @@ define internal i32 @EmitAlphaYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %81
 
 81:                                               ; preds = %80, %67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 0
 }
 
-declare void @WebPInitAlphaProcessing() #1
+declare void @WebPInitAlphaProcessing() #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @CheckSizeOverflow(i64 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @CheckSizeOverflow(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !41
+  %3 = load i64, ptr %2, align 8, !tbaa !41
+  %4 = load i64, ptr %2, align 8, !tbaa !41
   %5 = icmp eq i64 %3, %4
   %6 = zext i1 %5 to i32
   ret i32 %6
 }
 
-declare i32 @WebPRescalerInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare i32 @WebPRescalerInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @EmitRescaledRGB(ptr noundef %0, ptr noundef %1) #0 {
@@ -1992,134 +2224,150 @@ define internal i32 @EmitRescaledRGB(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.VP8Io, ptr %13, i32 0, i32 4
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %5, align 4
-  %16 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.VP8Io, ptr %13, i32 0, i32 4
+  %15 = load i32, ptr %14, align 8, !tbaa !20
+  store i32 %15, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %16 = load i32, ptr %5, align 4, !tbaa !19
   %17 = add nsw i32 %16, 1
   %18 = ashr i32 %17, 1
-  store i32 %18, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 4
+  store i32 %18, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 0, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 0, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !19
   br label %19
 
 19:                                               ; preds = %102, %2
-  %20 = load i32, ptr %7, align 4
-  %21 = load i32, ptr %5, align 4
+  %20 = load i32, ptr %7, align 4, !tbaa !19
+  %21 = load i32, ptr %5, align 4, !tbaa !19
   %22 = icmp slt i32 %20, %21
   br i1 %22, label %23, label %112
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.WebPDecParams, ptr %24, i32 0, i32 6
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %5, align 4
-  %28 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %24, i32 0, i32 6
+  %26 = load ptr, ptr %25, align 8, !tbaa !46
+  %27 = load i32, ptr %5, align 4, !tbaa !19
+  %28 = load i32, ptr %7, align 4, !tbaa !19
   %29 = sub nsw i32 %27, %28
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.VP8Io, ptr %30, i32 0, i32 5
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %7, align 4
+  %30 = load ptr, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.VP8Io, ptr %30, i32 0, i32 5
+  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %33 = load i32, ptr %7, align 4, !tbaa !19
   %34 = sext i32 %33 to i64
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.VP8Io, ptr %35, i32 0, i32 8
-  %37 = load i32, ptr %36, align 8
+  %35 = load ptr, ptr %3, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.VP8Io, ptr %35, i32 0, i32 8
+  %37 = load i32, ptr %36, align 8, !tbaa !69
   %38 = sext i32 %37 to i64
-  %39 = mul i64 %34, %38
+  %39 = mul nsw i64 %34, %38
   %40 = getelementptr inbounds i8, ptr %32, i64 %39
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.VP8Io, ptr %41, i32 0, i32 8
-  %43 = load i32, ptr %42, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.VP8Io, ptr %41, i32 0, i32 8
+  %43 = load i32, ptr %42, align 8, !tbaa !69
   %44 = call i32 @WebPRescalerImport(ptr noundef %26, i32 noundef %29, ptr noundef %40, i32 noundef %43)
-  store i32 %44, ptr %10, align 4
-  %45 = load i32, ptr %10, align 4
-  %46 = load i32, ptr %7, align 4
+  store i32 %44, ptr %10, align 4, !tbaa !19
+  %45 = load i32, ptr %10, align 4, !tbaa !19
+  %46 = load i32, ptr %7, align 4, !tbaa !19
   %47 = add nsw i32 %46, %45
-  store i32 %47, ptr %7, align 4
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.WebPDecParams, ptr %48, i32 0, i32 7
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %6, align 4
-  %52 = load i32, ptr %8, align 4
+  store i32 %47, ptr %7, align 4, !tbaa !19
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %48, i32 0, i32 7
+  %50 = load ptr, ptr %49, align 8, !tbaa !47
+  %51 = load i32, ptr %6, align 4, !tbaa !19
+  %52 = load i32, ptr %8, align 4, !tbaa !19
   %53 = sub nsw i32 %51, %52
   %54 = call i32 @WebPRescaleNeededLines(ptr noundef %50, i32 noundef %53)
   %55 = icmp ne i32 %54, 0
   br i1 %55, label %56, label %102
 
 56:                                               ; preds = %23
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.WebPDecParams, ptr %57, i32 0, i32 7
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i32, ptr %6, align 4
-  %61 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %57, i32 0, i32 7
+  %59 = load ptr, ptr %58, align 8, !tbaa !47
+  %60 = load i32, ptr %6, align 4, !tbaa !19
+  %61 = load i32, ptr %8, align 4, !tbaa !19
   %62 = sub nsw i32 %60, %61
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.VP8Io, ptr %63, i32 0, i32 6
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %3, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct.VP8Io, ptr %63, i32 0, i32 6
+  %65 = load ptr, ptr %64, align 8, !tbaa !70
+  %66 = load i32, ptr %8, align 4, !tbaa !19
   %67 = sext i32 %66 to i64
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.VP8Io, ptr %68, i32 0, i32 9
-  %70 = load i32, ptr %69, align 4
+  %68 = load ptr, ptr %3, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.VP8Io, ptr %68, i32 0, i32 9
+  %70 = load i32, ptr %69, align 4, !tbaa !72
   %71 = sext i32 %70 to i64
-  %72 = mul i64 %67, %71
+  %72 = mul nsw i64 %67, %71
   %73 = getelementptr inbounds i8, ptr %65, i64 %72
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds %struct.VP8Io, ptr %74, i32 0, i32 9
-  %76 = load i32, ptr %75, align 4
+  %74 = load ptr, ptr %3, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.VP8Io, ptr %74, i32 0, i32 9
+  %76 = load i32, ptr %75, align 4, !tbaa !72
   %77 = call i32 @WebPRescalerImport(ptr noundef %59, i32 noundef %62, ptr noundef %73, i32 noundef %76)
-  store i32 %77, ptr %11, align 4
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.WebPDecParams, ptr %78, i32 0, i32 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %6, align 4
-  %82 = load i32, ptr %8, align 4
+  store i32 %77, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %78, i32 0, i32 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !48
+  %81 = load i32, ptr %6, align 4, !tbaa !19
+  %82 = load i32, ptr %8, align 4, !tbaa !19
   %83 = sub nsw i32 %81, %82
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.VP8Io, ptr %84, i32 0, i32 7
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i32, ptr %8, align 4
+  %84 = load ptr, ptr %3, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw %struct.VP8Io, ptr %84, i32 0, i32 7
+  %86 = load ptr, ptr %85, align 8, !tbaa !71
+  %87 = load i32, ptr %8, align 4, !tbaa !19
   %88 = sext i32 %87 to i64
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.VP8Io, ptr %89, i32 0, i32 9
-  %91 = load i32, ptr %90, align 4
+  %89 = load ptr, ptr %3, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.VP8Io, ptr %89, i32 0, i32 9
+  %91 = load i32, ptr %90, align 4, !tbaa !72
   %92 = sext i32 %91 to i64
-  %93 = mul i64 %88, %92
+  %93 = mul nsw i64 %88, %92
   %94 = getelementptr inbounds i8, ptr %86, i64 %93
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.VP8Io, ptr %95, i32 0, i32 9
-  %97 = load i32, ptr %96, align 4
+  %95 = load ptr, ptr %3, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw %struct.VP8Io, ptr %95, i32 0, i32 9
+  %97 = load i32, ptr %96, align 4, !tbaa !72
   %98 = call i32 @WebPRescalerImport(ptr noundef %80, i32 noundef %83, ptr noundef %94, i32 noundef %97)
-  store i32 %98, ptr %12, align 4
-  %99 = load i32, ptr %11, align 4
-  %100 = load i32, ptr %8, align 4
+  store i32 %98, ptr %12, align 4, !tbaa !19
+  %99 = load i32, ptr %11, align 4, !tbaa !19
+  %100 = load i32, ptr %8, align 4, !tbaa !19
   %101 = add nsw i32 %100, %99
-  store i32 %101, ptr %8, align 4
+  store i32 %101, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
   br label %102
 
 102:                                              ; preds = %56, %23
-  %103 = load ptr, ptr %4, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds %struct.WebPDecParams, ptr %104, i32 0, i32 4
-  %106 = load i32, ptr %105, align 8
-  %107 = load i32, ptr %9, align 4
+  %103 = load ptr, ptr %4, align 8, !tbaa !3
+  %104 = load ptr, ptr %4, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %104, i32 0, i32 4
+  %106 = load i32, ptr %105, align 8, !tbaa !27
+  %107 = load i32, ptr %9, align 4, !tbaa !19
   %108 = add nsw i32 %106, %107
   %109 = call i32 @ExportRGB(ptr noundef %103, i32 noundef %108)
-  %110 = load i32, ptr %9, align 4
+  %110 = load i32, ptr %9, align 4, !tbaa !19
   %111 = add nsw i32 %110, %109
-  store i32 %111, ptr %9, align 4
-  br label %19, !llvm.loop !9
+  store i32 %111, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %19, !llvm.loop !84
 
 112:                                              ; preds = %19
-  %113 = load i32, ptr %9, align 4
+  %113 = load i32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret i32 %113
 }
 
-declare void @WebPInitYUV444Converters() #1
+declare void @WebPInitYUV444Converters() #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @EmitRescaledAlphaRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -2130,87 +2378,95 @@ define internal i32 @EmitRescaledAlphaRGB(ptr noundef %0, ptr noundef %1, i32 no
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.VP8Io, ptr %11, i32 0, i32 26
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.VP8Io, ptr %11, i32 0, i32 26
+  %13 = load ptr, ptr %12, align 8, !tbaa !78
   %14 = icmp ne ptr %13, null
   br i1 %14, label %15, label %76
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.WebPDecParams, ptr %16, i32 0, i32 9
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %7, align 8
-  %19 = load i32, ptr %6, align 4
-  store i32 %19, ptr %8, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.WebPDecParams, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 8
-  %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %16, i32 0, i32 9
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
+  store ptr %18, ptr %7, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %19 = load i32, ptr %6, align 4, !tbaa !19
+  store i32 %19, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %20, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8, !tbaa !27
+  %23 = load i32, ptr %8, align 4, !tbaa !19
   %24 = add nsw i32 %22, %23
-  store i32 %24, ptr %9, align 4
+  store i32 %24, ptr %9, align 4, !tbaa !19
   br label %25
 
 25:                                               ; preds = %28, %15
-  %26 = load i32, ptr %8, align 4
+  %26 = load i32, ptr %8, align 4, !tbaa !19
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %75
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.WebPRescaler, ptr %29, i32 0, i32 15
-  %31 = load i32, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %29 = load ptr, ptr %7, align 8, !tbaa !45
+  %30 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %29, i32 0, i32 15
+  %31 = load i32, ptr %30, align 4, !tbaa !85
   %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.VP8Io, ptr %33, i32 0, i32 2
-  %35 = load i32, ptr %34, align 8
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.VP8Io, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !66
   %36 = sext i32 %35 to i64
   %37 = sub nsw i64 %32, %36
-  store i64 %37, ptr %10, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.VP8Io, ptr %39, i32 0, i32 4
-  %41 = load i32, ptr %40, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.VP8Io, ptr %42, i32 0, i32 2
-  %44 = load i32, ptr %43, align 8
+  store i64 %37, ptr %10, align 8, !tbaa !41
+  %38 = load ptr, ptr %7, align 8, !tbaa !45
+  %39 = load ptr, ptr %4, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.VP8Io, ptr %39, i32 0, i32 4
+  %41 = load i32, ptr %40, align 8, !tbaa !20
+  %42 = load ptr, ptr %4, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.VP8Io, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !66
   %45 = add nsw i32 %41, %44
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct.WebPRescaler, ptr %46, i32 0, i32 15
-  %48 = load i32, ptr %47, align 4
+  %46 = load ptr, ptr %7, align 8, !tbaa !45
+  %47 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %46, i32 0, i32 15
+  %48 = load i32, ptr %47, align 4, !tbaa !85
   %49 = sub nsw i32 %45, %48
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.VP8Io, ptr %50, i32 0, i32 26
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i64, ptr %10, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.VP8Io, ptr %54, i32 0, i32 0
-  %56 = load i32, ptr %55, align 8
+  %50 = load ptr, ptr %4, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.VP8Io, ptr %50, i32 0, i32 26
+  %52 = load ptr, ptr %51, align 8, !tbaa !78
+  %53 = load i64, ptr %10, align 8, !tbaa !41
+  %54 = load ptr, ptr %4, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.VP8Io, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !81
   %57 = sext i32 %56 to i64
   %58 = mul nsw i64 %53, %57
   %59 = getelementptr inbounds i8, ptr %52, i64 %58
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.VP8Io, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8
+  %60 = load ptr, ptr %4, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw %struct.VP8Io, ptr %60, i32 0, i32 0
+  %62 = load i32, ptr %61, align 8, !tbaa !81
   %63 = call i32 @WebPRescalerImport(ptr noundef %38, i32 noundef %49, ptr noundef %59, i32 noundef %62)
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.WebPDecParams, ptr %64, i32 0, i32 13
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = load i32, ptr %9, align 4
-  %69 = load i32, ptr %8, align 4
+  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %64, i32 0, i32 13
+  %66 = load ptr, ptr %65, align 8, !tbaa !32
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %68 = load i32, ptr %9, align 4, !tbaa !19
+  %69 = load i32, ptr %8, align 4, !tbaa !19
   %70 = sub nsw i32 %68, %69
-  %71 = load i32, ptr %8, align 4
+  %71 = load i32, ptr %8, align 4, !tbaa !19
   %72 = call i32 %66(ptr noundef %67, i32 noundef %70, i32 noundef %71)
-  %73 = load i32, ptr %8, align 4
+  %73 = load i32, ptr %8, align 4, !tbaa !19
   %74 = sub nsw i32 %73, %72
-  store i32 %74, ptr %8, align 4
-  br label %25, !llvm.loop !10
+  store i32 %74, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %25, !llvm.loop !87
 
 75:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   br label %76
 
 76:                                               ; preds = %75, %3
@@ -2232,59 +2488,67 @@ define internal i32 @ExportAlphaRGBA4444(ptr noundef %0, i32 noundef %1, i32 nou
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.WebPDecParams, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.WebPDecBuffer, ptr %19, i32 0, i32 4
-  store ptr %20, ptr %7, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %19, i32 0, i32 4
+  store ptr %20, ptr %7, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %21 = load ptr, ptr %7, align 8, !tbaa !62
+  %22 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %24 = load i32, ptr %5, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
+  %26 = load ptr, ptr %7, align 8, !tbaa !62
+  %27 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8, !tbaa !67
   %29 = sext i32 %28 to i64
-  %30 = mul i64 %25, %29
+  %30 = mul nsw i64 %25, %29
   %31 = getelementptr inbounds i8, ptr %23, i64 %30
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %8, align 8
+  store ptr %31, ptr %8, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %32 = load ptr, ptr %8, align 8, !tbaa !44
   %33 = getelementptr inbounds i8, ptr %32, i64 1
-  store ptr %33, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.WebPDecParams, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.WebPDecBuffer, ptr %36, i32 0, i32 0
-  %38 = load i32, ptr %37, align 8
-  store i32 %38, ptr %11, align 4
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.WebPDecParams, ptr %39, i32 0, i32 9
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.WebPRescaler, ptr %41, i32 0, i32 13
-  %43 = load i32, ptr %42, align 4
-  store i32 %43, ptr %12, align 4
-  %44 = load i32, ptr %11, align 4
+  store ptr %33, ptr %9, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 8, !tbaa !29
+  store i32 %38, ptr %11, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %39, i32 0, i32 9
+  %41 = load ptr, ptr %40, align 8, !tbaa !49
+  %42 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %41, i32 0, i32 13
+  %43 = load i32, ptr %42, align 4, !tbaa !88
+  store i32 %43, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %44 = load i32, ptr %11, align 4, !tbaa !19
   %45 = call i32 @WebPIsPremultipliedMode(i32 noundef %44)
-  store i32 %45, ptr %13, align 4
-  store i32 15, ptr %14, align 4
+  store i32 %45, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 15, ptr %14, align 4, !tbaa !19
   br label %46
 
 46:                                               ; preds = %100, %3
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.WebPDecParams, ptr %47, i32 0, i32 9
-  %49 = load ptr, ptr %48, align 8
+  %47 = load ptr, ptr %4, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %47, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8, !tbaa !49
   %50 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %49)
   %51 = icmp ne i32 %50, 0
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %46
-  %53 = load i32, ptr %10, align 4
-  %54 = load i32, ptr %6, align 4
+  %53 = load i32, ptr %10, align 4, !tbaa !19
+  %54 = load i32, ptr %6, align 4, !tbaa !19
   %55 = icmp slt i32 %53, %54
   br label %56
 
@@ -2293,97 +2557,109 @@ define internal i32 @ExportAlphaRGBA4444(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %57, label %58, label %109
 
 58:                                               ; preds = %56
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.WebPDecParams, ptr %59, i32 0, i32 9
-  %61 = load ptr, ptr %60, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %59, i32 0, i32 9
+  %61 = load ptr, ptr %60, align 8, !tbaa !49
   call void @WebPRescalerExportRow(ptr noundef %61)
-  store i32 0, ptr %15, align 4
+  store i32 0, ptr %15, align 4, !tbaa !19
   br label %62
 
 62:                                               ; preds = %97, %58
-  %63 = load i32, ptr %15, align 4
-  %64 = load i32, ptr %12, align 4
+  %63 = load i32, ptr %15, align 4, !tbaa !19
+  %64 = load i32, ptr %12, align 4, !tbaa !19
   %65 = icmp slt i32 %63, %64
   br i1 %65, label %66, label %100
 
 66:                                               ; preds = %62
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.WebPDecParams, ptr %67, i32 0, i32 9
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.WebPRescaler, ptr %69, i32 0, i32 17
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %67 = load ptr, ptr %4, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %67, i32 0, i32 9
+  %69 = load ptr, ptr %68, align 8, !tbaa !49
+  %70 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %69, i32 0, i32 17
+  %71 = load ptr, ptr %70, align 8, !tbaa !89
+  %72 = load i32, ptr %15, align 4, !tbaa !19
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %71, i64 %73
-  %75 = load i8, ptr %74, align 1
+  %75 = load i8, ptr %74, align 1, !tbaa !79
   %76 = zext i8 %75 to i32
   %77 = ashr i32 %76, 4
-  store i32 %77, ptr %16, align 4
-  %78 = load ptr, ptr %9, align 8
-  %79 = load i32, ptr %15, align 4
+  store i32 %77, ptr %16, align 4, !tbaa !19
+  %78 = load ptr, ptr %9, align 8, !tbaa !44
+  %79 = load i32, ptr %15, align 4, !tbaa !19
   %80 = mul nsw i32 2, %79
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %78, i64 %81
-  %83 = load i8, ptr %82, align 1
+  %83 = load i8, ptr %82, align 1, !tbaa !79
   %84 = zext i8 %83 to i32
   %85 = and i32 %84, 240
-  %86 = load i32, ptr %16, align 4
+  %86 = load i32, ptr %16, align 4, !tbaa !19
   %87 = or i32 %85, %86
   %88 = trunc i32 %87 to i8
-  %89 = load ptr, ptr %9, align 8
-  %90 = load i32, ptr %15, align 4
+  %89 = load ptr, ptr %9, align 8, !tbaa !44
+  %90 = load i32, ptr %15, align 4, !tbaa !19
   %91 = mul nsw i32 2, %90
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %89, i64 %92
-  store i8 %88, ptr %93, align 1
-  %94 = load i32, ptr %16, align 4
-  %95 = load i32, ptr %14, align 4
+  store i8 %88, ptr %93, align 1, !tbaa !79
+  %94 = load i32, ptr %16, align 4, !tbaa !19
+  %95 = load i32, ptr %14, align 4, !tbaa !19
   %96 = and i32 %95, %94
-  store i32 %96, ptr %14, align 4
+  store i32 %96, ptr %14, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
   br label %97
 
 97:                                               ; preds = %66
-  %98 = load i32, ptr %15, align 4
+  %98 = load i32, ptr %15, align 4, !tbaa !19
   %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %15, align 4
-  br label %62, !llvm.loop !11
+  store i32 %99, ptr %15, align 4, !tbaa !19
+  br label %62, !llvm.loop !90
 
 100:                                              ; preds = %62
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %101, i32 0, i32 1
-  %103 = load i32, ptr %102, align 8
-  %104 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %7, align 8, !tbaa !62
+  %102 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %101, i32 0, i32 1
+  %103 = load i32, ptr %102, align 8, !tbaa !67
+  %104 = load ptr, ptr %9, align 8, !tbaa !44
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
-  store ptr %106, ptr %9, align 8
-  %107 = load i32, ptr %10, align 4
+  store ptr %106, ptr %9, align 8, !tbaa !44
+  %107 = load i32, ptr %10, align 4, !tbaa !19
   %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %10, align 4
-  br label %46, !llvm.loop !12
+  store i32 %108, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %46, !llvm.loop !91
 
 109:                                              ; preds = %56
-  %110 = load i32, ptr %13, align 4
+  %110 = load i32, ptr %13, align 4, !tbaa !19
   %111 = icmp ne i32 %110, 0
   br i1 %111, label %112, label %123
 
 112:                                              ; preds = %109
-  %113 = load i32, ptr %14, align 4
+  %113 = load i32, ptr %14, align 4, !tbaa !19
   %114 = icmp ne i32 %113, 15
   br i1 %114, label %115, label %123
 
 115:                                              ; preds = %112
-  %116 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8
-  %117 = load ptr, ptr %8, align 8
-  %118 = load i32, ptr %12, align 4
-  %119 = load i32, ptr %10, align 4
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %120, i32 0, i32 1
-  %122 = load i32, ptr %121, align 8
+  %116 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8, !tbaa !73
+  %117 = load ptr, ptr %8, align 8, !tbaa !44
+  %118 = load i32, ptr %12, align 4, !tbaa !19
+  %119 = load i32, ptr %10, align 4, !tbaa !19
+  %120 = load ptr, ptr %7, align 8, !tbaa !62
+  %121 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %120, i32 0, i32 1
+  %122 = load i32, ptr %121, align 8, !tbaa !67
   call void %116(ptr noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %122)
   br label %123
 
 123:                                              ; preds = %115, %112, %109
-  %124 = load i32, ptr %10, align 4
+  %124 = load i32, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %124
 }
 
@@ -2401,76 +2677,85 @@ define internal i32 @ExportAlpha(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.WebPDecParams, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.WebPDecBuffer, ptr %18, i32 0, i32 4
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %18, i32 0, i32 4
+  store ptr %19, ptr %7, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %20 = load ptr, ptr %7, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %23 = load i32, ptr %5, align 4, !tbaa !19
   %24 = sext i32 %23 to i64
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !62
+  %26 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 8, !tbaa !67
   %28 = sext i32 %27 to i64
-  %29 = mul i64 %24, %28
+  %29 = mul nsw i64 %24, %28
   %30 = getelementptr inbounds i8, ptr %22, i64 %29
-  store ptr %30, ptr %8, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.WebPDecParams, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.WebPDecBuffer, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 8
-  store i32 %35, ptr %9, align 4
-  %36 = load i32, ptr %9, align 4
+  store ptr %30, ptr %8, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8, !tbaa !29
+  store i32 %35, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %36 = load i32, ptr %9, align 4, !tbaa !19
   %37 = icmp eq i32 %36, 4
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %3
-  %39 = load i32, ptr %9, align 4
+  %39 = load i32, ptr %9, align 4, !tbaa !19
   %40 = icmp eq i32 %39, 9
   br label %41
 
 41:                                               ; preds = %38, %3
   %42 = phi i1 [ true, %3 ], [ %40, %38 ]
   %43 = zext i1 %42 to i32
-  store i32 %43, ptr %10, align 4
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr %10, align 4
+  store i32 %43, ptr %10, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %44 = load ptr, ptr %8, align 8, !tbaa !44
+  %45 = load i32, ptr %10, align 4, !tbaa !19
   %46 = icmp ne i32 %45, 0
   %47 = select i1 %46, i32 0, i32 3
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %44, i64 %48
-  store ptr %49, ptr %11, align 8
-  store i32 0, ptr %12, align 4
-  %50 = load i32, ptr %9, align 4
+  store ptr %49, ptr %11, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  store i32 0, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %50 = load i32, ptr %9, align 4, !tbaa !19
   %51 = call i32 @WebPIsPremultipliedMode(i32 noundef %50)
-  store i32 %51, ptr %13, align 4
-  store i32 0, ptr %14, align 4
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.WebPDecParams, ptr %52, i32 0, i32 9
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.WebPRescaler, ptr %54, i32 0, i32 13
-  %56 = load i32, ptr %55, align 4
-  store i32 %56, ptr %15, align 4
+  store i32 %51, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  store i32 0, ptr %14, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %52, i32 0, i32 9
+  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %55 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %54, i32 0, i32 13
+  %56 = load i32, ptr %55, align 4, !tbaa !88
+  store i32 %56, ptr %15, align 4, !tbaa !19
   br label %57
 
 57:                                               ; preds = %69, %41
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.WebPDecParams, ptr %58, i32 0, i32 9
-  %60 = load ptr, ptr %59, align 8
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %58, i32 0, i32 9
+  %60 = load ptr, ptr %59, align 8, !tbaa !49
   %61 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %60)
   %62 = icmp ne i32 %61, 0
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %57
-  %64 = load i32, ptr %12, align 4
-  %65 = load i32, ptr %6, align 4
+  %64 = load i32, ptr %12, align 4, !tbaa !19
+  %65 = load i32, ptr %6, align 4, !tbaa !19
   %66 = icmp slt i32 %64, %65
   br label %67
 
@@ -2479,64 +2764,73 @@ define internal i32 @ExportAlpha(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %68, label %69, label %92
 
 69:                                               ; preds = %67
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.WebPDecParams, ptr %70, i32 0, i32 9
-  %72 = load ptr, ptr %71, align 8
+  %70 = load ptr, ptr %4, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %70, i32 0, i32 9
+  %72 = load ptr, ptr %71, align 8, !tbaa !49
   call void @WebPRescalerExportRow(ptr noundef %72)
-  %73 = load ptr, ptr @WebPDispatchAlpha, align 8
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.WebPDecParams, ptr %74, i32 0, i32 9
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.WebPRescaler, ptr %76, i32 0, i32 17
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %15, align 4
-  %80 = load ptr, ptr %11, align 8
+  %73 = load ptr, ptr @WebPDispatchAlpha, align 8, !tbaa !73
+  %74 = load ptr, ptr %4, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %74, i32 0, i32 9
+  %76 = load ptr, ptr %75, align 8, !tbaa !49
+  %77 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %76, i32 0, i32 17
+  %78 = load ptr, ptr %77, align 8, !tbaa !89
+  %79 = load i32, ptr %15, align 4, !tbaa !19
+  %80 = load ptr, ptr %11, align 8, !tbaa !44
   %81 = call i32 %73(ptr noundef %78, i32 noundef 0, i32 noundef %79, i32 noundef 1, ptr noundef %80, i32 noundef 0)
-  %82 = load i32, ptr %14, align 4
+  %82 = load i32, ptr %14, align 4, !tbaa !19
   %83 = or i32 %82, %81
-  store i32 %83, ptr %14, align 4
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %84, i32 0, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = load ptr, ptr %11, align 8
+  store i32 %83, ptr %14, align 4, !tbaa !19
+  %84 = load ptr, ptr %7, align 8, !tbaa !62
+  %85 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %84, i32 0, i32 1
+  %86 = load i32, ptr %85, align 8, !tbaa !67
+  %87 = load ptr, ptr %11, align 8, !tbaa !44
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  store ptr %89, ptr %11, align 8
-  %90 = load i32, ptr %12, align 4
+  store ptr %89, ptr %11, align 8, !tbaa !44
+  %90 = load i32, ptr %12, align 4, !tbaa !19
   %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %12, align 4
-  br label %57, !llvm.loop !13
+  store i32 %91, ptr %12, align 4, !tbaa !19
+  br label %57, !llvm.loop !92
 
 92:                                               ; preds = %67
-  %93 = load i32, ptr %13, align 4
+  %93 = load i32, ptr %13, align 4, !tbaa !19
   %94 = icmp ne i32 %93, 0
   br i1 %94, label %95, label %107
 
 95:                                               ; preds = %92
-  %96 = load i32, ptr %14, align 4
+  %96 = load i32, ptr %14, align 4, !tbaa !19
   %97 = icmp ne i32 %96, 0
   br i1 %97, label %98, label %107
 
 98:                                               ; preds = %95
-  %99 = load ptr, ptr @WebPApplyAlphaMultiply, align 8
-  %100 = load ptr, ptr %8, align 8
-  %101 = load i32, ptr %10, align 4
-  %102 = load i32, ptr %15, align 4
-  %103 = load i32, ptr %12, align 4
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %104, i32 0, i32 1
-  %106 = load i32, ptr %105, align 8
+  %99 = load ptr, ptr @WebPApplyAlphaMultiply, align 8, !tbaa !73
+  %100 = load ptr, ptr %8, align 8, !tbaa !44
+  %101 = load i32, ptr %10, align 4, !tbaa !19
+  %102 = load i32, ptr %15, align 4, !tbaa !19
+  %103 = load i32, ptr %12, align 4, !tbaa !19
+  %104 = load ptr, ptr %7, align 8, !tbaa !62
+  %105 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %104, i32 0, i32 1
+  %106 = load i32, ptr %105, align 8, !tbaa !67
   call void %99(ptr noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %106)
   br label %107
 
 107:                                              ; preds = %98, %95, %92
-  %108 = load i32, ptr %12, align 4
+  %108 = load i32, ptr %12, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %108
 }
 
-declare i32 @WebPRescalerImport(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @WebPRescalerImport(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @WebPRescaleNeededLines(ptr noundef, i32 noundef) #1
+declare i32 @WebPRescaleNeededLines(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ExportRGB(ptr noundef %0, i32 noundef %1) #0 {
@@ -2546,49 +2840,53 @@ define internal i32 @ExportRGB(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.WebPDecParams, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.WebPDecBuffer, ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 8, !tbaa !29
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [0 x ptr], ptr @WebPYUV444Converters, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %5, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.WebPDecParams, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.WebPDecBuffer, ptr %19, i32 0, i32 4
-  store ptr %20, ptr %6, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %4, align 4
+  %15 = getelementptr inbounds nuw [0 x ptr], ptr @WebPYUV444Converters, i64 0, i64 %14
+  %16 = load ptr, ptr %15, align 8, !tbaa !73
+  store ptr %16, ptr %5, align 8, !tbaa !73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %19, i32 0, i32 4
+  store ptr %20, ptr %6, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %21 = load ptr, ptr %6, align 8, !tbaa !62
+  %22 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
+  %24 = load i32, ptr %4, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
+  %26 = load ptr, ptr %6, align 8, !tbaa !62
+  %27 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8, !tbaa !67
   %29 = sext i32 %28 to i64
-  %30 = mul i64 %25, %29
+  %30 = mul nsw i64 %25, %29
   %31 = getelementptr inbounds i8, ptr %23, i64 %30
-  store ptr %31, ptr %7, align 8
-  store i32 0, ptr %8, align 4
+  store ptr %31, ptr %7, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 0, ptr %8, align 4, !tbaa !19
   br label %32
 
 32:                                               ; preds = %46, %2
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.WebPDecParams, ptr %33, i32 0, i32 6
-  %35 = load ptr, ptr %34, align 8
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %33, i32 0, i32 6
+  %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %35)
   %37 = icmp ne i32 %36, 0
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.WebPDecParams, ptr %39, i32 0, i32 7
-  %41 = load ptr, ptr %40, align 8
+  %39 = load ptr, ptr %3, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %39, i32 0, i32 7
+  %41 = load ptr, ptr %40, align 8, !tbaa !47
   %42 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %41)
   %43 = icmp ne i32 %42, 0
   br label %44
@@ -2598,71 +2896,75 @@ define internal i32 @ExportRGB(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %45, label %46, label %86
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.WebPDecParams, ptr %47, i32 0, i32 6
-  %49 = load ptr, ptr %48, align 8
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %47, i32 0, i32 6
+  %49 = load ptr, ptr %48, align 8, !tbaa !46
   call void @WebPRescalerExportRow(ptr noundef %49)
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.WebPDecParams, ptr %50, i32 0, i32 7
-  %52 = load ptr, ptr %51, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %50, i32 0, i32 7
+  %52 = load ptr, ptr %51, align 8, !tbaa !47
   call void @WebPRescalerExportRow(ptr noundef %52)
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.WebPDecParams, ptr %53, i32 0, i32 8
-  %55 = load ptr, ptr %54, align 8
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %53, i32 0, i32 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !48
   call void @WebPRescalerExportRow(ptr noundef %55)
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.WebPDecParams, ptr %57, i32 0, i32 6
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.WebPRescaler, ptr %59, i32 0, i32 17
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.WebPDecParams, ptr %62, i32 0, i32 7
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds %struct.WebPRescaler, ptr %64, i32 0, i32 17
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.WebPDecParams, ptr %67, i32 0, i32 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.WebPRescaler, ptr %69, i32 0, i32 17
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.WebPDecParams, ptr %73, i32 0, i32 6
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.WebPRescaler, ptr %75, i32 0, i32 13
-  %77 = load i32, ptr %76, align 4
+  %56 = load ptr, ptr %5, align 8, !tbaa !73
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8, !tbaa !46
+  %60 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %59, i32 0, i32 17
+  %61 = load ptr, ptr %60, align 8, !tbaa !89
+  %62 = load ptr, ptr %3, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %62, i32 0, i32 7
+  %64 = load ptr, ptr %63, align 8, !tbaa !47
+  %65 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %64, i32 0, i32 17
+  %66 = load ptr, ptr %65, align 8, !tbaa !89
+  %67 = load ptr, ptr %3, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %67, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !48
+  %70 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %69, i32 0, i32 17
+  %71 = load ptr, ptr %70, align 8, !tbaa !89
+  %72 = load ptr, ptr %7, align 8, !tbaa !44
+  %73 = load ptr, ptr %3, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %73, i32 0, i32 6
+  %75 = load ptr, ptr %74, align 8, !tbaa !46
+  %76 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %75, i32 0, i32 13
+  %77 = load i32, ptr %76, align 4, !tbaa !88
   call void %56(ptr noundef %61, ptr noundef %66, ptr noundef %71, ptr noundef %72, i32 noundef %77)
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.WebPRGBABuffer, ptr %78, i32 0, i32 1
-  %80 = load i32, ptr %79, align 8
-  %81 = load ptr, ptr %7, align 8
+  %78 = load ptr, ptr %6, align 8, !tbaa !62
+  %79 = getelementptr inbounds nuw %struct.WebPRGBABuffer, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8, !tbaa !67
+  %81 = load ptr, ptr %7, align 8, !tbaa !44
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds i8, ptr %81, i64 %82
-  store ptr %83, ptr %7, align 8
-  %84 = load i32, ptr %8, align 4
+  store ptr %83, ptr %7, align 8, !tbaa !44
+  %84 = load i32, ptr %8, align 4, !tbaa !19
   %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %8, align 4
-  br label %32, !llvm.loop !14
+  store i32 %85, ptr %8, align 4, !tbaa !19
+  br label %32, !llvm.loop !93
 
 86:                                               ; preds = %44
-  %87 = load i32, ptr %8, align 4
+  %87 = load i32, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 %87
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = call i32 @WebPRescalerOutputDone(ptr noundef %3)
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.WebPRescaler, ptr %7, i32 0, i32 6
-  %9 = load i32, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !45
+  %8 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %7, i32 0, i32 6
+  %9 = load i32, ptr %8, align 8, !tbaa !94
   %10 = icmp sle i32 %9, 0
   br label %11
 
@@ -2672,18 +2974,18 @@ define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #0 {
   ret i32 %13
 }
 
-declare void @WebPRescalerExportRow(ptr noundef) #1
+declare void @WebPRescalerExportRow(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPRescalerOutputDone(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPRescalerOutputDone(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WebPRescaler, ptr %3, i32 0, i32 16
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.WebPRescaler, ptr %6, i32 0, i32 14
-  %8 = load i32, ptr %7, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
+  %4 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %3, i32 0, i32 16
+  %5 = load i32, ptr %4, align 8, !tbaa !95
+  %6 = load ptr, ptr %2, align 8, !tbaa !45
+  %7 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %6, i32 0, i32 14
+  %8 = load i32, ptr %7, align 8, !tbaa !96
   %9 = icmp sge i32 %5, %8
   %10 = zext i1 %9 to i32
   ret i32 %10
@@ -2697,91 +2999,99 @@ define internal i32 @EmitRescaledYUV(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.VP8Io, ptr %9, i32 0, i32 4
-  %11 = load i32, ptr %10, align 8
-  store i32 %11, ptr %5, align 4
-  %12 = load i32, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.VP8Io, ptr %9, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8, !tbaa !20
+  store i32 %11, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %12 = load i32, ptr %5, align 4, !tbaa !19
   %13 = add nsw i32 %12, 1
   %14 = ashr i32 %13, 1
-  store i32 %14, ptr %6, align 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.WebPDecParams, ptr %15, i32 0, i32 6
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %7, align 8
-  store i32 0, ptr %8, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.WebPDecParams, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.WebPDecBuffer, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
+  store i32 %14, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  store ptr %17, ptr %7, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  store i32 0, ptr %8, align 4, !tbaa !19
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = call i32 @WebPIsAlphaMode(i32 noundef %22)
   %24 = icmp ne i32 %23, 0
   br i1 %24, label %25, label %47
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.VP8Io, ptr %26, i32 0, i32 26
-  %28 = load ptr, ptr %27, align 8
+  %26 = load ptr, ptr %3, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.VP8Io, ptr %26, i32 0, i32 26
+  %28 = load ptr, ptr %27, align 8, !tbaa !78
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %47
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.VP8Io, ptr %31, i32 0, i32 5
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.VP8Io, ptr %34, i32 0, i32 8
-  %36 = load i32, ptr %35, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.VP8Io, ptr %37, i32 0, i32 26
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.VP8Io, ptr %40, i32 0, i32 0
-  %42 = load i32, ptr %41, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.VP8Io, ptr %43, i32 0, i32 3
-  %45 = load i32, ptr %44, align 4
-  %46 = load i32, ptr %5, align 4
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.VP8Io, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.VP8Io, ptr %34, i32 0, i32 8
+  %36 = load i32, ptr %35, align 8, !tbaa !69
+  %37 = load ptr, ptr %3, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.VP8Io, ptr %37, i32 0, i32 26
+  %39 = load ptr, ptr %38, align 8, !tbaa !78
+  %40 = load ptr, ptr %3, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.VP8Io, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8, !tbaa !81
+  %43 = load ptr, ptr %3, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.VP8Io, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4, !tbaa !18
+  %46 = load i32, ptr %5, align 4, !tbaa !19
   call void @WebPMultRows(ptr noundef %33, i32 noundef %36, ptr noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %46, i32 noundef 0)
   br label %47
 
 47:                                               ; preds = %30, %25, %2
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.VP8Io, ptr %48, i32 0, i32 5
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds %struct.VP8Io, ptr %51, i32 0, i32 8
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %5, align 4
-  %55 = load ptr, ptr %7, align 8
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.VP8Io, ptr %48, i32 0, i32 5
+  %50 = load ptr, ptr %49, align 8, !tbaa !68
+  %51 = load ptr, ptr %3, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.VP8Io, ptr %51, i32 0, i32 8
+  %53 = load i32, ptr %52, align 8, !tbaa !69
+  %54 = load i32, ptr %5, align 4, !tbaa !19
+  %55 = load ptr, ptr %7, align 8, !tbaa !45
   %56 = call i32 @Rescale(ptr noundef %50, i32 noundef %53, i32 noundef %54, ptr noundef %55)
-  store i32 %56, ptr %8, align 4
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.VP8Io, ptr %57, i32 0, i32 6
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.VP8Io, ptr %60, i32 0, i32 9
-  %62 = load i32, ptr %61, align 4
-  %63 = load i32, ptr %6, align 4
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.WebPDecParams, ptr %64, i32 0, i32 7
-  %66 = load ptr, ptr %65, align 8
+  store i32 %56, ptr %8, align 4, !tbaa !19
+  %57 = load ptr, ptr %3, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.VP8Io, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8, !tbaa !70
+  %60 = load ptr, ptr %3, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw %struct.VP8Io, ptr %60, i32 0, i32 9
+  %62 = load i32, ptr %61, align 4, !tbaa !72
+  %63 = load i32, ptr %6, align 4, !tbaa !19
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %64, i32 0, i32 7
+  %66 = load ptr, ptr %65, align 8, !tbaa !47
   %67 = call i32 @Rescale(ptr noundef %59, i32 noundef %62, i32 noundef %63, ptr noundef %66)
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.VP8Io, ptr %68, i32 0, i32 7
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.VP8Io, ptr %71, i32 0, i32 9
-  %73 = load i32, ptr %72, align 4
-  %74 = load i32, ptr %6, align 4
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.WebPDecParams, ptr %75, i32 0, i32 8
-  %77 = load ptr, ptr %76, align 8
+  %68 = load ptr, ptr %3, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.VP8Io, ptr %68, i32 0, i32 7
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
+  %71 = load ptr, ptr %3, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.VP8Io, ptr %71, i32 0, i32 9
+  %73 = load i32, ptr %72, align 4, !tbaa !72
+  %74 = load i32, ptr %6, align 4, !tbaa !19
+  %75 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %75, i32 0, i32 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !48
   %78 = call i32 @Rescale(ptr noundef %70, i32 noundef %73, i32 noundef %74, ptr noundef %77)
-  %79 = load i32, ptr %8, align 4
+  %79 = load i32, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret i32 %79
 }
 
@@ -2794,104 +3104,110 @@ define internal i32 @EmitRescaledAlphaYUV(ptr noundef %0, ptr noundef %1, i32 no
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.WebPDecParams, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.WebPDecBuffer, ptr %13, i32 0, i32 4
-  store ptr %14, ptr %7, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %15, i32 0, i32 3
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.WebPDecParams, ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.WebPDecBuffer, ptr %13, i32 0, i32 4
+  store ptr %14, ptr %7, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %15 = load ptr, ptr %7, align 8, !tbaa !50
+  %16 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !27
   %21 = sext i32 %20 to i64
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %22, i32 0, i32 7
-  %24 = load i32, ptr %23, align 4
+  %22 = load ptr, ptr %7, align 8, !tbaa !50
+  %23 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %22, i32 0, i32 7
+  %24 = load i32, ptr %23, align 4, !tbaa !60
   %25 = sext i32 %24 to i64
-  %26 = mul i64 %21, %25
+  %26 = mul nsw i64 %21, %25
   %27 = getelementptr inbounds i8, ptr %17, i64 %26
-  store ptr %27, ptr %8, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.VP8Io, ptr %28, i32 0, i32 26
-  %30 = load ptr, ptr %29, align 8
+  store ptr %27, ptr %8, align 8, !tbaa !44
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.VP8Io, ptr %28, i32 0, i32 26
+  %30 = load ptr, ptr %29, align 8, !tbaa !78
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %77
 
 32:                                               ; preds = %3
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.WebPDecParams, ptr %36, i32 0, i32 4
-  %38 = load i32, ptr %37, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %33 = load ptr, ptr %7, align 8, !tbaa !50
+  %34 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !52
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %36, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8, !tbaa !27
   %39 = sext i32 %38 to i64
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %40, i32 0, i32 4
-  %42 = load i32, ptr %41, align 8
+  %40 = load ptr, ptr %7, align 8, !tbaa !50
+  %41 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %40, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8, !tbaa !54
   %43 = sext i32 %42 to i64
-  %44 = mul i64 %39, %43
+  %44 = mul nsw i64 %39, %43
   %45 = getelementptr inbounds i8, ptr %35, i64 %44
-  store ptr %45, ptr %9, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.VP8Io, ptr %46, i32 0, i32 26
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.VP8Io, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.VP8Io, ptr %52, i32 0, i32 4
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.WebPDecParams, ptr %55, i32 0, i32 9
-  %57 = load ptr, ptr %56, align 8
+  store ptr %45, ptr %9, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %46 = load ptr, ptr %4, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw %struct.VP8Io, ptr %46, i32 0, i32 26
+  %48 = load ptr, ptr %47, align 8, !tbaa !78
+  %49 = load ptr, ptr %4, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.VP8Io, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !81
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.VP8Io, ptr %52, i32 0, i32 4
+  %54 = load i32, ptr %53, align 8, !tbaa !20
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %55, i32 0, i32 9
+  %57 = load ptr, ptr %56, align 8, !tbaa !49
   %58 = call i32 @Rescale(ptr noundef %48, i32 noundef %51, i32 noundef %54, ptr noundef %57)
-  store i32 %58, ptr %10, align 4
-  %59 = load i32, ptr %10, align 4
+  store i32 %58, ptr %10, align 4, !tbaa !19
+  %59 = load i32, ptr %10, align 4, !tbaa !19
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %76
 
 61:                                               ; preds = %32
-  %62 = load ptr, ptr %9, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %63, i32 0, i32 4
-  %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %67, i32 0, i32 7
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.WebPDecParams, ptr %70, i32 0, i32 9
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.WebPRescaler, ptr %72, i32 0, i32 13
-  %74 = load i32, ptr %73, align 4
-  %75 = load i32, ptr %10, align 4
+  %62 = load ptr, ptr %9, align 8, !tbaa !44
+  %63 = load ptr, ptr %7, align 8, !tbaa !50
+  %64 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %63, i32 0, i32 4
+  %65 = load i32, ptr %64, align 8, !tbaa !54
+  %66 = load ptr, ptr %8, align 8, !tbaa !44
+  %67 = load ptr, ptr %7, align 8, !tbaa !50
+  %68 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %67, i32 0, i32 7
+  %69 = load i32, ptr %68, align 4, !tbaa !60
+  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.WebPDecParams, ptr %70, i32 0, i32 9
+  %72 = load ptr, ptr %71, align 8, !tbaa !49
+  %73 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %72, i32 0, i32 13
+  %74 = load i32, ptr %73, align 4, !tbaa !88
+  %75 = load i32, ptr %10, align 4, !tbaa !19
   call void @WebPMultRows(ptr noundef %62, i32 noundef %65, ptr noundef %66, i32 noundef %69, i32 noundef %74, i32 noundef %75, i32 noundef 1)
   br label %76
 
 76:                                               ; preds = %61, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   br label %92
 
 77:                                               ; preds = %3
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
+  %78 = load ptr, ptr %7, align 8, !tbaa !50
+  %79 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %78, i32 0, i32 3
+  %80 = load ptr, ptr %79, align 8, !tbaa !59
   %81 = icmp ne ptr %80, null
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %77
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.VP8Io, ptr %84, i32 0, i32 24
-  %86 = load i32, ptr %85, align 4
-  %87 = load i32, ptr %6, align 4
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct.WebPYUVABuffer, ptr %88, i32 0, i32 7
-  %90 = load i32, ptr %89, align 4
+  %83 = load ptr, ptr %8, align 8, !tbaa !44
+  %84 = load ptr, ptr %4, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw %struct.VP8Io, ptr %84, i32 0, i32 24
+  %86 = load i32, ptr %85, align 4, !tbaa !39
+  %87 = load i32, ptr %6, align 4, !tbaa !19
+  %88 = load ptr, ptr %7, align 8, !tbaa !50
+  %89 = getelementptr inbounds nuw %struct.WebPYUVABuffer, ptr %88, i32 0, i32 7
+  %90 = load i32, ptr %89, align 4, !tbaa !60
   call void @FillAlphaPlane(ptr noundef %83, i32 noundef %86, i32 noundef %87, i32 noundef %90)
   br label %91
 
@@ -2899,10 +3215,12 @@ define internal i32 @EmitRescaledAlphaYUV(ptr noundef %0, ptr noundef %1, i32 no
   br label %92
 
 92:                                               ; preds = %91, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 0
 }
 
-declare void @WebPMultRows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare void @WebPMultRows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Rescale(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -2912,49 +3230,53 @@ define internal i32 @Rescale(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  store i32 0, ptr %9, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store i32 %1, ptr %6, align 4, !tbaa !19
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  store ptr %3, ptr %8, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !19
   br label %11
 
 11:                                               ; preds = %14, %4
-  %12 = load i32, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4, !tbaa !19
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %8, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %15 = load ptr, ptr %8, align 8, !tbaa !45
+  %16 = load i32, ptr %7, align 4, !tbaa !19
+  %17 = load ptr, ptr %5, align 8, !tbaa !44
+  %18 = load i32, ptr %6, align 4, !tbaa !19
   %19 = call i32 @WebPRescalerImport(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18)
-  store i32 %19, ptr %10, align 4
-  %20 = load i32, ptr %10, align 4
-  %21 = load i32, ptr %6, align 4
+  store i32 %19, ptr %10, align 4, !tbaa !19
+  %20 = load i32, ptr %10, align 4, !tbaa !19
+  %21 = load i32, ptr %6, align 4, !tbaa !19
   %22 = mul nsw i32 %20, %21
-  %23 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !44
   %24 = sext i32 %22 to i64
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  store ptr %25, ptr %5, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = load i32, ptr %7, align 4
+  store ptr %25, ptr %5, align 8, !tbaa !44
+  %26 = load i32, ptr %10, align 4, !tbaa !19
+  %27 = load i32, ptr %7, align 4, !tbaa !19
   %28 = sub nsw i32 %27, %26
-  store i32 %28, ptr %7, align 4
-  %29 = load ptr, ptr %8, align 8
+  store i32 %28, ptr %7, align 4, !tbaa !19
+  %29 = load ptr, ptr %8, align 8, !tbaa !45
   %30 = call i32 @WebPRescalerExport(ptr noundef %29)
-  %31 = load i32, ptr %9, align 4
+  %31 = load i32, ptr %9, align 4, !tbaa !19
   %32 = add nsw i32 %31, %30
-  store i32 %32, ptr %9, align 4
-  br label %11, !llvm.loop !15
+  store i32 %32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %11, !llvm.loop !97
 
 33:                                               ; preds = %11
-  %34 = load i32, ptr %9, align 4
+  %34 = load i32, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %34
 }
 
-declare i32 @WebPRescalerExport(ptr noundef) #1
+declare i32 @WebPRescalerExport(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @FillAlphaPlane(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -2963,51 +3285,53 @@ define internal void @FillAlphaPlane(ptr noundef %0, i32 noundef %1, i32 noundef
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
-  store i32 0, ptr %9, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !44
+  store i32 %1, ptr %6, align 4, !tbaa !19
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  store i32 %3, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !19
   br label %10
 
 10:                                               ; preds = %23, %4
-  %11 = load i32, ptr %9, align 4
-  %12 = load i32, ptr %7, align 4
+  %11 = load i32, ptr %9, align 4, !tbaa !19
+  %12 = load i32, ptr %7, align 4, !tbaa !19
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %6, align 4
+  %15 = load ptr, ptr %5, align 8, !tbaa !44
+  %16 = load i32, ptr %6, align 4, !tbaa !19
   %17 = sext i32 %16 to i64
   %18 = mul i64 %17, 1
   call void @llvm.memset.p0.i64(ptr align 1 %15, i8 -1, i64 %18, i1 false)
-  %19 = load i32, ptr %8, align 4
-  %20 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %8, align 4, !tbaa !19
+  %20 = load ptr, ptr %5, align 8, !tbaa !44
   %21 = sext i32 %19 to i64
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  store ptr %22, ptr %5, align 8
+  store ptr %22, ptr %5, align 8, !tbaa !44
   br label %23
 
 23:                                               ; preds = %14
-  %24 = load i32, ptr %9, align 4
+  %24 = load i32, ptr %9, align 4, !tbaa !19
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %9, align 4
-  br label %10, !llvm.loop !16
+  store i32 %25, ptr %9, align 4, !tbaa !19
+  br label %10, !llvm.loop !98
 
 26:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @WebPSamplerProcessPlane(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+declare void @WebPSamplerProcessPlane(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @GetAlphaSourceRow(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -3015,114 +3339,203 @@ define internal i32 @GetAlphaSourceRow(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.VP8Io, ptr %8, i32 0, i32 2
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.VP8Io, ptr %11, i32 0, i32 4
-  %13 = load i32, ptr %12, align 8
-  %14 = load ptr, ptr %6, align 8
-  store i32 %13, ptr %14, align 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.VP8Io, ptr %15, i32 0, i32 14
-  %17 = load i32, ptr %16, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !99
+  store ptr %2, ptr %6, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.VP8Io, ptr %8, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8, !tbaa !66
+  store i32 %10, ptr %7, align 4, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.VP8Io, ptr %11, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8, !tbaa !20
+  %14 = load ptr, ptr %6, align 8, !tbaa !42
+  store i32 %13, ptr %14, align 4, !tbaa !19
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.VP8Io, ptr %15, i32 0, i32 14
+  %17 = load i32, ptr %16, align 8, !tbaa !35
   %18 = icmp ne i32 %17, 0
   br i1 %18, label %19, label %65
 
 19:                                               ; preds = %3
-  %20 = load i32, ptr %7, align 4
+  %20 = load i32, ptr %7, align 4, !tbaa !19
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
+  %23 = load ptr, ptr %6, align 8, !tbaa !42
+  %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = add nsw i32 %24, -1
-  store i32 %25, ptr %23, align 4
+  store i32 %25, ptr %23, align 4, !tbaa !19
   br label %37
 
 26:                                               ; preds = %19
-  %27 = load i32, ptr %7, align 4
+  %27 = load i32, ptr %7, align 4, !tbaa !19
   %28 = add nsw i32 %27, -1
-  store i32 %28, ptr %7, align 4
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.VP8Io, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = load ptr, ptr %32, align 8
+  store i32 %28, ptr %7, align 4, !tbaa !19
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.VP8Io, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8, !tbaa !81
+  %32 = load ptr, ptr %5, align 8, !tbaa !99
+  %33 = load ptr, ptr %32, align 8, !tbaa !44
   %34 = sext i32 %31 to i64
   %35 = sub i64 0, %34
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  store ptr %36, ptr %32, align 8
+  store ptr %36, ptr %32, align 8, !tbaa !44
   br label %37
 
 37:                                               ; preds = %26, %22
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.VP8Io, ptr %38, i32 0, i32 21
-  %40 = load i32, ptr %39, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.VP8Io, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
+  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %struct.VP8Io, ptr %38, i32 0, i32 21
+  %40 = load i32, ptr %39, align 8, !tbaa !76
+  %41 = load ptr, ptr %4, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.VP8Io, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8, !tbaa !66
   %44 = add nsw i32 %40, %43
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.VP8Io, ptr %45, i32 0, i32 4
-  %47 = load i32, ptr %46, align 8
+  %45 = load ptr, ptr %4, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.VP8Io, ptr %45, i32 0, i32 4
+  %47 = load i32, ptr %46, align 8, !tbaa !20
   %48 = add nsw i32 %44, %47
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.VP8Io, ptr %49, i32 0, i32 22
-  %51 = load i32, ptr %50, align 4
+  %49 = load ptr, ptr %4, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct.VP8Io, ptr %49, i32 0, i32 22
+  %51 = load i32, ptr %50, align 4, !tbaa !77
   %52 = icmp eq i32 %48, %51
   br i1 %52, label %53, label %64
 
 53:                                               ; preds = %37
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.VP8Io, ptr %54, i32 0, i32 22
-  %56 = load i32, ptr %55, align 4
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.VP8Io, ptr %57, i32 0, i32 21
-  %59 = load i32, ptr %58, align 8
+  %54 = load ptr, ptr %4, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.VP8Io, ptr %54, i32 0, i32 22
+  %56 = load i32, ptr %55, align 4, !tbaa !77
+  %57 = load ptr, ptr %4, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.VP8Io, ptr %57, i32 0, i32 21
+  %59 = load i32, ptr %58, align 8, !tbaa !76
   %60 = sub nsw i32 %56, %59
-  %61 = load i32, ptr %7, align 4
+  %61 = load i32, ptr %7, align 4, !tbaa !19
   %62 = sub nsw i32 %60, %61
-  %63 = load ptr, ptr %6, align 8
-  store i32 %62, ptr %63, align 4
+  %63 = load ptr, ptr %6, align 8, !tbaa !42
+  store i32 %62, ptr %63, align 4, !tbaa !19
   br label %64
 
 64:                                               ; preds = %53, %37
   br label %65
 
 65:                                               ; preds = %64, %3
-  %66 = load i32, ptr %7, align 4
+  %66 = load i32, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret i32 %66
 }
 
-declare void @WebPSafeFree(ptr noundef) #1
+declare void @WebPSafeFree(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS13WebPDecParams", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS5VP8Io", !5, i64 0}
+!10 = !{!11, !5, i64 64}
+!11 = !{!"VP8Io", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !12, i64 48, !12, i64 52, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !12, i64 88, !14, i64 96, !13, i64 104, !12, i64 112, !12, i64 116, !12, i64 120, !12, i64 124, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !13, i64 152}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!11, !5, i64 72}
+!16 = !{!11, !5, i64 80}
+!17 = !{!11, !5, i64 56}
+!18 = !{!11, !12, i64 12}
+!19 = !{!12, !12, i64 0}
+!20 = !{!11, !12, i64 16}
+!21 = !{!22, !5, i64 88}
+!22 = !{!"WebPDecParams", !23, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !12, i64 32, !24, i64 40, !25, i64 48, !25, i64 56, !25, i64 64, !25, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104}
+!23 = !{!"p1 _ZTS13WebPDecBuffer", !5, i64 0}
+!24 = !{!"p1 _ZTS18WebPDecoderOptions", !5, i64 0}
+!25 = !{!"p1 _ZTS12WebPRescaler", !5, i64 0}
+!26 = !{!22, !5, i64 96}
+!27 = !{!22, !12, i64 32}
+!28 = !{!22, !23, i64 0}
+!29 = !{!30, !12, i64 0}
+!30 = !{!"WebPDecBuffer", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !6, i64 16, !6, i64 96, !13, i64 112}
+!31 = !{!22, !5, i64 80}
+!32 = !{!22, !5, i64 104}
+!33 = !{!22, !24, i64 40}
+!34 = !{!11, !12, i64 136}
+!35 = !{!11, !12, i64 88}
+!36 = !{!22, !13, i64 8}
+!37 = !{!22, !13, i64 16}
+!38 = !{!22, !13, i64 24}
+!39 = !{!11, !12, i64 140}
+!40 = !{!11, !12, i64 144}
+!41 = !{!14, !14, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 int", !5, i64 0}
+!44 = !{!13, !13, i64 0}
+!45 = !{!25, !25, i64 0}
+!46 = !{!22, !25, i64 48}
+!47 = !{!22, !25, i64 56}
+!48 = !{!22, !25, i64 64}
+!49 = !{!22, !25, i64 72}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS14WebPYUVABuffer", !5, i64 0}
+!52 = !{!53, !13, i64 0}
+!53 = !{!"WebPYUVABuffer", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72}
+!54 = !{!53, !12, i64 32}
+!55 = !{!53, !13, i64 8}
+!56 = !{!53, !12, i64 36}
+!57 = !{!53, !13, i64 16}
+!58 = !{!53, !12, i64 40}
+!59 = !{!53, !13, i64 24}
+!60 = !{!53, !12, i64 44}
+!61 = !{!23, !23, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS14WebPRGBABuffer", !5, i64 0}
+!64 = !{!65, !13, i64 0}
+!65 = !{!"WebPRGBABuffer", !13, i64 0, !12, i64 8, !14, i64 16}
+!66 = !{!11, !12, i64 8}
+!67 = !{!65, !12, i64 8}
+!68 = !{!11, !13, i64 24}
+!69 = !{!11, !12, i64 48}
+!70 = !{!11, !13, i64 32}
+!71 = !{!11, !13, i64 40}
+!72 = !{!11, !12, i64 52}
+!73 = !{!5, !5, i64 0}
+!74 = distinct !{!74, !75}
+!75 = !{!"llvm.loop.mustprogress"}
+!76 = !{!11, !12, i64 128}
+!77 = !{!11, !12, i64 132}
+!78 = !{!11, !13, i64 152}
+!79 = !{!6, !6, i64 0}
+!80 = distinct !{!80, !75}
+!81 = !{!11, !12, i64 0}
+!82 = distinct !{!82, !75}
+!83 = distinct !{!83, !75}
+!84 = distinct !{!84, !75}
+!85 = !{!86, !12, i64 60}
+!86 = !{!"WebPRescaler", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !13, i64 72, !12, i64 80, !43, i64 88, !43, i64 96}
+!87 = distinct !{!87, !75}
+!88 = !{!86, !12, i64 52}
+!89 = !{!86, !13, i64 72}
+!90 = distinct !{!90, !75}
+!91 = distinct !{!91, !75}
+!92 = distinct !{!92, !75}
+!93 = distinct !{!93, !75}
+!94 = !{!86, !12, i64 24}
+!95 = !{!86, !12, i64 64}
+!96 = !{!86, !12, i64 56}
+!97 = distinct !{!97, !75}
+!98 = distinct !{!98, !75}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p2 omnipotent char", !5, i64 0}

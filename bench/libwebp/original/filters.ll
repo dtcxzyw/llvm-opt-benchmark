@@ -16,7 +16,7 @@ define hidden void @VP8FiltersInit() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  %2 = call i32 @pthread_mutex_lock(ptr noundef @VP8FiltersInit.VP8FiltersInit_body_lock) #4
+  %2 = call i32 @pthread_mutex_lock(ptr noundef @VP8FiltersInit.VP8FiltersInit_body_lock) #6
   %3 = icmp ne i32 %2, 0
   br i1 %3, label %4, label %5
 
@@ -24,8 +24,8 @@ define hidden void @VP8FiltersInit() #0 {
   br label %13
 
 5:                                                ; preds = %1
-  %6 = load volatile ptr, ptr @VP8FiltersInit.VP8FiltersInit_body_last_cpuinfo_used, align 8
-  %7 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %6 = load volatile ptr, ptr @VP8FiltersInit.VP8FiltersInit_body_last_cpuinfo_used, align 8, !tbaa !3
+  %7 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   %8 = icmp ne ptr %6, %7
   br i1 %8, label %9, label %10
 
@@ -34,9 +34,9 @@ define hidden void @VP8FiltersInit() #0 {
   br label %10
 
 10:                                               ; preds = %9, %5
-  %11 = load ptr, ptr @VP8GetCPUInfo, align 8
-  store volatile ptr %11, ptr @VP8FiltersInit.VP8FiltersInit_body_last_cpuinfo_used, align 8
-  %12 = call i32 @pthread_mutex_unlock(ptr noundef @VP8FiltersInit.VP8FiltersInit_body_lock) #4
+  %11 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
+  store volatile ptr %11, ptr @VP8FiltersInit.VP8FiltersInit_body_last_cpuinfo_used, align 8, !tbaa !3
+  %12 = call i32 @pthread_mutex_unlock(ptr noundef @VP8FiltersInit.VP8FiltersInit_body_lock) #6
   br label %13
 
 13:                                               ; preds = %10, %4
@@ -48,20 +48,20 @@ declare i32 @pthread_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @VP8FiltersInit_body() #0 {
-  store ptr @NoneUnfilter_C, ptr @WebPUnfilters, align 16
-  store ptr @HorizontalUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 1), align 8
-  store ptr @VerticalUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 2), align 16
-  store ptr @GradientUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 3), align 8
-  store ptr null, ptr @WebPFilters, align 16
-  store ptr @HorizontalFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 1), align 8
-  store ptr @VerticalFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 2), align 16
-  store ptr @GradientFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 3), align 8
-  %1 = load ptr, ptr @VP8GetCPUInfo, align 8
+  store ptr @NoneUnfilter_C, ptr @WebPUnfilters, align 16, !tbaa !3
+  store ptr @HorizontalUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 1), align 8, !tbaa !3
+  store ptr @VerticalUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 2), align 16, !tbaa !3
+  store ptr @GradientUnfilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPUnfilters, i64 0, i64 3), align 8, !tbaa !3
+  store ptr null, ptr @WebPFilters, align 16, !tbaa !3
+  store ptr @HorizontalFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 1), align 8, !tbaa !3
+  store ptr @VerticalFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 2), align 16, !tbaa !3
+  store ptr @GradientFilter_C, ptr getelementptr inbounds ([4 x ptr], ptr @WebPFilters, i64 0, i64 3), align 8, !tbaa !3
+  %1 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   %2 = icmp ne ptr %1, null
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   %5 = call i32 %4(i32 noundef 0)
   %6 = icmp ne i32 %5, 0
   br i1 %6, label %7, label %8
@@ -86,19 +86,19 @@ define internal void @NoneUnfilter_C(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %9 = load ptr, ptr %7, align 8
-  %10 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %9 = load ptr, ptr %7, align 8, !tbaa !7
+  %10 = load ptr, ptr %6, align 8, !tbaa !7
   %11 = icmp ne ptr %9, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %8, align 4
+  %13 = load ptr, ptr %7, align 8, !tbaa !7
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = load i32, ptr %8, align 4, !tbaa !9
   %16 = sext i32 %15 to i64
   %17 = mul i64 %16, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %17, i1 false)
@@ -116,11 +116,12 @@ define internal void @HorizontalUnfilter_C(ptr noundef %0, ptr noundef %1, ptr n
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -128,56 +129,59 @@ define internal void @HorizontalUnfilter_C(ptr noundef %0, ptr noundef %1, ptr n
   br label %19
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
   %16 = getelementptr inbounds i8, ptr %15, i64 0
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = zext i8 %17 to i32
   br label %19
 
 19:                                               ; preds = %14, %13
   %20 = phi i32 [ 0, %13 ], [ %18, %14 ]
   %21 = trunc i32 %20 to i8
-  store i8 %21, ptr %9, align 1
-  store i32 0, ptr %10, align 4
+  store i8 %21, ptr %9, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4, !tbaa !9
   br label %22
 
 22:                                               ; preds = %46, %19
-  %23 = load i32, ptr %10, align 4
-  %24 = load i32, ptr %8, align 4
+  %23 = load i32, ptr %10, align 4, !tbaa !9
+  %24 = load i32, ptr %8, align 4, !tbaa !9
   %25 = icmp slt i32 %23, %24
   br i1 %25, label %26, label %49
 
 26:                                               ; preds = %22
-  %27 = load i8, ptr %9, align 1
+  %27 = load i8, ptr %9, align 1, !tbaa !11
   %28 = zext i8 %27 to i32
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %10, align 4
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = load i32, ptr %10, align 4, !tbaa !9
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  %33 = load i8, ptr %32, align 1
+  %33 = load i8, ptr %32, align 1, !tbaa !11
   %34 = zext i8 %33 to i32
   %35 = add nsw i32 %28, %34
   %36 = trunc i32 %35 to i8
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr %10, align 4
+  %37 = load ptr, ptr %7, align 8, !tbaa !7
+  %38 = load i32, ptr %10, align 4, !tbaa !9
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
-  store i8 %36, ptr %40, align 1
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %10, align 4
+  store i8 %36, ptr %40, align 1, !tbaa !11
+  %41 = load ptr, ptr %7, align 8, !tbaa !7
+  %42 = load i32, ptr %10, align 4, !tbaa !9
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
-  %45 = load i8, ptr %44, align 1
-  store i8 %45, ptr %9, align 1
+  %45 = load i8, ptr %44, align 1, !tbaa !11
+  store i8 %45, ptr %9, align 1, !tbaa !11
   br label %46
 
 46:                                               ; preds = %26
-  %47 = load i32, ptr %10, align 4
+  %47 = load i32, ptr %10, align 4, !tbaa !9
   %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %10, align 4
-  br label %22, !llvm.loop !4
+  store i32 %48, ptr %10, align 4, !tbaa !9
+  br label %22, !llvm.loop !12
 
 49:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret void
 }
 
@@ -188,60 +192,62 @@ define internal void @VerticalUnfilter_C(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %10 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i32, ptr %8, align 4
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = load ptr, ptr %7, align 8, !tbaa !7
+  %15 = load i32, ptr %8, align 4, !tbaa !9
   call void @HorizontalUnfilter_C(ptr noundef null, ptr noundef %13, ptr noundef %14, i32 noundef %15)
   br label %44
 
 16:                                               ; preds = %4
-  store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !9
   br label %17
 
 17:                                               ; preds = %40, %16
-  %18 = load i32, ptr %9, align 4
-  %19 = load i32, ptr %8, align 4
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = load i32, ptr %8, align 4, !tbaa !9
   %20 = icmp slt i32 %18, %19
   br i1 %20, label %21, label %43
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %9, align 4
+  %22 = load ptr, ptr %5, align 8, !tbaa !7
+  %23 = load i32, ptr %9, align 4, !tbaa !9
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !11
   %27 = zext i8 %26 to i32
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %9, align 4
+  %28 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = load i32, ptr %9, align 4, !tbaa !9
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  %32 = load i8, ptr %31, align 1
+  %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %27, %33
   %35 = trunc i32 %34 to i8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %9, align 4
+  %36 = load ptr, ptr %7, align 8, !tbaa !7
+  %37 = load i32, ptr %9, align 4, !tbaa !9
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
-  store i8 %35, ptr %39, align 1
+  store i8 %35, ptr %39, align 1, !tbaa !11
   br label %40
 
 40:                                               ; preds = %21
-  %41 = load i32, ptr %9, align 4
+  %41 = load i32, ptr %9, align 4, !tbaa !9
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %9, align 4
-  br label %17, !llvm.loop !6
+  store i32 %42, ptr %9, align 4, !tbaa !9
+  br label %17, !llvm.loop !14
 
 43:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   br label %44
 
 44:                                               ; preds = %43, %12
@@ -258,76 +264,84 @@ define internal void @GradientUnfilter_C(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %13 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = load ptr, ptr %7, align 8, !tbaa !7
+  %18 = load i32, ptr %8, align 4, !tbaa !9
   call void @HorizontalUnfilter_C(ptr noundef null, ptr noundef %16, ptr noundef %17, i32 noundef %18)
   br label %57
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  %20 = load ptr, ptr %5, align 8, !tbaa !7
   %21 = getelementptr inbounds i8, ptr %20, i64 0
-  %22 = load i8, ptr %21, align 1
-  store i8 %22, ptr %9, align 1
-  %23 = load i8, ptr %9, align 1
-  store i8 %23, ptr %10, align 1
-  %24 = load i8, ptr %9, align 1
-  store i8 %24, ptr %11, align 1
-  store i32 0, ptr %12, align 4
+  %22 = load i8, ptr %21, align 1, !tbaa !11
+  store i8 %22, ptr %9, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  %23 = load i8, ptr %9, align 1, !tbaa !11
+  store i8 %23, ptr %10, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  %24 = load i8, ptr %9, align 1, !tbaa !11
+  store i8 %24, ptr %11, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  store i32 0, ptr %12, align 4, !tbaa !9
   br label %25
 
 25:                                               ; preds = %53, %19
-  %26 = load i32, ptr %12, align 4
-  %27 = load i32, ptr %8, align 4
+  %26 = load i32, ptr %12, align 4, !tbaa !9
+  %27 = load i32, ptr %8, align 4, !tbaa !9
   %28 = icmp slt i32 %26, %27
   br i1 %28, label %29, label %56
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %12, align 4
+  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %31 = load i32, ptr %12, align 4, !tbaa !9
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
-  %34 = load i8, ptr %33, align 1
-  store i8 %34, ptr %9, align 1
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %12, align 4
+  %34 = load i8, ptr %33, align 1, !tbaa !11
+  store i8 %34, ptr %9, align 1, !tbaa !11
+  %35 = load ptr, ptr %6, align 8, !tbaa !7
+  %36 = load i32, ptr %12, align 4, !tbaa !9
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = zext i8 %39 to i32
-  %41 = load i8, ptr %11, align 1
-  %42 = load i8, ptr %9, align 1
-  %43 = load i8, ptr %10, align 1
+  %41 = load i8, ptr %11, align 1, !tbaa !11
+  %42 = load i8, ptr %9, align 1, !tbaa !11
+  %43 = load i8, ptr %10, align 1, !tbaa !11
   %44 = call i32 @GradientPredictor_C(i8 noundef zeroext %41, i8 noundef zeroext %42, i8 noundef zeroext %43)
   %45 = add nsw i32 %40, %44
   %46 = trunc i32 %45 to i8
-  store i8 %46, ptr %11, align 1
-  %47 = load i8, ptr %9, align 1
-  store i8 %47, ptr %10, align 1
-  %48 = load i8, ptr %11, align 1
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i32, ptr %12, align 4
+  store i8 %46, ptr %11, align 1, !tbaa !11
+  %47 = load i8, ptr %9, align 1, !tbaa !11
+  store i8 %47, ptr %10, align 1, !tbaa !11
+  %48 = load i8, ptr %11, align 1, !tbaa !11
+  %49 = load ptr, ptr %7, align 8, !tbaa !7
+  %50 = load i32, ptr %12, align 4, !tbaa !9
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %49, i64 %51
-  store i8 %48, ptr %52, align 1
+  store i8 %48, ptr %52, align 1, !tbaa !11
   br label %53
 
 53:                                               ; preds = %29
-  %54 = load i32, ptr %12, align 4
+  %54 = load i32, ptr %12, align 4, !tbaa !9
   %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %12, align 4
-  br label %25, !llvm.loop !7
+  store i32 %55, ptr %12, align 4, !tbaa !9
+  br label %25, !llvm.loop !15
 
 56:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   br label %57
 
 57:                                               ; preds = %56, %15
@@ -335,738 +349,572 @@ define internal void @GradientUnfilter_C(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @HorizontalFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @HorizontalFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = load i32, ptr %8, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %10, align 8
-  call void @DoHorizontalFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %15, i32 noundef 0, ptr noundef %16)
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load i32, ptr %7, align 4, !tbaa !9
+  %13 = load i32, ptr %8, align 4, !tbaa !9
+  %14 = load i32, ptr %9, align 4, !tbaa !9
+  %15 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @DoHorizontalFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @VerticalFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @VerticalFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = load i32, ptr %8, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %10, align 8
-  call void @DoVerticalFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %15, i32 noundef 0, ptr noundef %16)
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load i32, ptr %7, align 4, !tbaa !9
+  %13 = load i32, ptr %8, align 4, !tbaa !9
+  %14 = load i32, ptr %9, align 4, !tbaa !9
+  %15 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @DoVerticalFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GradientFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @GradientFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = load i32, ptr %8, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %10, align 8
-  call void @DoGradientFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef %15, i32 noundef 0, ptr noundef %16)
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr %6, align 8, !tbaa !7
+  %12 = load i32, ptr %7, align 4, !tbaa !9
+  %13 = load i32, ptr %8, align 4, !tbaa !9
+  %14 = load i32, ptr %9, align 4, !tbaa !9
+  %15 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @DoGradientFilter_C(ptr noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15)
   ret void
 }
 
 declare void @VP8FiltersInitSSE2() #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @GradientPredictor_C(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @GradientPredictor_C(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #5 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  store i8 %0, ptr %4, align 1
-  store i8 %1, ptr %5, align 1
-  store i8 %2, ptr %6, align 1
-  %8 = load i8, ptr %4, align 1
+  store i8 %0, ptr %4, align 1, !tbaa !11
+  store i8 %1, ptr %5, align 1, !tbaa !11
+  store i8 %2, ptr %6, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %8 = load i8, ptr %4, align 1, !tbaa !11
   %9 = zext i8 %8 to i32
-  %10 = load i8, ptr %5, align 1
+  %10 = load i8, ptr %5, align 1, !tbaa !11
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %9, %11
-  %13 = load i8, ptr %6, align 1
+  %13 = load i8, ptr %6, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 %12, %14
-  store i32 %15, ptr %7, align 4
-  %16 = load i32, ptr %7, align 4
+  store i32 %15, ptr %7, align 4, !tbaa !9
+  %16 = load i32, ptr %7, align 4, !tbaa !9
   %17 = and i32 %16, -256
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %3
-  %20 = load i32, ptr %7, align 4
+  %20 = load i32, ptr %7, align 4, !tbaa !9
   br label %25
 
 21:                                               ; preds = %3
-  %22 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %7, align 4, !tbaa !9
   %23 = icmp slt i32 %22, 0
   %24 = select i1 %23, i32 0, i32 255
   br label %25
 
 25:                                               ; preds = %21, %19
   %26 = phi i32 [ %20, %19 ], [ %24, %21 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @DoHorizontalFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
-  store i32 %6, ptr %15, align 4
-  store ptr %7, ptr %16, align 8
-  %20 = load i32, ptr %13, align 4
-  %21 = load i32, ptr %12, align 4
-  %22 = mul nsw i32 %20, %21
-  %23 = sext i32 %22 to i64
-  store i64 %23, ptr %18, align 8
-  %24 = load i32, ptr %13, align 4
-  %25 = load i32, ptr %14, align 4
-  %26 = add nsw i32 %24, %25
-  store i32 %26, ptr %19, align 4
-  br label %27
-
-27:                                               ; preds = %8
-  br label %28
-
-28:                                               ; preds = %27
-  %29 = load i64, ptr %18, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  store ptr %31, ptr %9, align 8
-  %32 = load i64, ptr %18, align 8
-  %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %32
-  store ptr %34, ptr %16, align 8
-  %35 = load i32, ptr %15, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %16, align 8
-  br label %41
-
-39:                                               ; preds = %28
-  %40 = load ptr, ptr %9, align 8
-  br label %41
-
-41:                                               ; preds = %39, %37
-  %42 = phi ptr [ %38, %37 ], [ %40, %39 ]
-  store ptr %42, ptr %17, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %71
-
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1
-  %49 = load ptr, ptr %16, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  store i8 %48, ptr %50, align 1
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  %53 = load ptr, ptr %17, align 8
-  %54 = load ptr, ptr %16, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load i32, ptr %10, align 4
-  %57 = sub nsw i32 %56, 1
-  %58 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %52, ptr noundef %53, ptr noundef %55, i32 noundef %57, i32 noundef %58)
-  store i32 1, ptr %13, align 4
-  %59 = load i32, ptr %12, align 4
-  %60 = load ptr, ptr %17, align 8
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  store ptr %62, ptr %17, align 8
-  %63 = load i32, ptr %12, align 4
-  %64 = load ptr, ptr %9, align 8
-  %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  store ptr %66, ptr %9, align 8
-  %67 = load i32, ptr %12, align 4
-  %68 = load ptr, ptr %16, align 8
-  %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i8, ptr %68, i64 %69
-  store ptr %70, ptr %16, align 8
-  br label %71
-
-71:                                               ; preds = %45, %41
-  br label %72
-
-72:                                               ; preds = %76, %71
-  %73 = load i32, ptr %13, align 4
-  %74 = load i32, ptr %19, align 4
-  %75 = icmp slt i32 %73, %74
-  br i1 %75, label %76, label %107
-
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %9, align 8
-  %78 = load ptr, ptr %17, align 8
-  %79 = load i32, ptr %12, align 4
-  %80 = sext i32 %79 to i64
-  %81 = sub i64 0, %80
-  %82 = getelementptr inbounds i8, ptr %78, i64 %81
-  %83 = load ptr, ptr %16, align 8
-  %84 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %77, ptr noundef %82, ptr noundef %83, i32 noundef 1, i32 noundef %84)
-  %85 = load ptr, ptr %9, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
-  %87 = load ptr, ptr %17, align 8
-  %88 = load ptr, ptr %16, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  %90 = load i32, ptr %10, align 4
-  %91 = sub nsw i32 %90, 1
-  %92 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %86, ptr noundef %87, ptr noundef %89, i32 noundef %91, i32 noundef %92)
-  %93 = load i32, ptr %13, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %13, align 4
-  %95 = load i32, ptr %12, align 4
-  %96 = load ptr, ptr %17, align 8
-  %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i8, ptr %96, i64 %97
-  store ptr %98, ptr %17, align 8
-  %99 = load i32, ptr %12, align 4
-  %100 = load ptr, ptr %9, align 8
-  %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  store ptr %102, ptr %9, align 8
-  %103 = load i32, ptr %12, align 4
-  %104 = load ptr, ptr %16, align 8
-  %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds i8, ptr %104, i64 %105
-  store ptr %106, ptr %16, align 8
-  br label %72, !llvm.loop !8
-
-107:                                              ; preds = %72
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @PredictLine_C(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @DoHorizontalFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #5 {
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
-  %12 = load i32, ptr %10, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %42
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %13, ptr %11, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  br label %14
 
 14:                                               ; preds = %5
-  store i32 0, ptr %11, align 4
   br label %15
 
-15:                                               ; preds = %38, %14
-  %16 = load i32, ptr %11, align 4
-  %17 = load i32, ptr %9, align 4
-  %18 = icmp slt i32 %16, %17
-  br i1 %18, label %19, label %41
+15:                                               ; preds = %14
+  br label %16
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %11, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %11, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %26, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %25, %31
-  %33 = trunc i32 %32 to i8
-  %34 = load ptr, ptr %8, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  store i8 %33, ptr %37, align 1
-  br label %38
-
-38:                                               ; preds = %19
-  %39 = load i32, ptr %11, align 4
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %11, align 4
-  br label %15, !llvm.loop !9
-
-41:                                               ; preds = %15
-  br label %70
-
-42:                                               ; preds = %5
-  store i32 0, ptr %11, align 4
-  br label %43
-
-43:                                               ; preds = %66, %42
-  %44 = load i32, ptr %11, align 4
-  %45 = load i32, ptr %9, align 4
-  %46 = icmp slt i32 %44, %45
-  br i1 %46, label %47, label %69
-
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %11, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = load ptr, ptr %7, align 8
-  %55 = load i32, ptr %11, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = sub nsw i32 %53, %59
-  %61 = trunc i32 %60 to i8
-  %62 = load ptr, ptr %8, align 8
-  %63 = load i32, ptr %11, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %62, i64 %64
-  store i8 %61, ptr %65, align 1
-  br label %66
-
-66:                                               ; preds = %47
-  %67 = load i32, ptr %11, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %11, align 4
-  br label %43, !llvm.loop !10
-
-69:                                               ; preds = %43
-  br label %70
-
-70:                                               ; preds = %69, %41
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @DoVerticalFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
-  store i32 %6, ptr %15, align 4
-  store ptr %7, ptr %16, align 8
-  %20 = load i32, ptr %13, align 4
-  %21 = load i32, ptr %12, align 4
-  %22 = mul nsw i32 %20, %21
-  %23 = sext i32 %22 to i64
-  store i64 %23, ptr %18, align 8
-  %24 = load i32, ptr %13, align 4
-  %25 = load i32, ptr %14, align 4
-  %26 = add nsw i32 %24, %25
-  store i32 %26, ptr %19, align 4
-  br label %27
-
-27:                                               ; preds = %8
-  br label %28
-
-28:                                               ; preds = %27
-  %29 = load i64, ptr %18, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  store ptr %31, ptr %9, align 8
-  %32 = load i64, ptr %18, align 8
-  %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %32
-  store ptr %34, ptr %16, align 8
-  %35 = load i32, ptr %15, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %39
-
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %16, align 8
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = getelementptr inbounds i8, ptr %17, i64 0
+  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %20 = load ptr, ptr %10, align 8, !tbaa !7
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  store i8 %19, ptr %21, align 1, !tbaa !11
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %24 = load ptr, ptr %11, align 8, !tbaa !7
+  %25 = load ptr, ptr %10, align 8, !tbaa !7
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i32, ptr %7, align 4, !tbaa !9
+  %28 = sub nsw i32 %27, 1
+  call void @PredictLine_C(ptr noundef %23, ptr noundef %24, ptr noundef %26, i32 noundef %28)
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = load ptr, ptr %11, align 8, !tbaa !7
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
+  store ptr %32, ptr %11, align 8, !tbaa !7
+  %33 = load i32, ptr %9, align 4, !tbaa !9
+  %34 = load ptr, ptr %6, align 8, !tbaa !7
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
+  store ptr %36, ptr %6, align 8, !tbaa !7
+  %37 = load i32, ptr %9, align 4, !tbaa !9
+  %38 = load ptr, ptr %10, align 8, !tbaa !7
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  store ptr %40, ptr %10, align 8, !tbaa !7
+  store i32 1, ptr %12, align 4, !tbaa !9
   br label %41
 
-39:                                               ; preds = %28
-  %40 = load ptr, ptr %9, align 8
-  br label %41
-
-41:                                               ; preds = %39, %37
-  %42 = phi ptr [ %38, %37 ], [ %40, %39 ]
-  store ptr %42, ptr %17, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %67
+41:                                               ; preds = %72, %16
+  %42 = load i32, ptr %12, align 4, !tbaa !9
+  %43 = load i32, ptr %8, align 4, !tbaa !9
+  %44 = icmp slt i32 %42, %43
+  br i1 %44, label %45, label %75
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1
-  %49 = load ptr, ptr %16, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  store i8 %48, ptr %50, align 1
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  %53 = load ptr, ptr %17, align 8
-  %54 = load ptr, ptr %16, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load i32, ptr %10, align 4
-  %57 = sub nsw i32 %56, 1
-  %58 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %52, ptr noundef %53, ptr noundef %55, i32 noundef %57, i32 noundef %58)
-  store i32 1, ptr %13, align 4
-  %59 = load i32, ptr %12, align 4
-  %60 = load ptr, ptr %9, align 8
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  store ptr %62, ptr %9, align 8
-  %63 = load i32, ptr %12, align 4
-  %64 = load ptr, ptr %16, align 8
-  %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  store ptr %66, ptr %16, align 8
-  br label %73
-
-67:                                               ; preds = %41
-  %68 = load i32, ptr %12, align 4
-  %69 = load ptr, ptr %17, align 8
+  %46 = load ptr, ptr %6, align 8, !tbaa !7
+  %47 = load ptr, ptr %11, align 8, !tbaa !7
+  %48 = load i32, ptr %9, align 4, !tbaa !9
+  %49 = sext i32 %48 to i64
+  %50 = sub i64 0, %49
+  %51 = getelementptr inbounds i8, ptr %47, i64 %50
+  %52 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @PredictLine_C(ptr noundef %46, ptr noundef %51, ptr noundef %52, i32 noundef 1)
+  %53 = load ptr, ptr %6, align 8, !tbaa !7
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %55 = load ptr, ptr %11, align 8, !tbaa !7
+  %56 = load ptr, ptr %10, align 8, !tbaa !7
+  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %58 = load i32, ptr %7, align 4, !tbaa !9
+  %59 = sub nsw i32 %58, 1
+  call void @PredictLine_C(ptr noundef %54, ptr noundef %55, ptr noundef %57, i32 noundef %59)
+  %60 = load i32, ptr %9, align 4, !tbaa !9
+  %61 = load ptr, ptr %11, align 8, !tbaa !7
+  %62 = sext i32 %60 to i64
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
+  store ptr %63, ptr %11, align 8, !tbaa !7
+  %64 = load i32, ptr %9, align 4, !tbaa !9
+  %65 = load ptr, ptr %6, align 8, !tbaa !7
+  %66 = sext i32 %64 to i64
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  store ptr %67, ptr %6, align 8, !tbaa !7
+  %68 = load i32, ptr %9, align 4, !tbaa !9
+  %69 = load ptr, ptr %10, align 8, !tbaa !7
   %70 = sext i32 %68 to i64
-  %71 = sub i64 0, %70
-  %72 = getelementptr inbounds i8, ptr %69, i64 %71
-  store ptr %72, ptr %17, align 8
-  br label %73
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  store ptr %71, ptr %10, align 8, !tbaa !7
+  br label %72
 
-73:                                               ; preds = %67, %45
-  br label %74
+72:                                               ; preds = %45
+  %73 = load i32, ptr %12, align 4, !tbaa !9
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %12, align 4, !tbaa !9
+  br label %41, !llvm.loop !16
 
-74:                                               ; preds = %78, %73
-  %75 = load i32, ptr %13, align 4
-  %76 = load i32, ptr %19, align 4
-  %77 = icmp slt i32 %75, %76
-  br i1 %77, label %78, label %98
-
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %9, align 8
-  %80 = load ptr, ptr %17, align 8
-  %81 = load ptr, ptr %16, align 8
-  %82 = load i32, ptr %10, align 4
-  %83 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %79, ptr noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef %83)
-  %84 = load i32, ptr %13, align 4
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %13, align 4
-  %86 = load i32, ptr %12, align 4
-  %87 = load ptr, ptr %17, align 8
-  %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  store ptr %89, ptr %17, align 8
-  %90 = load i32, ptr %12, align 4
-  %91 = load ptr, ptr %9, align 8
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  store ptr %93, ptr %9, align 8
-  %94 = load i32, ptr %12, align 4
-  %95 = load ptr, ptr %16, align 8
-  %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds i8, ptr %95, i64 %96
-  store ptr %97, ptr %16, align 8
-  br label %74, !llvm.loop !11
-
-98:                                               ; preds = %74
+75:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @DoGradientFilter_C(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @PredictLine_C(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef %3) #5 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !9
+  br label %10
+
+10:                                               ; preds = %33, %4
+  %11 = load i32, ptr %9, align 4, !tbaa !9
+  %12 = load i32, ptr %8, align 4, !tbaa !9
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %36
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = load i32, ptr %9, align 4, !tbaa !9
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %20 = zext i8 %19 to i32
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = load i32, ptr %9, align 4, !tbaa !9
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !11
+  %26 = zext i8 %25 to i32
+  %27 = sub nsw i32 %20, %26
+  %28 = trunc i32 %27 to i8
+  %29 = load ptr, ptr %7, align 8, !tbaa !7
+  %30 = load i32, ptr %9, align 4, !tbaa !9
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %29, i64 %31
+  store i8 %28, ptr %32, align 1, !tbaa !11
+  br label %33
+
+33:                                               ; preds = %14
+  %34 = load i32, ptr %9, align 4, !tbaa !9
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %9, align 4, !tbaa !9
+  br label %10, !llvm.loop !17
+
+36:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @DoVerticalFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %13, ptr %11, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  br label %14
+
+14:                                               ; preds = %5
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = getelementptr inbounds i8, ptr %17, i64 0
+  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %20 = load ptr, ptr %10, align 8, !tbaa !7
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  store i8 %19, ptr %21, align 1, !tbaa !11
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %24 = load ptr, ptr %11, align 8, !tbaa !7
+  %25 = load ptr, ptr %10, align 8, !tbaa !7
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i32, ptr %7, align 4, !tbaa !9
+  %28 = sub nsw i32 %27, 1
+  call void @PredictLine_C(ptr noundef %23, ptr noundef %24, ptr noundef %26, i32 noundef %28)
+  %29 = load i32, ptr %9, align 4, !tbaa !9
+  %30 = load ptr, ptr %6, align 8, !tbaa !7
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
+  store ptr %32, ptr %6, align 8, !tbaa !7
+  %33 = load i32, ptr %9, align 4, !tbaa !9
+  %34 = load ptr, ptr %10, align 8, !tbaa !7
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
+  store ptr %36, ptr %10, align 8, !tbaa !7
+  store i32 1, ptr %12, align 4, !tbaa !9
+  br label %37
+
+37:                                               ; preds = %58, %16
+  %38 = load i32, ptr %12, align 4, !tbaa !9
+  %39 = load i32, ptr %8, align 4, !tbaa !9
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %61
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %6, align 8, !tbaa !7
+  %43 = load ptr, ptr %11, align 8, !tbaa !7
+  %44 = load ptr, ptr %10, align 8, !tbaa !7
+  %45 = load i32, ptr %7, align 4, !tbaa !9
+  call void @PredictLine_C(ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %45)
+  %46 = load i32, ptr %9, align 4, !tbaa !9
+  %47 = load ptr, ptr %11, align 8, !tbaa !7
+  %48 = sext i32 %46 to i64
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  store ptr %49, ptr %11, align 8, !tbaa !7
+  %50 = load i32, ptr %9, align 4, !tbaa !9
+  %51 = load ptr, ptr %6, align 8, !tbaa !7
+  %52 = sext i32 %50 to i64
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  store ptr %53, ptr %6, align 8, !tbaa !7
+  %54 = load i32, ptr %9, align 4, !tbaa !9
+  %55 = load ptr, ptr %10, align 8, !tbaa !7
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  store ptr %57, ptr %10, align 8, !tbaa !7
+  br label %58
+
+58:                                               ; preds = %41
+  %59 = load i32, ptr %12, align 4, !tbaa !9
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %12, align 4, !tbaa !9
+  br label %37, !llvm.loop !18
+
+61:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @DoGradientFilter_C(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca i32, align 4
-  %21 = alloca i32, align 4
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
-  store i32 %6, ptr %15, align 4
-  store ptr %7, ptr %16, align 8
-  %22 = load i32, ptr %13, align 4
-  %23 = load i32, ptr %12, align 4
-  %24 = mul nsw i32 %22, %23
-  %25 = sext i32 %24 to i64
-  store i64 %25, ptr %18, align 8
-  %26 = load i32, ptr %13, align 4
-  %27 = load i32, ptr %14, align 4
-  %28 = add nsw i32 %26, %27
-  store i32 %28, ptr %19, align 4
-  br label %29
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %15, ptr %11, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  br label %16
 
-29:                                               ; preds = %8
-  br label %30
+16:                                               ; preds = %5
+  br label %17
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %18, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  store ptr %33, ptr %9, align 8
-  %34 = load i64, ptr %18, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  store ptr %36, ptr %16, align 8
-  %37 = load i32, ptr %15, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %41
+17:                                               ; preds = %16
+  br label %18
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %16, align 8
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %22 = load ptr, ptr %10, align 8, !tbaa !7
+  %23 = getelementptr inbounds i8, ptr %22, i64 0
+  store i8 %21, ptr %23, align 1, !tbaa !11
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = load ptr, ptr %11, align 8, !tbaa !7
+  %27 = load ptr, ptr %10, align 8, !tbaa !7
+  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %29 = load i32, ptr %7, align 4, !tbaa !9
+  %30 = sub nsw i32 %29, 1
+  call void @PredictLine_C(ptr noundef %25, ptr noundef %26, ptr noundef %28, i32 noundef %30)
+  %31 = load i32, ptr %9, align 4, !tbaa !9
+  %32 = load ptr, ptr %11, align 8, !tbaa !7
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  store ptr %34, ptr %11, align 8, !tbaa !7
+  %35 = load i32, ptr %9, align 4, !tbaa !9
+  %36 = load ptr, ptr %6, align 8, !tbaa !7
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  store ptr %38, ptr %6, align 8, !tbaa !7
+  %39 = load i32, ptr %9, align 4, !tbaa !9
+  %40 = load ptr, ptr %10, align 8, !tbaa !7
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds i8, ptr %40, i64 %41
+  store ptr %42, ptr %10, align 8, !tbaa !7
+  store i32 1, ptr %12, align 4, !tbaa !9
   br label %43
 
-41:                                               ; preds = %30
-  %42 = load ptr, ptr %9, align 8
-  br label %43
-
-43:                                               ; preds = %41, %39
-  %44 = phi ptr [ %40, %39 ], [ %42, %41 ]
-  store ptr %44, ptr %17, align 8
-  %45 = load i32, ptr %13, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %73
+43:                                               ; preds = %111, %18
+  %44 = load i32, ptr %12, align 4, !tbaa !9
+  %45 = load i32, ptr %8, align 4, !tbaa !9
+  %46 = icmp slt i32 %44, %45
+  br i1 %46, label %47, label %114
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 0
-  %50 = load i8, ptr %49, align 1
-  %51 = load ptr, ptr %16, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 0
-  store i8 %50, ptr %52, align 1
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  %55 = load ptr, ptr %17, align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  %58 = load i32, ptr %10, align 4
-  %59 = sub nsw i32 %58, 1
-  %60 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %54, ptr noundef %55, ptr noundef %57, i32 noundef %59, i32 noundef %60)
-  store i32 1, ptr %13, align 4
-  %61 = load i32, ptr %12, align 4
-  %62 = load ptr, ptr %17, align 8
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  store ptr %64, ptr %17, align 8
-  %65 = load i32, ptr %12, align 4
-  %66 = load ptr, ptr %9, align 8
-  %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i8, ptr %66, i64 %67
-  store ptr %68, ptr %9, align 8
-  %69 = load i32, ptr %12, align 4
-  %70 = load ptr, ptr %16, align 8
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i8, ptr %70, i64 %71
-  store ptr %72, ptr %16, align 8
-  br label %73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %48 = load ptr, ptr %6, align 8, !tbaa !7
+  %49 = load ptr, ptr %11, align 8, !tbaa !7
+  %50 = load i32, ptr %9, align 4, !tbaa !9
+  %51 = sext i32 %50 to i64
+  %52 = sub i64 0, %51
+  %53 = getelementptr inbounds i8, ptr %49, i64 %52
+  %54 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @PredictLine_C(ptr noundef %48, ptr noundef %53, ptr noundef %54, i32 noundef 1)
+  store i32 1, ptr %13, align 4, !tbaa !9
+  br label %55
 
-73:                                               ; preds = %47, %43
-  br label %74
+55:                                               ; preds = %95, %47
+  %56 = load i32, ptr %13, align 4, !tbaa !9
+  %57 = load i32, ptr %7, align 4, !tbaa !9
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %59, label %98
 
-74:                                               ; preds = %138, %73
-  %75 = load i32, ptr %13, align 4
-  %76 = load i32, ptr %19, align 4
-  %77 = icmp slt i32 %75, %76
-  br i1 %77, label %78, label %153
+59:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %60 = load ptr, ptr %11, align 8, !tbaa !7
+  %61 = load i32, ptr %13, align 4, !tbaa !9
+  %62 = sub nsw i32 %61, 1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %65 = load i8, ptr %64, align 1, !tbaa !11
+  %66 = load ptr, ptr %11, align 8, !tbaa !7
+  %67 = load i32, ptr %13, align 4, !tbaa !9
+  %68 = load i32, ptr %9, align 4, !tbaa !9
+  %69 = sub nsw i32 %67, %68
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %66, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !11
+  %73 = load ptr, ptr %11, align 8, !tbaa !7
+  %74 = load i32, ptr %13, align 4, !tbaa !9
+  %75 = load i32, ptr %9, align 4, !tbaa !9
+  %76 = sub nsw i32 %74, %75
+  %77 = sub nsw i32 %76, 1
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %73, i64 %78
+  %80 = load i8, ptr %79, align 1, !tbaa !11
+  %81 = call i32 @GradientPredictor_C(i8 noundef zeroext %65, i8 noundef zeroext %72, i8 noundef zeroext %80)
+  store i32 %81, ptr %14, align 4, !tbaa !9
+  %82 = load ptr, ptr %6, align 8, !tbaa !7
+  %83 = load i32, ptr %13, align 4, !tbaa !9
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !11
+  %87 = zext i8 %86 to i32
+  %88 = load i32, ptr %14, align 4, !tbaa !9
+  %89 = sub nsw i32 %87, %88
+  %90 = trunc i32 %89 to i8
+  %91 = load ptr, ptr %10, align 8, !tbaa !7
+  %92 = load i32, ptr %13, align 4, !tbaa !9
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i8, ptr %91, i64 %93
+  store i8 %90, ptr %94, align 1, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  br label %95
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %9, align 8
-  %80 = load ptr, ptr %17, align 8
-  %81 = load i32, ptr %12, align 4
-  %82 = sext i32 %81 to i64
-  %83 = sub i64 0, %82
-  %84 = getelementptr inbounds i8, ptr %80, i64 %83
-  %85 = load ptr, ptr %16, align 8
-  %86 = load i32, ptr %15, align 4
-  call void @PredictLine_C(ptr noundef %79, ptr noundef %84, ptr noundef %85, i32 noundef 1, i32 noundef %86)
-  store i32 1, ptr %20, align 4
-  br label %87
+95:                                               ; preds = %59
+  %96 = load i32, ptr %13, align 4, !tbaa !9
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr %13, align 4, !tbaa !9
+  br label %55, !llvm.loop !19
 
-87:                                               ; preds = %135, %78
-  %88 = load i32, ptr %20, align 4
-  %89 = load i32, ptr %10, align 4
-  %90 = icmp slt i32 %88, %89
-  br i1 %90, label %91, label %138
+98:                                               ; preds = %55
+  %99 = load i32, ptr %9, align 4, !tbaa !9
+  %100 = load ptr, ptr %11, align 8, !tbaa !7
+  %101 = sext i32 %99 to i64
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
+  store ptr %102, ptr %11, align 8, !tbaa !7
+  %103 = load i32, ptr %9, align 4, !tbaa !9
+  %104 = load ptr, ptr %6, align 8, !tbaa !7
+  %105 = sext i32 %103 to i64
+  %106 = getelementptr inbounds i8, ptr %104, i64 %105
+  store ptr %106, ptr %6, align 8, !tbaa !7
+  %107 = load i32, ptr %9, align 4, !tbaa !9
+  %108 = load ptr, ptr %10, align 8, !tbaa !7
+  %109 = sext i32 %107 to i64
+  %110 = getelementptr inbounds i8, ptr %108, i64 %109
+  store ptr %110, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %111
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %17, align 8
-  %93 = load i32, ptr %20, align 4
-  %94 = sub nsw i32 %93, 1
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr %92, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = load ptr, ptr %17, align 8
-  %99 = load i32, ptr %20, align 4
-  %100 = load i32, ptr %12, align 4
-  %101 = sub nsw i32 %99, %100
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %98, i64 %102
-  %104 = load i8, ptr %103, align 1
-  %105 = load ptr, ptr %17, align 8
-  %106 = load i32, ptr %20, align 4
-  %107 = load i32, ptr %12, align 4
-  %108 = sub nsw i32 %106, %107
-  %109 = sub nsw i32 %108, 1
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %105, i64 %110
-  %112 = load i8, ptr %111, align 1
-  %113 = call i32 @GradientPredictor_C(i8 noundef zeroext %97, i8 noundef zeroext %104, i8 noundef zeroext %112)
-  store i32 %113, ptr %21, align 4
-  %114 = load ptr, ptr %9, align 8
-  %115 = load i32, ptr %20, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %114, i64 %116
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = load i32, ptr %15, align 4
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %122, label %124
+111:                                              ; preds = %98
+  %112 = load i32, ptr %12, align 4, !tbaa !9
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %12, align 4, !tbaa !9
+  br label %43, !llvm.loop !20
 
-122:                                              ; preds = %91
-  %123 = load i32, ptr %21, align 4
-  br label %127
-
-124:                                              ; preds = %91
-  %125 = load i32, ptr %21, align 4
-  %126 = sub nsw i32 0, %125
-  br label %127
-
-127:                                              ; preds = %124, %122
-  %128 = phi i32 [ %123, %122 ], [ %126, %124 ]
-  %129 = add nsw i32 %119, %128
-  %130 = trunc i32 %129 to i8
-  %131 = load ptr, ptr %16, align 8
-  %132 = load i32, ptr %20, align 4
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %131, i64 %133
-  store i8 %130, ptr %134, align 1
-  br label %135
-
-135:                                              ; preds = %127
-  %136 = load i32, ptr %20, align 4
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %20, align 4
-  br label %87, !llvm.loop !12
-
-138:                                              ; preds = %87
-  %139 = load i32, ptr %13, align 4
-  %140 = add nsw i32 %139, 1
-  store i32 %140, ptr %13, align 4
-  %141 = load i32, ptr %12, align 4
-  %142 = load ptr, ptr %17, align 8
-  %143 = sext i32 %141 to i64
-  %144 = getelementptr inbounds i8, ptr %142, i64 %143
-  store ptr %144, ptr %17, align 8
-  %145 = load i32, ptr %12, align 4
-  %146 = load ptr, ptr %9, align 8
-  %147 = sext i32 %145 to i64
-  %148 = getelementptr inbounds i8, ptr %146, i64 %147
-  store ptr %148, ptr %9, align 8
-  %149 = load i32, ptr %12, align 4
-  %150 = load ptr, ptr %16, align 8
-  %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds i8, ptr %150, i64 %151
-  store ptr %152, ptr %16, align 8
-  br label %74, !llvm.loop !13
-
-153:                                              ; preds = %74
+114:                                              ; preds = %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}

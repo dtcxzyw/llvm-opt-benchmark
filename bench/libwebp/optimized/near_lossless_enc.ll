@@ -6,11 +6,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !13
   %10 = mul nsw i32 %5, 3
   %11 = sext i32 %10 to i64
   %12 = tail call ptr @WebPSafeMalloc(i64 noundef %11, i64 noundef 4) #4
@@ -42,19 +42,19 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %23 ]
   %24 = mul nsw i64 %indvars.iv, %21
   %25 = getelementptr inbounds i32, ptr %2, i64 %24
-  %26 = load ptr, ptr %20, align 8
-  %27 = load i32, ptr %8, align 8
+  %26 = load ptr, ptr %20, align 8, !tbaa !14
+  %27 = load i32, ptr %8, align 8, !tbaa !13
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %indvars.iv, %28
   %30 = getelementptr inbounds i32, ptr %26, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %30, i64 %22, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %23, !llvm.loop !4
+  br i1 %exitcond.not, label %.sink.split, label %23, !llvm.loop !15
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !14
   tail call fastcc void @NearLossless(i32 noundef %5, i32 noundef %7, ptr noundef %33, i32 noundef %9, i32 noundef %13, ptr noundef %12, ptr noundef %2)
   %.144 = add nsw i32 %.neg.i, 4
   %.not45 = icmp eq i32 %.144, 0
@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr noundef readonly cap
   tail call fastcc void @NearLossless(i32 noundef %5, i32 noundef %7, ptr noundef %2, i32 noundef %5, i32 noundef %.146, ptr noundef %12, ptr noundef %2)
   %.1 = add nsw i32 %.146, -1
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !17
 
 .sink.split:                                      ; preds = %.lr.ph, %23, %31, %.preheader
   tail call void @WebPSafeFree(ptr noundef nonnull %12) #4
@@ -108,239 +108,252 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef range(i32 
   %wide.trip.count = zext i32 %16 to i64
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %..loopexit68_crit_edge.us
-  %.076.us = phi ptr [ %118, %..loopexit68_crit_edge.us ], [ %2, %.split.us.preheader ]
-  %.05675.us = phi ptr [ %.05873.us, %..loopexit68_crit_edge.us ], [ %11, %.split.us.preheader ]
-  %.05774.us = phi ptr [ %.05675.us, %..loopexit68_crit_edge.us ], [ %10, %.split.us.preheader ]
-  %.05873.us = phi ptr [ %.05774.us, %..loopexit68_crit_edge.us ], [ %5, %.split.us.preheader ]
-  %.05971.us = phi ptr [ %119, %..loopexit68_crit_edge.us ], [ %6, %.split.us.preheader ]
-  %.06070.us = phi i32 [ %117, %..loopexit68_crit_edge.us ], [ 0, %.split.us.preheader ]
-  %22 = icmp eq i32 %.06070.us, 0
-  %23 = icmp eq i32 %.06070.us, %15
+.split.us:                                        ; preds = %.split.us.preheader, %..loopexit_crit_edge.us
+  %.074.us = phi ptr [ %114, %..loopexit_crit_edge.us ], [ %2, %.split.us.preheader ]
+  %.05673.us = phi ptr [ %.05871.us, %..loopexit_crit_edge.us ], [ %11, %.split.us.preheader ]
+  %.05772.us = phi ptr [ %.05673.us, %..loopexit_crit_edge.us ], [ %10, %.split.us.preheader ]
+  %.05871.us = phi ptr [ %.05772.us, %..loopexit_crit_edge.us ], [ %5, %.split.us.preheader ]
+  %.05969.us = phi ptr [ %115, %..loopexit_crit_edge.us ], [ %6, %.split.us.preheader ]
+  %.06068.us = phi i32 [ %113, %..loopexit_crit_edge.us ], [ 0, %.split.us.preheader ]
+  %22 = icmp eq i32 %.06068.us, 0
+  %23 = icmp eq i32 %.06068.us, %15
   %or.cond.us = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond.us, label %116, label %.lr.ph.us
+  br i1 %or.cond.us, label %112, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.split.us
-  %24 = getelementptr inbounds i32, ptr %.076.us, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05675.us, ptr align 4 %24, i64 %12, i1 false)
-  %25 = load i32, ptr %.076.us, align 4
-  store i32 %25, ptr %.05971.us, align 4
-  %26 = getelementptr inbounds i32, ptr %.076.us, i64 %17
-  %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %.05971.us, i64 %17
-  store i32 %27, ptr %28, align 4
+  %24 = getelementptr inbounds i32, ptr %.074.us, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05673.us, ptr align 4 %24, i64 %12, i1 false)
+  %25 = load i32, ptr %.074.us, align 4, !tbaa !18
+  store i32 %25, ptr %.05969.us, align 4, !tbaa !18
+  %26 = getelementptr inbounds i32, ptr %.074.us, i64 %17
+  %27 = load i32, ptr %26, align 4, !tbaa !18
+  %28 = getelementptr inbounds i32, ptr %.05969.us, i64 %17
+  store i32 %27, ptr %28, align 4, !tbaa !18
   br label %29
 
-29:                                               ; preds = %.lr.ph.us, %IsSmooth.exit.us
-  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %IsSmooth.exit.us ]
-  %30 = getelementptr inbounds nuw i32, ptr %.05774.us, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4
+29:                                               ; preds = %.lr.ph.us, %110
+  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %110 ]
+  %30 = getelementptr inbounds nuw i32, ptr %.05772.us, i64 %indvars.iv
+  %31 = load i32, ptr %30, align 4, !tbaa !18
   %32 = getelementptr i8, ptr %30, i64 -4
-  %33 = load i32, ptr %32, align 4
-  br label %34
+  %33 = load i32, ptr %32, align 4, !tbaa !18
+  br label %.critedge.i.i.us
 
-34:                                               ; preds = %41, %29
-  %.01115.i.i.us = phi i32 [ 0, %29 ], [ %42, %41 ]
-  %35 = shl nuw nsw i32 %.01115.i.i.us, 3
-  %36 = lshr i32 %31, %35
-  %37 = and i32 %36, 255
-  %38 = lshr i32 %33, %35
-  %39 = and i32 %38, 255
-  %40 = sub nsw i32 %37, %39
-  %.not.i.i.us = icmp slt i32 %40, %8
-  %.not14.i.i.us = icmp sgt i32 %40, %19
-  %or.cond.i.i.us = select i1 %.not.i.i.us, i1 %.not14.i.i.us, i1 false
-  br i1 %or.cond.i.i.us, label %41, label %.loopexit.us
+.critedge.i.i.us:                                 ; preds = %40, %29
+  %.01317.i.i.us = phi i32 [ 0, %29 ], [ %41, %40 ]
+  %34 = shl nuw nsw i32 %.01317.i.i.us, 3
+  %35 = lshr i32 %31, %34
+  %36 = and i32 %35, 255
+  %37 = lshr i32 %33, %34
+  %38 = and i32 %37, 255
+  %39 = sub nsw i32 %36, %38
+  %.not.i.i.us = icmp slt i32 %39, %8
+  %.not16.i.i.us = icmp sgt i32 %39, %19
+  %or.cond.i.i.us = select i1 %.not.i.i.us, i1 %.not16.i.i.us, i1 false
+  br i1 %or.cond.i.i.us, label %40, label %IsSmooth.exit.thread.us
 
-41:                                               ; preds = %34
-  %42 = add nuw nsw i32 %.01115.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i32 %42, 4
-  br i1 %exitcond.not.i.i.us, label %IsNear.exit.i.us, label %34, !llvm.loop !7
+40:                                               ; preds = %.critedge.i.i.us
+  %41 = add nuw nsw i32 %.01317.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i32 %41, 4
+  br i1 %exitcond.not.i.i.us, label %IsNear.exit.i.us, label %.critedge.i.i.us, !llvm.loop !19
 
-IsNear.exit.i.us:                                 ; preds = %41
-  %43 = getelementptr i8, ptr %30, i64 4
-  %44 = load i32, ptr %43, align 4
-  br label %45
+IsNear.exit.i.us:                                 ; preds = %40
+  %42 = getelementptr i8, ptr %30, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !18
+  br label %.critedge.i21.i.us
 
-45:                                               ; preds = %52, %IsNear.exit.i.us
-  %.01115.i21.i.us = phi i32 [ 0, %IsNear.exit.i.us ], [ %53, %52 ]
-  %46 = shl nuw nsw i32 %.01115.i21.i.us, 3
-  %47 = lshr i32 %31, %46
+.critedge.i21.i.us:                               ; preds = %50, %IsNear.exit.i.us
+  %.01317.i22.i.us = phi i32 [ 0, %IsNear.exit.i.us ], [ %51, %50 ]
+  %44 = shl nuw nsw i32 %.01317.i22.i.us, 3
+  %45 = lshr i32 %31, %44
+  %46 = and i32 %45, 255
+  %47 = lshr i32 %43, %44
   %48 = and i32 %47, 255
-  %49 = lshr i32 %44, %46
-  %50 = and i32 %49, 255
-  %51 = sub nsw i32 %48, %50
-  %.not.i22.i.us = icmp slt i32 %51, %8
-  %.not14.i23.i.us = icmp sgt i32 %51, %19
-  %or.cond.i24.i.us = select i1 %.not.i22.i.us, i1 %.not14.i23.i.us, i1 false
-  br i1 %or.cond.i24.i.us, label %52, label %.loopexit.us
+  %49 = sub nsw i32 %46, %48
+  %.not.i23.i.us = icmp slt i32 %49, %8
+  %.not16.i24.i.us = icmp sgt i32 %49, %19
+  %or.cond.i25.i.us = select i1 %.not.i23.i.us, i1 %.not16.i24.i.us, i1 false
+  br i1 %or.cond.i25.i.us, label %50, label %IsSmooth.exit.thread.us
 
-52:                                               ; preds = %45
-  %53 = add nuw nsw i32 %.01115.i21.i.us, 1
-  %exitcond.not.i26.i.us = icmp eq i32 %53, 4
-  br i1 %exitcond.not.i26.i.us, label %IsNear.exit27.i.us, label %45, !llvm.loop !7
+50:                                               ; preds = %.critedge.i21.i.us
+  %51 = add nuw nsw i32 %.01317.i22.i.us, 1
+  %exitcond.not.i27.i.us = icmp eq i32 %51, 4
+  br i1 %exitcond.not.i27.i.us, label %IsNear.exit28.i.us, label %.critedge.i21.i.us, !llvm.loop !19
 
-IsNear.exit27.i.us:                               ; preds = %52
-  %54 = getelementptr inbounds nuw i32, ptr %.05873.us, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4
-  br label %56
+IsNear.exit28.i.us:                               ; preds = %50
+  %52 = getelementptr inbounds nuw i32, ptr %.05871.us, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4, !tbaa !18
+  br label %.critedge.i29.i.us
 
-56:                                               ; preds = %63, %IsNear.exit27.i.us
-  %.01115.i28.i.us = phi i32 [ 0, %IsNear.exit27.i.us ], [ %64, %63 ]
-  %57 = shl nuw nsw i32 %.01115.i28.i.us, 3
-  %58 = lshr i32 %31, %57
-  %59 = and i32 %58, 255
-  %60 = lshr i32 %55, %57
-  %61 = and i32 %60, 255
-  %62 = sub nsw i32 %59, %61
-  %.not.i29.i.us = icmp slt i32 %62, %8
-  %.not14.i30.i.us = icmp sgt i32 %62, %19
-  %or.cond.i31.i.us = select i1 %.not.i29.i.us, i1 %.not14.i30.i.us, i1 false
-  br i1 %or.cond.i31.i.us, label %63, label %.loopexit.us
+.critedge.i29.i.us:                               ; preds = %60, %IsNear.exit28.i.us
+  %.01317.i30.i.us = phi i32 [ 0, %IsNear.exit28.i.us ], [ %61, %60 ]
+  %54 = shl nuw nsw i32 %.01317.i30.i.us, 3
+  %55 = lshr i32 %31, %54
+  %56 = and i32 %55, 255
+  %57 = lshr i32 %53, %54
+  %58 = and i32 %57, 255
+  %59 = sub nsw i32 %56, %58
+  %.not.i31.i.us = icmp slt i32 %59, %8
+  %.not16.i32.i.us = icmp sgt i32 %59, %19
+  %or.cond.i33.i.us = select i1 %.not.i31.i.us, i1 %.not16.i32.i.us, i1 false
+  br i1 %or.cond.i33.i.us, label %60, label %IsSmooth.exit.thread.us
 
-63:                                               ; preds = %56
-  %64 = add nuw nsw i32 %.01115.i28.i.us, 1
-  %exitcond.not.i33.i.us = icmp eq i32 %64, 4
-  br i1 %exitcond.not.i33.i.us, label %IsNear.exit34.i.us, label %56, !llvm.loop !7
+60:                                               ; preds = %.critedge.i29.i.us
+  %61 = add nuw nsw i32 %.01317.i30.i.us, 1
+  %exitcond.not.i35.i.us = icmp eq i32 %61, 4
+  br i1 %exitcond.not.i35.i.us, label %IsNear.exit36.i.us, label %.critedge.i29.i.us, !llvm.loop !19
 
-IsNear.exit34.i.us:                               ; preds = %63
-  %65 = getelementptr inbounds nuw i32, ptr %.05675.us, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4
-  br label %67
+IsNear.exit36.i.us:                               ; preds = %60
+  %62 = getelementptr inbounds nuw i32, ptr %.05673.us, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4, !tbaa !18
+  br label %.critedge.i37.i.us
 
-67:                                               ; preds = %113, %IsNear.exit34.i.us
-  %.01115.i35.i.us = phi i32 [ 0, %IsNear.exit34.i.us ], [ %114, %113 ]
-  %68 = shl nuw nsw i32 %.01115.i35.i.us, 3
-  %69 = lshr i32 %31, %68
-  %70 = and i32 %69, 255
-  %71 = lshr i32 %66, %68
-  %72 = and i32 %71, 255
-  %73 = sub nsw i32 %70, %72
-  %.not.i36.i.us = icmp slt i32 %73, %8
-  %.not14.i37.i.us = icmp sgt i32 %73, %19
-  %or.cond.i38.i.us = select i1 %.not.i36.i.us, i1 %.not14.i37.i.us, i1 false
-  br i1 %or.cond.i38.i.us, label %113, label %.loopexit.us
+.critedge.i37.i.us:                               ; preds = %.critedge.i37.i.us, %IsNear.exit36.i.us
+  %.01317.i38.i.us = phi i32 [ 0, %IsNear.exit36.i.us ], [ %70, %.critedge.i37.i.us ]
+  %64 = shl nuw nsw i32 %.01317.i38.i.us, 3
+  %65 = lshr i32 %31, %64
+  %66 = and i32 %65, 255
+  %67 = lshr i32 %63, %64
+  %68 = and i32 %67, 255
+  %69 = sub nsw i32 %66, %68
+  %.not.i39.i.us = icmp slt i32 %69, %8
+  %.not16.i40.i.us = icmp sgt i32 %69, %19
+  %or.cond.i41.i.us = select i1 %.not.i39.i.us, i1 %.not16.i40.i.us, i1 false
+  %70 = add nuw nsw i32 %.01317.i38.i.us, 1
+  %exitcond.not.i43.i.us = icmp ne i32 %70, 4
+  %or.cond.not.i.us = select i1 %or.cond.i41.i.us, i1 %exitcond.not.i43.i.us, i1 false
+  br i1 %or.cond.not.i.us, label %.critedge.i37.i.us, label %IsSmooth.exit.us, !llvm.loop !19
 
-.loopexit.us:                                     ; preds = %34, %45, %56, %67
-  %74 = lshr i32 %31, 24
-  %75 = add nuw nsw i32 %74, %21
-  %76 = lshr i32 %74, %4
-  %77 = and i32 %76, 1
-  %78 = add nuw nsw i32 %75, %77
-  %79 = icmp samesign ugt i32 %78, 255
-  %80 = and i32 %78, %notmask.i.i
-  %81 = shl nuw i32 %80, 24
-  %82 = select i1 %79, i32 -16777216, i32 %81
-  %83 = lshr i32 %31, 16
-  %84 = and i32 %83, 255
-  %85 = add nuw nsw i32 %84, %21
-  %86 = lshr i32 %84, %4
-  %87 = and i32 %86, 1
-  %88 = add nuw nsw i32 %85, %87
-  %89 = icmp samesign ugt i32 %88, 255
-  %90 = and i32 %88, %notmask.i.i
-  %91 = shl nuw nsw i32 %90, 16
-  %92 = select i1 %89, i32 16711680, i32 %91
-  %93 = lshr i32 %31, 8
-  %94 = and i32 %93, 255
-  %95 = add nuw nsw i32 %94, %21
-  %96 = lshr i32 %94, %4
-  %97 = and i32 %96, 1
-  %98 = add nuw nsw i32 %95, %97
-  %99 = icmp samesign ugt i32 %98, 255
-  %100 = and i32 %98, %notmask.i.i
-  %101 = shl nuw nsw i32 %100, 8
-  %102 = select i1 %99, i32 65280, i32 %101
-  %103 = and i32 %31, 255
-  %104 = add nuw nsw i32 %103, %21
-  %105 = lshr i32 %103, %4
-  %106 = and i32 %105, 1
-  %107 = add nuw nsw i32 %104, %106
-  %108 = icmp samesign ugt i32 %107, 255
-  %109 = and i32 %107, %notmask.i.i
-  %.0.i13.i.us = select i1 %108, i32 255, i32 %109
-  %110 = or i32 %82, %.0.i13.i.us
-  %111 = or i32 %110, %92
-  %112 = or i32 %111, %102
-  br label %IsSmooth.exit.us
+IsSmooth.exit.us:                                 ; preds = %.critedge.i37.i.us
+  br i1 %or.cond.i41.i.us, label %110, label %IsSmooth.exit.thread.us
 
-113:                                              ; preds = %67
-  %114 = add nuw nsw i32 %.01115.i35.i.us, 1
-  %exitcond.not.i40.i.us = icmp eq i32 %114, 4
-  br i1 %exitcond.not.i40.i.us, label %IsSmooth.exit.us, label %67, !llvm.loop !7
+IsSmooth.exit.thread.us:                          ; preds = %.critedge.i.i.us, %.critedge.i21.i.us, %.critedge.i29.i.us, %IsSmooth.exit.us
+  %71 = lshr i32 %31, 24
+  %72 = add nuw nsw i32 %71, %21
+  %73 = lshr i32 %71, %4
+  %74 = and i32 %73, 1
+  %75 = add nuw nsw i32 %72, %74
+  %76 = icmp samesign ugt i32 %75, 255
+  %77 = and i32 %75, %notmask.i.i
+  %78 = shl nuw i32 %77, 24
+  %79 = select i1 %76, i32 -16777216, i32 %78
+  %80 = lshr i32 %31, 16
+  %81 = and i32 %80, 255
+  %82 = add nuw nsw i32 %81, %21
+  %83 = lshr i32 %81, %4
+  %84 = and i32 %83, 1
+  %85 = add nuw nsw i32 %82, %84
+  %86 = icmp samesign ugt i32 %85, 255
+  %87 = and i32 %85, %notmask.i.i
+  %88 = shl nuw nsw i32 %87, 16
+  %89 = select i1 %86, i32 16711680, i32 %88
+  %90 = lshr i32 %31, 8
+  %91 = and i32 %90, 255
+  %92 = add nuw nsw i32 %91, %21
+  %93 = lshr i32 %91, %4
+  %94 = and i32 %93, 1
+  %95 = add nuw nsw i32 %92, %94
+  %96 = icmp samesign ugt i32 %95, 255
+  %97 = and i32 %95, %notmask.i.i
+  %98 = shl nuw nsw i32 %97, 8
+  %99 = select i1 %96, i32 65280, i32 %98
+  %100 = and i32 %31, 255
+  %101 = add nuw nsw i32 %100, %21
+  %102 = lshr i32 %100, %4
+  %103 = and i32 %102, 1
+  %104 = add nuw nsw i32 %101, %103
+  %105 = icmp samesign ugt i32 %104, 255
+  %106 = and i32 %104, %notmask.i.i
+  %.0.i13.i.us = select i1 %105, i32 255, i32 %106
+  %107 = or i32 %79, %.0.i13.i.us
+  %108 = or i32 %107, %89
+  %109 = or i32 %108, %99
+  br label %110
 
-IsSmooth.exit.us:                                 ; preds = %113, %.loopexit.us
-  %.sink = phi i32 [ %112, %.loopexit.us ], [ %31, %113 ]
-  %115 = getelementptr inbounds nuw i32, ptr %.05971.us, i64 %indvars.iv
-  store i32 %.sink, ptr %115, align 4
+110:                                              ; preds = %IsSmooth.exit.us, %IsSmooth.exit.thread.us
+  %.sink = phi i32 [ %109, %IsSmooth.exit.thread.us ], [ %31, %IsSmooth.exit.us ]
+  %111 = getelementptr inbounds nuw i32, ptr %.05969.us, i64 %indvars.iv
+  store i32 %.sink, ptr %111, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond84.not, label %..loopexit68_crit_edge.us, label %29, !llvm.loop !8
+  %exitcond81.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond81.not, label %..loopexit_crit_edge.us, label %29, !llvm.loop !20
 
-116:                                              ; preds = %.split.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05971.us, ptr align 4 %.076.us, i64 %12, i1 false)
-  br label %..loopexit68_crit_edge.us
+112:                                              ; preds = %.split.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05969.us, ptr align 4 %.074.us, i64 %12, i1 false)
+  br label %..loopexit_crit_edge.us
 
-..loopexit68_crit_edge.us:                        ; preds = %IsSmooth.exit.us, %116
-  %117 = add nuw nsw i32 %.06070.us, 1
-  %118 = getelementptr inbounds i32, ptr %.076.us, i64 %13
-  %119 = getelementptr inbounds nuw i32, ptr %.05971.us, i64 %9
-  %exitcond85.not = icmp eq i32 %117, %1
-  br i1 %exitcond85.not, label %.split78.us, label %.split.us, !llvm.loop !9
+..loopexit_crit_edge.us:                          ; preds = %110, %112
+  %113 = add nuw nsw i32 %.06068.us, 1
+  %114 = getelementptr inbounds i32, ptr %.074.us, i64 %13
+  %115 = getelementptr inbounds nuw i32, ptr %.05969.us, i64 %9
+  %exitcond82.not = icmp eq i32 %113, %1
+  br i1 %exitcond82.not, label %.split76.us, label %.split.us, !llvm.loop !21
 
-.split:                                           ; preds = %7, %128
-  %.076 = phi ptr [ %130, %128 ], [ %2, %7 ]
-  %.05675 = phi ptr [ %.05873, %128 ], [ %11, %7 ]
-  %.05774 = phi ptr [ %.05675, %128 ], [ %10, %7 ]
-  %.05873 = phi ptr [ %.05774, %128 ], [ %5, %7 ]
-  %.05971 = phi ptr [ %131, %128 ], [ %6, %7 ]
-  %.06070 = phi i32 [ %129, %128 ], [ 0, %7 ]
-  %120 = icmp eq i32 %.06070, 0
-  %121 = icmp eq i32 %.06070, %15
-  %or.cond = select i1 %120, i1 true, i1 %121
-  br i1 %or.cond, label %122, label %.loopexit68
+.split:                                           ; preds = %7, %124
+  %.074 = phi ptr [ %126, %124 ], [ %2, %7 ]
+  %.05673 = phi ptr [ %.05871, %124 ], [ %11, %7 ]
+  %.05772 = phi ptr [ %.05673, %124 ], [ %10, %7 ]
+  %.05871 = phi ptr [ %.05772, %124 ], [ %5, %7 ]
+  %.05969 = phi ptr [ %127, %124 ], [ %6, %7 ]
+  %.06068 = phi i32 [ %125, %124 ], [ 0, %7 ]
+  %116 = icmp eq i32 %.06068, 0
+  %117 = icmp eq i32 %.06068, %15
+  %or.cond = select i1 %116, i1 true, i1 %117
+  br i1 %or.cond, label %118, label %.loopexit
 
-122:                                              ; preds = %.split
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05971, ptr align 4 %.076, i64 %12, i1 false)
-  br label %128
+118:                                              ; preds = %.split
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05969, ptr align 4 %.074, i64 %12, i1 false)
+  br label %124
 
-.loopexit68:                                      ; preds = %.split
-  %123 = getelementptr inbounds i32, ptr %.076, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05675, ptr align 4 %123, i64 %12, i1 false)
-  %124 = load i32, ptr %.076, align 4
-  store i32 %124, ptr %.05971, align 4
-  %125 = getelementptr inbounds i32, ptr %.076, i64 %17
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds i32, ptr %.05971, i64 %17
-  store i32 %126, ptr %127, align 4
-  br label %128
+.loopexit:                                        ; preds = %.split
+  %119 = getelementptr inbounds i32, ptr %.074, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.05673, ptr align 4 %119, i64 %12, i1 false)
+  %120 = load i32, ptr %.074, align 4, !tbaa !18
+  store i32 %120, ptr %.05969, align 4, !tbaa !18
+  %121 = getelementptr inbounds i32, ptr %.074, i64 %17
+  %122 = load i32, ptr %121, align 4, !tbaa !18
+  %123 = getelementptr inbounds i32, ptr %.05969, i64 %17
+  store i32 %122, ptr %123, align 4, !tbaa !18
+  br label %124
 
-128:                                              ; preds = %.loopexit68, %122
-  %129 = add nuw nsw i32 %.06070, 1
-  %130 = getelementptr inbounds i32, ptr %.076, i64 %13
-  %131 = getelementptr inbounds i32, ptr %.05971, i64 %9
-  %exitcond.not = icmp eq i32 %129, %1
-  br i1 %exitcond.not, label %.split78.us, label %.split, !llvm.loop !9
+124:                                              ; preds = %.loopexit, %118
+  %125 = add nuw nsw i32 %.06068, 1
+  %126 = getelementptr inbounds i32, ptr %.074, i64 %13
+  %127 = getelementptr inbounds i32, ptr %.05969, i64 %9
+  %exitcond.not = icmp eq i32 %125, %1
+  br i1 %exitcond.not, label %.split76.us, label %.split, !llvm.loop !21
 
-.split78.us:                                      ; preds = %128, %..loopexit68_crit_edge.us
+.split76.us:                                      ; preds = %124, %..loopexit_crit_edge.us
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !5, i64 8}
+!4 = !{!"WebPPicture", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40, !5, i64 44, !8, i64 48, !5, i64 56, !6, i64 60, !10, i64 72, !5, i64 80, !6, i64 84, !9, i64 96, !9, i64 104, !5, i64 112, !8, i64 120, !11, i64 128, !5, i64 136, !9, i64 144, !9, i64 152, !6, i64 160, !8, i64 176, !8, i64 184, !6, i64 192, !9, i64 224, !9, i64 232, !6, i64 240}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"p1 int", !9, i64 0}
+!11 = !{!"p1 _ZTS12WebPAuxStats", !9, i64 0}
+!12 = !{!4, !5, i64 12}
+!13 = !{!4, !5, i64 80}
+!14 = !{!4, !10, i64 72}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}

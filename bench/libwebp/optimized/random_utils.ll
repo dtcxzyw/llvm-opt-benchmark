@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @VP8InitRandom(ptr noundef writeonly captures(none) initializes((0, 232)) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(220) %3, ptr noundef nonnull align 16 dereferenceable(220) @kRandomTable, i64 220, i1 false)
-  store i32 0, ptr %0, align 4
+  store i32 0, ptr %0, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 31, ptr %4, align 4
+  store i32 31, ptr %4, align 4, !tbaa !8
   %5 = fcmp olt float %1, 0.000000e+00
   %6 = fcmp ogt float %1, 1.000000e+00
   %7 = fmul float %1, 2.560000e+02
@@ -19,19 +19,25 @@ define hidden void @VP8InitRandom(ptr noundef writeonly captures(none) initializ
   %9 = select i1 %6, i32 256, i32 %8
   %10 = select i1 %5, i32 0, i32 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 %10, ptr %11, align 4
+  store i32 %10, ptr %11, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !5, i64 4, !6, i64 8, !5, i64 228}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 4}
+!9 = !{!4, !5, i64 228}

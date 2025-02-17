@@ -21,7 +21,7 @@ define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, 
   %4 = sext i32 %0 to i64
   %5 = sext i32 %3 to i64
   %6 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %4, i64 %5
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !3
   %8 = zext i8 %7 to i32
   ret i32 %8
 }
@@ -29,33 +29,16 @@ define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8InitFilter(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !6
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %9, label %.preheader
+  br i1 %.not, label %4, label %.preheader.preheader
 
-.preheader:                                       ; preds = %1, %7
-  %indvars.iv12 = phi i64 [ %indvars.iv.next13, %7 ], [ 0, %1 ]
+.preheader.preheader:                             ; preds = %1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %3, i8 0, i64 2048, i1 false), !tbaa !16
+  tail call void @VP8SSIMDspInit() #7
   br label %4
 
-4:                                                ; preds = %.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv12, i64 %indvars.iv
-  store double 0.000000e+00, ptr %6, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !4
-
-7:                                                ; preds = %4
-  %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
-  %exitcond15.not = icmp eq i64 %indvars.iv.next13, 4
-  br i1 %exitcond15.not, label %8, label %.preheader, !llvm.loop !6
-
-8:                                                ; preds = %7
-  tail call void @VP8SSIMDspInit() #6
-  br label %9
-
-9:                                                ; preds = %8, %1
+4:                                                ; preds = %.preheader.preheader, %1
   ret void
 }
 
@@ -64,9 +47,9 @@ declare void @VP8SSIMDspInit() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = load i8, ptr %5, align 4
   %7 = lshr i8 %6, 5
   %8 = and i8 %7, 3
@@ -74,14 +57,14 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
   %10 = zext nneg i8 %8 to i64
   %11 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %9, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 680
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !23
   %16 = sub nsw i32 0, %15
   %17 = icmp sgt i32 %15, 1
   %18 = select i1 %17, i32 4, i32 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = icmp eq ptr %20, null
   %22 = and i8 %6, 19
   %or.cond35.not = icmp eq i8 %22, 17
@@ -90,9 +73,9 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !25
   br label %.preheader28.i
 
 .preheader28.i:                                   ; preds = %37, %23
@@ -110,17 +93,17 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
 32:                                               ; preds = %32, %.preheader28.i
   %.130.i = phi double [ %.032.i, %.preheader28.i ], [ %35, %32 ]
   %.02529.i = phi i32 [ 3, %.preheader28.i ], [ %36, %32 ]
-  %33 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %34 = tail call double %33(ptr noundef %25, i32 noundef 32, ptr noundef %27, i32 noundef 32, i32 noundef %.02529.i, i32 noundef %.02331.i, i32 noundef 16, i32 noundef 16) #6
+  %33 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %34 = tail call double %33(ptr noundef %25, i32 noundef 32, ptr noundef %27, i32 noundef 32, i32 noundef %.02529.i, i32 noundef %.02331.i, i32 noundef 16, i32 noundef 16) #7
   %35 = fadd double %.130.i, %34
   %36 = add nuw nsw i32 %.02529.i, 1
   %exitcond.not.i = icmp eq i32 %36, 13
-  br i1 %exitcond.not.i, label %37, label %32, !llvm.loop !7
+  br i1 %exitcond.not.i, label %37, label %32, !llvm.loop !27
 
 37:                                               ; preds = %32
   %38 = add nuw nsw i32 %.02331.i, 1
   %exitcond38.not.i = icmp eq i32 %38, 13
-  br i1 %exitcond38.not.i, label %.preheader27.i, label %.preheader28.i, !llvm.loop !8
+  br i1 %exitcond38.not.i, label %.preheader27.i, label %.preheader28.i, !llvm.loop !29
 
 .preheader.i:                                     ; preds = %47, %.preheader27.i
   %.236.i = phi double [ %35, %.preheader27.i ], [ %45, %47 ]
@@ -130,27 +113,27 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
 39:                                               ; preds = %39, %.preheader.i
   %.334.i = phi double [ %.236.i, %.preheader.i ], [ %45, %39 ]
   %.12433.i = phi i32 [ 1, %.preheader.i ], [ %46, %39 ]
-  %40 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %41 = tail call double %40(ptr noundef nonnull %28, i32 noundef 32, ptr noundef nonnull %29, i32 noundef 32, i32 noundef %.12635.i, i32 noundef %.12433.i, i32 noundef 8, i32 noundef 8) #6
+  %40 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %41 = tail call double %40(ptr noundef nonnull %28, i32 noundef 32, ptr noundef nonnull %29, i32 noundef 32, i32 noundef %.12635.i, i32 noundef %.12433.i, i32 noundef 8, i32 noundef 8) #7
   %42 = fadd double %.334.i, %41
-  %43 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %44 = tail call double %43(ptr noundef nonnull %30, i32 noundef 32, ptr noundef nonnull %31, i32 noundef 32, i32 noundef %.12635.i, i32 noundef %.12433.i, i32 noundef 8, i32 noundef 8) #6
+  %43 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %44 = tail call double %43(ptr noundef nonnull %30, i32 noundef 32, ptr noundef nonnull %31, i32 noundef 32, i32 noundef %.12635.i, i32 noundef %.12433.i, i32 noundef 8, i32 noundef 8) #7
   %45 = fadd double %42, %44
   %46 = add nuw nsw i32 %.12433.i, 1
   %exitcond39.not.i = icmp eq i32 %46, 7
-  br i1 %exitcond39.not.i, label %47, label %39, !llvm.loop !9
+  br i1 %exitcond39.not.i, label %47, label %39, !llvm.loop !30
 
 47:                                               ; preds = %39
   %48 = add nuw nsw i32 %.12635.i, 1
   %exitcond40.not.i = icmp eq i32 %48, 7
-  br i1 %exitcond40.not.i, label %GetMBSSIM.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond40.not.i, label %GetMBSSIM.exit, label %.preheader.i, !llvm.loop !31
 
 GetMBSSIM.exit:                                   ; preds = %47
-  %49 = load ptr, ptr %19, align 8
+  %49 = load ptr, ptr %19, align 8, !tbaa !6
   %50 = getelementptr inbounds nuw [4 x [64 x double]], ptr %49, i64 0, i64 %10
-  %51 = load double, ptr %50, align 8
+  %51 = load double, ptr %50, align 8, !tbaa !16
   %52 = fadd double %45, %51
-  store double %52, ptr %50, align 8
+  store double %52, ptr %50, align 8, !tbaa !16
   %.not3456 = icmp slt i32 %15, 0
   br i1 %.not3456, label %.loopexit, label %.lr.ph
 
@@ -166,10 +149,10 @@ GetMBSSIM.exit:                                   ; preds = %47
   br i1 %or.cond, label %115, label %57
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %2, align 8
-  %59 = load ptr, ptr %58, align 8
+  %58 = load ptr, ptr %2, align 8, !tbaa !18
+  %59 = load ptr, ptr %58, align 8, !tbaa !32
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 4, !tbaa !45
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %GetILevel.exit.i
 
@@ -186,19 +169,19 @@ GetILevel.exit.i:                                 ; preds = %63, %57
   %spec.store.select.i.i = tail call range(i32 1, 64) i32 @llvm.smax.i32(i32 %.0.i.i, i32 1)
   %66 = shl nuw nsw i32 %55, 1
   %67 = add nuw nsw i32 %spec.store.select.i.i, %66
-  %68 = load ptr, ptr %53, align 8
-  %69 = load ptr, ptr %26, align 8
+  %68 = load ptr, ptr %53, align 8, !tbaa !48
+  %69 = load ptr, ptr %26, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %68, ptr noundef nonnull align 1 dereferenceable(512) %69, i64 512, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %71 = load i32, ptr %70, align 8
+  %71 = load i32, ptr %70, align 8, !tbaa !49
   %72 = icmp eq i32 %71, 1
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %GetILevel.exit.i
-  %74 = load ptr, ptr @VP8SimpleHFilter16i, align 8
-  tail call void %74(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #6
-  %75 = load ptr, ptr @VP8SimpleVFilter16i, align 8
-  tail call void %75(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #6
+  %74 = load ptr, ptr @VP8SimpleHFilter16i, align 8, !tbaa !26
+  tail call void %74(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #7
+  %75 = load ptr, ptr @VP8SimpleVFilter16i, align 8, !tbaa !26
+  tail call void %75(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #7
   br label %DoFilter.exit
 
 76:                                               ; preds = %GetILevel.exit.i
@@ -208,19 +191,19 @@ GetILevel.exit.i:                                 ; preds = %63, %57
   %80 = icmp samesign ugt i32 %55, 14
   %81 = zext i1 %80 to i32
   %82 = select i1 %79, i32 2, i32 %81
-  %83 = load ptr, ptr @VP8HFilter16i, align 8
-  tail call void %83(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #6
-  %84 = load ptr, ptr @VP8HFilter8i, align 8
-  tail call void %84(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #6
-  %85 = load ptr, ptr @VP8VFilter16i, align 8
-  tail call void %85(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #6
-  %86 = load ptr, ptr @VP8VFilter8i, align 8
-  tail call void %86(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #6
+  %83 = load ptr, ptr @VP8HFilter16i, align 8, !tbaa !26
+  tail call void %83(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
+  %84 = load ptr, ptr @VP8HFilter8i, align 8, !tbaa !26
+  tail call void %84(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
+  %85 = load ptr, ptr @VP8VFilter16i, align 8, !tbaa !26
+  tail call void %85(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
+  %86 = load ptr, ptr @VP8VFilter8i, align 8, !tbaa !26
+  tail call void %86(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
   br label %DoFilter.exit
 
 DoFilter.exit:                                    ; preds = %73, %76
-  %87 = load ptr, ptr %24, align 8
-  %88 = load ptr, ptr %53, align 8
+  %87 = load ptr, ptr %24, align 8, !tbaa !24
+  %88 = load ptr, ptr %53, align 8, !tbaa !48
   br label %.preheader28.i36
 
 .preheader28.i36:                                 ; preds = %98, %DoFilter.exit
@@ -238,17 +221,17 @@ DoFilter.exit:                                    ; preds = %73, %76
 93:                                               ; preds = %93, %.preheader28.i36
   %.130.i39 = phi double [ %.032.i37, %.preheader28.i36 ], [ %96, %93 ]
   %.02529.i40 = phi i32 [ 3, %.preheader28.i36 ], [ %97, %93 ]
-  %94 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %95 = tail call double %94(ptr noundef %87, i32 noundef 32, ptr noundef %88, i32 noundef 32, i32 noundef %.02529.i40, i32 noundef %.02331.i38, i32 noundef 16, i32 noundef 16) #6
+  %94 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %95 = tail call double %94(ptr noundef %87, i32 noundef 32, ptr noundef %88, i32 noundef 32, i32 noundef %.02529.i40, i32 noundef %.02331.i38, i32 noundef 16, i32 noundef 16) #7
   %96 = fadd double %.130.i39, %95
   %97 = add nuw nsw i32 %.02529.i40, 1
   %exitcond.not.i41 = icmp eq i32 %97, 13
-  br i1 %exitcond.not.i41, label %98, label %93, !llvm.loop !7
+  br i1 %exitcond.not.i41, label %98, label %93, !llvm.loop !27
 
 98:                                               ; preds = %93
   %99 = add nuw nsw i32 %.02331.i38, 1
   %exitcond38.not.i42 = icmp eq i32 %99, 13
-  br i1 %exitcond38.not.i42, label %.preheader27.i43, label %.preheader28.i36, !llvm.loop !8
+  br i1 %exitcond38.not.i42, label %.preheader27.i43, label %.preheader28.i36, !llvm.loop !29
 
 .preheader.i44:                                   ; preds = %108, %.preheader27.i43
   %.236.i45 = phi double [ %96, %.preheader27.i43 ], [ %106, %108 ]
@@ -258,34 +241,34 @@ DoFilter.exit:                                    ; preds = %73, %76
 100:                                              ; preds = %100, %.preheader.i44
   %.334.i47 = phi double [ %.236.i45, %.preheader.i44 ], [ %106, %100 ]
   %.12433.i48 = phi i32 [ 1, %.preheader.i44 ], [ %107, %100 ]
-  %101 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %102 = tail call double %101(ptr noundef nonnull %89, i32 noundef 32, ptr noundef nonnull %90, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #6
+  %101 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %102 = tail call double %101(ptr noundef nonnull %89, i32 noundef 32, ptr noundef nonnull %90, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
   %103 = fadd double %.334.i47, %102
-  %104 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %105 = tail call double %104(ptr noundef nonnull %91, i32 noundef 32, ptr noundef nonnull %92, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #6
+  %104 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %105 = tail call double %104(ptr noundef nonnull %91, i32 noundef 32, ptr noundef nonnull %92, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
   %106 = fadd double %103, %105
   %107 = add nuw nsw i32 %.12433.i48, 1
   %exitcond39.not.i49 = icmp eq i32 %107, 7
-  br i1 %exitcond39.not.i49, label %108, label %100, !llvm.loop !9
+  br i1 %exitcond39.not.i49, label %108, label %100, !llvm.loop !30
 
 108:                                              ; preds = %100
   %109 = add nuw nsw i32 %.12635.i46, 1
   %exitcond40.not.i50 = icmp eq i32 %109, 7
-  br i1 %exitcond40.not.i50, label %GetMBSSIM.exit51, label %.preheader.i44, !llvm.loop !10
+  br i1 %exitcond40.not.i50, label %GetMBSSIM.exit51, label %.preheader.i44, !llvm.loop !31
 
 GetMBSSIM.exit51:                                 ; preds = %108
-  %110 = load ptr, ptr %19, align 8
+  %110 = load ptr, ptr %19, align 8, !tbaa !6
   %111 = zext nneg i32 %55 to i64
   %112 = getelementptr inbounds nuw [4 x [64 x double]], ptr %110, i64 0, i64 %10, i64 %111
-  %113 = load double, ptr %112, align 8
+  %113 = load double, ptr %112, align 8, !tbaa !16
   %114 = fadd double %106, %113
-  store double %114, ptr %112, align 8
+  store double %114, ptr %112, align 8, !tbaa !16
   br label %115
 
 115:                                              ; preds = %54, %GetMBSSIM.exit51
   %116 = add nsw i32 %.057, %18
   %.not34 = icmp sgt i32 %116, %15
-  br i1 %.not34, label %.loopexit, label %54, !llvm.loop !11
+  br i1 %.not34, label %.loopexit, label %54, !llvm.loop !50
 
 .loopexit:                                        ; preds = %115, %GetMBSSIM.exit, %1
   ret void
@@ -294,83 +277,82 @@ GetMBSSIM.exit51:                                 ; preds = %108
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %19, label %.preheader45
+  br i1 %.not, label %18, label %.preheader45
 
 .preheader45:                                     ; preds = %1
   %6 = getelementptr i8, ptr %3, i64 1292
   br label %7
 
-7:                                                ; preds = %.preheader45, %17
-  %indvars.iv53 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next54, %17 ]
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53
-  %10 = load double, ptr %9, align 8
-  %11 = fmul double %10, 1.000010e+00
-  br label %12
+7:                                                ; preds = %.preheader45, %16
+  %indvars.iv53 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next54, %16 ]
+  %8 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv53
+  %9 = load double, ptr %8, align 8, !tbaa !16
+  %10 = fmul double %9, 1.000010e+00
+  br label %11
 
-12:                                               ; preds = %7, %12
-  %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %12 ]
-  %.03647 = phi i32 [ 0, %7 ], [ %.1, %12 ]
-  %.04046 = phi double [ %11, %7 ], [ %.141, %12 ]
-  %13 = getelementptr inbounds nuw [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53, i64 %indvars.iv
-  %14 = load double, ptr %13, align 8
-  %15 = fcmp ogt double %14, %.04046
-  %.141 = select i1 %15, double %14, double %.04046
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %.1 = select i1 %15, i32 %16, i32 %.03647
+11:                                               ; preds = %7, %11
+  %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %11 ]
+  %.03647 = phi i32 [ 0, %7 ], [ %.1, %11 ]
+  %.04046 = phi double [ %10, %7 ], [ %.141, %11 ]
+  %12 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv53, i64 %indvars.iv
+  %13 = load double, ptr %12, align 8, !tbaa !16
+  %14 = fcmp ogt double %13, %.04046
+  %.141 = select i1 %14, double %13, double %.04046
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  %.1 = select i1 %14, i32 %15, i32 %.03647
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %17, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %16, label %11, !llvm.loop !51
 
-17:                                               ; preds = %12
+16:                                               ; preds = %11
   %.idx = mul nuw nsw i64 %indvars.iv53, 744
-  %18 = getelementptr i8, ptr %6, i64 %.idx
-  store i32 %.1, ptr %18, align 4
+  %17 = getelementptr i8, ptr %6, i64 %.idx
+  store i32 %.1, ptr %17, align 4, !tbaa !20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond56.not, label %.loopexit, label %7, !llvm.loop !13
+  br i1 %exitcond56.not, label %.loopexit, label %7, !llvm.loop !52
 
-19:                                               ; preds = %1
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.preheader, label %.loopexit
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8, !tbaa !32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %21 = load i32, ptr %20, align 4, !tbaa !53
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 608
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.pre = load i32, ptr %25, align 8
-  %26 = sext i32 %.pre to i64
+.preheader:                                       ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 608
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = load i32, ptr %24, align 8, !tbaa !54
+  %26 = sext i32 %25 to i64
   br label %27
 
 27:                                               ; preds = %.preheader, %45
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
   %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
-  %28 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %24, i64 0, i64 %indvars.iv57
+  %28 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 688
-  %30 = load i32, ptr %29, align 8
+  %30 = load i32, ptr %29, align 8, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 226
-  %32 = load i16, ptr %31, align 2
+  %32 = load i16, ptr %31, align 2, !tbaa !56
   %33 = zext i16 %32 to i32
   %34 = mul nsw i32 %30, %33
   %35 = ashr i32 %34, 3
   %36 = tail call i32 @llvm.smin.i32(i32 %35, i32 63)
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26, i64 %37
-  %39 = load i8, ptr %38, align 1
+  %39 = load i8, ptr %38, align 1, !tbaa !3
   %40 = zext i8 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 684
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !20
   %43 = icmp slt i32 %42, %40
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %27
-  store i32 %40, ptr %41, align 4
+  store i32 %40, ptr %41, align 4, !tbaa !20
   br label %45
 
 45:                                               ; preds = %44, %27
@@ -378,14 +360,14 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %46)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %47, label %27, !llvm.loop !14
+  br i1 %exitcond60.not, label %47, label %27, !llvm.loop !58
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %48, align 4
+  store i32 %spec.select, ptr %48, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %47, %19
+.loopexit:                                        ; preds = %16, %18, %47
   ret void
 }
 
@@ -398,28 +380,77 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !15, i64 320}
+!7 = !{!"", !8, i64 0, !8, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !11, i64 40, !10, i64 48, !12, i64 56, !9, i64 64, !13, i64 72, !4, i64 80, !9, i64 120, !8, i64 128, !4, i64 132, !4, i64 168, !4, i64 208, !14, i64 304, !14, i64 312, !15, i64 320, !8, i64 328, !8, i64 332, !8, i64 336, !8, i64 340, !4, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !4, i64 400, !4, i64 488}
+!8 = !{!"int", !4, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}
+!11 = !{!"p1 _ZTS10VP8Encoder", !10, i64 0}
+!12 = !{!"p1 _ZTS12VP8BitWriter", !10, i64 0}
+!13 = !{!"p1 int", !10, i64 0}
+!14 = !{!"long", !4, i64 0}
+!15 = !{!"p1 double", !10, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"double", !4, i64 0}
+!18 = !{!7, !11, i64 40}
+!19 = !{!7, !10, i64 48}
+!20 = !{!21, !8, i64 684}
+!21 = !{!"", !22, i64 0, !22, i64 224, !22, i64 448, !8, i64 672, !8, i64 676, !8, i64 680, !8, i64 684, !8, i64 688, !8, i64 692, !8, i64 696, !8, i64 700, !8, i64 704, !8, i64 708, !8, i64 712, !8, i64 716, !8, i64 720, !8, i64 724, !8, i64 728, !14, i64 736}
+!22 = !{!"VP8Matrix", !4, i64 0, !4, i64 32, !4, i64 64, !4, i64 128, !4, i64 192}
+!23 = !{!21, !8, i64 680}
+!24 = !{!7, !9, i64 8}
+!25 = !{!7, !9, i64 16}
+!26 = !{!10, !10, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"VP8Encoder", !34, i64 0, !35, i64 8, !36, i64 16, !37, i64 32, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !38, i64 64, !4, i64 112, !39, i64 496, !8, i64 536, !8, i64 540, !9, i64 544, !8, i64 552, !43, i64 560, !4, i64 608, !8, i64 3584, !8, i64 3588, !8, i64 3592, !8, i64 3596, !8, i64 3600, !8, i64 3604, !8, i64 3608, !8, i64 3612, !44, i64 3616, !4, i64 23512, !14, i64 23544, !8, i64 23552, !4, i64 23556, !4, i64 23604, !8, i64 23616, !8, i64 23620, !8, i64 23624, !8, i64 23628, !8, i64 23632, !8, i64 23636, !8, i64 23640, !10, i64 23648, !9, i64 23656, !13, i64 23664, !9, i64 23672, !9, i64 23680, !15, i64 23688, !9, i64 23696}
+!34 = !{!"p1 _ZTS10WebPConfig", !10, i64 0}
+!35 = !{!"p1 _ZTS11WebPPicture", !10, i64 0}
+!36 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
+!37 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
+!38 = !{!"VP8BitWriter", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !14, i64 24, !14, i64 32, !8, i64 40}
+!39 = !{!"", !40, i64 0, !41, i64 8, !42, i64 16, !8, i64 24, !8, i64 28, !8, i64 32}
+!40 = !{!"p1 _ZTS9VP8Tokens", !10, i64 0}
+!41 = !{!"p2 _ZTS9VP8Tokens", !10, i64 0}
+!42 = !{!"p1 short", !10, i64 0}
+!43 = !{!"", !10, i64 0, !8, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !8, i64 40}
+!44 = !{!"", !4, i64 0, !4, i64 3, !4, i64 4, !4, i64 1060, !4, i64 5284, !4, i64 18344, !8, i64 19880, !8, i64 19884, !8, i64 19888}
+!45 = !{!46, !8, i64 36}
+!46 = !{!"WebPConfig", !8, i64 0, !47, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !47, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112}
+!47 = !{!"float", !4, i64 0}
+!48 = !{!7, !9, i64 24}
+!49 = !{!33, !8, i64 16}
+!50 = distinct !{!50, !28}
+!51 = distinct !{!51, !28}
+!52 = distinct !{!52, !28}
+!53 = !{!46, !8, i64 32}
+!54 = !{!33, !8, i64 24}
+!55 = !{!21, !8, i64 688}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"short", !4, i64 0}
+!58 = distinct !{!58, !28}
+!59 = !{!33, !8, i64 20}

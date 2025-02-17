@@ -63,7 +63,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %22, %25
   %28 = phi i32 [ %26, %25 ], [ 0, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !3
   %.not54 = icmp eq i32 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -76,9 +76,9 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %indvars.iv
-  %37 = load i8, ptr %36, align 1
+  %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = sext i8 %37 to i32
-  %39 = load i32, ptr %32, align 4
+  %39 = load i32, ptr %32, align 4, !tbaa !9
   %.not56 = icmp eq i32 %39, 0
   %40 = select i1 %.not56, i32 %3, i32 0
   %spec.select = add nsw i32 %40, %38
@@ -90,7 +90,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(32) %33, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(32) %33, i64 32, i1 false), !tbaa.struct !10
   br label %103
 
 44:                                               ; preds = %35, %41
@@ -102,71 +102,71 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %49 = select i1 %47, i32 0, i32 %48
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1
+  %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = zext i8 %52 to i32
-  store i32 %53, ptr %45, align 4
+  store i32 %53, ptr %45, align 4, !tbaa !11
   %54 = icmp slt i32 %.049, 0
   %55 = tail call i32 @llvm.umin.i32(i32 %.049, i32 127)
   %56 = select i1 %54, i32 0, i32 %55
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %57
-  %59 = load i16, ptr %58, align 2
+  %59 = load i16, ptr %58, align 2, !tbaa !12
   %60 = zext i16 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %60, ptr %61, align 4
+  store i32 %60, ptr %61, align 4, !tbaa !11
   %62 = add nsw i32 %.049, %13
   %63 = icmp slt i32 %62, 0
   %64 = tail call i32 @llvm.umin.i32(i32 %62, i32 127)
   %65 = select i1 %63, i32 0, i32 %64
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
+  %68 = load i8, ptr %67, align 1, !tbaa !8
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 %70, ptr %71, align 4
+  store i32 %70, ptr %71, align 4, !tbaa !11
   %72 = add nsw i32 %.049, %18
   %73 = icmp slt i32 %72, 0
   %74 = tail call i32 @llvm.umin.i32(i32 %72, i32 127)
   %75 = select i1 %73, i32 0, i32 %74
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 2
+  %78 = load i16, ptr %77, align 2, !tbaa !12
   %79 = zext i16 %78 to i32
   %80 = mul nuw nsw i32 %79, 101581
   %81 = lshr i32 %80, 16
   %82 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %83 = icmp samesign ult i32 %75, 2
   %spec.select57 = select i1 %83, i32 8, i32 %81
-  store i32 %spec.select57, ptr %82, align 4
+  store i32 %spec.select57, ptr %82, align 4, !tbaa !11
   %84 = add nsw i32 %.049, %23
   %85 = icmp slt i32 %84, 0
   %86 = tail call i32 @llvm.umin.i32(i32 %84, i32 117)
   %87 = select i1 %85, i32 0, i32 %86
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 1
+  %90 = load i8, ptr %89, align 1, !tbaa !8
   %91 = zext i8 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i32 %91, ptr %92, align 4
+  store i32 %91, ptr %92, align 4, !tbaa !11
   %93 = add nsw i32 %.049, %28
   %94 = icmp slt i32 %93, 0
   %95 = tail call i32 @llvm.umin.i32(i32 %93, i32 127)
   %96 = select i1 %94, i32 0, i32 %95
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %97
-  %99 = load i16, ptr %98, align 2
+  %99 = load i16, ptr %98, align 2, !tbaa !12
   %100 = zext i16 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  store i32 %100, ptr %101, align 4
+  store i32 %100, ptr %101, align 4, !tbaa !11
   %102 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 %93, ptr %102, align 4
+  store i32 %93, ptr %102, align 4, !tbaa !14
   br label %103
 
 103:                                              ; preds = %44, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %104, label %34, !llvm.loop !4
+  br i1 %exitcond.not, label %104, label %34, !llvm.loop !16
 
 104:                                              ; preds = %103
   ret void
@@ -182,17 +182,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !6, i64 16}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!4, !5, i64 8}
+!10 = !{i64 0, i64 8, !8, i64 8, i64 8, !8, i64 16, i64 8, !8, i64 24, i64 4, !11, i64 28, i64 4, !11}
+!11 = !{!5, !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
+!14 = !{!15, !5, i64 24}
+!15 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !5, i64 24, !5, i64 28}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}

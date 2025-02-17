@@ -6,9 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_KeyboardEvent = type { i32, i32, i32, i8, i8, i8, i8, %struct.SDL_Keysym }
 %struct.SDL_Keysym = type { i32, i32, i16, i32 }
 
-@.str = private unnamed_addr constant [3 x i8] c"-h\00", align 1
-@.str.1 = private unnamed_addr constant [48 x i8] c"Usage: %s [-h] image.webp [more_files.webp...]\0A\00", align 1
 @stderr = external global ptr, align 8
+@.str = private unnamed_addr constant [48 x i8] c"Usage: %s [-h] image.webp [more_files.webp...]\0A\00", align 1
+@.str.1 = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"Error opening file: %s\0A\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"File too large.\0A\00", align 1
 @.str.4 = private unnamed_addr constant [24 x i8] c"Error decoding file %s\0A\00", align 1
@@ -23,162 +23,229 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %7, align 4
-  store i32 1, ptr %6, align 4
-  br label %11
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 0, ptr %7, align 4, !tbaa !4
+  %12 = load i32, ptr %4, align 4, !tbaa !4
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %20
 
-11:                                               ; preds = %71, %2
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp slt i32 %12, %13
-  br i1 %14, label %15, label %74
+14:                                               ; preds = %2
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  %17 = getelementptr inbounds ptr, ptr %16, i64 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str, ptr noundef %18) #5
+  br label %89
 
-15:                                               ; preds = %11
-  store ptr null, ptr %8, align 8
-  store ptr null, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = call i32 @strcmp(ptr noundef %20, ptr noundef @.str) #4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %30, label %23
+20:                                               ; preds = %2
+  store i32 1, ptr %6, align 4, !tbaa !4
+  br label %21
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %26)
-  br label %28
+21:                                               ; preds = %85, %20
+  %22 = load i32, ptr %6, align 4, !tbaa !4
+  %23 = load i32, ptr %4, align 4, !tbaa !4
+  %24 = icmp slt i32 %22, %23
+  br i1 %24, label %25, label %88
 
-28:                                               ; preds = %23
+25:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  store ptr null, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr null, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  store i64 0, ptr %10, align 8, !tbaa !15
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = load i32, ptr %6, align 4, !tbaa !4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i32 @strcmp(ptr noundef %30, ptr noundef @.str.1) #6
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %41, label %33
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %5, align 8, !tbaa !8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !13
+  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %36)
+  br label %38
+
+38:                                               ; preds = %33
   store i32 0, ptr %3, align 4
-  br label %80
+  store i32 1, ptr %11, align 4
+  br label %82
 
-29:                                               ; No predecessors!
-  br label %36
+39:                                               ; No predecessors!
+  br label %40
 
-30:                                               ; preds = %15
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %8, align 8
-  br label %36
+40:                                               ; preds = %39
+  br label %47
 
-36:                                               ; preds = %30, %29
-  %37 = load ptr, ptr %8, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %40
+41:                                               ; preds = %25
+  %42 = load ptr, ptr %5, align 8, !tbaa !8
+  %43 = load i32, ptr %6, align 4, !tbaa !4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
+  store ptr %46, ptr %8, align 8, !tbaa !13
+  br label %47
 
-39:                                               ; preds = %36
-  br label %71
+47:                                               ; preds = %41, %40
+  %48 = load ptr, ptr %8, align 8, !tbaa !13
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %8, align 8
-  %42 = call i32 @ImgIoUtilReadFile(ptr noundef %41, ptr noundef %9, ptr noundef %10)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %48, label %44
+50:                                               ; preds = %47
+  store i32 5, ptr %11, align 4
+  br label %82
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str.2, ptr noundef %46) #5
-  br label %75
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %8, align 8, !tbaa !13
+  %53 = call i32 @ImgIoUtilReadFile(ptr noundef %52, ptr noundef %9, ptr noundef %10)
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %59, label %55
 
-48:                                               ; preds = %40
-  %49 = load i64, ptr %10, align 8
-  %50 = load i64, ptr %10, align 8
-  %51 = trunc i64 %50 to i32
-  %52 = sext i32 %51 to i64
-  %53 = icmp ne i64 %49, %52
-  br i1 %53, label %54, label %58
+55:                                               ; preds = %51
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %57 = load ptr, ptr %8, align 8, !tbaa !13
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.2, ptr noundef %57) #5
+  store i32 2, ptr %11, align 4
+  br label %82
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %55) #5
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.3) #5
-  br label %75
+59:                                               ; preds = %51
+  %60 = load i64, ptr %10, align 8, !tbaa !15
+  %61 = load i64, ptr %10, align 8, !tbaa !15
+  %62 = trunc i64 %61 to i32
+  %63 = sext i32 %62 to i64
+  %64 = icmp ne i64 %60, %63
+  br i1 %64, label %65, label %69
 
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %9, align 8
-  %60 = load i64, ptr %10, align 8
-  %61 = trunc i64 %60 to i32
-  %62 = call i32 @WebPToSDL(ptr noundef %59, i32 noundef %61)
-  store i32 %62, ptr %7, align 4
-  %63 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %63) #5
-  %64 = load i32, ptr %7, align 4
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %70, label %66
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @free(ptr noundef %66) #5
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.3) #5
+  store i32 2, ptr %11, align 4
+  br label %82
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr @stderr, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.4, ptr noundef %68) #5
-  br label %75
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %9, align 8, !tbaa !13
+  %71 = load i64, ptr %10, align 8, !tbaa !15
+  %72 = trunc i64 %71 to i32
+  %73 = call i32 @WebPToSDL(ptr noundef %70, i32 noundef %72)
+  store i32 %73, ptr %7, align 4, !tbaa !4
+  %74 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @free(ptr noundef %74) #5
+  %75 = load i32, ptr %7, align 4, !tbaa !4
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %81, label %77
 
-70:                                               ; preds = %58
+77:                                               ; preds = %69
+  %78 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %79 = load ptr, ptr %8, align 8, !tbaa !13
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.4, ptr noundef %79) #5
+  store i32 2, ptr %11, align 4
+  br label %82
+
+81:                                               ; preds = %69
   call void @ProcessEvents()
-  br label %71
+  store i32 0, ptr %11, align 4
+  br label %82
 
-71:                                               ; preds = %70, %39
-  %72 = load i32, ptr %6, align 4
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %6, align 4
-  br label %11, !llvm.loop !5
+82:                                               ; preds = %77, %65, %55, %81, %50, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %83 = load i32, ptr %11, align 4
+  switch i32 %83, label %96 [
+    i32 0, label %84
+    i32 5, label %85
+    i32 2, label %89
+  ]
 
-74:                                               ; preds = %11
-  store i32 1, ptr %7, align 4
-  br label %75
+84:                                               ; preds = %82
+  br label %85
 
-75:                                               ; preds = %74, %66, %54, %44
+85:                                               ; preds = %84, %82
+  %86 = load i32, ptr %6, align 4, !tbaa !4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %6, align 4, !tbaa !4
+  br label %21, !llvm.loop !17
+
+88:                                               ; preds = %21
+  store i32 1, ptr %7, align 4, !tbaa !4
+  br label %89
+
+89:                                               ; preds = %88, %82, %14
   call void @SDL_Quit()
-  br label %76
+  br label %90
 
-76:                                               ; preds = %75
-  %77 = load i32, ptr %7, align 4
-  %78 = icmp ne i32 %77, 0
-  %79 = select i1 %78, i32 0, i32 1
-  store i32 %79, ptr %3, align 4
-  br label %80
+90:                                               ; preds = %89
+  %91 = load i32, ptr %7, align 4, !tbaa !4
+  %92 = icmp ne i32 %91, 0
+  %93 = select i1 %92, i32 0, i32 1
+  store i32 %93, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %96
 
-80:                                               ; preds = %76, %28
-  %81 = load i32, ptr %3, align 4
-  ret i32 %81
+94:                                               ; No predecessors!
+  br label %95
+
+95:                                               ; preds = %94
+  store i32 0, ptr %11, align 4
+  br label %96
+
+96:                                               ; preds = %95, %90, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %97 = load i32, ptr %11, align 4
+  switch i32 %97, label %100 [
+    i32 0, label %98
+    i32 1, label %98
+  ]
+
+98:                                               ; preds = %96, %96
+  %99 = load i32, ptr %3, align 4
+  ret i32 %99
+
+100:                                              ; preds = %96
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-declare i32 @printf(ptr noundef, ...) #2
+declare i32 @printf(ptr noundef, ...) #4
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #2
 
-declare i32 @WebPToSDL(ptr noundef, i32 noundef) #2
+declare i32 @WebPToSDL(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @ProcessEvents() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %union.SDL_Event, align 8
-  store i32 0, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
+  store i32 0, ptr %1, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr %2) #5
   br label %3
 
 3:                                                ; preds = %21, %0
-  %4 = load i32, ptr %1, align 4
+  %4 = load i32, ptr %1, align 4, !tbaa !4
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %9, label %6
 
@@ -192,21 +259,21 @@ define internal void @ProcessEvents() #0 {
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %9
-  %12 = load i32, ptr %2, align 8
+  %12 = load i32, ptr %2, align 8, !tbaa !19
   switch i32 %12, label %20 [
     i32 769, label %13
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds %struct.SDL_KeyboardEvent, ptr %2, i32 0, i32 7
-  %15 = getelementptr inbounds %struct.SDL_Keysym, ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 4
+  %14 = getelementptr inbounds nuw %struct.SDL_KeyboardEvent, ptr %2, i32 0, i32 7
+  %15 = getelementptr inbounds nuw %struct.SDL_Keysym, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 4, !tbaa !19
   switch i32 %16, label %18 [
     i32 113, label %17
   ]
 
 17:                                               ; preds = %13
-  store i32 1, ptr %1, align 4
+  store i32 1, ptr %1, align 4, !tbaa !4
   br label %19
 
 18:                                               ; preds = %13
@@ -219,30 +286,49 @@ define internal void @ProcessEvents() #0 {
   br label %21
 
 21:                                               ; preds = %20, %19
-  br label %3, !llvm.loop !7
+  br label %3, !llvm.loop !20
 
 22:                                               ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 56, ptr %2) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
-declare void @SDL_Quit() #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @SDL_WaitEvent(ptr noundef) #2
+declare void @SDL_Quit() #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+declare i32 @SDL_WaitEvent(ptr noundef) #4
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!6, !6, i64 0}
+!20 = distinct !{!20, !18}

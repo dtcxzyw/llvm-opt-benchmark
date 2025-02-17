@@ -24,7 +24,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -46,52 +46,52 @@ define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %.lr.ph, %ParseIntraMode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ParseIntraMode.exit ]
-  %20 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8, !tbaa !23
   %21 = shl nsw i64 %indvars.iv, 2
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  %23 = load ptr, ptr %8, align 8
+  %23 = load ptr, ptr %8, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw %struct.VP8MBData, ptr %23, i64 %indvars.iv
-  %25 = load i32, ptr %9, align 4
+  %25 = load i32, ptr %9, align 4, !tbaa !25
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %136, label %26
 
 26:                                               ; preds = %19
-  %27 = load i8, ptr %10, align 8
+  %27 = load i8, ptr %10, align 8, !tbaa !26
   %28 = zext i8 %27 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %29 = load i32, ptr %11, align 8, !alias.scope !4
-  %30 = load i32, ptr %12, align 4, !alias.scope !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  %29 = load i32, ptr %11, align 8, !tbaa !30, !alias.scope !27
+  %30 = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !27
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %VP8LoadNewBytes.exit.i.i
 
 32:                                               ; preds = %26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %33 = load ptr, ptr %13, align 8, !alias.scope !10
-  %34 = load ptr, ptr %14, align 8, !alias.scope !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %33 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !36
+  %34 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !36
   %35 = icmp ult ptr %33, %34
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  %.0.copyload.i.i.i = load i64, ptr %33, align 1, !noalias !10
+  %.0.copyload.i.i.i = load i64, ptr %33, align 1, !noalias !36
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 7
-  store ptr %37, ptr %13, align 8, !alias.scope !10
+  store ptr %37, ptr %13, align 8, !tbaa !35, !alias.scope !36
   %38 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i)
-  %39 = load i64, ptr %0, align 8, !alias.scope !10
+  %39 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !36
   %40 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %38, i64 56)
-  store i64 %40, ptr %0, align 8, !alias.scope !10
+  store i64 %40, ptr %0, align 8, !tbaa !38, !alias.scope !36
   %41 = add nsw i32 %30, 56
   br label %VP8LoadNewBytes.exit.i.i
 
 42:                                               ; preds = %32
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i.i = load i32, ptr %12, align 4, !alias.scope !4
+  %.pre.i.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !27
   br label %VP8LoadNewBytes.exit.i.i
 
 VP8LoadNewBytes.exit.i.i:                         ; preds = %42, %36, %26
   %43 = phi i32 [ %.pre.i.i, %42 ], [ %41, %36 ], [ %30, %26 ]
   %44 = mul i32 %29, %28
   %45 = lshr i32 %44, 8
-  %46 = load i64, ptr %0, align 8, !alias.scope !4
+  %46 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !27
   %47 = zext i32 %43 to i64
   %48 = lshr i64 %46, %47
   %49 = trunc i64 %48 to i32
@@ -104,7 +104,7 @@ VP8LoadNewBytes.exit.i.i:                         ; preds = %42, %36, %26
   %53 = zext nneg i32 %52 to i64
   %54 = shl i64 %53, %47
   %55 = sub i64 %46, %54
-  store i64 %55, ptr %0, align 8, !alias.scope !4
+  store i64 %55, ptr %0, align 8, !tbaa !38, !alias.scope !27
   br label %VP8GetBit.exit.i
 
 56:                                               ; preds = %VP8LoadNewBytes.exit.i.i
@@ -118,39 +118,39 @@ VP8GetBit.exit.i:                                 ; preds = %56, %50
   %60 = xor i32 %59, 24
   %61 = shl i32 %.0.i.i, %60
   %62 = sub nsw i32 %43, %60
-  store i32 %62, ptr %12, align 4, !alias.scope !4
+  store i32 %62, ptr %12, align 4, !tbaa !31, !alias.scope !27
   %63 = add i32 %61, -1
-  store i32 %63, ptr %11, align 8, !alias.scope !4
+  store i32 %63, ptr %11, align 8, !tbaa !30, !alias.scope !27
   %64 = icmp slt i32 %62, 0
   br i1 %.not135.i, label %100, label %65
 
 65:                                               ; preds = %VP8GetBit.exit.i
-  %66 = load i8, ptr %15, align 1
+  %66 = load i8, ptr %15, align 1, !tbaa !26
   %67 = zext i8 %66 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   br i1 %64, label %68, label %VP8LoadNewBytes.exit.i75.i
 
 68:                                               ; preds = %65
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %69 = load ptr, ptr %13, align 8, !alias.scope !17
-  %70 = load ptr, ptr %14, align 8, !alias.scope !17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %69 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !45
+  %70 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !45
   %71 = icmp ult ptr %69, %70
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %68
-  %.0.copyload.i.i78.i = load i64, ptr %69, align 1, !noalias !17
+  %.0.copyload.i.i78.i = load i64, ptr %69, align 1, !noalias !45
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 7
-  store ptr %73, ptr %13, align 8, !alias.scope !17
+  store ptr %73, ptr %13, align 8, !tbaa !35, !alias.scope !45
   %74 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i78.i)
   %75 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %74, i64 56)
-  store i64 %75, ptr %0, align 8, !alias.scope !17
+  store i64 %75, ptr %0, align 8, !tbaa !38, !alias.scope !45
   %76 = add nsw i32 %62, 56
   br label %VP8LoadNewBytes.exit.i75.i
 
 77:                                               ; preds = %68
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i77.i = load i32, ptr %12, align 4, !alias.scope !11
-  %.pre.i = load i64, ptr %0, align 8, !alias.scope !11
+  %.pre.i77.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !39
+  %.pre.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !39
   br label %VP8LoadNewBytes.exit.i75.i
 
 VP8LoadNewBytes.exit.i75.i:                       ; preds = %77, %72, %65
@@ -170,7 +170,7 @@ VP8LoadNewBytes.exit.i75.i:                       ; preds = %77, %72, %65
   %89 = zext nneg i32 %88 to i64
   %90 = shl i64 %89, %82
   %91 = sub i64 %78, %90
-  store i64 %91, ptr %0, align 8, !alias.scope !11
+  store i64 %91, ptr %0, align 8, !tbaa !38, !alias.scope !39
   br label %VP8GetBit.exit79.i
 
 92:                                               ; preds = %VP8LoadNewBytes.exit.i75.i
@@ -184,38 +184,38 @@ VP8GetBit.exit79.i:                               ; preds = %92, %86
   %96 = xor i32 %95, 24
   %97 = shl i32 %.0.i76.i, %96
   %98 = sub nsw i32 %79, %96
-  store i32 %98, ptr %12, align 4, !alias.scope !11
+  store i32 %98, ptr %12, align 4, !tbaa !31, !alias.scope !39
   %99 = add i32 %97, -1
-  store i32 %99, ptr %11, align 8, !alias.scope !11
+  store i32 %99, ptr %11, align 8, !tbaa !30, !alias.scope !39
   br label %136
 
 100:                                              ; preds = %VP8GetBit.exit.i
-  %101 = load i8, ptr %16, align 2
+  %101 = load i8, ptr %16, align 2, !tbaa !26
   %102 = zext i8 %101 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   br i1 %64, label %103, label %VP8LoadNewBytes.exit.i80.i
 
 103:                                              ; preds = %100
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %104 = load ptr, ptr %13, align 8, !alias.scope !24
-  %105 = load ptr, ptr %14, align 8, !alias.scope !24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %104 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !52
+  %105 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !52
   %106 = icmp ult ptr %104, %105
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %103
-  %.0.copyload.i.i83.i = load i64, ptr %104, align 1, !noalias !24
+  %.0.copyload.i.i83.i = load i64, ptr %104, align 1, !noalias !52
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 7
-  store ptr %108, ptr %13, align 8, !alias.scope !24
+  store ptr %108, ptr %13, align 8, !tbaa !35, !alias.scope !52
   %109 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i83.i)
   %110 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %109, i64 56)
-  store i64 %110, ptr %0, align 8, !alias.scope !24
+  store i64 %110, ptr %0, align 8, !tbaa !38, !alias.scope !52
   %111 = add nsw i32 %62, 56
   br label %VP8LoadNewBytes.exit.i80.i
 
 112:                                              ; preds = %103
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i82.i = load i32, ptr %12, align 4, !alias.scope !18
-  %.pre159.i = load i64, ptr %0, align 8, !alias.scope !18
+  %.pre.i82.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !46
+  %.pre159.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !46
   br label %VP8LoadNewBytes.exit.i80.i
 
 VP8LoadNewBytes.exit.i80.i:                       ; preds = %112, %107, %100
@@ -235,7 +235,7 @@ VP8LoadNewBytes.exit.i80.i:                       ; preds = %112, %107, %100
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %124, %117
   %126 = sub i64 %113, %125
-  store i64 %126, ptr %0, align 8, !alias.scope !18
+  store i64 %126, ptr %0, align 8, !tbaa !38, !alias.scope !46
   br label %VP8GetBit.exit84.i
 
 127:                                              ; preds = %VP8LoadNewBytes.exit.i80.i
@@ -249,57 +249,62 @@ VP8GetBit.exit84.i:                               ; preds = %127, %121
   %131 = xor i32 %130, 24
   %132 = shl i32 %.0.i81.i, %131
   %133 = sub nsw i32 %114, %131
-  store i32 %133, ptr %12, align 4, !alias.scope !18
+  store i32 %133, ptr %12, align 4, !tbaa !31, !alias.scope !46
   %134 = add i32 %132, -1
-  store i32 %134, ptr %11, align 8, !alias.scope !18
+  store i32 %134, ptr %11, align 8, !tbaa !30, !alias.scope !46
   %135 = or disjoint i8 %129, 2
   br label %136
 
 136:                                              ; preds = %VP8GetBit.exit84.i, %VP8GetBit.exit79.i, %19
   %.sink.i = phi i8 [ %94, %VP8GetBit.exit79.i ], [ %135, %VP8GetBit.exit84.i ], [ 0, %19 ]
   %137 = getelementptr inbounds nuw i8, ptr %24, i64 798
-  store i8 %.sink.i, ptr %137, align 2
-  %138 = load i32, ptr %17, align 8
+  store i8 %.sink.i, ptr %137, align 2, !tbaa !53
+  %138 = load i32, ptr %17, align 8, !tbaa !55
   %.not65.i = icmp eq i32 %138, 0
-  br i1 %.not65.i, label %179, label %139
+  br i1 %.not65.i, label %._crit_edge160.i, label %139
+
+._crit_edge160.i:                                 ; preds = %136
+  %.pre161.i = load i32, ptr %11, align 8, !tbaa !30, !alias.scope !56
+  %.pre163.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !56
+  br label %179
 
 139:                                              ; preds = %136
-  %140 = load i8, ptr %18, align 4
+  %140 = load i8, ptr %18, align 4, !tbaa !59
   %141 = zext i8 %140 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %142 = load i32, ptr %11, align 8, !alias.scope !25
-  %143 = load i32, ptr %12, align 4, !alias.scope !25
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  %142 = load i32, ptr %11, align 8, !tbaa !30, !alias.scope !60
+  %143 = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !60
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %VP8LoadNewBytes.exit.i85.i
 
 145:                                              ; preds = %139
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %146 = load ptr, ptr %13, align 8, !alias.scope !31
-  %147 = load ptr, ptr %14, align 8, !alias.scope !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  %146 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !66
+  %147 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !66
   %148 = icmp ult ptr %146, %147
   br i1 %148, label %149, label %155
 
 149:                                              ; preds = %145
-  %.0.copyload.i.i88.i = load i64, ptr %146, align 1, !noalias !31
+  %.0.copyload.i.i88.i = load i64, ptr %146, align 1, !noalias !66
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 7
-  store ptr %150, ptr %13, align 8, !alias.scope !31
+  store ptr %150, ptr %13, align 8, !tbaa !35, !alias.scope !66
   %151 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i88.i)
-  %152 = load i64, ptr %0, align 8, !alias.scope !31
+  %152 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !66
   %153 = tail call i64 @llvm.fshl.i64(i64 %152, i64 %151, i64 56)
-  store i64 %153, ptr %0, align 8, !alias.scope !31
+  store i64 %153, ptr %0, align 8, !tbaa !38, !alias.scope !66
   %154 = add nsw i32 %143, 56
   br label %VP8LoadNewBytes.exit.i85.i
 
 155:                                              ; preds = %145
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i87.i = load i32, ptr %12, align 4, !alias.scope !25
+  %.pre.i87.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !60
   br label %VP8LoadNewBytes.exit.i85.i
 
 VP8LoadNewBytes.exit.i85.i:                       ; preds = %155, %149, %139
   %156 = phi i32 [ %.pre.i87.i, %155 ], [ %154, %149 ], [ %143, %139 ]
   %157 = mul i32 %142, %141
   %158 = lshr i32 %157, 8
-  %159 = load i64, ptr %0, align 8, !alias.scope !25
+  %159 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !60
   %160 = zext i32 %156 to i64
   %161 = lshr i64 %159, %160
   %162 = trunc i64 %161 to i32
@@ -312,7 +317,7 @@ VP8LoadNewBytes.exit.i85.i:                       ; preds = %155, %149, %139
   %167 = zext nneg i32 %166 to i64
   %168 = shl i64 %167, %160
   %169 = sub i64 %159, %168
-  store i64 %169, ptr %0, align 8, !alias.scope !25
+  store i64 %169, ptr %0, align 8, !tbaa !38, !alias.scope !60
   br label %VP8GetBit.exit89.i
 
 170:                                              ; preds = %VP8LoadNewBytes.exit.i85.i
@@ -325,49 +330,49 @@ VP8GetBit.exit89.i:                               ; preds = %170, %164
   %173 = xor i32 %172, 24
   %174 = shl i32 %.0.i86.i, %173
   %175 = sub nsw i32 %156, %173
-  store i32 %175, ptr %12, align 4, !alias.scope !25
+  store i32 %175, ptr %12, align 4, !tbaa !31, !alias.scope !60
   %176 = add i32 %174, -1
-  store i32 %176, ptr %11, align 8, !alias.scope !25
+  store i32 %176, ptr %11, align 8, !tbaa !30, !alias.scope !60
   %177 = zext i1 %163 to i8
   %178 = getelementptr inbounds nuw i8, ptr %24, i64 797
-  store i8 %177, ptr %178, align 1
+  store i8 %177, ptr %178, align 1, !tbaa !67
   br label %179
 
-179:                                              ; preds = %VP8GetBit.exit89.i, %136
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %180 = load i32, ptr %11, align 8, !alias.scope !32
-  %181 = load i32, ptr %12, align 4, !alias.scope !32
-  %182 = icmp slt i32 %181, 0
+179:                                              ; preds = %VP8GetBit.exit89.i, %._crit_edge160.i
+  %180 = phi i32 [ %.pre163.i, %._crit_edge160.i ], [ %175, %VP8GetBit.exit89.i ]
+  %181 = phi i32 [ %.pre161.i, %._crit_edge160.i ], [ %176, %VP8GetBit.exit89.i ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %182 = icmp slt i32 %180, 0
   br i1 %182, label %183, label %VP8LoadNewBytes.exit.i90.i
 
 183:                                              ; preds = %179
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %184 = load ptr, ptr %13, align 8, !alias.scope !38
-  %185 = load ptr, ptr %14, align 8, !alias.scope !38
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %184 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !71
+  %185 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !71
   %186 = icmp ult ptr %184, %185
   br i1 %186, label %187, label %193
 
 187:                                              ; preds = %183
-  %.0.copyload.i.i93.i = load i64, ptr %184, align 1, !noalias !38
+  %.0.copyload.i.i93.i = load i64, ptr %184, align 1, !noalias !71
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 7
-  store ptr %188, ptr %13, align 8, !alias.scope !38
+  store ptr %188, ptr %13, align 8, !tbaa !35, !alias.scope !71
   %189 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i93.i)
-  %190 = load i64, ptr %0, align 8, !alias.scope !38
+  %190 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !71
   %191 = tail call i64 @llvm.fshl.i64(i64 %190, i64 %189, i64 56)
-  store i64 %191, ptr %0, align 8, !alias.scope !38
-  %192 = add nsw i32 %181, 56
+  store i64 %191, ptr %0, align 8, !tbaa !38, !alias.scope !71
+  %192 = add nsw i32 %180, 56
   br label %VP8LoadNewBytes.exit.i90.i
 
 193:                                              ; preds = %183
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i92.i = load i32, ptr %12, align 4, !alias.scope !32
+  %.pre.i92.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !56
   br label %VP8LoadNewBytes.exit.i90.i
 
 VP8LoadNewBytes.exit.i90.i:                       ; preds = %193, %187, %179
-  %194 = phi i32 [ %.pre.i92.i, %193 ], [ %192, %187 ], [ %181, %179 ]
-  %195 = mul i32 %180, 145
+  %194 = phi i32 [ %.pre.i92.i, %193 ], [ %192, %187 ], [ %180, %179 ]
+  %195 = mul i32 %181, 145
   %196 = lshr i32 %195, 8
-  %197 = load i64, ptr %0, align 8, !alias.scope !32
+  %197 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !56
   %198 = zext i32 %194 to i64
   %199 = lshr i64 %197, %198
   %200 = trunc i64 %199 to i32
@@ -375,12 +380,12 @@ VP8LoadNewBytes.exit.i90.i:                       ; preds = %193, %187, %179
   br i1 %201, label %208, label %202
 
 202:                                              ; preds = %VP8LoadNewBytes.exit.i90.i
-  %203 = sub i32 %180, %196
+  %203 = sub i32 %181, %196
   %204 = add nuw nsw i32 %196, 1
   %205 = zext nneg i32 %204 to i64
   %206 = shl i64 %205, %198
   %207 = sub i64 %197, %206
-  store i64 %207, ptr %0, align 8, !alias.scope !32
+  store i64 %207, ptr %0, align 8, !tbaa !38, !alias.scope !56
   br label %VP8GetBit.exit94.i
 
 208:                                              ; preds = %VP8LoadNewBytes.exit.i90.i
@@ -393,601 +398,599 @@ VP8GetBit.exit94.i:                               ; preds = %208, %202
   %211 = xor i32 %210, 24
   %212 = shl i32 %.0.i91.i, %211
   %213 = sub nsw i32 %194, %211
-  store i32 %213, ptr %12, align 4, !alias.scope !32
+  store i32 %213, ptr %12, align 4, !tbaa !31, !alias.scope !56
   %214 = add i32 %212, -1
-  store i32 %214, ptr %11, align 8, !alias.scope !32
+  store i32 %214, ptr %11, align 8, !tbaa !30, !alias.scope !56
   %215 = zext i1 %201 to i8
   %216 = getelementptr inbounds nuw i8, ptr %24, i64 768
-  store i8 %215, ptr %216, align 4
-  br i1 %201, label %312, label %217
+  store i8 %215, ptr %216, align 4, !tbaa !72
+  br i1 %201, label %310, label %217
 
 217:                                              ; preds = %VP8GetBit.exit94.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %218 = load i32, ptr %11, align 8, !alias.scope !39
-  %219 = load i32, ptr %12, align 4, !alias.scope !39
-  %220 = icmp slt i32 %219, 0
-  br i1 %220, label %221, label %VP8LoadNewBytes.exit.i95.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %218 = icmp slt i32 %213, 0
+  br i1 %218, label %219, label %VP8LoadNewBytes.exit.i95.i
 
-221:                                              ; preds = %217
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %222 = load ptr, ptr %13, align 8, !alias.scope !45
-  %223 = load ptr, ptr %14, align 8, !alias.scope !45
-  %224 = icmp ult ptr %222, %223
-  br i1 %224, label %225, label %231
+219:                                              ; preds = %217
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  %220 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !79
+  %221 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !79
+  %222 = icmp ult ptr %220, %221
+  br i1 %222, label %223, label %229
 
-225:                                              ; preds = %221
-  %.0.copyload.i.i98.i = load i64, ptr %222, align 1, !noalias !45
-  %226 = getelementptr inbounds nuw i8, ptr %222, i64 7
-  store ptr %226, ptr %13, align 8, !alias.scope !45
-  %227 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i98.i)
-  %228 = load i64, ptr %0, align 8, !alias.scope !45
-  %229 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %227, i64 56)
-  store i64 %229, ptr %0, align 8, !alias.scope !45
-  %230 = add nsw i32 %219, 56
+223:                                              ; preds = %219
+  %.0.copyload.i.i98.i = load i64, ptr %220, align 1, !noalias !79
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 7
+  store ptr %224, ptr %13, align 8, !tbaa !35, !alias.scope !79
+  %225 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i98.i)
+  %226 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !79
+  %227 = tail call i64 @llvm.fshl.i64(i64 %226, i64 %225, i64 56)
+  store i64 %227, ptr %0, align 8, !tbaa !38, !alias.scope !79
+  %228 = add nsw i32 %213, 56
   br label %VP8LoadNewBytes.exit.i95.i
 
-231:                                              ; preds = %221
+229:                                              ; preds = %219
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i97.i = load i32, ptr %12, align 4, !alias.scope !39
+  %.pre.i97.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !73
   br label %VP8LoadNewBytes.exit.i95.i
 
-VP8LoadNewBytes.exit.i95.i:                       ; preds = %231, %225, %217
-  %232 = phi i32 [ %.pre.i97.i, %231 ], [ %230, %225 ], [ %219, %217 ]
-  %233 = mul i32 %218, 156
-  %234 = lshr i32 %233, 8
-  %235 = load i64, ptr %0, align 8, !alias.scope !39
-  %236 = zext i32 %232 to i64
-  %237 = lshr i64 %235, %236
-  %238 = trunc i64 %237 to i32
-  %.not136.i = icmp ult i32 %234, %238
-  br i1 %.not136.i, label %239, label %245
+VP8LoadNewBytes.exit.i95.i:                       ; preds = %229, %223, %217
+  %230 = phi i32 [ %.pre.i97.i, %229 ], [ %228, %223 ], [ %213, %217 ]
+  %231 = mul i32 %214, 156
+  %232 = lshr i32 %231, 8
+  %233 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !73
+  %234 = zext i32 %230 to i64
+  %235 = lshr i64 %233, %234
+  %236 = trunc i64 %235 to i32
+  %.not136.i = icmp ult i32 %232, %236
+  br i1 %.not136.i, label %237, label %243
 
-239:                                              ; preds = %VP8LoadNewBytes.exit.i95.i
-  %240 = sub i32 %218, %234
-  %241 = add nuw nsw i32 %234, 1
-  %242 = zext nneg i32 %241 to i64
-  %243 = shl i64 %242, %236
-  %244 = sub i64 %235, %243
-  store i64 %244, ptr %0, align 8, !alias.scope !39
+237:                                              ; preds = %VP8LoadNewBytes.exit.i95.i
+  %238 = sub i32 %214, %232
+  %239 = add nuw nsw i32 %232, 1
+  %240 = zext nneg i32 %239 to i64
+  %241 = shl i64 %240, %234
+  %242 = sub i64 %233, %241
+  store i64 %242, ptr %0, align 8, !tbaa !38, !alias.scope !73
   br label %VP8GetBit.exit99.i
 
-245:                                              ; preds = %VP8LoadNewBytes.exit.i95.i
-  %246 = add nuw nsw i32 %234, 1
+243:                                              ; preds = %VP8LoadNewBytes.exit.i95.i
+  %244 = add nuw nsw i32 %232, 1
   br label %VP8GetBit.exit99.i
 
-VP8GetBit.exit99.i:                               ; preds = %245, %239
-  %247 = phi i64 [ %244, %239 ], [ %235, %245 ]
-  %.0.i96.i = phi i32 [ %240, %239 ], [ %246, %245 ]
-  %248 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i96.i, i1 true)
-  %249 = xor i32 %248, 24
-  %250 = shl i32 %.0.i96.i, %249
-  %251 = sub nsw i32 %232, %249
-  store i32 %251, ptr %12, align 4, !alias.scope !39
-  %252 = add i32 %250, -1
-  store i32 %252, ptr %11, align 8, !alias.scope !39
-  %253 = icmp slt i32 %251, 0
-  br i1 %.not136.i, label %254, label %280
+VP8GetBit.exit99.i:                               ; preds = %243, %237
+  %245 = phi i64 [ %242, %237 ], [ %233, %243 ]
+  %.0.i96.i = phi i32 [ %238, %237 ], [ %244, %243 ]
+  %246 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i96.i, i1 true)
+  %247 = xor i32 %246, 24
+  %248 = shl i32 %.0.i96.i, %247
+  %249 = sub nsw i32 %230, %247
+  store i32 %249, ptr %12, align 4, !tbaa !31, !alias.scope !73
+  %250 = add i32 %248, -1
+  store i32 %250, ptr %11, align 8, !tbaa !30, !alias.scope !73
+  %251 = icmp slt i32 %249, 0
+  br i1 %.not136.i, label %252, label %278
 
-254:                                              ; preds = %VP8GetBit.exit99.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  br i1 %253, label %255, label %VP8LoadNewBytes.exit.i100.i
+252:                                              ; preds = %VP8GetBit.exit99.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
+  br i1 %251, label %253, label %VP8LoadNewBytes.exit.i100.i
 
-255:                                              ; preds = %254
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %256 = load ptr, ptr %13, align 8, !alias.scope !52
-  %257 = load ptr, ptr %14, align 8, !alias.scope !52
-  %258 = icmp ult ptr %256, %257
-  br i1 %258, label %259, label %264
+253:                                              ; preds = %252
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
+  %254 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !86
+  %255 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !86
+  %256 = icmp ult ptr %254, %255
+  br i1 %256, label %257, label %262
 
-259:                                              ; preds = %255
-  %.0.copyload.i.i103.i = load i64, ptr %256, align 1, !noalias !52
-  %260 = getelementptr inbounds nuw i8, ptr %256, i64 7
-  store ptr %260, ptr %13, align 8, !alias.scope !52
-  %261 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i103.i)
-  %262 = tail call i64 @llvm.fshl.i64(i64 %247, i64 %261, i64 56)
-  store i64 %262, ptr %0, align 8, !alias.scope !52
-  %263 = add nsw i32 %251, 56
+257:                                              ; preds = %253
+  %.0.copyload.i.i103.i = load i64, ptr %254, align 1, !noalias !86
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 7
+  store ptr %258, ptr %13, align 8, !tbaa !35, !alias.scope !86
+  %259 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i103.i)
+  %260 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %259, i64 56)
+  store i64 %260, ptr %0, align 8, !tbaa !38, !alias.scope !86
+  %261 = add nsw i32 %249, 56
   br label %VP8LoadNewBytes.exit.i100.i
 
-264:                                              ; preds = %255
+262:                                              ; preds = %253
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i102.i = load i32, ptr %12, align 4, !alias.scope !46
-  %.pre161.i = load i64, ptr %0, align 8, !alias.scope !46
+  %.pre.i102.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !80
+  %.pre165.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !80
   br label %VP8LoadNewBytes.exit.i100.i
 
-VP8LoadNewBytes.exit.i100.i:                      ; preds = %264, %259, %254
-  %265 = phi i64 [ %.pre161.i, %264 ], [ %262, %259 ], [ %247, %254 ]
-  %266 = phi i32 [ %.pre.i102.i, %264 ], [ %263, %259 ], [ %251, %254 ]
-  %267 = lshr i32 %252, 1
-  %268 = and i32 %267, 16777215
-  %269 = zext i32 %266 to i64
-  %270 = lshr i64 %265, %269
-  %271 = trunc i64 %270 to i32
-  %.not137.i = icmp ult i32 %268, %271
-  br i1 %.not137.i, label %272, label %278
+VP8LoadNewBytes.exit.i100.i:                      ; preds = %262, %257, %252
+  %263 = phi i64 [ %.pre165.i, %262 ], [ %260, %257 ], [ %245, %252 ]
+  %264 = phi i32 [ %.pre.i102.i, %262 ], [ %261, %257 ], [ %249, %252 ]
+  %265 = lshr i32 %250, 1
+  %266 = and i32 %265, 16777215
+  %267 = zext i32 %264 to i64
+  %268 = lshr i64 %263, %267
+  %269 = trunc i64 %268 to i32
+  %.not137.i = icmp ult i32 %266, %269
+  br i1 %.not137.i, label %270, label %276
 
-272:                                              ; preds = %VP8LoadNewBytes.exit.i100.i
-  %273 = sub i32 %252, %268
-  %274 = add nuw nsw i32 %268, 1
-  %275 = zext nneg i32 %274 to i64
-  %276 = shl i64 %275, %269
-  %277 = sub i64 %265, %276
-  store i64 %277, ptr %0, align 8, !alias.scope !46
+270:                                              ; preds = %VP8LoadNewBytes.exit.i100.i
+  %271 = sub i32 %250, %266
+  %272 = add nuw nsw i32 %266, 1
+  %273 = zext nneg i32 %272 to i64
+  %274 = shl i64 %273, %267
+  %275 = sub i64 %263, %274
+  store i64 %275, ptr %0, align 8, !tbaa !38, !alias.scope !80
   br label %VP8GetBit.exit104.i
 
-278:                                              ; preds = %VP8LoadNewBytes.exit.i100.i
-  %279 = add nuw nsw i32 %268, 1
+276:                                              ; preds = %VP8LoadNewBytes.exit.i100.i
+  %277 = add nuw nsw i32 %266, 1
   br label %VP8GetBit.exit104.i
 
-280:                                              ; preds = %VP8GetBit.exit99.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  br i1 %253, label %281, label %VP8LoadNewBytes.exit.i105.i
+278:                                              ; preds = %VP8GetBit.exit99.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  br i1 %251, label %279, label %VP8LoadNewBytes.exit.i105.i
 
-281:                                              ; preds = %280
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %282 = load ptr, ptr %13, align 8, !alias.scope !59
-  %283 = load ptr, ptr %14, align 8, !alias.scope !59
-  %284 = icmp ult ptr %282, %283
-  br i1 %284, label %285, label %290
+279:                                              ; preds = %278
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  %280 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !93
+  %281 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !93
+  %282 = icmp ult ptr %280, %281
+  br i1 %282, label %283, label %288
 
-285:                                              ; preds = %281
-  %.0.copyload.i.i108.i = load i64, ptr %282, align 1, !noalias !59
-  %286 = getelementptr inbounds nuw i8, ptr %282, i64 7
-  store ptr %286, ptr %13, align 8, !alias.scope !59
-  %287 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i108.i)
-  %288 = tail call i64 @llvm.fshl.i64(i64 %247, i64 %287, i64 56)
-  store i64 %288, ptr %0, align 8, !alias.scope !59
-  %289 = add nsw i32 %251, 56
+283:                                              ; preds = %279
+  %.0.copyload.i.i108.i = load i64, ptr %280, align 1, !noalias !93
+  %284 = getelementptr inbounds nuw i8, ptr %280, i64 7
+  store ptr %284, ptr %13, align 8, !tbaa !35, !alias.scope !93
+  %285 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i108.i)
+  %286 = tail call i64 @llvm.fshl.i64(i64 %245, i64 %285, i64 56)
+  store i64 %286, ptr %0, align 8, !tbaa !38, !alias.scope !93
+  %287 = add nsw i32 %249, 56
   br label %VP8LoadNewBytes.exit.i105.i
 
-290:                                              ; preds = %281
+288:                                              ; preds = %279
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i107.i = load i32, ptr %12, align 4, !alias.scope !53
-  %.pre160.i = load i64, ptr %0, align 8, !alias.scope !53
+  %.pre.i107.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !87
+  %.pre164.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !87
   br label %VP8LoadNewBytes.exit.i105.i
 
-VP8LoadNewBytes.exit.i105.i:                      ; preds = %290, %285, %280
-  %291 = phi i64 [ %.pre160.i, %290 ], [ %288, %285 ], [ %247, %280 ]
-  %292 = phi i32 [ %.pre.i107.i, %290 ], [ %289, %285 ], [ %251, %280 ]
-  %293 = mul i32 %252, 163
-  %294 = lshr i32 %293, 8
-  %295 = zext i32 %292 to i64
-  %296 = lshr i64 %291, %295
-  %297 = trunc i64 %296 to i32
-  %.not138.i = icmp ult i32 %294, %297
-  br i1 %.not138.i, label %298, label %304
+VP8LoadNewBytes.exit.i105.i:                      ; preds = %288, %283, %278
+  %289 = phi i64 [ %.pre164.i, %288 ], [ %286, %283 ], [ %245, %278 ]
+  %290 = phi i32 [ %.pre.i107.i, %288 ], [ %287, %283 ], [ %249, %278 ]
+  %291 = mul i32 %250, 163
+  %292 = lshr i32 %291, 8
+  %293 = zext i32 %290 to i64
+  %294 = lshr i64 %289, %293
+  %295 = trunc i64 %294 to i32
+  %.not138.i = icmp ult i32 %292, %295
+  br i1 %.not138.i, label %296, label %302
 
-298:                                              ; preds = %VP8LoadNewBytes.exit.i105.i
-  %299 = sub i32 %252, %294
-  %300 = add nuw nsw i32 %294, 1
-  %301 = zext nneg i32 %300 to i64
-  %302 = shl i64 %301, %295
-  %303 = sub i64 %291, %302
-  store i64 %303, ptr %0, align 8, !alias.scope !53
+296:                                              ; preds = %VP8LoadNewBytes.exit.i105.i
+  %297 = sub i32 %250, %292
+  %298 = add nuw nsw i32 %292, 1
+  %299 = zext nneg i32 %298 to i64
+  %300 = shl i64 %299, %293
+  %301 = sub i64 %289, %300
+  store i64 %301, ptr %0, align 8, !tbaa !38, !alias.scope !87
   br label %VP8GetBit.exit104.i
 
-304:                                              ; preds = %VP8LoadNewBytes.exit.i105.i
-  %305 = add nuw nsw i32 %294, 1
+302:                                              ; preds = %VP8LoadNewBytes.exit.i105.i
+  %303 = add nuw nsw i32 %292, 1
   br label %VP8GetBit.exit104.i
 
-VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %272
-  %.0.i106.sink171.i = phi i32 [ %273, %272 ], [ %279, %278 ], [ %299, %298 ], [ %305, %304 ]
-  %.sink167.i = phi i32 [ %266, %272 ], [ %266, %278 ], [ %292, %298 ], [ %292, %304 ]
-  %306 = phi i8 [ 1, %272 ], [ 3, %278 ], [ 2, %298 ], [ 0, %304 ]
-  %307 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i106.sink171.i, i1 true)
-  %308 = xor i32 %307, 24
-  %309 = shl i32 %.0.i106.sink171.i, %308
-  %310 = sub nsw i32 %.sink167.i, %308
-  store i32 %310, ptr %12, align 4
-  %storemerge.i = add i32 %309, -1
-  store i32 %storemerge.i, ptr %11, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %24, i64 769
-  store i8 %306, ptr %311, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %22, i8 %306, i64 4, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %7, i8 %306, i64 4, i1 false)
+VP8GetBit.exit104.i:                              ; preds = %302, %296, %276, %270
+  %.0.i106.sink175.i = phi i32 [ %271, %270 ], [ %277, %276 ], [ %297, %296 ], [ %303, %302 ]
+  %.sink171.i = phi i32 [ %264, %270 ], [ %264, %276 ], [ %290, %296 ], [ %290, %302 ]
+  %304 = phi i8 [ 1, %270 ], [ 3, %276 ], [ 2, %296 ], [ 0, %302 ]
+  %305 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i106.sink175.i, i1 true)
+  %306 = xor i32 %305, 24
+  %307 = shl i32 %.0.i106.sink175.i, %306
+  %308 = sub nsw i32 %.sink171.i, %306
+  store i32 %308, ptr %12, align 4, !tbaa !31
+  %storemerge.i = add i32 %307, -1
+  store i32 %storemerge.i, ptr %11, align 8, !tbaa !30
+  %309 = getelementptr inbounds nuw i8, ptr %24, i64 769
+  store i8 %304, ptr %309, align 1, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %22, i8 %304, i64 4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %7, i8 %304, i64 4, i1 false)
   br label %.loopexit.i
 
-312:                                              ; preds = %VP8GetBit.exit94.i
-  %313 = getelementptr inbounds nuw i8, ptr %24, i64 769
-  br label %314
+310:                                              ; preds = %VP8GetBit.exit94.i
+  %311 = getelementptr inbounds nuw i8, ptr %24, i64 769
+  br label %312
 
-314:                                              ; preds = %409, %312
-  %indvars.iv155.i = phi i64 [ 0, %312 ], [ %indvars.iv.next156.i, %409 ]
-  %.060152.i = phi ptr [ %313, %312 ], [ %411, %409 ]
-  %315 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv155.i
-  %316 = load i8, ptr %315, align 1
-  %317 = zext i8 %316 to i32
-  br label %318
+312:                                              ; preds = %407, %310
+  %indvars.iv155.i = phi i64 [ 0, %310 ], [ %indvars.iv.next156.i, %407 ]
+  %.060152.i = phi ptr [ %311, %310 ], [ %409, %407 ]
+  %313 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv155.i
+  %314 = load i8, ptr %313, align 1, !tbaa !26
+  %315 = zext i8 %314 to i32
+  br label %316
 
-318:                                              ; preds = %._crit_edge.i, %314
-  %indvars.iv.i = phi i64 [ 0, %314 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.062149.i = phi i32 [ %317, %314 ], [ %407, %._crit_edge.i ]
-  %319 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
-  %320 = load i8, ptr %319, align 1
-  %321 = zext i8 %320 to i64
-  %322 = zext nneg i32 %.062149.i to i64
-  %323 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %321, i64 %322
-  %324 = load i8, ptr %323, align 1
-  %325 = zext i8 %324 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %326 = load i32, ptr %11, align 8, !alias.scope !60
-  %327 = load i32, ptr %12, align 4, !alias.scope !60
-  %328 = icmp slt i32 %327, 0
-  br i1 %328, label %329, label %VP8LoadNewBytes.exit.i110.i
+316:                                              ; preds = %._crit_edge.i, %312
+  %indvars.iv.i = phi i64 [ 0, %312 ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %.062149.i = phi i32 [ %315, %312 ], [ %405, %._crit_edge.i ]
+  %317 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
+  %318 = load i8, ptr %317, align 1, !tbaa !26
+  %319 = zext i8 %318 to i64
+  %320 = zext nneg i32 %.062149.i to i64
+  %321 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %319, i64 %320
+  %322 = load i8, ptr %321, align 1, !tbaa !26
+  %323 = zext i8 %322 to i32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %324 = load i32, ptr %11, align 8, !tbaa !30, !alias.scope !94
+  %325 = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !94
+  %326 = icmp slt i32 %325, 0
+  br i1 %326, label %327, label %VP8LoadNewBytes.exit.i110.i
 
-329:                                              ; preds = %318
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %330 = load ptr, ptr %13, align 8, !alias.scope !66
-  %331 = load ptr, ptr %14, align 8, !alias.scope !66
-  %332 = icmp ult ptr %330, %331
-  br i1 %332, label %333, label %339
+327:                                              ; preds = %316
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  %328 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !100
+  %329 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !100
+  %330 = icmp ult ptr %328, %329
+  br i1 %330, label %331, label %337
 
-333:                                              ; preds = %329
-  %.0.copyload.i.i113.i = load i64, ptr %330, align 1, !noalias !66
-  %334 = getelementptr inbounds nuw i8, ptr %330, i64 7
-  store ptr %334, ptr %13, align 8, !alias.scope !66
-  %335 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i113.i)
-  %336 = load i64, ptr %0, align 8, !alias.scope !66
-  %337 = tail call i64 @llvm.fshl.i64(i64 %336, i64 %335, i64 56)
-  store i64 %337, ptr %0, align 8, !alias.scope !66
-  %338 = add nsw i32 %327, 56
+331:                                              ; preds = %327
+  %.0.copyload.i.i113.i = load i64, ptr %328, align 1, !noalias !100
+  %332 = getelementptr inbounds nuw i8, ptr %328, i64 7
+  store ptr %332, ptr %13, align 8, !tbaa !35, !alias.scope !100
+  %333 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i113.i)
+  %334 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !100
+  %335 = tail call i64 @llvm.fshl.i64(i64 %334, i64 %333, i64 56)
+  store i64 %335, ptr %0, align 8, !tbaa !38, !alias.scope !100
+  %336 = add nsw i32 %325, 56
   br label %VP8LoadNewBytes.exit.i110.i
 
-339:                                              ; preds = %329
+337:                                              ; preds = %327
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i112.i = load i32, ptr %12, align 4, !alias.scope !60
+  %.pre.i112.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !94
   br label %VP8LoadNewBytes.exit.i110.i
 
-VP8LoadNewBytes.exit.i110.i:                      ; preds = %339, %333, %318
-  %340 = phi i32 [ %.pre.i112.i, %339 ], [ %338, %333 ], [ %327, %318 ]
-  %341 = mul i32 %326, %325
-  %342 = lshr i32 %341, 8
-  %343 = load i64, ptr %0, align 8, !alias.scope !60
-  %344 = zext i32 %340 to i64
-  %345 = lshr i64 %343, %344
-  %346 = trunc i64 %345 to i32
-  %347 = icmp ult i32 %342, %346
-  br i1 %347, label %348, label %354
+VP8LoadNewBytes.exit.i110.i:                      ; preds = %337, %331, %316
+  %338 = phi i32 [ %.pre.i112.i, %337 ], [ %336, %331 ], [ %325, %316 ]
+  %339 = mul i32 %324, %323
+  %340 = lshr i32 %339, 8
+  %341 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !94
+  %342 = zext i32 %338 to i64
+  %343 = lshr i64 %341, %342
+  %344 = trunc i64 %343 to i32
+  %345 = icmp ult i32 %340, %344
+  br i1 %345, label %346, label %352
 
-348:                                              ; preds = %VP8LoadNewBytes.exit.i110.i
-  %349 = sub i32 %326, %342
-  %350 = add nuw nsw i32 %342, 1
-  %351 = zext nneg i32 %350 to i64
-  %352 = shl i64 %351, %344
-  %353 = sub i64 %343, %352
-  store i64 %353, ptr %0, align 8, !alias.scope !60
+346:                                              ; preds = %VP8LoadNewBytes.exit.i110.i
+  %347 = sub i32 %324, %340
+  %348 = add nuw nsw i32 %340, 1
+  %349 = zext nneg i32 %348 to i64
+  %350 = shl i64 %349, %342
+  %351 = sub i64 %341, %350
+  store i64 %351, ptr %0, align 8, !tbaa !38, !alias.scope !94
   br label %VP8GetBit.exit114.i
 
-354:                                              ; preds = %VP8LoadNewBytes.exit.i110.i
-  %355 = add nuw nsw i32 %342, 1
+352:                                              ; preds = %VP8LoadNewBytes.exit.i110.i
+  %353 = add nuw nsw i32 %340, 1
   br label %VP8GetBit.exit114.i
 
-VP8GetBit.exit114.i:                              ; preds = %354, %348
-  %356 = phi i64 [ %353, %348 ], [ %343, %354 ]
-  %.0.i111.i = phi i32 [ %349, %348 ], [ %355, %354 ]
-  %357 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i111.i, i1 true)
-  %358 = xor i32 %357, 24
-  %359 = shl i32 %.0.i111.i, %358
-  %360 = sub nsw i32 %340, %358
-  store i32 %360, ptr %12, align 4, !alias.scope !60
-  %361 = add i32 %359, -1
-  store i32 %361, ptr %11, align 8, !alias.scope !60
-  %.pn143.i = zext i1 %347 to i64
+VP8GetBit.exit114.i:                              ; preds = %352, %346
+  %354 = phi i64 [ %351, %346 ], [ %341, %352 ]
+  %.0.i111.i = phi i32 [ %347, %346 ], [ %353, %352 ]
+  %355 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i111.i, i1 true)
+  %356 = xor i32 %355, 24
+  %357 = shl i32 %.0.i111.i, %356
+  %358 = sub nsw i32 %338, %356
+  store i32 %358, ptr %12, align 4, !tbaa !31, !alias.scope !94
+  %359 = add i32 %357, -1
+  store i32 %359, ptr %11, align 8, !tbaa !30, !alias.scope !94
+  %.pn143.i = zext i1 %345 to i64
   %.0.in.in144.i = getelementptr inbounds nuw [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn143.i
-  %.0.in145.i = load i8, ptr %.0.in.in144.i, align 1
+  %.0.in145.i = load i8, ptr %.0.in.in144.i, align 1, !tbaa !26
   %.0146.i = sext i8 %.0.in145.i to i32
-  br i1 %347, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %345, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %VP8GetBit.exit114.i, %VP8GetBit.exit119.i
-  %362 = phi i64 [ %397, %VP8GetBit.exit119.i ], [ %356, %VP8GetBit.exit114.i ]
-  %363 = phi i32 [ %402, %VP8GetBit.exit119.i ], [ %360, %VP8GetBit.exit114.i ]
-  %364 = phi i32 [ %403, %VP8GetBit.exit119.i ], [ %361, %VP8GetBit.exit114.i ]
+  %360 = phi i64 [ %395, %VP8GetBit.exit119.i ], [ %354, %VP8GetBit.exit114.i ]
+  %361 = phi i32 [ %400, %VP8GetBit.exit119.i ], [ %358, %VP8GetBit.exit114.i ]
+  %362 = phi i32 [ %401, %VP8GetBit.exit119.i ], [ %359, %VP8GetBit.exit114.i ]
   %.0148.i = phi i32 [ %.0.i, %VP8GetBit.exit119.i ], [ %.0146.i, %VP8GetBit.exit114.i ]
-  %365 = shl nuw nsw i32 %.0148.i, 1
-  %366 = zext nneg i32 %.0148.i to i64
-  %367 = getelementptr inbounds nuw i8, ptr %323, i64 %366
-  %368 = load i8, ptr %367, align 1
-  %369 = zext i8 %368 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %370 = icmp slt i32 %363, 0
-  br i1 %370, label %371, label %VP8LoadNewBytes.exit.i115.i
+  %363 = shl nuw nsw i32 %.0148.i, 1
+  %364 = zext nneg i32 %.0148.i to i64
+  %365 = getelementptr inbounds nuw i8, ptr %321, i64 %364
+  %366 = load i8, ptr %365, align 1, !tbaa !26
+  %367 = zext i8 %366 to i32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  %368 = icmp slt i32 %361, 0
+  br i1 %368, label %369, label %VP8LoadNewBytes.exit.i115.i
 
-371:                                              ; preds = %.lr.ph.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %372 = load ptr, ptr %13, align 8, !alias.scope !73
-  %373 = load ptr, ptr %14, align 8, !alias.scope !73
-  %374 = icmp ult ptr %372, %373
-  br i1 %374, label %375, label %380
+369:                                              ; preds = %.lr.ph.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
+  %370 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !107
+  %371 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !107
+  %372 = icmp ult ptr %370, %371
+  br i1 %372, label %373, label %378
 
-375:                                              ; preds = %371
-  %.0.copyload.i.i118.i = load i64, ptr %372, align 1, !noalias !73
-  %376 = getelementptr inbounds nuw i8, ptr %372, i64 7
-  store ptr %376, ptr %13, align 8, !alias.scope !73
-  %377 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i118.i)
-  %378 = tail call i64 @llvm.fshl.i64(i64 %362, i64 %377, i64 56)
-  store i64 %378, ptr %0, align 8, !alias.scope !73
-  %379 = add nsw i32 %363, 56
+373:                                              ; preds = %369
+  %.0.copyload.i.i118.i = load i64, ptr %370, align 1, !noalias !107
+  %374 = getelementptr inbounds nuw i8, ptr %370, i64 7
+  store ptr %374, ptr %13, align 8, !tbaa !35, !alias.scope !107
+  %375 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i118.i)
+  %376 = tail call i64 @llvm.fshl.i64(i64 %360, i64 %375, i64 56)
+  store i64 %376, ptr %0, align 8, !tbaa !38, !alias.scope !107
+  %377 = add nsw i32 %361, 56
   br label %VP8LoadNewBytes.exit.i115.i
 
-380:                                              ; preds = %371
+378:                                              ; preds = %369
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i117.i = load i32, ptr %12, align 4, !alias.scope !67
-  %.pre162.i = load i64, ptr %0, align 8, !alias.scope !67
+  %.pre.i117.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !101
+  %.pre166.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !101
   br label %VP8LoadNewBytes.exit.i115.i
 
-VP8LoadNewBytes.exit.i115.i:                      ; preds = %380, %375, %.lr.ph.i
-  %381 = phi i64 [ %.pre162.i, %380 ], [ %378, %375 ], [ %362, %.lr.ph.i ]
-  %382 = phi i32 [ %.pre.i117.i, %380 ], [ %379, %375 ], [ %363, %.lr.ph.i ]
-  %383 = mul i32 %364, %369
-  %384 = lshr i32 %383, 8
-  %385 = zext i32 %382 to i64
-  %386 = lshr i64 %381, %385
-  %387 = trunc i64 %386 to i32
-  %388 = icmp ult i32 %384, %387
-  br i1 %388, label %389, label %395
+VP8LoadNewBytes.exit.i115.i:                      ; preds = %378, %373, %.lr.ph.i
+  %379 = phi i64 [ %.pre166.i, %378 ], [ %376, %373 ], [ %360, %.lr.ph.i ]
+  %380 = phi i32 [ %.pre.i117.i, %378 ], [ %377, %373 ], [ %361, %.lr.ph.i ]
+  %381 = mul i32 %362, %367
+  %382 = lshr i32 %381, 8
+  %383 = zext i32 %380 to i64
+  %384 = lshr i64 %379, %383
+  %385 = trunc i64 %384 to i32
+  %386 = icmp ult i32 %382, %385
+  br i1 %386, label %387, label %393
 
-389:                                              ; preds = %VP8LoadNewBytes.exit.i115.i
-  %390 = sub i32 %364, %384
-  %391 = add nuw nsw i32 %384, 1
-  %392 = zext nneg i32 %391 to i64
-  %393 = shl i64 %392, %385
-  %394 = sub i64 %381, %393
-  store i64 %394, ptr %0, align 8, !alias.scope !67
+387:                                              ; preds = %VP8LoadNewBytes.exit.i115.i
+  %388 = sub i32 %362, %382
+  %389 = add nuw nsw i32 %382, 1
+  %390 = zext nneg i32 %389 to i64
+  %391 = shl i64 %390, %383
+  %392 = sub i64 %379, %391
+  store i64 %392, ptr %0, align 8, !tbaa !38, !alias.scope !101
   br label %VP8GetBit.exit119.i
 
-395:                                              ; preds = %VP8LoadNewBytes.exit.i115.i
-  %396 = add nuw nsw i32 %384, 1
+393:                                              ; preds = %VP8LoadNewBytes.exit.i115.i
+  %394 = add nuw nsw i32 %382, 1
   br label %VP8GetBit.exit119.i
 
-VP8GetBit.exit119.i:                              ; preds = %395, %389
-  %397 = phi i64 [ %394, %389 ], [ %381, %395 ]
-  %.0.i116.i = phi i32 [ %390, %389 ], [ %396, %395 ]
-  %398 = zext i1 %388 to i32
-  %399 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i116.i, i1 true)
-  %400 = xor i32 %399, 24
-  %401 = shl i32 %.0.i116.i, %400
-  %402 = sub nsw i32 %382, %400
-  store i32 %402, ptr %12, align 4, !alias.scope !67
-  %403 = add i32 %401, -1
-  store i32 %403, ptr %11, align 8, !alias.scope !67
-  %404 = or disjoint i32 %365, %398
-  %.pn.i = zext nneg i32 %404 to i64
+VP8GetBit.exit119.i:                              ; preds = %393, %387
+  %395 = phi i64 [ %392, %387 ], [ %379, %393 ]
+  %.0.i116.i = phi i32 [ %388, %387 ], [ %394, %393 ]
+  %396 = zext i1 %386 to i32
+  %397 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i116.i, i1 true)
+  %398 = xor i32 %397, 24
+  %399 = shl i32 %.0.i116.i, %398
+  %400 = sub nsw i32 %380, %398
+  store i32 %400, ptr %12, align 4, !tbaa !31, !alias.scope !101
+  %401 = add i32 %399, -1
+  store i32 %401, ptr %11, align 8, !tbaa !30, !alias.scope !101
+  %402 = or disjoint i32 %363, %396
+  %.pn.i = zext nneg i32 %402 to i64
   %.0.in.in.i = getelementptr inbounds nuw [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn.i
-  %.0.in.i = load i8, ptr %.0.in.in.i, align 1
+  %.0.in.i = load i8, ptr %.0.in.in.i, align 1, !tbaa !26
   %.0.i = sext i8 %.0.in.i to i32
-  %405 = shl nuw i64 1, %.pn.i
-  %406 = and i64 %405, 41706
-  %.not74.i = icmp eq i64 %406, 0
-  br i1 %.not74.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !74
+  %403 = shl nuw i64 1, %.pn.i
+  %404 = and i64 %403, 41706
+  %.not74.i = icmp eq i64 %404, 0
+  br i1 %.not74.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %VP8GetBit.exit119.i, %VP8GetBit.exit114.i
   %.0.lcssa.i = phi i32 [ %.0146.i, %VP8GetBit.exit114.i ], [ %.0.i, %VP8GetBit.exit119.i ]
-  %407 = sub nsw i32 0, %.0.lcssa.i
-  %408 = trunc nuw i32 %407 to i8
-  store i8 %408, ptr %319, align 1
+  %405 = sub nsw i32 0, %.0.lcssa.i
+  %406 = trunc nuw i32 %405 to i8
+  store i8 %406, ptr %317, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %409, label %318, !llvm.loop !76
+  br i1 %exitcond.not.i, label %407, label %316, !llvm.loop !110
 
-409:                                              ; preds = %._crit_edge.i
-  %410 = load i32, ptr %22, align 1
-  store i32 %410, ptr %.060152.i, align 1
-  %411 = getelementptr inbounds nuw i8, ptr %.060152.i, i64 4
-  store i8 %408, ptr %315, align 1
+407:                                              ; preds = %._crit_edge.i
+  %408 = load i32, ptr %22, align 1
+  store i32 %408, ptr %.060152.i, align 1
+  %409 = getelementptr inbounds nuw i8, ptr %.060152.i, i64 4
+  store i8 %406, ptr %313, align 1, !tbaa !26
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 4
-  br i1 %exitcond158.not.i, label %.loopexit.i, label %314, !llvm.loop !77
+  br i1 %exitcond158.not.i, label %.loopexit.i, label %312, !llvm.loop !111
 
-.loopexit.i:                                      ; preds = %409, %VP8GetBit.exit104.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %412 = load i32, ptr %11, align 8, !alias.scope !78
-  %413 = load i32, ptr %12, align 4, !alias.scope !78
-  %414 = icmp slt i32 %413, 0
-  br i1 %414, label %415, label %VP8LoadNewBytes.exit.i120.i
+.loopexit.i:                                      ; preds = %407, %VP8GetBit.exit104.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  %410 = load i32, ptr %11, align 8, !tbaa !30, !alias.scope !112
+  %411 = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !112
+  %412 = icmp slt i32 %411, 0
+  br i1 %412, label %413, label %VP8LoadNewBytes.exit.i120.i
 
-415:                                              ; preds = %.loopexit.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %416 = load ptr, ptr %13, align 8, !alias.scope !84
-  %417 = load ptr, ptr %14, align 8, !alias.scope !84
-  %418 = icmp ult ptr %416, %417
-  br i1 %418, label %419, label %425
+413:                                              ; preds = %.loopexit.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  %414 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !118
+  %415 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !118
+  %416 = icmp ult ptr %414, %415
+  br i1 %416, label %417, label %423
 
-419:                                              ; preds = %415
-  %.0.copyload.i.i123.i = load i64, ptr %416, align 1, !noalias !84
-  %420 = getelementptr inbounds nuw i8, ptr %416, i64 7
-  store ptr %420, ptr %13, align 8, !alias.scope !84
-  %421 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i123.i)
-  %422 = load i64, ptr %0, align 8, !alias.scope !84
-  %423 = tail call i64 @llvm.fshl.i64(i64 %422, i64 %421, i64 56)
-  store i64 %423, ptr %0, align 8, !alias.scope !84
-  %424 = add nsw i32 %413, 56
+417:                                              ; preds = %413
+  %.0.copyload.i.i123.i = load i64, ptr %414, align 1, !noalias !118
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 7
+  store ptr %418, ptr %13, align 8, !tbaa !35, !alias.scope !118
+  %419 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i123.i)
+  %420 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !118
+  %421 = tail call i64 @llvm.fshl.i64(i64 %420, i64 %419, i64 56)
+  store i64 %421, ptr %0, align 8, !tbaa !38, !alias.scope !118
+  %422 = add nsw i32 %411, 56
   br label %VP8LoadNewBytes.exit.i120.i
 
-425:                                              ; preds = %415
+423:                                              ; preds = %413
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i122.i = load i32, ptr %12, align 4, !alias.scope !78
+  %.pre.i122.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !112
   br label %VP8LoadNewBytes.exit.i120.i
 
-VP8LoadNewBytes.exit.i120.i:                      ; preds = %425, %419, %.loopexit.i
-  %426 = phi i32 [ %.pre.i122.i, %425 ], [ %424, %419 ], [ %413, %.loopexit.i ]
-  %427 = mul i32 %412, 142
-  %428 = lshr i32 %427, 8
-  %429 = load i64, ptr %0, align 8, !alias.scope !78
-  %430 = zext i32 %426 to i64
-  %431 = lshr i64 %429, %430
-  %432 = trunc i64 %431 to i32
-  %.not140.i = icmp ult i32 %428, %432
-  br i1 %.not140.i, label %433, label %439
+VP8LoadNewBytes.exit.i120.i:                      ; preds = %423, %417, %.loopexit.i
+  %424 = phi i32 [ %.pre.i122.i, %423 ], [ %422, %417 ], [ %411, %.loopexit.i ]
+  %425 = mul i32 %410, 142
+  %426 = lshr i32 %425, 8
+  %427 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !112
+  %428 = zext i32 %424 to i64
+  %429 = lshr i64 %427, %428
+  %430 = trunc i64 %429 to i32
+  %.not140.i = icmp ult i32 %426, %430
+  br i1 %.not140.i, label %431, label %437
 
-433:                                              ; preds = %VP8LoadNewBytes.exit.i120.i
-  %434 = sub i32 %412, %428
-  %435 = add nuw nsw i32 %428, 1
-  %436 = zext nneg i32 %435 to i64
-  %437 = shl i64 %436, %430
-  %438 = sub i64 %429, %437
-  store i64 %438, ptr %0, align 8, !alias.scope !78
+431:                                              ; preds = %VP8LoadNewBytes.exit.i120.i
+  %432 = sub i32 %410, %426
+  %433 = add nuw nsw i32 %426, 1
+  %434 = zext nneg i32 %433 to i64
+  %435 = shl i64 %434, %428
+  %436 = sub i64 %427, %435
+  store i64 %436, ptr %0, align 8, !tbaa !38, !alias.scope !112
   br label %VP8GetBit.exit124.i
 
-439:                                              ; preds = %VP8LoadNewBytes.exit.i120.i
-  %440 = add nuw nsw i32 %428, 1
+437:                                              ; preds = %VP8LoadNewBytes.exit.i120.i
+  %438 = add nuw nsw i32 %426, 1
   br label %VP8GetBit.exit124.i
 
-VP8GetBit.exit124.i:                              ; preds = %439, %433
-  %441 = phi i64 [ %438, %433 ], [ %429, %439 ]
-  %.0.i121.i = phi i32 [ %434, %433 ], [ %440, %439 ]
-  %442 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i121.i, i1 true)
-  %443 = xor i32 %442, 24
-  %444 = shl i32 %.0.i121.i, %443
-  %445 = sub nsw i32 %426, %443
-  store i32 %445, ptr %12, align 4, !alias.scope !78
-  %446 = add i32 %444, -1
-  store i32 %446, ptr %11, align 8, !alias.scope !78
-  br i1 %.not140.i, label %447, label %ParseIntraMode.exit
+VP8GetBit.exit124.i:                              ; preds = %437, %431
+  %439 = phi i64 [ %436, %431 ], [ %427, %437 ]
+  %.0.i121.i = phi i32 [ %432, %431 ], [ %438, %437 ]
+  %440 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i121.i, i1 true)
+  %441 = xor i32 %440, 24
+  %442 = shl i32 %.0.i121.i, %441
+  %443 = sub nsw i32 %424, %441
+  store i32 %443, ptr %12, align 4, !tbaa !31, !alias.scope !112
+  %444 = add i32 %442, -1
+  store i32 %444, ptr %11, align 8, !tbaa !30, !alias.scope !112
+  br i1 %.not140.i, label %445, label %ParseIntraMode.exit
 
-447:                                              ; preds = %VP8GetBit.exit124.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %448 = icmp slt i32 %445, 0
-  br i1 %448, label %449, label %VP8LoadNewBytes.exit.i125.i
+445:                                              ; preds = %VP8GetBit.exit124.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  %446 = icmp slt i32 %443, 0
+  br i1 %446, label %447, label %VP8LoadNewBytes.exit.i125.i
 
-449:                                              ; preds = %447
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %450 = load ptr, ptr %13, align 8, !alias.scope !91
-  %451 = load ptr, ptr %14, align 8, !alias.scope !91
-  %452 = icmp ult ptr %450, %451
-  br i1 %452, label %453, label %458
+447:                                              ; preds = %445
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
+  %448 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !125
+  %449 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !125
+  %450 = icmp ult ptr %448, %449
+  br i1 %450, label %451, label %456
 
-453:                                              ; preds = %449
-  %.0.copyload.i.i128.i = load i64, ptr %450, align 1, !noalias !91
-  %454 = getelementptr inbounds nuw i8, ptr %450, i64 7
-  store ptr %454, ptr %13, align 8, !alias.scope !91
-  %455 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i128.i)
-  %456 = tail call i64 @llvm.fshl.i64(i64 %441, i64 %455, i64 56)
-  store i64 %456, ptr %0, align 8, !alias.scope !91
-  %457 = add nsw i32 %445, 56
+451:                                              ; preds = %447
+  %.0.copyload.i.i128.i = load i64, ptr %448, align 1, !noalias !125
+  %452 = getelementptr inbounds nuw i8, ptr %448, i64 7
+  store ptr %452, ptr %13, align 8, !tbaa !35, !alias.scope !125
+  %453 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i128.i)
+  %454 = tail call i64 @llvm.fshl.i64(i64 %439, i64 %453, i64 56)
+  store i64 %454, ptr %0, align 8, !tbaa !38, !alias.scope !125
+  %455 = add nsw i32 %443, 56
   br label %VP8LoadNewBytes.exit.i125.i
 
-458:                                              ; preds = %449
+456:                                              ; preds = %447
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i127.i = load i32, ptr %12, align 4, !alias.scope !85
-  %.pre163.i = load i64, ptr %0, align 8, !alias.scope !85
+  %.pre.i127.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !119
+  %.pre167.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !119
   br label %VP8LoadNewBytes.exit.i125.i
 
-VP8LoadNewBytes.exit.i125.i:                      ; preds = %458, %453, %447
-  %459 = phi i64 [ %.pre163.i, %458 ], [ %456, %453 ], [ %441, %447 ]
-  %460 = phi i32 [ %.pre.i127.i, %458 ], [ %457, %453 ], [ %445, %447 ]
-  %461 = mul i32 %446, 114
-  %462 = lshr i32 %461, 8
-  %463 = zext i32 %460 to i64
-  %464 = lshr i64 %459, %463
-  %465 = trunc i64 %464 to i32
-  %.not141.i = icmp ult i32 %462, %465
-  br i1 %.not141.i, label %466, label %472
+VP8LoadNewBytes.exit.i125.i:                      ; preds = %456, %451, %445
+  %457 = phi i64 [ %.pre167.i, %456 ], [ %454, %451 ], [ %439, %445 ]
+  %458 = phi i32 [ %.pre.i127.i, %456 ], [ %455, %451 ], [ %443, %445 ]
+  %459 = mul i32 %444, 114
+  %460 = lshr i32 %459, 8
+  %461 = zext i32 %458 to i64
+  %462 = lshr i64 %457, %461
+  %463 = trunc i64 %462 to i32
+  %.not141.i = icmp ult i32 %460, %463
+  br i1 %.not141.i, label %464, label %470
 
-466:                                              ; preds = %VP8LoadNewBytes.exit.i125.i
-  %467 = sub i32 %446, %462
-  %468 = add nuw nsw i32 %462, 1
-  %469 = zext nneg i32 %468 to i64
-  %470 = shl i64 %469, %463
-  %471 = sub i64 %459, %470
-  store i64 %471, ptr %0, align 8, !alias.scope !85
+464:                                              ; preds = %VP8LoadNewBytes.exit.i125.i
+  %465 = sub i32 %444, %460
+  %466 = add nuw nsw i32 %460, 1
+  %467 = zext nneg i32 %466 to i64
+  %468 = shl i64 %467, %461
+  %469 = sub i64 %457, %468
+  store i64 %469, ptr %0, align 8, !tbaa !38, !alias.scope !119
   br label %VP8GetBit.exit129.i
 
-472:                                              ; preds = %VP8LoadNewBytes.exit.i125.i
-  %473 = add nuw nsw i32 %462, 1
+470:                                              ; preds = %VP8LoadNewBytes.exit.i125.i
+  %471 = add nuw nsw i32 %460, 1
   br label %VP8GetBit.exit129.i
 
-VP8GetBit.exit129.i:                              ; preds = %472, %466
-  %474 = phi i64 [ %471, %466 ], [ %459, %472 ]
-  %.0.i126.i = phi i32 [ %467, %466 ], [ %473, %472 ]
-  %475 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i126.i, i1 true)
-  %476 = xor i32 %475, 24
-  %477 = shl i32 %.0.i126.i, %476
-  %478 = sub nsw i32 %460, %476
-  store i32 %478, ptr %12, align 4, !alias.scope !85
-  %479 = add i32 %477, -1
-  store i32 %479, ptr %11, align 8, !alias.scope !85
-  br i1 %.not141.i, label %480, label %ParseIntraMode.exit
+VP8GetBit.exit129.i:                              ; preds = %470, %464
+  %472 = phi i64 [ %469, %464 ], [ %457, %470 ]
+  %.0.i126.i = phi i32 [ %465, %464 ], [ %471, %470 ]
+  %473 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i126.i, i1 true)
+  %474 = xor i32 %473, 24
+  %475 = shl i32 %.0.i126.i, %474
+  %476 = sub nsw i32 %458, %474
+  store i32 %476, ptr %12, align 4, !tbaa !31, !alias.scope !119
+  %477 = add i32 %475, -1
+  store i32 %477, ptr %11, align 8, !tbaa !30, !alias.scope !119
+  br i1 %.not141.i, label %478, label %ParseIntraMode.exit
 
-480:                                              ; preds = %VP8GetBit.exit129.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %481 = icmp slt i32 %478, 0
-  br i1 %481, label %482, label %VP8LoadNewBytes.exit.i130.i
+478:                                              ; preds = %VP8GetBit.exit129.i
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  %479 = icmp slt i32 %476, 0
+  br i1 %479, label %480, label %VP8LoadNewBytes.exit.i130.i
 
-482:                                              ; preds = %480
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %483 = load ptr, ptr %13, align 8, !alias.scope !98
-  %484 = load ptr, ptr %14, align 8, !alias.scope !98
-  %485 = icmp ult ptr %483, %484
-  br i1 %485, label %486, label %491
+480:                                              ; preds = %478
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  %481 = load ptr, ptr %13, align 8, !tbaa !35, !alias.scope !132
+  %482 = load ptr, ptr %14, align 8, !tbaa !37, !alias.scope !132
+  %483 = icmp ult ptr %481, %482
+  br i1 %483, label %484, label %489
 
-486:                                              ; preds = %482
-  %.0.copyload.i.i133.i = load i64, ptr %483, align 1, !noalias !98
-  %487 = getelementptr inbounds nuw i8, ptr %483, i64 7
-  store ptr %487, ptr %13, align 8, !alias.scope !98
-  %488 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i133.i)
-  %489 = tail call i64 @llvm.fshl.i64(i64 %474, i64 %488, i64 56)
-  store i64 %489, ptr %0, align 8, !alias.scope !98
-  %490 = add nsw i32 %478, 56
+484:                                              ; preds = %480
+  %.0.copyload.i.i133.i = load i64, ptr %481, align 1, !noalias !132
+  %485 = getelementptr inbounds nuw i8, ptr %481, i64 7
+  store ptr %485, ptr %13, align 8, !tbaa !35, !alias.scope !132
+  %486 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i133.i)
+  %487 = tail call i64 @llvm.fshl.i64(i64 %472, i64 %486, i64 56)
+  store i64 %487, ptr %0, align 8, !tbaa !38, !alias.scope !132
+  %488 = add nsw i32 %476, 56
   br label %VP8LoadNewBytes.exit.i130.i
 
-491:                                              ; preds = %482
+489:                                              ; preds = %480
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i132.i = load i32, ptr %12, align 4, !alias.scope !92
-  %.pre164.i = load i64, ptr %0, align 8, !alias.scope !92
+  %.pre.i132.i = load i32, ptr %12, align 4, !tbaa !31, !alias.scope !126
+  %.pre168.i = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !126
   br label %VP8LoadNewBytes.exit.i130.i
 
-VP8LoadNewBytes.exit.i130.i:                      ; preds = %491, %486, %480
-  %492 = phi i64 [ %.pre164.i, %491 ], [ %489, %486 ], [ %474, %480 ]
-  %493 = phi i32 [ %.pre.i132.i, %491 ], [ %490, %486 ], [ %478, %480 ]
-  %494 = mul i32 %479, 183
-  %495 = lshr i32 %494, 8
-  %496 = zext i32 %493 to i64
-  %497 = lshr i64 %492, %496
-  %498 = trunc i64 %497 to i32
-  %.not142.i = icmp ult i32 %495, %498
-  br i1 %.not142.i, label %499, label %505
+VP8LoadNewBytes.exit.i130.i:                      ; preds = %489, %484, %478
+  %490 = phi i64 [ %.pre168.i, %489 ], [ %487, %484 ], [ %472, %478 ]
+  %491 = phi i32 [ %.pre.i132.i, %489 ], [ %488, %484 ], [ %476, %478 ]
+  %492 = mul i32 %477, 183
+  %493 = lshr i32 %492, 8
+  %494 = zext i32 %491 to i64
+  %495 = lshr i64 %490, %494
+  %496 = trunc i64 %495 to i32
+  %.not142.i = icmp ult i32 %493, %496
+  br i1 %.not142.i, label %497, label %503
 
-499:                                              ; preds = %VP8LoadNewBytes.exit.i130.i
-  %500 = sub i32 %479, %495
-  %501 = add nuw nsw i32 %495, 1
-  %502 = zext nneg i32 %501 to i64
-  %503 = shl i64 %502, %496
-  %504 = sub i64 %492, %503
-  store i64 %504, ptr %0, align 8, !alias.scope !92
+497:                                              ; preds = %VP8LoadNewBytes.exit.i130.i
+  %498 = sub i32 %477, %493
+  %499 = add nuw nsw i32 %493, 1
+  %500 = zext nneg i32 %499 to i64
+  %501 = shl i64 %500, %494
+  %502 = sub i64 %490, %501
+  store i64 %502, ptr %0, align 8, !tbaa !38, !alias.scope !126
   br label %VP8GetBit.exit134.i
 
-505:                                              ; preds = %VP8LoadNewBytes.exit.i130.i
-  %506 = add nuw nsw i32 %495, 1
+503:                                              ; preds = %VP8LoadNewBytes.exit.i130.i
+  %504 = add nuw nsw i32 %493, 1
   br label %VP8GetBit.exit134.i
 
-VP8GetBit.exit134.i:                              ; preds = %505, %499
-  %507 = phi i8 [ 1, %499 ], [ 3, %505 ]
-  %.0.i131.i = phi i32 [ %500, %499 ], [ %506, %505 ]
-  %508 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i131.i, i1 true)
-  %509 = xor i32 %508, 24
-  %510 = shl i32 %.0.i131.i, %509
-  %511 = sub nsw i32 %493, %509
-  store i32 %511, ptr %12, align 4, !alias.scope !92
-  %512 = add i32 %510, -1
-  store i32 %512, ptr %11, align 8, !alias.scope !92
+VP8GetBit.exit134.i:                              ; preds = %503, %497
+  %505 = phi i8 [ 1, %497 ], [ 3, %503 ]
+  %.0.i131.i = phi i32 [ %498, %497 ], [ %504, %503 ]
+  %506 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i131.i, i1 true)
+  %507 = xor i32 %506, 24
+  %508 = shl i32 %.0.i131.i, %507
+  %509 = sub nsw i32 %491, %507
+  store i32 %509, ptr %12, align 4, !tbaa !31, !alias.scope !126
+  %510 = add i32 %508, -1
+  store i32 %510, ptr %11, align 8, !tbaa !30, !alias.scope !126
   br label %ParseIntraMode.exit
 
 ParseIntraMode.exit:                              ; preds = %VP8GetBit.exit124.i, %VP8GetBit.exit129.i, %VP8GetBit.exit134.i
-  %513 = phi i8 [ 0, %VP8GetBit.exit124.i ], [ %507, %VP8GetBit.exit134.i ], [ 2, %VP8GetBit.exit129.i ]
-  %514 = getelementptr inbounds nuw i8, ptr %24, i64 785
-  store i8 %513, ptr %514, align 1
+  %511 = phi i8 [ 0, %VP8GetBit.exit124.i ], [ %505, %VP8GetBit.exit134.i ], [ 2, %VP8GetBit.exit129.i ]
+  %512 = getelementptr inbounds nuw i8, ptr %24, i64 785
+  store i8 %511, ptr %512, align 1, !tbaa !133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %515 = load i32, ptr %3, align 8
-  %516 = sext i32 %515 to i64
-  %517 = icmp slt i64 %indvars.iv.next, %516
-  br i1 %517, label %19, label %._crit_edge, !llvm.loop !99
+  %513 = load i32, ptr %3, align 8, !tbaa !3
+  %514 = sext i32 %513 to i64
+  %515 = icmp slt i64 %indvars.iv.next, %514
+  br i1 %515, label %19, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %ParseIntraMode.exit, %2
-  %518 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %519 = load i32, ptr %518, align 8
-  %.not = icmp eq i32 %519, 0
-  %520 = zext i1 %.not to i32
-  ret i32 %520
+  %516 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %517 = load i32, ptr %516, align 8, !tbaa !135
+  %.not = icmp eq i32 %517, 0
+  %518 = zext i1 %.not to i32
+  ret i32 %518
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1016,42 +1019,42 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
 10:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
   %11 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsUpdateProba, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 1, !tbaa !26
   %13 = zext i8 %12 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %14 = load i32, ptr %3, align 8, !alias.scope !100
-  %15 = load i32, ptr %4, align 4, !alias.scope !100
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  %14 = load i32, ptr %3, align 8, !tbaa !30, !alias.scope !136
+  %15 = load i32, ptr %4, align 4, !tbaa !31, !alias.scope !136
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %VP8LoadNewBytes.exit.i
 
 17:                                               ; preds = %10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %18 = load ptr, ptr %5, align 8, !alias.scope !106
-  %19 = load ptr, ptr %6, align 8, !alias.scope !106
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
+  %18 = load ptr, ptr %5, align 8, !tbaa !35, !alias.scope !142
+  %19 = load ptr, ptr %6, align 8, !tbaa !37, !alias.scope !142
   %20 = icmp ult ptr %18, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %17
-  %.0.copyload.i.i = load i64, ptr %18, align 1, !noalias !106
+  %.0.copyload.i.i = load i64, ptr %18, align 1, !noalias !142
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 7
-  store ptr %22, ptr %5, align 8, !alias.scope !106
+  store ptr %22, ptr %5, align 8, !tbaa !35, !alias.scope !142
   %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
-  %24 = load i64, ptr %0, align 8, !alias.scope !106
+  %24 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !142
   %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %23, i64 56)
-  store i64 %25, ptr %0, align 8, !alias.scope !106
+  store i64 %25, ptr %0, align 8, !tbaa !38, !alias.scope !142
   %26 = add nsw i32 %15, 56
   br label %VP8LoadNewBytes.exit.i
 
 27:                                               ; preds = %17
   tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #7
-  %.pre.i = load i32, ptr %4, align 4, !alias.scope !100
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !31, !alias.scope !136
   br label %VP8LoadNewBytes.exit.i
 
 VP8LoadNewBytes.exit.i:                           ; preds = %27, %21, %10
   %28 = phi i32 [ %.pre.i, %27 ], [ %26, %21 ], [ %15, %10 ]
   %29 = mul i32 %14, %13
   %30 = lshr i32 %29, 8
-  %31 = load i64, ptr %0, align 8, !alias.scope !100
+  %31 = load i64, ptr %0, align 8, !tbaa !38, !alias.scope !136
   %32 = zext i32 %28 to i64
   %33 = lshr i64 %31, %32
   %34 = trunc i64 %33 to i32
@@ -1064,7 +1067,7 @@ VP8LoadNewBytes.exit.i:                           ; preds = %27, %21, %10
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %38, %32
   %40 = sub i64 %31, %39
-  store i64 %40, ptr %0, align 8, !alias.scope !100
+  store i64 %40, ptr %0, align 8, !tbaa !38, !alias.scope !136
   br label %VP8GetBit.exit
 
 41:                                               ; preds = %VP8LoadNewBytes.exit.i
@@ -1077,9 +1080,9 @@ VP8GetBit.exit:                                   ; preds = %35, %41
   %44 = xor i32 %43, 24
   %45 = shl i32 %.0.i, %44
   %46 = sub nsw i32 %28, %44
-  store i32 %46, ptr %4, align 4, !alias.scope !100
+  store i32 %46, ptr %4, align 4, !tbaa !31, !alias.scope !136
   %47 = add i32 %45, -1
-  store i32 %47, ptr %3, align 8, !alias.scope !100
+  store i32 %47, ptr %3, align 8, !tbaa !30, !alias.scope !136
   br i1 %.not41, label %48, label %51
 
 48:                                               ; preds = %VP8GetBit.exit
@@ -1089,48 +1092,48 @@ VP8GetBit.exit:                                   ; preds = %35, %41
 
 51:                                               ; preds = %VP8GetBit.exit
   %52 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsProba0, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !26
   br label %54
 
 54:                                               ; preds = %51, %48
   %55 = phi i8 [ %50, %48 ], [ %53, %51 ]
   %56 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv51, i64 %indvars.iv
-  store i8 %55, ptr %56, align 1
+  store i8 %55, ptr %56, align 1, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %57, label %10, !llvm.loop !107
+  br i1 %exitcond.not, label %57, label %10, !llvm.loop !143
 
 57:                                               ; preds = %54
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 3
-  br i1 %exitcond54.not, label %58, label %.preheader, !llvm.loop !108
+  br i1 %exitcond54.not, label %58, label %.preheader, !llvm.loop !144
 
 58:                                               ; preds = %57
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 8
-  br i1 %exitcond58.not, label %.preheader43, label %.preheader42, !llvm.loop !109
+  br i1 %exitcond58.not, label %.preheader43, label %.preheader42, !llvm.loop !145
 
 .preheader43:                                     ; preds = %58, %.preheader43
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.preheader43 ], [ 0, %58 ]
   %59 = getelementptr inbounds nuw [17 x i8], ptr @kBands, i64 0, i64 %indvars.iv59
-  %60 = load i8, ptr %59, align 1
+  %60 = load i8, ptr %59, align 1, !tbaa !26
   %61 = zext i8 %60 to i64
   %62 = getelementptr inbounds nuw [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %61
   %63 = getelementptr inbounds nuw [4 x [17 x ptr]], ptr %8, i64 0, i64 %indvars.iv63, i64 %indvars.iv59
-  store ptr %62, ptr %63, align 8
+  store ptr %62, ptr %63, align 8, !tbaa !146
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 17
-  br i1 %exitcond62.not, label %64, label %.preheader43, !llvm.loop !110
+  br i1 %exitcond62.not, label %64, label %.preheader43, !llvm.loop !147
 
 64:                                               ; preds = %.preheader43
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66.not, label %65, label %.preheader44, !llvm.loop !111
+  br i1 %exitcond66.not, label %65, label %.preheader44, !llvm.loop !148
 
 65:                                               ; preds = %64
   %66 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #7
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 2800
-  store i32 %66, ptr %67, align 8
+  store i32 %66, ptr %67, align 8, !tbaa !55
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %72, label %68
 
@@ -1138,7 +1141,7 @@ VP8GetBit.exit:                                   ; preds = %35, %41
   %69 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
   %70 = trunc i32 %69 to i8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2804
-  store i8 %70, ptr %71, align 4
+  store i8 %70, ptr %71, align 4, !tbaa !59
   br label %72
 
 72:                                               ; preds = %68, %65
@@ -1161,56 +1164,56 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"VP8GetBit: argument 0"}
-!6 = distinct !{!6, !"VP8GetBit"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"VP8LoadNewBytes: argument 0"}
-!9 = distinct !{!9, !"VP8LoadNewBytes"}
-!10 = !{!8, !5}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"VP8GetBit: argument 0"}
-!13 = distinct !{!13, !"VP8GetBit"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"VP8LoadNewBytes: argument 0"}
-!16 = distinct !{!16, !"VP8LoadNewBytes"}
-!17 = !{!15, !12}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"VP8GetBit: argument 0"}
-!20 = distinct !{!20, !"VP8GetBit"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"VP8LoadNewBytes: argument 0"}
-!23 = distinct !{!23, !"VP8LoadNewBytes"}
-!24 = !{!22, !19}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"VP8GetBit: argument 0"}
-!27 = distinct !{!27, !"VP8GetBit"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"VP8LoadNewBytes: argument 0"}
-!30 = distinct !{!30, !"VP8LoadNewBytes"}
-!31 = !{!29, !26}
+!3 = !{!4, !5, i64 408}
+!4 = !{!"VP8Decoder", !5, i64 0, !5, i64 4, !8, i64 8, !10, i64 16, !5, i64 64, !12, i64 68, !13, i64 76, !15, i64 84, !16, i64 132, !17, i64 152, !5, i64 200, !5, i64 204, !5, i64 208, !18, i64 216, !5, i64 408, !5, i64 412, !5, i64 416, !5, i64 420, !5, i64 424, !5, i64 428, !5, i64 432, !6, i64 440, !5, i64 824, !20, i64 828, !6, i64 1060, !21, i64 1192, !5, i64 2800, !6, i64 2804, !8, i64 2808, !6, i64 2816, !9, i64 2824, !9, i64 2832, !9, i64 2840, !8, i64 2848, !8, i64 2856, !8, i64 2864, !8, i64 2872, !5, i64 2880, !5, i64 2884, !9, i64 2888, !11, i64 2896, !5, i64 2904, !5, i64 2908, !9, i64 2912, !5, i64 2920, !6, i64 2924, !22, i64 2960, !8, i64 2968, !11, i64 2976, !5, i64 2984, !8, i64 2992, !8, i64 3000, !8, i64 3008, !5, i64 3016}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"VP8BitReader", !11, i64 0, !5, i64 8, !5, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2, !5, i64 4}
+!13 = !{!"", !14, i64 0, !14, i64 2, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7}
+!14 = !{!"short", !6, i64 0}
+!15 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 32}
+!16 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !6, i64 16}
+!17 = !{!"", !9, i64 0, !5, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !5, i64 40}
+!18 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !9, i64 16, !9, i64 24, !19, i64 32}
+!19 = !{!"VP8Io", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !5, i64 48, !5, i64 52, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !5, i64 88, !11, i64 96, !8, i64 104, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !8, i64 152}
+!20 = !{!"", !5, i64 0, !5, i64 4, !6, i64 8, !5, i64 228}
+!21 = !{!"", !6, i64 0, !6, i64 3, !6, i64 1064}
+!22 = !{!"p1 _ZTS11ALPHDecoder", !9, i64 0}
+!23 = !{!4, !8, i64 2808}
+!24 = !{!4, !9, i64 2912}
+!25 = !{!4, !5, i64 136}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"VP8GetBit: argument 0"}
+!29 = distinct !{!29, !"VP8GetBit"}
+!30 = !{!10, !5, i64 8}
+!31 = !{!10, !5, i64 12}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"VP8GetBit: argument 0"}
-!34 = distinct !{!34, !"VP8GetBit"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"VP8LoadNewBytes: argument 0"}
-!37 = distinct !{!37, !"VP8LoadNewBytes"}
-!38 = !{!36, !33}
+!33 = distinct !{!33, !34, !"VP8LoadNewBytes: argument 0"}
+!34 = distinct !{!34, !"VP8LoadNewBytes"}
+!35 = !{!10, !8, i64 16}
+!36 = !{!33, !28}
+!37 = !{!10, !8, i64 32}
+!38 = !{!10, !11, i64 0}
 !39 = !{!40}
 !40 = distinct !{!40, !41, !"VP8GetBit: argument 0"}
 !41 = distinct !{!41, !"VP8GetBit"}
@@ -1225,13 +1228,13 @@ attributes #7 = { nounwind }
 !50 = distinct !{!50, !51, !"VP8LoadNewBytes: argument 0"}
 !51 = distinct !{!51, !"VP8LoadNewBytes"}
 !52 = !{!50, !47}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"VP8GetBit: argument 0"}
-!55 = distinct !{!55, !"VP8GetBit"}
+!53 = !{!54, !6, i64 798}
+!54 = !{!"", !6, i64 0, !6, i64 768, !6, i64 769, !6, i64 785, !5, i64 788, !5, i64 792, !6, i64 796, !6, i64 797, !6, i64 798}
+!55 = !{!4, !5, i64 2800}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"VP8LoadNewBytes: argument 0"}
-!58 = distinct !{!58, !"VP8LoadNewBytes"}
-!59 = !{!57, !54}
+!57 = distinct !{!57, !58, !"VP8GetBit: argument 0"}
+!58 = distinct !{!58, !"VP8GetBit"}
+!59 = !{!4, !6, i64 2804}
 !60 = !{!61}
 !61 = distinct !{!61, !62, !"VP8GetBit: argument 0"}
 !62 = distinct !{!62, !"VP8GetBit"}
@@ -1239,48 +1242,85 @@ attributes #7 = { nounwind }
 !64 = distinct !{!64, !65, !"VP8LoadNewBytes: argument 0"}
 !65 = distinct !{!65, !"VP8LoadNewBytes"}
 !66 = !{!64, !61}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"VP8GetBit: argument 0"}
-!69 = distinct !{!69, !"VP8GetBit"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"VP8LoadNewBytes: argument 0"}
-!72 = distinct !{!72, !"VP8LoadNewBytes"}
-!73 = !{!71, !68}
-!74 = distinct !{!74, !75}
-!75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
-!77 = distinct !{!77, !75}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"VP8GetBit: argument 0"}
-!80 = distinct !{!80, !"VP8GetBit"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"VP8LoadNewBytes: argument 0"}
-!83 = distinct !{!83, !"VP8LoadNewBytes"}
-!84 = !{!82, !79}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"VP8GetBit: argument 0"}
-!87 = distinct !{!87, !"VP8GetBit"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"VP8LoadNewBytes: argument 0"}
-!90 = distinct !{!90, !"VP8LoadNewBytes"}
-!91 = !{!89, !86}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"VP8GetBit: argument 0"}
-!94 = distinct !{!94, !"VP8GetBit"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"VP8LoadNewBytes: argument 0"}
-!97 = distinct !{!97, !"VP8LoadNewBytes"}
-!98 = !{!96, !93}
-!99 = distinct !{!99, !75}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"VP8GetBit: argument 0"}
-!102 = distinct !{!102, !"VP8GetBit"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"VP8LoadNewBytes: argument 0"}
-!105 = distinct !{!105, !"VP8LoadNewBytes"}
-!106 = !{!104, !101}
-!107 = distinct !{!107, !75}
-!108 = distinct !{!108, !75}
-!109 = distinct !{!109, !75}
-!110 = distinct !{!110, !75}
-!111 = distinct !{!111, !75}
+!67 = !{!54, !6, i64 797}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"VP8LoadNewBytes: argument 0"}
+!70 = distinct !{!70, !"VP8LoadNewBytes"}
+!71 = !{!69, !57}
+!72 = !{!54, !6, i64 768}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"VP8GetBit: argument 0"}
+!75 = distinct !{!75, !"VP8GetBit"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"VP8LoadNewBytes: argument 0"}
+!78 = distinct !{!78, !"VP8LoadNewBytes"}
+!79 = !{!77, !74}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"VP8GetBit: argument 0"}
+!82 = distinct !{!82, !"VP8GetBit"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"VP8LoadNewBytes: argument 0"}
+!85 = distinct !{!85, !"VP8LoadNewBytes"}
+!86 = !{!84, !81}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"VP8GetBit: argument 0"}
+!89 = distinct !{!89, !"VP8GetBit"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"VP8LoadNewBytes: argument 0"}
+!92 = distinct !{!92, !"VP8LoadNewBytes"}
+!93 = !{!91, !88}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"VP8GetBit: argument 0"}
+!96 = distinct !{!96, !"VP8GetBit"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"VP8LoadNewBytes: argument 0"}
+!99 = distinct !{!99, !"VP8LoadNewBytes"}
+!100 = !{!98, !95}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"VP8GetBit: argument 0"}
+!103 = distinct !{!103, !"VP8GetBit"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"VP8LoadNewBytes: argument 0"}
+!106 = distinct !{!106, !"VP8LoadNewBytes"}
+!107 = !{!105, !102}
+!108 = distinct !{!108, !109}
+!109 = !{!"llvm.loop.mustprogress"}
+!110 = distinct !{!110, !109}
+!111 = distinct !{!111, !109}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"VP8GetBit: argument 0"}
+!114 = distinct !{!114, !"VP8GetBit"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"VP8LoadNewBytes: argument 0"}
+!117 = distinct !{!117, !"VP8LoadNewBytes"}
+!118 = !{!116, !113}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"VP8GetBit: argument 0"}
+!121 = distinct !{!121, !"VP8GetBit"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"VP8LoadNewBytes: argument 0"}
+!124 = distinct !{!124, !"VP8LoadNewBytes"}
+!125 = !{!123, !120}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"VP8GetBit: argument 0"}
+!128 = distinct !{!128, !"VP8GetBit"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"VP8LoadNewBytes: argument 0"}
+!131 = distinct !{!131, !"VP8LoadNewBytes"}
+!132 = !{!130, !127}
+!133 = !{!54, !6, i64 785}
+!134 = distinct !{!134, !109}
+!135 = !{!4, !5, i64 56}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"VP8GetBit: argument 0"}
+!138 = distinct !{!138, !"VP8GetBit"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"VP8LoadNewBytes: argument 0"}
+!141 = distinct !{!141, !"VP8LoadNewBytes"}
+!142 = !{!140, !137}
+!143 = distinct !{!143, !109}
+!144 = distinct !{!144, !109}
+!145 = distinct !{!145, !109}
+!146 = !{!9, !9, i64 0}
+!147 = distinct !{!147, !109}
+!148 = distinct !{!148, !109}

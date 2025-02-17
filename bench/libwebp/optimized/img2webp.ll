@@ -28,19 +28,22 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [7 x i8] c"-lossy\00", align 1
 @.str.18 = private unnamed_addr constant [10 x i8] c"-lossless\00", align 1
 @.str.22 = private unnamed_addr constant [32 x i8] c"Invalid negative duration (%d)\0A\00", align 1
-@.str.23 = private unnamed_addr constant [21 x i8] c"Unknown option [%s]\0A\00", align 1
-@.str.24 = private unnamed_addr constant [24 x i8] c"Invalid configuration.\0A\00", align 1
-@.str.25 = private unnamed_addr constant [42 x i8] c"Could not create WebPAnimEncoder object.\0A\00", align 1
-@.str.26 = private unnamed_addr constant [69 x i8] c"Frame #%d dimension mismatched! Got %d x %d. Was expecting %d x %d.\0A\00", align 1
-@.str.27 = private unnamed_addr constant [30 x i8] c"Error while adding frame #%d\0A\00", align 1
-@.str.28 = private unnamed_addr constant [41 x i8] c"Added frame #%3d at time %4d (file: %s)\0A\00", align 1
-@.str.29 = private unnamed_addr constant [40 x i8] c"Error during final animation assembly.\0A\00", align 1
-@.str.30 = private unnamed_addr constant [21 x i8] c"output file: %s     \00", align 1
-@.str.31 = private unnamed_addr constant [30 x i8] c"[no output file specified]   \00", align 1
-@.str.32 = private unnamed_addr constant [24 x i8] c"[%d frames, %u bytes].\0A\00", align 1
-@.str.34 = private unnamed_addr constant [58 x i8] c"  img2webp [file_options] [[frame_options] frame_file]...\00", align 1
-@.str.57 = private unnamed_addr constant [32 x i8] c"\0ASupported input formats:\0A  %s\0A\00", align 1
-@.str.58 = private unnamed_addr constant [33 x i8] c"Error during loop-count setting\0A\00", align 1
+@.str.23 = private unnamed_addr constant [7 x i8] c"-exact\00", align 1
+@.str.24 = private unnamed_addr constant [9 x i8] c"-noexact\00", align 1
+@.str.25 = private unnamed_addr constant [21 x i8] c"Unknown option [%s]\0A\00", align 1
+@.str.26 = private unnamed_addr constant [24 x i8] c"Invalid configuration.\0A\00", align 1
+@.str.27 = private unnamed_addr constant [42 x i8] c"Could not create WebPAnimEncoder object.\0A\00", align 1
+@.str.28 = private unnamed_addr constant [69 x i8] c"Frame #%d dimension mismatched! Got %d x %d. Was expecting %d x %d.\0A\00", align 1
+@.str.29 = private unnamed_addr constant [30 x i8] c"Error while adding frame #%d\0A\00", align 1
+@.str.30 = private unnamed_addr constant [41 x i8] c"Added frame #%3d at time %4d (file: %s)\0A\00", align 1
+@.str.31 = private unnamed_addr constant [71 x i8] c"Warning: unused option [%s]! Frame options go before the input frame.\0A\00", align 1
+@.str.32 = private unnamed_addr constant [40 x i8] c"Error during final animation assembly.\0A\00", align 1
+@.str.33 = private unnamed_addr constant [21 x i8] c"output file: %s     \00", align 1
+@.str.34 = private unnamed_addr constant [30 x i8] c"[no output file specified]   \00", align 1
+@.str.35 = private unnamed_addr constant [24 x i8] c"[%d frames, %u bytes].\0A\00", align 1
+@.str.37 = private unnamed_addr constant [58 x i8] c"  img2webp [file_options] [[frame_options] frame_file]...\00", align 1
+@.str.61 = private unnamed_addr constant [32 x i8] c"\0ASupported input formats:\0A  %s\0A\00", align 1
+@.str.62 = private unnamed_addr constant [33 x i8] c"Error during loop-count setting\0A\00", align 1
 @str = private unnamed_addr constant [8 x i8] c"Usage:\0A\00", align 1
 @str.1 = private unnamed_addr constant [17 x i8] c" [-o webp_file]\0A\00", align 1
 @str.2 = private unnamed_addr constant [60 x i8] c"File-level options (only used at the start of compression):\00", align 1
@@ -56,13 +59,14 @@ target triple = "x86_64-pc-linux-gnu"
 @str.12 = private unnamed_addr constant [54 x i8] c" -version ............. print version number and exit\00", align 1
 @str.13 = private unnamed_addr constant [59 x i8] c"Per-frame options (only used for subsequent images input):\00", align 1
 @str.14 = private unnamed_addr constant [60 x i8] c" -d <int> ............. frame duration in ms (default: 100)\00", align 1
-@str.15 = private unnamed_addr constant [52 x i8] c" -lossless  ........... use lossless mode (default)\00", align 1
-@str.16 = private unnamed_addr constant [39 x i8] c" -lossy ... ........... use lossy mode\00", align 1
+@str.15 = private unnamed_addr constant [52 x i8] c" -lossless ............ use lossless mode (default)\00", align 1
+@str.16 = private unnamed_addr constant [39 x i8] c" -lossy ............... use lossy mode\00", align 1
 @str.17 = private unnamed_addr constant [32 x i8] c" -q <float> ........... quality\00", align 1
-@str.18 = private unnamed_addr constant [38 x i8] c" -m <int> ............. method to use\00", align 1
-@str.19 = private unnamed_addr constant [94 x i8] c"example: img2webp -loop 2 in0.png -lossy in1.jpg\0A                  -d 80 in2.tiff -o out.webp\00", align 1
-@str.20 = private unnamed_addr constant [78 x i8] c"\0ANote: if a single file name is passed as the argument, the arguments will be\00", align 1
-@str.21 = private unnamed_addr constant [79 x i8] c"tokenized from this file. The file name must not start with the character '-'.\00", align 1
+@str.18 = private unnamed_addr constant [74 x i8] c" -m <int> ............. compression method (0=fast, 6=slowest), default=4\00", align 1
+@str.19 = private unnamed_addr constant [194 x i8] c" -exact, -noexact ..... preserve or alter RGB values in transparent area\0A                        (default: -noexact, may cause artifacts\0A                                  with lossy animations)\00", align 1
+@str.20 = private unnamed_addr constant [94 x i8] c"example: img2webp -loop 2 in0.png -lossy in1.jpg\0A                  -d 80 in2.tiff -o out.webp\00", align 1
+@str.21 = private unnamed_addr constant [78 x i8] c"\0ANote: if a single file name is passed as the argument, the arguments will be\00", align 1
+@str.22 = private unnamed_addr constant [79 x i8] c"tokenized from this file. The file name must not start with the character '-'.\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -77,36 +81,41 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %11 = alloca %struct.CommandLineArguments, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #7
   %14 = add nsw i32 %0, -1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = call i32 @ExUtilInitCommandLineArguments(i32 noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %11) #7
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %325, label %17
+  br i1 %.not, label %340, label %17
 
 17:                                               ; preds = %2
-  %18 = load i32, ptr %11, align 8
+  %18 = load i32, ptr %11, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = call i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef nonnull %7, i32 noundef 265) #7
-  %.not227 = icmp eq i32 %21, 0
-  br i1 %.not227, label %33, label %22
+  %.not255 = icmp eq i32 %21, 0
+  br i1 %.not255, label %33, label %22
 
 22:                                               ; preds = %17
   %23 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %8, i32 noundef 0, float noundef 7.500000e+01, i32 noundef 528) #7
-  %.not228 = icmp eq i32 %23, 0
-  br i1 %.not228, label %33, label %24
+  %.not256 = icmp eq i32 %23, 0
+  br i1 %.not256, label %33, label %24
 
 24:                                               ; preds = %22
   %25 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %9, i32 noundef 528) #7
-  %.not229 = icmp eq i32 %25, 0
-  br i1 %.not229, label %33, label %.preheader
+  %.not257 = icmp eq i32 %25, 0
+  br i1 %.not257, label %33, label %.preheader378
 
-.preheader:                                       ; preds = %24
+.preheader378:                                    ; preds = %24
   %26 = icmp sgt i32 %18, 0
   br i1 %26, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader378
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -116,714 +125,771 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %.outer
 
 33:                                               ; preds = %24, %22, %17
-  %34 = load ptr, ptr @stderr, align 8
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !15
   %35 = call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %34) #8
   br label %.loopexit
 
-36:                                               ; preds = %.thread475
+36:                                               ; preds = %.thread523
   %37 = sext i32 %152 to i64
   %38 = getelementptr inbounds ptr, ptr %20, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i8, ptr %39, align 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  %40 = load i8, ptr %39, align 1, !tbaa !18
   %41 = icmp eq i8 %40, 45
-  br i1 %41, label %sub_0, label %.thread475, !llvm.loop !5
+  br i1 %41, label %sub_0, label %.thread523, !llvm.loop !19
 
 sub_0:                                            ; preds = %36, %.outer
-  %.0165391.lcssa = phi i32 [ %.0165391.ph, %.outer ], [ 1, %36 ]
-  %.0167390.lcssa = phi i32 [ %.0167390.ph, %.outer ], [ %152, %36 ]
-  %.lcssa582 = phi i64 [ %147, %.outer ], [ %37, %36 ]
-  %.lcssa580 = phi ptr [ %149, %.outer ], [ %39, %36 ]
-  %42 = getelementptr inbounds ptr, ptr %20, i64 %.lcssa582
-  store i32 0, ptr %12, align 4
-  %43 = load i8, ptr %.lcssa580, align 1
-  %.not414 = icmp eq i8 %43, 45
-  br i1 %.not414, label %sub_1, label %.tail.thread
+  %.0187440.lcssa = phi i32 [ %.0187440.ph, %.outer ], [ 1, %36 ]
+  %.0189439.lcssa = phi i32 [ %.0189439.ph, %.outer ], [ %152, %36 ]
+  %.lcssa625 = phi i64 [ %147, %.outer ], [ %37, %36 ]
+  %.lcssa623 = phi ptr [ %149, %.outer ], [ %39, %36 ]
+  %42 = getelementptr inbounds ptr, ptr %20, i64 %.lcssa625
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  store i32 0, ptr %12, align 4, !tbaa !21
+  %43 = load i8, ptr %.lcssa623, align 1
+  %.not465 = icmp eq i8 %43, 45
+  br i1 %.not465, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %44 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 1
   %45 = load i8, ptr %44, align 1
-  %.not415 = icmp eq i8 %45, 111
-  br i1 %.not415, label %.tail, label %.tail.thread
+  %.not466 = icmp eq i8 %45, 111
+  br i1 %.not466, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %46 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %.tail.thread
 
 49:                                               ; preds = %.tail
-  %50 = add nsw i32 %.0167390.lcssa, 1
+  %50 = add nsw i32 %.0189439.lcssa, 1
   %51 = icmp slt i32 %50, %18
   br i1 %51, label %52, label %.tail.thread
 
 52:                                               ; preds = %49
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !17
   %53 = sext i32 %50 to i64
   %54 = getelementptr inbounds ptr, ptr %20, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  br label %140
+  %55 = load ptr, ptr %54, align 8, !tbaa !17
+  br label %139
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %49, %.tail
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not245 = icmp eq i32 %56, 0
-  br i1 %.not245, label %57, label %65
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(6) @.str.2) #9
+  %.not276 = icmp eq i32 %56, 0
+  br i1 %.not276, label %57, label %65
 
 57:                                               ; preds = %.tail.thread
-  %58 = add nsw i32 %.0167390.lcssa, 1
+  %58 = add nsw i32 %.0189439.lcssa, 1
   %59 = icmp slt i32 %58, %18
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %57
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !17
   %61 = sext i32 %58 to i64
   %62 = getelementptr inbounds ptr, ptr %20, i64 %61
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
   %64 = call i32 @ExUtilGetInt(ptr noundef %63, i32 noundef 0, ptr noundef nonnull %12) #7
-  store i32 %64, ptr %32, align 4
-  br label %140
+  store i32 %64, ptr %32, align 4, !tbaa !22
+  br label %139
 
 65:                                               ; preds = %57, %.tail.thread
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(6) @.str.3) #9
-  %.not246 = icmp eq i32 %66, 0
-  br i1 %.not246, label %67, label %75
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(6) @.str.3) #9
+  %.not277 = icmp eq i32 %66, 0
+  br i1 %.not277, label %67, label %75
 
 67:                                               ; preds = %65
-  %68 = add nsw i32 %.0167390.lcssa, 1
+  %68 = add nsw i32 %.0189439.lcssa, 1
   %69 = icmp slt i32 %68, %18
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %67
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !17
   %71 = sext i32 %68 to i64
   %72 = getelementptr inbounds ptr, ptr %20, i64 %71
-  %73 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = call i32 @ExUtilGetInt(ptr noundef %73, i32 noundef 0, ptr noundef nonnull %12) #7
-  store i32 %74, ptr %31, align 4
-  br label %140
+  store i32 %74, ptr %31, align 4, !tbaa !25
+  br label %139
 
 75:                                               ; preds = %67, %65
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(6) @.str.4) #9
-  %.not247 = icmp eq i32 %76, 0
-  br i1 %.not247, label %77, label %88
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(6) @.str.4) #9
+  %.not278 = icmp eq i32 %76, 0
+  br i1 %.not278, label %77, label %88
 
 77:                                               ; preds = %75
-  %78 = add nsw i32 %.0167390.lcssa, 1
+  %78 = add nsw i32 %.0189439.lcssa, 1
   %79 = icmp slt i32 %78, %18
   br i1 %79, label %80, label %88
 
 80:                                               ; preds = %77
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !17
   %81 = sext i32 %78 to i64
   %82 = getelementptr inbounds ptr, ptr %20, i64 %81
-  %83 = load ptr, ptr %82, align 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !17
   %84 = call i32 @ExUtilGetInt(ptr noundef %83, i32 noundef 0, ptr noundef nonnull %12) #7
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %.thread, label %140
+  br i1 %85, label %.thread, label %139
 
 .thread:                                          ; preds = %80
-  %86 = load ptr, ptr @stderr, align 8
+  %86 = load ptr, ptr @stderr, align 8, !tbaa !15
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.5, i32 noundef %84) #10
-  store i32 1, ptr %12, align 4
-  br label %.loopexit
+  br label %.thread303
 
 88:                                               ; preds = %77, %75
-  %89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(10) @.str.6) #9
-  %.not248 = icmp eq i32 %89, 0
-  br i1 %.not248, label %90, label %91
+  %89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(10) @.str.6) #9
+  %.not279 = icmp eq i32 %89, 0
+  br i1 %.not279, label %90, label %91
 
 90:                                               ; preds = %88
-  store i32 1, ptr %30, align 4
-  br label %140
+  store i32 1, ptr %30, align 4, !tbaa !26
+  br label %139
 
 91:                                               ; preds = %88
-  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(7) @.str.7) #9
-  %.not249 = icmp eq i32 %92, 0
-  br i1 %.not249, label %93, label %94
+  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(7) @.str.7) #9
+  %.not280 = icmp eq i32 %92, 0
+  br i1 %.not280, label %93, label %94
 
 93:                                               ; preds = %91
-  store i32 1, ptr %29, align 4
-  store i32 0, ptr %8, align 4
-  br label %140
+  store i32 1, ptr %29, align 4, !tbaa !27
+  store i32 0, ptr %8, align 4, !tbaa !28
+  br label %139
 
 94:                                               ; preds = %91
-  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(15) @.str.8) #9
-  %.not250 = icmp eq i32 %95, 0
-  br i1 %.not250, label %96, label %104
+  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(15) @.str.8) #9
+  %.not281 = icmp eq i32 %95, 0
+  br i1 %.not281, label %96, label %104
 
 96:                                               ; preds = %94
-  %97 = add nsw i32 %.0167390.lcssa, 1
+  %97 = add nsw i32 %.0189439.lcssa, 1
   %98 = icmp slt i32 %97, %18
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %96
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !17
   %100 = sext i32 %97 to i64
   %101 = getelementptr inbounds ptr, ptr %20, i64 %100
-  %102 = load ptr, ptr %101, align 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !17
   %103 = call i32 @ExUtilGetInt(ptr noundef %102, i32 noundef 0, ptr noundef nonnull %12) #7
-  store i32 %103, ptr %28, align 4
-  br label %140
+  store i32 %103, ptr %28, align 4, !tbaa !31
+  br label %139
 
 104:                                              ; preds = %96, %94
-  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(11) @.str.9) #9
-  %.not251 = icmp eq i32 %105, 0
-  br i1 %.not251, label %106, label %sub_0304
+  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(11) @.str.9) #9
+  %.not282 = icmp eq i32 %105, 0
+  br i1 %.not282, label %106, label %sub_0354
 
 106:                                              ; preds = %104
-  store i32 1, ptr %27, align 4
-  br label %140
+  store i32 1, ptr %27, align 4, !tbaa !32
+  br label %139
 
-sub_0304:                                         ; preds = %104
-  br i1 %.not414, label %sub_1305, label %.tail308.thread
+sub_0354:                                         ; preds = %104
+  br i1 %.not465, label %sub_1355, label %.tail358.thread
 
-sub_1305:                                         ; preds = %sub_0304
-  %107 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
+sub_1355:                                         ; preds = %sub_0354
+  %107 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 1
   %108 = load i8, ptr %107, align 1
-  %.not417 = icmp eq i8 %108, 118
-  br i1 %.not417, label %.tail303, label %sub_1310
+  %.not468 = icmp eq i8 %108, 118
+  br i1 %.not468, label %.tail353, label %sub_1360
 
-.tail303:                                         ; preds = %sub_1305
-  %109 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
+.tail353:                                         ; preds = %sub_1355
+  %109 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 0
-  br i1 %111, label %140, label %sub_1310
+  br i1 %111, label %139, label %sub_1360
 
-sub_1310:                                         ; preds = %.tail303, %sub_1305
-  %112 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
+sub_1360:                                         ; preds = %.tail353, %sub_1355
+  %112 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 1
   %113 = load i8, ptr %112, align 1
-  %.not419 = icmp eq i8 %113, 104
-  br i1 %.not419, label %.tail308, label %.tail308.thread
+  %.not470 = icmp eq i8 %113, 104
+  br i1 %.not470, label %.tail358, label %.tail358.thread
 
-.tail308:                                         ; preds = %sub_1310
-  %114 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
+.tail358:                                         ; preds = %sub_1360
+  %114 = getelementptr inbounds nuw i8, ptr %.lcssa623, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %118, label %.tail308.thread
+  br i1 %116, label %143, label %.tail358.thread
 
-.tail308.thread:                                  ; preds = %sub_0304, %sub_1310, %.tail308
-  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(6) @.str.12) #9
-  %.not255 = icmp eq i32 %117, 0
-  br i1 %.not255, label %118, label %119
+.tail358.thread:                                  ; preds = %sub_0354, %sub_1360, %.tail358
+  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(6) @.str.12) #9
+  %.not286 = icmp eq i32 %117, 0
+  br i1 %.not286, label %143, label %118
 
-118:                                              ; preds = %.tail308.thread, %.tail308
-  call fastcc void @Help()
-  br label %325
+118:                                              ; preds = %.tail358.thread
+  %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa623, ptr noundef nonnull dereferenceable(9) @.str.13) #9
+  %.not287 = icmp eq i32 %119, 0
+  br i1 %.not287, label %120, label %144
 
-119:                                              ; preds = %.tail308.thread
-  %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.lcssa580, ptr noundef nonnull dereferenceable(9) @.str.13) #9
-  %.not256 = icmp eq i32 %120, 0
-  br i1 %.not256, label %121, label %144
+120:                                              ; preds = %118
+  %121 = call i32 @WebPGetEncoderVersion() #7
+  %122 = call i32 @WebPGetMuxVersion() #7
+  %123 = call i32 @SharpYuvGetVersion() #7
+  %124 = lshr i32 %121, 16
+  %125 = and i32 %124, 255
+  %126 = lshr i32 %121, 8
+  %127 = and i32 %126, 255
+  %128 = and i32 %121, 255
+  %129 = lshr i32 %122, 16
+  %130 = and i32 %129, 255
+  %131 = lshr i32 %122, 8
+  %132 = and i32 %131, 255
+  %133 = and i32 %122, 255
+  %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %125, i32 noundef %127, i32 noundef %128, i32 noundef %130, i32 noundef %132, i32 noundef %133)
+  %135 = lshr i32 %123, 24
+  %136 = lshr i32 %123, 16
+  %137 = and i32 %123, 255
+  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %135, i32 noundef %136, i32 noundef %137)
+  br label %.thread303
 
-121:                                              ; preds = %119
-  %122 = call i32 @WebPGetEncoderVersion() #7
-  %123 = call i32 @WebPGetMuxVersion() #7
-  %124 = call i32 @SharpYuvGetVersion() #7
-  %125 = lshr i32 %122, 16
-  %126 = and i32 %125, 255
-  %127 = lshr i32 %122, 8
-  %128 = and i32 %127, 255
-  %129 = and i32 %122, 255
-  %130 = lshr i32 %123, 16
-  %131 = and i32 %130, 255
-  %132 = lshr i32 %123, 8
-  %133 = and i32 %132, 255
-  %134 = and i32 %123, 255
-  %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %126, i32 noundef %128, i32 noundef %129, i32 noundef %131, i32 noundef %133, i32 noundef %134)
-  %136 = lshr i32 %124, 24
-  %137 = lshr i32 %124, 16
-  %138 = and i32 %124, 255
-  %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %136, i32 noundef %137, i32 noundef %138)
-  br label %.loopexit
+139:                                              ; preds = %.tail353, %60, %80, %93, %106, %99, %90, %70, %52
+  %.2226.ph = phi ptr [ %.1225436.ph, %.tail353 ], [ %55, %52 ], [ %.1225436.ph, %60 ], [ %.1225436.ph, %70 ], [ %.1225436.ph, %80 ], [ %.1225436.ph, %90 ], [ %.1225436.ph, %93 ], [ %.1225436.ph, %99 ], [ %.1225436.ph, %106 ]
+  %.1217.ph = phi i32 [ 1, %.tail353 ], [ %.0216437.ph, %52 ], [ %.0216437.ph, %60 ], [ %.0216437.ph, %70 ], [ %.0216437.ph, %80 ], [ %.0216437.ph, %90 ], [ %.0216437.ph, %93 ], [ %.0216437.ph, %99 ], [ %.0216437.ph, %106 ]
+  %.2205.ph = phi i32 [ %.1204438.ph, %.tail353 ], [ %.1204438.ph, %52 ], [ %.1204438.ph, %60 ], [ %.1204438.ph, %70 ], [ %84, %80 ], [ %.1204438.ph, %90 ], [ %.1204438.ph, %93 ], [ %.1204438.ph, %99 ], [ %.1204438.ph, %106 ]
+  %.1190.ph = phi i32 [ %.0189439.lcssa, %.tail353 ], [ %50, %52 ], [ %58, %60 ], [ %68, %70 ], [ %78, %80 ], [ %.0189439.lcssa, %90 ], [ %.0189439.lcssa, %93 ], [ %97, %99 ], [ %.0189439.lcssa, %106 ]
+  %.pr = load i32, ptr %12, align 4, !tbaa !21
+  %.not284 = icmp eq i32 %.pr, 0
+  br i1 %.not284, label %140, label %.thread303
 
-140:                                              ; preds = %.tail303, %60, %80, %93, %106, %99, %90, %70, %52
-  %.2200.ph = phi ptr [ %.1199387.ph, %.tail303 ], [ %55, %52 ], [ %.1199387.ph, %60 ], [ %.1199387.ph, %70 ], [ %.1199387.ph, %80 ], [ %.1199387.ph, %90 ], [ %.1199387.ph, %93 ], [ %.1199387.ph, %99 ], [ %.1199387.ph, %106 ]
-  %.1192.ph = phi i32 [ 1, %.tail303 ], [ %.0191388.ph, %52 ], [ %.0191388.ph, %60 ], [ %.0191388.ph, %70 ], [ %.0191388.ph, %80 ], [ %.0191388.ph, %90 ], [ %.0191388.ph, %93 ], [ %.0191388.ph, %99 ], [ %.0191388.ph, %106 ]
-  %.2181.ph = phi i32 [ %.1180389.ph, %.tail303 ], [ %.1180389.ph, %52 ], [ %.1180389.ph, %60 ], [ %.1180389.ph, %70 ], [ %84, %80 ], [ %.1180389.ph, %90 ], [ %.1180389.ph, %93 ], [ %.1180389.ph, %99 ], [ %.1180389.ph, %106 ]
-  %.1168.ph = phi i32 [ %.0167390.lcssa, %.tail303 ], [ %50, %52 ], [ %58, %60 ], [ %68, %70 ], [ %78, %80 ], [ %.0167390.lcssa, %90 ], [ %.0167390.lcssa, %93 ], [ %97, %99 ], [ %.0167390.lcssa, %106 ]
-  %.pr = load i32, ptr %12, align 4
-  %.not253 = icmp eq i32 %.pr, 0
-  br i1 %.not253, label %141, label %.loopexit
-
-141:                                              ; preds = %140
-  %142 = sext i32 %.1168.ph to i64
-  %143 = getelementptr inbounds ptr, ptr %20, i64 %142
-  store ptr null, ptr %143, align 8
+140:                                              ; preds = %139
+  %141 = sext i32 %.1190.ph to i64
+  %142 = getelementptr inbounds ptr, ptr %20, i64 %141
+  store ptr null, ptr %142, align 8, !tbaa !17
   br label %144
 
-144:                                              ; preds = %141, %119
-  %.3201 = phi ptr [ %.1199387.ph, %119 ], [ %.2200.ph, %141 ]
-  %.2193 = phi i32 [ %.0191388.ph, %119 ], [ %.1192.ph, %141 ]
-  %.3182 = phi i32 [ %.1180389.ph, %119 ], [ %.2181.ph, %141 ]
-  %.2169 = phi i32 [ %.0167390.lcssa, %119 ], [ %.1168.ph, %141 ]
-  %.2 = phi i32 [ %.1392.ph, %119 ], [ 1, %141 ]
-  %145 = add nsw i32 %.2169, 1
+.thread303:                                       ; preds = %139, %120, %.thread
+  %.3227.ph = phi ptr [ %.1225436.ph, %.thread ], [ %.1225436.ph, %120 ], [ %.2226.ph, %139 ]
+  %.3206.ph = phi i32 [ %84, %.thread ], [ %.1204438.ph, %120 ], [ %.2205.ph, %139 ]
+  %.2183.ph = phi i32 [ 0, %.thread ], [ %.1182441.ph, %120 ], [ 0, %139 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  br label %.loopexit
+
+143:                                              ; preds = %.tail358, %.tail358.thread
+  call fastcc void @Help()
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  br label %340
+
+144:                                              ; preds = %118, %140
+  %.3227.ph311 = phi ptr [ %.1225436.ph, %118 ], [ %.2226.ph, %140 ]
+  %.2218.ph = phi i32 [ %.0216437.ph, %118 ], [ %.1217.ph, %140 ]
+  %.3206.ph312 = phi i32 [ %.1204438.ph, %118 ], [ %.2205.ph, %140 ]
+  %.2191.ph = phi i32 [ %.0189439.lcssa, %118 ], [ %.1190.ph, %140 ]
+  %.2183.ph313 = phi i32 [ %.1182441.ph, %118 ], [ 1, %140 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  %145 = add nsw i32 %.2191.ph, 1
   %146 = icmp slt i32 %145, %18
-  br i1 %146, label %.outer, label %._crit_edge, !llvm.loop !5
+  br i1 %146, label %.outer, label %._crit_edge, !llvm.loop !19
 
 .outer:                                           ; preds = %144, %.lr.ph
-  %.1392.ph = phi i32 [ %.2, %144 ], [ %16, %.lr.ph ]
-  %.0165391.ph = phi i32 [ %.0165391.lcssa, %144 ], [ 0, %.lr.ph ]
-  %.0167390.ph = phi i32 [ %145, %144 ], [ 0, %.lr.ph ]
-  %.1180389.ph = phi i32 [ %.3182, %144 ], [ 0, %.lr.ph ]
-  %.0191388.ph = phi i32 [ %.2193, %144 ], [ 0, %.lr.ph ]
-  %.1199387.ph = phi ptr [ %.3201, %144 ], [ null, %.lr.ph ]
-  %147 = sext i32 %.0167390.ph to i64
+  %.1182441.ph = phi i32 [ %.2183.ph313, %144 ], [ %16, %.lr.ph ]
+  %.0187440.ph = phi i32 [ %.0187440.lcssa, %144 ], [ 0, %.lr.ph ]
+  %.0189439.ph = phi i32 [ %145, %144 ], [ 0, %.lr.ph ]
+  %.1204438.ph = phi i32 [ %.3206.ph312, %144 ], [ 0, %.lr.ph ]
+  %.0216437.ph = phi i32 [ %.2218.ph, %144 ], [ 0, %.lr.ph ]
+  %.1225436.ph = phi ptr [ %.3227.ph311, %144 ], [ null, %.lr.ph ]
+  %147 = sext i32 %.0189439.ph to i64
   %148 = getelementptr inbounds ptr, ptr %20, i64 %147
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i8, ptr %149, align 1
+  %149 = load ptr, ptr %148, align 8, !tbaa !17
+  %150 = load i8, ptr %149, align 1, !tbaa !18
   %151 = icmp eq i8 %150, 45
-  br i1 %151, label %sub_0, label %.thread475
+  br i1 %151, label %sub_0, label %.thread523
 
-.thread475:                                       ; preds = %.outer, %36
-  %.0167390611 = phi i32 [ %152, %36 ], [ %.0167390.ph, %.outer ]
-  %152 = add nsw i32 %.0167390611, 1
+.thread523:                                       ; preds = %.outer, %36
+  %.0189439654 = phi i32 [ %152, %36 ], [ %.0189439.ph, %.outer ]
+  %152 = add nsw i32 %.0189439654, 1
   %153 = icmp slt i32 %152, %18
-  br i1 %153, label %36, label %._crit_edge.thread487, !llvm.loop !5
+  br i1 %153, label %36, label %._crit_edge.thread534, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %144
-  %154 = icmp eq i32 %.0165391.lcssa, 0
-  br i1 %154, label %._crit_edge.thread, label %._crit_edge.thread487
+  %154 = icmp eq i32 %.0187440.lcssa, 0
+  br i1 %154, label %._crit_edge.thread, label %._crit_edge.thread534
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa474 = phi i32 [ %.2, %._crit_edge ], [ %16, %.preheader ]
-  %.1180.lcssa473 = phi i32 [ %.3182, %._crit_edge ], [ 0, %.preheader ]
-  %.1199.lcssa472 = phi ptr [ %.3201, %._crit_edge ], [ null, %.preheader ]
-  %155 = load ptr, ptr @stderr, align 8
+._crit_edge.thread:                               ; preds = %.preheader378, %._crit_edge
+  %.1204.lcssa522 = phi i32 [ %.3206.ph312, %._crit_edge ], [ 0, %.preheader378 ]
+  %.1225.lcssa521 = phi ptr [ %.3227.ph311, %._crit_edge ], [ null, %.preheader378 ]
+  %155 = load ptr, ptr @stderr, align 8, !tbaa !15
   %156 = call i64 @fwrite(ptr nonnull @.str.16, i64 43, i64 1, ptr %155) #8
+  call fastcc void @Help()
   br label %.loopexit
 
-._crit_edge.thread487:                            ; preds = %.thread475, %._crit_edge
-  %.in = phi i32 [ %.2193, %._crit_edge ], [ %.0191388.ph, %.thread475 ]
-  %.3201482495 = phi ptr [ %.3201, %._crit_edge ], [ %.1199387.ph, %.thread475 ]
-  %.3182484494 = phi i32 [ %.3182, %._crit_edge ], [ %.1180389.ph, %.thread475 ]
-  %.2486493 = phi i32 [ %.2, %._crit_edge ], [ %.1392.ph, %.thread475 ]
+._crit_edge.thread534:                            ; preds = %.thread523, %._crit_edge
+  %.in = phi i32 [ %.2218.ph, %._crit_edge ], [ %.0216437.ph, %.thread523 ]
+  %.4228530540 = phi ptr [ %.3227.ph311, %._crit_edge ], [ %.1225436.ph, %.thread523 ]
+  %.4207532539 = phi i32 [ %.3206.ph312, %._crit_edge ], [ %.1204438.ph, %.thread523 ]
   %157 = icmp eq i32 %.in, 0
-  store i32 1, ptr %8, align 4
-  %.not556.not = icmp eq i32 %.2486493, 0
-  br i1 %.not556.not, label %._crit_edge409, label %.lr.ph408
-
-.lr.ph408:                                        ; preds = %._crit_edge.thread487
+  store i32 1, ptr %8, align 4, !tbaa !28
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %161 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %162 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  br label %163
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %161 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  br label %167
 
-163:                                              ; preds = %.lr.ph408, %272
-  %.3170405 = phi i32 [ 0, %.lr.ph408 ], [ %273, %272 ]
-  %.0173404 = phi i32 [ 0, %.lr.ph408 ], [ %.1174, %272 ]
-  %.0176403 = phi i32 [ 0, %.lr.ph408 ], [ %.1177, %272 ]
-  %.0183402 = phi i32 [ 0, %.lr.ph408 ], [ %.1184, %272 ]
-  %.0185401 = phi i32 [ 100, %.lr.ph408 ], [ %.1186, %272 ]
-  %.1189399 = phi i32 [ 0, %.lr.ph408 ], [ %.2190, %272 ]
-  %.1195397 = phi ptr [ null, %.lr.ph408 ], [ %.2196, %272 ]
-  %164 = sext i32 %.3170405 to i64
-  %165 = getelementptr inbounds ptr, ptr %20, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %272, label %168
+.preheader:                                       ; preds = %282
+  %.7196461 = add nsw i32 %.1186, 1
+  %164 = icmp slt i32 %.7196461, %18
+  br i1 %164, label %.lr.ph463.preheader, label %._crit_edge464
 
-168:                                              ; preds = %163
-  %169 = load i8, ptr %166, align 1
-  %170 = icmp eq i8 %169, 45
-  br i1 %170, label %171, label %227
+.lr.ph463.preheader:                              ; preds = %.preheader
+  %165 = sext i32 %.1186 to i64
+  %166 = add nsw i64 %165, 1
+  br label %.lr.ph463
 
-171:                                              ; preds = %168
-  store i32 0, ptr %13, align 4
-  %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.17) #9
-  %.not236 = icmp eq i32 %172, 0
-  br i1 %.not236, label %173, label %176
+167:                                              ; preds = %._crit_edge.thread534, %282
+  %.0185454 = phi i32 [ 0, %._crit_edge.thread534 ], [ %.1186, %282 ]
+  %.4193453 = phi i32 [ 0, %._crit_edge.thread534 ], [ %283, %282 ]
+  %.0197452 = phi i32 [ 0, %._crit_edge.thread534 ], [ %.1198, %282 ]
+  %.0200451 = phi i32 [ 0, %._crit_edge.thread534 ], [ %.1201, %282 ]
+  %.0208450 = phi i32 [ 0, %._crit_edge.thread534 ], [ %.1209, %282 ]
+  %.0210449 = phi i32 [ 100, %._crit_edge.thread534 ], [ %.1211, %282 ]
+  %.1214447 = phi i32 [ 0, %._crit_edge.thread534 ], [ %.2215, %282 ]
+  %.1221445 = phi ptr [ null, %._crit_edge.thread534 ], [ %.2222, %282 ]
+  %168 = sext i32 %.4193453 to i64
+  %169 = getelementptr inbounds ptr, ptr %20, i64 %168
+  %170 = load ptr, ptr %169, align 8, !tbaa !17
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %282, label %172
 
-173:                                              ; preds = %171
-  %174 = load i32, ptr %162, align 4
-  %.not237 = icmp eq i32 %174, 0
-  br i1 %.not237, label %175, label %226
+172:                                              ; preds = %167
+  %173 = load i8, ptr %170, align 1, !tbaa !18
+  %174 = icmp eq i8 %173, 45
+  br i1 %174, label %175, label %237
 
-175:                                              ; preds = %173
-  store i32 0, ptr %8, align 4
-  br label %226
+175:                                              ; preds = %172
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  store i32 0, ptr %13, align 4, !tbaa !21
+  %176 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(7) @.str.17) #9
+  %.not265 = icmp eq i32 %176, 0
+  br i1 %.not265, label %177, label %180
 
-176:                                              ; preds = %171
-  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(10) @.str.18) #9
-  %.not238 = icmp eq i32 %177, 0
-  br i1 %.not238, label %178, label %sub_0314
+177:                                              ; preds = %175
+  %178 = load i32, ptr %163, align 4, !tbaa !27
+  %.not266 = icmp eq i32 %178, 0
+  br i1 %.not266, label %179, label %236
 
-178:                                              ; preds = %176
-  %179 = load i32, ptr %162, align 4
-  %.not239 = icmp eq i32 %179, 0
-  br i1 %.not239, label %180, label %226
+179:                                              ; preds = %177
+  store i32 0, ptr %8, align 4, !tbaa !28
+  br label %236
 
-180:                                              ; preds = %178
-  store i32 1, ptr %8, align 4
-  br label %226
+180:                                              ; preds = %175
+  %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(10) @.str.18) #9
+  %.not267 = icmp eq i32 %181, 0
+  br i1 %.not267, label %182, label %sub_0364
 
-sub_0314:                                         ; preds = %176
-  %181 = load i8, ptr %166, align 1
-  %.not420 = icmp eq i8 %181, 45
-  br i1 %.not420, label %sub_1315, label %.tail323.thread
+182:                                              ; preds = %180
+  %183 = load i32, ptr %163, align 4, !tbaa !27
+  %.not268 = icmp eq i32 %183, 0
+  br i1 %.not268, label %184, label %236
 
-sub_1315:                                         ; preds = %sub_0314
-  %182 = getelementptr inbounds nuw i8, ptr %166, i64 1
-  %183 = load i8, ptr %182, align 1
-  %.not421 = icmp eq i8 %183, 113
-  br i1 %.not421, label %.tail313, label %sub_1320
+184:                                              ; preds = %182
+  store i32 1, ptr %8, align 4, !tbaa !28
+  br label %236
 
-.tail313:                                         ; preds = %sub_1315
-  %184 = getelementptr inbounds nuw i8, ptr %166, i64 2
-  %185 = load i8, ptr %184, align 1
-  %186 = icmp eq i8 %185, 0
-  br i1 %186, label %187, label %sub_1320
+sub_0364:                                         ; preds = %180
+  %185 = load i8, ptr %170, align 1
+  %.not471 = icmp eq i8 %185, 45
+  br i1 %.not471, label %sub_1365, label %.tail373.thread
 
-187:                                              ; preds = %.tail313
-  %188 = add nsw i32 %.3170405, 1
-  %189 = icmp slt i32 %188, %18
-  br i1 %189, label %190, label %sub_1320
+sub_1365:                                         ; preds = %sub_0364
+  %186 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  %187 = load i8, ptr %186, align 1
+  %.not472 = icmp eq i8 %187, 113
+  br i1 %.not472, label %.tail363, label %sub_1370
 
-190:                                              ; preds = %187
-  %191 = sext i32 %188 to i64
-  %192 = getelementptr inbounds ptr, ptr %20, i64 %191
-  %193 = load ptr, ptr %192, align 8
-  %194 = call float @ExUtilGetFloat(ptr noundef %193, ptr noundef nonnull %13) #7
-  store float %194, ptr %161, align 4
-  br label %226
+.tail363:                                         ; preds = %sub_1365
+  %188 = getelementptr inbounds nuw i8, ptr %170, i64 2
+  %189 = load i8, ptr %188, align 1
+  %190 = icmp eq i8 %189, 0
+  br i1 %190, label %191, label %sub_1370
 
-sub_1320:                                         ; preds = %187, %.tail313, %sub_1315
-  %195 = getelementptr inbounds nuw i8, ptr %166, i64 1
-  %196 = load i8, ptr %195, align 1
-  %.not423 = icmp eq i8 %196, 109
-  br i1 %.not423, label %.tail318, label %sub_1325
+191:                                              ; preds = %.tail363
+  %192 = add nsw i32 %.4193453, 1
+  %193 = icmp slt i32 %192, %18
+  br i1 %193, label %194, label %sub_1370
 
-.tail318:                                         ; preds = %sub_1320
-  %197 = getelementptr inbounds nuw i8, ptr %166, i64 2
-  %198 = load i8, ptr %197, align 1
-  %199 = icmp eq i8 %198, 0
-  br i1 %199, label %200, label %sub_1325
+194:                                              ; preds = %191
+  %195 = sext i32 %192 to i64
+  %196 = getelementptr inbounds ptr, ptr %20, i64 %195
+  %197 = load ptr, ptr %196, align 8, !tbaa !17
+  %198 = call float @ExUtilGetFloat(ptr noundef %197, ptr noundef nonnull %13) #7
+  store float %198, ptr %162, align 4, !tbaa !33
+  br label %236
 
-200:                                              ; preds = %.tail318
-  %201 = add nsw i32 %.3170405, 1
-  %202 = icmp slt i32 %201, %18
-  br i1 %202, label %203, label %sub_1325
+sub_1370:                                         ; preds = %191, %.tail363, %sub_1365
+  %199 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  %200 = load i8, ptr %199, align 1
+  %.not474 = icmp eq i8 %200, 109
+  br i1 %.not474, label %.tail368, label %sub_1375
 
-203:                                              ; preds = %200
-  %204 = sext i32 %201 to i64
-  %205 = getelementptr inbounds ptr, ptr %20, i64 %204
-  %206 = load ptr, ptr %205, align 8
-  %207 = call i32 @ExUtilGetInt(ptr noundef %206, i32 noundef 0, ptr noundef nonnull %13) #7
-  store i32 %207, ptr %160, align 4
-  br label %226
+.tail368:                                         ; preds = %sub_1370
+  %201 = getelementptr inbounds nuw i8, ptr %170, i64 2
+  %202 = load i8, ptr %201, align 1
+  %203 = icmp eq i8 %202, 0
+  br i1 %203, label %204, label %sub_1375
 
-sub_1325:                                         ; preds = %200, %.tail318, %sub_1320
-  %208 = getelementptr inbounds nuw i8, ptr %166, i64 1
-  %209 = load i8, ptr %208, align 1
-  %.not425 = icmp eq i8 %209, 100
-  br i1 %.not425, label %.tail323, label %.tail323.thread
+204:                                              ; preds = %.tail368
+  %205 = add nsw i32 %.4193453, 1
+  %206 = icmp slt i32 %205, %18
+  br i1 %206, label %207, label %sub_1375
 
-.tail323:                                         ; preds = %sub_1325
-  %210 = getelementptr inbounds nuw i8, ptr %166, i64 2
-  %211 = load i8, ptr %210, align 1
-  %212 = icmp eq i8 %211, 0
-  br i1 %212, label %213, label %.tail323.thread
+207:                                              ; preds = %204
+  %208 = sext i32 %205 to i64
+  %209 = getelementptr inbounds ptr, ptr %20, i64 %208
+  %210 = load ptr, ptr %209, align 8, !tbaa !17
+  %211 = call i32 @ExUtilGetInt(ptr noundef %210, i32 noundef 0, ptr noundef nonnull %13) #7
+  store i32 %211, ptr %161, align 4, !tbaa !34
+  br label %236
 
-213:                                              ; preds = %.tail323
-  %214 = add nsw i32 %.3170405, 1
-  %215 = icmp slt i32 %214, %18
-  br i1 %215, label %216, label %.tail323.thread
+sub_1375:                                         ; preds = %204, %.tail368, %sub_1370
+  %212 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  %213 = load i8, ptr %212, align 1
+  %.not476 = icmp eq i8 %213, 100
+  br i1 %.not476, label %.tail373, label %.tail373.thread
 
-216:                                              ; preds = %213
-  %217 = sext i32 %214 to i64
-  %218 = getelementptr inbounds ptr, ptr %20, i64 %217
-  %219 = load ptr, ptr %218, align 8
-  %220 = call i32 @ExUtilGetInt(ptr noundef %219, i32 noundef 0, ptr noundef nonnull %13) #7
-  %221 = icmp slt i32 %220, 1
-  br i1 %221, label %.thread274, label %226
+.tail373:                                         ; preds = %sub_1375
+  %214 = getelementptr inbounds nuw i8, ptr %170, i64 2
+  %215 = load i8, ptr %214, align 1
+  %216 = icmp eq i8 %215, 0
+  br i1 %216, label %217, label %.tail373.thread
 
-.thread274:                                       ; preds = %216
-  %222 = load ptr, ptr @stderr, align 8
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.22, i32 noundef %220) #10
-  store i32 1, ptr %13, align 4
+217:                                              ; preds = %.tail373
+  %218 = add nsw i32 %.4193453, 1
+  %219 = icmp slt i32 %218, %18
+  br i1 %219, label %220, label %.tail373.thread
+
+220:                                              ; preds = %217
+  %221 = sext i32 %218 to i64
+  %222 = getelementptr inbounds ptr, ptr %20, i64 %221
+  %223 = load ptr, ptr %222, align 8, !tbaa !17
+  %224 = call i32 @ExUtilGetInt(ptr noundef %223, i32 noundef 0, ptr noundef nonnull %13) #7
+  %225 = icmp slt i32 %224, 1
+  br i1 %225, label %.thread323, label %236
+
+.thread323:                                       ; preds = %220
+  %226 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.22, i32 noundef %224) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   br label %.loopexit
 
-.tail323.thread:                                  ; preds = %sub_0314, %sub_1325, %213, %.tail323
-  store i32 1, ptr %13, align 4
-  %224 = load ptr, ptr @stderr, align 8
-  %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.23, ptr noundef nonnull %166) #10
-  br label %226
+.tail373.thread:                                  ; preds = %sub_0364, %sub_1375, %217, %.tail373
+  %228 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(7) @.str.23) #9
+  %.not272 = icmp eq i32 %228, 0
+  br i1 %.not272, label %229, label %230
 
-226:                                              ; preds = %180, %178, %203, %216, %.tail323.thread, %190, %173, %175
-  %.2187.ph = phi i32 [ %.0185401, %175 ], [ %.0185401, %173 ], [ %.0185401, %180 ], [ %.0185401, %178 ], [ %.0185401, %190 ], [ %.0185401, %203 ], [ %220, %216 ], [ %.0185401, %.tail323.thread ]
-  %.5172.ph = phi i32 [ %.3170405, %175 ], [ %.3170405, %173 ], [ %.3170405, %180 ], [ %.3170405, %178 ], [ %188, %190 ], [ %201, %203 ], [ %214, %216 ], [ %.3170405, %.tail323.thread ]
-  %.pr273 = load i32, ptr %13, align 4
-  %.not243 = icmp eq i32 %.pr273, 0
-  br i1 %.not243, label %272, label %.loopexit
+229:                                              ; preds = %.tail373.thread
+  store i32 1, ptr %160, align 4, !tbaa !35
+  br label %236
 
-227:                                              ; preds = %168
-  %228 = call i32 @WebPValidateConfig(ptr noundef nonnull %8) #7
-  %.not231 = icmp eq i32 %228, 0
-  br i1 %.not231, label %229, label %232
+230:                                              ; preds = %.tail373.thread
+  %231 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(9) @.str.24) #9
+  %.not273 = icmp eq i32 %231, 0
+  br i1 %.not273, label %232, label %233
 
-229:                                              ; preds = %227
-  %230 = load ptr, ptr @stderr, align 8
-  %231 = call i64 @fwrite(ptr nonnull @.str.24, i64 23, i64 1, ptr %230) #8
+232:                                              ; preds = %230
+  store i32 0, ptr %160, align 4, !tbaa !35
+  br label %236
+
+233:                                              ; preds = %230
+  store i32 1, ptr %13, align 4, !tbaa !21
+  %234 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.25, ptr noundef nonnull %170) #10
+  br label %236
+
+236:                                              ; preds = %184, %182, %207, %229, %233, %232, %220, %194, %177, %179
+  %.2212.ph = phi i32 [ %.0210449, %179 ], [ %.0210449, %177 ], [ %.0210449, %184 ], [ %.0210449, %182 ], [ %.0210449, %194 ], [ %.0210449, %207 ], [ %224, %220 ], [ %.0210449, %229 ], [ %.0210449, %232 ], [ %.0210449, %233 ]
+  %.6195.ph = phi i32 [ %.4193453, %179 ], [ %.4193453, %177 ], [ %.4193453, %184 ], [ %.4193453, %182 ], [ %192, %194 ], [ %205, %207 ], [ %218, %220 ], [ %.4193453, %229 ], [ %.4193453, %232 ], [ %.4193453, %233 ]
+  %.pr322 = load i32, ptr %13, align 4, !tbaa !21
+  %.not274 = icmp eq i32 %.pr322, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  br i1 %.not274, label %282, label %.loopexit
+
+237:                                              ; preds = %172
+  %238 = call i32 @WebPValidateConfig(ptr noundef nonnull %8) #7
+  %.not260 = icmp eq i32 %238, 0
+  br i1 %.not260, label %239, label %242
+
+239:                                              ; preds = %237
+  %240 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %241 = call i64 @fwrite(ptr nonnull @.str.26, i64 23, i64 1, ptr %240) #8
   br label %.loopexit
 
-232:                                              ; preds = %227
-  store i32 1, ptr %9, align 8
-  %233 = load ptr, ptr %165, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr null, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  %234 = call i32 @ImgIoUtilReadFile(ptr noundef %233, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  %.not.i = icmp eq i32 %234, 0
+242:                                              ; preds = %237
+  store i32 1, ptr %9, align 8, !tbaa !36
+  %243 = load ptr, ptr %169, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  store ptr null, ptr %5, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  store i64 0, ptr %6, align 8, !tbaa !40
+  %244 = call i32 @ImgIoUtilReadFile(ptr noundef %243, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
+  %.not.i = icmp eq i32 %244, 0
   br i1 %.not.i, label %ReadImage.exit.thread, label %ReadImage.exit
 
-ReadImage.exit.thread:                            ; preds = %232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+ReadImage.exit.thread:                            ; preds = %242
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   br label %.loopexit
 
-ReadImage.exit:                                   ; preds = %232
-  %235 = load ptr, ptr %5, align 8
-  %236 = load i64, ptr %6, align 8
-  %237 = call ptr @WebPGuessImageReader(ptr noundef %235, i64 noundef %236) #7
-  %238 = load ptr, ptr %5, align 8
-  %239 = load i64, ptr %6, align 8
-  %240 = call i32 %237(ptr noundef %238, i64 noundef %239, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #7
-  %241 = load ptr, ptr %5, align 8
-  call void @WebPFree(ptr noundef %241) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not232 = icmp eq i32 %240, 0
-  br i1 %.not232, label %.loopexit, label %242
+ReadImage.exit:                                   ; preds = %242
+  %245 = load ptr, ptr %5, align 8, !tbaa !17
+  %246 = load i64, ptr %6, align 8, !tbaa !40
+  %247 = call ptr @WebPGuessImageReader(ptr noundef %245, i64 noundef %246) #7
+  %248 = load ptr, ptr %5, align 8, !tbaa !17
+  %249 = load i64, ptr %6, align 8, !tbaa !40
+  %250 = call i32 %247(ptr noundef %248, i64 noundef %249, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null) #7
+  %251 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @WebPFree(ptr noundef %251) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  %.not261 = icmp eq i32 %250, 0
+  br i1 %.not261, label %.loopexit, label %252
 
-242:                                              ; preds = %ReadImage.exit
-  %243 = icmp eq ptr %.1195397, null
-  br i1 %243, label %244, label %251
+252:                                              ; preds = %ReadImage.exit
+  %253 = icmp eq ptr %.1221445, null
+  br i1 %253, label %254, label %261
 
-244:                                              ; preds = %242
-  %245 = load i32, ptr %158, align 8
-  %246 = load i32, ptr %159, align 4
-  %247 = call ptr @WebPAnimEncoderNewInternal(i32 noundef %245, i32 noundef %246, ptr noundef nonnull %7, i32 noundef 265) #7
-  %.not302 = icmp eq ptr %247, null
-  br i1 %.not302, label %248, label %251
+254:                                              ; preds = %252
+  %255 = load i32, ptr %158, align 8, !tbaa !41
+  %256 = load i32, ptr %159, align 4, !tbaa !42
+  %257 = call ptr @WebPAnimEncoderNewInternal(i32 noundef %255, i32 noundef %256, ptr noundef nonnull %7, i32 noundef 265) #7
+  %.not352 = icmp eq ptr %257, null
+  br i1 %.not352, label %258, label %261
 
-248:                                              ; preds = %244
-  %249 = load ptr, ptr @stderr, align 8
-  %250 = call i64 @fwrite(ptr nonnull @.str.25, i64 41, i64 1, ptr %249) #8
+258:                                              ; preds = %254
+  %259 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %260 = call i64 @fwrite(ptr nonnull @.str.27, i64 41, i64 1, ptr %259) #8
   br label %.critedge.thread
 
-251:                                              ; preds = %244, %242
-  %.3197.ph = phi ptr [ %.1195397, %242 ], [ %247, %244 ]
-  %.2178.ph = phi i32 [ %.0176403, %242 ], [ %245, %244 ]
-  %.2175.ph = phi i32 [ %.0173404, %242 ], [ %246, %244 ]
-  %252 = load i32, ptr %158, align 8
-  %253 = icmp eq i32 %.2178.ph, %252
-  %254 = load i32, ptr %159, align 4
-  %255 = icmp eq i32 %.2175.ph, %254
-  %256 = select i1 %253, i1 %255, i1 false
-  br i1 %256, label %.critedge262, label %257
+261:                                              ; preds = %254, %252
+  %.3223.ph = phi ptr [ %.1221445, %252 ], [ %257, %254 ]
+  %.2202.ph = phi i32 [ %.0200451, %252 ], [ %255, %254 ]
+  %.2199.ph = phi i32 [ %.0197452, %252 ], [ %256, %254 ]
+  %262 = load i32, ptr %158, align 8, !tbaa !41
+  %263 = icmp eq i32 %.2202.ph, %262
+  %264 = load i32, ptr %159, align 4
+  %265 = icmp eq i32 %.2199.ph, %264
+  %266 = select i1 %263, i1 %265, i1 false
+  br i1 %266, label %.critedge293, label %267
 
-257:                                              ; preds = %251
-  %258 = load ptr, ptr @stderr, align 8
-  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.26, i32 noundef %.1189399, i32 noundef %252, i32 noundef %254, i32 noundef %.2178.ph, i32 noundef %.2175.ph) #10
+267:                                              ; preds = %261
+  %268 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef nonnull @.str.28, i32 noundef %.1214447, i32 noundef %262, i32 noundef %264, i32 noundef %.2202.ph, i32 noundef %.2199.ph) #10
   br label %.critedge.thread
 
-.critedge262:                                     ; preds = %251
-  %260 = call i32 @WebPAnimEncoderAdd(ptr noundef nonnull %.3197.ph, ptr noundef nonnull %9, i32 noundef %.0183402, ptr noundef nonnull %8) #7
-  %.not233 = icmp eq i32 %260, 0
-  br i1 %.not233, label %261, label %264
+.critedge293:                                     ; preds = %261
+  %270 = call i32 @WebPAnimEncoderAdd(ptr noundef nonnull %.3223.ph, ptr noundef nonnull %9, i32 noundef %.0208450, ptr noundef nonnull %8) #7
+  %.not262 = icmp eq i32 %270, 0
+  br i1 %.not262, label %271, label %274
 
-261:                                              ; preds = %.critedge262
-  %262 = load ptr, ptr @stderr, align 8
-  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef nonnull @.str.27, i32 noundef %.1189399) #10
+271:                                              ; preds = %.critedge293
+  %272 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.29, i32 noundef %.1214447) #10
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %261, %257, %248
-  %.3197286.ph = phi ptr [ null, %248 ], [ %.3197.ph, %257 ], [ %.3197.ph, %261 ]
+.critedge.thread:                                 ; preds = %271, %267, %258
+  %.3223336.ph = phi ptr [ null, %258 ], [ %.3223.ph, %267 ], [ %.3223.ph, %271 ]
   call void @WebPPictureFree(ptr noundef nonnull %9) #7
   br label %.loopexit
 
-264:                                              ; preds = %.critedge262
+274:                                              ; preds = %.critedge293
   call void @WebPPictureFree(ptr noundef nonnull %9) #7
-  br i1 %157, label %269, label %265
+  br i1 %157, label %279, label %275
 
-265:                                              ; preds = %264
-  %266 = load ptr, ptr @stderr, align 8
-  %267 = load ptr, ptr %165, align 8
-  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.28, i32 noundef %.1189399, i32 noundef %.0183402, ptr noundef %267) #10
-  br label %269
+275:                                              ; preds = %274
+  %276 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %277 = load ptr, ptr %169, align 8, !tbaa !17
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.30, i32 noundef %.1214447, i32 noundef %.0208450, ptr noundef %277) #10
+  br label %279
 
-269:                                              ; preds = %265, %264
-  %270 = add nsw i32 %.0183402, %.0185401
-  %271 = add nsw i32 %.1189399, 1
-  br label %272
+279:                                              ; preds = %275, %274
+  %280 = add nsw i32 %.0208450, %.0210449
+  %281 = add nsw i32 %.1214447, 1
+  br label %282
 
-272:                                              ; preds = %226, %163, %269
-  %.2196 = phi ptr [ %.1195397, %163 ], [ %.1195397, %226 ], [ %.3197.ph, %269 ]
-  %.2190 = phi i32 [ %.1189399, %163 ], [ %.1189399, %226 ], [ %271, %269 ]
-  %.1186 = phi i32 [ %.0185401, %163 ], [ %.2187.ph, %226 ], [ %.0185401, %269 ]
-  %.1184 = phi i32 [ %.0183402, %163 ], [ %.0183402, %226 ], [ %270, %269 ]
-  %.1177 = phi i32 [ %.0176403, %163 ], [ %.0176403, %226 ], [ %.2178.ph, %269 ]
-  %.1174 = phi i32 [ %.0173404, %163 ], [ %.0173404, %226 ], [ %.2175.ph, %269 ]
-  %.4171 = phi i32 [ %.3170405, %163 ], [ %.5172.ph, %226 ], [ %.3170405, %269 ]
-  %273 = add nsw i32 %.4171, 1
-  %274 = icmp slt i32 %273, %18
-  br i1 %274, label %163, label %._crit_edge409, !llvm.loop !7
+282:                                              ; preds = %236, %167, %279
+  %.2222 = phi ptr [ %.1221445, %167 ], [ %.1221445, %236 ], [ %.3223.ph, %279 ]
+  %.2215 = phi i32 [ %.1214447, %167 ], [ %.1214447, %236 ], [ %281, %279 ]
+  %.1211 = phi i32 [ %.0210449, %167 ], [ %.2212.ph, %236 ], [ %.0210449, %279 ]
+  %.1209 = phi i32 [ %.0208450, %167 ], [ %.0208450, %236 ], [ %280, %279 ]
+  %.1201 = phi i32 [ %.0200451, %167 ], [ %.0200451, %236 ], [ %.2202.ph, %279 ]
+  %.1198 = phi i32 [ %.0197452, %167 ], [ %.0197452, %236 ], [ %.2199.ph, %279 ]
+  %.5194 = phi i32 [ %.4193453, %167 ], [ %.6195.ph, %236 ], [ %.4193453, %279 ]
+  %.1186 = phi i32 [ %.0185454, %167 ], [ %.0185454, %236 ], [ %.4193453, %279 ]
+  %283 = add nsw i32 %.5194, 1
+  %284 = icmp slt i32 %283, %18
+  br i1 %284, label %167, label %.preheader, !llvm.loop !43
 
-._crit_edge409:                                   ; preds = %272, %._crit_edge.thread487
-  %.1195.lcssa = phi ptr [ null, %._crit_edge.thread487 ], [ %.2196, %272 ]
-  %.1189.lcssa = phi i32 [ 0, %._crit_edge.thread487 ], [ %.2190, %272 ]
-  %.0183.lcssa = phi i32 [ 0, %._crit_edge.thread487 ], [ %.1184, %272 ]
-  br i1 %.not556.not, label %.critedge264.thread, label %275
+.lr.ph463:                                        ; preds = %.lr.ph463.preheader, %290
+  %indvars.iv = phi i64 [ %166, %.lr.ph463.preheader ], [ %indvars.iv.next, %290 ]
+  %285 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %286 = load ptr, ptr %285, align 8, !tbaa !17
+  %.not259 = icmp eq ptr %286, null
+  br i1 %.not259, label %290, label %287
 
-275:                                              ; preds = %._crit_edge409
-  %276 = call i32 @WebPAnimEncoderAdd(ptr noundef %.1195.lcssa, ptr noundef null, i32 noundef %.0183.lcssa, ptr noundef null) #7
-  %.not300 = icmp eq i32 %276, 0
-  br i1 %.not300, label %.critedge264.thread, label %.critedge264
+287:                                              ; preds = %.lr.ph463
+  %288 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.31, ptr noundef nonnull %286) #10
+  br label %290
 
-.critedge264:                                     ; preds = %275
-  %277 = call i32 @WebPAnimEncoderAssemble(ptr noundef %.1195.lcssa, ptr noundef nonnull %10) #7
-  %.not301 = icmp eq i32 %277, 0
-  br i1 %.not301, label %.critedge264.thread, label %.loopexit
+290:                                              ; preds = %.lr.ph463, %287
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %18, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge464, label %.lr.ph463, !llvm.loop !44
 
-.critedge264.thread:                              ; preds = %._crit_edge409, %275, %.critedge264
-  %278 = load ptr, ptr @stderr, align 8
-  %279 = call i64 @fwrite(ptr nonnull @.str.29, i64 39, i64 1, ptr %278) #8
+._crit_edge464:                                   ; preds = %290, %.preheader
+  %291 = call i32 @WebPAnimEncoderAdd(ptr noundef %.2222, ptr noundef null, i32 noundef %.1209, ptr noundef null) #7
+  %.not350 = icmp eq i32 %291, 0
+  br i1 %.not350, label %.critedge295.thread, label %.critedge295
+
+.critedge295:                                     ; preds = %._crit_edge464
+  %292 = call i32 @WebPAnimEncoderAssemble(ptr noundef %.2222, ptr noundef nonnull %10) #7
+  %.not351 = icmp eq i32 %292, 0
+  br i1 %.not351, label %.critedge295.thread, label %.loopexit
+
+.critedge295.thread:                              ; preds = %._crit_edge464, %.critedge295
+  %293 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %294 = call i64 @fwrite(ptr nonnull @.str.32, i64 39, i64 1, ptr %293) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %140, %ReadImage.exit, %226, %.critedge.thread, %ReadImage.exit.thread, %.thread274, %.thread, %.critedge264, %.critedge264.thread, %229, %._crit_edge.thread, %121, %33
-  %.0198 = phi ptr [ %.1199387.ph, %121 ], [ %.3201482495, %229 ], [ %.3201482495, %.critedge264 ], [ %.3201482495, %.critedge264.thread ], [ %.1199.lcssa472, %._crit_edge.thread ], [ null, %33 ], [ %.1199387.ph, %.thread ], [ %.3201482495, %.thread274 ], [ %.3201482495, %ReadImage.exit.thread ], [ %.3201482495, %.critedge.thread ], [ %.3201482495, %226 ], [ %.3201482495, %ReadImage.exit ], [ %.2200.ph, %140 ]
-  %.0194 = phi ptr [ null, %121 ], [ %.1195397, %229 ], [ %.1195.lcssa, %.critedge264 ], [ %.1195.lcssa, %.critedge264.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %.thread ], [ %.1195397, %.thread274 ], [ %.1195397, %ReadImage.exit.thread ], [ %.3197286.ph, %.critedge.thread ], [ %.1195397, %226 ], [ %.1195397, %ReadImage.exit ], [ null, %140 ]
-  %.0188 = phi i32 [ 0, %121 ], [ %.1189399, %229 ], [ %.1189.lcssa, %.critedge264 ], [ %.1189.lcssa, %.critedge264.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ %.1189399, %.thread274 ], [ %.1189399, %ReadImage.exit.thread ], [ %.1189399, %.critedge.thread ], [ %.1189399, %226 ], [ %.1189399, %ReadImage.exit ], [ 0, %140 ]
-  %.0179 = phi i32 [ %.1180389.ph, %121 ], [ %.3182484494, %229 ], [ %.3182484494, %.critedge264 ], [ %.3182484494, %.critedge264.thread ], [ %.1180.lcssa473, %._crit_edge.thread ], [ 0, %33 ], [ %84, %.thread ], [ %.3182484494, %.thread274 ], [ %.3182484494, %ReadImage.exit.thread ], [ %.3182484494, %.critedge.thread ], [ %.3182484494, %226 ], [ %.3182484494, %ReadImage.exit ], [ %.2181.ph, %140 ]
-  %.0164 = phi i32 [ %.1392.ph, %121 ], [ 0, %229 ], [ 1, %.critedge264 ], [ 0, %.critedge264.thread ], [ %.1.lcssa474, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread ], [ 0, %.thread274 ], [ 0, %ReadImage.exit.thread ], [ 0, %.critedge.thread ], [ 0, %226 ], [ 0, %ReadImage.exit ], [ 0, %140 ]
-  call void @WebPAnimEncoderDelete(ptr noundef %.0194) #7
-  %280 = icmp ne i32 %.0164, 0
-  %281 = icmp sgt i32 %.0179, 0
-  %or.cond = select i1 %280, i1 %281, i1 false
-  br i1 %or.cond, label %282, label %305
+.loopexit:                                        ; preds = %236, %ReadImage.exit, %.critedge.thread, %ReadImage.exit.thread, %.thread323, %.thread303, %.critedge295, %.critedge295.thread, %239, %._crit_edge.thread, %33
+  %.0224 = phi ptr [ %.4228530540, %239 ], [ %.4228530540, %.critedge295 ], [ %.4228530540, %.critedge295.thread ], [ %.1225.lcssa521, %._crit_edge.thread ], [ null, %33 ], [ %.3227.ph, %.thread303 ], [ %.4228530540, %.thread323 ], [ %.4228530540, %ReadImage.exit.thread ], [ %.4228530540, %.critedge.thread ], [ %.4228530540, %ReadImage.exit ], [ %.4228530540, %236 ]
+  %.0220 = phi ptr [ %.1221445, %239 ], [ %.2222, %.critedge295 ], [ %.2222, %.critedge295.thread ], [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %.thread303 ], [ %.1221445, %.thread323 ], [ %.1221445, %ReadImage.exit.thread ], [ %.3223336.ph, %.critedge.thread ], [ %.1221445, %ReadImage.exit ], [ %.1221445, %236 ]
+  %.0213 = phi i32 [ %.1214447, %239 ], [ %.2215, %.critedge295 ], [ %.2215, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ 0, %.thread303 ], [ %.1214447, %.thread323 ], [ %.1214447, %ReadImage.exit.thread ], [ %.1214447, %.critedge.thread ], [ %.1214447, %ReadImage.exit ], [ %.1214447, %236 ]
+  %.0203 = phi i32 [ %.4207532539, %239 ], [ %.4207532539, %.critedge295 ], [ %.4207532539, %.critedge295.thread ], [ %.1204.lcssa522, %._crit_edge.thread ], [ 0, %33 ], [ %.3206.ph, %.thread303 ], [ %.4207532539, %.thread323 ], [ %.4207532539, %ReadImage.exit.thread ], [ %.4207532539, %.critedge.thread ], [ %.4207532539, %ReadImage.exit ], [ %.4207532539, %236 ]
+  %.0181 = phi i32 [ 0, %239 ], [ 1, %.critedge295 ], [ 0, %.critedge295.thread ], [ 0, %._crit_edge.thread ], [ 0, %33 ], [ %.2183.ph, %.thread303 ], [ 0, %.thread323 ], [ 0, %ReadImage.exit.thread ], [ 0, %.critedge.thread ], [ 0, %ReadImage.exit ], [ 0, %236 ]
+  call void @WebPAnimEncoderDelete(ptr noundef %.0220) #7
+  %295 = icmp ne i32 %.0181, 0
+  %296 = icmp sgt i32 %.0203, 0
+  %or.cond = select i1 %295, i1 %296, i1 false
+  br i1 %or.cond, label %297, label %320
 
-282:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %283 = call ptr @WebPMuxCreateInternal(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 265) #7
-  %284 = icmp eq ptr %283, null
-  br i1 %284, label %SetLoopCount.exit, label %285
+297:                                              ; preds = %.loopexit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  %298 = call ptr @WebPMuxCreateInternal(ptr noundef nonnull %10, i32 noundef 1, i32 noundef 265) #7
+  %299 = icmp eq ptr %298, null
+  br i1 %299, label %SetLoopCount.exit, label %300
 
-285:                                              ; preds = %282
-  %286 = call i32 @WebPMuxGetFeatures(ptr noundef nonnull %283, ptr noundef nonnull %3) #7
-  %287 = icmp eq i32 %286, 1
-  br i1 %287, label %288, label %.thread22.i
+300:                                              ; preds = %297
+  %301 = call i32 @WebPMuxGetFeatures(ptr noundef nonnull %298, ptr noundef nonnull %3) #7
+  %302 = icmp eq i32 %301, 1
+  br i1 %302, label %303, label %.thread22.i
 
-288:                                              ; preds = %285
-  %289 = load i32, ptr %3, align 4
-  %290 = and i32 %289, 2
-  %.not.i266 = icmp eq i32 %290, 0
-  br i1 %.not.i266, label %.thread26.i, label %291
+303:                                              ; preds = %300
+  %304 = load i32, ptr %3, align 4, !tbaa !21
+  %305 = and i32 %304, 2
+  %.not.i297 = icmp eq i32 %305, 0
+  br i1 %.not.i297, label %.thread26.i, label %306
 
-.thread26.i:                                      ; preds = %288
-  call void @WebPMuxDelete(ptr noundef nonnull %283) #7
+.thread26.i:                                      ; preds = %303
+  call void @WebPMuxDelete(ptr noundef nonnull %298) #7
   br label %SetLoopCount.exit
 
-291:                                              ; preds = %288
-  %292 = call i32 @WebPMuxGetAnimationParams(ptr noundef nonnull %283, ptr noundef nonnull %4) #7
-  %293 = icmp eq i32 %292, 1
-  br i1 %293, label %294, label %.thread22.i
+306:                                              ; preds = %303
+  %307 = call i32 @WebPMuxGetAnimationParams(ptr noundef nonnull %298, ptr noundef nonnull %4) #7
+  %308 = icmp eq i32 %307, 1
+  br i1 %308, label %309, label %.thread22.i
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.0179, ptr %295, align 4
-  %296 = call i32 @WebPMuxSetAnimationParams(ptr noundef nonnull %283, ptr noundef nonnull %4) #7
-  %297 = icmp eq i32 %296, 1
-  br i1 %297, label %298, label %.thread22.i
+309:                                              ; preds = %306
+  %310 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %.0203, ptr %310, align 4, !tbaa !45
+  %311 = call i32 @WebPMuxSetAnimationParams(ptr noundef nonnull %298, ptr noundef nonnull %4) #7
+  %312 = icmp eq i32 %311, 1
+  br i1 %312, label %313, label %.thread22.i
 
-.thread22.i:                                      ; preds = %294, %291, %285
-  call void @WebPMuxDelete(ptr noundef nonnull %283) #7
-  br label %302
+.thread22.i:                                      ; preds = %309, %306, %300
+  call void @WebPMuxDelete(ptr noundef nonnull %298) #7
+  br label %317
 
-298:                                              ; preds = %294
-  %299 = load ptr, ptr %10, align 8
-  call void @WebPFree(ptr noundef %299) #7
+313:                                              ; preds = %309
+  %314 = load ptr, ptr %10, align 8, !tbaa !46
+  call void @WebPFree(ptr noundef %314) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %300 = call i32 @WebPMuxAssemble(ptr noundef nonnull %283, ptr noundef nonnull %10) #7
-  %301 = icmp eq i32 %300, 1
-  call void @WebPMuxDelete(ptr noundef nonnull %283) #7
-  br i1 %301, label %SetLoopCount.exit, label %302
+  %315 = call i32 @WebPMuxAssemble(ptr noundef nonnull %298, ptr noundef nonnull %10) #7
+  %316 = icmp eq i32 %315, 1
+  call void @WebPMuxDelete(ptr noundef nonnull %298) #7
+  br i1 %316, label %SetLoopCount.exit, label %317
 
-302:                                              ; preds = %298, %.thread22.i
-  %303 = load ptr, ptr @stderr, align 8
-  %304 = call i64 @fwrite(ptr nonnull @.str.58, i64 32, i64 1, ptr %303) #8
+317:                                              ; preds = %313, %.thread22.i
+  %318 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %319 = call i64 @fwrite(ptr nonnull @.str.62, i64 32, i64 1, ptr %318) #8
   br label %SetLoopCount.exit
 
-SetLoopCount.exit:                                ; preds = %282, %.thread26.i, %298, %302
-  %.0.i265 = phi i32 [ 0, %282 ], [ 0, %302 ], [ 1, %298 ], [ 1, %.thread26.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %305
+SetLoopCount.exit:                                ; preds = %297, %.thread26.i, %313, %317
+  %.0.i296 = phi i32 [ 0, %297 ], [ 0, %317 ], [ 1, %313 ], [ 1, %.thread26.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  br label %320
 
-305:                                              ; preds = %SetLoopCount.exit, %.loopexit
-  %.8 = phi i32 [ %.0.i265, %SetLoopCount.exit ], [ %.0164, %.loopexit ]
-  %.not257 = icmp eq i32 %.8, 0
-  br i1 %.not257, label %.thread297, label %306
+320:                                              ; preds = %SetLoopCount.exit, %.loopexit
+  %.9 = phi i32 [ %.0.i296, %SetLoopCount.exit ], [ %.0181, %.loopexit ]
+  %.not288 = icmp eq i32 %.9, 0
+  br i1 %.not288, label %.thread347, label %321
 
-306:                                              ; preds = %305
-  %.not258 = icmp eq ptr %.0198, null
-  br i1 %.not258, label %315, label %307
+321:                                              ; preds = %320
+  %.not289 = icmp eq ptr %.0224, null
+  br i1 %.not289, label %330, label %322
 
-307:                                              ; preds = %306
-  %308 = load ptr, ptr %10, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %310 = load i64, ptr %309, align 8
-  %311 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.0198, ptr noundef %308, i64 noundef %310) #7
-  %.not259 = icmp eq i32 %311, 0
-  br i1 %.not259, label %.thread297, label %312
+322:                                              ; preds = %321
+  %323 = load ptr, ptr %10, align 8, !tbaa !46
+  %324 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %325 = load i64, ptr %324, align 8, !tbaa !47
+  %326 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.0224, ptr noundef %323, i64 noundef %325) #7
+  %.not290 = icmp eq i32 %326, 0
+  br i1 %.not290, label %.thread347, label %327
 
-312:                                              ; preds = %307
-  %313 = load ptr, ptr @stderr, align 8
-  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0198) #10
-  br label %318
+327:                                              ; preds = %322
+  %328 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %328, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0224) #10
+  br label %333
 
-315:                                              ; preds = %306
-  %316 = load ptr, ptr @stderr, align 8
-  %317 = call i64 @fwrite(ptr nonnull @.str.31, i64 29, i64 1, ptr %316) #8
-  br label %318
+330:                                              ; preds = %321
+  %331 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %332 = call i64 @fwrite(ptr nonnull @.str.34, i64 29, i64 1, ptr %331) #8
+  br label %333
 
-318:                                              ; preds = %312, %315
-  %319 = load ptr, ptr @stderr, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %321 = load i64, ptr %320, align 8
-  %322 = trunc i64 %321 to i32
-  %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %319, ptr noundef nonnull @.str.32, i32 noundef %.0188, i32 noundef %322) #10
-  br label %.thread297
+333:                                              ; preds = %327, %330
+  %334 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %335 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %336 = load i64, ptr %335, align 8, !tbaa !47
+  %337 = trunc i64 %336 to i32
+  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.35, i32 noundef %.0213, i32 noundef %337) #10
+  br label %.thread347
 
-.thread297:                                       ; preds = %305, %307, %318
-  %.not260299 = phi i32 [ 0, %318 ], [ 1, %307 ], [ 1, %305 ]
-  %324 = load ptr, ptr %10, align 8
-  call void @WebPFree(ptr noundef %324) #7
+.thread347:                                       ; preds = %320, %322, %333
+  %.not291349 = phi i32 [ 0, %333 ], [ 1, %322 ], [ 1, %320 ]
+  %339 = load ptr, ptr %10, align 8, !tbaa !46
+  call void @WebPFree(ptr noundef %339) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @ExUtilDeleteCommandLineArguments(ptr noundef nonnull %11) #7
-  br label %325
+  br label %340
 
-325:                                              ; preds = %2, %.thread297, %118
-  %.0 = phi i32 [ %.not260299, %.thread297 ], [ 0, %118 ], [ 1, %2 ]
+340:                                              ; preds = %143, %2, %.thread347
+  %.0 = phi i32 [ 0, %143 ], [ %.not291349, %.thread347 ], [ 1, %2 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #7
   ret i32 %.0
 }
 
-declare i32 @ExUtilInitCommandLineArguments(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @ExUtilInitCommandLineArguments(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @ExUtilGetInt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @ExUtilGetInt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Help() unnamed_addr #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34)
+  %1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37)
   %puts1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -843,105 +909,143 @@ define internal fastcc void @Help() unnamed_addr #0 {
   %puts16 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
   %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.18)
-  %putchar19 = tail call i32 @putchar(i32 10)
-  %puts20 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.19)
+  %puts19 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.19)
+  %putchar20 = tail call i32 @putchar(i32 10)
   %puts21 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.20)
   %puts22 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.21)
+  %puts23 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
   %2 = tail call ptr @WebPGetEnabledInputFileFormats() #7
-  %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, ptr noundef %2)
+  %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %2)
   ret void
 }
 
-declare i32 @WebPGetEncoderVersion() local_unnamed_addr #1
+declare i32 @WebPGetEncoderVersion() local_unnamed_addr #2
 
-declare i32 @WebPGetMuxVersion() local_unnamed_addr #1
+declare i32 @WebPGetMuxVersion() local_unnamed_addr #2
 
-declare i32 @SharpYuvGetVersion() local_unnamed_addr #1
+declare i32 @SharpYuvGetVersion() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare float @ExUtilGetFloat(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #1
+declare float @ExUtilGetFloat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPAnimEncoderAdd(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #2
 
-declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #1
+declare i32 @WebPAnimEncoderAdd(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPAnimEncoderAssemble(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #2
 
-declare void @WebPAnimEncoderDelete(ptr noundef) local_unnamed_addr #1
+declare i32 @WebPAnimEncoderAssemble(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @WebPAnimEncoderDelete(ptr noundef) local_unnamed_addr #2
 
-declare void @ExUtilDeleteCommandLineArguments(ptr noundef) local_unnamed_addr #1
+declare i32 @ImgIoUtilWriteFile(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @ExUtilDeleteCommandLineArguments(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #1
+declare ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #2
 
-declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @ImgIoUtilReadFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @WebPGuessImageReader(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #1
+declare void @WebPFree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @WebPAnimEncoderNewInternal(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @WebPAnimEncoderNewInternal(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @WebPMuxGetFeatures(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPMuxGetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @WebPMuxGetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPMuxSetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @WebPMuxSetAnimationParams(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPMuxAssemble(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @WebPMuxAssemble(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #1
+declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
 
-declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+; Function Attrs: nofree nounwind
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
 attributes #8 = { cold }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"", !6, i64 0, !9, i64 8, !11, i64 16, !6, i64 32}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!"WebPData", !12, i64 0, !13, i64 8}
+!12 = !{!"p1 omnipotent char", !10, i64 0}
+!13 = !{!"long", !7, i64 0}
+!14 = !{!5, !9, i64 8}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!17 = !{!12, !12, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !6, i64 12}
+!23 = !{!"WebPAnimEncoderOptions", !24, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !7, i64 28}
+!24 = !{!"WebPMuxAnimParams", !6, i64 0, !6, i64 4}
+!25 = !{!23, !6, i64 16}
+!26 = !{!23, !6, i64 8}
+!27 = !{!23, !6, i64 20}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"WebPConfig", !6, i64 0, !30, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !30, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48, !6, i64 52, !6, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !6, i64 76, !6, i64 80, !6, i64 84, !6, i64 88, !6, i64 92, !6, i64 96, !6, i64 100, !6, i64 104, !6, i64 108, !6, i64 112}
+!30 = !{!"float", !7, i64 0}
+!31 = !{!29, !6, i64 92}
+!32 = !{!29, !6, i64 104}
+!33 = !{!29, !30, i64 4}
+!34 = !{!29, !6, i64 8}
+!35 = !{!29, !6, i64 96}
+!36 = !{!37, !6, i64 0}
+!37 = !{!"WebPPicture", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !12, i64 16, !12, i64 24, !12, i64 32, !6, i64 40, !6, i64 44, !12, i64 48, !6, i64 56, !7, i64 60, !38, i64 72, !6, i64 80, !7, i64 84, !10, i64 96, !10, i64 104, !6, i64 112, !12, i64 120, !39, i64 128, !6, i64 136, !10, i64 144, !10, i64 152, !7, i64 160, !12, i64 176, !12, i64 184, !7, i64 192, !10, i64 224, !10, i64 232, !7, i64 240}
+!38 = !{!"p1 int", !10, i64 0}
+!39 = !{!"p1 _ZTS12WebPAuxStats", !10, i64 0}
+!40 = !{!13, !13, i64 0}
+!41 = !{!37, !6, i64 8}
+!42 = !{!37, !6, i64 12}
+!43 = distinct !{!43, !20}
+!44 = distinct !{!44, !20}
+!45 = !{!24, !6, i64 4}
+!46 = !{!11, !12, i64 0}
+!47 = !{!11, !13, i64 8}

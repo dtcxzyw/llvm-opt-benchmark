@@ -23,14 +23,14 @@ define hidden void @VP8EncDspCostInit() local_unnamed_addr #0 {
   br i1 %.not, label %2, label %11
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %3 = load volatile ptr, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8, !tbaa !3
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   %.not1 = icmp eq ptr %3, %4
   br i1 %.not1, label %VP8EncDspCostInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @GetResidualCost_C, ptr @VP8GetResidualCost, align 8
-  store ptr @SetResidualCoeffs_C, ptr @VP8SetResidualCoeffs, align 8
+  store ptr @GetResidualCost_C, ptr @VP8GetResidualCost, align 8, !tbaa !3
+  store ptr @SetResidualCoeffs_C, ptr @VP8SetResidualCoeffs, align 8, !tbaa !3
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %VP8EncDspCostInit_body.exit, label %6
 
@@ -44,8 +44,8 @@ define hidden void @VP8EncDspCostInit() local_unnamed_addr #0 {
   br label %VP8EncDspCostInit_body.exit
 
 VP8EncDspCostInit_body.exit:                      ; preds = %8, %6, %5, %2
-  %9 = load ptr, ptr @VP8GetCPUInfo, align 8
-  store volatile ptr %9, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8
+  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
+  store volatile ptr %9, ptr @VP8EncDspCostInit.VP8EncDspCostInit_body_last_cpuinfo_used, align 8, !tbaa !3
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspCostInit.VP8EncDspCostInit_body_lock) #6
   br label %11
 
@@ -61,17 +61,17 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load i32, ptr %1, align 8
+  %3 = load i32, ptr %1, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = sext i32 %3 to i64
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds [3 x [11 x i8]], ptr %5, i64 %6, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds [3 x ptr], ptr %11, i64 %6, i64 %7
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = icmp eq i32 %0, 0
   br i1 %14, label %15, label %17
 
@@ -79,21 +79,21 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.pn.in.i = xor i8 %9, -1
   %.pn.i = zext i8 %.pn.in.i to i64
   %.in.in.i = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i
-  %.in.i = load i16, ptr %.in.in.i, align 2
+  %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !18
   %16 = zext i16 %.in.i to i32
   br label %17
 
 17:                                               ; preds = %2, %15
   %18 = phi i32 [ %16, %15 ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %25, label %.preheader
 
 .preheader:                                       ; preds = %17
   %22 = icmp slt i32 %3, %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -103,7 +103,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
 25:                                               ; preds = %17
   %.pn.i43 = zext i8 %9 to i64
   %.in.in.i44 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i43
-  %.in.i45 = load i16, ptr %.in.in.i44, align 2
+  %.in.i45 = load i16, ptr %.in.in.i44, align 2, !tbaa !18
   %26 = zext i16 %.in.i45 to i32
   br label %72
 
@@ -112,16 +112,16 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.04051 = phi ptr [ %13, %.lr.ph ], [ %44, %27 ]
   %.04150 = phi i32 [ %18, %.lr.ph ], [ %41, %27 ]
   %28 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv
-  %29 = load i16, ptr %28, align 2
+  %29 = load i16, ptr %28, align 2, !tbaa !18
   %30 = tail call i16 @llvm.abs.i16(i16 %29, i1 false)
   %31 = zext i16 %30 to i64
   %32 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2
+  %33 = load i16, ptr %32, align 2, !tbaa !18
   %34 = zext i16 %33 to i32
   %35 = tail call i16 @llvm.umin.i16(i16 %30, i16 67)
   %36 = zext nneg i16 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr %.04051, i64 %36
-  %38 = load i16, ptr %37, align 2
+  %38 = load i16, ptr %37, align 2, !tbaa !18
   %39 = zext i16 %38 to i32
   %40 = add nuw nsw i32 %.04150, %34
   %41 = add nuw nsw i32 %40, %39
@@ -129,9 +129,9 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %narrow = tail call i16 @llvm.umin.i16(i16 %30, i16 2)
   %42 = zext nneg i16 %narrow to i64
   %43 = getelementptr inbounds [3 x ptr], ptr %11, i64 %indvars.iv.next, i64 %42
-  %44 = load ptr, ptr %43, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %27, %.preheader
   %.pre-phi = phi i64 [ %6, %.preheader ], [ %wide.trip.count, %27 ]
@@ -139,16 +139,16 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.040.lcssa = phi ptr [ %13, %.preheader ], [ %44, %27 ]
   %.039.lcssa = phi i32 [ %3, %.preheader ], [ %20, %27 ]
   %45 = getelementptr inbounds i16, ptr %24, i64 %.pre-phi
-  %46 = load i16, ptr %45, align 2
+  %46 = load i16, ptr %45, align 2, !tbaa !18
   %47 = tail call i16 @llvm.abs.i16(i16 %46, i1 false)
   %48 = zext i16 %47 to i64
   %49 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2
+  %50 = load i16, ptr %49, align 2, !tbaa !18
   %51 = zext i16 %50 to i32
   %52 = tail call i16 @llvm.umin.i16(i16 %47, i16 67)
   %53 = zext nneg i16 %52 to i64
   %54 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %53
-  %55 = load i16, ptr %54, align 2
+  %55 = load i16, ptr %54, align 2, !tbaa !18
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %.041.lcssa, %51
   %58 = add nuw nsw i32 %57, %56
@@ -159,15 +159,15 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %61 = add nsw i32 %.039.lcssa, 1
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1
+  %64 = load i8, ptr %63, align 1, !tbaa !15
   %65 = icmp eq i16 %47, 1
   %66 = zext i8 %64 to i64
   %67 = select i1 %65, i64 1, i64 2
   %68 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %66, i64 %67
-  %69 = load i8, ptr %68, align 1
+  %69 = load i8, ptr %68, align 1, !tbaa !15
   %.pn.i47 = zext i8 %69 to i64
   %.in.in.i48 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i47
-  %.in.i49 = load i16, ptr %.in.in.i48, align 2
+  %.in.i49 = load i16, ptr %.in.in.i48, align 2, !tbaa !18
   %70 = zext i16 %.in.i49 to i32
   %71 = add nuw nsw i32 %58, %70
   br label %72
@@ -178,31 +178,31 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr noundef writeonly captures(none) initializes((4, 8)) %1) #3 {
+define internal void @SetResidualCoeffs_C(ptr noalias noundef %0, ptr noalias noundef writeonly captures(none) initializes((4, 8)) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %3, align 4
+  store i32 -1, ptr %3, align 4, !tbaa !20
   br label %4
 
 4:                                                ; preds = %2, %9
   %.09 = phi i32 [ 15, %2 ], [ %10, %9 ]
   %5 = zext nneg i32 %.09 to i64
   %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
-  %7 = load i16, ptr %6, align 2
+  %7 = load i16, ptr %6, align 2, !tbaa !18
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %4
-  store i32 %.09, ptr %3, align 4
+  store i32 %.09, ptr %3, align 4, !tbaa !20
   br label %.loopexit
 
 9:                                                ; preds = %4
   %10 = add nsw i32 %.09, -1
   %.not11 = icmp eq i32 %.09, 0
-  br i1 %.not11, label %.loopexit, label %4, !llvm.loop !6
+  br i1 %.not11, label %.loopexit, label %4, !llvm.loop !24
 
 .loopexit:                                        ; preds = %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %0, ptr %11, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !21
   ret void
 }
 
@@ -214,20 +214,38 @@ declare i16 @llvm.abs.i16(i16, i1 immarg) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"VP8Residual", !9, i64 0, !9, i64 4, !10, i64 8, !9, i64 16, !11, i64 24, !12, i64 32, !13, i64 40}
+!9 = !{!"int", !5, i64 0}
+!10 = !{!"p1 short", !4, i64 0}
+!11 = !{!"p1 omnipotent char", !4, i64 0}
+!12 = !{!"p1 int", !4, i64 0}
+!13 = !{!"p2 short", !4, i64 0}
+!14 = !{!8, !11, i64 24}
+!15 = !{!5, !5, i64 0}
+!16 = !{!8, !13, i64 40}
+!17 = !{!10, !10, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !5, i64 0}
+!20 = !{!8, !9, i64 4}
+!21 = !{!8, !10, i64 8}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}

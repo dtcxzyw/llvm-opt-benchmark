@@ -20,7 +20,7 @@ define range(i32 0, 2) i32 @WebPPictureInitInternal(ptr noundef %0, i32 noundef 
 4:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @DummyWriter, ptr %5, align 8
+  store ptr @DummyWriter, ptr %5, align 8, !tbaa !3
   %6 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 0) #8
   br label %7
 
@@ -46,19 +46,19 @@ define hidden i32 @WebPValidatePicture(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %.sink.split, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !14
   switch i32 %13, label %.sink.split [
     i32 0, label %15
     i32 4, label %15
@@ -77,9 +77,9 @@ define hidden i32 @WebPValidatePicture(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @WebPPictureResetBuffers(ptr noundef writeonly captures(none) initializes((16, 60), (72, 84), (224, 240)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %3, align 8
+  store i32 0, ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 44, i1 false)
@@ -90,9 +90,9 @@ define hidden void @WebPPictureResetBuffers(ptr noundef writeonly captures(none)
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPPictureAllocARGB(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i32 %5, 1
   %or.cond = select i1 %6, i1 true, i1 %7
@@ -100,7 +100,7 @@ define hidden i32 @WebPPictureAllocARGB(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !14
   switch i32 %10, label %WebPValidatePicture.exit [
     i32 0, label %WebPValidatePicture.exit.thread
     i32 4, label %WebPValidatePicture.exit.thread
@@ -117,13 +117,13 @@ WebPValidatePicture.exit.thread:                  ; preds = %8, %8, %WebPValidat
   %13 = sext i32 %5 to i64
   %14 = mul nsw i64 %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   tail call void @WebPSafeFree(ptr noundef %16) #8
-  store ptr null, ptr %15, align 8
+  store ptr null, ptr %15, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %17, align 8
+  store ptr null, ptr %17, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %18, align 8
+  store i32 0, ptr %18, align 8, !tbaa !16
   %19 = add nsw i64 %14, 31
   %20 = tail call ptr @WebPSafeMalloc(i64 noundef %19, i64 noundef 4) #8
   %21 = icmp eq ptr %20, null
@@ -134,13 +134,13 @@ WebPValidatePicture.exit.thread:                  ; preds = %8, %8, %WebPValidat
   br label %29
 
 24:                                               ; preds = %WebPValidatePicture.exit.thread
-  store ptr %20, ptr %15, align 8
+  store ptr %20, ptr %15, align 8, !tbaa !17
   %25 = ptrtoint ptr %20 to i64
   %26 = add i64 %25, 31
   %27 = and i64 %26, -32
   %28 = inttoptr i64 %27 to ptr
-  store ptr %28, ptr %17, align 8
-  store i32 %3, ptr %18, align 8
+  store ptr %28, ptr %17, align 8, !tbaa !15
+  store i32 %3, ptr %18, align 8, !tbaa !16
   br label %29
 
 29:                                               ; preds = %WebPValidatePicture.exit, %24, %22
@@ -148,18 +148,24 @@ WebPValidatePicture.exit.thread:                  ; preds = %8, %8, %WebPValidat
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
 
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPPictureAllocYUVA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !13
   %8 = sext i32 %5 to i64
   %9 = add nsw i64 %8, 1
   %10 = lshr i64 %9, 1
@@ -188,9 +194,9 @@ WebPValidatePicture.exit.thread:                  ; preds = %14, %14, %WebPValid
   %19 = trunc i64 %18 to i32
   %20 = and i32 %3, 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   tail call void @WebPSafeFree(ptr noundef %22) #8
-  store ptr null, ptr %21, align 8
+  store ptr null, ptr %21, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %23, i8 0, i64 44, i1 false)
   %.not63 = icmp eq i32 %20, 0
@@ -226,27 +232,27 @@ WebPValidatePicture.exit.thread:                  ; preds = %14, %14, %WebPValid
   br label %54
 
 43:                                               ; preds = %35
-  store ptr %39, ptr %21, align 8
+  store ptr %39, ptr %21, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %5, ptr %44, align 8
+  store i32 %5, ptr %44, align 8, !tbaa !19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %11, ptr %45, align 4
+  store i32 %11, ptr %45, align 4, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %24, ptr %46, align 8
-  store ptr %39, ptr %23, align 8
+  store i32 %24, ptr %46, align 8, !tbaa !21
+  store ptr %39, ptr %23, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 %25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %47, ptr %48, align 8
+  store ptr %47, ptr %48, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %28
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %49, ptr %50, align 8
+  store ptr %49, ptr %50, align 8, !tbaa !24
   %.not65 = icmp eq i64 %30, 0
   br i1 %.not65, label %54, label %51
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %28
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %52, ptr %53, align 8
+  store ptr %52, ptr %53, align 8, !tbaa !25
   br label %54
 
 54:                                               ; preds = %43, %51, %WebPValidatePicture.exit, %41, %33
@@ -261,19 +267,19 @@ define i32 @WebPPictureAlloc(ptr noundef %0) local_unnamed_addr #0 {
 
 WebPPictureFree.exit:                             ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   tail call void @WebPSafeFree(ptr noundef %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   tail call void @WebPSafeFree(ptr noundef %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %6, align 8
+  store ptr null, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %8, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %9 = load i32, ptr %0, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !26
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %10, label %12
 
@@ -297,15 +303,15 @@ define void @WebPPictureFree(ptr noundef captures(address_is_null) %0) local_unn
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @WebPSafeFree(ptr noundef %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   tail call void @WebPSafeFree(ptr noundef %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %7, align 8
+  store ptr null, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %8, align 8
+  store i32 0, ptr %8, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %9, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -324,65 +330,65 @@ define void @WebPMemoryWriterInit(ptr noundef writeonly captures(none) initializ
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WebPMemoryWrite(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %31, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = add i64 %9, %1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !31
   %13 = icmp ugt i64 %10, %12
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %23
 
 14:                                               ; preds = %7
   %15 = shl i64 %12, 1
   %spec.select = tail call i64 @llvm.umax.i64(i64 %15, i64 %10)
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 8192)
   %16 = tail call ptr @WebPSafeMalloc(i64 noundef %spec.store.select, i64 noundef 1) #8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %31, label %18
+  %.not39 = icmp eq ptr %16, null
+  br i1 %.not39, label %.critedge, label %17
 
-18:                                               ; preds = %14
-  %19 = load i64, ptr %8, align 8
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %22, label %20
+17:                                               ; preds = %14
+  %18 = load i64, ptr %8, align 8, !tbaa !28
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %21, label %19
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %21, i64 %19, i1 false)
-  br label %22
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %5, align 8, !tbaa !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %20, i64 %18, i1 false)
+  br label %21
 
-22:                                               ; preds = %20, %18
-  %23 = load ptr, ptr %5, align 8
-  tail call void @WebPSafeFree(ptr noundef %23) #8
-  store ptr %16, ptr %5, align 8
-  store i64 %spec.store.select, ptr %11, align 8
-  br label %24
+21:                                               ; preds = %19, %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !32
+  tail call void @WebPSafeFree(ptr noundef %22) #8
+  store ptr %16, ptr %5, align 8, !tbaa !32
+  store i64 %spec.store.select, ptr %11, align 8, !tbaa !31
+  br label %23
 
-24:                                               ; preds = %22, %7
-  %.not37 = icmp eq i64 %1, 0
-  br i1 %.not37, label %31, label %25
+23:                                               ; preds = %21, %7
+  %.not40 = icmp eq i64 %1, 0
+  br i1 %.not40, label %.critedge, label %24
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i64, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %0, i64 %1, i1 false)
-  %29 = load i64, ptr %8, align 8
-  %30 = add i64 %29, %1
-  store i64 %30, ptr %8, align 8
-  br label %31
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %5, align 8, !tbaa !32
+  %26 = load i64, ptr %8, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %0, i64 %1, i1 false)
+  %28 = load i64, ptr %8, align 8, !tbaa !28
+  %29 = add i64 %28, %1
+  store i64 %29, ptr %8, align 8, !tbaa !28
+  br label %.critedge
 
-31:                                               ; preds = %24, %25, %14, %3
-  %.029 = phi i32 [ 1, %3 ], [ 0, %14 ], [ 1, %25 ], [ 1, %24 ]
-  ret i32 %.029
+.critedge:                                        ; preds = %14, %23, %24, %3
+  %.030 = phi i32 [ 1, %3 ], [ 1, %24 ], [ 1, %23 ], [ 0, %14 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @WebPMemoryWriterClear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -390,7 +396,7 @@ define void @WebPMemoryWriterClear(ptr noundef captures(address_is_null) %0) loc
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !32
   tail call void @WebPSafeFree(ptr noundef %3) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %4
@@ -404,9 +410,9 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -418,19 +424,19 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @DummyWriter, ptr %14, align 8
+  store ptr @DummyWriter, ptr %14, align 8, !tbaa !3
   %15 = call i32 @WebPEncodingSetError(ptr noundef nonnull %7, i32 noundef 0) #8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %8, align 4, !tbaa !33
+  store i32 0, ptr %7, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %16, align 8
+  store i32 %1, ptr %16, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %2, ptr %17, align 4
-  store ptr @WebPMemoryWrite, ptr %14, align 8
+  store i32 %2, ptr %17, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %14, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr %9, ptr %18, align 8
+  store ptr %9, ptr %18, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %19 = call i32 @WebPPictureImportRGB(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %19 = call i32 @WebPPictureImportRGB(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %.critedge.i, label %20
 
@@ -438,15 +444,15 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %21 = call i32 @WebPEncode(ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   %.not15.i = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %23) #8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %26, align 8
+  store ptr null, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %27, align 8
+  store i32 0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %28, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -454,38 +460,38 @@ define i64 @WebPEncodeRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 .critedge.i:                                      ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %32) #8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %33, align 8
+  store ptr null, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %34, align 8
+  store i32 0, ptr %34, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %35, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %36
 
 36:                                               ; preds = %.critedge.i, %20
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %37) #8
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !37
   br label %Encode.exit
 
 38:                                               ; preds = %20
-  %39 = load ptr, ptr %9, align 8
-  store ptr %39, ptr %5, align 8
+  %39 = load ptr, ptr %9, align 8, !tbaa !32
+  store ptr %39, ptr %5, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
   ret i64 %.0.i
 }
 
@@ -496,9 +502,9 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -510,19 +516,19 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @DummyWriter, ptr %14, align 8
+  store ptr @DummyWriter, ptr %14, align 8, !tbaa !3
   %15 = call i32 @WebPEncodingSetError(ptr noundef nonnull %7, i32 noundef 0) #8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %8, align 4, !tbaa !33
+  store i32 0, ptr %7, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %16, align 8
+  store i32 %1, ptr %16, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %2, ptr %17, align 4
-  store ptr @WebPMemoryWrite, ptr %14, align 8
+  store i32 %2, ptr %17, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %14, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr %9, ptr %18, align 8
+  store ptr %9, ptr %18, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %19 = call i32 @WebPPictureImportRGBA(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %19 = call i32 @WebPPictureImportRGBA(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %.critedge.i, label %20
 
@@ -530,15 +536,15 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %21 = call i32 @WebPEncode(ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   %.not15.i = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %23) #8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %26, align 8
+  store ptr null, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %27, align 8
+  store i32 0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %28, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -546,38 +552,38 @@ define i64 @WebPEncodeRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 .critedge.i:                                      ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %32) #8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %33, align 8
+  store ptr null, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %34, align 8
+  store i32 0, ptr %34, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %35, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %36
 
 36:                                               ; preds = %.critedge.i, %20
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %37) #8
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !37
   br label %Encode.exit
 
 38:                                               ; preds = %20
-  %39 = load ptr, ptr %9, align 8
-  store ptr %39, ptr %5, align 8
+  %39 = load ptr, ptr %9, align 8, !tbaa !32
+  store ptr %39, ptr %5, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
   ret i64 %.0.i
 }
 
@@ -588,9 +594,9 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -602,19 +608,19 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @DummyWriter, ptr %14, align 8
+  store ptr @DummyWriter, ptr %14, align 8, !tbaa !3
   %15 = call i32 @WebPEncodingSetError(ptr noundef nonnull %7, i32 noundef 0) #8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %8, align 4, !tbaa !33
+  store i32 0, ptr %7, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %16, align 8
+  store i32 %1, ptr %16, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %2, ptr %17, align 4
-  store ptr @WebPMemoryWrite, ptr %14, align 8
+  store i32 %2, ptr %17, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %14, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr %9, ptr %18, align 8
+  store ptr %9, ptr %18, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %19 = call i32 @WebPPictureImportBGR(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %19 = call i32 @WebPPictureImportBGR(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %.critedge.i, label %20
 
@@ -622,15 +628,15 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %21 = call i32 @WebPEncode(ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   %.not15.i = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %23) #8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %26, align 8
+  store ptr null, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %27, align 8
+  store i32 0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %28, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -638,38 +644,38 @@ define i64 @WebPEncodeBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 
 .critedge.i:                                      ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %32) #8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %33, align 8
+  store ptr null, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %34, align 8
+  store i32 0, ptr %34, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %35, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %36
 
 36:                                               ; preds = %.critedge.i, %20
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %37) #8
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !37
   br label %Encode.exit
 
 38:                                               ; preds = %20
-  %39 = load ptr, ptr %9, align 8
-  store ptr %39, ptr %5, align 8
+  %39 = load ptr, ptr %9, align 8, !tbaa !32
+  store ptr %39, ptr %5, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
   ret i64 %.0.i
 }
 
@@ -680,9 +686,9 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %7 = alloca %struct.WebPPicture, align 8
   %8 = alloca %struct.WebPConfig, align 4
   %9 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
   %10 = icmp eq ptr %5, null
   br i1 %10, label %Encode.exit, label %11
 
@@ -694,19 +700,19 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr @DummyWriter, ptr %14, align 8
+  store ptr @DummyWriter, ptr %14, align 8, !tbaa !3
   %15 = call i32 @WebPEncodingSetError(ptr noundef nonnull %7, i32 noundef 0) #8
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %8, align 4, !tbaa !33
+  store i32 0, ptr %7, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %16, align 8
+  store i32 %1, ptr %16, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %2, ptr %17, align 4
-  store ptr @WebPMemoryWrite, ptr %14, align 8
+  store i32 %2, ptr %17, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %14, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store ptr %9, ptr %18, align 8
+  store ptr %9, ptr %18, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %19 = call i32 @WebPPictureImportBGRA(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %19 = call i32 @WebPPictureImportBGRA(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %.critedge.i, label %20
 
@@ -714,15 +720,15 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %21 = call i32 @WebPEncode(ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   %.not15.i = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %23) #8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %25) #8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %26, align 8
+  store ptr null, ptr %26, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %27, align 8
+  store i32 0, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %28, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -730,38 +736,38 @@ define i64 @WebPEncodeBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 .critedge.i:                                      ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %32) #8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr null, ptr %33, align 8
+  store ptr null, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %34, align 8
+  store i32 0, ptr %34, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %35, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %36
 
 36:                                               ; preds = %.critedge.i, %20
-  %37 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %37) #8
-  store ptr null, ptr %5, align 8
+  store ptr null, ptr %5, align 8, !tbaa !37
   br label %Encode.exit
 
 38:                                               ; preds = %20
-  %39 = load ptr, ptr %9, align 8
-  store ptr %39, ptr %5, align 8
+  %39 = load ptr, ptr %9, align 8, !tbaa !32
+  store ptr %39, ptr %5, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %6, %11, %36, %38
   %.0.i = phi i64 [ %41, %38 ], [ 0, %36 ], [ 0, %6 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
   ret i64 %.0.i
 }
 
@@ -772,9 +778,9 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -786,19 +792,19 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr @DummyWriter, ptr %13, align 8
+  store ptr @DummyWriter, ptr %13, align 8, !tbaa !3
   %14 = call i32 @WebPEncodingSetError(ptr noundef nonnull %6, i32 noundef 0) #8
-  store i32 1, ptr %7, align 4
-  store i32 1, ptr %6, align 8
+  store i32 1, ptr %7, align 4, !tbaa !33
+  store i32 1, ptr %6, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %15, align 8
+  store i32 %1, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %2, ptr %16, align 4
-  store ptr @WebPMemoryWrite, ptr %13, align 8
+  store i32 %2, ptr %16, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %13, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store ptr %8, ptr %17, align 8
+  store ptr %8, ptr %17, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %18 = call i32 @WebPPictureImportRGB(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %18 = call i32 @WebPPictureImportRGB(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %18, 0
   br i1 %.not14.i, label %.critedge.i, label %19
 
@@ -806,15 +812,15 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %20 = call i32 @WebPEncode(ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   %.not15.i = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %24) #8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %25, align 8
+  store ptr null, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %26, align 8
+  store i32 0, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %27, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
@@ -822,38 +828,38 @@ define i64 @WebPEncodeLosslessRGB(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 .critedge.i:                                      ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %29) #8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %31) #8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %32, align 8
+  store ptr null, ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %34, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %35
 
 35:                                               ; preds = %.critedge.i, %19
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %8, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %36) #8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !37
   br label %Encode.exit
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr %8, align 8
-  store ptr %38, ptr %4, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !32
+  store ptr %38, ptr %4, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
   ret i64 %.0.i
 }
 
@@ -862,9 +868,9 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -876,19 +882,19 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr @DummyWriter, ptr %13, align 8
+  store ptr @DummyWriter, ptr %13, align 8, !tbaa !3
   %14 = call i32 @WebPEncodingSetError(ptr noundef nonnull %6, i32 noundef 0) #8
-  store i32 1, ptr %7, align 4
-  store i32 1, ptr %6, align 8
+  store i32 1, ptr %7, align 4, !tbaa !33
+  store i32 1, ptr %6, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %15, align 8
+  store i32 %1, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %2, ptr %16, align 4
-  store ptr @WebPMemoryWrite, ptr %13, align 8
+  store i32 %2, ptr %16, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %13, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store ptr %8, ptr %17, align 8
+  store ptr %8, ptr %17, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %18 = call i32 @WebPPictureImportRGBA(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %18 = call i32 @WebPPictureImportRGBA(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %18, 0
   br i1 %.not14.i, label %.critedge.i, label %19
 
@@ -896,15 +902,15 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %20 = call i32 @WebPEncode(ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   %.not15.i = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %24) #8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %25, align 8
+  store ptr null, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %26, align 8
+  store i32 0, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %27, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
@@ -912,38 +918,38 @@ define i64 @WebPEncodeLosslessRGBA(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 .critedge.i:                                      ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %29) #8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %31) #8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %32, align 8
+  store ptr null, ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %34, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %35
 
 35:                                               ; preds = %.critedge.i, %19
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %8, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %36) #8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !37
   br label %Encode.exit
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr %8, align 8
-  store ptr %38, ptr %4, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !32
+  store ptr %38, ptr %4, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
   ret i64 %.0.i
 }
 
@@ -952,9 +958,9 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -966,19 +972,19 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr @DummyWriter, ptr %13, align 8
+  store ptr @DummyWriter, ptr %13, align 8, !tbaa !3
   %14 = call i32 @WebPEncodingSetError(ptr noundef nonnull %6, i32 noundef 0) #8
-  store i32 1, ptr %7, align 4
-  store i32 1, ptr %6, align 8
+  store i32 1, ptr %7, align 4, !tbaa !33
+  store i32 1, ptr %6, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %15, align 8
+  store i32 %1, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %2, ptr %16, align 4
-  store ptr @WebPMemoryWrite, ptr %13, align 8
+  store i32 %2, ptr %16, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %13, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store ptr %8, ptr %17, align 8
+  store ptr %8, ptr %17, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %18 = call i32 @WebPPictureImportBGR(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %18 = call i32 @WebPPictureImportBGR(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %18, 0
   br i1 %.not14.i, label %.critedge.i, label %19
 
@@ -986,15 +992,15 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %20 = call i32 @WebPEncode(ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   %.not15.i = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %24) #8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %25, align 8
+  store ptr null, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %26, align 8
+  store i32 0, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %27, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
@@ -1002,38 +1008,38 @@ define i64 @WebPEncodeLosslessBGR(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 .critedge.i:                                      ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %29) #8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %31) #8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %32, align 8
+  store ptr null, ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %34, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %35
 
 35:                                               ; preds = %.critedge.i, %19
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %8, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %36) #8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !37
   br label %Encode.exit
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr %8, align 8
-  store ptr %38, ptr %4, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !32
+  store ptr %38, ptr %4, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
   ret i64 %.0.i
 }
 
@@ -1042,9 +1048,9 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca %struct.WebPConfig, align 4
   %8 = alloca %struct.WebPMemoryWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
   %9 = icmp eq ptr %4, null
   br i1 %9, label %Encode.exit, label %10
 
@@ -1056,19 +1062,19 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr @DummyWriter, ptr %13, align 8
+  store ptr @DummyWriter, ptr %13, align 8, !tbaa !3
   %14 = call i32 @WebPEncodingSetError(ptr noundef nonnull %6, i32 noundef 0) #8
-  store i32 1, ptr %7, align 4
-  store i32 1, ptr %6, align 8
+  store i32 1, ptr %7, align 4, !tbaa !33
+  store i32 1, ptr %6, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %15, align 8
+  store i32 %1, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %2, ptr %16, align 4
-  store ptr @WebPMemoryWrite, ptr %13, align 8
+  store i32 %2, ptr %16, align 4, !tbaa !13
+  store ptr @WebPMemoryWrite, ptr %13, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store ptr %8, ptr %17, align 8
+  store ptr %8, ptr %17, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %18 = call i32 @WebPPictureImportBGRA(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !4
+  %18 = call i32 @WebPPictureImportBGRA(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %3) #8, !callees !36
   %.not14.i = icmp eq i32 %18, 0
   br i1 %.not14.i, label %.critedge.i, label %19
 
@@ -1076,15 +1082,15 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
   %20 = call i32 @WebPEncode(ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   %.not15.i = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %24) #8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %25, align 8
+  store ptr null, ptr %25, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %26, align 8
+  store i32 0, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %27, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
@@ -1092,38 +1098,38 @@ define i64 @WebPEncodeLosslessBGRA(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 .critedge.i:                                      ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   call void @WebPSafeFree(ptr noundef %29) #8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !17
   call void @WebPSafeFree(ptr noundef %31) #8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr null, ptr %32, align 8
+  store ptr null, ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %34, i8 0, i64 44, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   br label %35
 
 35:                                               ; preds = %.critedge.i, %19
-  %36 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %8, align 8, !tbaa !32
   call void @WebPSafeFree(ptr noundef %36) #8
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !37
   br label %Encode.exit
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr %8, align 8
-  store ptr %38, ptr %4, align 8
+  %38 = load ptr, ptr %8, align 8, !tbaa !32
+  store ptr %38, ptr %4, align 8, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !28
   br label %Encode.exit
 
 Encode.exit:                                      ; preds = %5, %10, %35, %37
   %.0.i = phi i64 [ %40, %37 ], [ 0, %35 ], [ 0, %5 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
   ret i64 %.0.i
 }
 
@@ -1132,28 +1138,55 @@ declare i32 @WebPEncode(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{ptr @WebPPictureImportBGR, ptr @WebPPictureImportBGRA, ptr @WebPPictureImportRGB, ptr @WebPPictureImportRGBA}
+!3 = !{!4, !9, i64 96}
+!4 = !{!"WebPPicture", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40, !5, i64 44, !8, i64 48, !5, i64 56, !6, i64 60, !10, i64 72, !5, i64 80, !6, i64 84, !9, i64 96, !9, i64 104, !5, i64 112, !8, i64 120, !11, i64 128, !5, i64 136, !9, i64 144, !9, i64 152, !6, i64 160, !8, i64 176, !8, i64 184, !6, i64 192, !9, i64 224, !9, i64 232, !6, i64 240}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"p1 int", !9, i64 0}
+!11 = !{!"p1 _ZTS12WebPAuxStats", !9, i64 0}
+!12 = !{!4, !5, i64 8}
+!13 = !{!4, !5, i64 12}
+!14 = !{!4, !5, i64 4}
+!15 = !{!4, !10, i64 72}
+!16 = !{!4, !5, i64 80}
+!17 = !{!4, !9, i64 232}
+!18 = !{!4, !9, i64 224}
+!19 = !{!4, !5, i64 40}
+!20 = !{!4, !5, i64 44}
+!21 = !{!4, !5, i64 56}
+!22 = !{!4, !8, i64 16}
+!23 = !{!4, !8, i64 24}
+!24 = !{!4, !8, i64 32}
+!25 = !{!4, !8, i64 48}
+!26 = !{!4, !5, i64 0}
+!27 = !{!4, !9, i64 104}
+!28 = !{!29, !30, i64 8}
+!29 = !{!"WebPMemoryWriter", !8, i64 0, !30, i64 8, !30, i64 16, !6, i64 24}
+!30 = !{!"long", !6, i64 0}
+!31 = !{!29, !30, i64 16}
+!32 = !{!29, !8, i64 0}
+!33 = !{!34, !5, i64 0}
+!34 = !{!"WebPConfig", !5, i64 0, !35, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !35, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112}
+!35 = !{!"float", !6, i64 0}
+!36 = !{ptr @WebPPictureImportBGR, ptr @WebPPictureImportBGRA, ptr @WebPPictureImportRGB, ptr @WebPPictureImportRGBA}
+!37 = !{!8, !8, i64 0}

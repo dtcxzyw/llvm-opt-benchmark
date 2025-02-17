@@ -18,11 +18,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden double @VP8SSIMFromStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = zext i32 %3 to i64
   %5 = mul nuw i64 %4, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = zext i32 %7 to i64
   %9 = mul nuw i64 %8, %8
   %10 = add i64 %9, %5
@@ -32,15 +32,15 @@ define hidden double @VP8SSIMFromStats(ptr noundef readonly captures(none) %0) l
 11:                                               ; preds = %1
   %12 = mul nuw nsw i64 %8, %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 8
   %17 = sub nsw i64 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !10
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = zext i32 %22 to i64
   %24 = tail call i64 @llvm.smax.i64(i64 %17, i64 0)
   %25 = shl nuw nsw i64 %24, 1
@@ -68,15 +68,15 @@ SSIMCalculation.exit:                             ; preds = %1, %11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden double @VP8SSIMFromStatsClipped(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4
+  %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = mul i32 %2, %2
   %4 = shl i32 %3, 6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = zext i32 %6 to i64
   %8 = mul nuw i64 %7, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !8
   %11 = zext i32 %10 to i64
   %12 = mul nuw i64 %11, %11
   %13 = add i64 %12, %8
@@ -89,16 +89,16 @@ define hidden double @VP8SSIMFromStatsClipped(ptr noundef readonly captures(none
   %17 = mul i32 %3, 20
   %18 = mul nuw nsw i64 %11, %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !9
   %21 = zext i32 %20 to i64
   %22 = zext i32 %2 to i64
   %23 = mul nuw nsw i64 %21, %22
   %24 = sub nsw i64 %23, %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = zext i32 %29 to i64
   %31 = tail call i64 @llvm.smax.i64(i64 %24, i64 0)
   %32 = shl nuw i64 %31, 1
@@ -133,15 +133,15 @@ define hidden void @VP8SSIMDspInit() local_unnamed_addr #1 {
   br i1 %.not, label %2, label %11
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr @VP8SSIMDspInit.VP8SSIMDspInit_body_last_cpuinfo_used, align 8
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %3 = load volatile ptr, ptr @VP8SSIMDspInit.VP8SSIMDspInit_body_last_cpuinfo_used, align 8, !tbaa !13
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
   %.not1 = icmp eq ptr %3, %4
   br i1 %.not1, label %VP8SSIMDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @SSIMGetClipped_C, ptr @VP8SSIMGetClipped, align 8
-  store ptr @SSIMGet_C, ptr @VP8SSIMGet, align 8
-  store ptr @AccumulateSSE_C, ptr @VP8AccumulateSSE, align 8
+  store ptr @SSIMGetClipped_C, ptr @VP8SSIMGetClipped, align 8, !tbaa !13
+  store ptr @SSIMGet_C, ptr @VP8SSIMGet, align 8, !tbaa !13
+  store ptr @AccumulateSSE_C, ptr @VP8AccumulateSSE, align 8, !tbaa !13
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %VP8SSIMDspInit_body.exit, label %6
 
@@ -155,8 +155,8 @@ define hidden void @VP8SSIMDspInit() local_unnamed_addr #1 {
   br label %VP8SSIMDspInit_body.exit
 
 VP8SSIMDspInit_body.exit:                         ; preds = %8, %6, %5, %2
-  %9 = load ptr, ptr @VP8GetCPUInfo, align 8
-  store volatile ptr %9, ptr @VP8SSIMDspInit.VP8SSIMDspInit_body_last_cpuinfo_used, align 8
+  %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
+  store volatile ptr %9, ptr @VP8SSIMDspInit.VP8SSIMDspInit_body_last_cpuinfo_used, align 8, !tbaa !13
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8SSIMDspInit.VP8SSIMDspInit_body_lock) #6
   br label %11
 
@@ -210,63 +210,63 @@ define internal double @SSIMGetClipped_C(ptr noundef readonly captures(none) %0,
   %indvars.iv112 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next113, %._crit_edge ]
   %.090 = phi ptr [ %23, %.preheader.preheader ], [ %61, %._crit_edge ]
   %.05189 = phi ptr [ %26, %.preheader.preheader ], [ %62, %._crit_edge ]
-  %.sroa.16.087 = phi i32 [ 0, %.preheader.preheader ], [ %60, %._crit_edge ]
-  %.sroa.13.086 = phi i32 [ 0, %.preheader.preheader ], [ %58, %._crit_edge ]
-  %.sroa.10.085 = phi i32 [ 0, %.preheader.preheader ], [ %56, %._crit_edge ]
-  %.sroa.7.084 = phi i32 [ 0, %.preheader.preheader ], [ %54, %._crit_edge ]
-  %.sroa.4.083 = phi i32 [ 0, %.preheader.preheader ], [ %52, %._crit_edge ]
+  %.sroa.18.087 = phi i32 [ 0, %.preheader.preheader ], [ %60, %._crit_edge ]
+  %.sroa.15.086 = phi i32 [ 0, %.preheader.preheader ], [ %58, %._crit_edge ]
+  %.sroa.12.085 = phi i32 [ 0, %.preheader.preheader ], [ %56, %._crit_edge ]
+  %.sroa.9.084 = phi i32 [ 0, %.preheader.preheader ], [ %54, %._crit_edge ]
+  %.sroa.6.083 = phi i32 [ 0, %.preheader.preheader ], [ %52, %._crit_edge ]
   %.sroa.0.082 = phi i32 [ 0, %.preheader.preheader ], [ %50, %._crit_edge ]
   %33 = trunc nuw nsw i64 %indvars.iv112 to i32
   %reass.sub = sub i32 %33, %5
   %.reass.reass = add i32 %reass.sub, 3
   %34 = sext i32 %.reass.reass to i64
   %35 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 4, !tbaa !15
   br label %37
 
 37:                                               ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ %28, %.preheader ], [ %indvars.iv.next, %37 ]
-  %.sroa.16.174 = phi i32 [ %.sroa.16.087, %.preheader ], [ %60, %37 ]
-  %.sroa.13.173 = phi i32 [ %.sroa.13.086, %.preheader ], [ %58, %37 ]
-  %.sroa.10.172 = phi i32 [ %.sroa.10.085, %.preheader ], [ %56, %37 ]
-  %.sroa.7.171 = phi i32 [ %.sroa.7.084, %.preheader ], [ %54, %37 ]
-  %.sroa.4.170 = phi i32 [ %.sroa.4.083, %.preheader ], [ %52, %37 ]
+  %.sroa.18.174 = phi i32 [ %.sroa.18.087, %.preheader ], [ %60, %37 ]
+  %.sroa.15.173 = phi i32 [ %.sroa.15.086, %.preheader ], [ %58, %37 ]
+  %.sroa.12.172 = phi i32 [ %.sroa.12.085, %.preheader ], [ %56, %37 ]
+  %.sroa.9.171 = phi i32 [ %.sroa.9.084, %.preheader ], [ %54, %37 ]
+  %.sroa.6.170 = phi i32 [ %.sroa.6.083, %.preheader ], [ %52, %37 ]
   %.sroa.0.169 = phi i32 [ %.sroa.0.082, %.preheader ], [ %50, %37 ]
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %reass.sub104 = sub i32 %38, %4
   %39 = add i32 %reass.sub104, 3
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !15
   %43 = mul i32 %36, %42
   %44 = getelementptr inbounds i8, ptr %.090, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1
+  %45 = load i8, ptr %44, align 1, !tbaa !16
   %46 = zext i8 %45 to i32
   %47 = getelementptr inbounds i8, ptr %.05189, i64 %indvars.iv
-  %48 = load i8, ptr %47, align 1
+  %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = zext i8 %48 to i32
   %50 = add i32 %43, %.sroa.0.169
   %51 = mul i32 %43, %46
-  %52 = add i32 %51, %.sroa.4.170
+  %52 = add i32 %51, %.sroa.6.170
   %53 = mul i32 %43, %49
-  %54 = add i32 %53, %.sroa.7.171
+  %54 = add i32 %53, %.sroa.9.171
   %55 = mul i32 %51, %46
-  %56 = add i32 %55, %.sroa.10.172
+  %56 = add i32 %55, %.sroa.12.172
   %57 = mul i32 %51, %49
-  %58 = add i32 %57, %.sroa.13.173
+  %58 = add i32 %57, %.sroa.15.173
   %59 = mul i32 %53, %49
-  %60 = add i32 %59, %.sroa.16.174
+  %60 = add i32 %59, %.sroa.18.174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %29, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %37
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %61 = getelementptr inbounds i8, ptr %.090, i64 %19
   %62 = getelementptr inbounds i8, ptr %.05189, i64 %20
   %.not.not = icmp slt i64 %indvars.iv112, %32
-  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit105, !llvm.loop !6
+  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit105, !llvm.loop !19
 
 ._crit_edge91.loopexit105:                        ; preds = %._crit_edge
   %63 = zext i32 %52 to i64
@@ -278,15 +278,15 @@ define internal double @SSIMGetClipped_C(ptr noundef readonly captures(none) %0,
 
 ._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit105, %8
   %.sroa.0.0.lcssa = phi i32 [ 0, %8 ], [ %50, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.4.0.lcssa = phi i64 [ 0, %8 ], [ %63, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.7.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.10.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.13.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.16.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.6.0.lcssa = phi i64 [ 0, %8 ], [ %63, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.9.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.12.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.15.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.18.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
   %68 = mul i32 %.sroa.0.0.lcssa, %.sroa.0.0.lcssa
   %69 = shl i32 %68, 6
-  %70 = mul nuw i64 %.sroa.4.0.lcssa, %.sroa.4.0.lcssa
-  %71 = mul nuw i64 %.sroa.7.0.lcssa, %.sroa.7.0.lcssa
+  %70 = mul nuw i64 %.sroa.6.0.lcssa, %.sroa.6.0.lcssa
+  %71 = mul nuw i64 %.sroa.9.0.lcssa, %.sroa.9.0.lcssa
   %72 = add i64 %71, %70
   %73 = zext i32 %69 to i64
   %.not.i.i = icmp ult i64 %72, %73
@@ -295,16 +295,16 @@ define internal double @SSIMGetClipped_C(ptr noundef readonly captures(none) %0,
 74:                                               ; preds = %._crit_edge91
   %75 = mul i32 %68, 60
   %76 = mul i32 %68, 20
-  %77 = mul nuw nsw i64 %.sroa.7.0.lcssa, %.sroa.4.0.lcssa
+  %77 = mul nuw nsw i64 %.sroa.9.0.lcssa, %.sroa.6.0.lcssa
   %78 = zext i32 %.sroa.0.0.lcssa to i64
-  %79 = mul nuw nsw i64 %.sroa.13.0.lcssa, %78
+  %79 = mul nuw nsw i64 %.sroa.15.0.lcssa, %78
   %80 = sub nsw i64 %79, %77
   %81 = tail call i64 @llvm.smax.i64(i64 %80, i64 0)
   %82 = shl nuw i64 %81, 1
   %83 = zext i32 %75 to i64
   %84 = add i64 %82, %83
   %85 = lshr i64 %84, 8
-  %reass.add.i.i = add nuw nsw i64 %.sroa.16.0.lcssa, %.sroa.10.0.lcssa
+  %reass.add.i.i = add nuw nsw i64 %.sroa.18.0.lcssa, %.sroa.12.0.lcssa
   %reass.mul.i.i = mul i64 %reass.add.i.i, %78
   %86 = sub i64 %83, %72
   %87 = add i64 %86, %reass.mul.i.i
@@ -335,51 +335,51 @@ define internal double @SSIMGet_C(ptr noundef readonly captures(none) %0, i32 no
   %indvars.iv57 = phi i64 [ 0, %4 ], [ %indvars.iv.next58, %29 ]
   %.051 = phi ptr [ %0, %4 ], [ %30, %29 ]
   %.02650 = phi ptr [ %2, %4 ], [ %31, %29 ]
-  %.sroa.13.048 = phi i32 [ 0, %4 ], [ %28, %29 ]
-  %.sroa.10.047 = phi i32 [ 0, %4 ], [ %26, %29 ]
-  %.sroa.7.046 = phi i32 [ 0, %4 ], [ %24, %29 ]
-  %.sroa.4.045 = phi i32 [ 0, %4 ], [ %22, %29 ]
-  %.sroa.1.044 = phi i32 [ 0, %4 ], [ %20, %29 ]
+  %.sroa.15.048 = phi i32 [ 0, %4 ], [ %28, %29 ]
+  %.sroa.12.047 = phi i32 [ 0, %4 ], [ %26, %29 ]
+  %.sroa.9.046 = phi i32 [ 0, %4 ], [ %24, %29 ]
+  %.sroa.6.045 = phi i32 [ 0, %4 ], [ %22, %29 ]
+  %.sroa.3.044 = phi i32 [ 0, %4 ], [ %20, %29 ]
   %7 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv57
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !15
   br label %9
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %.sroa.13.142 = phi i32 [ %.sroa.13.048, %.preheader ], [ %28, %9 ]
-  %.sroa.10.141 = phi i32 [ %.sroa.10.047, %.preheader ], [ %26, %9 ]
-  %.sroa.7.140 = phi i32 [ %.sroa.7.046, %.preheader ], [ %24, %9 ]
-  %.sroa.4.139 = phi i32 [ %.sroa.4.045, %.preheader ], [ %22, %9 ]
-  %.sroa.1.138 = phi i32 [ %.sroa.1.044, %.preheader ], [ %20, %9 ]
+  %.sroa.15.142 = phi i32 [ %.sroa.15.048, %.preheader ], [ %28, %9 ]
+  %.sroa.12.141 = phi i32 [ %.sroa.12.047, %.preheader ], [ %26, %9 ]
+  %.sroa.9.140 = phi i32 [ %.sroa.9.046, %.preheader ], [ %24, %9 ]
+  %.sroa.6.139 = phi i32 [ %.sroa.6.045, %.preheader ], [ %22, %9 ]
+  %.sroa.3.138 = phi i32 [ %.sroa.3.044, %.preheader ], [ %20, %9 ]
   %10 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !15
   %12 = mul i32 %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %.051, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !16
   %15 = zext i8 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %.02650, i64 %indvars.iv
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = zext i8 %17 to i32
   %19 = mul i32 %12, %15
-  %20 = add i32 %19, %.sroa.1.138
+  %20 = add i32 %19, %.sroa.3.138
   %21 = mul i32 %12, %18
-  %22 = add i32 %21, %.sroa.4.139
+  %22 = add i32 %21, %.sroa.6.139
   %23 = mul i32 %19, %15
-  %24 = add i32 %23, %.sroa.7.140
+  %24 = add i32 %23, %.sroa.9.140
   %25 = mul i32 %19, %18
-  %26 = add i32 %25, %.sroa.10.141
+  %26 = add i32 %25, %.sroa.12.141
   %27 = mul i32 %21, %18
-  %28 = add i32 %27, %.sroa.13.142
+  %28 = add i32 %27, %.sroa.15.142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %29, label %9, !llvm.loop !7
+  br i1 %exitcond.not, label %29, label %9, !llvm.loop !20
 
 29:                                               ; preds = %9
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %30 = getelementptr inbounds i8, ptr %.051, i64 %5
   %31 = getelementptr inbounds i8, ptr %.02650, i64 %6
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 7
-  br i1 %exitcond60.not, label %32, label %.preheader, !llvm.loop !8
+  br i1 %exitcond60.not, label %32, label %.preheader, !llvm.loop !21
 
 32:                                               ; preds = %29
   %33 = zext i32 %20 to i64
@@ -434,17 +434,17 @@ define internal i32 @AccumulateSSE_C(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1
+  %6 = load i8, ptr %5, align 1, !tbaa !16
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1
+  %9 = load i8, ptr %8, align 1, !tbaa !16
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 %7, %10
   %12 = mul nsw i32 %11, %11
   %13 = add i32 %12, %.01011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.010.lcssa = phi i32 [ 0, %3 ], [ %13, %.lr.ph ]
@@ -462,23 +462,36 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !5, i64 4}
+!4 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!4, !5, i64 8}
+!9 = !{!4, !5, i64 16}
+!10 = !{!4, !5, i64 12}
+!11 = !{!4, !5, i64 20}
+!12 = !{!4, !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!5, !5, i64 0}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}

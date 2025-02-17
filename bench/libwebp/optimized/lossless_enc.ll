@@ -8,8 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 
-@kLog2Table = hidden local_unnamed_addr constant [256 x float] [float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0x3FF95C01A0000000, float 2.000000e+00, float 0x4002934F00000000, float 0x4004AE00E0000000, float 0x4006757680000000, float 3.000000e+00, float 0x40095C01A0000000, float 0x400A934F00000000, float 0x400BACEA80000000, float 0x400CAE00E0000000, float 0x400D9A8020000000, float 0x400E757680000000, float 0x400F414FE0000000, float 4.000000e+00, float 0x4010598FE0000000, float 0x4010AE00E0000000, float 0x4010FDE0C0000000, float 0x401149A780000000, float 0x401191BBA0000000, float 0x4011D67540000000, float 0x40121820A0000000, float 0x4012570060000000, float 0x4012934F00000000, float 0x4012CD4020000000, float 0x4013050140000000, float 0x40133ABB40000000, float 0x40136E92A0000000, float 0x4013A0A7E0000000, float 0x4013D118E0000000, float 5.000000e+00, float 0x40142D75A0000000, float 0x4014598FE0000000, float 0x40148462C0000000, float 0x4014AE00E0000000, float 0x4014D67B00000000, float 0x4014FDE0C0000000, float 0x4015244080000000, float 0x401549A780000000, float 0x40156E2220000000, float 0x401591BBA0000000, float 0x4015B47EC0000000, float 0x4015D67540000000, float 0x4015F7A860000000, float 0x40161820A0000000, float 0x401637E620000000, float 0x4016570060000000, float 0x4016757680000000, float 0x4016934F00000000, float 0x4016B09040000000, float 0x4016CD4020000000, float 0x4016E96400000000, float 0x4017050140000000, float 0x4017201CC0000000, float 0x40173ABB40000000, float 0x401754E120000000, float 0x40176E92A0000000, float 0x401787D3A0000000, float 0x4017A0A7E0000000, float 0x4017B91340000000, float 0x4017D118E0000000, float 0x4017E8BC20000000, float 6.000000e+00, float 0x401816E7A0000000, float 0x40182D75A0000000, float 0x401843ACE0000000, float 0x4018598FE0000000, float 0x40186F2100000000, float 0x40188462C0000000, float 0x4018995740000000, float 0x4018AE00E0000000, float 0x4018C26160000000, float 0x4018D67B00000000, float 0x4018EA4F80000000, float 0x4018FDE0C0000000, float 0x4019113080000000, float 0x4019244080000000, float 0x4019371240000000, float 0x401949A780000000, float 0x40195C01A0000000, float 0x40196E2220000000, float 0x4019800A60000000, float 0x401991BBA0000000, float 0x4019A33760000000, float 0x4019B47EC0000000, float 0x4019C59300000000, float 0x4019D67540000000, float 0x4019E726A0000000, float 0x4019F7A860000000, float 0x401A07FB60000000, float 0x401A1820A0000000, float 0x401A281940000000, float 0x401A37E620000000, float 0x401A478840000000, float 0x401A570060000000, float 0x401A664F80000000, float 0x401A757680000000, float 0x401A847600000000, float 0x401A934F00000000, float 0x401AA20240000000, float 0x401AB09040000000, float 0x401ABEFA00000000, float 0x401ACD4020000000, float 0x401ADB6320000000, float 0x401AE96400000000, float 0x401AF74320000000, float 0x401B050140000000, float 0x401B129EE0000000, float 0x401B201CC0000000, float 0x401B2D7B60000000, float 0x401B3ABB40000000, float 0x401B47DD00000000, float 0x401B54E120000000, float 0x401B61C820000000, float 0x401B6E92A0000000, float 0x401B7B40E0000000, float 0x401B87D3A0000000, float 0x401B944B20000000, float 0x401BA0A7E0000000, float 0x401BACEA80000000, float 0x401BB91340000000, float 0x401BC52280000000, float 0x401BD118E0000000, float 0x401BDCF680000000, float 0x401BE8BC20000000, float 0x401BF469C0000000, float 7.000000e+00, float 0x401C0B7F20000000, float 0x401C16E7A0000000, float 0x401C2239A0000000, float 0x401C2D75A0000000, float 0x401C389C00000000, float 0x401C43ACE0000000, float 0x401C4EA8C0000000, float 0x401C598FE0000000, float 0x401C646280000000, float 0x401C6F2100000000, float 0x401C79CBC0000000, float 0x401C8462C0000000, float 0x401C8EE680000000, float 0x401C995740000000, float 0x401CA3B540000000, float 0x401CAE00E0000000, float 0x401CB83A20000000, float 0x401CC26160000000, float 0x401CCC76E0000000, float 0x401CD67B00000000, float 0x401CE06DC0000000, float 0x401CEA4F80000000, float 0x401CF42060000000, float 0x401CFDE0C0000000, float 0x401D0790A0000000, float 0x401D113080000000, float 0x401D1AC060000000, float 0x401D244080000000, float 0x401D2DB100000000, float 0x401D371240000000, float 0x401D406460000000, float 0x401D49A780000000, float 0x401D52DBE0000000, float 0x401D5C01A0000000, float 0x401D651900000000, float 0x401D6E2220000000, float 0x401D771D20000000, float 0x401D800A60000000, float 0x401D88E9C0000000, float 0x401D91BBA0000000, float 0x401D9A8020000000, float 0x401DA33760000000, float 0x401DABE180000000, float 0x401DB47EC0000000, float 0x401DBD0F20000000, float 0x401DC59300000000, float 0x401DCE0A40000000, float 0x401DD67540000000, float 0x401DDED400000000, float 0x401DE726A0000000, float 0x401DEF6D60000000, float 0x401DF7A860000000, float 0x401DFFD7A0000000, float 0x401E07FB60000000, float 0x401E1013A0000000, float 0x401E1820A0000000, float 0x401E202280000000, float 0x401E281940000000, float 0x401E300520000000, float 0x401E37E620000000, float 0x401E3FBC80000000, float 0x401E478840000000, float 0x401E4F4980000000, float 0x401E570060000000, float 0x401E5EAD00000000, float 0x401E664F80000000, float 0x401E6DE800000000, float 0x401E757680000000, float 0x401E7CFB20000000, float 0x401E847600000000, float 0x401E8BE760000000, float 0x401E934F00000000, float 0x401E9AAD40000000, float 0x401EA20240000000, float 0x401EA94DE0000000, float 0x401EB09040000000, float 0x401EB7C9A0000000, float 0x401EBEFA00000000, float 0x401EC62180000000, float 0x401ECD4020000000, float 0x401ED45600000000, float 0x401EDB6320000000, float 0x401EE267E0000000, float 0x401EE96400000000, float 0x401EF057C0000000, float 0x401EF74320000000, float 0x401EFE2640000000, float 0x401F050140000000, float 0x401F0BD420000000, float 0x401F129EE0000000, float 0x401F1961C0000000, float 0x401F201CC0000000, float 0x401F26CFE0000000, float 0x401F2D7B60000000, float 0x401F341F20000000, float 0x401F3ABB40000000, float 0x401F414FE0000000, float 0x401F47DD00000000, float 0x401F4E62C0000000, float 0x401F54E120000000, float 0x401F5B5840000000, float 0x401F61C820000000, float 0x401F6830E0000000, float 0x401F6E92A0000000, float 0x401F74ED40000000, float 0x401F7B40E0000000, float 0x401F818DA0000000, float 0x401F87D3A0000000, float 0x401F8E12C0000000, float 0x401F944B20000000, float 0x401F9A7CE0000000, float 0x401FA0A7E0000000, float 0x401FA6CC80000000, float 0x401FACEA80000000, float 0x401FB30200000000, float 0x401FB91340000000, float 0x401FBF1E00000000, float 0x401FC52280000000, float 0x401FCB20C0000000, float 0x401FD118E0000000, float 0x401FD70AC0000000, float 0x401FDCF680000000, float 0x401FE2DC60000000, float 0x401FE8BC20000000, float 0x401FEE95E0000000, float 0x401FF469C0000000, float 0x401FFA37C0000000], align 16
-@kSLog2Table = hidden local_unnamed_addr constant [256 x float] [float 0.000000e+00, float 0.000000e+00, float 2.000000e+00, float 0x4013050140000000, float 8.000000e+00, float 0x40273822C0000000, float 0x402F050140000000, float 0x4033A6C7A0000000, float 2.400000e+01, float 0x403C8781E0000000, float 0x40409C1160000000, float 0x404306E140000000, float 0x40458280A0000000, float 0x40480D8820000000, float 0x404AA6C7A0000000, float 0x404D4D3AE0000000, float 6.400000e+01, float 0x40515F28E0000000, float 0x4052C3C0E0000000, float 0x40542D7AE0000000, float 0x40559C1160000000, float 0x40570F4640000000, float 0x405886E140000000, float 0x405A02AEE0000000, float 0x405B8280A0000000, float 0x405D062B80000000, float 0x405E8D8820000000, float 0x40600C3900000000, float 0x4060D363E0000000, float 0x40619C34E0000000, float 0x4062669D60000000, float 0x4063329000000000, float 1.600000e+02, float 0x4064CEE160000000, float 0x40659F28E0000000, float 0x406670CC00000000, float 0x406743C0E0000000, float 0x406817FE20000000, float 0x4068ED7AE0000000, float 0x4069C42EA0000000, float 0x406A9C1160000000, float 0x406B751BC0000000, float 0x406C4F4640000000, float 0x406D2A8A60000000, float 0x406E06E140000000, float 0x406EE444C0000000, float 0x406FC2AEE0000000, float 0x4070510D00000000, float 0x4070C14040000000, float 0x407131EEC0000000, float 0x4071A315C0000000, float 0x407214B300000000, float 0x407286C400000000, float 0x4072F946C0000000, float 0x40736C3900000000, float 0x4073DF98C0000000, float 0x40745363E0000000, float 0x4074C79880000000, float 0x40753C34E0000000, float 0x4075B13700000000, float 0x4076269D60000000, float 0x40769C6640000000, float 0x4077129000000000, float 0x4077891920000000, float 3.840000e+02, float 0x4078774340000000, float 0x4078EEE160000000, float 0x407966D900000000, float 0x4079DF28E0000000, float 0x407A57CFA0000000, float 0x407AD0CC00000000, float 0x407B4A1CE0000000, float 0x407BC3C0E0000000, float 0x407C3DB700000000, float 0x407CB7FE20000000, float 0x407D329520000000, float 0x407DAD7AE0000000, float 0x407E28AE60000000, float 0x407EA42EA0000000, float 0x407F1FFAA0000000, float 0x407F9C1160000000, float 0x40800C3900000000, float 0x40804A8DE0000000, float 0x40808906C0000000, float 0x4080C7A320000000, float 0x40810662C0000000, float 0x4081454520000000, float 0x40818449E0000000, float 0x4081C370A0000000, float 0x408202B8E0000000, float 0x4082422260000000, float 0x408281ACA0000000, float 0x4082C15780000000, float 0x4083012260000000, float 0x4083410D00000000, float 0x4083811720000000, float 0x4083C14040000000, float 0x4084018840000000, float 0x408441EEC0000000, float 0x4084827360000000, float 0x4084C315C0000000, float 0x408503D5C0000000, float 0x408544B300000000, float 0x408585AD20000000, float 0x4085C6C400000000, float 0x408607F760000000, float 0x40864946C0000000, float 0x40868AB220000000, float 0x4086CC3900000000, float 0x40870DDB60000000, float 0x40874F98C0000000, float 0x4087917100000000, float 0x4087D363E0000000, float 0x4088157120000000, float 0x4088579880000000, float 0x408899D9E0000000, float 0x4088DC34E0000000, float 0x40891EA960000000, float 0x4089613700000000, float 0x4089A3DDE0000000, float 0x4089E69D60000000, float 0x408A2975A0000000, float 0x408A6C6640000000, float 0x408AAF6F20000000, float 0x408AF29000000000, float 0x408B35C8C0000000, float 0x408B791920000000, float 0x408BBC80E0000000, float 8.960000e+02, float 0x408C439620000000, float 0x408C874340000000, float 0x408CCB0700000000, float 0x408D0EE160000000, float 0x408D52D200000000, float 0x408D96D900000000, float 0x408DDAF600000000, float 0x408E1F28E0000000, float 0x408E637180000000, float 0x408EA7CFA0000000, float 0x408EEC4340000000, float 0x408F30CC00000000, float 0x408F756A00000000, float 0x408FBA1CE0000000, float 0x408FFEE480000000, float 0x409021E080000000, float 0x40904458E0000000, float 0x409066DB80000000, float 0x4090896840000000, float 0x4090ABFF20000000, float 0x4090CE9FE0000000, float 0x4090F14A80000000, float 0x409113FF20000000, float 0x409136BD60000000, float 0x4091598580000000, float 0x40917C5720000000, float 0x40919F3280000000, float 0x4091C21740000000, float 0x4091E505A0000000, float 0x409207FD40000000, float 0x40922AFE60000000, float 0x40924E08C0000000, float 0x4092711C40000000, float 0x4092943900000000, float 0x4092B75EE0000000, float 0x4092DA8DE0000000, float 0x4092FDC5C0000000, float 0x40932106C0000000, float 0x4093445080000000, float 0x409367A320000000, float 0x40938AFEA0000000, float 0x4093AE62C0000000, float 0x4093D1CFA0000000, float 0x4093F54520000000, float 0x409418C340000000, float 0x40943C49E0000000, float 0x40945FD900000000, float 0x40948370A0000000, float 0x4094A710A0000000, float 0x4094CAB8E0000000, float 0x4094EE6980000000, float 0x4095122260000000, float 0x409535E360000000, float 0x409559ACA0000000, float 0x40957D7E00000000, float 0x4095A15780000000, float 0x4095C538E0000000, float 0x4095E92260000000, float 0x40960D13C0000000, float 0x4096310D00000000, float 0x4096550E20000000, float 0x4096791720000000, float 0x40969D27E0000000, float 0x4096C14040000000, float 0x4096E56080000000, float 0x4097098840000000, float 0x40972DB7C0000000, float 0x409751EEC0000000, float 0x4097762D40000000, float 0x40979A7360000000, float 0x4097BEC0E0000000, float 0x4097E315C0000000, float 0x4098077220000000, float 0x40982BD5C0000000, float 0x40985040C0000000, float 0x409874B300000000, float 0x4098992C80000000, float 0x4098BDAD20000000, float 0x4098E23500000000, float 0x409906C400000000, float 0x40992B5A20000000, float 0x40994FF760000000, float 0x4099749BA0000000, float 0x40999946C0000000, float 0x4099BDF900000000, float 0x4099E2B220000000, float 0x409A077220000000, float 0x409A2C3900000000, float 0x409A5106C0000000, float 0x409A75DB60000000, float 0x409A9AB6A0000000, float 0x409ABF98C0000000, float 0x409AE48180000000, float 0x409B097100000000, float 0x409B2E6720000000, float 0x409B5363E0000000, float 0x409B786720000000, float 0x409B9D7120000000, float 0x409BC28180000000, float 0x409BE79880000000, float 0x409C0CB5E0000000, float 0x409C31D9E0000000, float 0x409C570420000000, float 0x409C7C34E0000000, float 0x409CA16BE0000000, float 0x409CC6A960000000, float 0x409CEBED00000000, float 0x409D113700000000, float 0x409D368760000000, float 0x409D5BDDE0000000, float 0x409D813A80000000, float 0x409DA69D60000000, float 0x409DCC0680000000, float 0x409DF175A0000000, float 0x409E16EB00000000, float 0x409E3C6640000000, float 0x409E61E7C0000000, float 0x409E876F20000000, float 0x409EACFCA0000000, float 0x409ED29000000000, float 0x409EF82980000000, float 0x409F1DC8C0000000, float 0x409F436E00000000, float 0x409F691920000000, float 0x409F8ECA20000000, float 0x409FB480E0000000, float 0x409FDA3DA0000000], align 16
+@kLog2Table = hidden local_unnamed_addr constant [256 x i32] [i32 0, i32 0, i32 8388608, i32 13295629, i32 16777216, i32 19477745, i32 21684237, i32 23549800, i32 25165824, i32 26591258, i32 27866353, i32 29019816, i32 30072845, i32 31041538, i32 31938408, i32 32773374, i32 33554432, i32 34288123, i32 34979866, i32 35634199, i32 36254961, i32 36845429, i32 37408424, i32 37946388, i32 38461453, i32 38955489, i32 39430146, i32 39886887, i32 40327016, i32 40751698, i32 41161982, i32 41558811, i32 41943040, i32 42315445, i32 42676731, i32 43027545, i32 43368474, i32 43700062, i32 44022807, i32 44337167, i32 44643569, i32 44942404, i32 45234037, i32 45518808, i32 45797032, i32 46069003, i32 46334996, i32 46595268, i32 46850061, i32 47099600, i32 47344097, i32 47583753, i32 47818754, i32 48049279, i32 48275495, i32 48497560, i32 48715624, i32 48929828, i32 49140306, i32 49347187, i32 49550590, i32 49750631, i32 49947419, i32 50141058, i32 50331648, i32 50519283, i32 50704053, i32 50886044, i32 51065339, i32 51242017, i32 51416153, i32 51587818, i32 51757082, i32 51924012, i32 52088670, i32 52251118, i32 52411415, i32 52569616, i32 52725775, i32 52879946, i32 53032177, i32 53182516, i32 53331012, i32 53477707, i32 53622645, i32 53765868, i32 53907416, i32 54047327, i32 54185640, i32 54322389, i32 54457611, i32 54591338, i32 54723604, i32 54854440, i32 54983876, i32 55111943, i32 55238669, i32 55364082, i32 55488208, i32 55611074, i32 55732705, i32 55853126, i32 55972361, i32 56090432, i32 56207362, i32 56323174, i32 56437887, i32 56551524, i32 56664103, i32 56775645, i32 56886168, i32 56995691, i32 57104232, i32 57211808, i32 57318436, i32 57424133, i32 57528914, i32 57632796, i32 57735795, i32 57837923, i32 57939198, i32 58039632, i32 58139239, i32 58238033, i32 58336027, i32 58433234, i32 58529666, i32 58625336, i32 58720256, i32 58814437, i32 58907891, i32 59000628, i32 59092661, i32 59183999, i32 59274652, i32 59364632, i32 59453947, i32 59542609, i32 59630625, i32 59718006, i32 59804761, i32 59890898, i32 59976426, i32 60061354, i32 60145690, i32 60229443, i32 60312620, i32 60395229, i32 60477278, i32 60558775, i32 60639726, i32 60720140, i32 60800023, i32 60879382, i32 60958224, i32 61036555, i32 61114383, i32 61191714, i32 61268554, i32 61344908, i32 61420785, i32 61496188, i32 61571124, i32 61645600, i32 61719620, i32 61793189, i32 61866315, i32 61939001, i32 62011253, i32 62083076, i32 62154476, i32 62225457, i32 62296024, i32 62366182, i32 62435935, i32 62505289, i32 62574248, i32 62642816, i32 62710997, i32 62778797, i32 62846219, i32 62913267, i32 62979946, i32 63046260, i32 63112212, i32 63177807, i32 63243048, i32 63307939, i32 63372484, i32 63436687, i32 63500551, i32 63564080, i32 63627277, i32 63690146, i32 63752690, i32 63814912, i32 63876816, i32 63938405, i32 63999682, i32 64060650, i32 64121313, i32 64181673, i32 64241734, i32 64301498, i32 64360969, i32 64420148, i32 64479040, i32 64537646, i32 64595970, i32 64654014, i32 64711782, i32 64769274, i32 64826495, i32 64883447, i32 64940132, i32 64996553, i32 65052711, i32 65108611, i32 65164253, i32 65219641, i32 65274776, i32 65329662, i32 65384299, i32 65438691, i32 65492840, i32 65546747, i32 65600416, i32 65653847, i32 65707044, i32 65760008, i32 65812741, i32 65865245, i32 65917522, i32 65969575, i32 66021404, i32 66073013, i32 66124403, i32 66175575, i32 66226531, i32 66277275, i32 66327806, i32 66378127, i32 66428240, i32 66478146, i32 66527847, i32 66577345, i32 66626641, i32 66675737, i32 66724635, i32 66773336, i32 66821842, i32 66870154, i32 66918274, i32 66966204, i32 67013944, i32 67061497], align 16
+@kSLog2Table = hidden local_unnamed_addr constant [256 x i64] [i64 0, i64 0, i64 16777216, i64 39886887, i64 67108864, i64 97388723, i64 130105423, i64 164848600, i64 201326592, i64 239321324, i64 278663526, i64 319217973, i64 360874141, i64 403539997, i64 447137711, i64 491600606, i64 536870912, i64 582898099, i64 629637592, i64 677049776, i64 725099212, i64 773754010, i64 822985323, i64 872766924, i64 923074875, i64 973887230, i64 1025183802, i64 1076945958, i64 1129156447, i64 1181799249, i64 1234859451, i64 1288323135, i64 1342177280, i64 1396409681, i64 1451008871, i64 1505964059, i64 1561265072, i64 1616902301, i64 1672866655, i64 1729149526, i64 1785742744, i64 1842638548, i64 1899829557, i64 1957308741, i64 2015069397, i64 2073105127, i64 2131409817, i64 2189977618, i64 2248802933, i64 2307880396, i64 2367204859, i64 2426771383, i64 2486575220, i64 2546611805, i64 2606876748, i64 2667365819, i64 2728074942, i64 2789000187, i64 2850137762, i64 2911484006, i64 2973035382, i64 3034788471, i64 3096739966, i64 3158886666, i64 3221225472, i64 3283753383, i64 3346467489, i64 3409364969, i64 3472443085, i64 3535699182, i64 3599130679, i64 3662735070, i64 3726509920, i64 3790452862, i64 3854561593, i64 3918833872, i64 3983267519, i64 4047860410, i64 4112610476, i64 4177515704, i64 4242574127, i64 4307783833, i64 4373142952, i64 4438649662, i64 4504302186, i64 4570098787, i64 4636037770, i64 4702117480, i64 4768336298, i64 4834692645, i64 4901184974, i64 4967811774, i64 5034571569, i64 5101462912, i64 5168484389, i64 5235634615, i64 5302912235, i64 5370315922, i64 5437844376, i64 5505496324, i64 5573270518, i64 5641165737, i64 5709180782, i64 5777314477, i64 5845565671, i64 5913933235, i64 5982416059, i64 6051013057, i64 6119723161, i64 6188545324, i64 6257478518, i64 6326521733, i64 6395673979, i64 6464934282, i64 6534301685, i64 6603775250, i64 6673354052, i64 6743037185, i64 6812823756, i64 6882712890, i64 6952703725, i64 7022795412, i64 7092987118, i64 7163278025, i64 7233667324, i64 7304154222, i64 7374737939, i64 7445417707, i64 7516192768, i64 7587062379, i64 7658025806, i64 7729082328, i64 7800231234, i64 7871471825, i64 7942803410, i64 8014225311, i64 8085736859, i64 8157337394, i64 8229026267, i64 8300802839, i64 8372666477, i64 8444616560, i64 8516652476, i64 8588773618, i64 8660979393, i64 8733269211, i64 8805642493, i64 8878098667, i64 8950637170, i64 9023257446, i64 9095958945, i64 9168741125, i64 9241603454, i64 9314545403, i64 9387566451, i64 9460666086, i64 9533843800, i64 9607099093, i64 9680431471, i64 9753840445, i64 9827325535, i64 9900886263, i64 9974522161, i64 10048232765, i64 10122017615, i64 10195876260, i64 10269808253, i64 10343813150, i64 10417890516, i64 10492039919, i64 10566260934, i64 10640553138, i64 10714916116, i64 10789349456, i64 10863852751, i64 10938425600, i64 11013067604, i64 11087778372, i64 11162557513, i64 11237404645, i64 11312319387, i64 11387301364, i64 11462350205, i64 11537465541, i64 11612647010, i64 11687894253, i64 11763206912, i64 11838584638, i64 11914027082, i64 11989533899, i64 12065104750, i64 12140739296, i64 12216437206, i64 12292198148, i64 12368021795, i64 12443907826, i64 12519855920, i64 12595865759, i64 12671937032, i64 12748069427, i64 12824262637, i64 12900516358, i64 12976830290, i64 13053204134, i64 13129637595, i64 13206130381, i64 13282682202, i64 13359292772, i64 13435961806, i64 13512689025, i64 13589474149, i64 13666316903, i64 13743217014, i64 13820174211, i64 13897188225, i64 13974258793, i64 14051385649, i64 14128568535, i64 14205807192, i64 14283101363, i64 14360450796, i64 14437855239, i64 14515314443, i64 14592828162, i64 14670396151, i64 14748018167, i64 14825693972, i64 14903423326, i64 14981205995, i64 15059041743, i64 15136930339, i64 15214871554, i64 15292865160, i64 15370910930, i64 15449008641, i64 15527158071, i64 15605359001, i64 15683611210, i64 15761914485, i64 15840268608, i64 15918673369, i64 15997128556, i64 16075633960, i64 16154189373, i64 16232794589, i64 16311449405, i64 16390153617, i64 16468907026, i64 16547709431, i64 16626560636, i64 16705460444, i64 16784408661, i64 16863405094, i64 16942449552, i64 17021541845, i64 17100681785], align 16
 @kPrefixEncodeCode = hidden local_unnamed_addr constant [512 x %struct.VP8LPrefixCode] [%struct.VP8LPrefixCode zeroinitializer, %struct.VP8LPrefixCode zeroinitializer, %struct.VP8LPrefixCode { i8 1, i8 0 }, %struct.VP8LPrefixCode { i8 2, i8 0 }, %struct.VP8LPrefixCode { i8 3, i8 0 }, %struct.VP8LPrefixCode { i8 4, i8 1 }, %struct.VP8LPrefixCode { i8 4, i8 1 }, %struct.VP8LPrefixCode { i8 5, i8 1 }, %struct.VP8LPrefixCode { i8 5, i8 1 }, %struct.VP8LPrefixCode { i8 6, i8 2 }, %struct.VP8LPrefixCode { i8 6, i8 2 }, %struct.VP8LPrefixCode { i8 6, i8 2 }, %struct.VP8LPrefixCode { i8 6, i8 2 }, %struct.VP8LPrefixCode { i8 7, i8 2 }, %struct.VP8LPrefixCode { i8 7, i8 2 }, %struct.VP8LPrefixCode { i8 7, i8 2 }, %struct.VP8LPrefixCode { i8 7, i8 2 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 8, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 9, i8 3 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 10, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 11, i8 4 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 12, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 13, i8 5 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 14, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 15, i8 6 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 16, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }, %struct.VP8LPrefixCode { i8 17, i8 7 }], align 16
 @kPrefixEncodeExtraBitsValue = hidden local_unnamed_addr constant [512 x i8] c"\00\00\00\00\00\00\01\00\01\00\01\02\03\00\01\02\03\00\01\02\03\04\05\06\07\00\01\02\03\04\05\06\07\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", align 16
 @VP8LAddVector = hidden local_unnamed_addr global ptr null, align 8
@@ -26,6 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8LExtraCost = hidden local_unnamed_addr global ptr null, align 8
 @VP8LExtraCostCombined = hidden local_unnamed_addr global ptr null, align 8
 @VP8LCombinedShannonEntropy = hidden local_unnamed_addr global ptr null, align 8
+@VP8LShannonEntropy = hidden local_unnamed_addr global ptr null, align 8
 @VP8LGetEntropyUnrefined = hidden local_unnamed_addr global ptr null, align 8
 @VP8LGetCombinedEntropyUnrefined = hidden local_unnamed_addr global ptr null, align 8
 @VP8LVectorMismatch = hidden local_unnamed_addr global ptr null, align 8
@@ -34,108 +35,102 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8LPredictorsSub_C = hidden local_unnamed_addr global [16 x ptr] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8LBitEntropyInit(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %2, align 4
+define hidden void @VP8LBitEntropyInit(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
+  store i32 -1, ptr %2, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBitsEntropyUnrefined(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 20)) %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %4, align 4
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge.thread
+define hidden void @VP8LBitsEntropyUnrefined(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) initializes((8, 24)) %2) local_unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 12, i1 false)
+  store i32 -1, ptr %4, align 4, !tbaa !3
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %9
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %36
-  %10 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
-  %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %38, %36 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %36, label %14
+10:                                               ; preds = %.lr.ph, %33
+  %11 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
+  %12 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
+  %13 = phi i32 [ 0, %.lr.ph ], [ %36, %33 ]
+  %14 = phi i32 [ 0, %.lr.ph ], [ %37, %33 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %33, label %17
 
-14:                                               ; preds = %9
-  %15 = load i32, ptr %6, align 4
-  %16 = add i32 %15, %13
-  store i32 %16, ptr %6, align 4
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %17, ptr %4, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %7, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = icmp ult i32 %20, 256
+17:                                               ; preds = %10
+  %18 = add i32 %14, %16
+  store i32 %18, ptr %7, align 8, !tbaa !10
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %19, ptr %4, align 4, !tbaa !3
+  %20 = add nsw i32 %13, 1
+  store i32 %20, ptr %8, align 4, !tbaa !11
+  %21 = icmp ult i32 %16, 256
   br i1 %21, label %22, label %26
 
-22:                                               ; preds = %14
-  %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %23
-  %25 = load float, ptr %24, align 4
+22:                                               ; preds = %17
+  %23 = zext nneg i32 %16 to i64
+  %24 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %23
+  %25 = load i64, ptr %24, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
-26:                                               ; preds = %14
-  %27 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %28 = tail call float %27(i32 noundef %20) #11
-  %.pre = load float, ptr %2, align 4
-  %.pre27 = load i32, ptr %8, align 4
+26:                                               ; preds = %17
+  %27 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %28 = tail call i64 %27(i32 noundef %16) #12
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %22, %26
-  %29 = phi i32 [ %10, %22 ], [ %.pre27, %26 ]
-  %30 = phi float [ %11, %22 ], [ %.pre, %26 ]
-  %31 = phi float [ %25, %22 ], [ %28, %26 ]
-  %32 = fsub float %30, %31
-  store float %32, ptr %2, align 4
-  %33 = load i32, ptr %12, align 4
-  %34 = icmp ult i32 %29, %33
-  br i1 %34, label %35, label %36
+  %29 = phi i64 [ %25, %22 ], [ %28, %26 ]
+  %30 = add i64 %12, %29
+  %31 = icmp ult i32 %11, %16
+  br i1 %31, label %32, label %33
 
-35:                                               ; preds = %VP8LFastSLog2.exit
-  store i32 %33, ptr %8, align 4
-  br label %36
+32:                                               ; preds = %VP8LFastSLog2.exit
+  store i32 %16, ptr %9, align 8, !tbaa !15
+  br label %33
 
-36:                                               ; preds = %9, %35, %VP8LFastSLog2.exit
-  %37 = phi i32 [ %10, %9 ], [ %33, %35 ], [ %29, %VP8LFastSLog2.exit ]
-  %38 = phi float [ %11, %9 ], [ %32, %35 ], [ %32, %VP8LFastSLog2.exit ]
+33:                                               ; preds = %10, %32, %VP8LFastSLog2.exit
+  %34 = phi i32 [ %11, %10 ], [ %16, %32 ], [ %11, %VP8LFastSLog2.exit ]
+  %35 = phi i64 [ %12, %10 ], [ %30, %32 ], [ %30, %VP8LFastSLog2.exit ]
+  %36 = phi i32 [ %13, %10 ], [ %20, %32 ], [ %20, %VP8LFastSLog2.exit ]
+  %37 = phi i32 [ %14, %10 ], [ %18, %32 ], [ %18, %VP8LFastSLog2.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %36
-  %.pre28 = load i32, ptr %6, align 4
-  %39 = icmp ult i32 %.pre28, 256
-  br i1 %39, label %._crit_edge.thread, label %45
+._crit_edge:                                      ; preds = %33
+  %38 = icmp ult i32 %37, 256
+  br i1 %38, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %40 = phi i32 [ %.pre28, %._crit_edge ], [ 0, %3 ]
-  %41 = phi float [ %38, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %42
-  %44 = load float, ptr %43, align 4
-  br label %VP8LFastSLog2.exit24
+  %39 = phi i32 [ %37, %._crit_edge ], [ 0, %3 ]
+  %40 = phi i64 [ %35, %._crit_edge ], [ 0, %3 ]
+  %41 = zext nneg i32 %39 to i64
+  %42 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %41
+  %43 = load i64, ptr %42, align 8, !tbaa !12
+  br label %VP8LFastSLog2.exit25
 
-45:                                               ; preds = %._crit_edge
-  %46 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %47 = tail call float %46(i32 noundef %.pre28) #11
-  %.pre29 = load float, ptr %2, align 4
-  br label %VP8LFastSLog2.exit24
+44:                                               ; preds = %._crit_edge
+  %45 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %46 = tail call i64 %45(i32 noundef %37) #12
+  br label %VP8LFastSLog2.exit25
 
-VP8LFastSLog2.exit24:                             ; preds = %._crit_edge.thread, %45
-  %48 = phi float [ %41, %._crit_edge.thread ], [ %.pre29, %45 ]
-  %49 = phi float [ %44, %._crit_edge.thread ], [ %47, %45 ]
-  %50 = fadd float %49, %48
-  store float %50, ptr %2, align 4
+VP8LFastSLog2.exit25:                             ; preds = %._crit_edge.thread, %44
+  %47 = phi i64 [ %40, %._crit_edge.thread ], [ %35, %44 ]
+  %48 = phi i64 [ %43, %._crit_edge.thread ], [ %46, %44 ]
+  %49 = sub i64 %48, %47
+  store i64 %49, ptr %2, align 8, !tbaa !18
   ret void
 }
 
@@ -151,7 +146,7 @@ define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = lshr i32 %5, 8
   %7 = sub i32 %5, %6
   %8 = and i32 %7, 255
@@ -161,67 +156,67 @@ define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef captures(none)
   %12 = and i32 %11, 16711680
   %13 = or disjoint i32 %8, %9
   %14 = or disjoint i32 %13, %12
-  store i32 %14, ptr %4, align 4
+  store i32 %14, ptr %4, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LTransformColor_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
+define hidden void @VP8LTransformColor_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %wide.trip.count = zext nneg i32 %2 to i64
-  br label %7
-
-7:                                                ; preds = %.lr.ph, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4
-  %10 = lshr i32 %9, 16
-  %11 = load i8, ptr %0, align 1
+  %5 = load i8, ptr %0, align 1, !tbaa !20
+  %6 = sext i8 %5 to i32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1, !tbaa !22
+  %9 = sext i8 %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %11 = load i8, ptr %10, align 1, !tbaa !23
   %12 = sext i8 %11 to i32
-  %13 = shl i32 %9, 16
-  %14 = ashr i32 %13, 24
-  %15 = mul nsw i32 %14, %12
-  %16 = lshr i32 %15, 5
-  %.narrow = sub nsw i32 %10, %16
-  %17 = load i8, ptr %5, align 1
-  %18 = sext i8 %17 to i32
-  %19 = mul nsw i32 %14, %18
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %13
+
+13:                                               ; preds = %.lr.ph, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = lshr i32 %15, 16
+  %17 = shl i32 %15, 16
+  %18 = ashr i32 %17, 24
+  %19 = mul nsw i32 %18, %6
   %20 = lshr i32 %19, 5
-  %21 = load i8, ptr %6, align 1
-  %22 = sext i8 %21 to i32
-  %sext = shl i32 %10, 24
+  %.narrow = sub nsw i32 %16, %20
+  %21 = mul nsw i32 %18, %9
+  %22 = lshr i32 %21, 5
+  %sext = shl i32 %16, 24
   %23 = ashr exact i32 %sext, 24
-  %24 = mul nsw i32 %23, %22
+  %24 = mul nsw i32 %23, %12
   %25 = lshr i32 %24, 5
-  %26 = add nuw nsw i32 %20, %25
-  %27 = sub i32 %9, %26
+  %26 = add nuw nsw i32 %22, %25
+  %27 = sub i32 %15, %26
   %28 = and i32 %27, 255
-  %29 = and i32 %9, -16711936
+  %29 = and i32 %15, -16711936
   %30 = shl i32 %.narrow, 16
   %31 = and i32 %30, 16711680
   %32 = or disjoint i32 %31, %29
   %33 = or disjoint i32 %32, %28
-  store i32 %33, ptr %8, align 4
+  store i32 %33, ptr %14, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %7, %3
+._crit_edge:                                      ; preds = %13, %3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LCollectColorRedTransforms_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) #2 {
+define hidden void @VP8LCollectColorRedTransforms_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) #2 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge13
 
@@ -245,7 +240,7 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr noundef readonly capture
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i32, ptr %.0912.us, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = lshr i32 %14, 16
   %16 = shl i32 %14, 16
   %17 = ashr i32 %16, 24
@@ -255,24 +250,24 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr noundef readonly capture
   %21 = and i32 %20, 255
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4
+  store i32 %25, ptr %23, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %12
   %26 = getelementptr inbounds i32, ptr %.0912.us, i64 %10
   %27 = icmp sgt i32 %.in, 1
-  br i1 %27, label %.preheader.us, label %._crit_edge13, !llvm.loop !9
+  br i1 %27, label %.preheader.us, label %._crit_edge13, !llvm.loop !26
 
 ._crit_edge13:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LCollectColorBlueTransforms_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6) #2 {
+define hidden void @VP8LCollectColorBlueTransforms_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6) #2 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge17
 
@@ -298,7 +293,7 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr noundef readonly captur
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %.01016.us, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = shl i32 %16, 16
   %18 = ashr i32 %17, 24
   %19 = mul nsw i32 %18, %10
@@ -312,24 +307,24 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr noundef readonly captur
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i32, ptr %6, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 4
+  store i32 %31, ptr %29, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !27
 
 ._crit_edge.us:                                   ; preds = %14
   %32 = getelementptr inbounds i32, ptr %.01016.us, i64 %12
   %33 = icmp sgt i32 %.in, 1
-  br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !11
+  br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !28
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LBundleColorMap_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
+define hidden void @VP8LBundleColorMap_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %7, label %.preheader
 
@@ -360,7 +355,7 @@ define hidden void @VP8LBundleColorMap_C(ptr noundef readonly captures(none) %0,
   %13 = icmp eq i32 %12, 0
   %spec.select = select i1 %13, i32 -16777216, i32 %.02429
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv34
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !29
   %16 = zext i8 %15 to i32
   %17 = shl nsw i32 %12, %8
   %18 = add nuw nsw i32 %17, 8
@@ -369,72 +364,72 @@ define hidden void @VP8LBundleColorMap_C(ptr noundef readonly captures(none) %0,
   %21 = lshr i32 %11, %2
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i32, ptr %3, i64 %22
-  store i32 %20, ptr %23, align 4
+  store i32 %20, ptr %23, align 4, !tbaa !9
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !12
+  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph31, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !29
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
   %28 = or disjoint i32 %27, -16777216
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %28, ptr %29, align 4
+  store i32 %28, ptr %29, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader, %7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3240
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !32
   %6 = icmp sgt i32 %5, 0
   %7 = shl nuw i32 1, %5
   %8 = add nuw nsw i32 %7, 280
   %9 = select i1 %6, i32 %8, i32 280
   %.not = icmp eq ptr %1, %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %11 = load i8, ptr %10, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3280
+  %11 = load i8, ptr %10, align 8, !tbaa !29
   %.not110 = icmp eq i8 %11, 0
   br i1 %.not, label %116, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3264
-  %14 = load i8, ptr %13, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3280
+  %14 = load i8, ptr %13, align 8, !tbaa !29
   %.not121 = icmp eq i8 %14, 0
   br i1 %.not110, label %25, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %0, align 8
+  %16 = load ptr, ptr %0, align 8, !tbaa !35
   br i1 %.not121, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr @VP8LAddVector, align 8
-  %19 = load ptr, ptr %1, align 8
-  %20 = load ptr, ptr %2, align 8
-  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #11
+  %18 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
+  %19 = load ptr, ptr %1, align 8, !tbaa !35
+  %20 = load ptr, ptr %2, align 8, !tbaa !35
+  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #12
   br label %34
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8
+  %22 = load ptr, ptr %2, align 8, !tbaa !35
   %23 = sext i32 %9 to i64
   %24 = shl nsw i64 %23, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(1) %16, i64 %24, i1 false)
   br label %34
 
 25:                                               ; preds = %12
-  %26 = load ptr, ptr %2, align 8
+  %26 = load ptr, ptr %2, align 8, !tbaa !35
   br i1 %.not121, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr %1, align 8
+  %28 = load ptr, ptr %1, align 8, !tbaa !35
   %29 = sext i32 %9 to i64
   %30 = shl nsw i64 %29, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, ptr noundef nonnull align 4 dereferenceable(1) %28, i64 %30, i1 false)
@@ -446,12 +441,12 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %26, i8 0, i64 %33, i1 false)
   br label %34
 
-34:                                               ; preds = %27, %31, %17, %21
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3265
-  %36 = load i8, ptr %35, align 1
+34:                                               ; preds = %21, %17, %31, %27
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3281
+  %36 = load i8, ptr %35, align 1, !tbaa !29
   %.not123 = icmp eq i8 %36, 0
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3265
-  %38 = load i8, ptr %37, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3281
+  %38 = load i8, ptr %37, align 1, !tbaa !29
   %.not124 = icmp eq i8 %38, 0
   br i1 %.not123, label %47, label %39
 
@@ -460,10 +455,10 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not124, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr @VP8LAddVector, align 8
+  %42 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #11
+  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #12
   br label %52
 
 45:                                               ; preds = %39
@@ -484,12 +479,12 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %48, i8 0, i64 1024, i1 false)
   br label %52
 
-52:                                               ; preds = %49, %51, %41, %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3266
-  %54 = load i8, ptr %53, align 2
+52:                                               ; preds = %45, %41, %51, %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3282
+  %54 = load i8, ptr %53, align 2, !tbaa !29
   %.not126 = icmp eq i8 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 3266
-  %56 = load i8, ptr %55, align 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 3282
+  %56 = load i8, ptr %55, align 2, !tbaa !29
   %.not127 = icmp eq i8 %56, 0
   br i1 %.not126, label %65, label %57
 
@@ -498,10 +493,10 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not127, label %63, label %59
 
 59:                                               ; preds = %57
-  %60 = load ptr, ptr @VP8LAddVector, align 8
+  %60 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #11
+  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #12
   br label %70
 
 63:                                               ; preds = %57
@@ -522,12 +517,12 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %66, i8 0, i64 1024, i1 false)
   br label %70
 
-70:                                               ; preds = %67, %69, %59, %63
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 3267
-  %72 = load i8, ptr %71, align 1
+70:                                               ; preds = %63, %59, %69, %67
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 3283
+  %72 = load i8, ptr %71, align 1, !tbaa !29
   %.not129 = icmp eq i8 %72, 0
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 3267
-  %74 = load i8, ptr %73, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 3283
+  %74 = load i8, ptr %73, align 1, !tbaa !29
   %.not130 = icmp eq i8 %74, 0
   br i1 %.not129, label %83, label %75
 
@@ -536,10 +531,10 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not130, label %81, label %77
 
 77:                                               ; preds = %75
-  %78 = load ptr, ptr @VP8LAddVector, align 8
+  %78 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 2056
-  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #11
+  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #12
   br label %88
 
 81:                                               ; preds = %75
@@ -560,12 +555,12 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %84, i8 0, i64 1024, i1 false)
   br label %88
 
-88:                                               ; preds = %85, %87, %77, %81
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3268
-  %90 = load i8, ptr %89, align 4
+88:                                               ; preds = %81, %77, %87, %85
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3284
+  %90 = load i8, ptr %89, align 4, !tbaa !29
   %.not132 = icmp eq i8 %90, 0
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 3268
-  %92 = load i8, ptr %91, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 3284
+  %92 = load i8, ptr %91, align 4, !tbaa !29
   %.not133 = icmp eq i8 %92, 0
   br i1 %.not132, label %101, label %93
 
@@ -574,10 +569,10 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not133, label %99, label %95
 
 95:                                               ; preds = %93
-  %96 = load ptr, ptr @VP8LAddVector, align 8
+  %96 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 3080
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 3080
-  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #11
+  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #12
   br label %106
 
 99:                                               ; preds = %93
@@ -598,64 +593,64 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %102, i8 0, i64 160, i1 false)
   br label %106
 
-106:                                              ; preds = %99, %95, %105, %103
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 3264
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 3264
+106:                                              ; preds = %103, %105, %95, %99
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 3280
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 3280
   br label %109
 
 109:                                              ; preds = %106, %109
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %109 ]
   %110 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %111 = load i8, ptr %110, align 1
+  %111 = load i8, ptr %110, align 1, !tbaa !29
   %112 = getelementptr inbounds nuw [5 x i8], ptr %107, i64 0, i64 %indvars.iv
-  %113 = load i8, ptr %112, align 1
+  %113 = load i8, ptr %112, align 1, !tbaa !29
   %114 = or i8 %113, %111
   %115 = getelementptr inbounds nuw [5 x i8], ptr %108, i64 0, i64 %indvars.iv
-  store i8 %114, ptr %115, align 1
+  store i8 %114, ptr %115, align 1, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %109, !llvm.loop !36
 
 116:                                              ; preds = %3
   br i1 %.not110, label %128, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 3264
-  %119 = load i8, ptr %118, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 3280
+  %119 = load i8, ptr %118, align 8, !tbaa !29
   %.not111 = icmp eq i8 %119, 0
-  %120 = load ptr, ptr %0, align 8
+  %120 = load ptr, ptr %0, align 8, !tbaa !35
   br i1 %.not111, label %124, label %121
 
 121:                                              ; preds = %117
-  %122 = load ptr, ptr @VP8LAddVectorEq, align 8
-  %123 = load ptr, ptr %2, align 8
-  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #11
+  %122 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
+  %123 = load ptr, ptr %2, align 8, !tbaa !35
+  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #12
   br label %128
 
 124:                                              ; preds = %117
-  %125 = load ptr, ptr %2, align 8
+  %125 = load ptr, ptr %2, align 8, !tbaa !35
   %126 = sext i32 %9 to i64
   %127 = shl nsw i64 %126, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %125, ptr noundef nonnull align 4 dereferenceable(1) %120, i64 %127, i1 false)
   br label %128
 
-128:                                              ; preds = %121, %124, %116
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3265
-  %130 = load i8, ptr %129, align 1
+128:                                              ; preds = %116, %124, %121
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3281
+  %130 = load i8, ptr %129, align 1, !tbaa !29
   %.not112 = icmp eq i8 %130, 0
   br i1 %.not112, label %140, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 3265
-  %133 = load i8, ptr %132, align 1
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 3281
+  %133 = load i8, ptr %132, align 1, !tbaa !29
   %.not113 = icmp eq i8 %133, 0
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not113, label %138, label %135
 
 135:                                              ; preds = %131
-  %136 = load ptr, ptr @VP8LAddVectorEq, align 8
+  %136 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #11
+  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #12
   br label %140
 
 138:                                              ; preds = %131
@@ -663,23 +658,23 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %139, ptr noundef nonnull align 8 dereferenceable(1024) %134, i64 1024, i1 false)
   br label %140
 
-140:                                              ; preds = %135, %138, %128
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 3266
-  %142 = load i8, ptr %141, align 2
+140:                                              ; preds = %128, %138, %135
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 3282
+  %142 = load i8, ptr %141, align 2, !tbaa !29
   %.not114 = icmp eq i8 %142, 0
   br i1 %.not114, label %152, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %2, i64 3266
-  %145 = load i8, ptr %144, align 2
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 3282
+  %145 = load i8, ptr %144, align 2, !tbaa !29
   %.not115 = icmp eq i8 %145, 0
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %.not115, label %150, label %147
 
 147:                                              ; preds = %143
-  %148 = load ptr, ptr @VP8LAddVectorEq, align 8
+  %148 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #11
+  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #12
   br label %152
 
 150:                                              ; preds = %143
@@ -687,23 +682,23 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %151, ptr noundef nonnull align 8 dereferenceable(1024) %146, i64 1024, i1 false)
   br label %152
 
-152:                                              ; preds = %147, %150, %140
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 3267
-  %154 = load i8, ptr %153, align 1
+152:                                              ; preds = %140, %150, %147
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 3283
+  %154 = load i8, ptr %153, align 1, !tbaa !29
   %.not116 = icmp eq i8 %154, 0
   br i1 %.not116, label %164, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds nuw i8, ptr %2, i64 3267
-  %157 = load i8, ptr %156, align 1
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 3283
+  %157 = load i8, ptr %156, align 1, !tbaa !29
   %.not117 = icmp eq i8 %157, 0
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br i1 %.not117, label %162, label %159
 
 159:                                              ; preds = %155
-  %160 = load ptr, ptr @VP8LAddVectorEq, align 8
+  %160 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 2056
-  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #11
+  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #12
   br label %164
 
 162:                                              ; preds = %155
@@ -711,23 +706,23 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %163, ptr noundef nonnull align 8 dereferenceable(1024) %158, i64 1024, i1 false)
   br label %164
 
-164:                                              ; preds = %159, %162, %152
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 3268
-  %166 = load i8, ptr %165, align 4
+164:                                              ; preds = %152, %162, %159
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 3284
+  %166 = load i8, ptr %165, align 4, !tbaa !29
   %.not118 = icmp eq i8 %166, 0
   br i1 %.not118, label %176, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 3268
-  %169 = load i8, ptr %168, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 3284
+  %169 = load i8, ptr %168, align 4, !tbaa !29
   %.not119 = icmp eq i8 %169, 0
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   br i1 %.not119, label %174, label %171
 
 171:                                              ; preds = %167
-  %172 = load ptr, ptr @VP8LAddVectorEq, align 8
+  %172 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 3080
-  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #11
+  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #12
   br label %176
 
 174:                                              ; preds = %167
@@ -735,21 +730,21 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %175, ptr noundef nonnull align 8 dereferenceable(160) %170, i64 160, i1 false)
   br label %176
 
-176:                                              ; preds = %164, %174, %171
-  %177 = getelementptr inbounds nuw i8, ptr %2, i64 3264
+176:                                              ; preds = %171, %174, %164
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 3280
   br label %178
 
 178:                                              ; preds = %176, %178
   %indvars.iv140 = phi i64 [ 0, %176 ], [ %indvars.iv.next141, %178 ]
   %179 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv140
-  %180 = load i8, ptr %179, align 1
+  %180 = load i8, ptr %179, align 1, !tbaa !29
   %181 = getelementptr inbounds nuw [5 x i8], ptr %177, i64 0, i64 %indvars.iv140
-  %182 = load i8, ptr %181, align 1
+  %182 = load i8, ptr %181, align 1, !tbaa !29
   %183 = or i8 %182, %180
-  store i8 %183, ptr %181, align 1
+  store i8 %183, ptr %181, align 1, !tbaa !29
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 5
-  br i1 %exitcond143.not, label %.loopexit, label %178, !llvm.loop !15
+  br i1 %exitcond143.not, label %.loopexit, label %178, !llvm.loop !37
 
 .loopexit:                                        ; preds = %109, %178
   ret void
@@ -763,89 +758,90 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #11
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8
-  %4 = load ptr, ptr @VP8GetCPUInfo, align 8
+  %3 = load volatile ptr, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8, !tbaa !13
+  %4 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
   %.not1 = icmp eq ptr %3, %4
   br i1 %.not1, label %VP8LEncDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8LDspInit() #11
-  store ptr @VP8LSubtractGreenFromBlueAndRed_C, ptr @VP8LSubtractGreenFromBlueAndRed, align 8
-  store ptr @VP8LTransformColor_C, ptr @VP8LTransformColor, align 8
-  store ptr @VP8LCollectColorBlueTransforms_C, ptr @VP8LCollectColorBlueTransforms, align 8
-  store ptr @VP8LCollectColorRedTransforms_C, ptr @VP8LCollectColorRedTransforms, align 8
-  store ptr @FastLog2Slow_C, ptr @VP8LFastLog2Slow, align 8
-  store ptr @FastSLog2Slow_C, ptr @VP8LFastSLog2Slow, align 8
-  store ptr @ExtraCost_C, ptr @VP8LExtraCost, align 8
-  store ptr @ExtraCostCombined_C, ptr @VP8LExtraCostCombined, align 8
-  store ptr @CombinedShannonEntropy_C, ptr @VP8LCombinedShannonEntropy, align 8
-  store ptr @GetEntropyUnrefined_C, ptr @VP8LGetEntropyUnrefined, align 8
-  store ptr @GetCombinedEntropyUnrefined_C, ptr @VP8LGetCombinedEntropyUnrefined, align 8
-  store ptr @AddVector_C, ptr @VP8LAddVector, align 8
-  store ptr @AddVectorEq_C, ptr @VP8LAddVectorEq, align 8
-  store ptr @VectorMismatch_C, ptr @VP8LVectorMismatch, align 8
-  store ptr @VP8LBundleColorMap_C, ptr @VP8LBundleColorMap, align 8
-  store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub, align 16
-  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8
-  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
-  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 24), align 8
-  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 32), align 16
-  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 40), align 8
-  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 48), align 16
-  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 56), align 8
-  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 64), align 16
-  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 72), align 8
-  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 80), align 16
-  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8
-  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 96), align 16
-  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 104), align 8
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 112), align 16
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 120), align 8
-  store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub_C, align 16
-  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8
-  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16
-  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8
-  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16
-  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8
-  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16
-  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8
-  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16
-  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8
-  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16
-  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8
-  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16
-  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 112), align 16
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 120), align 8
-  %6 = load ptr, ptr @VP8GetCPUInfo, align 8
+  tail call void @VP8LDspInit() #12
+  store ptr @VP8LSubtractGreenFromBlueAndRed_C, ptr @VP8LSubtractGreenFromBlueAndRed, align 8, !tbaa !13
+  store ptr @VP8LTransformColor_C, ptr @VP8LTransformColor, align 8, !tbaa !13
+  store ptr @VP8LCollectColorBlueTransforms_C, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !13
+  store ptr @VP8LCollectColorRedTransforms_C, ptr @VP8LCollectColorRedTransforms, align 8, !tbaa !13
+  store ptr @FastLog2Slow_C, ptr @VP8LFastLog2Slow, align 8, !tbaa !13
+  store ptr @FastSLog2Slow_C, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  store ptr @ExtraCost_C, ptr @VP8LExtraCost, align 8, !tbaa !13
+  store ptr @ExtraCostCombined_C, ptr @VP8LExtraCostCombined, align 8, !tbaa !13
+  store ptr @CombinedShannonEntropy_C, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !13
+  store ptr @ShannonEntropy_C, ptr @VP8LShannonEntropy, align 8, !tbaa !13
+  store ptr @GetEntropyUnrefined_C, ptr @VP8LGetEntropyUnrefined, align 8, !tbaa !13
+  store ptr @GetCombinedEntropyUnrefined_C, ptr @VP8LGetCombinedEntropyUnrefined, align 8, !tbaa !13
+  store ptr @AddVector_C, ptr @VP8LAddVector, align 8, !tbaa !13
+  store ptr @AddVectorEq_C, ptr @VP8LAddVectorEq, align 8, !tbaa !13
+  store ptr @VectorMismatch_C, ptr @VP8LVectorMismatch, align 8, !tbaa !13
+  store ptr @VP8LBundleColorMap_C, ptr @VP8LBundleColorMap, align 8, !tbaa !13
+  store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub, align 16, !tbaa !13
+  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8, !tbaa !13
+  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16, !tbaa !13
+  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 24), align 8, !tbaa !13
+  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 32), align 16, !tbaa !13
+  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 40), align 8, !tbaa !13
+  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 48), align 16, !tbaa !13
+  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 56), align 8, !tbaa !13
+  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 64), align 16, !tbaa !13
+  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 72), align 8, !tbaa !13
+  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 80), align 16, !tbaa !13
+  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8, !tbaa !13
+  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 96), align 16, !tbaa !13
+  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 104), align 8, !tbaa !13
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 112), align 16, !tbaa !13
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 120), align 8, !tbaa !13
+  store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub_C, align 16, !tbaa !13
+  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8, !tbaa !13
+  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16, !tbaa !13
+  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8, !tbaa !13
+  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16, !tbaa !13
+  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8, !tbaa !13
+  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16, !tbaa !13
+  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8, !tbaa !13
+  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16, !tbaa !13
+  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8, !tbaa !13
+  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16, !tbaa !13
+  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8, !tbaa !13
+  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16, !tbaa !13
+  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8, !tbaa !13
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 112), align 16, !tbaa !13
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 120), align 8, !tbaa !13
+  %6 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %VP8LEncDspInit_body.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 %6(i32 noundef 0) #11
+  %8 = tail call i32 %6(i32 noundef 0) #12
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %VP8LEncDspInit_body.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @VP8LEncDspInitSSE2() #11
-  %10 = load ptr, ptr @VP8GetCPUInfo, align 8
-  %11 = tail call i32 %10(i32 noundef 3) #11
+  tail call void @VP8LEncDspInitSSE2() #12
+  %10 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
+  %11 = tail call i32 %10(i32 noundef 3) #12
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %VP8LEncDspInit_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @VP8LEncDspInitSSE41() #11
+  tail call void @VP8LEncDspInitSSE41() #12
   br label %VP8LEncDspInit_body.exit
 
 VP8LEncDspInit_body.exit:                         ; preds = %12, %9, %7, %5, %2
-  %13 = load ptr, ptr @VP8GetCPUInfo, align 8
-  store volatile ptr %13, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #11
+  %13 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
+  store volatile ptr %13, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8, !tbaa !13
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
   br label %15
 
 15:                                               ; preds = %0, %VP8LEncDspInit_body.exit
@@ -861,7 +857,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare void @VP8LDspInit() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
+define internal i32 @FastLog2Slow_C(i32 noundef %0) #7 {
   %2 = icmp ult i32 %0, 65536
   br i1 %2, label %3, label %24
 
@@ -870,82 +866,84 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   %5 = sub nsw i32 24, %4
   %6 = lshr i32 %0, %5
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x float], ptr @kLog2Table, i64 0, i64 %7
-  %9 = load float, ptr %8, align 4
-  %10 = sitofp i32 %5 to float
-  %11 = fadd float %9, %10
+  %8 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = shl nsw i32 %5, 23
+  %11 = add i32 %9, %10
   %12 = icmp samesign ugt i32 %0, 4095
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %3
-  %14 = fpext float %11 to double
   %notmask = shl nsw i32 -1, %5
-  %15 = xor i32 %notmask, -1
-  %16 = and i32 %0, %15
-  %17 = mul nuw nsw i32 %16, 23
-  %18 = lshr i32 %17, 4
-  %19 = uitofp nneg i32 %18 to double
-  %20 = uitofp nneg i32 %0 to double
-  %21 = fdiv double %19, %20
-  %22 = fadd double %21, %14
-  %23 = fptrunc double %22 to float
+  %14 = xor i32 %notmask, -1
+  %15 = and i32 %0, %14
+  %16 = zext nneg i32 %15 to i64
+  %17 = mul nuw nsw i64 %16, 12102203
+  %18 = zext nneg i32 %0 to i64
+  %19 = lshr i64 %18, 1
+  %20 = add nuw nsw i64 %17, %19
+  %21 = udiv i64 %20, %18
+  %22 = trunc nuw nsw i64 %21 to i32
+  %23 = add i32 %11, %22
   br label %29
 
 24:                                               ; preds = %1
   %25 = uitofp i32 %0 to double
-  %26 = tail call double @log(double noundef %25) #11
-  %27 = fmul double %26, 0x3FF71547652B82FE
-  %28 = fptrunc double %27 to float
+  %26 = tail call double @log(double noundef %25) #12, !tbaa !9
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double 0x41671547652B82FE, double 5.000000e-01)
+  %28 = fptoui double %27 to i32
   br label %29
 
 29:                                               ; preds = %3, %13, %24
-  %.0 = phi float [ %28, %24 ], [ %23, %13 ], [ %11, %3 ]
-  ret float %.0
+  %.0 = phi i32 [ %28, %24 ], [ %23, %13 ], [ %11, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
+define internal i64 @FastSLog2Slow_C(i32 noundef %0) #7 {
   %2 = icmp ult i32 %0, 65536
-  br i1 %2, label %3, label %19
+  br i1 %2, label %3, label %21
 
 3:                                                ; preds = %1
-  %4 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %0, i1 true)
-  %5 = sub nsw i32 24, %4
-  %6 = uitofp nneg i32 %0 to float
-  %7 = lshr i32 %0, %5
-  %notmask = shl nsw i32 -1, %5
-  %8 = xor i32 %notmask, -1
-  %9 = and i32 %0, %8
-  %10 = mul nuw nsw i32 %9, 23
-  %11 = lshr i32 %10, 4
-  %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr inbounds nuw [256 x float], ptr @kLog2Table, i64 0, i64 %12
-  %14 = load float, ptr %13, align 4
-  %15 = sitofp i32 %5 to float
-  %16 = fadd float %14, %15
-  %17 = uitofp nneg i32 %11 to float
-  %18 = tail call float @llvm.fmuladd.f32(float %6, float %16, float %17)
-  br label %25
+  %4 = zext nneg i32 %0 to i64
+  %5 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %0, i1 true)
+  %6 = sub nsw i32 24, %5
+  %7 = sext i32 %6 to i64
+  %8 = lshr i32 %0, %6
+  %notmask = shl nsw i32 -1, %6
+  %9 = xor i32 %notmask, -1
+  %10 = and i32 %0, %9
+  %11 = zext nneg i32 %10 to i64
+  %12 = mul nuw nsw i64 %11, 12102203
+  %13 = zext nneg i32 %8 to i64
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = zext i32 %15 to i64
+  %17 = shl nsw i64 %7, 23
+  %18 = add nsw i64 %17, %16
+  %19 = mul nsw i64 %18, %4
+  %20 = add nsw i64 %19, %12
+  br label %27
 
-19:                                               ; preds = %1
-  %20 = uitofp i32 %0 to double
-  %21 = fmul double %20, 0x3FF71547652B82FE
-  %22 = tail call double @log(double noundef %20) #11
-  %23 = fmul double %21, %22
-  %24 = fptrunc double %23 to float
-  br label %25
+21:                                               ; preds = %1
+  %22 = uitofp i32 %0 to double
+  %23 = fmul double %22, 0x41671547652B82FE
+  %24 = tail call double @log(double noundef %22) #12, !tbaa !9
+  %25 = tail call double @llvm.fmuladd.f64(double %23, double %24, double 5.000000e-01)
+  %26 = fptoui double %25 to i64
+  br label %27
 
-25:                                               ; preds = %19, %3
-  %.0 = phi float [ %18, %3 ], [ %24, %19 ]
-  ret float %.0
+27:                                               ; preds = %21, %3
+  %.0 = phi i64 [ %20, %3 ], [ %26, %21 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @ExtraCost_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = add i32 %6, %4
   %8 = icmp sgt i32 %1, 7
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -962,16 +960,16 @@ define internal i32 @ExtraCost_C(ptr noundef readonly captures(none) %0, i32 nou
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !9
   %15 = add i32 %14, %12
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = mul i32 %15, %16
   %18 = add i32 %17, %.013
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ %7, %2 ], [ %18, %.lr.ph ]
@@ -979,17 +977,17 @@ define internal i32 @ExtraCost_C(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCostCombined_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
+define internal i32 @ExtraCostCombined_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = add i32 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !9
   %11 = add i32 %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !9
   %14 = add i32 %11, %13
   %15 = icmp sgt i32 %2, 7
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
@@ -1006,14 +1004,14 @@ define internal i32 @ExtraCostCombined_C(ptr noundef readonly captures(none) %0,
   %17 = shl nuw nsw i64 %indvars.iv, 1
   %18 = add nuw nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !9
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %18
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !9
   %23 = add nuw nsw i64 %17, 3
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 4, !tbaa !9
   %26 = getelementptr inbounds nuw i32, ptr %1, i64 %23
-  %27 = load i32, ptr %26, align 4
+  %27 = load i32, ptr %26, align 4, !tbaa !9
   %28 = add i32 %22, %20
   %29 = add i32 %28, %25
   %30 = add i32 %29, %27
@@ -1022,7 +1020,7 @@ define internal i32 @ExtraCostCombined_C(ptr noundef readonly captures(none) %0,
   %33 = add i32 %32, %.01920
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.019.lcssa = phi i32 [ %14, %3 ], [ %33, %.lr.ph ]
@@ -1030,19 +1028,19 @@ define internal i32 @ExtraCostCombined_C(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @CombinedShannonEntropy_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
+define internal i64 @CombinedShannonEntropy_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %45
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %45 ]
-  %.02741 = phi float [ 0.000000e+00, %2 ], [ %.1, %45 ]
+  %.02741 = phi i64 [ 0, %2 ], [ %.1, %45 ]
   %.02840 = phi i32 [ 0, %2 ], [ %.129, %45 ]
   %.03039 = phi i32 [ 0, %2 ], [ %.131, %45 ]
   %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !9
   %.not = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   br i1 %.not, label %32, label %8
 
 8:                                                ; preds = %3
@@ -1053,36 +1051,36 @@ define internal float @CombinedShannonEntropy_C(ptr noundef readonly captures(no
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %13
-  %15 = load float, ptr %14, align 4
+  %14 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %13
+  %15 = load i64, ptr %14, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %18 = tail call float %17(i32 noundef %5) #11
+  %17 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %18 = tail call i64 %17(i32 noundef %5) #12
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %12, %16
-  %19 = phi float [ %15, %12 ], [ %18, %16 ]
-  %20 = fsub float %.02741, %19
+  %19 = phi i64 [ %15, %12 ], [ %18, %16 ]
+  %20 = add i64 %19, %.02741
   %21 = add i32 %9, %.02840
   %22 = icmp ult i32 %9, 256
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %VP8LFastSLog2.exit
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %24
-  %26 = load float, ptr %25, align 4
+  %25 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %24
+  %26 = load i64, ptr %25, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit35
 
 27:                                               ; preds = %VP8LFastSLog2.exit
-  %28 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %29 = tail call float %28(i32 noundef %9) #11
+  %28 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %29 = tail call i64 %28(i32 noundef %9) #12
   br label %VP8LFastSLog2.exit35
 
 VP8LFastSLog2.exit35:                             ; preds = %23, %27
-  %30 = phi float [ %26, %23 ], [ %29, %27 ]
-  %31 = fsub float %20, %30
+  %30 = phi i64 [ %26, %23 ], [ %29, %27 ]
+  %31 = add i64 %20, %30
   br label %45
 
 32:                                               ; preds = %3
@@ -1096,27 +1094,27 @@ VP8LFastSLog2.exit35:                             ; preds = %23, %27
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %7 to i64
-  %38 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %37
-  %39 = load float, ptr %38, align 4
+  %38 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %37
+  %39 = load i64, ptr %38, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit36
 
 40:                                               ; preds = %33
-  %41 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %42 = tail call float %41(i32 noundef %7) #11
+  %41 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %42 = tail call i64 %41(i32 noundef %7) #12
   br label %VP8LFastSLog2.exit36
 
 VP8LFastSLog2.exit36:                             ; preds = %36, %40
-  %43 = phi float [ %39, %36 ], [ %42, %40 ]
-  %44 = fsub float %.02741, %43
+  %43 = phi i64 [ %39, %36 ], [ %42, %40 ]
+  %44 = add i64 %43, %.02741
   br label %45
 
-45:                                               ; preds = %VP8LFastSLog2.exit35, %VP8LFastSLog2.exit36, %32
+45:                                               ; preds = %32, %VP8LFastSLog2.exit36, %VP8LFastSLog2.exit35
   %.131 = phi i32 [ %10, %VP8LFastSLog2.exit35 ], [ %.03039, %VP8LFastSLog2.exit36 ], [ %.03039, %32 ]
   %.129 = phi i32 [ %21, %VP8LFastSLog2.exit35 ], [ %34, %VP8LFastSLog2.exit36 ], [ %.02840, %32 ]
-  %.1 = phi float [ %31, %VP8LFastSLog2.exit35 ], [ %44, %VP8LFastSLog2.exit36 ], [ %.02741, %32 ]
+  %.1 = phi i64 [ %31, %VP8LFastSLog2.exit35 ], [ %44, %VP8LFastSLog2.exit36 ], [ %.02741, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %46, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %46, label %3, !llvm.loop !40
 
 46:                                               ; preds = %45
   %47 = icmp ult i32 %.131, 256
@@ -1124,409 +1122,501 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %.131 to i64
-  %50 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %49
-  %51 = load float, ptr %50, align 4
+  %50 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %49
+  %51 = load i64, ptr %50, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit37
 
 52:                                               ; preds = %46
-  %53 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %54 = tail call float %53(i32 noundef %.131) #11
+  %53 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %54 = tail call i64 %53(i32 noundef %.131) #12
   br label %VP8LFastSLog2.exit37
 
 VP8LFastSLog2.exit37:                             ; preds = %48, %52
-  %55 = phi float [ %51, %48 ], [ %54, %52 ]
+  %55 = phi i64 [ %51, %48 ], [ %54, %52 ]
   %56 = icmp ult i32 %.129, 256
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %VP8LFastSLog2.exit37
   %58 = zext nneg i32 %.129 to i64
-  %59 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %58
-  %60 = load float, ptr %59, align 4
+  %59 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit38
 
 61:                                               ; preds = %VP8LFastSLog2.exit37
-  %62 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %63 = tail call float %62(i32 noundef %.129) #11
+  %62 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %63 = tail call i64 %62(i32 noundef %.129) #12
   br label %VP8LFastSLog2.exit38
 
 VP8LFastSLog2.exit38:                             ; preds = %57, %61
-  %64 = phi float [ %60, %57 ], [ %63, %61 ]
-  %65 = fadd float %55, %64
-  %66 = fadd float %.1, %65
-  ret float %66
+  %64 = phi i64 [ %60, %57 ], [ %63, %61 ]
+  %65 = sub i64 %55, %.1
+  %66 = add i64 %65, %64
+  ret i64 %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 20)) %2, ptr noundef captures(none) initializes((0, 24)) %3) #1 {
-  %5 = load i32, ptr %0, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %6, align 4
-  %7 = icmp sgt i32 %1, 1
-  br i1 %7, label %.lr.ph, label %._crit_edge
+define internal i64 @ShannonEntropy_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
+  %3 = icmp sgt i32 %1, 0
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+.lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %12
+  br label %.lr.ph
 
-12:                                               ; preds = %.lr.ph, %51
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %.03640 = phi i32 [ %5, %.lr.ph ], [ %.1, %51 ]
-  %.03739 = phi i32 [ 0, %.lr.ph ], [ %.138, %51 ]
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
-  %.not = icmp eq i32 %14, %.03640
-  br i1 %.not, label %51, label %15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
+  %.01218 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %18 ]
+  %.01317 = phi i64 [ 0, %.lr.ph.preheader ], [ %.114, %18 ]
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = load i32, ptr %4, align 4, !tbaa !9
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %18, label %6
 
-15:                                               ; preds = %12
-  %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %17 = sub nsw i32 %16, %.03739
-  %.not.i = icmp eq i32 %.03640, 0
-  br i1 %.not.i, label %GetEntropyUnrefinedHelper.exit, label %18
+6:                                                ; preds = %.lr.ph
+  %7 = add i32 %5, %.01218
+  %8 = icmp ult i32 %5, 256
+  br i1 %8, label %9, label %13
 
-18:                                               ; preds = %15
-  %19 = mul i32 %17, %.03640
-  %20 = load i32, ptr %8, align 4
-  %21 = add i32 %20, %19
-  store i32 %21, ptr %8, align 4
-  %22 = load i32, ptr %9, align 4
-  %23 = add nsw i32 %22, %17
-  store i32 %23, ptr %9, align 4
-  store i32 %.03739, ptr %6, align 4
-  %24 = icmp ult i32 %.03640, 256
-  br i1 %24, label %25, label %29
+9:                                                ; preds = %6
+  %10 = zext nneg i32 %5 to i64
+  %11 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %10
+  %12 = load i64, ptr %11, align 8, !tbaa !12
+  br label %VP8LFastSLog2.exit
 
-25:                                               ; preds = %18
-  %26 = zext nneg i32 %.03640 to i64
-  %27 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %26
-  %28 = load float, ptr %27, align 4
-  br label %VP8LFastSLog2.exit.i
+13:                                               ; preds = %6
+  %14 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %15 = tail call i64 %14(i32 noundef %5) #12
+  br label %VP8LFastSLog2.exit
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %31 = tail call float %30(i32 noundef %.03640) #11
-  br label %VP8LFastSLog2.exit.i
+VP8LFastSLog2.exit:                               ; preds = %9, %13
+  %16 = phi i64 [ %12, %9 ], [ %15, %13 ]
+  %17 = add i64 %16, %.01317
+  br label %18
 
-VP8LFastSLog2.exit.i:                             ; preds = %29, %25
-  %32 = phi float [ %28, %25 ], [ %31, %29 ]
-  %33 = sitofp i32 %17 to float
-  %34 = load float, ptr %2, align 4
-  %35 = fneg float %32
-  %36 = tail call float @llvm.fmuladd.f32(float %35, float %33, float %34)
-  store float %36, ptr %2, align 4
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp ult i32 %37, %.03640
-  br i1 %38, label %39, label %GetEntropyUnrefinedHelper.exit
-
-39:                                               ; preds = %VP8LFastSLog2.exit.i
-  store i32 %.03640, ptr %10, align 4
-  br label %GetEntropyUnrefinedHelper.exit
-
-GetEntropyUnrefinedHelper.exit:                   ; preds = %15, %VP8LFastSLog2.exit.i, %39
-  %40 = icmp sgt i32 %17, 3
-  %41 = zext i1 %40 to i32
-  %42 = icmp ne i32 %.03640, 0
-  %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = add nsw i32 %45, %41
-  store i32 %46, ptr %44, align 4
-  %47 = zext i1 %40 to i64
-  %48 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %11, i64 0, i64 %43, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %49, %17
-  store i32 %50, ptr %48, align 4
-  br label %51
-
-51:                                               ; preds = %12, %GetEntropyUnrefinedHelper.exit
-  %.138 = phi i32 [ %.03739, %12 ], [ %16, %GetEntropyUnrefinedHelper.exit ]
-  %.1 = phi i32 [ %.03640, %12 ], [ %14, %GetEntropyUnrefinedHelper.exit ]
+18:                                               ; preds = %VP8LFastSLog2.exit, %.lr.ph
+  %.114 = phi i64 [ %17, %VP8LFastSLog2.exit ], [ %.01317, %.lr.ph ]
+  %.1 = phi i32 [ %7, %VP8LFastSLog2.exit ], [ %.01218, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %51, %4
-  %.037.lcssa = phi i32 [ 0, %4 ], [ %.138, %51 ]
-  %.036.lcssa = phi i32 [ %5, %4 ], [ %.1, %51 ]
-  %.0.lcssa = phi i32 [ 1, %4 ], [ %1, %51 ]
-  %52 = sub nsw i32 %.0.lcssa, %.037.lcssa
-  %.not.i18 = icmp eq i32 %.036.lcssa, 0
-  br i1 %.not.i18, label %GetEntropyUnrefinedHelper.exit21, label %53
+._crit_edge:                                      ; preds = %18
+  %19 = icmp ult i32 %.1, 256
+  br i1 %19, label %._crit_edge.thread, label %23
 
-53:                                               ; preds = %._crit_edge
-  %54 = mul i32 %52, %.036.lcssa
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = add i32 %56, %54
-  store i32 %57, ptr %55, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = load i32, ptr %58, align 4
-  %60 = add nsw i32 %59, %52
-  store i32 %60, ptr %58, align 4
-  store i32 %.037.lcssa, ptr %6, align 4
-  %61 = icmp ult i32 %.036.lcssa, 256
-  br i1 %61, label %62, label %66
+._crit_edge.thread:                               ; preds = %2, %._crit_edge
+  %.012.lcssa26 = phi i32 [ %.1, %._crit_edge ], [ 0, %2 ]
+  %.013.lcssa25 = phi i64 [ %.114, %._crit_edge ], [ 0, %2 ]
+  %20 = zext nneg i32 %.012.lcssa26 to i64
+  %21 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !12
+  br label %VP8LFastSLog2.exit16
 
-62:                                               ; preds = %53
-  %63 = zext nneg i32 %.036.lcssa to i64
-  %64 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %63
-  %65 = load float, ptr %64, align 4
-  br label %VP8LFastSLog2.exit.i19
+23:                                               ; preds = %._crit_edge
+  %24 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %25 = tail call i64 %24(i32 noundef %.1) #12
+  br label %VP8LFastSLog2.exit16
 
-66:                                               ; preds = %53
-  %67 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %68 = tail call float %67(i32 noundef %.036.lcssa) #11
-  br label %VP8LFastSLog2.exit.i19
+VP8LFastSLog2.exit16:                             ; preds = %._crit_edge.thread, %23
+  %.013.lcssa24 = phi i64 [ %.013.lcssa25, %._crit_edge.thread ], [ %.114, %23 ]
+  %26 = phi i64 [ %22, %._crit_edge.thread ], [ %25, %23 ]
+  %27 = sub i64 %26, %.013.lcssa24
+  ret i64 %27
+}
 
-VP8LFastSLog2.exit.i19:                           ; preds = %66, %62
-  %69 = phi float [ %65, %62 ], [ %68, %66 ]
-  %70 = sitofp i32 %52 to float
-  %71 = load float, ptr %2, align 4
-  %72 = fneg float %69
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float %70, float %71)
-  store float %73, ptr %2, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ult i32 %75, %.036.lcssa
-  br i1 %76, label %77, label %GetEntropyUnrefinedHelper.exit21
+; Function Attrs: nounwind uwtable
+define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noalias noundef writeonly captures(none) initializes((8, 24)) %2, ptr noalias noundef captures(none) initializes((0, 24)) %3) #1 {
+  %5 = load i32, ptr %0, align 4, !tbaa !9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 12, i1 false)
+  store i32 -1, ptr %6, align 4, !tbaa !3
+  %8 = icmp sgt i32 %1, 1
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-77:                                               ; preds = %VP8LFastSLog2.exit.i19
-  store i32 %.036.lcssa, ptr %74, align 4
+.lr.ph:                                           ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %wide.trip.count = zext nneg i32 %1 to i64
+  br label %13
+
+13:                                               ; preds = %.lr.ph, %56
+  %14 = phi i32 [ 0, %.lr.ph ], [ %57, %56 ]
+  %15 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
+  %16 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
+  %17 = phi i32 [ 0, %.lr.ph ], [ %60, %56 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %56 ]
+  %.02630 = phi i32 [ %5, %.lr.ph ], [ %.1, %56 ]
+  %.02729 = phi i32 [ 0, %.lr.ph ], [ %.128, %56 ]
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %.not = icmp eq i32 %19, %.02630
+  br i1 %.not, label %56, label %20
+
+20:                                               ; preds = %13
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %22 = sub nsw i32 %21, %.02729
+  %.not.i = icmp eq i32 %.02630, 0
+  br i1 %.not.i, label %GetEntropyUnrefinedHelper.exit, label %23
+
+23:                                               ; preds = %20
+  %24 = mul i32 %22, %.02630
+  %25 = add i32 %17, %24
+  store i32 %25, ptr %9, align 8, !tbaa !10, !alias.scope !42, !noalias !47
+  %26 = add nsw i32 %16, %22
+  store i32 %26, ptr %10, align 4, !tbaa !11, !alias.scope !42, !noalias !47
+  store i32 %.02729, ptr %6, align 4, !tbaa !3, !alias.scope !42, !noalias !47
+  %27 = icmp ult i32 %.02630, 256
+  br i1 %27, label %28, label %32
+
+28:                                               ; preds = %23
+  %29 = zext nneg i32 %.02630 to i64
+  %30 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !12, !noalias !50
+  br label %VP8LFastSLog2.exit.i
+
+32:                                               ; preds = %23
+  %33 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !50
+  %34 = tail call i64 %33(i32 noundef %.02630) #12, !noalias !50
+  br label %VP8LFastSLog2.exit.i
+
+VP8LFastSLog2.exit.i:                             ; preds = %32, %28
+  %35 = phi i64 [ %31, %28 ], [ %34, %32 ]
+  %36 = sext i32 %22 to i64
+  %37 = mul i64 %35, %36
+  %38 = add i64 %15, %37
+  store i64 %38, ptr %2, align 8, !tbaa !18, !alias.scope !42, !noalias !47
+  %39 = icmp ult i32 %14, %.02630
+  br i1 %39, label %40, label %GetEntropyUnrefinedHelper.exit
+
+40:                                               ; preds = %VP8LFastSLog2.exit.i
+  store i32 %.02630, ptr %11, align 8, !tbaa !15, !alias.scope !42, !noalias !47
+  br label %GetEntropyUnrefinedHelper.exit
+
+GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.exit.i, %40
+  %41 = phi i32 [ %14, %20 ], [ %14, %VP8LFastSLog2.exit.i ], [ %.02630, %40 ]
+  %42 = phi i64 [ %15, %20 ], [ %38, %VP8LFastSLog2.exit.i ], [ %38, %40 ]
+  %43 = phi i32 [ %16, %20 ], [ %26, %VP8LFastSLog2.exit.i ], [ %26, %40 ]
+  %44 = phi i32 [ %17, %20 ], [ %25, %VP8LFastSLog2.exit.i ], [ %25, %40 ]
+  %45 = icmp sgt i32 %22, 3
+  %46 = zext i1 %45 to i32
+  %47 = icmp ne i32 %.02630, 0
+  %48 = zext i1 %47 to i64
+  %49 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  %51 = add nsw i32 %50, %46
+  store i32 %51, ptr %49, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  %52 = zext i1 %45 to i64
+  %53 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %12, i64 0, i64 %48, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  %55 = add nsw i32 %54, %22
+  store i32 %55, ptr %53, align 4, !tbaa !9, !alias.scope !45, !noalias !51
+  br label %56
+
+56:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %13
+  %57 = phi i32 [ %14, %13 ], [ %41, %GetEntropyUnrefinedHelper.exit ]
+  %58 = phi i64 [ %15, %13 ], [ %42, %GetEntropyUnrefinedHelper.exit ]
+  %59 = phi i32 [ %16, %13 ], [ %43, %GetEntropyUnrefinedHelper.exit ]
+  %60 = phi i32 [ %17, %13 ], [ %44, %GetEntropyUnrefinedHelper.exit ]
+  %.128 = phi i32 [ %.02729, %13 ], [ %21, %GetEntropyUnrefinedHelper.exit ]
+  %.1 = phi i32 [ %.02630, %13 ], [ %19, %GetEntropyUnrefinedHelper.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !52
+
+._crit_edge:                                      ; preds = %56, %4
+  %61 = phi i32 [ 0, %4 ], [ %57, %56 ]
+  %62 = phi i64 [ 0, %4 ], [ %58, %56 ]
+  %63 = phi i32 [ 0, %4 ], [ %59, %56 ]
+  %64 = phi i32 [ 0, %4 ], [ %60, %56 ]
+  %.027.lcssa = phi i32 [ 0, %4 ], [ %.128, %56 ]
+  %.026.lcssa = phi i32 [ %5, %4 ], [ %.1, %56 ]
+  %.0.lcssa = phi i32 [ 1, %4 ], [ %1, %56 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %65 = sub nsw i32 %.0.lcssa, %.027.lcssa
+  %.not.i19 = icmp eq i32 %.026.lcssa, 0
+  br i1 %.not.i19, label %GetEntropyUnrefinedHelper.exit21, label %66
+
+66:                                               ; preds = %._crit_edge
+  %67 = mul i32 %65, %.026.lcssa
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %69 = add i32 %64, %67
+  store i32 %69, ptr %68, align 8, !tbaa !10, !alias.scope !53, !noalias !58
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %71 = add nsw i32 %63, %65
+  store i32 %71, ptr %70, align 4, !tbaa !11, !alias.scope !53, !noalias !58
+  store i32 %.027.lcssa, ptr %6, align 4, !tbaa !3, !alias.scope !53, !noalias !58
+  %72 = icmp ult i32 %.026.lcssa, 256
+  br i1 %72, label %73, label %77
+
+73:                                               ; preds = %66
+  %74 = zext nneg i32 %.026.lcssa to i64
+  %75 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %74
+  %76 = load i64, ptr %75, align 8, !tbaa !12, !noalias !61
+  br label %VP8LFastSLog2.exit.i20
+
+77:                                               ; preds = %66
+  %78 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !61
+  %79 = tail call i64 %78(i32 noundef %.026.lcssa) #12, !noalias !61
+  br label %VP8LFastSLog2.exit.i20
+
+VP8LFastSLog2.exit.i20:                           ; preds = %77, %73
+  %80 = phi i64 [ %76, %73 ], [ %79, %77 ]
+  %81 = sext i32 %65 to i64
+  %82 = mul i64 %80, %81
+  %83 = add i64 %62, %82
+  %84 = icmp ult i32 %61, %.026.lcssa
+  br i1 %84, label %85, label %GetEntropyUnrefinedHelper.exit21
+
+85:                                               ; preds = %VP8LFastSLog2.exit.i20
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %.026.lcssa, ptr %86, align 8, !tbaa !15, !alias.scope !53, !noalias !58
   br label %GetEntropyUnrefinedHelper.exit21
 
-GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i19, %77
-  %78 = icmp sgt i32 %52, 3
-  %79 = zext i1 %78 to i32
-  %80 = icmp ne i32 %.036.lcssa, 0
-  %81 = zext i1 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
-  %84 = add nsw i32 %83, %79
-  store i32 %84, ptr %82, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %86 = zext i1 %78 to i64
-  %87 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %85, i64 0, i64 %81, i64 %86
-  %88 = load i32, ptr %87, align 4
-  %89 = add nsw i32 %88, %52
-  store i32 %89, ptr %87, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp ult i32 %91, 256
-  br i1 %92, label %93, label %97
+GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i20, %85
+  %87 = phi i64 [ %62, %._crit_edge ], [ %83, %VP8LFastSLog2.exit.i20 ], [ %83, %85 ]
+  %88 = phi i32 [ %64, %._crit_edge ], [ %69, %VP8LFastSLog2.exit.i20 ], [ %69, %85 ]
+  %89 = icmp sgt i32 %65, 3
+  %90 = zext i1 %89 to i32
+  %91 = icmp ne i32 %.026.lcssa, 0
+  %92 = zext i1 %91 to i64
+  %93 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %95 = add nsw i32 %94, %90
+  store i32 %95, ptr %93, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %97 = zext i1 %89 to i64
+  %98 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %96, i64 0, i64 %92, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %100 = add nsw i32 %99, %65
+  store i32 %100, ptr %98, align 4, !tbaa !9, !alias.scope !56, !noalias !62
+  %101 = icmp ult i32 %88, 256
+  br i1 %101, label %102, label %106
 
-93:                                               ; preds = %GetEntropyUnrefinedHelper.exit21
-  %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %94
-  %96 = load float, ptr %95, align 4
+102:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
+  %103 = zext nneg i32 %88 to i64
+  %104 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %103
+  %105 = load i64, ptr %104, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
-97:                                               ; preds = %GetEntropyUnrefinedHelper.exit21
-  %98 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %99 = tail call float %98(i32 noundef %91) #11
+106:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
+  %107 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %108 = tail call i64 %107(i32 noundef %88) #12
   br label %VP8LFastSLog2.exit
 
-VP8LFastSLog2.exit:                               ; preds = %93, %97
-  %100 = phi float [ %96, %93 ], [ %99, %97 ]
-  %101 = load float, ptr %2, align 4
-  %102 = fadd float %100, %101
-  store float %102, ptr %2, align 4
+VP8LFastSLog2.exit:                               ; preds = %102, %106
+  %109 = phi i64 [ %105, %102 ], [ %108, %106 ]
+  %110 = sub i64 %109, %87
+  store i64 %110, ptr %2, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 20)) %3, ptr noundef captures(none) initializes((0, 24)) %4) #1 {
-  %6 = load i32, ptr %0, align 4
-  %7 = load i32, ptr %1, align 4
+define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) initializes((8, 24)) %3, ptr noalias noundef captures(none) initializes((0, 24)) %4) #1 {
+  %6 = load i32, ptr %0, align 4, !tbaa !9
+  %7 = load i32, ptr %1, align 4, !tbaa !9
   %8 = add i32 %7, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %9, align 4
-  %10 = icmp sgt i32 %2, 1
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 12, i1 false)
+  store i32 -1, ptr %9, align 4, !tbaa !3
+  %11 = icmp sgt i32 %2, 1
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %15
+  br label %16
 
-15:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %.03943 = phi i32 [ %8, %.lr.ph ], [ %.1, %57 ]
-  %.04042 = phi i32 [ 0, %.lr.ph ], [ %.141, %57 ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4
-  %20 = add i32 %19, %17
-  %.not = icmp eq i32 %20, %.03943
-  br i1 %.not, label %57, label %21
+16:                                               ; preds = %.lr.ph, %62
+  %17 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
+  %18 = phi i64 [ 0, %.lr.ph ], [ %64, %62 ]
+  %19 = phi i32 [ 0, %.lr.ph ], [ %65, %62 ]
+  %20 = phi i32 [ 0, %.lr.ph ], [ %66, %62 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %62 ]
+  %.02933 = phi i32 [ %8, %.lr.ph ], [ %.1, %62 ]
+  %.03032 = phi i32 [ 0, %.lr.ph ], [ %.131, %62 ]
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = add i32 %24, %22
+  %.not = icmp eq i32 %25, %.02933
+  br i1 %.not, label %62, label %26
 
-21:                                               ; preds = %15
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %23 = sub nsw i32 %22, %.04042
-  %.not.i = icmp eq i32 %.03943, 0
-  br i1 %.not.i, label %GetEntropyUnrefinedHelper.exit, label %24
+26:                                               ; preds = %16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = sub nsw i32 %27, %.03032
+  %.not.i = icmp eq i32 %.02933, 0
+  br i1 %.not.i, label %GetEntropyUnrefinedHelper.exit, label %29
 
-24:                                               ; preds = %21
-  %25 = mul i32 %23, %.03943
-  %26 = load i32, ptr %11, align 4
-  %27 = add i32 %26, %25
-  store i32 %27, ptr %11, align 4
-  %28 = load i32, ptr %12, align 4
-  %29 = add nsw i32 %28, %23
-  store i32 %29, ptr %12, align 4
-  store i32 %.04042, ptr %9, align 4
-  %30 = icmp ult i32 %.03943, 256
-  br i1 %30, label %31, label %35
+29:                                               ; preds = %26
+  %30 = mul i32 %28, %.02933
+  %31 = add i32 %20, %30
+  store i32 %31, ptr %12, align 8, !tbaa !10, !alias.scope !63, !noalias !68
+  %32 = add nsw i32 %19, %28
+  store i32 %32, ptr %13, align 4, !tbaa !11, !alias.scope !63, !noalias !68
+  store i32 %.03032, ptr %9, align 4, !tbaa !3, !alias.scope !63, !noalias !68
+  %33 = icmp ult i32 %.02933, 256
+  br i1 %33, label %34, label %38
 
-31:                                               ; preds = %24
-  %32 = zext nneg i32 %.03943 to i64
-  %33 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %32
-  %34 = load float, ptr %33, align 4
+34:                                               ; preds = %29
+  %35 = zext nneg i32 %.02933 to i64
+  %36 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %35
+  %37 = load i64, ptr %36, align 8, !tbaa !12, !noalias !71
   br label %VP8LFastSLog2.exit.i
 
-35:                                               ; preds = %24
-  %36 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %37 = tail call float %36(i32 noundef %.03943) #11
+38:                                               ; preds = %29
+  %39 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !71
+  %40 = tail call i64 %39(i32 noundef %.02933) #12, !noalias !71
   br label %VP8LFastSLog2.exit.i
 
-VP8LFastSLog2.exit.i:                             ; preds = %35, %31
-  %38 = phi float [ %34, %31 ], [ %37, %35 ]
-  %39 = sitofp i32 %23 to float
-  %40 = load float, ptr %3, align 4
-  %41 = fneg float %38
-  %42 = tail call float @llvm.fmuladd.f32(float %41, float %39, float %40)
-  store float %42, ptr %3, align 4
-  %43 = load i32, ptr %13, align 4
-  %44 = icmp ult i32 %43, %.03943
-  br i1 %44, label %45, label %GetEntropyUnrefinedHelper.exit
+VP8LFastSLog2.exit.i:                             ; preds = %38, %34
+  %41 = phi i64 [ %37, %34 ], [ %40, %38 ]
+  %42 = sext i32 %28 to i64
+  %43 = mul i64 %41, %42
+  %44 = add i64 %18, %43
+  store i64 %44, ptr %3, align 8, !tbaa !18, !alias.scope !63, !noalias !68
+  %45 = icmp ult i32 %17, %.02933
+  br i1 %45, label %46, label %GetEntropyUnrefinedHelper.exit
 
-45:                                               ; preds = %VP8LFastSLog2.exit.i
-  store i32 %.03943, ptr %13, align 4
+46:                                               ; preds = %VP8LFastSLog2.exit.i
+  store i32 %.02933, ptr %14, align 8, !tbaa !15, !alias.scope !63, !noalias !68
   br label %GetEntropyUnrefinedHelper.exit
 
-GetEntropyUnrefinedHelper.exit:                   ; preds = %21, %VP8LFastSLog2.exit.i, %45
-  %46 = icmp sgt i32 %23, 3
-  %47 = zext i1 %46 to i32
-  %48 = icmp ne i32 %.03943, 0
-  %49 = zext i1 %48 to i64
-  %50 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %47
-  store i32 %52, ptr %50, align 4
-  %53 = zext i1 %46 to i64
-  %54 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %14, i64 0, i64 %49, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = add nsw i32 %55, %23
-  store i32 %56, ptr %54, align 4
-  br label %57
+GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.exit.i, %46
+  %47 = phi i32 [ %17, %26 ], [ %17, %VP8LFastSLog2.exit.i ], [ %.02933, %46 ]
+  %48 = phi i64 [ %18, %26 ], [ %44, %VP8LFastSLog2.exit.i ], [ %44, %46 ]
+  %49 = phi i32 [ %19, %26 ], [ %32, %VP8LFastSLog2.exit.i ], [ %32, %46 ]
+  %50 = phi i32 [ %20, %26 ], [ %31, %VP8LFastSLog2.exit.i ], [ %31, %46 ]
+  %51 = icmp sgt i32 %28, 3
+  %52 = zext i1 %51 to i32
+  %53 = icmp ne i32 %.02933, 0
+  %54 = zext i1 %53 to i64
+  %55 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  %57 = add nsw i32 %56, %52
+  store i32 %57, ptr %55, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  %58 = zext i1 %51 to i64
+  %59 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %15, i64 0, i64 %54, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  %61 = add nsw i32 %60, %28
+  store i32 %61, ptr %59, align 4, !tbaa !9, !alias.scope !66, !noalias !72
+  br label %62
 
-57:                                               ; preds = %15, %GetEntropyUnrefinedHelper.exit
-  %.141 = phi i32 [ %.04042, %15 ], [ %22, %GetEntropyUnrefinedHelper.exit ]
-  %.1 = phi i32 [ %.03943, %15 ], [ %20, %GetEntropyUnrefinedHelper.exit ]
+62:                                               ; preds = %GetEntropyUnrefinedHelper.exit, %16
+  %63 = phi i32 [ %17, %16 ], [ %47, %GetEntropyUnrefinedHelper.exit ]
+  %64 = phi i64 [ %18, %16 ], [ %48, %GetEntropyUnrefinedHelper.exit ]
+  %65 = phi i32 [ %19, %16 ], [ %49, %GetEntropyUnrefinedHelper.exit ]
+  %66 = phi i32 [ %20, %16 ], [ %50, %GetEntropyUnrefinedHelper.exit ]
+  %.131 = phi i32 [ %.03032, %16 ], [ %27, %GetEntropyUnrefinedHelper.exit ]
+  %.1 = phi i32 [ %.02933, %16 ], [ %25, %GetEntropyUnrefinedHelper.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %57, %5
-  %.040.lcssa = phi i32 [ 0, %5 ], [ %.141, %57 ]
-  %.039.lcssa = phi i32 [ %8, %5 ], [ %.1, %57 ]
-  %.0.lcssa = phi i32 [ 1, %5 ], [ %2, %57 ]
-  %58 = sub nsw i32 %.0.lcssa, %.040.lcssa
-  %.not.i21 = icmp eq i32 %.039.lcssa, 0
-  br i1 %.not.i21, label %GetEntropyUnrefinedHelper.exit24, label %59
+._crit_edge:                                      ; preds = %62, %5
+  %67 = phi i32 [ 0, %5 ], [ %63, %62 ]
+  %68 = phi i64 [ 0, %5 ], [ %64, %62 ]
+  %69 = phi i32 [ 0, %5 ], [ %65, %62 ]
+  %70 = phi i32 [ 0, %5 ], [ %66, %62 ]
+  %.030.lcssa = phi i32 [ 0, %5 ], [ %.131, %62 ]
+  %.029.lcssa = phi i32 [ %8, %5 ], [ %.1, %62 ]
+  %.0.lcssa = phi i32 [ 1, %5 ], [ %2, %62 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  %71 = sub nsw i32 %.0.lcssa, %.030.lcssa
+  %.not.i22 = icmp eq i32 %.029.lcssa, 0
+  br i1 %.not.i22, label %GetEntropyUnrefinedHelper.exit24, label %72
 
-59:                                               ; preds = %._crit_edge
-  %60 = mul i32 %58, %.039.lcssa
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = add i32 %62, %60
-  store i32 %63, ptr %61, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %65, %58
-  store i32 %66, ptr %64, align 4
-  store i32 %.040.lcssa, ptr %9, align 4
-  %67 = icmp ult i32 %.039.lcssa, 256
-  br i1 %67, label %68, label %72
+72:                                               ; preds = %._crit_edge
+  %73 = mul i32 %71, %.029.lcssa
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %75 = add i32 %70, %73
+  store i32 %75, ptr %74, align 8, !tbaa !10, !alias.scope !74, !noalias !79
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %77 = add nsw i32 %69, %71
+  store i32 %77, ptr %76, align 4, !tbaa !11, !alias.scope !74, !noalias !79
+  store i32 %.030.lcssa, ptr %9, align 4, !tbaa !3, !alias.scope !74, !noalias !79
+  %78 = icmp ult i32 %.029.lcssa, 256
+  br i1 %78, label %79, label %83
 
-68:                                               ; preds = %59
-  %69 = zext nneg i32 %.039.lcssa to i64
-  %70 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4
-  br label %VP8LFastSLog2.exit.i22
+79:                                               ; preds = %72
+  %80 = zext nneg i32 %.029.lcssa to i64
+  %81 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %80
+  %82 = load i64, ptr %81, align 8, !tbaa !12, !noalias !82
+  br label %VP8LFastSLog2.exit.i23
 
-72:                                               ; preds = %59
-  %73 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %74 = tail call float %73(i32 noundef %.039.lcssa) #11
-  br label %VP8LFastSLog2.exit.i22
+83:                                               ; preds = %72
+  %84 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !82
+  %85 = tail call i64 %84(i32 noundef %.029.lcssa) #12, !noalias !82
+  br label %VP8LFastSLog2.exit.i23
 
-VP8LFastSLog2.exit.i22:                           ; preds = %72, %68
-  %75 = phi float [ %71, %68 ], [ %74, %72 ]
-  %76 = sitofp i32 %58 to float
-  %77 = load float, ptr %3, align 4
-  %78 = fneg float %75
-  %79 = tail call float @llvm.fmuladd.f32(float %78, float %76, float %77)
-  store float %79, ptr %3, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp ult i32 %81, %.039.lcssa
-  br i1 %82, label %83, label %GetEntropyUnrefinedHelper.exit24
+VP8LFastSLog2.exit.i23:                           ; preds = %83, %79
+  %86 = phi i64 [ %82, %79 ], [ %85, %83 ]
+  %87 = sext i32 %71 to i64
+  %88 = mul i64 %86, %87
+  %89 = add i64 %68, %88
+  %90 = icmp ult i32 %67, %.029.lcssa
+  br i1 %90, label %91, label %GetEntropyUnrefinedHelper.exit24
 
-83:                                               ; preds = %VP8LFastSLog2.exit.i22
-  store i32 %.039.lcssa, ptr %80, align 4
+91:                                               ; preds = %VP8LFastSLog2.exit.i23
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %.029.lcssa, ptr %92, align 8, !tbaa !15, !alias.scope !74, !noalias !79
   br label %GetEntropyUnrefinedHelper.exit24
 
-GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i22, %83
-  %84 = icmp sgt i32 %58, 3
-  %85 = zext i1 %84 to i32
-  %86 = icmp ne i32 %.039.lcssa, 0
-  %87 = zext i1 %86 to i64
-  %88 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = add nsw i32 %89, %85
-  store i32 %90, ptr %88, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %92 = zext i1 %84 to i64
-  %93 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %91, i64 0, i64 %87, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = add nsw i32 %94, %58
-  store i32 %95, ptr %93, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ult i32 %97, 256
-  br i1 %98, label %99, label %103
+GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LFastSLog2.exit.i23, %91
+  %93 = phi i64 [ %68, %._crit_edge ], [ %89, %VP8LFastSLog2.exit.i23 ], [ %89, %91 ]
+  %94 = phi i32 [ %70, %._crit_edge ], [ %75, %VP8LFastSLog2.exit.i23 ], [ %75, %91 ]
+  %95 = icmp sgt i32 %71, 3
+  %96 = zext i1 %95 to i32
+  %97 = icmp ne i32 %.029.lcssa, 0
+  %98 = zext i1 %97 to i64
+  %99 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %98
+  %100 = load i32, ptr %99, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %101 = add nsw i32 %100, %96
+  store i32 %101, ptr %99, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %103 = zext i1 %95 to i64
+  %104 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %102, i64 0, i64 %98, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %106 = add nsw i32 %105, %71
+  store i32 %106, ptr %104, align 4, !tbaa !9, !alias.scope !77, !noalias !83
+  %107 = icmp ult i32 %94, 256
+  br i1 %107, label %108, label %112
 
-99:                                               ; preds = %GetEntropyUnrefinedHelper.exit24
-  %100 = zext nneg i32 %97 to i64
-  %101 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %100
-  %102 = load float, ptr %101, align 4
+108:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
+  %109 = zext nneg i32 %94 to i64
+  %110 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %109
+  %111 = load i64, ptr %110, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit
 
-103:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
-  %104 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %105 = tail call float %104(i32 noundef %97) #11
+112:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
+  %113 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
+  %114 = tail call i64 %113(i32 noundef %94) #12
   br label %VP8LFastSLog2.exit
 
-VP8LFastSLog2.exit:                               ; preds = %99, %103
-  %106 = phi float [ %102, %99 ], [ %105, %103 ]
-  %107 = load float, ptr %3, align 4
-  %108 = fadd float %106, %107
-  store float %108, ptr %3, align 4
+VP8LFastSLog2.exit:                               ; preds = %108, %112
+  %115 = phi i64 [ %111, %108 ], [ %114, %112 ]
+  %116 = sub i64 %115, %93
+  store i64 %116, ptr %3, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVector_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #2 {
+define internal void @AddVector_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1537,22 +1627,22 @@ define internal void @AddVector_C(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = add i32 %9, %7
   %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %10, ptr %11, align 4
+  store i32 %10, ptr %11, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVectorEq_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
+define internal void @AddVectorEq_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1563,14 +1653,14 @@ define internal void @AddVectorEq_C(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = add i32 %8, %6
-  store i32 %9, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1588,16 +1678,16 @@ define internal i32 @VectorMismatch_C(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %.critedge.loopexit.split.loop.exit11
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !86
 
 .critedge.loopexit.split.loop.exit11:             ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1609,7 +1699,7 @@ define internal i32 @VectorMismatch_C(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorSub0_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
+define internal void @PredictorSub0_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1620,23 +1710,23 @@ define internal void @PredictorSub0_C(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = and i32 %7, -16711936
   %9 = add i32 %8, 16777216
   %10 = and i32 %7, 16711935
   %11 = or disjoint i32 %9, %10
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %11, ptr %12, align 4
+  store i32 %11, ptr %12, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
+define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #2 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1647,9 +1737,9 @@ define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = getelementptr i8, ptr %6, i64 -4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = or i32 %7, 16711680
   %11 = and i32 %9, -16711936
   %12 = sub i32 %10, %11
@@ -1660,17 +1750,17 @@ define internal void @PredictorSub1_C(ptr noundef readonly captures(none) %0, pt
   %17 = and i32 %15, 16711935
   %18 = or disjoint i32 %16, %17
   %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %18, ptr %19, align 4
+  store i32 %18, ptr %19, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1683,8 +1773,8 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1695,17 +1785,17 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1718,8 +1808,8 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1730,17 +1820,17 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1753,8 +1843,8 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1765,17 +1855,17 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1788,8 +1878,8 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1800,17 +1890,17 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1823,8 +1913,8 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1835,17 +1925,17 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1858,8 +1948,8 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1870,17 +1960,17 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1893,8 +1983,8 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1905,17 +1995,17 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1928,8 +2018,8 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1940,17 +2030,17 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1963,8 +2053,8 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -1975,17 +2065,17 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1998,8 +2088,8 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -2010,17 +2100,17 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2033,8 +2123,8 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -2045,17 +2135,17 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
+define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2068,8 +2158,8 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #11
-  %10 = load i32, ptr %6, align 4
+  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
   %13 = sub i32 %11, %12
@@ -2080,10 +2170,10 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
   %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2097,10 +2187,10 @@ declare void @VP8LEncDspInitSSE41() local_unnamed_addr #6
 declare double @log(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 declare i32 @VP8LPredictor2_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -2126,56 +2216,123 @@ declare i32 @VP8LPredictor12_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare i32 @VP8LPredictor13_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
+!3 = !{!4, !8, i64 20}
+!4 = !{!"", !5, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!8, !8, i64 0}
+!10 = !{!4, !8, i64 8}
+!11 = !{!4, !8, i64 12}
+!12 = !{!5, !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!4, !8, i64 16}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!4, !5, i64 0}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !6, i64 0}
+!21 = !{!"", !6, i64 0, !6, i64 1, !6, i64 2}
+!22 = !{!21, !6, i64 1}
+!23 = !{!21, !6, i64 2}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = !{!6, !6, i64 0}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = !{!33, !8, i64 3240}
+!33 = !{!"", !34, i64 0, !6, i64 8, !6, i64 1032, !6, i64 2056, !6, i64 3080, !8, i64 3240, !8, i64 3244, !5, i64 3248, !5, i64 3256, !5, i64 3264, !5, i64 3272, !6, i64 3280}
+!34 = !{!"p1 int", !14, i64 0}
+!35 = !{!33, !34, i64 0}
+!36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17}
+!38 = distinct !{!38, !17}
+!39 = distinct !{!39, !17}
+!40 = distinct !{!40, !17}
+!41 = distinct !{!41, !17}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"GetEntropyUnrefinedHelper: argument 2"}
+!44 = distinct !{!44, !"GetEntropyUnrefinedHelper"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"GetEntropyUnrefinedHelper: argument 3"}
+!47 = !{!48, !49, !46}
+!48 = distinct !{!48, !44, !"GetEntropyUnrefinedHelper: argument 0"}
+!49 = distinct !{!49, !44, !"GetEntropyUnrefinedHelper: argument 1"}
+!50 = !{!48, !49, !43, !46}
+!51 = !{!48, !49, !43}
+!52 = distinct !{!52, !17}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"GetEntropyUnrefinedHelper: argument 2"}
+!55 = distinct !{!55, !"GetEntropyUnrefinedHelper"}
+!56 = !{!57}
+!57 = distinct !{!57, !55, !"GetEntropyUnrefinedHelper: argument 3"}
+!58 = !{!59, !60, !57}
+!59 = distinct !{!59, !55, !"GetEntropyUnrefinedHelper: argument 0"}
+!60 = distinct !{!60, !55, !"GetEntropyUnrefinedHelper: argument 1"}
+!61 = !{!59, !60, !54, !57}
+!62 = !{!59, !60, !54}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"GetEntropyUnrefinedHelper: argument 2"}
+!65 = distinct !{!65, !"GetEntropyUnrefinedHelper"}
+!66 = !{!67}
+!67 = distinct !{!67, !65, !"GetEntropyUnrefinedHelper: argument 3"}
+!68 = !{!69, !70, !67}
+!69 = distinct !{!69, !65, !"GetEntropyUnrefinedHelper: argument 0"}
+!70 = distinct !{!70, !65, !"GetEntropyUnrefinedHelper: argument 1"}
+!71 = !{!69, !70, !64, !67}
+!72 = !{!69, !70, !64}
+!73 = distinct !{!73, !17}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"GetEntropyUnrefinedHelper: argument 2"}
+!76 = distinct !{!76, !"GetEntropyUnrefinedHelper"}
+!77 = !{!78}
+!78 = distinct !{!78, !76, !"GetEntropyUnrefinedHelper: argument 3"}
+!79 = !{!80, !81, !78}
+!80 = distinct !{!80, !76, !"GetEntropyUnrefinedHelper: argument 0"}
+!81 = distinct !{!81, !76, !"GetEntropyUnrefinedHelper: argument 1"}
+!82 = !{!80, !81, !75, !78}
+!83 = !{!80, !81, !75}
+!84 = distinct !{!84, !17}
+!85 = distinct !{!85, !17}
+!86 = distinct !{!86, !17}
+!87 = distinct !{!87, !17}
+!88 = distinct !{!88, !17}
+!89 = distinct !{!89, !17}
+!90 = distinct !{!90, !17}
+!91 = distinct !{!91, !17}
+!92 = distinct !{!92, !17}
+!93 = distinct !{!93, !17}
+!94 = distinct !{!94, !17}
+!95 = distinct !{!95, !17}
+!96 = distinct !{!96, !17}
+!97 = distinct !{!97, !17}
+!98 = distinct !{!98, !17}
+!99 = distinct !{!99, !17}
+!100 = distinct !{!100, !17}

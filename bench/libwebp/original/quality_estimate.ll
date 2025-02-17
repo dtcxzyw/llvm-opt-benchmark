@@ -17,503 +17,539 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca [4 x i32], align 16
-  %16 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca [4 x i32], align 16
   %17 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  store i64 0, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  store i32 -1, ptr %10, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %291
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  store i64 0, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  store i64 0, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 -1, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 40, ptr %11) #6
+  %19 = load ptr, ptr %4, align 8, !tbaa !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i64, ptr %5, align 8
-  %24 = call i32 @WebPGetFeatures(ptr noundef %22, i64 noundef %23, ptr noundef %11)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %21
   store i32 -1, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 4
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 2
-  br i1 %30, label %31, label %32
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
+  %24 = load i64, ptr %5, align 8, !tbaa !9
+  %25 = call i32 @WebPGetFeatures(ptr noundef %23, i64 noundef %24, ptr noundef %11)
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %28
 
-31:                                               ; preds = %27
+27:                                               ; preds = %22
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %292
+
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 4
+  %30 = load i32, ptr %29, align 4, !tbaa !13
+  %31 = icmp eq i32 %30, 2
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %28
   store i32 101, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %40, label %36
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4, !tbaa !13
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %41, label %37
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 3
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %41
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw %struct.WebPBitstreamFeatures, ptr %11, i32 0, i32 3
+  %39 = load i32, ptr %38, align 4, !tbaa !15
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %36, %32
+41:                                               ; preds = %37, %33
   store i32 -1, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-41:                                               ; preds = %36
-  br label %42
+42:                                               ; preds = %37
+  br label %43
 
-42:                                               ; preds = %61, %41
-  %43 = load i64, ptr %6, align 8
-  %44 = load i64, ptr %5, align 8
-  %45 = icmp ult i64 %43, %44
-  br i1 %45, label %46, label %62
+43:                                               ; preds = %62, %42
+  %44 = load i64, ptr %6, align 8, !tbaa !9
+  %45 = load i64, ptr %5, align 8, !tbaa !9
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %47, label %63
 
-46:                                               ; preds = %42
-  %47 = load i64, ptr %8, align 8
-  %48 = lshr i64 %47, 8
-  %49 = load ptr, ptr %4, align 8
-  %50 = load i64, ptr %6, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 %50
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i64
-  %55 = shl i64 %54, 40
-  %56 = or i64 %48, %55
-  store i64 %56, ptr %8, align 8
-  %57 = load i64, ptr %8, align 8
-  %58 = lshr i64 %57, 24
-  %59 = icmp eq i64 %58, 2752925
-  br i1 %59, label %60, label %61
+47:                                               ; preds = %43
+  %48 = load i64, ptr %8, align 8, !tbaa !9
+  %49 = lshr i64 %48, 8
+  %50 = load ptr, ptr %4, align 8, !tbaa !4
+  %51 = load i64, ptr %6, align 8, !tbaa !9
+  %52 = add i64 %51, 1
+  store i64 %52, ptr %6, align 8, !tbaa !9
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = zext i8 %54 to i64
+  %56 = shl i64 %55, 40
+  %57 = or i64 %49, %56
+  store i64 %57, ptr %8, align 8, !tbaa !9
+  %58 = load i64, ptr %8, align 8, !tbaa !9
+  %59 = lshr i64 %58, 24
+  %60 = icmp eq i64 %59, 2752925
+  br i1 %60, label %61, label %62
 
-60:                                               ; preds = %46
-  store i32 1, ptr %9, align 4
-  br label %62
+61:                                               ; preds = %47
+  store i32 1, ptr %9, align 4, !tbaa !11
+  br label %63
 
-61:                                               ; preds = %46
-  br label %42, !llvm.loop !5
+62:                                               ; preds = %47
+  br label %43, !llvm.loop !17
 
-62:                                               ; preds = %60, %42
-  %63 = load i32, ptr %9, align 4
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %66, label %65
+63:                                               ; preds = %61, %43
+  %64 = load i32, ptr %9, align 4, !tbaa !11
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %67, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   store i32 -1, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-66:                                               ; preds = %62
-  %67 = load i64, ptr %6, align 8
-  %68 = add i64 %67, 4
-  %69 = load i64, ptr %5, align 8
-  %70 = icmp ugt i64 %68, %69
-  br i1 %70, label %71, label %72
+67:                                               ; preds = %63
+  %68 = load i64, ptr %6, align 8, !tbaa !9
+  %69 = add i64 %68, 4
+  %70 = load i64, ptr %5, align 8, !tbaa !9
+  %71 = icmp ugt i64 %69, %70
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %66
+72:                                               ; preds = %67
   store i32 -1, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-72:                                               ; preds = %66
-  %73 = load i64, ptr %6, align 8
-  %74 = add i64 %73, 4
-  store i64 %74, ptr %6, align 8
-  %75 = load i64, ptr %6, align 8
-  %76 = mul i64 %75, 8
-  store i64 %76, ptr %7, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = load i64, ptr %5, align 8
-  %79 = call i32 @GetBit(ptr noundef %77, i64 noundef 2, i64 noundef %78, ptr noundef %7)
-  %80 = load ptr, ptr %4, align 8
-  %81 = load i64, ptr %5, align 8
-  %82 = call i32 @GetBit(ptr noundef %80, i64 noundef 1, i64 noundef %81, ptr noundef %7)
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %177
+73:                                               ; preds = %67
+  %74 = load i64, ptr %6, align 8, !tbaa !9
+  %75 = add i64 %74, 4
+  store i64 %75, ptr %6, align 8, !tbaa !9
+  %76 = load i64, ptr %6, align 8, !tbaa !9
+  %77 = mul i64 %76, 8
+  store i64 %77, ptr %7, align 8, !tbaa !9
+  %78 = load ptr, ptr %4, align 8, !tbaa !4
+  %79 = load i64, ptr %5, align 8, !tbaa !9
+  %80 = call i32 @GetBit(ptr noundef %78, i64 noundef 2, i64 noundef %79, ptr noundef %7)
+  %81 = load ptr, ptr %4, align 8, !tbaa !4
+  %82 = load i64, ptr %5, align 8, !tbaa !9
+  %83 = call i32 @GetBit(ptr noundef %81, i64 noundef 1, i64 noundef %82, ptr noundef %7)
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %178
 
-84:                                               ; preds = %72
-  %85 = load ptr, ptr %4, align 8
-  %86 = load i64, ptr %5, align 8
-  %87 = call i32 @GetBit(ptr noundef %85, i64 noundef 1, i64 noundef %86, ptr noundef %7)
-  store i32 %87, ptr %13, align 4
-  %88 = load ptr, ptr %4, align 8
-  %89 = load i64, ptr %5, align 8
-  %90 = call i32 @GetBit(ptr noundef %88, i64 noundef 1, i64 noundef %89, ptr noundef %7)
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %154
+85:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %86 = load ptr, ptr %4, align 8, !tbaa !4
+  %87 = load i64, ptr %5, align 8, !tbaa !9
+  %88 = call i32 @GetBit(ptr noundef %86, i64 noundef 1, i64 noundef %87, ptr noundef %7)
+  store i32 %88, ptr %14, align 4, !tbaa !11
+  %89 = load ptr, ptr %4, align 8, !tbaa !4
+  %90 = load i64, ptr %5, align 8, !tbaa !9
+  %91 = call i32 @GetBit(ptr noundef %89, i64 noundef 1, i64 noundef %90, ptr noundef %7)
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %155
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr %4, align 8
-  %94 = load i64, ptr %5, align 8
-  %95 = call i32 @GetBit(ptr noundef %93, i64 noundef 1, i64 noundef %94, ptr noundef %7)
-  store i32 %95, ptr %14, align 4
-  call void @llvm.memset.p0.i64(ptr align 16 %15, i8 0, i64 16, i1 false)
-  store i32 0, ptr %12, align 4
-  br label %96
+93:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %94 = load ptr, ptr %4, align 8, !tbaa !4
+  %95 = load i64, ptr %5, align 8, !tbaa !9
+  %96 = call i32 @GetBit(ptr noundef %94, i64 noundef 1, i64 noundef %95, ptr noundef %7)
+  store i32 %96, ptr %15, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #6
+  call void @llvm.memset.p0.i64(ptr align 16 %16, i8 0, i64 16, i1 false)
+  store i32 0, ptr %13, align 4, !tbaa !11
+  br label %97
 
-96:                                               ; preds = %126, %92
-  %97 = load i32, ptr %12, align 4
-  %98 = icmp slt i32 %97, 4
-  br i1 %98, label %99, label %129
+97:                                               ; preds = %127, %93
+  %98 = load i32, ptr %13, align 4, !tbaa !11
+  %99 = icmp slt i32 %98, 4
+  br i1 %99, label %100, label %130
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %4, align 8
-  %101 = load i64, ptr %5, align 8
-  %102 = call i32 @GetBit(ptr noundef %100, i64 noundef 1, i64 noundef %101, ptr noundef %7)
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %125
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %4, align 8, !tbaa !4
+  %102 = load i64, ptr %5, align 8, !tbaa !9
+  %103 = call i32 @GetBit(ptr noundef %101, i64 noundef 1, i64 noundef %102, ptr noundef %7)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %126
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %4, align 8
-  %106 = load i64, ptr %5, align 8
-  %107 = call i32 @GetBit(ptr noundef %105, i64 noundef 7, i64 noundef %106, ptr noundef %7)
-  %108 = load i32, ptr %12, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %109
-  store i32 %107, ptr %110, align 4
-  %111 = load ptr, ptr %4, align 8
-  %112 = load i64, ptr %5, align 8
-  %113 = call i32 @GetBit(ptr noundef %111, i64 noundef 1, i64 noundef %112, ptr noundef %7)
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %124
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %4, align 8, !tbaa !4
+  %107 = load i64, ptr %5, align 8, !tbaa !9
+  %108 = call i32 @GetBit(ptr noundef %106, i64 noundef 7, i64 noundef %107, ptr noundef %7)
+  %109 = load i32, ptr %13, align 4, !tbaa !11
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %110
+  store i32 %108, ptr %111, align 4, !tbaa !11
+  %112 = load ptr, ptr %4, align 8, !tbaa !4
+  %113 = load i64, ptr %5, align 8, !tbaa !9
+  %114 = call i32 @GetBit(ptr noundef %112, i64 noundef 1, i64 noundef %113, ptr noundef %7)
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %125
 
-115:                                              ; preds = %104
-  %116 = load i32, ptr %12, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4
-  %120 = sub nsw i32 0, %119
-  %121 = load i32, ptr %12, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %122
-  store i32 %120, ptr %123, align 4
-  br label %124
-
-124:                                              ; preds = %115, %104
+116:                                              ; preds = %105
+  %117 = load i32, ptr %13, align 4, !tbaa !11
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %118
+  %120 = load i32, ptr %119, align 4, !tbaa !11
+  %121 = sub nsw i32 0, %120
+  %122 = load i32, ptr %13, align 4, !tbaa !11
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %123
+  store i32 %121, ptr %124, align 4, !tbaa !11
   br label %125
 
-125:                                              ; preds = %124, %99
+125:                                              ; preds = %116, %105
   br label %126
 
-126:                                              ; preds = %125
-  %127 = load i32, ptr %12, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %12, align 4
-  br label %96, !llvm.loop !7
+126:                                              ; preds = %125, %100
+  br label %127
 
-129:                                              ; preds = %96
-  %130 = load i32, ptr %14, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %135
+127:                                              ; preds = %126
+  %128 = load i32, ptr %13, align 4, !tbaa !11
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %13, align 4, !tbaa !11
+  br label %97, !llvm.loop !19
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 0
-  %134 = load i32, ptr %133, align 16
-  store i32 %134, ptr %10, align 4
-  br label %135
+130:                                              ; preds = %97
+  %131 = load i32, ptr %15, align 4, !tbaa !11
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %136
 
-135:                                              ; preds = %132, %129
-  store i32 0, ptr %12, align 4
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 0
+  %135 = load i32, ptr %134, align 16, !tbaa !11
+  store i32 %135, ptr %10, align 4, !tbaa !11
   br label %136
 
-136:                                              ; preds = %150, %135
-  %137 = load i32, ptr %12, align 4
-  %138 = icmp slt i32 %137, 4
-  br i1 %138, label %139, label %153
+136:                                              ; preds = %133, %130
+  store i32 0, ptr %13, align 4, !tbaa !11
+  br label %137
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %4, align 8
-  %141 = load i64, ptr %5, align 8
-  %142 = call i32 @GetBit(ptr noundef %140, i64 noundef 1, i64 noundef %141, ptr noundef %7)
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %148
+137:                                              ; preds = %151, %136
+  %138 = load i32, ptr %13, align 4, !tbaa !11
+  %139 = icmp slt i32 %138, 4
+  br i1 %139, label %140, label %154
 
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %4, align 8
-  %146 = load i64, ptr %5, align 8
-  %147 = call i32 @GetBit(ptr noundef %145, i64 noundef 7, i64 noundef %146, ptr noundef %7)
-  br label %149
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %4, align 8, !tbaa !4
+  %142 = load i64, ptr %5, align 8, !tbaa !9
+  %143 = call i32 @GetBit(ptr noundef %141, i64 noundef 1, i64 noundef %142, ptr noundef %7)
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %149
 
-148:                                              ; preds = %139
-  br label %149
-
-149:                                              ; preds = %148, %144
+145:                                              ; preds = %140
+  %146 = load ptr, ptr %4, align 8, !tbaa !4
+  %147 = load i64, ptr %5, align 8, !tbaa !9
+  %148 = call i32 @GetBit(ptr noundef %146, i64 noundef 7, i64 noundef %147, ptr noundef %7)
   br label %150
 
-150:                                              ; preds = %149
-  %151 = load i32, ptr %12, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %12, align 4
-  br label %136, !llvm.loop !8
+149:                                              ; preds = %140
+  br label %150
 
-153:                                              ; preds = %136
-  br label %154
+150:                                              ; preds = %149, %145
+  br label %151
 
-154:                                              ; preds = %153, %84
-  %155 = load i32, ptr %13, align 4
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %176
+151:                                              ; preds = %150
+  %152 = load i32, ptr %13, align 4, !tbaa !11
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %13, align 4, !tbaa !11
+  br label %137, !llvm.loop !20
 
-157:                                              ; preds = %154
-  store i32 0, ptr %12, align 4
-  br label %158
+154:                                              ; preds = %137
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %155
 
-158:                                              ; preds = %172, %157
-  %159 = load i32, ptr %12, align 4
-  %160 = icmp slt i32 %159, 3
-  br i1 %160, label %161, label %175
+155:                                              ; preds = %154, %85
+  %156 = load i32, ptr %14, align 4, !tbaa !11
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %177
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %4, align 8
-  %163 = load i64, ptr %5, align 8
-  %164 = call i32 @GetBit(ptr noundef %162, i64 noundef 1, i64 noundef %163, ptr noundef %7)
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %166, label %170
+158:                                              ; preds = %155
+  store i32 0, ptr %13, align 4, !tbaa !11
+  br label %159
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr %4, align 8
-  %168 = load i64, ptr %5, align 8
-  %169 = call i32 @GetBit(ptr noundef %167, i64 noundef 8, i64 noundef %168, ptr noundef %7)
-  br label %171
+159:                                              ; preds = %173, %158
+  %160 = load i32, ptr %13, align 4, !tbaa !11
+  %161 = icmp slt i32 %160, 3
+  br i1 %161, label %162, label %176
 
-170:                                              ; preds = %161
-  br label %171
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %4, align 8, !tbaa !4
+  %164 = load i64, ptr %5, align 8, !tbaa !9
+  %165 = call i32 @GetBit(ptr noundef %163, i64 noundef 1, i64 noundef %164, ptr noundef %7)
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %171
 
-171:                                              ; preds = %170, %166
+167:                                              ; preds = %162
+  %168 = load ptr, ptr %4, align 8, !tbaa !4
+  %169 = load i64, ptr %5, align 8, !tbaa !9
+  %170 = call i32 @GetBit(ptr noundef %168, i64 noundef 8, i64 noundef %169, ptr noundef %7)
   br label %172
 
-172:                                              ; preds = %171
-  %173 = load i32, ptr %12, align 4
-  %174 = add nsw i32 %173, 1
-  store i32 %174, ptr %12, align 4
-  br label %158, !llvm.loop !9
+171:                                              ; preds = %162
+  br label %172
 
-175:                                              ; preds = %158
-  br label %176
+172:                                              ; preds = %171, %167
+  br label %173
 
-176:                                              ; preds = %175, %154
+173:                                              ; preds = %172
+  %174 = load i32, ptr %13, align 4, !tbaa !11
+  %175 = add nsw i32 %174, 1
+  store i32 %175, ptr %13, align 4, !tbaa !11
+  br label %159, !llvm.loop !21
+
+176:                                              ; preds = %159
   br label %177
 
-177:                                              ; preds = %176, %72
-  %178 = load ptr, ptr %4, align 8
-  %179 = load i64, ptr %5, align 8
-  %180 = call i32 @GetBit(ptr noundef %178, i64 noundef 10, i64 noundef %179, ptr noundef %7)
-  %181 = load ptr, ptr %4, align 8
-  %182 = load i64, ptr %5, align 8
-  %183 = call i32 @GetBit(ptr noundef %181, i64 noundef 1, i64 noundef %182, ptr noundef %7)
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %210
+177:                                              ; preds = %176, %155
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %178
 
-185:                                              ; preds = %177
-  %186 = load ptr, ptr %4, align 8
-  %187 = load i64, ptr %5, align 8
-  %188 = call i32 @GetBit(ptr noundef %186, i64 noundef 1, i64 noundef %187, ptr noundef %7)
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %190, label %209
+178:                                              ; preds = %177, %73
+  %179 = load ptr, ptr %4, align 8, !tbaa !4
+  %180 = load i64, ptr %5, align 8, !tbaa !9
+  %181 = call i32 @GetBit(ptr noundef %179, i64 noundef 10, i64 noundef %180, ptr noundef %7)
+  %182 = load ptr, ptr %4, align 8, !tbaa !4
+  %183 = load i64, ptr %5, align 8, !tbaa !9
+  %184 = call i32 @GetBit(ptr noundef %182, i64 noundef 1, i64 noundef %183, ptr noundef %7)
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %186, label %211
 
-190:                                              ; preds = %185
-  store i32 0, ptr %16, align 4
-  br label %191
+186:                                              ; preds = %178
+  %187 = load ptr, ptr %4, align 8, !tbaa !4
+  %188 = load i64, ptr %5, align 8, !tbaa !9
+  %189 = call i32 @GetBit(ptr noundef %187, i64 noundef 1, i64 noundef %188, ptr noundef %7)
+  %190 = icmp ne i32 %189, 0
+  br i1 %190, label %191, label %210
 
-191:                                              ; preds = %205, %190
-  %192 = load i32, ptr %16, align 4
-  %193 = icmp slt i32 %192, 8
-  br i1 %193, label %194, label %208
+191:                                              ; preds = %186
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  store i32 0, ptr %17, align 4, !tbaa !11
+  br label %192
 
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %4, align 8
-  %196 = load i64, ptr %5, align 8
-  %197 = call i32 @GetBit(ptr noundef %195, i64 noundef 1, i64 noundef %196, ptr noundef %7)
-  %198 = icmp ne i32 %197, 0
-  br i1 %198, label %199, label %203
+192:                                              ; preds = %206, %191
+  %193 = load i32, ptr %17, align 4, !tbaa !11
+  %194 = icmp slt i32 %193, 8
+  br i1 %194, label %195, label %209
 
-199:                                              ; preds = %194
-  %200 = load ptr, ptr %4, align 8
-  %201 = load i64, ptr %5, align 8
-  %202 = call i32 @GetBit(ptr noundef %200, i64 noundef 6, i64 noundef %201, ptr noundef %7)
-  br label %204
+195:                                              ; preds = %192
+  %196 = load ptr, ptr %4, align 8, !tbaa !4
+  %197 = load i64, ptr %5, align 8, !tbaa !9
+  %198 = call i32 @GetBit(ptr noundef %196, i64 noundef 1, i64 noundef %197, ptr noundef %7)
+  %199 = icmp ne i32 %198, 0
+  br i1 %199, label %200, label %204
 
-203:                                              ; preds = %194
-  br label %204
-
-204:                                              ; preds = %203, %199
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %4, align 8, !tbaa !4
+  %202 = load i64, ptr %5, align 8, !tbaa !9
+  %203 = call i32 @GetBit(ptr noundef %201, i64 noundef 6, i64 noundef %202, ptr noundef %7)
   br label %205
 
-205:                                              ; preds = %204
-  %206 = load i32, ptr %16, align 4
-  %207 = add nsw i32 %206, 1
-  store i32 %207, ptr %16, align 4
-  br label %191, !llvm.loop !10
+204:                                              ; preds = %195
+  br label %205
 
-208:                                              ; preds = %191
-  br label %209
+205:                                              ; preds = %204, %200
+  br label %206
 
-209:                                              ; preds = %208, %185
+206:                                              ; preds = %205
+  %207 = load i32, ptr %17, align 4, !tbaa !11
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %17, align 4, !tbaa !11
+  br label %192, !llvm.loop !22
+
+209:                                              ; preds = %192
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
   br label %210
 
-210:                                              ; preds = %209, %177
-  %211 = load ptr, ptr %4, align 8
-  %212 = load i64, ptr %5, align 8
-  %213 = call i32 @GetBit(ptr noundef %211, i64 noundef 2, i64 noundef %212, ptr noundef %7)
-  %214 = load ptr, ptr %4, align 8
-  %215 = load i64, ptr %5, align 8
-  %216 = call i32 @GetBit(ptr noundef %214, i64 noundef 7, i64 noundef %215, ptr noundef %7)
-  store i32 %216, ptr %17, align 4
-  %217 = load ptr, ptr %4, align 8
-  %218 = load i64, ptr %5, align 8
-  %219 = call i32 @GetBit(ptr noundef %217, i64 noundef 1, i64 noundef %218, ptr noundef %7)
-  %220 = icmp ne i32 %219, 0
-  br i1 %220, label %221, label %225
+210:                                              ; preds = %209, %186
+  br label %211
 
-221:                                              ; preds = %210
-  %222 = load ptr, ptr %4, align 8
-  %223 = load i64, ptr %5, align 8
-  %224 = call i32 @GetBit(ptr noundef %222, i64 noundef 5, i64 noundef %223, ptr noundef %7)
-  br label %226
+211:                                              ; preds = %210, %178
+  %212 = load ptr, ptr %4, align 8, !tbaa !4
+  %213 = load i64, ptr %5, align 8, !tbaa !9
+  %214 = call i32 @GetBit(ptr noundef %212, i64 noundef 2, i64 noundef %213, ptr noundef %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %215 = load ptr, ptr %4, align 8, !tbaa !4
+  %216 = load i64, ptr %5, align 8, !tbaa !9
+  %217 = call i32 @GetBit(ptr noundef %215, i64 noundef 7, i64 noundef %216, ptr noundef %7)
+  store i32 %217, ptr %18, align 4, !tbaa !11
+  %218 = load ptr, ptr %4, align 8, !tbaa !4
+  %219 = load i64, ptr %5, align 8, !tbaa !9
+  %220 = call i32 @GetBit(ptr noundef %218, i64 noundef 1, i64 noundef %219, ptr noundef %7)
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %226
 
-225:                                              ; preds = %210
-  br label %226
+222:                                              ; preds = %211
+  %223 = load ptr, ptr %4, align 8, !tbaa !4
+  %224 = load i64, ptr %5, align 8, !tbaa !9
+  %225 = call i32 @GetBit(ptr noundef %223, i64 noundef 5, i64 noundef %224, ptr noundef %7)
+  br label %227
 
-226:                                              ; preds = %225, %221
-  %227 = load ptr, ptr %4, align 8
-  %228 = load i64, ptr %5, align 8
-  %229 = call i32 @GetBit(ptr noundef %227, i64 noundef 1, i64 noundef %228, ptr noundef %7)
-  %230 = icmp ne i32 %229, 0
-  br i1 %230, label %231, label %235
+226:                                              ; preds = %211
+  br label %227
 
-231:                                              ; preds = %226
-  %232 = load ptr, ptr %4, align 8
-  %233 = load i64, ptr %5, align 8
-  %234 = call i32 @GetBit(ptr noundef %232, i64 noundef 5, i64 noundef %233, ptr noundef %7)
-  br label %236
+227:                                              ; preds = %226, %222
+  %228 = load ptr, ptr %4, align 8, !tbaa !4
+  %229 = load i64, ptr %5, align 8, !tbaa !9
+  %230 = call i32 @GetBit(ptr noundef %228, i64 noundef 1, i64 noundef %229, ptr noundef %7)
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %232, label %236
 
-235:                                              ; preds = %226
-  br label %236
+232:                                              ; preds = %227
+  %233 = load ptr, ptr %4, align 8, !tbaa !4
+  %234 = load i64, ptr %5, align 8, !tbaa !9
+  %235 = call i32 @GetBit(ptr noundef %233, i64 noundef 5, i64 noundef %234, ptr noundef %7)
+  br label %237
 
-236:                                              ; preds = %235, %231
-  %237 = load ptr, ptr %4, align 8
-  %238 = load i64, ptr %5, align 8
-  %239 = call i32 @GetBit(ptr noundef %237, i64 noundef 1, i64 noundef %238, ptr noundef %7)
-  %240 = icmp ne i32 %239, 0
-  br i1 %240, label %241, label %245
+236:                                              ; preds = %227
+  br label %237
 
-241:                                              ; preds = %236
-  %242 = load ptr, ptr %4, align 8
-  %243 = load i64, ptr %5, align 8
-  %244 = call i32 @GetBit(ptr noundef %242, i64 noundef 5, i64 noundef %243, ptr noundef %7)
-  br label %246
+237:                                              ; preds = %236, %232
+  %238 = load ptr, ptr %4, align 8, !tbaa !4
+  %239 = load i64, ptr %5, align 8, !tbaa !9
+  %240 = call i32 @GetBit(ptr noundef %238, i64 noundef 1, i64 noundef %239, ptr noundef %7)
+  %241 = icmp ne i32 %240, 0
+  br i1 %241, label %242, label %246
 
-245:                                              ; preds = %236
-  br label %246
+242:                                              ; preds = %237
+  %243 = load ptr, ptr %4, align 8, !tbaa !4
+  %244 = load i64, ptr %5, align 8, !tbaa !9
+  %245 = call i32 @GetBit(ptr noundef %243, i64 noundef 5, i64 noundef %244, ptr noundef %7)
+  br label %247
 
-246:                                              ; preds = %245, %241
-  %247 = load ptr, ptr %4, align 8
-  %248 = load i64, ptr %5, align 8
-  %249 = call i32 @GetBit(ptr noundef %247, i64 noundef 1, i64 noundef %248, ptr noundef %7)
-  %250 = icmp ne i32 %249, 0
-  br i1 %250, label %251, label %255
+246:                                              ; preds = %237
+  br label %247
 
-251:                                              ; preds = %246
-  %252 = load ptr, ptr %4, align 8
-  %253 = load i64, ptr %5, align 8
-  %254 = call i32 @GetBit(ptr noundef %252, i64 noundef 5, i64 noundef %253, ptr noundef %7)
-  br label %256
+247:                                              ; preds = %246, %242
+  %248 = load ptr, ptr %4, align 8, !tbaa !4
+  %249 = load i64, ptr %5, align 8, !tbaa !9
+  %250 = call i32 @GetBit(ptr noundef %248, i64 noundef 1, i64 noundef %249, ptr noundef %7)
+  %251 = icmp ne i32 %250, 0
+  br i1 %251, label %252, label %256
 
-255:                                              ; preds = %246
-  br label %256
+252:                                              ; preds = %247
+  %253 = load ptr, ptr %4, align 8, !tbaa !4
+  %254 = load i64, ptr %5, align 8, !tbaa !9
+  %255 = call i32 @GetBit(ptr noundef %253, i64 noundef 5, i64 noundef %254, ptr noundef %7)
+  br label %257
 
-256:                                              ; preds = %255, %251
-  %257 = load ptr, ptr %4, align 8
-  %258 = load i64, ptr %5, align 8
-  %259 = call i32 @GetBit(ptr noundef %257, i64 noundef 1, i64 noundef %258, ptr noundef %7)
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %265
+256:                                              ; preds = %247
+  br label %257
 
-261:                                              ; preds = %256
-  %262 = load ptr, ptr %4, align 8
-  %263 = load i64, ptr %5, align 8
-  %264 = call i32 @GetBit(ptr noundef %262, i64 noundef 5, i64 noundef %263, ptr noundef %7)
-  br label %266
+257:                                              ; preds = %256, %252
+  %258 = load ptr, ptr %4, align 8, !tbaa !4
+  %259 = load i64, ptr %5, align 8, !tbaa !9
+  %260 = call i32 @GetBit(ptr noundef %258, i64 noundef 1, i64 noundef %259, ptr noundef %7)
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %266
 
-265:                                              ; preds = %256
-  br label %266
+262:                                              ; preds = %257
+  %263 = load ptr, ptr %4, align 8, !tbaa !4
+  %264 = load i64, ptr %5, align 8, !tbaa !9
+  %265 = call i32 @GetBit(ptr noundef %263, i64 noundef 5, i64 noundef %264, ptr noundef %7)
+  br label %267
 
-266:                                              ; preds = %265, %261
-  %267 = load i32, ptr %10, align 4
-  %268 = icmp slt i32 %267, 0
-  br i1 %268, label %269, label %271
+266:                                              ; preds = %257
+  br label %267
 
-269:                                              ; preds = %266
-  %270 = load i32, ptr %17, align 4
-  store i32 %270, ptr %10, align 4
-  br label %271
+267:                                              ; preds = %266, %262
+  %268 = load i32, ptr %10, align 4, !tbaa !11
+  %269 = icmp slt i32 %268, 0
+  br i1 %269, label %270, label %272
 
-271:                                              ; preds = %269, %266
-  %272 = load i64, ptr %7, align 8
-  %273 = icmp eq i64 %272, -9223372036854775808
-  br i1 %273, label %274, label %275
+270:                                              ; preds = %267
+  %271 = load i32, ptr %18, align 4, !tbaa !11
+  store i32 %271, ptr %10, align 4, !tbaa !11
+  br label %272
 
-274:                                              ; preds = %271
+272:                                              ; preds = %270, %267
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %273 = load i64, ptr %7, align 8, !tbaa !9
+  %274 = icmp eq i64 %273, -9223372036854775808
+  br i1 %274, label %275, label %276
+
+275:                                              ; preds = %272
   store i32 -1, ptr %3, align 4
-  br label %291
+  store i32 1, ptr %12, align 4
+  br label %292
 
-275:                                              ; preds = %271
-  %276 = load i32, ptr %10, align 4
-  %277 = sub nsw i32 127, %276
-  %278 = mul nsw i32 %277, 100
-  %279 = sdiv i32 %278, 127
-  store i32 %279, ptr %10, align 4
-  %280 = load i32, ptr %10, align 4
-  %281 = icmp slt i32 %280, 80
-  br i1 %281, label %282, label %289
+276:                                              ; preds = %272
+  %277 = load i32, ptr %10, align 4, !tbaa !11
+  %278 = sub nsw i32 127, %277
+  %279 = mul nsw i32 %278, 100
+  %280 = sdiv i32 %279, 127
+  store i32 %280, ptr %10, align 4, !tbaa !11
+  %281 = load i32, ptr %10, align 4, !tbaa !11
+  %282 = icmp slt i32 %281, 80
+  br i1 %282, label %283, label %290
 
-282:                                              ; preds = %275
-  %283 = load i32, ptr %10, align 4
-  %284 = sitofp i32 %283 to double
-  %285 = fdiv double %284, 8.000000e+01
-  %286 = call double @pow(double noundef %285, double noundef 0x40050D79435E50D8) #4
-  %287 = fmul double %286, 8.000000e+01
-  %288 = fptosi double %287 to i32
-  store i32 %288, ptr %10, align 4
-  br label %289
+283:                                              ; preds = %276
+  %284 = load i32, ptr %10, align 4, !tbaa !11
+  %285 = sitofp i32 %284 to double
+  %286 = fdiv double %285, 8.000000e+01
+  %287 = call double @pow(double noundef %286, double noundef 0x40050D79435E50D8) #6, !tbaa !11
+  %288 = fmul double %287, 8.000000e+01
+  %289 = fptosi double %288 to i32
+  store i32 %289, ptr %10, align 4, !tbaa !11
+  br label %290
 
-289:                                              ; preds = %282, %275
-  %290 = load i32, ptr %10, align 4
-  store i32 %290, ptr %3, align 4
-  br label %291
+290:                                              ; preds = %283, %276
+  %291 = load i32, ptr %10, align 4, !tbaa !11
+  store i32 %291, ptr %3, align 4
+  store i32 1, ptr %12, align 4
+  br label %292
 
-291:                                              ; preds = %289, %274, %71, %65, %40, %31, %26, %20
-  %292 = load i32, ptr %3, align 4
-  ret i32 %292
+292:                                              ; preds = %290, %275, %72, %66, %41, %32, %27, %21
+  call void @llvm.lifetime.end.p0(i64 40, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %293 = load i32, ptr %3, align 4
+  ret i32 %293
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPGetFeatures(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef %7, i64 noundef %8, ptr noundef %9, i32 noundef 521)
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i64 %1, ptr %5, align 8, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load i64, ptr %5, align 8, !tbaa !9
+  %9 = load ptr, ptr %6, align 8, !tbaa !23
+  %10 = call i32 @WebPGetFeaturesInternal(ptr noundef %7, i64 noundef %8, ptr noundef %9, i32 noundef 528)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @GetBit(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @GetBit(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -521,16 +557,17 @@ define internal i32 @GetBit(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  %12 = load ptr, ptr %8, align 8
-  %13 = load i64, ptr %12, align 8
-  %14 = load i64, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i64 %1, ptr %6, align 8, !tbaa !9
+  store i64 %2, ptr %7, align 8, !tbaa !9
+  store ptr %3, ptr %8, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4, !tbaa !11
+  %12 = load ptr, ptr %8, align 8, !tbaa !25
+  %13 = load i64, ptr %12, align 8, !tbaa !9
+  %14 = load i64, ptr %6, align 8, !tbaa !9
   %15 = add i64 %13, %14
-  %16 = load i64, ptr %7, align 8
+  %16 = load i64, ptr %7, align 8, !tbaa !9
   %17 = mul i64 8, %16
   %18 = icmp ule i64 %15, %17
   br i1 %18, label %19, label %48
@@ -539,25 +576,27 @@ define internal i32 @GetBit(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   br label %20
 
 20:                                               ; preds = %24, %19
-  %21 = load i64, ptr %6, align 8
+  %21 = load i64, ptr %6, align 8, !tbaa !9
   %22 = add i64 %21, -1
-  store i64 %22, ptr %6, align 8
+  store i64 %22, ptr %6, align 8, !tbaa !9
   %23 = icmp ugt i64 %21, 0
   br i1 %23, label %24, label %47
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i64, ptr %25, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %25 = load ptr, ptr %8, align 8, !tbaa !25
+  %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = add i64 %26, 1
-  store i64 %27, ptr %25, align 8
-  store i64 %26, ptr %10, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i64, ptr %10, align 8
+  store i64 %27, ptr %25, align 8, !tbaa !9
+  store i64 %26, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %28 = load ptr, ptr %5, align 8, !tbaa !4
+  %29 = load i64, ptr %10, align 8, !tbaa !9
   %30 = lshr i64 %29, 3
-  %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  %32 = load i8, ptr %31, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !16
   %33 = zext i8 %32 to i32
-  %34 = load i64, ptr %10, align 8
+  %34 = load i64, ptr %10, align 8, !tbaa !9
   %35 = and i64 %34, 7
   %36 = trunc i64 %35 to i32
   %37 = ashr i32 128, %36
@@ -566,52 +605,76 @@ define internal i32 @GetBit(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   %40 = xor i1 %39, true
   %41 = xor i1 %40, true
   %42 = zext i1 %41 to i32
-  store i32 %42, ptr %11, align 4
-  %43 = load i32, ptr %9, align 4
+  store i32 %42, ptr %11, align 4, !tbaa !11
+  %43 = load i32, ptr %9, align 4, !tbaa !11
   %44 = shl i32 %43, 1
-  %45 = load i32, ptr %11, align 4
+  %45 = load i32, ptr %11, align 4, !tbaa !11
   %46 = or i32 %44, %45
-  store i32 %46, ptr %9, align 4
-  br label %20, !llvm.loop !11
+  store i32 %46, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %20, !llvm.loop !27
 
 47:                                               ; preds = %20
   br label %50
 
 48:                                               ; preds = %4
-  %49 = load ptr, ptr %8, align 8
-  store i64 -9223372036854775808, ptr %49, align 8
+  %49 = load ptr, ptr %8, align 8, !tbaa !25
+  store i64 -9223372036854775808, ptr %49, align 8, !tbaa !9
   br label %50
 
 50:                                               ; preds = %48, %47
-  %51 = load i32, ptr %9, align 4
+  %51 = load i32, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %51
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #2
+declare double @pow(double noundef, double noundef) #4
 
-declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #3
+declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !12, i64 16}
+!14 = !{!"WebPBitstreamFeatures", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !7, i64 20}
+!15 = !{!14, !12, i64 12}
+!16 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS21WebPBitstreamFeatures", !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 long", !6, i64 0}
+!27 = distinct !{!27, !18}

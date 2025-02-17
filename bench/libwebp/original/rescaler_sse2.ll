@@ -2,6 +2,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.WebPRescaler = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr }
+%struct.__storeu_si128 = type { <2 x i64> }
+%struct.__mm_loadl_epi64_struct = type { i64 }
+%struct.__loadu_si128 = type { <2 x i64> }
+%struct.__mm_storel_epi64_struct = type { i64 }
 
 @WebPRescalerImportRowExpand = external global ptr, align 8
 @WebPRescalerImportRowShrink = external global ptr, align 8
@@ -10,353 +14,355 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPRescalerDspInitSSE2() #0 {
-  store ptr @RescalerImportRowExpand_SSE2, ptr @WebPRescalerImportRowExpand, align 8
-  store ptr @RescalerImportRowShrink_SSE2, ptr @WebPRescalerImportRowShrink, align 8
-  store ptr @RescalerExportRowExpand_SSE2, ptr @WebPRescalerExportRowExpand, align 8
-  store ptr @RescalerExportRowShrink_SSE2, ptr @WebPRescalerExportRowShrink, align 8
+  store ptr @RescalerImportRowExpand_SSE2, ptr @WebPRescalerImportRowExpand, align 8, !tbaa !3
+  store ptr @RescalerImportRowShrink_SSE2, ptr @WebPRescalerImportRowShrink, align 8, !tbaa !3
+  store ptr @RescalerExportRowExpand_SSE2, ptr @WebPRescalerExportRowExpand, align 8, !tbaa !3
+  store ptr @RescalerExportRowShrink_SSE2, ptr @WebPRescalerExportRowShrink, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
+define internal void @RescalerImportRowExpand_SSE2(ptr noalias noundef %0, ptr noalias noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca <2 x i64>, align 16
+  %10 = alloca i32, align 4
+  %11 = alloca <2 x i64>, align 16
+  %12 = alloca <2 x i64>, align 16
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %17 = load ptr, ptr %3, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %17, i32 0, i32 20
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  store ptr %19, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %20 = load ptr, ptr %5, align 8, !tbaa !15
+  %21 = load ptr, ptr %3, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %21, i32 0, i32 13
+  %23 = load i32, ptr %22, align 4, !tbaa !16
+  %24 = load ptr, ptr %3, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %24, i32 0, i32 2
+  %26 = load i32, ptr %25, align 8, !tbaa !17
+  %27 = mul nsw i32 %23, %26
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %20, i64 %28
+  store ptr %29, ptr %6, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %30 = load ptr, ptr %3, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 4, !tbaa !18
+  store i32 %32, ptr %7, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %33 = load i32, ptr %7, align 4, !tbaa !19
+  store i32 %33, ptr %8, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #9
+  %34 = load ptr, ptr %3, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %34, i32 0, i32 11
+  %36 = load i32, ptr %35, align 4, !tbaa !20
+  %37 = icmp slt i32 %36, 8
+  br i1 %37, label %41, label %38
+
+38:                                               ; preds = %2
+  %39 = load i32, ptr %8, align 4, !tbaa !19
+  %40 = icmp sge i32 %39, 32768
+  br i1 %40, label %41, label %44
+
+41:                                               ; preds = %38, %2
+  %42 = load ptr, ptr %3, align 8, !tbaa !7
+  %43 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @WebPRescalerImportRowExpand_C(ptr noundef %42, ptr noundef %43)
+  store i32 1, ptr %10, align 4
+  br label %177
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %3, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %45, i32 0, i32 2
+  %47 = load i32, ptr %46, align 8, !tbaa !17
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %49, label %93
+
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @LoadTwoPixels_SSE2(ptr noundef %50, ptr noundef %9)
+  %51 = load ptr, ptr %4, align 8, !tbaa !9
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store ptr %52, ptr %4, align 8, !tbaa !9
+  br label %53
+
+53:                                               ; preds = %91, %49
+  br label %54
+
+54:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #9
+  %55 = load i32, ptr %7, align 4, !tbaa !19
+  %56 = load i32, ptr %8, align 4, !tbaa !19
+  %57 = sub nsw i32 %55, %56
+  %58 = shl i32 %57, 16
+  %59 = load i32, ptr %8, align 4, !tbaa !19
+  %60 = or i32 %58, %59
+  %61 = call <2 x i64> @_mm_set1_epi32(i32 noundef %60)
+  store <2 x i64> %61, ptr %11, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #9
+  %62 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %63 = load <2 x i64>, ptr %11, align 16, !tbaa !21
+  %64 = call <2 x i64> @_mm_madd_epi16(<2 x i64> noundef %62, <2 x i64> noundef %63)
+  store <2 x i64> %64, ptr %12, align 16, !tbaa !21
+  %65 = load ptr, ptr %5, align 8, !tbaa !15
+  %66 = load <2 x i64>, ptr %12, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %65, <2 x i64> noundef %66)
+  %67 = load ptr, ptr %5, align 8, !tbaa !15
+  %68 = getelementptr inbounds i32, ptr %67, i64 4
+  store ptr %68, ptr %5, align 8, !tbaa !15
+  %69 = load ptr, ptr %5, align 8, !tbaa !15
+  %70 = load ptr, ptr %6, align 8, !tbaa !15
+  %71 = icmp uge ptr %69, %70
+  br i1 %71, label %72, label %73
+
+72:                                               ; preds = %54
+  store i32 3, ptr %10, align 4
+  br label %89
+
+73:                                               ; preds = %54
+  %74 = load ptr, ptr %3, align 8, !tbaa !7
+  %75 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %74, i32 0, i32 10
+  %76 = load i32, ptr %75, align 8, !tbaa !22
+  %77 = load i32, ptr %8, align 4, !tbaa !19
+  %78 = sub nsw i32 %77, %76
+  store i32 %78, ptr %8, align 4, !tbaa !19
+  %79 = load i32, ptr %8, align 4, !tbaa !19
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %81, label %88
+
+81:                                               ; preds = %73
+  %82 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @LoadTwoPixels_SSE2(ptr noundef %82, ptr noundef %9)
+  %83 = load ptr, ptr %4, align 8, !tbaa !9
+  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  store ptr %84, ptr %4, align 8, !tbaa !9
+  %85 = load i32, ptr %7, align 4, !tbaa !19
+  %86 = load i32, ptr %8, align 4, !tbaa !19
+  %87 = add nsw i32 %86, %85
+  store i32 %87, ptr %8, align 4, !tbaa !19
+  br label %88
+
+88:                                               ; preds = %81, %73
+  store i32 0, ptr %10, align 4
+  br label %89
+
+89:                                               ; preds = %88, %72
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #9
+  %90 = load i32, ptr %10, align 4
+  switch i32 %90, label %180 [
+    i32 0, label %91
+    i32 3, label %92
+  ]
+
+91:                                               ; preds = %89
+  br label %53
+
+92:                                               ; preds = %89
+  br label %176
+
+93:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %94 = load ptr, ptr %4, align 8, !tbaa !9
+  %95 = load ptr, ptr %3, align 8, !tbaa !7
+  %96 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %95, i32 0, i32 11
+  %97 = load i32, ptr %96, align 4, !tbaa !20
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr %94, i64 %98
+  %100 = getelementptr inbounds i8, ptr %99, i64 -8
+  store ptr %100, ptr %14, align 8, !tbaa !9
+  %101 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @LoadEightPixels_SSE2(ptr noundef %101, ptr noundef %9)
+  %102 = load ptr, ptr %4, align 8, !tbaa !9
+  %103 = getelementptr inbounds i8, ptr %102, i64 7
+  store ptr %103, ptr %4, align 8, !tbaa !9
+  store i32 7, ptr %13, align 4, !tbaa !19
+  br label %104
+
+104:                                              ; preds = %174, %93
+  br label %105
+
+105:                                              ; preds = %104
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #9
+  %106 = load i32, ptr %7, align 4, !tbaa !19
+  %107 = load i32, ptr %8, align 4, !tbaa !19
+  %108 = sub nsw i32 %106, %107
+  %109 = shl i32 %108, 16
+  %110 = load i32, ptr %8, align 4, !tbaa !19
+  %111 = or i32 %109, %110
+  %112 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %111)
+  store <2 x i64> %112, ptr %15, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #9
+  %113 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %114 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %115 = call <2 x i64> @_mm_madd_epi16(<2 x i64> noundef %113, <2 x i64> noundef %114)
+  store <2 x i64> %115, ptr %16, align 16, !tbaa !21
+  %116 = load ptr, ptr %5, align 8, !tbaa !15
+  %117 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %118 = call i32 @_mm_cvtsi128_si32(<2 x i64> noundef %117)
+  call void @WebPInt32ToMem(ptr noundef %116, i32 noundef %118)
+  %119 = load ptr, ptr %5, align 8, !tbaa !15
+  %120 = getelementptr inbounds i32, ptr %119, i64 1
+  store ptr %120, ptr %5, align 8, !tbaa !15
+  %121 = load ptr, ptr %5, align 8, !tbaa !15
+  %122 = load ptr, ptr %6, align 8, !tbaa !15
+  %123 = icmp uge ptr %121, %122
+  br i1 %123, label %124, label %125
+
+124:                                              ; preds = %105
+  store i32 5, ptr %10, align 4
+  br label %172
+
+125:                                              ; preds = %105
+  %126 = load ptr, ptr %3, align 8, !tbaa !7
+  %127 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %126, i32 0, i32 10
+  %128 = load i32, ptr %127, align 8, !tbaa !22
+  %129 = load i32, ptr %8, align 4, !tbaa !19
+  %130 = sub nsw i32 %129, %128
+  store i32 %130, ptr %8, align 4, !tbaa !19
+  %131 = load i32, ptr %8, align 4, !tbaa !19
+  %132 = icmp slt i32 %131, 0
+  br i1 %132, label %133, label %171
+
+133:                                              ; preds = %125
+  %134 = load i32, ptr %13, align 4, !tbaa !19
+  %135 = add nsw i32 %134, -1
+  store i32 %135, ptr %13, align 4, !tbaa !19
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %142
+
+137:                                              ; preds = %133
+  %138 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %139 = bitcast <2 x i64> %138 to <16 x i8>
+  %140 = shufflevector <16 x i8> %139, <16 x i8> zeroinitializer, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17>
+  %141 = bitcast <16 x i8> %140 to <2 x i64>
+  store <2 x i64> %141, ptr %9, align 16, !tbaa !21
+  br label %167
+
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %4, align 8, !tbaa !9
+  %144 = load ptr, ptr %14, align 8, !tbaa !9
+  %145 = icmp ule ptr %143, %144
+  br i1 %145, label %146, label %150
+
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @LoadEightPixels_SSE2(ptr noundef %147, ptr noundef %9)
+  %148 = load ptr, ptr %4, align 8, !tbaa !9
+  %149 = getelementptr inbounds i8, ptr %148, i64 7
+  store ptr %149, ptr %4, align 8, !tbaa !9
+  store i32 7, ptr %13, align 4, !tbaa !19
+  br label %166
+
+150:                                              ; preds = %142
+  %151 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %152 = bitcast <2 x i64> %151 to <16 x i8>
+  %153 = shufflevector <16 x i8> %152, <16 x i8> zeroinitializer, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17>
+  %154 = bitcast <16 x i8> %153 to <2 x i64>
+  store <2 x i64> %154, ptr %9, align 16, !tbaa !21
+  %155 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %156 = bitcast <2 x i64> %155 to <8 x i16>
+  %157 = load ptr, ptr %4, align 8, !tbaa !9
+  %158 = getelementptr inbounds i8, ptr %157, i64 1
+  %159 = load i8, ptr %158, align 1, !tbaa !21
+  %160 = zext i8 %159 to i32
+  %161 = trunc i32 %160 to i16
+  %162 = insertelement <8 x i16> %156, i16 %161, i64 1
+  %163 = bitcast <8 x i16> %162 to <2 x i64>
+  store <2 x i64> %163, ptr %9, align 16, !tbaa !21
+  %164 = load ptr, ptr %4, align 8, !tbaa !9
+  %165 = getelementptr inbounds i8, ptr %164, i64 1
+  store ptr %165, ptr %4, align 8, !tbaa !9
+  store i32 1, ptr %13, align 4, !tbaa !19
+  br label %166
+
+166:                                              ; preds = %150, %146
+  br label %167
+
+167:                                              ; preds = %166, %137
+  %168 = load i32, ptr %7, align 4, !tbaa !19
+  %169 = load i32, ptr %8, align 4, !tbaa !19
+  %170 = add nsw i32 %169, %168
+  store i32 %170, ptr %8, align 4, !tbaa !19
+  br label %171
+
+171:                                              ; preds = %167, %125
+  store i32 0, ptr %10, align 4
+  br label %172
+
+172:                                              ; preds = %171, %124
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #9
+  %173 = load i32, ptr %10, align 4
+  switch i32 %173, label %180 [
+    i32 0, label %174
+    i32 5, label %175
+  ]
+
+174:                                              ; preds = %172
+  br label %104
+
+175:                                              ; preds = %172
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  br label %176
+
+176:                                              ; preds = %175, %92
+  store i32 0, ptr %10, align 4
+  br label %177
+
+177:                                              ; preds = %176, %41
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %178 = load i32, ptr %10, align 4
+  switch i32 %178, label %180 [
+    i32 0, label %179
+    i32 1, label %179
+  ]
+
+179:                                              ; preds = %177, %177
+  ret void
+
+180:                                              ; preds = %177, %172, %89
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr noalias noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = alloca <4 x i32>, align 16
+  %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
-  %9 = alloca <4 x i32>, align 16
-  %10 = alloca i32, align 4
-  %11 = alloca <4 x i32>, align 16
+  %9 = alloca <2 x i64>, align 16
+  %10 = alloca <2 x i64>, align 16
+  %11 = alloca <2 x i64>, align 16
   %12 = alloca ptr, align 8
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
   %15 = alloca <2 x i64>, align 16
   %16 = alloca <2 x i64>, align 16
   %17 = alloca <2 x i64>, align 16
-  %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca i32, align 4
-  %24 = alloca i32, align 4
-  %25 = alloca <2 x i64>, align 16
-  %26 = alloca <2 x i64>, align 16
-  %27 = alloca <2 x i64>, align 16
-  %28 = alloca i32, align 4
-  %29 = alloca ptr, align 8
-  %30 = alloca <2 x i64>, align 16
-  %31 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %19, align 8
-  store ptr %1, ptr %20, align 8
-  %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds %struct.WebPRescaler, ptr %32, i32 0, i32 20
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %21, align 8
-  %35 = load ptr, ptr %21, align 8
-  %36 = load ptr, ptr %19, align 8
-  %37 = getelementptr inbounds %struct.WebPRescaler, ptr %36, i32 0, i32 13
-  %38 = load i32, ptr %37, align 4
-  %39 = load ptr, ptr %19, align 8
-  %40 = getelementptr inbounds %struct.WebPRescaler, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 8
-  %42 = mul nsw i32 %38, %41
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %35, i64 %43
-  store ptr %44, ptr %22, align 8
-  %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr inbounds %struct.WebPRescaler, ptr %45, i32 0, i32 9
-  %47 = load i32, ptr %46, align 4
-  store i32 %47, ptr %23, align 4
-  %48 = load i32, ptr %23, align 4
-  store i32 %48, ptr %24, align 4
-  %49 = load ptr, ptr %19, align 8
-  %50 = getelementptr inbounds %struct.WebPRescaler, ptr %49, i32 0, i32 11
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp slt i32 %51, 8
-  br i1 %52, label %56, label %53
-
-53:                                               ; preds = %2
-  %54 = load i32, ptr %24, align 4
-  %55 = icmp sge i32 %54, 32768
-  br i1 %55, label %56, label %59
-
-56:                                               ; preds = %53, %2
-  %57 = load ptr, ptr %19, align 8
-  %58 = load ptr, ptr %20, align 8
-  call void @WebPRescalerImportRowExpand_C(ptr noundef %57, ptr noundef %58)
-  br label %217
-
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %19, align 8
-  %61 = getelementptr inbounds %struct.WebPRescaler, ptr %60, i32 0, i32 2
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, 4
-  br i1 %63, label %64, label %124
-
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %20, align 8
-  call void @LoadTwoPixels_SSE2(ptr noundef %65, ptr noundef %25)
-  %66 = load ptr, ptr %20, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
-  store ptr %67, ptr %20, align 8
-  br label %68
-
-68:                                               ; preds = %122, %64
-  %69 = load i32, ptr %23, align 4
-  %70 = load i32, ptr %24, align 4
-  %71 = sub nsw i32 %69, %70
-  %72 = shl i32 %71, 16
-  %73 = load i32, ptr %24, align 4
-  %74 = or i32 %72, %73
-  store i32 %74, ptr %18, align 4
-  %75 = load i32, ptr %18, align 4
-  %76 = load i32, ptr %18, align 4
-  %77 = load i32, ptr %18, align 4
-  %78 = load i32, ptr %18, align 4
-  store i32 %75, ptr %3, align 4
-  store i32 %76, ptr %4, align 4
-  store i32 %77, ptr %5, align 4
-  store i32 %78, ptr %6, align 4
-  %79 = load i32, ptr %6, align 4
-  %80 = insertelement <4 x i32> poison, i32 %79, i32 0
-  %81 = load i32, ptr %5, align 4
-  %82 = insertelement <4 x i32> %80, i32 %81, i32 1
-  %83 = load i32, ptr %4, align 4
-  %84 = insertelement <4 x i32> %82, i32 %83, i32 2
-  %85 = load i32, ptr %3, align 4
-  %86 = insertelement <4 x i32> %84, i32 %85, i32 3
-  store <4 x i32> %86, ptr %7, align 16
-  %87 = load <4 x i32>, ptr %7, align 16
-  %88 = bitcast <4 x i32> %87 to <2 x i64>
-  store <2 x i64> %88, ptr %26, align 16
-  %89 = load <2 x i64>, ptr %25, align 16
-  %90 = load <2 x i64>, ptr %26, align 16
-  store <2 x i64> %89, ptr %14, align 16
-  store <2 x i64> %90, ptr %15, align 16
-  %91 = load <2 x i64>, ptr %14, align 16
-  %92 = bitcast <2 x i64> %91 to <8 x i16>
-  %93 = load <2 x i64>, ptr %15, align 16
-  %94 = bitcast <2 x i64> %93 to <8 x i16>
-  %95 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %92, <8 x i16> %94)
-  %96 = bitcast <4 x i32> %95 to <2 x i64>
-  store <2 x i64> %96, ptr %27, align 16
-  %97 = load ptr, ptr %21, align 8
-  %98 = load <2 x i64>, ptr %27, align 16
-  store ptr %97, ptr %12, align 8
-  store <2 x i64> %98, ptr %13, align 16
-  %99 = load <2 x i64>, ptr %13, align 16
-  %100 = load ptr, ptr %12, align 8
-  store <2 x i64> %99, ptr %100, align 1
-  %101 = load ptr, ptr %21, align 8
-  %102 = getelementptr inbounds i32, ptr %101, i64 4
-  store ptr %102, ptr %21, align 8
-  %103 = load ptr, ptr %21, align 8
-  %104 = load ptr, ptr %22, align 8
-  %105 = icmp uge ptr %103, %104
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %68
-  br label %123
-
-107:                                              ; preds = %68
-  %108 = load ptr, ptr %19, align 8
-  %109 = getelementptr inbounds %struct.WebPRescaler, ptr %108, i32 0, i32 10
-  %110 = load i32, ptr %109, align 8
-  %111 = load i32, ptr %24, align 4
-  %112 = sub nsw i32 %111, %110
-  store i32 %112, ptr %24, align 4
-  %113 = load i32, ptr %24, align 4
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %115, label %122
-
-115:                                              ; preds = %107
-  %116 = load ptr, ptr %20, align 8
-  call void @LoadTwoPixels_SSE2(ptr noundef %116, ptr noundef %25)
-  %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
-  store ptr %118, ptr %20, align 8
-  %119 = load i32, ptr %23, align 4
-  %120 = load i32, ptr %24, align 4
-  %121 = add nsw i32 %120, %119
-  store i32 %121, ptr %24, align 4
-  br label %122
-
-122:                                              ; preds = %115, %107
-  br label %68
-
-123:                                              ; preds = %106
-  br label %217
-
-124:                                              ; preds = %59
-  %125 = load ptr, ptr %20, align 8
-  %126 = load ptr, ptr %19, align 8
-  %127 = getelementptr inbounds %struct.WebPRescaler, ptr %126, i32 0, i32 11
-  %128 = load i32, ptr %127, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr %125, i64 %129
-  %131 = getelementptr inbounds i8, ptr %130, i64 -8
-  store ptr %131, ptr %29, align 8
-  %132 = load ptr, ptr %20, align 8
-  call void @LoadEightPixels_SSE2(ptr noundef %132, ptr noundef %25)
-  %133 = load ptr, ptr %20, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 7
-  store ptr %134, ptr %20, align 8
-  store i32 7, ptr %28, align 4
-  br label %135
-
-135:                                              ; preds = %215, %124
-  %136 = load i32, ptr %23, align 4
-  %137 = load i32, ptr %24, align 4
-  %138 = sub nsw i32 %136, %137
-  %139 = shl i32 %138, 16
-  %140 = load i32, ptr %24, align 4
-  %141 = or i32 %139, %140
-  store i32 %141, ptr %10, align 4
-  %142 = load i32, ptr %10, align 4
-  %143 = insertelement <4 x i32> poison, i32 %142, i32 0
-  %144 = insertelement <4 x i32> %143, i32 0, i32 1
-  %145 = insertelement <4 x i32> %144, i32 0, i32 2
-  %146 = insertelement <4 x i32> %145, i32 0, i32 3
-  store <4 x i32> %146, ptr %11, align 16
-  %147 = load <4 x i32>, ptr %11, align 16
-  %148 = bitcast <4 x i32> %147 to <2 x i64>
-  store <2 x i64> %148, ptr %30, align 16
-  %149 = load <2 x i64>, ptr %25, align 16
-  %150 = load <2 x i64>, ptr %30, align 16
-  store <2 x i64> %149, ptr %16, align 16
-  store <2 x i64> %150, ptr %17, align 16
-  %151 = load <2 x i64>, ptr %16, align 16
-  %152 = bitcast <2 x i64> %151 to <8 x i16>
-  %153 = load <2 x i64>, ptr %17, align 16
-  %154 = bitcast <2 x i64> %153 to <8 x i16>
-  %155 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %152, <8 x i16> %154)
-  %156 = bitcast <4 x i32> %155 to <2 x i64>
-  store <2 x i64> %156, ptr %31, align 16
-  %157 = load ptr, ptr %21, align 8
-  %158 = load <2 x i64>, ptr %31, align 16
-  store <2 x i64> %158, ptr %8, align 16
-  %159 = load <2 x i64>, ptr %8, align 16
-  %160 = bitcast <2 x i64> %159 to <4 x i32>
-  store <4 x i32> %160, ptr %9, align 16
-  %161 = load <4 x i32>, ptr %9, align 16
-  %162 = extractelement <4 x i32> %161, i32 0
-  call void @WebPInt32ToMem(ptr noundef %157, i32 noundef %162)
-  %163 = load ptr, ptr %21, align 8
-  %164 = getelementptr inbounds i32, ptr %163, i64 1
-  store ptr %164, ptr %21, align 8
-  %165 = load ptr, ptr %21, align 8
-  %166 = load ptr, ptr %22, align 8
-  %167 = icmp uge ptr %165, %166
-  br i1 %167, label %168, label %169
-
-168:                                              ; preds = %135
-  br label %216
-
-169:                                              ; preds = %135
-  %170 = load ptr, ptr %19, align 8
-  %171 = getelementptr inbounds %struct.WebPRescaler, ptr %170, i32 0, i32 10
-  %172 = load i32, ptr %171, align 8
-  %173 = load i32, ptr %24, align 4
-  %174 = sub nsw i32 %173, %172
-  store i32 %174, ptr %24, align 4
-  %175 = load i32, ptr %24, align 4
-  %176 = icmp slt i32 %175, 0
-  br i1 %176, label %177, label %215
-
-177:                                              ; preds = %169
-  %178 = load i32, ptr %28, align 4
-  %179 = add nsw i32 %178, -1
-  store i32 %179, ptr %28, align 4
-  %180 = icmp ne i32 %179, 0
-  br i1 %180, label %181, label %186
-
-181:                                              ; preds = %177
-  %182 = load <2 x i64>, ptr %25, align 16
-  %183 = bitcast <2 x i64> %182 to <16 x i8>
-  %184 = shufflevector <16 x i8> %183, <16 x i8> zeroinitializer, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17>
-  %185 = bitcast <16 x i8> %184 to <2 x i64>
-  store <2 x i64> %185, ptr %25, align 16
-  br label %211
-
-186:                                              ; preds = %177
-  %187 = load ptr, ptr %20, align 8
-  %188 = load ptr, ptr %29, align 8
-  %189 = icmp ule ptr %187, %188
-  br i1 %189, label %190, label %194
-
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %20, align 8
-  call void @LoadEightPixels_SSE2(ptr noundef %191, ptr noundef %25)
-  %192 = load ptr, ptr %20, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 7
-  store ptr %193, ptr %20, align 8
-  store i32 7, ptr %28, align 4
-  br label %210
-
-194:                                              ; preds = %186
-  %195 = load <2 x i64>, ptr %25, align 16
-  %196 = bitcast <2 x i64> %195 to <16 x i8>
-  %197 = shufflevector <16 x i8> %196, <16 x i8> zeroinitializer, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17>
-  %198 = bitcast <16 x i8> %197 to <2 x i64>
-  store <2 x i64> %198, ptr %25, align 16
-  %199 = load <2 x i64>, ptr %25, align 16
-  %200 = bitcast <2 x i64> %199 to <8 x i16>
-  %201 = load ptr, ptr %20, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 1
-  %203 = load i8, ptr %202, align 1
-  %204 = zext i8 %203 to i32
-  %205 = trunc i32 %204 to i16
-  %206 = insertelement <8 x i16> %200, i16 %205, i64 1
-  %207 = bitcast <8 x i16> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %25, align 16
-  %208 = load ptr, ptr %20, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 1
-  store ptr %209, ptr %20, align 8
-  store i32 1, ptr %28, align 4
-  br label %210
-
-210:                                              ; preds = %194, %190
-  br label %211
-
-211:                                              ; preds = %210, %181
-  %212 = load i32, ptr %23, align 4
-  %213 = load i32, ptr %24, align 4
-  %214 = add nsw i32 %213, %212
-  store i32 %214, ptr %24, align 4
-  br label %215
-
-215:                                              ; preds = %211, %169
-  br label %135
-
-216:                                              ; preds = %168
-  br label %217
-
-217:                                              ; preds = %216, %123, %56
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca i16, align 2
-  %4 = alloca i16, align 2
-  %5 = alloca i16, align 2
-  %6 = alloca i16, align 2
-  %7 = alloca i16, align 2
-  %8 = alloca i16, align 2
-  %9 = alloca i16, align 2
-  %10 = alloca i16, align 2
-  %11 = alloca <8 x i16>, align 16
-  %12 = alloca i16, align 2
-  %13 = alloca i16, align 2
-  %14 = alloca i16, align 2
-  %15 = alloca i16, align 2
-  %16 = alloca i16, align 2
-  %17 = alloca i16, align 2
-  %18 = alloca i16, align 2
-  %19 = alloca i16, align 2
-  %20 = alloca <8 x i16>, align 16
+  %18 = alloca <2 x i64>, align 16
+  %19 = alloca <2 x i64>, align 16
+  %20 = alloca <2 x i64>, align 16
   %21 = alloca <2 x i64>, align 16
   %22 = alloca <2 x i64>, align 16
   %23 = alloca <2 x i64>, align 16
@@ -369,1819 +375,282 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
   %30 = alloca <2 x i64>, align 16
   %31 = alloca <2 x i64>, align 16
   %32 = alloca <2 x i64>, align 16
-  %33 = alloca <2 x i64>, align 16
-  %34 = alloca i32, align 4
-  %35 = alloca <2 x i64>, align 16
-  %36 = alloca <2 x i64>, align 16
-  %37 = alloca <2 x i64>, align 16
-  %38 = alloca <2 x i64>, align 16
-  %39 = alloca <2 x i64>, align 16
-  %40 = alloca <2 x i64>, align 16
-  %41 = alloca <2 x i64>, align 16
-  %42 = alloca <2 x i64>, align 16
-  %43 = alloca <2 x i64>, align 16
-  %44 = alloca <2 x i64>, align 16
-  %45 = alloca <2 x i64>, align 16
-  %46 = alloca <2 x i64>, align 16
-  %47 = alloca i16, align 2
-  %48 = alloca i16, align 2
-  %49 = alloca i32, align 4
-  %50 = alloca i32, align 4
-  %51 = alloca i32, align 4
-  %52 = alloca i32, align 4
-  %53 = alloca <4 x i32>, align 16
-  %54 = alloca i32, align 4
-  %55 = alloca i32, align 4
-  %56 = alloca i32, align 4
-  %57 = alloca i32, align 4
-  %58 = alloca <4 x i32>, align 16
-  %59 = alloca <2 x i64>, align 16
-  %60 = alloca <2 x i64>, align 16
-  %61 = alloca <2 x i64>, align 16
-  %62 = alloca <2 x i64>, align 16
-  %63 = alloca <2 x i64>, align 16
-  %64 = alloca <2 x i64>, align 16
-  %65 = alloca <2 x i64>, align 16
-  %66 = alloca i32, align 4
-  %67 = alloca <4 x i32>, align 16
-  %68 = alloca ptr, align 8
-  %69 = alloca <2 x i64>, align 16
-  %70 = alloca i32, align 4
-  %71 = alloca ptr, align 8
-  %72 = alloca ptr, align 8
-  %73 = alloca i32, align 4
-  %74 = alloca i32, align 4
-  %75 = alloca <2 x i64>, align 16
-  %76 = alloca <2 x i64>, align 16
-  %77 = alloca <2 x i64>, align 16
-  %78 = alloca <2 x i64>, align 16
-  %79 = alloca <2 x i64>, align 16
-  %80 = alloca ptr, align 8
-  %81 = alloca ptr, align 8
-  %82 = alloca <2 x i64>, align 16
-  %83 = alloca <2 x i64>, align 16
-  %84 = alloca <2 x i64>, align 16
-  %85 = alloca <2 x i64>, align 16
-  %86 = alloca <2 x i64>, align 16
-  %87 = alloca <2 x i64>, align 16
-  %88 = alloca <2 x i64>, align 16
-  %89 = alloca <2 x i64>, align 16
-  %90 = alloca <2 x i64>, align 16
-  %91 = alloca <2 x i64>, align 16
-  %92 = alloca <2 x i64>, align 16
-  %93 = alloca <2 x i64>, align 16
-  %94 = alloca <2 x i64>, align 16
-  %95 = alloca <2 x i64>, align 16
-  %96 = alloca <2 x i64>, align 16
-  %97 = alloca <2 x i64>, align 16
-  %98 = alloca <2 x i64>, align 16
-  %99 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %71, align 8
-  store ptr %1, ptr %72, align 8
-  %100 = load ptr, ptr %71, align 8
-  %101 = getelementptr inbounds %struct.WebPRescaler, ptr %100, i32 0, i32 10
-  %102 = load i32, ptr %101, align 8
-  store i32 %102, ptr %73, align 4
-  store i32 0, ptr %74, align 4
-  store <2 x i64> zeroinitializer, ptr %65, align 16
-  %103 = load <2 x i64>, ptr %65, align 16
-  store <2 x i64> %103, ptr %75, align 16
-  %104 = load i32, ptr %73, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !7
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %33 = load ptr, ptr %3, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %33, i32 0, i32 10
+  %35 = load i32, ptr %34, align 8, !tbaa !22
+  store i32 %35, ptr %5, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  store i32 0, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %36 = call <2 x i64> @_mm_setzero_si128()
+  store <2 x i64> %36, ptr %7, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  %37 = load i32, ptr %5, align 4, !tbaa !19
+  %38 = trunc i32 %37 to i16
+  %39 = call <2 x i64> @_mm_set1_epi16(i16 noundef signext %38)
+  store <2 x i64> %39, ptr %8, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #9
+  %40 = load ptr, ptr %3, align 8, !tbaa !7
+  %41 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %40, i32 0, i32 3
+  %42 = load i32, ptr %41, align 4, !tbaa !23
+  %43 = call <2 x i64> @_mm_set1_epi32(i32 noundef %42)
+  store <2 x i64> %43, ptr %9, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #9
+  %44 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef -2147483648, i32 noundef 0, i32 noundef -2147483648)
+  store <2 x i64> %44, ptr %10, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #9
+  %45 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  store <2 x i64> %45, ptr %11, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %46 = load ptr, ptr %3, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %46, i32 0, i32 20
+  %48 = load ptr, ptr %47, align 8, !tbaa !11
+  store ptr %48, ptr %12, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %49 = load ptr, ptr %3, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %49, i32 0, i32 20
+  %51 = load ptr, ptr %50, align 8, !tbaa !11
+  %52 = load ptr, ptr %3, align 8, !tbaa !7
+  %53 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %52, i32 0, i32 13
+  %54 = load i32, ptr %53, align 4, !tbaa !16
+  %55 = mul nsw i32 4, %54
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i32, ptr %51, i64 %56
+  store ptr %57, ptr %13, align 8, !tbaa !15
+  %58 = load ptr, ptr %3, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %58, i32 0, i32 2
+  %60 = load i32, ptr %59, align 8, !tbaa !17
+  %61 = icmp ne i32 %60, 4
+  br i1 %61, label %69, label %62
+
+62:                                               ; preds = %2
+  %63 = load ptr, ptr %3, align 8, !tbaa !7
+  %64 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %63, i32 0, i32 9
+  %65 = load i32, ptr %64, align 4, !tbaa !18
+  %66 = load i32, ptr %5, align 4, !tbaa !19
+  %67 = shl i32 %66, 7
+  %68 = icmp sgt i32 %65, %67
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %62, %2
+  %70 = load ptr, ptr %3, align 8, !tbaa !7
+  %71 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @WebPRescalerImportRowShrink_C(ptr noundef %70, ptr noundef %71)
+  store i32 1, ptr %14, align 4
+  br label %162
+
+72:                                               ; preds = %62
+  br label %73
+
+73:                                               ; preds = %158, %72
+  %74 = load ptr, ptr %12, align 8, !tbaa !15
+  %75 = load ptr, ptr %13, align 8, !tbaa !15
+  %76 = icmp ult ptr %74, %75
+  br i1 %76, label %77, label %161
+
+77:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #9
+  %78 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  store <2 x i64> %78, ptr %15, align 16, !tbaa !21
+  %79 = load ptr, ptr %3, align 8, !tbaa !7
+  %80 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %79, i32 0, i32 9
+  %81 = load i32, ptr %80, align 4, !tbaa !18
+  %82 = load i32, ptr %6, align 4, !tbaa !19
+  %83 = add nsw i32 %82, %81
+  store i32 %83, ptr %6, align 4, !tbaa !19
+  br label %84
+
+84:                                               ; preds = %87, %77
+  %85 = load i32, ptr %6, align 4, !tbaa !19
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %102
+
+87:                                               ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #9
+  %88 = load ptr, ptr %4, align 8, !tbaa !9
+  %89 = call i32 @WebPMemToInt32(ptr noundef %88)
+  %90 = call <2 x i64> @_mm_cvtsi32_si128(i32 noundef %89)
+  store <2 x i64> %90, ptr %16, align 16, !tbaa !21
+  %91 = load ptr, ptr %4, align 8, !tbaa !9
+  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  store ptr %92, ptr %4, align 8, !tbaa !9
+  %93 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %94 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  %95 = call <2 x i64> @_mm_unpacklo_epi8(<2 x i64> noundef %93, <2 x i64> noundef %94)
+  store <2 x i64> %95, ptr %15, align 16, !tbaa !21
+  %96 = load <2 x i64>, ptr %11, align 16, !tbaa !21
+  %97 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %98 = call <2 x i64> @_mm_add_epi16(<2 x i64> noundef %96, <2 x i64> noundef %97)
+  store <2 x i64> %98, ptr %11, align 16, !tbaa !21
+  %99 = load i32, ptr %5, align 4, !tbaa !19
+  %100 = load i32, ptr %6, align 4, !tbaa !19
+  %101 = sub nsw i32 %100, %99
+  store i32 %101, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #9
+  br label %84, !llvm.loop !24
+
+102:                                              ; preds = %84
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #9
+  %103 = load i32, ptr %6, align 4, !tbaa !19
+  %104 = sub nsw i32 0, %103
   %105 = trunc i32 %104 to i16
-  store i16 %105, ptr %47, align 2
-  %106 = load i16, ptr %47, align 2
-  %107 = load i16, ptr %47, align 2
-  %108 = load i16, ptr %47, align 2
-  %109 = load i16, ptr %47, align 2
-  %110 = load i16, ptr %47, align 2
-  %111 = load i16, ptr %47, align 2
-  %112 = load i16, ptr %47, align 2
-  %113 = load i16, ptr %47, align 2
-  store i16 %106, ptr %12, align 2
-  store i16 %107, ptr %13, align 2
-  store i16 %108, ptr %14, align 2
-  store i16 %109, ptr %15, align 2
-  store i16 %110, ptr %16, align 2
-  store i16 %111, ptr %17, align 2
-  store i16 %112, ptr %18, align 2
-  store i16 %113, ptr %19, align 2
-  %114 = load i16, ptr %19, align 2
-  %115 = insertelement <8 x i16> poison, i16 %114, i32 0
-  %116 = load i16, ptr %18, align 2
-  %117 = insertelement <8 x i16> %115, i16 %116, i32 1
-  %118 = load i16, ptr %17, align 2
-  %119 = insertelement <8 x i16> %117, i16 %118, i32 2
-  %120 = load i16, ptr %16, align 2
-  %121 = insertelement <8 x i16> %119, i16 %120, i32 3
-  %122 = load i16, ptr %15, align 2
-  %123 = insertelement <8 x i16> %121, i16 %122, i32 4
-  %124 = load i16, ptr %14, align 2
-  %125 = insertelement <8 x i16> %123, i16 %124, i32 5
-  %126 = load i16, ptr %13, align 2
-  %127 = insertelement <8 x i16> %125, i16 %126, i32 6
-  %128 = load i16, ptr %12, align 2
-  %129 = insertelement <8 x i16> %127, i16 %128, i32 7
-  store <8 x i16> %129, ptr %20, align 16
-  %130 = load <8 x i16>, ptr %20, align 16
-  %131 = bitcast <8 x i16> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %76, align 16
-  %132 = load ptr, ptr %71, align 8
-  %133 = getelementptr inbounds %struct.WebPRescaler, ptr %132, i32 0, i32 3
-  %134 = load i32, ptr %133, align 4
-  store i32 %134, ptr %70, align 4
-  %135 = load i32, ptr %70, align 4
-  %136 = load i32, ptr %70, align 4
-  %137 = load i32, ptr %70, align 4
-  %138 = load i32, ptr %70, align 4
-  store i32 %135, ptr %54, align 4
-  store i32 %136, ptr %55, align 4
-  store i32 %137, ptr %56, align 4
-  store i32 %138, ptr %57, align 4
-  %139 = load i32, ptr %57, align 4
-  %140 = insertelement <4 x i32> poison, i32 %139, i32 0
-  %141 = load i32, ptr %56, align 4
-  %142 = insertelement <4 x i32> %140, i32 %141, i32 1
-  %143 = load i32, ptr %55, align 4
-  %144 = insertelement <4 x i32> %142, i32 %143, i32 2
-  %145 = load i32, ptr %54, align 4
-  %146 = insertelement <4 x i32> %144, i32 %145, i32 3
-  store <4 x i32> %146, ptr %58, align 16
-  %147 = load <4 x i32>, ptr %58, align 16
-  %148 = bitcast <4 x i32> %147 to <2 x i64>
-  store <2 x i64> %148, ptr %77, align 16
-  store i32 0, ptr %49, align 4
-  store i32 -2147483648, ptr %50, align 4
-  store i32 0, ptr %51, align 4
-  store i32 -2147483648, ptr %52, align 4
-  %149 = load i32, ptr %52, align 4
-  %150 = insertelement <4 x i32> poison, i32 %149, i32 0
-  %151 = load i32, ptr %51, align 4
-  %152 = insertelement <4 x i32> %150, i32 %151, i32 1
-  %153 = load i32, ptr %50, align 4
-  %154 = insertelement <4 x i32> %152, i32 %153, i32 2
-  %155 = load i32, ptr %49, align 4
-  %156 = insertelement <4 x i32> %154, i32 %155, i32 3
-  store <4 x i32> %156, ptr %53, align 16
-  %157 = load <4 x i32>, ptr %53, align 16
-  %158 = bitcast <4 x i32> %157 to <2 x i64>
-  store <2 x i64> %158, ptr %78, align 16
-  %159 = load <2 x i64>, ptr %75, align 16
-  store <2 x i64> %159, ptr %79, align 16
-  %160 = load ptr, ptr %71, align 8
-  %161 = getelementptr inbounds %struct.WebPRescaler, ptr %160, i32 0, i32 20
-  %162 = load ptr, ptr %161, align 8
-  store ptr %162, ptr %80, align 8
-  %163 = load ptr, ptr %71, align 8
-  %164 = getelementptr inbounds %struct.WebPRescaler, ptr %163, i32 0, i32 20
-  %165 = load ptr, ptr %164, align 8
-  %166 = load ptr, ptr %71, align 8
-  %167 = getelementptr inbounds %struct.WebPRescaler, ptr %166, i32 0, i32 13
-  %168 = load i32, ptr %167, align 4
-  %169 = mul nsw i32 4, %168
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i32, ptr %165, i64 %170
-  store ptr %171, ptr %81, align 8
-  %172 = load ptr, ptr %71, align 8
-  %173 = getelementptr inbounds %struct.WebPRescaler, ptr %172, i32 0, i32 2
-  %174 = load i32, ptr %173, align 8
-  %175 = icmp ne i32 %174, 4
-  br i1 %175, label %183, label %176
+  %106 = call <2 x i64> @_mm_set1_epi16(i16 noundef signext %105)
+  store <2 x i64> %106, ptr %17, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #9
+  %107 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %108 = load <2 x i64>, ptr %17, align 16, !tbaa !21
+  %109 = call <2 x i64> @_mm_mullo_epi16(<2 x i64> noundef %107, <2 x i64> noundef %108)
+  store <2 x i64> %109, ptr %18, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #9
+  %110 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %111 = load <2 x i64>, ptr %17, align 16, !tbaa !21
+  %112 = call <2 x i64> @_mm_mulhi_epu16(<2 x i64> noundef %110, <2 x i64> noundef %111)
+  store <2 x i64> %112, ptr %19, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #9
+  %113 = load <2 x i64>, ptr %18, align 16, !tbaa !21
+  %114 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %115 = call <2 x i64> @_mm_unpacklo_epi16(<2 x i64> noundef %113, <2 x i64> noundef %114)
+  store <2 x i64> %115, ptr %20, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #9
+  %116 = load <2 x i64>, ptr %11, align 16, !tbaa !21
+  %117 = load <2 x i64>, ptr %8, align 16, !tbaa !21
+  %118 = call <2 x i64> @_mm_mullo_epi16(<2 x i64> noundef %116, <2 x i64> noundef %117)
+  store <2 x i64> %118, ptr %21, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #9
+  %119 = load <2 x i64>, ptr %11, align 16, !tbaa !21
+  %120 = load <2 x i64>, ptr %8, align 16, !tbaa !21
+  %121 = call <2 x i64> @_mm_mulhi_epu16(<2 x i64> noundef %119, <2 x i64> noundef %120)
+  store <2 x i64> %121, ptr %22, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #9
+  %122 = load <2 x i64>, ptr %21, align 16, !tbaa !21
+  %123 = load <2 x i64>, ptr %22, align 16, !tbaa !21
+  %124 = call <2 x i64> @_mm_unpacklo_epi16(<2 x i64> noundef %122, <2 x i64> noundef %123)
+  store <2 x i64> %124, ptr %23, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #9
+  %125 = load <2 x i64>, ptr %23, align 16, !tbaa !21
+  %126 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %127 = call <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %125, <2 x i64> noundef %126)
+  store <2 x i64> %127, ptr %24, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #9
+  %128 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %129 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %128, i32 noundef 32)
+  store <2 x i64> %129, ptr %25, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #9
+  %130 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %131 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %132 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %130, <2 x i64> noundef %131)
+  store <2 x i64> %132, ptr %26, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #9
+  %133 = load <2 x i64>, ptr %25, align 16, !tbaa !21
+  %134 = load <2 x i64>, ptr %9, align 16, !tbaa !21
+  %135 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %133, <2 x i64> noundef %134)
+  store <2 x i64> %135, ptr %27, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #9
+  %136 = load <2 x i64>, ptr %26, align 16, !tbaa !21
+  %137 = load <2 x i64>, ptr %10, align 16, !tbaa !21
+  %138 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %136, <2 x i64> noundef %137)
+  store <2 x i64> %138, ptr %28, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #9
+  %139 = load <2 x i64>, ptr %27, align 16, !tbaa !21
+  %140 = load <2 x i64>, ptr %10, align 16, !tbaa !21
+  %141 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %139, <2 x i64> noundef %140)
+  store <2 x i64> %141, ptr %29, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #9
+  %142 = load <2 x i64>, ptr %28, align 16, !tbaa !21
+  %143 = bitcast <2 x i64> %142 to <4 x i32>
+  %144 = shufflevector <4 x i32> %143, <4 x i32> poison, <4 x i32> <i32 1, i32 3, i32 0, i32 0>
+  %145 = bitcast <4 x i32> %144 to <2 x i64>
+  store <2 x i64> %145, ptr %30, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #9
+  %146 = load <2 x i64>, ptr %29, align 16, !tbaa !21
+  %147 = bitcast <2 x i64> %146 to <4 x i32>
+  %148 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 1, i32 3, i32 0, i32 0>
+  %149 = bitcast <4 x i32> %148 to <2 x i64>
+  store <2 x i64> %149, ptr %31, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %32) #9
+  %150 = load <2 x i64>, ptr %30, align 16, !tbaa !21
+  %151 = load <2 x i64>, ptr %31, align 16, !tbaa !21
+  %152 = call <2 x i64> @_mm_unpacklo_epi32(<2 x i64> noundef %150, <2 x i64> noundef %151)
+  store <2 x i64> %152, ptr %32, align 16, !tbaa !21
+  %153 = load <2 x i64>, ptr %32, align 16, !tbaa !21
+  %154 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  %155 = call <2 x i64> @_mm_packs_epi32(<2 x i64> noundef %153, <2 x i64> noundef %154)
+  store <2 x i64> %155, ptr %11, align 16, !tbaa !21
+  %156 = load ptr, ptr %12, align 8, !tbaa !15
+  %157 = load <2 x i64>, ptr %24, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %156, <2 x i64> noundef %157)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %32) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #9
+  br label %158
 
-176:                                              ; preds = %2
-  %177 = load ptr, ptr %71, align 8
-  %178 = getelementptr inbounds %struct.WebPRescaler, ptr %177, i32 0, i32 9
-  %179 = load i32, ptr %178, align 4
-  %180 = load i32, ptr %73, align 4
-  %181 = shl i32 %180, 7
-  %182 = icmp sgt i32 %179, %181
-  br i1 %182, label %183, label %186
+158:                                              ; preds = %102
+  %159 = load ptr, ptr %12, align 8, !tbaa !15
+  %160 = getelementptr inbounds i32, ptr %159, i64 4
+  store ptr %160, ptr %12, align 8, !tbaa !15
+  br label %73, !llvm.loop !26
 
-183:                                              ; preds = %176, %2
-  %184 = load ptr, ptr %71, align 8
-  %185 = load ptr, ptr %72, align 8
-  call void @WebPRescalerImportRowShrink_C(ptr noundef %184, ptr noundef %185)
-  br label %377
+161:                                              ; preds = %73
+  store i32 0, ptr %14, align 4
+  br label %162
 
-186:                                              ; preds = %176
-  br label %187
+162:                                              ; preds = %161, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  %163 = load i32, ptr %14, align 4
+  switch i32 %163, label %165 [
+    i32 0, label %164
+    i32 1, label %164
+  ]
 
-187:                                              ; preds = %374, %186
-  %188 = load ptr, ptr %80, align 8
-  %189 = load ptr, ptr %81, align 8
-  %190 = icmp ult ptr %188, %189
-  br i1 %190, label %191, label %377
-
-191:                                              ; preds = %187
-  %192 = load <2 x i64>, ptr %75, align 16
-  store <2 x i64> %192, ptr %82, align 16
-  %193 = load ptr, ptr %71, align 8
-  %194 = getelementptr inbounds %struct.WebPRescaler, ptr %193, i32 0, i32 9
-  %195 = load i32, ptr %194, align 4
-  %196 = load i32, ptr %74, align 4
-  %197 = add nsw i32 %196, %195
-  store i32 %197, ptr %74, align 4
-  br label %198
-
-198:                                              ; preds = %201, %191
-  %199 = load i32, ptr %74, align 4
-  %200 = icmp sgt i32 %199, 0
-  br i1 %200, label %201, label %232
-
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %72, align 8
-  %203 = call i32 @WebPMemToInt32(ptr noundef %202)
-  store i32 %203, ptr %66, align 4
-  %204 = load i32, ptr %66, align 4
-  %205 = insertelement <4 x i32> poison, i32 %204, i32 0
-  %206 = insertelement <4 x i32> %205, i32 0, i32 1
-  %207 = insertelement <4 x i32> %206, i32 0, i32 2
-  %208 = insertelement <4 x i32> %207, i32 0, i32 3
-  store <4 x i32> %208, ptr %67, align 16
-  %209 = load <4 x i32>, ptr %67, align 16
-  %210 = bitcast <4 x i32> %209 to <2 x i64>
-  store <2 x i64> %210, ptr %83, align 16
-  %211 = load ptr, ptr %72, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 4
-  store ptr %212, ptr %72, align 8
-  %213 = load <2 x i64>, ptr %83, align 16
-  %214 = load <2 x i64>, ptr %75, align 16
-  store <2 x i64> %213, ptr %63, align 16
-  store <2 x i64> %214, ptr %64, align 16
-  %215 = load <2 x i64>, ptr %63, align 16
-  %216 = bitcast <2 x i64> %215 to <16 x i8>
-  %217 = load <2 x i64>, ptr %64, align 16
-  %218 = bitcast <2 x i64> %217 to <16 x i8>
-  %219 = shufflevector <16 x i8> %216, <16 x i8> %218, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %220 = bitcast <16 x i8> %219 to <2 x i64>
-  store <2 x i64> %220, ptr %82, align 16
-  %221 = load <2 x i64>, ptr %79, align 16
-  %222 = load <2 x i64>, ptr %82, align 16
-  store <2 x i64> %221, ptr %45, align 16
-  store <2 x i64> %222, ptr %46, align 16
-  %223 = load <2 x i64>, ptr %45, align 16
-  %224 = bitcast <2 x i64> %223 to <8 x i16>
-  %225 = load <2 x i64>, ptr %46, align 16
-  %226 = bitcast <2 x i64> %225 to <8 x i16>
-  %227 = add <8 x i16> %224, %226
-  %228 = bitcast <8 x i16> %227 to <2 x i64>
-  store <2 x i64> %228, ptr %79, align 16
-  %229 = load i32, ptr %73, align 4
-  %230 = load i32, ptr %74, align 4
-  %231 = sub nsw i32 %230, %229
-  store i32 %231, ptr %74, align 4
-  br label %198, !llvm.loop !4
-
-232:                                              ; preds = %198
-  %233 = load i32, ptr %74, align 4
-  %234 = sub nsw i32 0, %233
-  %235 = trunc i32 %234 to i16
-  store i16 %235, ptr %48, align 2
-  %236 = load i16, ptr %48, align 2
-  %237 = load i16, ptr %48, align 2
-  %238 = load i16, ptr %48, align 2
-  %239 = load i16, ptr %48, align 2
-  %240 = load i16, ptr %48, align 2
-  %241 = load i16, ptr %48, align 2
-  %242 = load i16, ptr %48, align 2
-  %243 = load i16, ptr %48, align 2
-  store i16 %236, ptr %3, align 2
-  store i16 %237, ptr %4, align 2
-  store i16 %238, ptr %5, align 2
-  store i16 %239, ptr %6, align 2
-  store i16 %240, ptr %7, align 2
-  store i16 %241, ptr %8, align 2
-  store i16 %242, ptr %9, align 2
-  store i16 %243, ptr %10, align 2
-  %244 = load i16, ptr %10, align 2
-  %245 = insertelement <8 x i16> poison, i16 %244, i32 0
-  %246 = load i16, ptr %9, align 2
-  %247 = insertelement <8 x i16> %245, i16 %246, i32 1
-  %248 = load i16, ptr %8, align 2
-  %249 = insertelement <8 x i16> %247, i16 %248, i32 2
-  %250 = load i16, ptr %7, align 2
-  %251 = insertelement <8 x i16> %249, i16 %250, i32 3
-  %252 = load i16, ptr %6, align 2
-  %253 = insertelement <8 x i16> %251, i16 %252, i32 4
-  %254 = load i16, ptr %5, align 2
-  %255 = insertelement <8 x i16> %253, i16 %254, i32 5
-  %256 = load i16, ptr %4, align 2
-  %257 = insertelement <8 x i16> %255, i16 %256, i32 6
-  %258 = load i16, ptr %3, align 2
-  %259 = insertelement <8 x i16> %257, i16 %258, i32 7
-  store <8 x i16> %259, ptr %11, align 16
-  %260 = load <8 x i16>, ptr %11, align 16
-  %261 = bitcast <8 x i16> %260 to <2 x i64>
-  store <2 x i64> %261, ptr %84, align 16
-  %262 = load <2 x i64>, ptr %82, align 16
-  %263 = load <2 x i64>, ptr %84, align 16
-  store <2 x i64> %262, ptr %41, align 16
-  store <2 x i64> %263, ptr %42, align 16
-  %264 = load <2 x i64>, ptr %41, align 16
-  %265 = bitcast <2 x i64> %264 to <8 x i16>
-  %266 = load <2 x i64>, ptr %42, align 16
-  %267 = bitcast <2 x i64> %266 to <8 x i16>
-  %268 = mul <8 x i16> %265, %267
-  %269 = bitcast <8 x i16> %268 to <2 x i64>
-  store <2 x i64> %269, ptr %85, align 16
-  %270 = load <2 x i64>, ptr %82, align 16
-  %271 = load <2 x i64>, ptr %84, align 16
-  store <2 x i64> %270, ptr %37, align 16
-  store <2 x i64> %271, ptr %38, align 16
-  %272 = load <2 x i64>, ptr %37, align 16
-  %273 = bitcast <2 x i64> %272 to <8 x i16>
-  %274 = load <2 x i64>, ptr %38, align 16
-  %275 = bitcast <2 x i64> %274 to <8 x i16>
-  %276 = call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %273, <8 x i16> %275)
-  %277 = bitcast <8 x i16> %276 to <2 x i64>
-  store <2 x i64> %277, ptr %86, align 16
-  %278 = load <2 x i64>, ptr %85, align 16
-  %279 = load <2 x i64>, ptr %86, align 16
-  store <2 x i64> %278, ptr %59, align 16
-  store <2 x i64> %279, ptr %60, align 16
-  %280 = load <2 x i64>, ptr %59, align 16
-  %281 = bitcast <2 x i64> %280 to <8 x i16>
-  %282 = load <2 x i64>, ptr %60, align 16
-  %283 = bitcast <2 x i64> %282 to <8 x i16>
-  %284 = shufflevector <8 x i16> %281, <8 x i16> %283, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %285 = bitcast <8 x i16> %284 to <2 x i64>
-  store <2 x i64> %285, ptr %87, align 16
-  %286 = load <2 x i64>, ptr %79, align 16
-  %287 = load <2 x i64>, ptr %76, align 16
-  store <2 x i64> %286, ptr %43, align 16
-  store <2 x i64> %287, ptr %44, align 16
-  %288 = load <2 x i64>, ptr %43, align 16
-  %289 = bitcast <2 x i64> %288 to <8 x i16>
-  %290 = load <2 x i64>, ptr %44, align 16
-  %291 = bitcast <2 x i64> %290 to <8 x i16>
-  %292 = mul <8 x i16> %289, %291
-  %293 = bitcast <8 x i16> %292 to <2 x i64>
-  store <2 x i64> %293, ptr %88, align 16
-  %294 = load <2 x i64>, ptr %79, align 16
-  %295 = load <2 x i64>, ptr %76, align 16
-  store <2 x i64> %294, ptr %39, align 16
-  store <2 x i64> %295, ptr %40, align 16
-  %296 = load <2 x i64>, ptr %39, align 16
-  %297 = bitcast <2 x i64> %296 to <8 x i16>
-  %298 = load <2 x i64>, ptr %40, align 16
-  %299 = bitcast <2 x i64> %298 to <8 x i16>
-  %300 = call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %297, <8 x i16> %299)
-  %301 = bitcast <8 x i16> %300 to <2 x i64>
-  store <2 x i64> %301, ptr %89, align 16
-  %302 = load <2 x i64>, ptr %88, align 16
-  %303 = load <2 x i64>, ptr %89, align 16
-  store <2 x i64> %302, ptr %61, align 16
-  store <2 x i64> %303, ptr %62, align 16
-  %304 = load <2 x i64>, ptr %61, align 16
-  %305 = bitcast <2 x i64> %304 to <8 x i16>
-  %306 = load <2 x i64>, ptr %62, align 16
-  %307 = bitcast <2 x i64> %306 to <8 x i16>
-  %308 = shufflevector <8 x i16> %305, <8 x i16> %307, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %309 = bitcast <8 x i16> %308 to <2 x i64>
-  store <2 x i64> %309, ptr %90, align 16
-  %310 = load <2 x i64>, ptr %90, align 16
-  %311 = load <2 x i64>, ptr %87, align 16
-  store <2 x i64> %310, ptr %35, align 16
-  store <2 x i64> %311, ptr %36, align 16
-  %312 = load <2 x i64>, ptr %35, align 16
-  %313 = bitcast <2 x i64> %312 to <4 x i32>
-  %314 = load <2 x i64>, ptr %36, align 16
-  %315 = bitcast <2 x i64> %314 to <4 x i32>
-  %316 = sub <4 x i32> %313, %315
-  %317 = bitcast <4 x i32> %316 to <2 x i64>
-  store <2 x i64> %317, ptr %91, align 16
-  %318 = load <2 x i64>, ptr %87, align 16
-  store <2 x i64> %318, ptr %33, align 16
-  store i32 32, ptr %34, align 4
-  %319 = load <2 x i64>, ptr %33, align 16
-  %320 = load i32, ptr %34, align 4
-  %321 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %319, i32 %320)
-  store <2 x i64> %321, ptr %92, align 16
-  %322 = load <2 x i64>, ptr %87, align 16
-  %323 = load <2 x i64>, ptr %77, align 16
-  store <2 x i64> %322, ptr %29, align 16
-  store <2 x i64> %323, ptr %30, align 16
-  %324 = load <2 x i64>, ptr %29, align 16
-  %325 = load <2 x i64>, ptr %30, align 16
-  %326 = and <2 x i64> %324, <i64 4294967295, i64 4294967295>
-  %327 = and <2 x i64> %325, <i64 4294967295, i64 4294967295>
-  %328 = mul <2 x i64> %326, %327
-  store <2 x i64> %328, ptr %93, align 16
-  %329 = load <2 x i64>, ptr %92, align 16
-  %330 = load <2 x i64>, ptr %77, align 16
-  store <2 x i64> %329, ptr %31, align 16
-  store <2 x i64> %330, ptr %32, align 16
-  %331 = load <2 x i64>, ptr %31, align 16
-  %332 = load <2 x i64>, ptr %32, align 16
-  %333 = and <2 x i64> %331, <i64 4294967295, i64 4294967295>
-  %334 = and <2 x i64> %332, <i64 4294967295, i64 4294967295>
-  %335 = mul <2 x i64> %333, %334
-  store <2 x i64> %335, ptr %94, align 16
-  %336 = load <2 x i64>, ptr %93, align 16
-  %337 = load <2 x i64>, ptr %78, align 16
-  store <2 x i64> %336, ptr %25, align 16
-  store <2 x i64> %337, ptr %26, align 16
-  %338 = load <2 x i64>, ptr %25, align 16
-  %339 = load <2 x i64>, ptr %26, align 16
-  %340 = add <2 x i64> %338, %339
-  store <2 x i64> %340, ptr %95, align 16
-  %341 = load <2 x i64>, ptr %94, align 16
-  %342 = load <2 x i64>, ptr %78, align 16
-  store <2 x i64> %341, ptr %27, align 16
-  store <2 x i64> %342, ptr %28, align 16
-  %343 = load <2 x i64>, ptr %27, align 16
-  %344 = load <2 x i64>, ptr %28, align 16
-  %345 = add <2 x i64> %343, %344
-  store <2 x i64> %345, ptr %96, align 16
-  %346 = load <2 x i64>, ptr %95, align 16
-  %347 = bitcast <2 x i64> %346 to <4 x i32>
-  %348 = shufflevector <4 x i32> %347, <4 x i32> poison, <4 x i32> <i32 1, i32 3, i32 0, i32 0>
-  %349 = bitcast <4 x i32> %348 to <2 x i64>
-  store <2 x i64> %349, ptr %97, align 16
-  %350 = load <2 x i64>, ptr %96, align 16
-  %351 = bitcast <2 x i64> %350 to <4 x i32>
-  %352 = shufflevector <4 x i32> %351, <4 x i32> poison, <4 x i32> <i32 1, i32 3, i32 0, i32 0>
-  %353 = bitcast <4 x i32> %352 to <2 x i64>
-  store <2 x i64> %353, ptr %98, align 16
-  %354 = load <2 x i64>, ptr %97, align 16
-  %355 = load <2 x i64>, ptr %98, align 16
-  store <2 x i64> %354, ptr %23, align 16
-  store <2 x i64> %355, ptr %24, align 16
-  %356 = load <2 x i64>, ptr %23, align 16
-  %357 = bitcast <2 x i64> %356 to <4 x i32>
-  %358 = load <2 x i64>, ptr %24, align 16
-  %359 = bitcast <2 x i64> %358 to <4 x i32>
-  %360 = shufflevector <4 x i32> %357, <4 x i32> %359, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %361 = bitcast <4 x i32> %360 to <2 x i64>
-  store <2 x i64> %361, ptr %99, align 16
-  %362 = load <2 x i64>, ptr %99, align 16
-  %363 = load <2 x i64>, ptr %75, align 16
-  store <2 x i64> %362, ptr %21, align 16
-  store <2 x i64> %363, ptr %22, align 16
-  %364 = load <2 x i64>, ptr %21, align 16
-  %365 = bitcast <2 x i64> %364 to <4 x i32>
-  %366 = load <2 x i64>, ptr %22, align 16
-  %367 = bitcast <2 x i64> %366 to <4 x i32>
-  %368 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %365, <4 x i32> %367)
-  %369 = bitcast <8 x i16> %368 to <2 x i64>
-  store <2 x i64> %369, ptr %79, align 16
-  %370 = load ptr, ptr %80, align 8
-  %371 = load <2 x i64>, ptr %91, align 16
-  store ptr %370, ptr %68, align 8
-  store <2 x i64> %371, ptr %69, align 16
-  %372 = load <2 x i64>, ptr %69, align 16
-  %373 = load ptr, ptr %68, align 8
-  store <2 x i64> %372, ptr %373, align 1
-  br label %374
-
-374:                                              ; preds = %232
-  %375 = load ptr, ptr %80, align 8
-  %376 = getelementptr inbounds i32, ptr %375, i64 4
-  store ptr %376, ptr %80, align 8
-  br label %187, !llvm.loop !6
-
-377:                                              ; preds = %187, %183
+164:                                              ; preds = %162, %162
   ret void
+
+165:                                              ; preds = %162
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @RescalerExportRowExpand_SSE2(ptr noundef %0) #1 {
-  %2 = alloca <2 x i64>, align 16
-  %3 = alloca <2 x i64>, align 16
-  %4 = alloca <2 x i64>, align 16
-  %5 = alloca <2 x i64>, align 16
-  %6 = alloca <2 x i64>, align 16
-  %7 = alloca <2 x i64>, align 16
-  %8 = alloca <2 x i64>, align 16
-  %9 = alloca <2 x i64>, align 16
-  %10 = alloca <2 x i64>, align 16
-  %11 = alloca <2 x i64>, align 16
-  %12 = alloca <2 x i64>, align 16
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
-  %15 = alloca <2 x i64>, align 16
-  %16 = alloca <2 x i64>, align 16
-  %17 = alloca <2 x i64>, align 16
-  %18 = alloca <2 x i64>, align 16
-  %19 = alloca i32, align 4
-  %20 = alloca <2 x i64>, align 16
-  %21 = alloca i32, align 4
-  %22 = alloca <2 x i64>, align 16
-  %23 = alloca i32, align 4
-  %24 = alloca <2 x i64>, align 16
-  %25 = alloca i32, align 4
-  %26 = alloca i32, align 4
-  %27 = alloca i32, align 4
-  %28 = alloca i32, align 4
-  %29 = alloca i32, align 4
-  %30 = alloca <4 x i32>, align 16
-  %31 = alloca i32, align 4
-  %32 = alloca i32, align 4
-  %33 = alloca i32, align 4
-  %34 = alloca i32, align 4
-  %35 = alloca <4 x i32>, align 16
-  %36 = alloca i32, align 4
-  %37 = alloca i32, align 4
-  %38 = alloca i32, align 4
-  %39 = alloca i32, align 4
-  %40 = alloca <4 x i32>, align 16
-  %41 = alloca i32, align 4
-  %42 = alloca i32, align 4
-  %43 = alloca i32, align 4
-  %44 = alloca i32, align 4
-  %45 = alloca <4 x i32>, align 16
-  %46 = alloca ptr, align 8
-  %47 = alloca i32, align 4
-  %48 = alloca ptr, align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca i32, align 4
-  %51 = alloca ptr, align 8
-  %52 = alloca <2 x i64>, align 16
-  %53 = alloca <2 x i64>, align 16
-  %54 = alloca <2 x i64>, align 16
-  %55 = alloca <2 x i64>, align 16
-  %56 = alloca <2 x i64>, align 16
-  %57 = alloca i32, align 4
-  %58 = alloca i32, align 4
-  %59 = alloca i32, align 4
-  %60 = alloca i32, align 4
-  %61 = alloca <2 x i64>, align 16
-  %62 = alloca <2 x i64>, align 16
-  %63 = alloca <2 x i64>, align 16
-  %64 = alloca <2 x i64>, align 16
-  %65 = alloca <2 x i64>, align 16
-  %66 = alloca <2 x i64>, align 16
-  %67 = alloca <2 x i64>, align 16
-  %68 = alloca <2 x i64>, align 16
-  %69 = alloca <2 x i64>, align 16
-  %70 = alloca <2 x i64>, align 16
-  %71 = alloca <2 x i64>, align 16
-  %72 = alloca <2 x i64>, align 16
-  %73 = alloca <2 x i64>, align 16
-  %74 = alloca <2 x i64>, align 16
-  %75 = alloca <2 x i64>, align 16
-  %76 = alloca <2 x i64>, align 16
-  %77 = alloca <2 x i64>, align 16
-  %78 = alloca <2 x i64>, align 16
-  %79 = alloca <2 x i64>, align 16
-  %80 = alloca <2 x i64>, align 16
-  %81 = alloca <2 x i64>, align 16
-  %82 = alloca <2 x i64>, align 16
-  %83 = alloca <2 x i64>, align 16
-  %84 = alloca i64, align 8
-  %85 = alloca i32, align 4
-  %86 = alloca i32, align 4
-  store ptr %0, ptr %46, align 8
-  %87 = load ptr, ptr %46, align 8
-  %88 = getelementptr inbounds %struct.WebPRescaler, ptr %87, i32 0, i32 17
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %48, align 8
-  %90 = load ptr, ptr %46, align 8
-  %91 = getelementptr inbounds %struct.WebPRescaler, ptr %90, i32 0, i32 19
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %49, align 8
-  %93 = load ptr, ptr %46, align 8
-  %94 = getelementptr inbounds %struct.WebPRescaler, ptr %93, i32 0, i32 13
-  %95 = load i32, ptr %94, align 4
-  %96 = load ptr, ptr %46, align 8
-  %97 = getelementptr inbounds %struct.WebPRescaler, ptr %96, i32 0, i32 2
-  %98 = load i32, ptr %97, align 8
-  %99 = mul nsw i32 %95, %98
-  store i32 %99, ptr %50, align 4
-  %100 = load ptr, ptr %46, align 8
-  %101 = getelementptr inbounds %struct.WebPRescaler, ptr %100, i32 0, i32 20
-  %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr %51, align 8
-  %103 = load ptr, ptr %46, align 8
-  %104 = getelementptr inbounds %struct.WebPRescaler, ptr %103, i32 0, i32 4
-  %105 = load i32, ptr %104, align 8
-  %106 = load ptr, ptr %46, align 8
-  %107 = getelementptr inbounds %struct.WebPRescaler, ptr %106, i32 0, i32 4
-  %108 = load i32, ptr %107, align 8
-  store i32 0, ptr %26, align 4
-  store i32 %105, ptr %27, align 4
-  store i32 0, ptr %28, align 4
-  store i32 %108, ptr %29, align 4
-  %109 = load i32, ptr %29, align 4
-  %110 = insertelement <4 x i32> poison, i32 %109, i32 0
-  %111 = load i32, ptr %28, align 4
-  %112 = insertelement <4 x i32> %110, i32 %111, i32 1
-  %113 = load i32, ptr %27, align 4
-  %114 = insertelement <4 x i32> %112, i32 %113, i32 2
-  %115 = load i32, ptr %26, align 4
-  %116 = insertelement <4 x i32> %114, i32 %115, i32 3
-  store <4 x i32> %116, ptr %30, align 16
-  %117 = load <4 x i32>, ptr %30, align 16
-  %118 = bitcast <4 x i32> %117 to <2 x i64>
-  store <2 x i64> %118, ptr %52, align 16
-  %119 = load ptr, ptr %46, align 8
-  %120 = getelementptr inbounds %struct.WebPRescaler, ptr %119, i32 0, i32 6
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %180
-
-123:                                              ; preds = %1
-  store i32 0, ptr %47, align 4
-  br label %124
-
-124:                                              ; preds = %138, %123
-  %125 = load i32, ptr %47, align 4
-  %126 = add nsw i32 %125, 8
-  %127 = load i32, ptr %50, align 4
-  %128 = icmp sle i32 %126, %127
-  br i1 %128, label %129, label %141
-
-129:                                              ; preds = %124
-  %130 = load ptr, ptr %51, align 8
-  %131 = load i32, ptr %47, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %130, i64 %132
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %133, ptr noundef null, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56)
-  %134 = load ptr, ptr %48, align 8
-  %135 = load i32, ptr %47, align 4
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %134, i64 %136
-  call void @ProcessRow_SSE2(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %52, ptr noundef %137)
-  br label %138
-
-138:                                              ; preds = %129
-  %139 = load i32, ptr %47, align 4
-  %140 = add nsw i32 %139, 8
-  store i32 %140, ptr %47, align 4
-  br label %124, !llvm.loop !7
-
-141:                                              ; preds = %124
-  br label %142
-
-142:                                              ; preds = %176, %141
-  %143 = load i32, ptr %47, align 4
-  %144 = load i32, ptr %50, align 4
-  %145 = icmp slt i32 %143, %144
-  br i1 %145, label %146, label %179
-
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %51, align 8
-  %148 = load i32, ptr %47, align 4
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %147, i64 %149
-  %151 = load i32, ptr %150, align 4
-  store i32 %151, ptr %57, align 4
-  %152 = load i32, ptr %57, align 4
-  %153 = zext i32 %152 to i64
-  %154 = load ptr, ptr %46, align 8
-  %155 = getelementptr inbounds %struct.WebPRescaler, ptr %154, i32 0, i32 4
-  %156 = load i32, ptr %155, align 8
-  %157 = zext i32 %156 to i64
-  %158 = mul i64 %153, %157
-  %159 = add i64 %158, 2147483648
-  %160 = lshr i64 %159, 32
-  %161 = trunc i64 %160 to i32
-  store i32 %161, ptr %58, align 4
-  %162 = load i32, ptr %58, align 4
-  %163 = icmp sgt i32 %162, 255
-  br i1 %163, label %164, label %165
-
-164:                                              ; preds = %146
-  br label %169
-
-165:                                              ; preds = %146
-  %166 = load i32, ptr %58, align 4
-  %167 = trunc i32 %166 to i8
-  %168 = zext i8 %167 to i32
-  br label %169
-
-169:                                              ; preds = %165, %164
-  %170 = phi i32 [ 255, %164 ], [ %168, %165 ]
-  %171 = trunc i32 %170 to i8
-  %172 = load ptr, ptr %48, align 8
-  %173 = load i32, ptr %47, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i8, ptr %172, i64 %174
-  store i8 %171, ptr %175, align 1
-  br label %176
-
-176:                                              ; preds = %169
-  %177 = load i32, ptr %47, align 4
-  %178 = add nsw i32 %177, 1
-  store i32 %178, ptr %47, align 4
-  br label %142, !llvm.loop !8
-
-179:                                              ; preds = %142
-  br label %365
-
-180:                                              ; preds = %1
-  %181 = load ptr, ptr %46, align 8
-  %182 = getelementptr inbounds %struct.WebPRescaler, ptr %181, i32 0, i32 6
-  %183 = load i32, ptr %182, align 8
-  %184 = sub nsw i32 0, %183
-  %185 = sext i32 %184 to i64
-  %186 = shl i64 %185, 32
-  %187 = load ptr, ptr %46, align 8
-  %188 = getelementptr inbounds %struct.WebPRescaler, ptr %187, i32 0, i32 8
-  %189 = load i32, ptr %188, align 8
-  %190 = sext i32 %189 to i64
-  %191 = udiv i64 %186, %190
-  %192 = trunc i64 %191 to i32
-  store i32 %192, ptr %59, align 4
-  %193 = load i32, ptr %59, align 4
-  %194 = zext i32 %193 to i64
-  %195 = sub i64 4294967296, %194
-  %196 = trunc i64 %195 to i32
-  store i32 %196, ptr %60, align 4
-  %197 = load i32, ptr %60, align 4
-  %198 = load i32, ptr %60, align 4
-  store i32 0, ptr %31, align 4
-  store i32 %197, ptr %32, align 4
-  store i32 0, ptr %33, align 4
-  store i32 %198, ptr %34, align 4
-  %199 = load i32, ptr %34, align 4
-  %200 = insertelement <4 x i32> poison, i32 %199, i32 0
-  %201 = load i32, ptr %33, align 4
-  %202 = insertelement <4 x i32> %200, i32 %201, i32 1
-  %203 = load i32, ptr %32, align 4
-  %204 = insertelement <4 x i32> %202, i32 %203, i32 2
-  %205 = load i32, ptr %31, align 4
-  %206 = insertelement <4 x i32> %204, i32 %205, i32 3
-  store <4 x i32> %206, ptr %35, align 16
-  %207 = load <4 x i32>, ptr %35, align 16
-  %208 = bitcast <4 x i32> %207 to <2 x i64>
-  store <2 x i64> %208, ptr %61, align 16
-  %209 = load i32, ptr %59, align 4
-  %210 = load i32, ptr %59, align 4
-  store i32 0, ptr %36, align 4
-  store i32 %209, ptr %37, align 4
-  store i32 0, ptr %38, align 4
-  store i32 %210, ptr %39, align 4
-  %211 = load i32, ptr %39, align 4
-  %212 = insertelement <4 x i32> poison, i32 %211, i32 0
-  %213 = load i32, ptr %38, align 4
-  %214 = insertelement <4 x i32> %212, i32 %213, i32 1
-  %215 = load i32, ptr %37, align 4
-  %216 = insertelement <4 x i32> %214, i32 %215, i32 2
-  %217 = load i32, ptr %36, align 4
-  %218 = insertelement <4 x i32> %216, i32 %217, i32 3
-  store <4 x i32> %218, ptr %40, align 16
-  %219 = load <4 x i32>, ptr %40, align 16
-  %220 = bitcast <4 x i32> %219 to <2 x i64>
-  store <2 x i64> %220, ptr %62, align 16
-  store i32 0, ptr %41, align 4
-  store i32 -2147483648, ptr %42, align 4
-  store i32 0, ptr %43, align 4
-  store i32 -2147483648, ptr %44, align 4
-  %221 = load i32, ptr %44, align 4
-  %222 = insertelement <4 x i32> poison, i32 %221, i32 0
-  %223 = load i32, ptr %43, align 4
-  %224 = insertelement <4 x i32> %222, i32 %223, i32 1
-  %225 = load i32, ptr %42, align 4
-  %226 = insertelement <4 x i32> %224, i32 %225, i32 2
-  %227 = load i32, ptr %41, align 4
-  %228 = insertelement <4 x i32> %226, i32 %227, i32 3
-  store <4 x i32> %228, ptr %45, align 16
-  %229 = load <4 x i32>, ptr %45, align 16
-  %230 = bitcast <4 x i32> %229 to <2 x i64>
-  store <2 x i64> %230, ptr %63, align 16
-  store i32 0, ptr %47, align 4
-  br label %231
-
-231:                                              ; preds = %305, %180
-  %232 = load i32, ptr %47, align 4
-  %233 = add nsw i32 %232, 8
-  %234 = load i32, ptr %50, align 4
-  %235 = icmp sle i32 %233, %234
-  br i1 %235, label %236, label %308
-
-236:                                              ; preds = %231
-  %237 = load ptr, ptr %51, align 8
-  %238 = load i32, ptr %47, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %237, i64 %239
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %240, ptr noundef %61, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  %241 = load ptr, ptr %49, align 8
-  %242 = load i32, ptr %47, align 4
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %241, i64 %243
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %244, ptr noundef %62, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71)
-  %245 = load <2 x i64>, ptr %64, align 16
-  %246 = load <2 x i64>, ptr %68, align 16
-  store <2 x i64> %245, ptr %2, align 16
-  store <2 x i64> %246, ptr %3, align 16
-  %247 = load <2 x i64>, ptr %2, align 16
-  %248 = load <2 x i64>, ptr %3, align 16
-  %249 = add <2 x i64> %247, %248
-  store <2 x i64> %249, ptr %72, align 16
-  %250 = load <2 x i64>, ptr %65, align 16
-  %251 = load <2 x i64>, ptr %69, align 16
-  store <2 x i64> %250, ptr %4, align 16
-  store <2 x i64> %251, ptr %5, align 16
-  %252 = load <2 x i64>, ptr %4, align 16
-  %253 = load <2 x i64>, ptr %5, align 16
-  %254 = add <2 x i64> %252, %253
-  store <2 x i64> %254, ptr %73, align 16
-  %255 = load <2 x i64>, ptr %66, align 16
-  %256 = load <2 x i64>, ptr %70, align 16
-  store <2 x i64> %255, ptr %6, align 16
-  store <2 x i64> %256, ptr %7, align 16
-  %257 = load <2 x i64>, ptr %6, align 16
-  %258 = load <2 x i64>, ptr %7, align 16
-  %259 = add <2 x i64> %257, %258
-  store <2 x i64> %259, ptr %74, align 16
-  %260 = load <2 x i64>, ptr %67, align 16
-  %261 = load <2 x i64>, ptr %71, align 16
-  store <2 x i64> %260, ptr %8, align 16
-  store <2 x i64> %261, ptr %9, align 16
-  %262 = load <2 x i64>, ptr %8, align 16
-  %263 = load <2 x i64>, ptr %9, align 16
-  %264 = add <2 x i64> %262, %263
-  store <2 x i64> %264, ptr %75, align 16
-  %265 = load <2 x i64>, ptr %72, align 16
-  %266 = load <2 x i64>, ptr %63, align 16
-  store <2 x i64> %265, ptr %10, align 16
-  store <2 x i64> %266, ptr %11, align 16
-  %267 = load <2 x i64>, ptr %10, align 16
-  %268 = load <2 x i64>, ptr %11, align 16
-  %269 = add <2 x i64> %267, %268
-  store <2 x i64> %269, ptr %76, align 16
-  %270 = load <2 x i64>, ptr %73, align 16
-  %271 = load <2 x i64>, ptr %63, align 16
-  store <2 x i64> %270, ptr %12, align 16
-  store <2 x i64> %271, ptr %13, align 16
-  %272 = load <2 x i64>, ptr %12, align 16
-  %273 = load <2 x i64>, ptr %13, align 16
-  %274 = add <2 x i64> %272, %273
-  store <2 x i64> %274, ptr %77, align 16
-  %275 = load <2 x i64>, ptr %74, align 16
-  %276 = load <2 x i64>, ptr %63, align 16
-  store <2 x i64> %275, ptr %14, align 16
-  store <2 x i64> %276, ptr %15, align 16
-  %277 = load <2 x i64>, ptr %14, align 16
-  %278 = load <2 x i64>, ptr %15, align 16
-  %279 = add <2 x i64> %277, %278
-  store <2 x i64> %279, ptr %78, align 16
-  %280 = load <2 x i64>, ptr %75, align 16
-  %281 = load <2 x i64>, ptr %63, align 16
-  store <2 x i64> %280, ptr %16, align 16
-  store <2 x i64> %281, ptr %17, align 16
-  %282 = load <2 x i64>, ptr %16, align 16
-  %283 = load <2 x i64>, ptr %17, align 16
-  %284 = add <2 x i64> %282, %283
-  store <2 x i64> %284, ptr %79, align 16
-  %285 = load <2 x i64>, ptr %76, align 16
-  store <2 x i64> %285, ptr %18, align 16
-  store i32 32, ptr %19, align 4
-  %286 = load <2 x i64>, ptr %18, align 16
-  %287 = load i32, ptr %19, align 4
-  %288 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %286, i32 %287)
-  store <2 x i64> %288, ptr %80, align 16
-  %289 = load <2 x i64>, ptr %77, align 16
-  store <2 x i64> %289, ptr %20, align 16
-  store i32 32, ptr %21, align 4
-  %290 = load <2 x i64>, ptr %20, align 16
-  %291 = load i32, ptr %21, align 4
-  %292 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %290, i32 %291)
-  store <2 x i64> %292, ptr %81, align 16
-  %293 = load <2 x i64>, ptr %78, align 16
-  store <2 x i64> %293, ptr %22, align 16
-  store i32 32, ptr %23, align 4
-  %294 = load <2 x i64>, ptr %22, align 16
-  %295 = load i32, ptr %23, align 4
-  %296 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %294, i32 %295)
-  store <2 x i64> %296, ptr %82, align 16
-  %297 = load <2 x i64>, ptr %79, align 16
-  store <2 x i64> %297, ptr %24, align 16
-  store i32 32, ptr %25, align 4
-  %298 = load <2 x i64>, ptr %24, align 16
-  %299 = load i32, ptr %25, align 4
-  %300 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %298, i32 %299)
-  store <2 x i64> %300, ptr %83, align 16
-  %301 = load ptr, ptr %48, align 8
-  %302 = load i32, ptr %47, align 4
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds i8, ptr %301, i64 %303
-  call void @ProcessRow_SSE2(ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %52, ptr noundef %304)
-  br label %305
-
-305:                                              ; preds = %236
-  %306 = load i32, ptr %47, align 4
-  %307 = add nsw i32 %306, 8
-  store i32 %307, ptr %47, align 4
-  br label %231, !llvm.loop !9
-
-308:                                              ; preds = %231
-  br label %309
-
-309:                                              ; preds = %361, %308
-  %310 = load i32, ptr %47, align 4
-  %311 = load i32, ptr %50, align 4
-  %312 = icmp slt i32 %310, %311
-  br i1 %312, label %313, label %364
-
-313:                                              ; preds = %309
-  %314 = load i32, ptr %60, align 4
-  %315 = zext i32 %314 to i64
-  %316 = load ptr, ptr %51, align 8
-  %317 = load i32, ptr %47, align 4
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds i32, ptr %316, i64 %318
-  %320 = load i32, ptr %319, align 4
-  %321 = zext i32 %320 to i64
-  %322 = mul i64 %315, %321
-  %323 = load i32, ptr %59, align 4
-  %324 = zext i32 %323 to i64
-  %325 = load ptr, ptr %49, align 8
-  %326 = load i32, ptr %47, align 4
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds i32, ptr %325, i64 %327
-  %329 = load i32, ptr %328, align 4
-  %330 = zext i32 %329 to i64
-  %331 = mul i64 %324, %330
-  %332 = add i64 %322, %331
-  store i64 %332, ptr %84, align 8
-  %333 = load i64, ptr %84, align 8
-  %334 = add i64 %333, 2147483648
-  %335 = lshr i64 %334, 32
-  %336 = trunc i64 %335 to i32
-  store i32 %336, ptr %85, align 4
-  %337 = load i32, ptr %85, align 4
-  %338 = zext i32 %337 to i64
-  %339 = load ptr, ptr %46, align 8
-  %340 = getelementptr inbounds %struct.WebPRescaler, ptr %339, i32 0, i32 4
-  %341 = load i32, ptr %340, align 8
-  %342 = zext i32 %341 to i64
-  %343 = mul i64 %338, %342
-  %344 = add i64 %343, 2147483648
-  %345 = lshr i64 %344, 32
-  %346 = trunc i64 %345 to i32
-  store i32 %346, ptr %86, align 4
-  %347 = load i32, ptr %86, align 4
-  %348 = icmp sgt i32 %347, 255
-  br i1 %348, label %349, label %350
-
-349:                                              ; preds = %313
-  br label %354
-
-350:                                              ; preds = %313
-  %351 = load i32, ptr %86, align 4
-  %352 = trunc i32 %351 to i8
-  %353 = zext i8 %352 to i32
-  br label %354
-
-354:                                              ; preds = %350, %349
-  %355 = phi i32 [ 255, %349 ], [ %353, %350 ]
-  %356 = trunc i32 %355 to i8
-  %357 = load ptr, ptr %48, align 8
-  %358 = load i32, ptr %47, align 4
-  %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds i8, ptr %357, i64 %359
-  store i8 %356, ptr %360, align 1
-  br label %361
-
-361:                                              ; preds = %354
-  %362 = load i32, ptr %47, align 4
-  %363 = add nsw i32 %362, 1
-  store i32 %363, ptr %47, align 4
-  br label %309, !llvm.loop !10
-
-364:                                              ; preds = %309
-  br label %365
-
-365:                                              ; preds = %364, %179
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @RescalerExportRowShrink_SSE2(ptr noundef %0) #1 {
-  %2 = alloca <2 x i64>, align 16
+  %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = alloca <2 x i64>, align 16
-  %5 = alloca i32, align 4
-  %6 = alloca <2 x i64>, align 16
-  %7 = alloca <2 x i64>, align 16
-  %8 = alloca <2 x i64>, align 16
-  %9 = alloca <2 x i64>, align 16
-  %10 = alloca <2 x i64>, align 16
-  %11 = alloca <2 x i64>, align 16
-  %12 = alloca <2 x i64>, align 16
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
-  %15 = alloca <2 x i64>, align 16
-  %16 = alloca <2 x i64>, align 16
-  %17 = alloca <2 x i64>, align 16
-  %18 = alloca <2 x i64>, align 16
-  %19 = alloca i32, align 4
-  %20 = alloca <2 x i64>, align 16
-  %21 = alloca i32, align 4
-  %22 = alloca <2 x i64>, align 16
-  %23 = alloca i32, align 4
-  %24 = alloca <2 x i64>, align 16
-  %25 = alloca i32, align 4
-  %26 = alloca i32, align 4
-  %27 = alloca i32, align 4
-  %28 = alloca i32, align 4
-  %29 = alloca i32, align 4
-  %30 = alloca <4 x i32>, align 16
-  %31 = alloca i32, align 4
-  %32 = alloca i32, align 4
-  %33 = alloca i32, align 4
-  %34 = alloca i32, align 4
-  %35 = alloca <4 x i32>, align 16
-  %36 = alloca i32, align 4
-  %37 = alloca i32, align 4
-  %38 = alloca i32, align 4
-  %39 = alloca i32, align 4
-  %40 = alloca <4 x i32>, align 16
-  %41 = alloca <2 x i64>, align 16
-  %42 = alloca ptr, align 8
-  %43 = alloca <2 x i64>, align 16
-  %44 = alloca ptr, align 8
-  %45 = alloca <2 x i64>, align 16
-  %46 = alloca ptr, align 8
-  %47 = alloca <2 x i64>, align 16
-  %48 = alloca ptr, align 8
-  %49 = alloca <2 x i64>, align 16
-  %50 = alloca ptr, align 8
-  %51 = alloca i32, align 4
-  %52 = alloca ptr, align 8
-  %53 = alloca ptr, align 8
-  %54 = alloca i32, align 4
-  %55 = alloca ptr, align 8
-  %56 = alloca i32, align 4
-  %57 = alloca i32, align 4
-  %58 = alloca <2 x i64>, align 16
-  %59 = alloca <2 x i64>, align 16
-  %60 = alloca <2 x i64>, align 16
-  %61 = alloca <2 x i64>, align 16
-  %62 = alloca <2 x i64>, align 16
-  %63 = alloca <2 x i64>, align 16
-  %64 = alloca <2 x i64>, align 16
-  %65 = alloca <2 x i64>, align 16
-  %66 = alloca <2 x i64>, align 16
-  %67 = alloca <2 x i64>, align 16
-  %68 = alloca <2 x i64>, align 16
-  %69 = alloca <2 x i64>, align 16
-  %70 = alloca <2 x i64>, align 16
-  %71 = alloca <2 x i64>, align 16
-  %72 = alloca <2 x i64>, align 16
-  %73 = alloca <2 x i64>, align 16
-  %74 = alloca <2 x i64>, align 16
-  %75 = alloca <2 x i64>, align 16
-  %76 = alloca <2 x i64>, align 16
-  %77 = alloca <2 x i64>, align 16
-  %78 = alloca <2 x i64>, align 16
-  %79 = alloca <2 x i64>, align 16
-  %80 = alloca i32, align 4
-  %81 = alloca i32, align 4
-  %82 = alloca i32, align 4
-  %83 = alloca <2 x i64>, align 16
-  %84 = alloca <2 x i64>, align 16
-  %85 = alloca <2 x i64>, align 16
-  %86 = alloca <2 x i64>, align 16
-  %87 = alloca <2 x i64>, align 16
-  %88 = alloca <2 x i64>, align 16
-  %89 = alloca i32, align 4
-  store ptr %0, ptr %50, align 8
-  %90 = load ptr, ptr %50, align 8
-  %91 = getelementptr inbounds %struct.WebPRescaler, ptr %90, i32 0, i32 17
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %52, align 8
-  %93 = load ptr, ptr %50, align 8
-  %94 = getelementptr inbounds %struct.WebPRescaler, ptr %93, i32 0, i32 19
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %53, align 8
-  %96 = load ptr, ptr %50, align 8
-  %97 = getelementptr inbounds %struct.WebPRescaler, ptr %96, i32 0, i32 13
-  %98 = load i32, ptr %97, align 4
-  %99 = load ptr, ptr %50, align 8
-  %100 = getelementptr inbounds %struct.WebPRescaler, ptr %99, i32 0, i32 2
-  %101 = load i32, ptr %100, align 8
-  %102 = mul nsw i32 %98, %101
-  store i32 %102, ptr %54, align 4
-  %103 = load ptr, ptr %50, align 8
-  %104 = getelementptr inbounds %struct.WebPRescaler, ptr %103, i32 0, i32 20
-  %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr %55, align 8
-  %106 = load ptr, ptr %50, align 8
-  %107 = getelementptr inbounds %struct.WebPRescaler, ptr %106, i32 0, i32 4
-  %108 = load i32, ptr %107, align 8
-  %109 = load ptr, ptr %50, align 8
-  %110 = getelementptr inbounds %struct.WebPRescaler, ptr %109, i32 0, i32 6
-  %111 = load i32, ptr %110, align 8
-  %112 = sub nsw i32 0, %111
-  %113 = mul i32 %108, %112
-  store i32 %113, ptr %56, align 4
-  %114 = load i32, ptr %56, align 4
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %116, label %291
-
-116:                                              ; preds = %1
-  %117 = load ptr, ptr %50, align 8
-  %118 = getelementptr inbounds %struct.WebPRescaler, ptr %117, i32 0, i32 5
-  %119 = load i32, ptr %118, align 4
-  store i32 %119, ptr %57, align 4
-  %120 = load i32, ptr %57, align 4
-  %121 = load i32, ptr %57, align 4
-  store i32 0, ptr %26, align 4
-  store i32 %120, ptr %27, align 4
-  store i32 0, ptr %28, align 4
-  store i32 %121, ptr %29, align 4
-  %122 = load i32, ptr %29, align 4
-  %123 = insertelement <4 x i32> poison, i32 %122, i32 0
-  %124 = load i32, ptr %28, align 4
-  %125 = insertelement <4 x i32> %123, i32 %124, i32 1
-  %126 = load i32, ptr %27, align 4
-  %127 = insertelement <4 x i32> %125, i32 %126, i32 2
-  %128 = load i32, ptr %26, align 4
-  %129 = insertelement <4 x i32> %127, i32 %128, i32 3
-  store <4 x i32> %129, ptr %30, align 16
-  %130 = load <4 x i32>, ptr %30, align 16
-  %131 = bitcast <4 x i32> %130 to <2 x i64>
-  store <2 x i64> %131, ptr %58, align 16
-  %132 = load i32, ptr %56, align 4
-  %133 = load i32, ptr %56, align 4
-  store i32 0, ptr %31, align 4
-  store i32 %132, ptr %32, align 4
-  store i32 0, ptr %33, align 4
-  store i32 %133, ptr %34, align 4
-  %134 = load i32, ptr %34, align 4
-  %135 = insertelement <4 x i32> poison, i32 %134, i32 0
-  %136 = load i32, ptr %33, align 4
-  %137 = insertelement <4 x i32> %135, i32 %136, i32 1
-  %138 = load i32, ptr %32, align 4
-  %139 = insertelement <4 x i32> %137, i32 %138, i32 2
-  %140 = load i32, ptr %31, align 4
-  %141 = insertelement <4 x i32> %139, i32 %140, i32 3
-  store <4 x i32> %141, ptr %35, align 16
-  %142 = load <4 x i32>, ptr %35, align 16
-  %143 = bitcast <4 x i32> %142 to <2 x i64>
-  store <2 x i64> %143, ptr %59, align 16
-  store i32 0, ptr %51, align 4
-  br label %144
-
-144:                                              ; preds = %232, %116
-  %145 = load i32, ptr %51, align 4
-  %146 = add nsw i32 %145, 8
-  %147 = load i32, ptr %54, align 4
-  %148 = icmp sle i32 %146, %147
-  br i1 %148, label %149, label %235
-
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %53, align 8
-  %151 = load i32, ptr %51, align 4
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %150, i64 %152
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %153, ptr noundef null, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63)
-  %154 = load ptr, ptr %55, align 8
-  %155 = load i32, ptr %51, align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i32, ptr %154, i64 %156
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %157, ptr noundef %59, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
-  %158 = load <2 x i64>, ptr %64, align 16
-  store <2 x i64> %158, ptr %18, align 16
-  store i32 32, ptr %19, align 4
-  %159 = load <2 x i64>, ptr %18, align 16
-  %160 = load i32, ptr %19, align 4
-  %161 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %159, i32 %160)
-  store <2 x i64> %161, ptr %68, align 16
-  %162 = load <2 x i64>, ptr %65, align 16
-  store <2 x i64> %162, ptr %20, align 16
-  store i32 32, ptr %21, align 4
-  %163 = load <2 x i64>, ptr %20, align 16
-  %164 = load i32, ptr %21, align 4
-  %165 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %163, i32 %164)
-  store <2 x i64> %165, ptr %69, align 16
-  %166 = load <2 x i64>, ptr %66, align 16
-  store <2 x i64> %166, ptr %22, align 16
-  store i32 32, ptr %23, align 4
-  %167 = load <2 x i64>, ptr %22, align 16
-  %168 = load i32, ptr %23, align 4
-  %169 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %167, i32 %168)
-  store <2 x i64> %169, ptr %70, align 16
-  %170 = load <2 x i64>, ptr %67, align 16
-  store <2 x i64> %170, ptr %24, align 16
-  store i32 32, ptr %25, align 4
-  %171 = load <2 x i64>, ptr %24, align 16
-  %172 = load i32, ptr %25, align 4
-  %173 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %171, i32 %172)
-  store <2 x i64> %173, ptr %71, align 16
-  %174 = load <2 x i64>, ptr %60, align 16
-  %175 = load <2 x i64>, ptr %68, align 16
-  store <2 x i64> %174, ptr %6, align 16
-  store <2 x i64> %175, ptr %7, align 16
-  %176 = load <2 x i64>, ptr %6, align 16
-  %177 = load <2 x i64>, ptr %7, align 16
-  %178 = sub <2 x i64> %176, %177
-  store <2 x i64> %178, ptr %72, align 16
-  %179 = load <2 x i64>, ptr %61, align 16
-  %180 = load <2 x i64>, ptr %69, align 16
-  store <2 x i64> %179, ptr %8, align 16
-  store <2 x i64> %180, ptr %9, align 16
-  %181 = load <2 x i64>, ptr %8, align 16
-  %182 = load <2 x i64>, ptr %9, align 16
-  %183 = sub <2 x i64> %181, %182
-  store <2 x i64> %183, ptr %73, align 16
-  %184 = load <2 x i64>, ptr %62, align 16
-  %185 = load <2 x i64>, ptr %70, align 16
-  store <2 x i64> %184, ptr %10, align 16
-  store <2 x i64> %185, ptr %11, align 16
-  %186 = load <2 x i64>, ptr %10, align 16
-  %187 = load <2 x i64>, ptr %11, align 16
-  %188 = sub <2 x i64> %186, %187
-  store <2 x i64> %188, ptr %74, align 16
-  %189 = load <2 x i64>, ptr %63, align 16
-  %190 = load <2 x i64>, ptr %71, align 16
-  store <2 x i64> %189, ptr %12, align 16
-  store <2 x i64> %190, ptr %13, align 16
-  %191 = load <2 x i64>, ptr %12, align 16
-  %192 = load <2 x i64>, ptr %13, align 16
-  %193 = sub <2 x i64> %191, %192
-  store <2 x i64> %193, ptr %75, align 16
-  %194 = load <2 x i64>, ptr %70, align 16
-  store <2 x i64> %194, ptr %2, align 16
-  store i32 32, ptr %3, align 4
-  %195 = load <2 x i64>, ptr %2, align 16
-  %196 = load i32, ptr %3, align 4
-  %197 = call <2 x i64> @llvm.x86.sse2.pslli.q(<2 x i64> %195, i32 %196)
-  store <2 x i64> %197, ptr %76, align 16
-  %198 = load <2 x i64>, ptr %71, align 16
-  store <2 x i64> %198, ptr %4, align 16
-  store i32 32, ptr %5, align 4
-  %199 = load <2 x i64>, ptr %4, align 16
-  %200 = load i32, ptr %5, align 4
-  %201 = call <2 x i64> @llvm.x86.sse2.pslli.q(<2 x i64> %199, i32 %200)
-  store <2 x i64> %201, ptr %77, align 16
-  %202 = load <2 x i64>, ptr %68, align 16
-  %203 = load <2 x i64>, ptr %76, align 16
-  store <2 x i64> %202, ptr %14, align 16
-  store <2 x i64> %203, ptr %15, align 16
-  %204 = load <2 x i64>, ptr %14, align 16
-  %205 = load <2 x i64>, ptr %15, align 16
-  %206 = or <2 x i64> %204, %205
-  store <2 x i64> %206, ptr %78, align 16
-  %207 = load <2 x i64>, ptr %69, align 16
-  %208 = load <2 x i64>, ptr %77, align 16
-  store <2 x i64> %207, ptr %16, align 16
-  store <2 x i64> %208, ptr %17, align 16
-  %209 = load <2 x i64>, ptr %16, align 16
-  %210 = load <2 x i64>, ptr %17, align 16
-  %211 = or <2 x i64> %209, %210
-  store <2 x i64> %211, ptr %79, align 16
-  %212 = load ptr, ptr %53, align 8
-  %213 = load i32, ptr %51, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i32, ptr %212, i64 %214
-  %216 = getelementptr inbounds i32, ptr %215, i64 0
-  %217 = load <2 x i64>, ptr %78, align 16
-  store ptr %216, ptr %42, align 8
-  store <2 x i64> %217, ptr %43, align 16
-  %218 = load <2 x i64>, ptr %43, align 16
-  %219 = load ptr, ptr %42, align 8
-  store <2 x i64> %218, ptr %219, align 1
-  %220 = load ptr, ptr %53, align 8
-  %221 = load i32, ptr %51, align 4
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i32, ptr %220, i64 %222
-  %224 = getelementptr inbounds i32, ptr %223, i64 4
-  %225 = load <2 x i64>, ptr %79, align 16
-  store ptr %224, ptr %44, align 8
-  store <2 x i64> %225, ptr %45, align 16
-  %226 = load <2 x i64>, ptr %45, align 16
-  %227 = load ptr, ptr %44, align 8
-  store <2 x i64> %226, ptr %227, align 1
-  %228 = load ptr, ptr %52, align 8
-  %229 = load i32, ptr %51, align 4
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i8, ptr %228, i64 %230
-  call void @ProcessRow_SSE2(ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %58, ptr noundef %231)
-  br label %232
-
-232:                                              ; preds = %149
-  %233 = load i32, ptr %51, align 4
-  %234 = add nsw i32 %233, 8
-  store i32 %234, ptr %51, align 4
-  br label %144, !llvm.loop !11
-
-235:                                              ; preds = %144
-  br label %236
-
-236:                                              ; preds = %287, %235
-  %237 = load i32, ptr %51, align 4
-  %238 = load i32, ptr %54, align 4
-  %239 = icmp slt i32 %237, %238
-  br i1 %239, label %240, label %290
-
-240:                                              ; preds = %236
-  %241 = load ptr, ptr %55, align 8
-  %242 = load i32, ptr %51, align 4
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %241, i64 %243
-  %245 = load i32, ptr %244, align 4
-  %246 = zext i32 %245 to i64
-  %247 = load i32, ptr %56, align 4
-  %248 = zext i32 %247 to i64
-  %249 = mul i64 %246, %248
-  %250 = lshr i64 %249, 32
-  %251 = trunc i64 %250 to i32
-  store i32 %251, ptr %80, align 4
-  %252 = load ptr, ptr %53, align 8
-  %253 = load i32, ptr %51, align 4
-  %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds i32, ptr %252, i64 %254
-  %256 = load i32, ptr %255, align 4
-  %257 = load i32, ptr %80, align 4
-  %258 = sub i32 %256, %257
-  %259 = zext i32 %258 to i64
-  %260 = load ptr, ptr %50, align 8
-  %261 = getelementptr inbounds %struct.WebPRescaler, ptr %260, i32 0, i32 5
-  %262 = load i32, ptr %261, align 4
-  %263 = zext i32 %262 to i64
-  %264 = mul i64 %259, %263
-  %265 = add i64 %264, 2147483648
-  %266 = lshr i64 %265, 32
-  %267 = trunc i64 %266 to i32
-  store i32 %267, ptr %81, align 4
-  %268 = load i32, ptr %81, align 4
-  %269 = icmp sgt i32 %268, 255
-  br i1 %269, label %270, label %271
-
-270:                                              ; preds = %240
-  br label %275
-
-271:                                              ; preds = %240
-  %272 = load i32, ptr %81, align 4
-  %273 = trunc i32 %272 to i8
-  %274 = zext i8 %273 to i32
-  br label %275
-
-275:                                              ; preds = %271, %270
-  %276 = phi i32 [ 255, %270 ], [ %274, %271 ]
-  %277 = trunc i32 %276 to i8
-  %278 = load ptr, ptr %52, align 8
-  %279 = load i32, ptr %51, align 4
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds i8, ptr %278, i64 %280
-  store i8 %277, ptr %281, align 1
-  %282 = load i32, ptr %80, align 4
-  %283 = load ptr, ptr %53, align 8
-  %284 = load i32, ptr %51, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds i32, ptr %283, i64 %285
-  store i32 %282, ptr %286, align 4
-  br label %287
-
-287:                                              ; preds = %275
-  %288 = load i32, ptr %51, align 4
-  %289 = add nsw i32 %288, 1
-  store i32 %289, ptr %51, align 4
-  br label %236, !llvm.loop !12
-
-290:                                              ; preds = %236
-  br label %381
-
-291:                                              ; preds = %1
-  %292 = load ptr, ptr %50, align 8
-  %293 = getelementptr inbounds %struct.WebPRescaler, ptr %292, i32 0, i32 5
-  %294 = load i32, ptr %293, align 4
-  store i32 %294, ptr %82, align 4
-  %295 = load i32, ptr %82, align 4
-  %296 = load i32, ptr %82, align 4
-  store i32 0, ptr %36, align 4
-  store i32 %295, ptr %37, align 4
-  store i32 0, ptr %38, align 4
-  store i32 %296, ptr %39, align 4
-  %297 = load i32, ptr %39, align 4
-  %298 = insertelement <4 x i32> poison, i32 %297, i32 0
-  %299 = load i32, ptr %38, align 4
-  %300 = insertelement <4 x i32> %298, i32 %299, i32 1
-  %301 = load i32, ptr %37, align 4
-  %302 = insertelement <4 x i32> %300, i32 %301, i32 2
-  %303 = load i32, ptr %36, align 4
-  %304 = insertelement <4 x i32> %302, i32 %303, i32 3
-  store <4 x i32> %304, ptr %40, align 16
-  %305 = load <4 x i32>, ptr %40, align 16
-  %306 = bitcast <4 x i32> %305 to <2 x i64>
-  store <2 x i64> %306, ptr %83, align 16
-  store <2 x i64> zeroinitializer, ptr %41, align 16
-  %307 = load <2 x i64>, ptr %41, align 16
-  store <2 x i64> %307, ptr %84, align 16
-  store i32 0, ptr %51, align 4
-  br label %308
-
-308:                                              ; preds = %338, %291
-  %309 = load i32, ptr %51, align 4
-  %310 = add nsw i32 %309, 8
-  %311 = load i32, ptr %54, align 4
-  %312 = icmp sle i32 %310, %311
-  br i1 %312, label %313, label %341
-
-313:                                              ; preds = %308
-  %314 = load ptr, ptr %53, align 8
-  %315 = load i32, ptr %51, align 4
-  %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds i32, ptr %314, i64 %316
-  call void @LoadDispatchAndMult_SSE2(ptr noundef %317, ptr noundef null, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88)
-  %318 = load ptr, ptr %53, align 8
-  %319 = load i32, ptr %51, align 4
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i32, ptr %318, i64 %320
-  %322 = getelementptr inbounds i32, ptr %321, i64 0
-  %323 = load <2 x i64>, ptr %84, align 16
-  store ptr %322, ptr %46, align 8
-  store <2 x i64> %323, ptr %47, align 16
-  %324 = load <2 x i64>, ptr %47, align 16
-  %325 = load ptr, ptr %46, align 8
-  store <2 x i64> %324, ptr %325, align 1
-  %326 = load ptr, ptr %53, align 8
-  %327 = load i32, ptr %51, align 4
-  %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds i32, ptr %326, i64 %328
-  %330 = getelementptr inbounds i32, ptr %329, i64 4
-  %331 = load <2 x i64>, ptr %84, align 16
-  store ptr %330, ptr %48, align 8
-  store <2 x i64> %331, ptr %49, align 16
-  %332 = load <2 x i64>, ptr %49, align 16
-  %333 = load ptr, ptr %48, align 8
-  store <2 x i64> %332, ptr %333, align 1
-  %334 = load ptr, ptr %52, align 8
-  %335 = load i32, ptr %51, align 4
-  %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds i8, ptr %334, i64 %336
-  call void @ProcessRow_SSE2(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %83, ptr noundef %337)
-  br label %338
-
-338:                                              ; preds = %313
-  %339 = load i32, ptr %51, align 4
-  %340 = add nsw i32 %339, 8
-  store i32 %340, ptr %51, align 4
-  br label %308, !llvm.loop !13
-
-341:                                              ; preds = %308
-  br label %342
-
-342:                                              ; preds = %377, %341
-  %343 = load i32, ptr %51, align 4
-  %344 = load i32, ptr %54, align 4
-  %345 = icmp slt i32 %343, %344
-  br i1 %345, label %346, label %380
-
-346:                                              ; preds = %342
-  %347 = load ptr, ptr %53, align 8
-  %348 = load i32, ptr %51, align 4
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds i32, ptr %347, i64 %349
-  %351 = load i32, ptr %350, align 4
-  %352 = zext i32 %351 to i64
-  %353 = load i32, ptr %82, align 4
-  %354 = zext i32 %353 to i64
-  %355 = mul i64 %352, %354
-  %356 = add i64 %355, 2147483648
-  %357 = lshr i64 %356, 32
-  %358 = trunc i64 %357 to i32
-  store i32 %358, ptr %89, align 4
-  %359 = load i32, ptr %89, align 4
-  %360 = icmp sgt i32 %359, 255
-  br i1 %360, label %361, label %362
-
-361:                                              ; preds = %346
-  br label %366
-
-362:                                              ; preds = %346
-  %363 = load i32, ptr %89, align 4
-  %364 = trunc i32 %363 to i8
-  %365 = zext i8 %364 to i32
-  br label %366
-
-366:                                              ; preds = %362, %361
-  %367 = phi i32 [ 255, %361 ], [ %365, %362 ]
-  %368 = trunc i32 %367 to i8
-  %369 = load ptr, ptr %52, align 8
-  %370 = load i32, ptr %51, align 4
-  %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds i8, ptr %369, i64 %371
-  store i8 %368, ptr %372, align 1
-  %373 = load ptr, ptr %53, align 8
-  %374 = load i32, ptr %51, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds i32, ptr %373, i64 %375
-  store i32 0, ptr %376, align 4
-  br label %377
-
-377:                                              ; preds = %366
-  %378 = load i32, ptr %51, align 4
-  %379 = add nsw i32 %378, 1
-  store i32 %379, ptr %51, align 4
-  br label %342, !llvm.loop !14
-
-380:                                              ; preds = %342
-  br label %381
-
-381:                                              ; preds = %380, %290
-  ret void
-}
-
-declare void @WebPRescalerImportRowExpand_C(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @LoadTwoPixels_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca <2 x i64>, align 16
-  %4 = alloca <2 x i64>, align 16
-  %5 = alloca <2 x i64>, align 16
-  %6 = alloca <2 x i64>, align 16
-  %7 = alloca ptr, align 8
-  %8 = alloca <2 x i64>, align 16
-  %9 = alloca <2 x i64>, align 16
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca <2 x i64>, align 16
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
-  %15 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store <2 x i64> zeroinitializer, ptr %9, align 16
-  %16 = load <2 x i64>, ptr %9, align 16
-  store <2 x i64> %16, ptr %12, align 16
-  %17 = load ptr, ptr %10, align 8
-  store ptr %17, ptr %7, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i64, ptr %18, align 1
-  %20 = insertelement <2 x i64> poison, i64 %19, i32 0
-  %21 = insertelement <2 x i64> %20, i64 0, i32 1
-  store <2 x i64> %21, ptr %8, align 16
-  %22 = load <2 x i64>, ptr %8, align 16
-  store <2 x i64> %22, ptr %13, align 16
-  %23 = load <2 x i64>, ptr %13, align 16
-  %24 = load <2 x i64>, ptr %12, align 16
-  store <2 x i64> %23, ptr %5, align 16
-  store <2 x i64> %24, ptr %6, align 16
-  %25 = load <2 x i64>, ptr %5, align 16
-  %26 = bitcast <2 x i64> %25 to <16 x i8>
-  %27 = load <2 x i64>, ptr %6, align 16
-  %28 = bitcast <2 x i64> %27 to <16 x i8>
-  %29 = shufflevector <16 x i8> %26, <16 x i8> %28, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %30 = bitcast <16 x i8> %29 to <2 x i64>
-  store <2 x i64> %30, ptr %14, align 16
-  %31 = load <2 x i64>, ptr %14, align 16
-  %32 = bitcast <2 x i64> %31 to <16 x i8>
-  %33 = shufflevector <16 x i8> %32, <16 x i8> zeroinitializer, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
-  %34 = bitcast <16 x i8> %33 to <2 x i64>
-  store <2 x i64> %34, ptr %15, align 16
-  %35 = load <2 x i64>, ptr %14, align 16
-  %36 = load <2 x i64>, ptr %15, align 16
-  store <2 x i64> %35, ptr %3, align 16
-  store <2 x i64> %36, ptr %4, align 16
-  %37 = load <2 x i64>, ptr %3, align 16
-  %38 = bitcast <2 x i64> %37 to <8 x i16>
-  %39 = load <2 x i64>, ptr %4, align 16
-  %40 = bitcast <2 x i64> %39 to <8 x i16>
-  %41 = shufflevector <8 x i16> %38, <8 x i16> %40, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %42 = bitcast <8 x i16> %41 to <2 x i64>
-  %43 = load ptr, ptr %11, align 8
-  store <2 x i64> %42, ptr %43, align 16
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @LoadEightPixels_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = alloca <2 x i64>, align 16
-  %4 = alloca <2 x i64>, align 16
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca <2 x i64>, align 16
-  %7 = alloca <2 x i64>, align 16
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca <2 x i64>, align 16
-  %11 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store <2 x i64> zeroinitializer, ptr %7, align 16
-  %12 = load <2 x i64>, ptr %7, align 16
-  store <2 x i64> %12, ptr %10, align 16
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %14, align 1
-  %16 = insertelement <2 x i64> poison, i64 %15, i32 0
-  %17 = insertelement <2 x i64> %16, i64 0, i32 1
-  store <2 x i64> %17, ptr %6, align 16
-  %18 = load <2 x i64>, ptr %6, align 16
-  store <2 x i64> %18, ptr %11, align 16
-  %19 = load <2 x i64>, ptr %11, align 16
-  %20 = load <2 x i64>, ptr %10, align 16
-  store <2 x i64> %19, ptr %3, align 16
-  store <2 x i64> %20, ptr %4, align 16
-  %21 = load <2 x i64>, ptr %3, align 16
-  %22 = bitcast <2 x i64> %21 to <16 x i8>
-  %23 = load <2 x i64>, ptr %4, align 16
-  %24 = bitcast <2 x i64> %23 to <16 x i8>
-  %25 = shufflevector <16 x i8> %22, <16 x i8> %24, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %26 = bitcast <16 x i8> %25 to <2 x i64>
-  %27 = load ptr, ptr %9, align 8
-  store <2 x i64> %26, ptr %27, align 16
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @WebPInt32ToMem(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  call void @WebPUint32ToMem(ptr noundef %5, i32 noundef %6)
-  ret void
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @WebPUint32ToMem(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 4 %4, i64 4, i1 false)
-  ret void
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
-
-declare void @WebPRescalerImportRowShrink_C(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPMemToInt32(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @WebPMemToUint32(ptr noundef %3)
-  ret i32 %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPMemToUint32(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %4, i64 4, i1 false)
-  %5 = load i32, ptr %3, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64>, i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @LoadDispatchAndMult_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca <2 x i64>, align 16
-  %10 = alloca <2 x i64>, align 16
-  %11 = alloca <2 x i64>, align 16
-  %12 = alloca <2 x i64>, align 16
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
-  %15 = alloca <2 x i64>, align 16
-  %16 = alloca <2 x i64>, align 16
-  %17 = alloca <2 x i64>, align 16
-  %18 = alloca i32, align 4
-  %19 = alloca <2 x i64>, align 16
-  %20 = alloca i32, align 4
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca <2 x i64>, align 16
-  %28 = alloca <2 x i64>, align 16
-  %29 = alloca <2 x i64>, align 16
-  %30 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %21, align 8
-  store ptr %1, ptr %22, align 8
-  store ptr %2, ptr %23, align 8
-  store ptr %3, ptr %24, align 8
-  store ptr %4, ptr %25, align 8
-  store ptr %5, ptr %26, align 8
-  %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 0
-  store ptr %32, ptr %7, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load <2 x i64>, ptr %33, align 1
-  store <2 x i64> %34, ptr %27, align 16
-  %35 = load ptr, ptr %21, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 4
-  store ptr %36, ptr %8, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = load <2 x i64>, ptr %37, align 1
-  store <2 x i64> %38, ptr %28, align 16
-  %39 = load <2 x i64>, ptr %27, align 16
-  store <2 x i64> %39, ptr %17, align 16
-  store i32 32, ptr %18, align 4
-  %40 = load <2 x i64>, ptr %17, align 16
-  %41 = load i32, ptr %18, align 4
-  %42 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %40, i32 %41)
-  store <2 x i64> %42, ptr %29, align 16
-  %43 = load <2 x i64>, ptr %28, align 16
-  store <2 x i64> %43, ptr %19, align 16
-  store i32 32, ptr %20, align 4
-  %44 = load <2 x i64>, ptr %19, align 16
-  %45 = load i32, ptr %20, align 4
-  %46 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %44, i32 %45)
-  store <2 x i64> %46, ptr %30, align 16
-  %47 = load ptr, ptr %22, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %86
-
-49:                                               ; preds = %6
-  %50 = load <2 x i64>, ptr %27, align 16
-  %51 = load ptr, ptr %22, align 8
-  %52 = load <2 x i64>, ptr %51, align 16
-  store <2 x i64> %50, ptr %9, align 16
-  store <2 x i64> %52, ptr %10, align 16
-  %53 = load <2 x i64>, ptr %9, align 16
-  %54 = load <2 x i64>, ptr %10, align 16
-  %55 = and <2 x i64> %53, <i64 4294967295, i64 4294967295>
-  %56 = and <2 x i64> %54, <i64 4294967295, i64 4294967295>
-  %57 = mul <2 x i64> %55, %56
-  %58 = load ptr, ptr %23, align 8
-  store <2 x i64> %57, ptr %58, align 16
-  %59 = load <2 x i64>, ptr %28, align 16
-  %60 = load ptr, ptr %22, align 8
-  %61 = load <2 x i64>, ptr %60, align 16
-  store <2 x i64> %59, ptr %11, align 16
-  store <2 x i64> %61, ptr %12, align 16
-  %62 = load <2 x i64>, ptr %11, align 16
-  %63 = load <2 x i64>, ptr %12, align 16
-  %64 = and <2 x i64> %62, <i64 4294967295, i64 4294967295>
-  %65 = and <2 x i64> %63, <i64 4294967295, i64 4294967295>
-  %66 = mul <2 x i64> %64, %65
-  %67 = load ptr, ptr %24, align 8
-  store <2 x i64> %66, ptr %67, align 16
-  %68 = load <2 x i64>, ptr %29, align 16
-  %69 = load ptr, ptr %22, align 8
-  %70 = load <2 x i64>, ptr %69, align 16
-  store <2 x i64> %68, ptr %13, align 16
-  store <2 x i64> %70, ptr %14, align 16
-  %71 = load <2 x i64>, ptr %13, align 16
-  %72 = load <2 x i64>, ptr %14, align 16
-  %73 = and <2 x i64> %71, <i64 4294967295, i64 4294967295>
-  %74 = and <2 x i64> %72, <i64 4294967295, i64 4294967295>
-  %75 = mul <2 x i64> %73, %74
-  %76 = load ptr, ptr %25, align 8
-  store <2 x i64> %75, ptr %76, align 16
-  %77 = load <2 x i64>, ptr %30, align 16
-  %78 = load ptr, ptr %22, align 8
-  %79 = load <2 x i64>, ptr %78, align 16
-  store <2 x i64> %77, ptr %15, align 16
-  store <2 x i64> %79, ptr %16, align 16
-  %80 = load <2 x i64>, ptr %15, align 16
-  %81 = load <2 x i64>, ptr %16, align 16
-  %82 = and <2 x i64> %80, <i64 4294967295, i64 4294967295>
-  %83 = and <2 x i64> %81, <i64 4294967295, i64 4294967295>
-  %84 = mul <2 x i64> %82, %83
-  %85 = load ptr, ptr %26, align 8
-  store <2 x i64> %84, ptr %85, align 16
-  br label %95
-
-86:                                               ; preds = %6
-  %87 = load <2 x i64>, ptr %27, align 16
-  %88 = load ptr, ptr %23, align 8
-  store <2 x i64> %87, ptr %88, align 16
-  %89 = load <2 x i64>, ptr %28, align 16
-  %90 = load ptr, ptr %24, align 8
-  store <2 x i64> %89, ptr %90, align 16
-  %91 = load <2 x i64>, ptr %29, align 16
-  %92 = load ptr, ptr %25, align 8
-  store <2 x i64> %91, ptr %92, align 16
-  %93 = load <2 x i64>, ptr %30, align 16
-  %94 = load ptr, ptr %26, align 8
-  store <2 x i64> %93, ptr %94, align 16
-  br label %95
-
-95:                                               ; preds = %86, %49
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ProcessRow_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
+  %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca <2 x i64>, align 16
   %9 = alloca <2 x i64>, align 16
   %10 = alloca <2 x i64>, align 16
   %11 = alloca <2 x i64>, align 16
   %12 = alloca <2 x i64>, align 16
-  %13 = alloca <2 x i64>, align 16
-  %14 = alloca <2 x i64>, align 16
-  %15 = alloca <2 x i64>, align 16
-  %16 = alloca <2 x i64>, align 16
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
   %17 = alloca <2 x i64>, align 16
   %18 = alloca <2 x i64>, align 16
   %19 = alloca <2 x i64>, align 16
@@ -2203,266 +672,1715 @@ define internal void @ProcessRow_SSE2(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = alloca <2 x i64>, align 16
   %36 = alloca <2 x i64>, align 16
   %37 = alloca <2 x i64>, align 16
-  %38 = alloca i32, align 4
+  %38 = alloca <2 x i64>, align 16
   %39 = alloca <2 x i64>, align 16
-  %40 = alloca i32, align 4
+  %40 = alloca i64, align 8
   %41 = alloca i32, align 4
   %42 = alloca i32, align 4
-  %43 = alloca i32, align 4
-  %44 = alloca i32, align 4
-  %45 = alloca <4 x i32>, align 16
-  %46 = alloca i32, align 4
-  %47 = alloca i32, align 4
-  %48 = alloca i32, align 4
-  %49 = alloca i32, align 4
-  %50 = alloca <4 x i32>, align 16
-  %51 = alloca ptr, align 8
-  %52 = alloca ptr, align 8
-  %53 = alloca ptr, align 8
-  %54 = alloca ptr, align 8
-  %55 = alloca ptr, align 8
-  %56 = alloca ptr, align 8
-  %57 = alloca <2 x i64>, align 16
-  %58 = alloca <2 x i64>, align 16
-  %59 = alloca <2 x i64>, align 16
-  %60 = alloca <2 x i64>, align 16
-  %61 = alloca <2 x i64>, align 16
-  %62 = alloca <2 x i64>, align 16
-  %63 = alloca <2 x i64>, align 16
-  %64 = alloca <2 x i64>, align 16
-  %65 = alloca <2 x i64>, align 16
-  %66 = alloca <2 x i64>, align 16
-  %67 = alloca <2 x i64>, align 16
-  %68 = alloca <2 x i64>, align 16
-  %69 = alloca <2 x i64>, align 16
-  %70 = alloca <2 x i64>, align 16
-  %71 = alloca <2 x i64>, align 16
-  %72 = alloca <2 x i64>, align 16
-  %73 = alloca <2 x i64>, align 16
-  %74 = alloca <2 x i64>, align 16
-  store ptr %0, ptr %51, align 8
-  store ptr %1, ptr %52, align 8
-  store ptr %2, ptr %53, align 8
-  store ptr %3, ptr %54, align 8
-  store ptr %4, ptr %55, align 8
-  store ptr %5, ptr %56, align 8
-  store i32 0, ptr %41, align 4
-  store i32 -2147483648, ptr %42, align 4
-  store i32 0, ptr %43, align 4
-  store i32 -2147483648, ptr %44, align 4
-  %75 = load i32, ptr %44, align 4
-  %76 = insertelement <4 x i32> poison, i32 %75, i32 0
-  %77 = load i32, ptr %43, align 4
-  %78 = insertelement <4 x i32> %76, i32 %77, i32 1
-  %79 = load i32, ptr %42, align 4
-  %80 = insertelement <4 x i32> %78, i32 %79, i32 2
-  %81 = load i32, ptr %41, align 4
-  %82 = insertelement <4 x i32> %80, i32 %81, i32 3
-  store <4 x i32> %82, ptr %45, align 16
-  %83 = load <4 x i32>, ptr %45, align 16
-  %84 = bitcast <4 x i32> %83 to <2 x i64>
-  store <2 x i64> %84, ptr %57, align 16
-  store i32 -1, ptr %46, align 4
-  store i32 0, ptr %47, align 4
-  store i32 -1, ptr %48, align 4
-  store i32 0, ptr %49, align 4
-  %85 = load i32, ptr %49, align 4
-  %86 = insertelement <4 x i32> poison, i32 %85, i32 0
-  %87 = load i32, ptr %48, align 4
-  %88 = insertelement <4 x i32> %86, i32 %87, i32 1
-  %89 = load i32, ptr %47, align 4
-  %90 = insertelement <4 x i32> %88, i32 %89, i32 2
-  %91 = load i32, ptr %46, align 4
-  %92 = insertelement <4 x i32> %90, i32 %91, i32 3
-  store <4 x i32> %92, ptr %50, align 16
-  %93 = load <4 x i32>, ptr %50, align 16
-  %94 = bitcast <4 x i32> %93 to <2 x i64>
-  store <2 x i64> %94, ptr %58, align 16
-  %95 = load ptr, ptr %51, align 8
-  %96 = load <2 x i64>, ptr %95, align 16
-  %97 = load ptr, ptr %55, align 8
-  %98 = load <2 x i64>, ptr %97, align 16
-  store <2 x i64> %96, ptr %29, align 16
-  store <2 x i64> %98, ptr %30, align 16
-  %99 = load <2 x i64>, ptr %29, align 16
-  %100 = load <2 x i64>, ptr %30, align 16
-  %101 = and <2 x i64> %99, <i64 4294967295, i64 4294967295>
-  %102 = and <2 x i64> %100, <i64 4294967295, i64 4294967295>
-  %103 = mul <2 x i64> %101, %102
-  store <2 x i64> %103, ptr %59, align 16
-  %104 = load ptr, ptr %52, align 8
-  %105 = load <2 x i64>, ptr %104, align 16
-  %106 = load ptr, ptr %55, align 8
-  %107 = load <2 x i64>, ptr %106, align 16
-  store <2 x i64> %105, ptr %31, align 16
-  store <2 x i64> %107, ptr %32, align 16
-  %108 = load <2 x i64>, ptr %31, align 16
-  %109 = load <2 x i64>, ptr %32, align 16
-  %110 = and <2 x i64> %108, <i64 4294967295, i64 4294967295>
-  %111 = and <2 x i64> %109, <i64 4294967295, i64 4294967295>
-  %112 = mul <2 x i64> %110, %111
-  store <2 x i64> %112, ptr %60, align 16
-  %113 = load ptr, ptr %53, align 8
-  %114 = load <2 x i64>, ptr %113, align 16
-  %115 = load ptr, ptr %55, align 8
-  %116 = load <2 x i64>, ptr %115, align 16
-  store <2 x i64> %114, ptr %33, align 16
-  store <2 x i64> %116, ptr %34, align 16
-  %117 = load <2 x i64>, ptr %33, align 16
-  %118 = load <2 x i64>, ptr %34, align 16
-  %119 = and <2 x i64> %117, <i64 4294967295, i64 4294967295>
-  %120 = and <2 x i64> %118, <i64 4294967295, i64 4294967295>
-  %121 = mul <2 x i64> %119, %120
-  store <2 x i64> %121, ptr %61, align 16
-  %122 = load ptr, ptr %54, align 8
-  %123 = load <2 x i64>, ptr %122, align 16
-  %124 = load ptr, ptr %55, align 8
-  %125 = load <2 x i64>, ptr %124, align 16
-  store <2 x i64> %123, ptr %35, align 16
-  store <2 x i64> %125, ptr %36, align 16
-  %126 = load <2 x i64>, ptr %35, align 16
-  %127 = load <2 x i64>, ptr %36, align 16
-  %128 = and <2 x i64> %126, <i64 4294967295, i64 4294967295>
-  %129 = and <2 x i64> %127, <i64 4294967295, i64 4294967295>
-  %130 = mul <2 x i64> %128, %129
-  store <2 x i64> %130, ptr %62, align 16
-  %131 = load <2 x i64>, ptr %59, align 16
-  %132 = load <2 x i64>, ptr %57, align 16
-  store <2 x i64> %131, ptr %21, align 16
-  store <2 x i64> %132, ptr %22, align 16
-  %133 = load <2 x i64>, ptr %21, align 16
-  %134 = load <2 x i64>, ptr %22, align 16
-  %135 = add <2 x i64> %133, %134
-  store <2 x i64> %135, ptr %63, align 16
-  %136 = load <2 x i64>, ptr %60, align 16
-  %137 = load <2 x i64>, ptr %57, align 16
-  store <2 x i64> %136, ptr %23, align 16
-  store <2 x i64> %137, ptr %24, align 16
-  %138 = load <2 x i64>, ptr %23, align 16
-  %139 = load <2 x i64>, ptr %24, align 16
-  %140 = add <2 x i64> %138, %139
-  store <2 x i64> %140, ptr %64, align 16
-  %141 = load <2 x i64>, ptr %61, align 16
-  %142 = load <2 x i64>, ptr %57, align 16
-  store <2 x i64> %141, ptr %25, align 16
-  store <2 x i64> %142, ptr %26, align 16
-  %143 = load <2 x i64>, ptr %25, align 16
-  %144 = load <2 x i64>, ptr %26, align 16
-  %145 = add <2 x i64> %143, %144
-  store <2 x i64> %145, ptr %65, align 16
-  %146 = load <2 x i64>, ptr %62, align 16
-  %147 = load <2 x i64>, ptr %57, align 16
-  store <2 x i64> %146, ptr %27, align 16
-  store <2 x i64> %147, ptr %28, align 16
-  %148 = load <2 x i64>, ptr %27, align 16
-  %149 = load <2 x i64>, ptr %28, align 16
-  %150 = add <2 x i64> %148, %149
-  store <2 x i64> %150, ptr %66, align 16
-  %151 = load <2 x i64>, ptr %63, align 16
-  store <2 x i64> %151, ptr %37, align 16
-  store i32 32, ptr %38, align 4
-  %152 = load <2 x i64>, ptr %37, align 16
-  %153 = load i32, ptr %38, align 4
-  %154 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %152, i32 %153)
-  store <2 x i64> %154, ptr %67, align 16
-  %155 = load <2 x i64>, ptr %64, align 16
-  store <2 x i64> %155, ptr %39, align 16
-  store i32 32, ptr %40, align 4
-  %156 = load <2 x i64>, ptr %39, align 16
-  %157 = load i32, ptr %40, align 4
-  %158 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %156, i32 %157)
-  store <2 x i64> %158, ptr %68, align 16
-  %159 = load <2 x i64>, ptr %65, align 16
-  %160 = load <2 x i64>, ptr %58, align 16
-  store <2 x i64> %159, ptr %15, align 16
-  store <2 x i64> %160, ptr %16, align 16
-  %161 = load <2 x i64>, ptr %15, align 16
-  %162 = load <2 x i64>, ptr %16, align 16
-  %163 = and <2 x i64> %161, %162
-  store <2 x i64> %163, ptr %69, align 16
-  %164 = load <2 x i64>, ptr %66, align 16
-  %165 = load <2 x i64>, ptr %58, align 16
-  store <2 x i64> %164, ptr %17, align 16
-  store <2 x i64> %165, ptr %18, align 16
-  %166 = load <2 x i64>, ptr %17, align 16
-  %167 = load <2 x i64>, ptr %18, align 16
-  %168 = and <2 x i64> %166, %167
-  store <2 x i64> %168, ptr %70, align 16
-  %169 = load <2 x i64>, ptr %67, align 16
-  %170 = load <2 x i64>, ptr %69, align 16
-  store <2 x i64> %169, ptr %11, align 16
-  store <2 x i64> %170, ptr %12, align 16
-  %171 = load <2 x i64>, ptr %11, align 16
-  %172 = load <2 x i64>, ptr %12, align 16
-  %173 = or <2 x i64> %171, %172
-  store <2 x i64> %173, ptr %71, align 16
-  %174 = load <2 x i64>, ptr %68, align 16
-  %175 = load <2 x i64>, ptr %70, align 16
-  store <2 x i64> %174, ptr %13, align 16
-  store <2 x i64> %175, ptr %14, align 16
-  %176 = load <2 x i64>, ptr %13, align 16
-  %177 = load <2 x i64>, ptr %14, align 16
-  %178 = or <2 x i64> %176, %177
-  store <2 x i64> %178, ptr %72, align 16
-  %179 = load <2 x i64>, ptr %71, align 16
-  %180 = load <2 x i64>, ptr %72, align 16
-  store <2 x i64> %179, ptr %19, align 16
-  store <2 x i64> %180, ptr %20, align 16
-  %181 = load <2 x i64>, ptr %19, align 16
-  %182 = bitcast <2 x i64> %181 to <4 x i32>
-  %183 = load <2 x i64>, ptr %20, align 16
-  %184 = bitcast <2 x i64> %183 to <4 x i32>
-  %185 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %182, <4 x i32> %184)
-  %186 = bitcast <8 x i16> %185 to <2 x i64>
-  store <2 x i64> %186, ptr %73, align 16
-  %187 = load <2 x i64>, ptr %73, align 16
-  %188 = load <2 x i64>, ptr %73, align 16
-  store <2 x i64> %187, ptr %9, align 16
-  store <2 x i64> %188, ptr %10, align 16
-  %189 = load <2 x i64>, ptr %9, align 16
-  %190 = bitcast <2 x i64> %189 to <8 x i16>
-  %191 = load <2 x i64>, ptr %10, align 16
-  %192 = bitcast <2 x i64> %191 to <8 x i16>
-  %193 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %190, <8 x i16> %192)
-  %194 = bitcast <16 x i8> %193 to <2 x i64>
-  store <2 x i64> %194, ptr %74, align 16
-  %195 = load ptr, ptr %56, align 8
-  %196 = load <2 x i64>, ptr %74, align 16
-  store ptr %195, ptr %7, align 8
-  store <2 x i64> %196, ptr %8, align 16
-  %197 = load <2 x i64>, ptr %8, align 16
-  %198 = extractelement <2 x i64> %197, i32 0
-  %199 = load ptr, ptr %7, align 8
-  store i64 %198, ptr %199, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %43 = load ptr, ptr %2, align 8, !tbaa !7
+  %44 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %43, i32 0, i32 17
+  %45 = load ptr, ptr %44, align 8, !tbaa !27
+  store ptr %45, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %46 = load ptr, ptr %2, align 8, !tbaa !7
+  %47 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %46, i32 0, i32 19
+  %48 = load ptr, ptr %47, align 8, !tbaa !28
+  store ptr %48, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %49 = load ptr, ptr %2, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %49, i32 0, i32 13
+  %51 = load i32, ptr %50, align 4, !tbaa !16
+  %52 = load ptr, ptr %2, align 8, !tbaa !7
+  %53 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %52, i32 0, i32 2
+  %54 = load i32, ptr %53, align 8, !tbaa !17
+  %55 = mul nsw i32 %51, %54
+  store i32 %55, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %56 = load ptr, ptr %2, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %56, i32 0, i32 20
+  %58 = load ptr, ptr %57, align 8, !tbaa !11
+  store ptr %58, ptr %7, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  %59 = load ptr, ptr %2, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %59, i32 0, i32 4
+  %61 = load i32, ptr %60, align 8, !tbaa !29
+  %62 = load ptr, ptr %2, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %62, i32 0, i32 4
+  %64 = load i32, ptr %63, align 8, !tbaa !29
+  %65 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %61, i32 noundef 0, i32 noundef %64)
+  store <2 x i64> %65, ptr %8, align 16, !tbaa !21
+  %66 = load ptr, ptr %2, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %66, i32 0, i32 6
+  %68 = load i32, ptr %67, align 8, !tbaa !30
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %127
+
+70:                                               ; preds = %1
+  store i32 0, ptr %3, align 4, !tbaa !19
+  br label %71
+
+71:                                               ; preds = %85, %70
+  %72 = load i32, ptr %3, align 4, !tbaa !19
+  %73 = add nsw i32 %72, 8
+  %74 = load i32, ptr %6, align 4, !tbaa !19
+  %75 = icmp sle i32 %73, %74
+  br i1 %75, label %76, label %88
+
+76:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #9
+  %77 = load ptr, ptr %7, align 8, !tbaa !15
+  %78 = load i32, ptr %3, align 4, !tbaa !19
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i32, ptr %77, i64 %79
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %80, ptr noundef null, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %81 = load ptr, ptr %4, align 8, !tbaa !9
+  %82 = load i32, ptr %3, align 4, !tbaa !19
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %81, i64 %83
+  call void @ProcessRow_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %8, ptr noundef %84)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #9
+  br label %85
+
+85:                                               ; preds = %76
+  %86 = load i32, ptr %3, align 4, !tbaa !19
+  %87 = add nsw i32 %86, 8
+  store i32 %87, ptr %3, align 4, !tbaa !19
+  br label %71, !llvm.loop !31
+
+88:                                               ; preds = %71
+  br label %89
+
+89:                                               ; preds = %123, %88
+  %90 = load i32, ptr %3, align 4, !tbaa !19
+  %91 = load i32, ptr %6, align 4, !tbaa !19
+  %92 = icmp slt i32 %90, %91
+  br i1 %92, label %93, label %126
+
+93:                                               ; preds = %89
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  %94 = load ptr, ptr %7, align 8, !tbaa !15
+  %95 = load i32, ptr %3, align 4, !tbaa !19
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i32, ptr %94, i64 %96
+  %98 = load i32, ptr %97, align 4, !tbaa !19
+  store i32 %98, ptr %13, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  %99 = load i32, ptr %13, align 4, !tbaa !19
+  %100 = zext i32 %99 to i64
+  %101 = load ptr, ptr %2, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %101, i32 0, i32 4
+  %103 = load i32, ptr %102, align 8, !tbaa !29
+  %104 = zext i32 %103 to i64
+  %105 = mul i64 %100, %104
+  %106 = add i64 %105, 2147483648
+  %107 = lshr i64 %106, 32
+  %108 = trunc i64 %107 to i32
+  store i32 %108, ptr %14, align 4, !tbaa !19
+  %109 = load i32, ptr %14, align 4, !tbaa !19
+  %110 = icmp sgt i32 %109, 255
+  br i1 %110, label %111, label %112
+
+111:                                              ; preds = %93
+  br label %116
+
+112:                                              ; preds = %93
+  %113 = load i32, ptr %14, align 4, !tbaa !19
+  %114 = trunc i32 %113 to i8
+  %115 = zext i8 %114 to i32
+  br label %116
+
+116:                                              ; preds = %112, %111
+  %117 = phi i32 [ 255, %111 ], [ %115, %112 ]
+  %118 = trunc i32 %117 to i8
+  %119 = load ptr, ptr %4, align 8, !tbaa !9
+  %120 = load i32, ptr %3, align 4, !tbaa !19
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %119, i64 %121
+  store i8 %118, ptr %122, align 1, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  br label %123
+
+123:                                              ; preds = %116
+  %124 = load i32, ptr %3, align 4, !tbaa !19
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %3, align 4, !tbaa !19
+  br label %89, !llvm.loop !32
+
+126:                                              ; preds = %89
+  br label %261
+
+127:                                              ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  %128 = load ptr, ptr %2, align 8, !tbaa !7
+  %129 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %128, i32 0, i32 6
+  %130 = load i32, ptr %129, align 8, !tbaa !30
+  %131 = sub nsw i32 0, %130
+  %132 = sext i32 %131 to i64
+  %133 = shl i64 %132, 32
+  %134 = load ptr, ptr %2, align 8, !tbaa !7
+  %135 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %134, i32 0, i32 8
+  %136 = load i32, ptr %135, align 8, !tbaa !33
+  %137 = sext i32 %136 to i64
+  %138 = udiv i64 %133, %137
+  %139 = trunc i64 %138 to i32
+  store i32 %139, ptr %15, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  %140 = load i32, ptr %15, align 4, !tbaa !19
+  %141 = zext i32 %140 to i64
+  %142 = sub i64 4294967296, %141
+  %143 = trunc i64 %142 to i32
+  store i32 %143, ptr %16, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #9
+  %144 = load i32, ptr %16, align 4, !tbaa !19
+  %145 = load i32, ptr %16, align 4, !tbaa !19
+  %146 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %144, i32 noundef 0, i32 noundef %145)
+  store <2 x i64> %146, ptr %17, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #9
+  %147 = load i32, ptr %15, align 4, !tbaa !19
+  %148 = load i32, ptr %15, align 4, !tbaa !19
+  %149 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %147, i32 noundef 0, i32 noundef %148)
+  store <2 x i64> %149, ptr %18, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #9
+  %150 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef -2147483648, i32 noundef 0, i32 noundef -2147483648)
+  store <2 x i64> %150, ptr %19, align 16, !tbaa !21
+  store i32 0, ptr %3, align 4, !tbaa !19
+  br label %151
+
+151:                                              ; preds = %201, %127
+  %152 = load i32, ptr %3, align 4, !tbaa !19
+  %153 = add nsw i32 %152, 8
+  %154 = load i32, ptr %6, align 4, !tbaa !19
+  %155 = icmp sle i32 %153, %154
+  br i1 %155, label %156, label %204
+
+156:                                              ; preds = %151
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #9
+  %157 = load ptr, ptr %7, align 8, !tbaa !15
+  %158 = load i32, ptr %3, align 4, !tbaa !19
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i32, ptr %157, i64 %159
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %160, ptr noundef %17, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  %161 = load ptr, ptr %5, align 8, !tbaa !15
+  %162 = load i32, ptr %3, align 4, !tbaa !19
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i32, ptr %161, i64 %163
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %164, ptr noundef %18, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #9
+  %165 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %166 = load <2 x i64>, ptr %24, align 16, !tbaa !21
+  %167 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %165, <2 x i64> noundef %166)
+  store <2 x i64> %167, ptr %28, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #9
+  %168 = load <2 x i64>, ptr %21, align 16, !tbaa !21
+  %169 = load <2 x i64>, ptr %25, align 16, !tbaa !21
+  %170 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %168, <2 x i64> noundef %169)
+  store <2 x i64> %170, ptr %29, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #9
+  %171 = load <2 x i64>, ptr %22, align 16, !tbaa !21
+  %172 = load <2 x i64>, ptr %26, align 16, !tbaa !21
+  %173 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %171, <2 x i64> noundef %172)
+  store <2 x i64> %173, ptr %30, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #9
+  %174 = load <2 x i64>, ptr %23, align 16, !tbaa !21
+  %175 = load <2 x i64>, ptr %27, align 16, !tbaa !21
+  %176 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %174, <2 x i64> noundef %175)
+  store <2 x i64> %176, ptr %31, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %32) #9
+  %177 = load <2 x i64>, ptr %28, align 16, !tbaa !21
+  %178 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %179 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %177, <2 x i64> noundef %178)
+  store <2 x i64> %179, ptr %32, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %33) #9
+  %180 = load <2 x i64>, ptr %29, align 16, !tbaa !21
+  %181 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %182 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %180, <2 x i64> noundef %181)
+  store <2 x i64> %182, ptr %33, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %34) #9
+  %183 = load <2 x i64>, ptr %30, align 16, !tbaa !21
+  %184 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %185 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %183, <2 x i64> noundef %184)
+  store <2 x i64> %185, ptr %34, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %35) #9
+  %186 = load <2 x i64>, ptr %31, align 16, !tbaa !21
+  %187 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %188 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %186, <2 x i64> noundef %187)
+  store <2 x i64> %188, ptr %35, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %36) #9
+  %189 = load <2 x i64>, ptr %32, align 16, !tbaa !21
+  %190 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %189, i32 noundef 32)
+  store <2 x i64> %190, ptr %36, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %37) #9
+  %191 = load <2 x i64>, ptr %33, align 16, !tbaa !21
+  %192 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %191, i32 noundef 32)
+  store <2 x i64> %192, ptr %37, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %38) #9
+  %193 = load <2 x i64>, ptr %34, align 16, !tbaa !21
+  %194 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %193, i32 noundef 32)
+  store <2 x i64> %194, ptr %38, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %39) #9
+  %195 = load <2 x i64>, ptr %35, align 16, !tbaa !21
+  %196 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %195, i32 noundef 32)
+  store <2 x i64> %196, ptr %39, align 16, !tbaa !21
+  %197 = load ptr, ptr %4, align 8, !tbaa !9
+  %198 = load i32, ptr %3, align 4, !tbaa !19
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds i8, ptr %197, i64 %199
+  call void @ProcessRow_SSE2(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %8, ptr noundef %200)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %39) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %38) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %37) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %36) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %35) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %34) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %33) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %32) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #9
+  br label %201
+
+201:                                              ; preds = %156
+  %202 = load i32, ptr %3, align 4, !tbaa !19
+  %203 = add nsw i32 %202, 8
+  store i32 %203, ptr %3, align 4, !tbaa !19
+  br label %151, !llvm.loop !34
+
+204:                                              ; preds = %151
+  br label %205
+
+205:                                              ; preds = %257, %204
+  %206 = load i32, ptr %3, align 4, !tbaa !19
+  %207 = load i32, ptr %6, align 4, !tbaa !19
+  %208 = icmp slt i32 %206, %207
+  br i1 %208, label %209, label %260
+
+209:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #9
+  %210 = load i32, ptr %16, align 4, !tbaa !19
+  %211 = zext i32 %210 to i64
+  %212 = load ptr, ptr %7, align 8, !tbaa !15
+  %213 = load i32, ptr %3, align 4, !tbaa !19
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds i32, ptr %212, i64 %214
+  %216 = load i32, ptr %215, align 4, !tbaa !19
+  %217 = zext i32 %216 to i64
+  %218 = mul i64 %211, %217
+  %219 = load i32, ptr %15, align 4, !tbaa !19
+  %220 = zext i32 %219 to i64
+  %221 = load ptr, ptr %5, align 8, !tbaa !15
+  %222 = load i32, ptr %3, align 4, !tbaa !19
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i32, ptr %221, i64 %223
+  %225 = load i32, ptr %224, align 4, !tbaa !19
+  %226 = zext i32 %225 to i64
+  %227 = mul i64 %220, %226
+  %228 = add i64 %218, %227
+  store i64 %228, ptr %40, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #9
+  %229 = load i64, ptr %40, align 8, !tbaa !35
+  %230 = add i64 %229, 2147483648
+  %231 = lshr i64 %230, 32
+  %232 = trunc i64 %231 to i32
+  store i32 %232, ptr %41, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #9
+  %233 = load i32, ptr %41, align 4, !tbaa !19
+  %234 = zext i32 %233 to i64
+  %235 = load ptr, ptr %2, align 8, !tbaa !7
+  %236 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %235, i32 0, i32 4
+  %237 = load i32, ptr %236, align 8, !tbaa !29
+  %238 = zext i32 %237 to i64
+  %239 = mul i64 %234, %238
+  %240 = add i64 %239, 2147483648
+  %241 = lshr i64 %240, 32
+  %242 = trunc i64 %241 to i32
+  store i32 %242, ptr %42, align 4, !tbaa !19
+  %243 = load i32, ptr %42, align 4, !tbaa !19
+  %244 = icmp sgt i32 %243, 255
+  br i1 %244, label %245, label %246
+
+245:                                              ; preds = %209
+  br label %250
+
+246:                                              ; preds = %209
+  %247 = load i32, ptr %42, align 4, !tbaa !19
+  %248 = trunc i32 %247 to i8
+  %249 = zext i8 %248 to i32
+  br label %250
+
+250:                                              ; preds = %246, %245
+  %251 = phi i32 [ 255, %245 ], [ %249, %246 ]
+  %252 = trunc i32 %251 to i8
+  %253 = load ptr, ptr %4, align 8, !tbaa !9
+  %254 = load i32, ptr %3, align 4, !tbaa !19
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds i8, ptr %253, i64 %255
+  store i8 %252, ptr %256, align 1, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #9
+  br label %257
+
+257:                                              ; preds = %250
+  %258 = load i32, ptr %3, align 4, !tbaa !19
+  %259 = add nsw i32 %258, 1
+  store i32 %259, ptr %3, align 4, !tbaa !19
+  br label %205, !llvm.loop !37
+
+260:                                              ; preds = %205
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  br label %261
+
+261:                                              ; preds = %260, %126
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @RescalerExportRowShrink_SSE2(ptr noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca <2 x i64>, align 16
+  %11 = alloca <2 x i64>, align 16
+  %12 = alloca <2 x i64>, align 16
+  %13 = alloca <2 x i64>, align 16
+  %14 = alloca <2 x i64>, align 16
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <2 x i64>, align 16
+  %18 = alloca <2 x i64>, align 16
+  %19 = alloca <2 x i64>, align 16
+  %20 = alloca <2 x i64>, align 16
+  %21 = alloca <2 x i64>, align 16
+  %22 = alloca <2 x i64>, align 16
+  %23 = alloca <2 x i64>, align 16
+  %24 = alloca <2 x i64>, align 16
+  %25 = alloca <2 x i64>, align 16
+  %26 = alloca <2 x i64>, align 16
+  %27 = alloca <2 x i64>, align 16
+  %28 = alloca <2 x i64>, align 16
+  %29 = alloca <2 x i64>, align 16
+  %30 = alloca <2 x i64>, align 16
+  %31 = alloca <2 x i64>, align 16
+  %32 = alloca i32, align 4
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca <2 x i64>, align 16
+  %36 = alloca <2 x i64>, align 16
+  %37 = alloca <2 x i64>, align 16
+  %38 = alloca <2 x i64>, align 16
+  %39 = alloca <2 x i64>, align 16
+  %40 = alloca <2 x i64>, align 16
+  %41 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %42 = load ptr, ptr %2, align 8, !tbaa !7
+  %43 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %42, i32 0, i32 17
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  store ptr %44, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %45 = load ptr, ptr %2, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %45, i32 0, i32 19
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
+  store ptr %47, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %48 = load ptr, ptr %2, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %48, i32 0, i32 13
+  %50 = load i32, ptr %49, align 4, !tbaa !16
+  %51 = load ptr, ptr %2, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %51, i32 0, i32 2
+  %53 = load i32, ptr %52, align 8, !tbaa !17
+  %54 = mul nsw i32 %50, %53
+  store i32 %54, ptr %6, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %55 = load ptr, ptr %2, align 8, !tbaa !7
+  %56 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %55, i32 0, i32 20
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  store ptr %57, ptr %7, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %58 = load ptr, ptr %2, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %58, i32 0, i32 4
+  %60 = load i32, ptr %59, align 8, !tbaa !29
+  %61 = load ptr, ptr %2, align 8, !tbaa !7
+  %62 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %61, i32 0, i32 6
+  %63 = load i32, ptr %62, align 8, !tbaa !30
+  %64 = sub nsw i32 0, %63
+  %65 = mul i32 %60, %64
+  store i32 %65, ptr %8, align 4, !tbaa !19
+  %66 = load i32, ptr %8, align 4, !tbaa !19
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %197
+
+68:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %69 = load ptr, ptr %2, align 8, !tbaa !7
+  %70 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %69, i32 0, i32 5
+  %71 = load i32, ptr %70, align 4, !tbaa !38
+  store i32 %71, ptr %9, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #9
+  %72 = load i32, ptr %9, align 4, !tbaa !19
+  %73 = load i32, ptr %9, align 4, !tbaa !19
+  %74 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %72, i32 noundef 0, i32 noundef %73)
+  store <2 x i64> %74, ptr %10, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #9
+  %75 = load i32, ptr %8, align 4, !tbaa !19
+  %76 = load i32, ptr %8, align 4, !tbaa !19
+  %77 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %75, i32 noundef 0, i32 noundef %76)
+  store <2 x i64> %77, ptr %11, align 16, !tbaa !21
+  store i32 0, ptr %3, align 4, !tbaa !19
+  br label %78
+
+78:                                               ; preds = %138, %68
+  %79 = load i32, ptr %3, align 4, !tbaa !19
+  %80 = add nsw i32 %79, 8
+  %81 = load i32, ptr %6, align 4, !tbaa !19
+  %82 = icmp sle i32 %80, %81
+  br i1 %82, label %83, label %141
+
+83:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #9
+  %84 = load ptr, ptr %5, align 8, !tbaa !15
+  %85 = load i32, ptr %3, align 4, !tbaa !19
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %84, i64 %86
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %87, ptr noundef null, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  %88 = load ptr, ptr %7, align 8, !tbaa !15
+  %89 = load i32, ptr %3, align 4, !tbaa !19
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i32, ptr %88, i64 %90
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %91, ptr noundef %11, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #9
+  %92 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %93 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %92, i32 noundef 32)
+  store <2 x i64> %93, ptr %20, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #9
+  %94 = load <2 x i64>, ptr %17, align 16, !tbaa !21
+  %95 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %94, i32 noundef 32)
+  store <2 x i64> %95, ptr %21, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #9
+  %96 = load <2 x i64>, ptr %18, align 16, !tbaa !21
+  %97 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %96, i32 noundef 32)
+  store <2 x i64> %97, ptr %22, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #9
+  %98 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %99 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %98, i32 noundef 32)
+  store <2 x i64> %99, ptr %23, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #9
+  %100 = load <2 x i64>, ptr %12, align 16, !tbaa !21
+  %101 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %102 = call <2 x i64> @_mm_sub_epi64(<2 x i64> noundef %100, <2 x i64> noundef %101)
+  store <2 x i64> %102, ptr %24, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #9
+  %103 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %104 = load <2 x i64>, ptr %21, align 16, !tbaa !21
+  %105 = call <2 x i64> @_mm_sub_epi64(<2 x i64> noundef %103, <2 x i64> noundef %104)
+  store <2 x i64> %105, ptr %25, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #9
+  %106 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %107 = load <2 x i64>, ptr %22, align 16, !tbaa !21
+  %108 = call <2 x i64> @_mm_sub_epi64(<2 x i64> noundef %106, <2 x i64> noundef %107)
+  store <2 x i64> %108, ptr %26, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #9
+  %109 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %110 = load <2 x i64>, ptr %23, align 16, !tbaa !21
+  %111 = call <2 x i64> @_mm_sub_epi64(<2 x i64> noundef %109, <2 x i64> noundef %110)
+  store <2 x i64> %111, ptr %27, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #9
+  %112 = load <2 x i64>, ptr %22, align 16, !tbaa !21
+  %113 = call <2 x i64> @_mm_slli_epi64(<2 x i64> noundef %112, i32 noundef 32)
+  store <2 x i64> %113, ptr %28, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #9
+  %114 = load <2 x i64>, ptr %23, align 16, !tbaa !21
+  %115 = call <2 x i64> @_mm_slli_epi64(<2 x i64> noundef %114, i32 noundef 32)
+  store <2 x i64> %115, ptr %29, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #9
+  %116 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %117 = load <2 x i64>, ptr %28, align 16, !tbaa !21
+  %118 = call <2 x i64> @_mm_or_si128(<2 x i64> noundef %116, <2 x i64> noundef %117)
+  store <2 x i64> %118, ptr %30, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %31) #9
+  %119 = load <2 x i64>, ptr %21, align 16, !tbaa !21
+  %120 = load <2 x i64>, ptr %29, align 16, !tbaa !21
+  %121 = call <2 x i64> @_mm_or_si128(<2 x i64> noundef %119, <2 x i64> noundef %120)
+  store <2 x i64> %121, ptr %31, align 16, !tbaa !21
+  %122 = load ptr, ptr %5, align 8, !tbaa !15
+  %123 = load i32, ptr %3, align 4, !tbaa !19
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i32, ptr %122, i64 %124
+  %126 = getelementptr inbounds i32, ptr %125, i64 0
+  %127 = load <2 x i64>, ptr %30, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %126, <2 x i64> noundef %127)
+  %128 = load ptr, ptr %5, align 8, !tbaa !15
+  %129 = load i32, ptr %3, align 4, !tbaa !19
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i32, ptr %128, i64 %130
+  %132 = getelementptr inbounds i32, ptr %131, i64 4
+  %133 = load <2 x i64>, ptr %31, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %132, <2 x i64> noundef %133)
+  %134 = load ptr, ptr %4, align 8, !tbaa !9
+  %135 = load i32, ptr %3, align 4, !tbaa !19
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i8, ptr %134, i64 %136
+  call void @ProcessRow_SSE2(ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %10, ptr noundef %137)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %31) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #9
+  br label %138
+
+138:                                              ; preds = %83
+  %139 = load i32, ptr %3, align 4, !tbaa !19
+  %140 = add nsw i32 %139, 8
+  store i32 %140, ptr %3, align 4, !tbaa !19
+  br label %78, !llvm.loop !39
+
+141:                                              ; preds = %78
+  br label %142
+
+142:                                              ; preds = %193, %141
+  %143 = load i32, ptr %3, align 4, !tbaa !19
+  %144 = load i32, ptr %6, align 4, !tbaa !19
+  %145 = icmp slt i32 %143, %144
+  br i1 %145, label %146, label %196
+
+146:                                              ; preds = %142
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #9
+  %147 = load ptr, ptr %7, align 8, !tbaa !15
+  %148 = load i32, ptr %3, align 4, !tbaa !19
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i32, ptr %147, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !19
+  %152 = zext i32 %151 to i64
+  %153 = load i32, ptr %8, align 4, !tbaa !19
+  %154 = zext i32 %153 to i64
+  %155 = mul i64 %152, %154
+  %156 = lshr i64 %155, 32
+  %157 = trunc i64 %156 to i32
+  store i32 %157, ptr %32, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #9
+  %158 = load ptr, ptr %5, align 8, !tbaa !15
+  %159 = load i32, ptr %3, align 4, !tbaa !19
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds i32, ptr %158, i64 %160
+  %162 = load i32, ptr %161, align 4, !tbaa !19
+  %163 = load i32, ptr %32, align 4, !tbaa !19
+  %164 = sub i32 %162, %163
+  %165 = zext i32 %164 to i64
+  %166 = load ptr, ptr %2, align 8, !tbaa !7
+  %167 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %166, i32 0, i32 5
+  %168 = load i32, ptr %167, align 4, !tbaa !38
+  %169 = zext i32 %168 to i64
+  %170 = mul i64 %165, %169
+  %171 = add i64 %170, 2147483648
+  %172 = lshr i64 %171, 32
+  %173 = trunc i64 %172 to i32
+  store i32 %173, ptr %33, align 4, !tbaa !19
+  %174 = load i32, ptr %33, align 4, !tbaa !19
+  %175 = icmp sgt i32 %174, 255
+  br i1 %175, label %176, label %177
+
+176:                                              ; preds = %146
+  br label %181
+
+177:                                              ; preds = %146
+  %178 = load i32, ptr %33, align 4, !tbaa !19
+  %179 = trunc i32 %178 to i8
+  %180 = zext i8 %179 to i32
+  br label %181
+
+181:                                              ; preds = %177, %176
+  %182 = phi i32 [ 255, %176 ], [ %180, %177 ]
+  %183 = trunc i32 %182 to i8
+  %184 = load ptr, ptr %4, align 8, !tbaa !9
+  %185 = load i32, ptr %3, align 4, !tbaa !19
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %184, i64 %186
+  store i8 %183, ptr %187, align 1, !tbaa !21
+  %188 = load i32, ptr %32, align 4, !tbaa !19
+  %189 = load ptr, ptr %5, align 8, !tbaa !15
+  %190 = load i32, ptr %3, align 4, !tbaa !19
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds i32, ptr %189, i64 %191
+  store i32 %188, ptr %192, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #9
+  br label %193
+
+193:                                              ; preds = %181
+  %194 = load i32, ptr %3, align 4, !tbaa !19
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %3, align 4, !tbaa !19
+  br label %142, !llvm.loop !40
+
+196:                                              ; preds = %142
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  br label %274
+
+197:                                              ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #9
+  %198 = load ptr, ptr %2, align 8, !tbaa !7
+  %199 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %198, i32 0, i32 5
+  %200 = load i32, ptr %199, align 4, !tbaa !38
+  store i32 %200, ptr %34, align 4, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr %35) #9
+  %201 = load i32, ptr %34, align 4, !tbaa !19
+  %202 = load i32, ptr %34, align 4, !tbaa !19
+  %203 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef %201, i32 noundef 0, i32 noundef %202)
+  store <2 x i64> %203, ptr %35, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %36) #9
+  %204 = call <2 x i64> @_mm_setzero_si128()
+  store <2 x i64> %204, ptr %36, align 16, !tbaa !21
+  store i32 0, ptr %3, align 4, !tbaa !19
+  br label %205
+
+205:                                              ; preds = %231, %197
+  %206 = load i32, ptr %3, align 4, !tbaa !19
+  %207 = add nsw i32 %206, 8
+  %208 = load i32, ptr %6, align 4, !tbaa !19
+  %209 = icmp sle i32 %207, %208
+  br i1 %209, label %210, label %234
+
+210:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 16, ptr %37) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %38) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %39) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %40) #9
+  %211 = load ptr, ptr %5, align 8, !tbaa !15
+  %212 = load i32, ptr %3, align 4, !tbaa !19
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds i32, ptr %211, i64 %213
+  call void @LoadDispatchAndMult_SSE2(ptr noundef %214, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  %215 = load ptr, ptr %5, align 8, !tbaa !15
+  %216 = load i32, ptr %3, align 4, !tbaa !19
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds i32, ptr %215, i64 %217
+  %219 = getelementptr inbounds i32, ptr %218, i64 0
+  %220 = load <2 x i64>, ptr %36, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %219, <2 x i64> noundef %220)
+  %221 = load ptr, ptr %5, align 8, !tbaa !15
+  %222 = load i32, ptr %3, align 4, !tbaa !19
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i32, ptr %221, i64 %223
+  %225 = getelementptr inbounds i32, ptr %224, i64 4
+  %226 = load <2 x i64>, ptr %36, align 16, !tbaa !21
+  call void @_mm_storeu_si128(ptr noundef %225, <2 x i64> noundef %226)
+  %227 = load ptr, ptr %4, align 8, !tbaa !9
+  %228 = load i32, ptr %3, align 4, !tbaa !19
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds i8, ptr %227, i64 %229
+  call void @ProcessRow_SSE2(ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %35, ptr noundef %230)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %40) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %39) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %38) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %37) #9
+  br label %231
+
+231:                                              ; preds = %210
+  %232 = load i32, ptr %3, align 4, !tbaa !19
+  %233 = add nsw i32 %232, 8
+  store i32 %233, ptr %3, align 4, !tbaa !19
+  br label %205, !llvm.loop !41
+
+234:                                              ; preds = %205
+  br label %235
+
+235:                                              ; preds = %270, %234
+  %236 = load i32, ptr %3, align 4, !tbaa !19
+  %237 = load i32, ptr %6, align 4, !tbaa !19
+  %238 = icmp slt i32 %236, %237
+  br i1 %238, label %239, label %273
+
+239:                                              ; preds = %235
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #9
+  %240 = load ptr, ptr %5, align 8, !tbaa !15
+  %241 = load i32, ptr %3, align 4, !tbaa !19
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds i32, ptr %240, i64 %242
+  %244 = load i32, ptr %243, align 4, !tbaa !19
+  %245 = zext i32 %244 to i64
+  %246 = load i32, ptr %34, align 4, !tbaa !19
+  %247 = zext i32 %246 to i64
+  %248 = mul i64 %245, %247
+  %249 = add i64 %248, 2147483648
+  %250 = lshr i64 %249, 32
+  %251 = trunc i64 %250 to i32
+  store i32 %251, ptr %41, align 4, !tbaa !19
+  %252 = load i32, ptr %41, align 4, !tbaa !19
+  %253 = icmp sgt i32 %252, 255
+  br i1 %253, label %254, label %255
+
+254:                                              ; preds = %239
+  br label %259
+
+255:                                              ; preds = %239
+  %256 = load i32, ptr %41, align 4, !tbaa !19
+  %257 = trunc i32 %256 to i8
+  %258 = zext i8 %257 to i32
+  br label %259
+
+259:                                              ; preds = %255, %254
+  %260 = phi i32 [ 255, %254 ], [ %258, %255 ]
+  %261 = trunc i32 %260 to i8
+  %262 = load ptr, ptr %4, align 8, !tbaa !9
+  %263 = load i32, ptr %3, align 4, !tbaa !19
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds i8, ptr %262, i64 %264
+  store i8 %261, ptr %265, align 1, !tbaa !21
+  %266 = load ptr, ptr %5, align 8, !tbaa !15
+  %267 = load i32, ptr %3, align 4, !tbaa !19
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds i32, ptr %266, i64 %268
+  store i32 0, ptr %269, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #9
+  br label %270
+
+270:                                              ; preds = %259
+  %271 = load i32, ptr %3, align 4, !tbaa !19
+  %272 = add nsw i32 %271, 1
+  store i32 %272, ptr %3, align 4, !tbaa !19
+  br label %235, !llvm.loop !42
+
+273:                                              ; preds = %235
+  call void @llvm.lifetime.end.p0(i64 16, ptr %36) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %35) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #9
+  br label %274
+
+274:                                              ; preds = %273, %196
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare void @WebPRescalerImportRowExpand_C(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @LoadTwoPixels_SSE2(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca <2 x i64>, align 16
+  %6 = alloca <2 x i64>, align 16
+  %7 = alloca <2 x i64>, align 16
+  %8 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %9 = call <2 x i64> @_mm_setzero_si128()
+  store <2 x i64> %9, ptr %5, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !9
+  %11 = call <2 x i64> @_mm_loadl_epi64(ptr noundef %10)
+  store <2 x i64> %11, ptr %6, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #9
+  %12 = load <2 x i64>, ptr %6, align 16, !tbaa !21
+  %13 = load <2 x i64>, ptr %5, align 16, !tbaa !21
+  %14 = call <2 x i64> @_mm_unpacklo_epi8(<2 x i64> noundef %12, <2 x i64> noundef %13)
+  store <2 x i64> %14, ptr %7, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  %15 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  %16 = bitcast <2 x i64> %15 to <16 x i8>
+  %17 = shufflevector <16 x i8> %16, <16 x i8> zeroinitializer, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
+  %18 = bitcast <16 x i8> %17 to <2 x i64>
+  store <2 x i64> %18, ptr %8, align 16, !tbaa !21
+  %19 = load <2 x i64>, ptr %7, align 16, !tbaa !21
+  %20 = load <2 x i64>, ptr %8, align 16, !tbaa !21
+  %21 = call <2 x i64> @_mm_unpacklo_epi16(<2 x i64> noundef %19, <2 x i64> noundef %20)
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  store <2 x i64> %21, ptr %22, align 16, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_set1_epi32(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %4 = load i32, ptr %2, align 4, !tbaa !19
+  %5 = load i32, ptr %2, align 4, !tbaa !19
+  %6 = load i32, ptr %2, align 4, !tbaa !19
+  %7 = call <2 x i64> @_mm_set_epi32(i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_madd_epi16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %6, <8 x i16> %8)
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @_mm_storeu_si128(ptr noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.__storeu_si128, ptr %6, i32 0, i32 0
+  store <2 x i64> %5, ptr %7, align 1, !tbaa !21
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @LoadEightPixels_SSE2(ptr noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca <2 x i64>, align 16
+  %6 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #9
+  %7 = call <2 x i64> @_mm_setzero_si128()
+  store <2 x i64> %7, ptr %5, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = call <2 x i64> @_mm_loadl_epi64(ptr noundef %8)
+  store <2 x i64> %9, ptr %6, align 16, !tbaa !21
+  %10 = load <2 x i64>, ptr %6, align 16, !tbaa !21
+  %11 = load <2 x i64>, ptr %5, align 16, !tbaa !21
+  %12 = call <2 x i64> @_mm_unpacklo_epi8(<2 x i64> noundef %10, <2 x i64> noundef %11)
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store <2 x i64> %12, ptr %13, align 16, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_cvtsi32_si128(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca <4 x i32>, align 16
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %4 = load i32, ptr %2, align 4, !tbaa !19
+  %5 = insertelement <4 x i32> poison, i32 %4, i32 0
+  %6 = insertelement <4 x i32> %5, i32 0, i32 1
+  %7 = insertelement <4 x i32> %6, i32 0, i32 2
+  %8 = insertelement <4 x i32> %7, i32 0, i32 3
+  store <4 x i32> %8, ptr %3, align 16, !tbaa !21
+  %9 = load <4 x i32>, ptr %3, align 16, !tbaa !21
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @WebPInt32ToMem(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load i32, ptr %4, align 4, !tbaa !19
+  call void @WebPUint32ToMem(ptr noundef %5, i32 noundef %6)
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_mm_cvtsi128_si32(<2 x i64> noundef %0) #4 {
+  %2 = alloca <2 x i64>, align 16
+  %3 = alloca <4 x i32>, align 16
+  store <2 x i64> %0, ptr %2, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #9
+  %4 = load <2 x i64>, ptr %2, align 16, !tbaa !21
+  %5 = bitcast <2 x i64> %4 to <4 x i32>
+  store <4 x i32> %5, ptr %3, align 16, !tbaa !21
+  %6 = load <4 x i32>, ptr %3, align 16, !tbaa !21
+  %7 = extractelement <4 x i32> %6, i32 0
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #9
+  ret i32 %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_setzero_si128() #4 {
+  %1 = alloca <2 x i64>, align 16
+  store <2 x i64> zeroinitializer, ptr %1, align 16, !tbaa !21
+  %2 = load <2 x i64>, ptr %1, align 16, !tbaa !21
+  ret <2 x i64> %2
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_loadl_epi64(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.__mm_loadl_epi64_struct, ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 1, !tbaa !21
+  %7 = insertelement <2 x i64> poison, i64 %6, i32 0
+  %8 = insertelement <2 x i64> %7, i64 0, i32 1
+  store <2 x i64> %8, ptr %3, align 16, !tbaa !21
+  %9 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  ret <2 x i64> %9
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_unpacklo_epi8(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <16 x i8>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <16 x i8>
+  %9 = shufflevector <16 x i8> %6, <16 x i8> %8, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %10 = bitcast <16 x i8> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_unpacklo_epi16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = shufflevector <8 x i16> %6, <8 x i16> %8, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_set_epi32(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #4 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca <4 x i32>, align 16
+  store i32 %0, ptr %5, align 4, !tbaa !19
+  store i32 %1, ptr %6, align 4, !tbaa !19
+  store i32 %2, ptr %7, align 4, !tbaa !19
+  store i32 %3, ptr %8, align 4, !tbaa !19
+  %10 = load i32, ptr %8, align 4, !tbaa !19
+  %11 = insertelement <4 x i32> poison, i32 %10, i32 0
+  %12 = load i32, ptr %7, align 4, !tbaa !19
+  %13 = insertelement <4 x i32> %11, i32 %12, i32 1
+  %14 = load i32, ptr %6, align 4, !tbaa !19
+  %15 = insertelement <4 x i32> %13, i32 %14, i32 2
+  %16 = load i32, ptr %5, align 4, !tbaa !19
+  %17 = insertelement <4 x i32> %15, i32 %16, i32 3
+  store <4 x i32> %17, ptr %9, align 16, !tbaa !21
+  %18 = load <4 x i32>, ptr %9, align 16, !tbaa !21
+  %19 = bitcast <4 x i32> %18 to <2 x i64>
+  ret <2 x i64> %19
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @WebPUint32ToMem(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 4 %4, i64 4, i1 false)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_set1_epi16(i16 noundef signext %0) #4 {
+  %2 = alloca i16, align 2
+  store i16 %0, ptr %2, align 2, !tbaa !43
+  %3 = load i16, ptr %2, align 2, !tbaa !43
+  %4 = load i16, ptr %2, align 2, !tbaa !43
+  %5 = load i16, ptr %2, align 2, !tbaa !43
+  %6 = load i16, ptr %2, align 2, !tbaa !43
+  %7 = load i16, ptr %2, align 2, !tbaa !43
+  %8 = load i16, ptr %2, align 2, !tbaa !43
+  %9 = load i16, ptr %2, align 2, !tbaa !43
+  %10 = load i16, ptr %2, align 2, !tbaa !43
+  %11 = call <2 x i64> @_mm_set_epi16(i16 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, i16 noundef signext %8, i16 noundef signext %9, i16 noundef signext %10)
+  ret <2 x i64> %11
+}
+
+declare void @WebPRescalerImportRowShrink_C(ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPMemToInt32(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = call i32 @WebPMemToUint32(ptr noundef %3)
+  ret i32 %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_add_epi16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = add <8 x i16> %6, %8
+  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_mullo_epi16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = mul <8 x i16> %6, %8
+  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_mulhi_epu16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %6, <8 x i16> %8)
+  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_sub_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = sub <4 x i32> %6, %8
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %0, i32 noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca i32, align 4
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load i32, ptr %4, align 4, !tbaa !19
+  %7 = call <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64> %5, i32 %6)
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = bitcast <4 x i32> %6 to <2 x i64>
+  %10 = bitcast <4 x i32> %8 to <2 x i64>
+  %11 = and <2 x i64> %9, splat (i64 4294967295)
+  %12 = and <2 x i64> %10, splat (i64 4294967295)
+  %13 = mul <2 x i64> %11, %12
+  ret <2 x i64> %13
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_add_epi64(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %7 = add <2 x i64> %5, %6
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_unpacklo_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = shufflevector <4 x i32> %6, <4 x i32> %8, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %10 = bitcast <4 x i32> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_packs_epi32(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <4 x i32>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <4 x i32>
+  %9 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %6, <4 x i32> %8)
+  %10 = bitcast <8 x i16> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_set_epi16(i16 noundef signext %0, i16 noundef signext %1, i16 noundef signext %2, i16 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7) #4 {
+  %9 = alloca i16, align 2
+  %10 = alloca i16, align 2
+  %11 = alloca i16, align 2
+  %12 = alloca i16, align 2
+  %13 = alloca i16, align 2
+  %14 = alloca i16, align 2
+  %15 = alloca i16, align 2
+  %16 = alloca i16, align 2
+  %17 = alloca <8 x i16>, align 16
+  store i16 %0, ptr %9, align 2, !tbaa !43
+  store i16 %1, ptr %10, align 2, !tbaa !43
+  store i16 %2, ptr %11, align 2, !tbaa !43
+  store i16 %3, ptr %12, align 2, !tbaa !43
+  store i16 %4, ptr %13, align 2, !tbaa !43
+  store i16 %5, ptr %14, align 2, !tbaa !43
+  store i16 %6, ptr %15, align 2, !tbaa !43
+  store i16 %7, ptr %16, align 2, !tbaa !43
+  %18 = load i16, ptr %16, align 2, !tbaa !43
+  %19 = insertelement <8 x i16> poison, i16 %18, i32 0
+  %20 = load i16, ptr %15, align 2, !tbaa !43
+  %21 = insertelement <8 x i16> %19, i16 %20, i32 1
+  %22 = load i16, ptr %14, align 2, !tbaa !43
+  %23 = insertelement <8 x i16> %21, i16 %22, i32 2
+  %24 = load i16, ptr %13, align 2, !tbaa !43
+  %25 = insertelement <8 x i16> %23, i16 %24, i32 3
+  %26 = load i16, ptr %12, align 2, !tbaa !43
+  %27 = insertelement <8 x i16> %25, i16 %26, i32 4
+  %28 = load i16, ptr %11, align 2, !tbaa !43
+  %29 = insertelement <8 x i16> %27, i16 %28, i32 5
+  %30 = load i16, ptr %10, align 2, !tbaa !43
+  %31 = insertelement <8 x i16> %29, i16 %30, i32 6
+  %32 = load i16, ptr %9, align 2, !tbaa !43
+  %33 = insertelement <8 x i16> %31, i16 %32, i32 7
+  store <8 x i16> %33, ptr %17, align 16, !tbaa !21
+  %34 = load <8 x i16>, ptr %17, align 16, !tbaa !21
+  %35 = bitcast <8 x i16> %34 to <2 x i64>
+  ret <2 x i64> %35
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPMemToUint32(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %4, i64 4, i1 false)
+  %5 = load i32, ptr %3, align 4, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  ret i32 %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <2 x i64> @llvm.x86.sse2.psrli.q(<2 x i64>, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @LoadDispatchAndMult_SSE2(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #8 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca <2 x i64>, align 16
+  %14 = alloca <2 x i64>, align 16
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %7, align 8, !tbaa !15
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !3
+  store ptr %4, ptr %11, align 8, !tbaa !3
+  store ptr %5, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #9
+  %17 = load ptr, ptr %7, align 8, !tbaa !15
+  %18 = getelementptr inbounds i32, ptr %17, i64 0
+  %19 = call <2 x i64> @_mm_loadu_si128(ptr noundef %18)
+  store <2 x i64> %19, ptr %13, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #9
+  %20 = load ptr, ptr %7, align 8, !tbaa !15
+  %21 = getelementptr inbounds i32, ptr %20, i64 4
+  %22 = call <2 x i64> @_mm_loadu_si128(ptr noundef %21)
+  store <2 x i64> %22, ptr %14, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #9
+  %23 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %24 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %23, i32 noundef 32)
+  store <2 x i64> %24, ptr %15, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #9
+  %25 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %26 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %25, i32 noundef 32)
+  store <2 x i64> %26, ptr %16, align 16, !tbaa !21
+  %27 = load ptr, ptr %8, align 8, !tbaa !3
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %50
+
+29:                                               ; preds = %6
+  %30 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %31 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = load <2 x i64>, ptr %31, align 16, !tbaa !21
+  %33 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %30, <2 x i64> noundef %32)
+  %34 = load ptr, ptr %9, align 8, !tbaa !3
+  store <2 x i64> %33, ptr %34, align 16, !tbaa !21
+  %35 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %36 = load ptr, ptr %8, align 8, !tbaa !3
+  %37 = load <2 x i64>, ptr %36, align 16, !tbaa !21
+  %38 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %35, <2 x i64> noundef %37)
+  %39 = load ptr, ptr %10, align 8, !tbaa !3
+  store <2 x i64> %38, ptr %39, align 16, !tbaa !21
+  %40 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = load <2 x i64>, ptr %41, align 16, !tbaa !21
+  %43 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %40, <2 x i64> noundef %42)
+  %44 = load ptr, ptr %11, align 8, !tbaa !3
+  store <2 x i64> %43, ptr %44, align 16, !tbaa !21
+  %45 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = load <2 x i64>, ptr %46, align 16, !tbaa !21
+  %48 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %45, <2 x i64> noundef %47)
+  %49 = load ptr, ptr %12, align 8, !tbaa !3
+  store <2 x i64> %48, ptr %49, align 16, !tbaa !21
+  br label %59
+
+50:                                               ; preds = %6
+  %51 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %52 = load ptr, ptr %9, align 8, !tbaa !3
+  store <2 x i64> %51, ptr %52, align 16, !tbaa !21
+  %53 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %54 = load ptr, ptr %10, align 8, !tbaa !3
+  store <2 x i64> %53, ptr %54, align 16, !tbaa !21
+  %55 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %56 = load ptr, ptr %11, align 8, !tbaa !3
+  store <2 x i64> %55, ptr %56, align 16, !tbaa !21
+  %57 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %58 = load ptr, ptr %12, align 8, !tbaa !3
+  store <2 x i64> %57, ptr %58, align 16, !tbaa !21
+  br label %59
+
+59:                                               ; preds = %50, %29
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #9
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ProcessRow_SSE2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #8 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca <2 x i64>, align 16
+  %14 = alloca <2 x i64>, align 16
+  %15 = alloca <2 x i64>, align 16
+  %16 = alloca <2 x i64>, align 16
+  %17 = alloca <2 x i64>, align 16
+  %18 = alloca <2 x i64>, align 16
+  %19 = alloca <2 x i64>, align 16
+  %20 = alloca <2 x i64>, align 16
+  %21 = alloca <2 x i64>, align 16
+  %22 = alloca <2 x i64>, align 16
+  %23 = alloca <2 x i64>, align 16
+  %24 = alloca <2 x i64>, align 16
+  %25 = alloca <2 x i64>, align 16
+  %26 = alloca <2 x i64>, align 16
+  %27 = alloca <2 x i64>, align 16
+  %28 = alloca <2 x i64>, align 16
+  %29 = alloca <2 x i64>, align 16
+  %30 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !3
+  store ptr %4, ptr %11, align 8, !tbaa !3
+  store ptr %5, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #9
+  %31 = call <2 x i64> @_mm_set_epi32(i32 noundef 0, i32 noundef -2147483648, i32 noundef 0, i32 noundef -2147483648)
+  store <2 x i64> %31, ptr %13, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #9
+  %32 = call <2 x i64> @_mm_set_epi32(i32 noundef -1, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store <2 x i64> %32, ptr %14, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #9
+  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %34 = load <2 x i64>, ptr %33, align 16, !tbaa !21
+  %35 = load ptr, ptr %11, align 8, !tbaa !3
+  %36 = load <2 x i64>, ptr %35, align 16, !tbaa !21
+  %37 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %34, <2 x i64> noundef %36)
+  store <2 x i64> %37, ptr %15, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #9
+  %38 = load ptr, ptr %8, align 8, !tbaa !3
+  %39 = load <2 x i64>, ptr %38, align 16, !tbaa !21
+  %40 = load ptr, ptr %11, align 8, !tbaa !3
+  %41 = load <2 x i64>, ptr %40, align 16, !tbaa !21
+  %42 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %39, <2 x i64> noundef %41)
+  store <2 x i64> %42, ptr %16, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #9
+  %43 = load ptr, ptr %9, align 8, !tbaa !3
+  %44 = load <2 x i64>, ptr %43, align 16, !tbaa !21
+  %45 = load ptr, ptr %11, align 8, !tbaa !3
+  %46 = load <2 x i64>, ptr %45, align 16, !tbaa !21
+  %47 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %44, <2 x i64> noundef %46)
+  store <2 x i64> %47, ptr %17, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #9
+  %48 = load ptr, ptr %10, align 8, !tbaa !3
+  %49 = load <2 x i64>, ptr %48, align 16, !tbaa !21
+  %50 = load ptr, ptr %11, align 8, !tbaa !3
+  %51 = load <2 x i64>, ptr %50, align 16, !tbaa !21
+  %52 = call <2 x i64> @_mm_mul_epu32(<2 x i64> noundef %49, <2 x i64> noundef %51)
+  store <2 x i64> %52, ptr %18, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #9
+  %53 = load <2 x i64>, ptr %15, align 16, !tbaa !21
+  %54 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %55 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %53, <2 x i64> noundef %54)
+  store <2 x i64> %55, ptr %19, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #9
+  %56 = load <2 x i64>, ptr %16, align 16, !tbaa !21
+  %57 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %58 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %56, <2 x i64> noundef %57)
+  store <2 x i64> %58, ptr %20, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #9
+  %59 = load <2 x i64>, ptr %17, align 16, !tbaa !21
+  %60 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %61 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %59, <2 x i64> noundef %60)
+  store <2 x i64> %61, ptr %21, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #9
+  %62 = load <2 x i64>, ptr %18, align 16, !tbaa !21
+  %63 = load <2 x i64>, ptr %13, align 16, !tbaa !21
+  %64 = call <2 x i64> @_mm_add_epi64(<2 x i64> noundef %62, <2 x i64> noundef %63)
+  store <2 x i64> %64, ptr %22, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #9
+  %65 = load <2 x i64>, ptr %19, align 16, !tbaa !21
+  %66 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %65, i32 noundef 32)
+  store <2 x i64> %66, ptr %23, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #9
+  %67 = load <2 x i64>, ptr %20, align 16, !tbaa !21
+  %68 = call <2 x i64> @_mm_srli_epi64(<2 x i64> noundef %67, i32 noundef 32)
+  store <2 x i64> %68, ptr %24, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #9
+  %69 = load <2 x i64>, ptr %21, align 16, !tbaa !21
+  %70 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %71 = call <2 x i64> @_mm_and_si128(<2 x i64> noundef %69, <2 x i64> noundef %70)
+  store <2 x i64> %71, ptr %25, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #9
+  %72 = load <2 x i64>, ptr %22, align 16, !tbaa !21
+  %73 = load <2 x i64>, ptr %14, align 16, !tbaa !21
+  %74 = call <2 x i64> @_mm_and_si128(<2 x i64> noundef %72, <2 x i64> noundef %73)
+  store <2 x i64> %74, ptr %26, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %27) #9
+  %75 = load <2 x i64>, ptr %23, align 16, !tbaa !21
+  %76 = load <2 x i64>, ptr %25, align 16, !tbaa !21
+  %77 = call <2 x i64> @_mm_or_si128(<2 x i64> noundef %75, <2 x i64> noundef %76)
+  store <2 x i64> %77, ptr %27, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #9
+  %78 = load <2 x i64>, ptr %24, align 16, !tbaa !21
+  %79 = load <2 x i64>, ptr %26, align 16, !tbaa !21
+  %80 = call <2 x i64> @_mm_or_si128(<2 x i64> noundef %78, <2 x i64> noundef %79)
+  store <2 x i64> %80, ptr %28, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #9
+  %81 = load <2 x i64>, ptr %27, align 16, !tbaa !21
+  %82 = load <2 x i64>, ptr %28, align 16, !tbaa !21
+  %83 = call <2 x i64> @_mm_packs_epi32(<2 x i64> noundef %81, <2 x i64> noundef %82)
+  store <2 x i64> %83, ptr %29, align 16, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #9
+  %84 = load <2 x i64>, ptr %29, align 16, !tbaa !21
+  %85 = load <2 x i64>, ptr %29, align 16, !tbaa !21
+  %86 = call <2 x i64> @_mm_packus_epi16(<2 x i64> noundef %84, <2 x i64> noundef %85)
+  store <2 x i64> %86, ptr %30, align 16, !tbaa !21
+  %87 = load ptr, ptr %12, align 8, !tbaa !9
+  %88 = load <2 x i64>, ptr %30, align 16, !tbaa !21
+  call void @_mm_storel_epi64(ptr noundef %87, <2 x i64> noundef %88)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_loadu_si128(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.__loadu_si128, ptr %3, i32 0, i32 0
+  %5 = load <2 x i64>, ptr %4, align 1, !tbaa !21
+  ret <2 x i64> %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_and_si128(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %7 = and <2 x i64> %5, %6
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_or_si128(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %7 = or <2 x i64> %5, %6
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_packus_epi16(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = bitcast <2 x i64> %5 to <8 x i16>
+  %7 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %8 = bitcast <2 x i64> %7 to <8 x i16>
+  %9 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %6, <8 x i16> %8)
+  %10 = bitcast <16 x i8> %9 to <2 x i64>
+  ret <2 x i64> %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @_mm_storel_epi64(ptr noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca <2 x i64>, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %6 = extractelement <2 x i64> %5, i32 0
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.__mm_storel_epi64_struct, ptr %7, i32 0, i32 0
+  store i64 %6, ptr %8, align 1, !tbaa !21
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #3
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #6
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_sub_epi64(<2 x i64> noundef %0, <2 x i64> noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca <2 x i64>, align 16
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store <2 x i64> %1, ptr %4, align 16, !tbaa !21
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load <2 x i64>, ptr %4, align 16, !tbaa !21
+  %7 = sub <2 x i64> %5, %6
+  ret <2 x i64> %7
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal <2 x i64> @_mm_slli_epi64(<2 x i64> noundef %0, i32 noundef %1) #4 {
+  %3 = alloca <2 x i64>, align 16
+  %4 = alloca i32, align 4
+  store <2 x i64> %0, ptr %3, align 16, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load <2 x i64>, ptr %3, align 16, !tbaa !21
+  %6 = load i32, ptr %4, align 4, !tbaa !19
+  %7 = call <2 x i64> @llvm.x86.sse2.pslli.q(<2 x i64> %5, i32 %6)
+  ret <2 x i64> %7
+}
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.pslli.q(<2 x i64>, i32) #3
+declare <2 x i64> @llvm.x86.sse2.pslli.q(<2 x i64>, i32) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS12WebPRescaler", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !4, i64 0}
+!11 = !{!12, !14, i64 96}
+!12 = !{!"WebPRescaler", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !13, i64 48, !13, i64 52, !13, i64 56, !13, i64 60, !13, i64 64, !10, i64 72, !13, i64 80, !14, i64 88, !14, i64 96}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"p1 int", !4, i64 0}
+!15 = !{!14, !14, i64 0}
+!16 = !{!12, !13, i64 52}
+!17 = !{!12, !13, i64 8}
+!18 = !{!12, !13, i64 36}
+!19 = !{!13, !13, i64 0}
+!20 = !{!12, !13, i64 44}
+!21 = !{!5, !5, i64 0}
+!22 = !{!12, !13, i64 40}
+!23 = !{!12, !13, i64 12}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = !{!12, !10, i64 72}
+!28 = !{!12, !14, i64 88}
+!29 = !{!12, !13, i64 16}
+!30 = !{!12, !13, i64 24}
+!31 = distinct !{!31, !25}
+!32 = distinct !{!32, !25}
+!33 = !{!12, !13, i64 32}
+!34 = distinct !{!34, !25}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !5, i64 0}
+!37 = distinct !{!37, !25}
+!38 = !{!12, !13, i64 20}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}
+!41 = distinct !{!41, !25}
+!42 = distinct !{!42, !25}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"short", !5, i64 0}

@@ -20,32 +20,40 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @VP8DefaultProbas(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.VP8Encoder, ptr %4, i32 0, i32 26
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.VP8EncProba, ptr %6, i32 0, i32 7
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.VP8EncProba, ptr %8, i32 0, i32 0
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %4, i32 0, i32 26
+  store ptr %5, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %6, i32 0, i32 7
+  store i32 0, ptr %7, align 4, !tbaa !9
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %8, i32 0, i32 0
   %10 = getelementptr inbounds [3 x i8], ptr %9, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %10, i8 -1, i64 3, i1 false)
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.VP8EncProba, ptr %11, i32 0, i32 2
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %11, i32 0, i32 2
   %13 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %12, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 16 @VP8CoeffsProba0, i64 1056, i1 false)
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.VP8EncProba, ptr %14, i32 0, i32 6
-  store i32 1, ptr %15, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %14, i32 0, i32 6
+  store i32 1, ptr %15, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8CodeIntraModes(ptr noundef %0) #0 {
@@ -60,68 +68,72 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.VP8Encoder, ptr %13, i32 0, i32 9
-  store ptr %14, ptr %3, align 8
-  %15 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %13 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %13, i32 0, i32 9
+  store ptr %14, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 3848, ptr %4) #5
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
   call void @VP8IteratorInit(ptr noundef %15, ptr noundef %4)
   br label %16
 
 16:                                               ; preds = %133, %1
-  %17 = getelementptr inbounds %struct.VP8EncIterator, ptr %4, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.VP8EncIterator, ptr %4, i32 0, i32 9
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %6, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.VP8Encoder, ptr %21, i32 0, i32 3
-  %23 = getelementptr inbounds %struct.VP8EncSegmentHeader, ptr %22, i32 0, i32 1
-  %24 = load i32, ptr %23, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %17 = getelementptr inbounds nuw %struct.VP8EncIterator, ptr %4, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  store ptr %18, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %19 = getelementptr inbounds nuw %struct.VP8EncIterator, ptr %4, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  store ptr %20, ptr %6, align 8, !tbaa !22
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds nuw %struct.VP8EncSegmentHeader, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !23
   %25 = icmp ne i32 %24, 0
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %16
-  %27 = load ptr, ptr %3, align 8
-  %28 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = load ptr, ptr %5, align 8, !tbaa !8
   %29 = load i8, ptr %28, align 4
   %30 = lshr i8 %29, 5
   %31 = and i8 %30, 3
   %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.VP8Encoder, ptr %33, i32 0, i32 26
-  %35 = getelementptr inbounds %struct.VP8EncProba, ptr %34, i32 0, i32 0
+  %33 = load ptr, ptr %2, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %33, i32 0, i32 26
+  %35 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %34, i32 0, i32 0
   %36 = getelementptr inbounds [3 x i8], ptr %35, i64 0, i64 0
   call void @PutSegment(ptr noundef %27, i32 noundef %32, ptr noundef %36)
   br label %37
 
 37:                                               ; preds = %26, %16
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.VP8Encoder, ptr %38, i32 0, i32 26
-  %40 = getelementptr inbounds %struct.VP8EncProba, ptr %39, i32 0, i32 7
-  %41 = load i32, ptr %40, align 4
+  %38 = load ptr, ptr %2, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %38, i32 0, i32 26
+  %40 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %39, i32 0, i32 7
+  %41 = load i32, ptr %40, align 4, !tbaa !35
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %37
-  %44 = load ptr, ptr %3, align 8
-  %45 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %3, align 8, !tbaa !13
+  %45 = load ptr, ptr %5, align 8, !tbaa !8
   %46 = load i8, ptr %45, align 4
   %47 = lshr i8 %46, 4
   %48 = and i8 %47, 1
   %49 = zext i8 %48 to i32
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.VP8Encoder, ptr %50, i32 0, i32 26
-  %52 = getelementptr inbounds %struct.VP8EncProba, ptr %51, i32 0, i32 1
-  %53 = load i8, ptr %52, align 1
+  %50 = load ptr, ptr %2, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %50, i32 0, i32 26
+  %52 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %51, i32 0, i32 1
+  %53 = load i8, ptr %52, align 1, !tbaa !36
   %54 = zext i8 %53 to i32
   %55 = call i32 @VP8PutBit(ptr noundef %44, i32 noundef %49, i32 noundef %54)
   br label %56
 
 56:                                               ; preds = %43, %37
-  %57 = load ptr, ptr %3, align 8
-  %58 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %3, align 8, !tbaa !13
+  %58 = load ptr, ptr %5, align 8, !tbaa !8
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 3
   %61 = zext i8 %60 to i32
@@ -132,171 +144,187 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) #0 {
   br i1 %65, label %66, label %72
 
 66:                                               ; preds = %56
-  %67 = load ptr, ptr %3, align 8
-  %68 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %3, align 8, !tbaa !13
+  %68 = load ptr, ptr %6, align 8, !tbaa !22
   %69 = getelementptr inbounds i8, ptr %68, i64 0
-  %70 = load i8, ptr %69, align 1
+  %70 = load i8, ptr %69, align 1, !tbaa !37
   %71 = zext i8 %70 to i32
   call void @PutI16Mode(ptr noundef %67, i32 noundef %71)
   br label %126
 
 72:                                               ; preds = %56
-  %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds %struct.VP8Encoder, ptr %73, i32 0, i32 7
-  %75 = load i32, ptr %74, align 8
-  store i32 %75, ptr %7, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %73 = load ptr, ptr %2, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw %struct.VP8Encoder, ptr %73, i32 0, i32 7
+  %75 = load i32, ptr %74, align 8, !tbaa !38
+  store i32 %75, ptr %7, align 4, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %76 = load ptr, ptr %6, align 8, !tbaa !22
+  %77 = load i32, ptr %7, align 4, !tbaa !39
   %78 = sext i32 %77 to i64
   %79 = sub i64 0, %78
   %80 = getelementptr inbounds i8, ptr %76, i64 %79
-  store ptr %80, ptr %8, align 8
-  store i32 0, ptr %10, align 4
+  store ptr %80, ptr %8, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !tbaa !39
   br label %81
 
 81:                                               ; preds = %122, %72
-  %82 = load i32, ptr %10, align 4
+  %82 = load i32, ptr %10, align 4, !tbaa !39
   %83 = icmp slt i32 %82, 4
   br i1 %83, label %84, label %125
 
 84:                                               ; preds = %81
-  %85 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %85 = load ptr, ptr %6, align 8, !tbaa !22
   %86 = getelementptr inbounds i8, ptr %85, i64 -1
-  %87 = load i8, ptr %86, align 1
+  %87 = load i8, ptr %86, align 1, !tbaa !37
   %88 = zext i8 %87 to i32
-  store i32 %88, ptr %11, align 4
-  store i32 0, ptr %9, align 4
+  store i32 %88, ptr %11, align 4, !tbaa !39
+  store i32 0, ptr %9, align 4, !tbaa !39
   br label %89
 
 89:                                               ; preds = %113, %84
-  %90 = load i32, ptr %9, align 4
+  %90 = load i32, ptr %9, align 4, !tbaa !39
   %91 = icmp slt i32 %90, 4
   br i1 %91, label %92, label %116
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr %8, align 8
-  %94 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %93 = load ptr, ptr %8, align 8, !tbaa !22
+  %94 = load i32, ptr %9, align 4, !tbaa !39
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i8, ptr %93, i64 %95
-  %97 = load i8, ptr %96, align 1
+  %97 = load i8, ptr %96, align 1, !tbaa !37
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %98
-  %100 = load i32, ptr %11, align 4
+  %99 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %98
+  %100 = load i32, ptr %11, align 4, !tbaa !39
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds [10 x [9 x i8]], ptr %99, i64 0, i64 %101
   %103 = getelementptr inbounds [9 x i8], ptr %102, i64 0, i64 0
-  store ptr %103, ptr %12, align 8
-  %104 = load ptr, ptr %3, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %9, align 4
+  store ptr %103, ptr %12, align 8, !tbaa !22
+  %104 = load ptr, ptr %3, align 8, !tbaa !13
+  %105 = load ptr, ptr %6, align 8, !tbaa !22
+  %106 = load i32, ptr %9, align 4, !tbaa !39
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %105, i64 %107
-  %109 = load i8, ptr %108, align 1
+  %109 = load i8, ptr %108, align 1, !tbaa !37
   %110 = zext i8 %109 to i32
-  %111 = load ptr, ptr %12, align 8
+  %111 = load ptr, ptr %12, align 8, !tbaa !22
   %112 = call i32 @PutI4Mode(ptr noundef %104, i32 noundef %110, ptr noundef %111)
-  store i32 %112, ptr %11, align 4
+  store i32 %112, ptr %11, align 4, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
   br label %113
 
 113:                                              ; preds = %92
-  %114 = load i32, ptr %9, align 4
+  %114 = load i32, ptr %9, align 4, !tbaa !39
   %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %9, align 4
-  br label %89, !llvm.loop !4
+  store i32 %115, ptr %9, align 4, !tbaa !39
+  br label %89, !llvm.loop !40
 
 116:                                              ; preds = %89
-  %117 = load ptr, ptr %6, align 8
-  store ptr %117, ptr %8, align 8
-  %118 = load i32, ptr %7, align 4
-  %119 = load ptr, ptr %6, align 8
+  %117 = load ptr, ptr %6, align 8, !tbaa !22
+  store ptr %117, ptr %8, align 8, !tbaa !22
+  %118 = load i32, ptr %7, align 4, !tbaa !39
+  %119 = load ptr, ptr %6, align 8, !tbaa !22
   %120 = sext i32 %118 to i64
   %121 = getelementptr inbounds i8, ptr %119, i64 %120
-  store ptr %121, ptr %6, align 8
+  store ptr %121, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   br label %122
 
 122:                                              ; preds = %116
-  %123 = load i32, ptr %10, align 4
+  %123 = load i32, ptr %10, align 4, !tbaa !39
   %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %10, align 4
-  br label %81, !llvm.loop !6
+  store i32 %124, ptr %10, align 4, !tbaa !39
+  br label %81, !llvm.loop !42
 
 125:                                              ; preds = %81
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   br label %126
 
 126:                                              ; preds = %125, %66
-  %127 = load ptr, ptr %3, align 8
-  %128 = load ptr, ptr %5, align 8
+  %127 = load ptr, ptr %3, align 8, !tbaa !13
+  %128 = load ptr, ptr %5, align 8, !tbaa !8
   %129 = load i8, ptr %128, align 4
   %130 = lshr i8 %129, 2
   %131 = and i8 %130, 3
   %132 = zext i8 %131 to i32
   call void @PutUVMode(ptr noundef %127, i32 noundef %132)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   br label %133
 
 133:                                              ; preds = %126
   %134 = call i32 @VP8IteratorNext(ptr noundef %4)
   %135 = icmp ne i32 %134, 0
-  br i1 %135, label %16, label %136, !llvm.loop !7
+  br i1 %135, label %16, label %136, !llvm.loop !43
 
 136:                                              ; preds = %133
+  call void @llvm.lifetime.end.p0(i64 3848, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret void
 }
 
-declare void @VP8IteratorInit(ptr noundef, ptr noundef) #3
+declare void @VP8IteratorInit(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @PutSegment(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  %8 = load i32, ptr %5, align 4, !tbaa !39
   %9 = icmp sge i32 %8, 2
   %10 = zext i1 %9 to i32
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !22
   %12 = getelementptr inbounds i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i32
   %15 = call i32 @VP8PutBit(ptr noundef %7, i32 noundef %10, i32 noundef %14)
   %16 = icmp ne i32 %15, 0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !22
   %19 = getelementptr inbounds i8, ptr %18, i64 1
-  store ptr %19, ptr %6, align 8
+  store ptr %19, ptr %6, align 8, !tbaa !22
   br label %20
 
 20:                                               ; preds = %17, %3
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i32, ptr %5, align 4
+  %21 = load ptr, ptr %4, align 8, !tbaa !13
+  %22 = load i32, ptr %5, align 4, !tbaa !39
   %23 = and i32 %22, 1
-  %24 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %6, align 8, !tbaa !22
   %25 = getelementptr inbounds i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !37
   %27 = zext i8 %26 to i32
   %28 = call i32 @VP8PutBit(ptr noundef %21, i32 noundef %23, i32 noundef %27)
   ret void
 }
 
-declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) #3
+declare i32 @VP8PutBit(ptr noundef, i32 noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @PutI16Mode(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !13
+  %6 = load i32, ptr %4, align 4, !tbaa !39
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4, !tbaa !39
   %10 = icmp eq i32 %9, 3
   br label %11
 
@@ -308,16 +336,16 @@ define internal void @PutI16Mode(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %3, align 8, !tbaa !13
+  %18 = load i32, ptr %4, align 4, !tbaa !39
   %19 = icmp eq i32 %18, 1
   %20 = zext i1 %19 to i32
   %21 = call i32 @VP8PutBit(ptr noundef %17, i32 noundef %20, i32 noundef 128)
   br label %28
 
 22:                                               ; preds = %11
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
+  %23 = load ptr, ptr %3, align 8, !tbaa !13
+  %24 = load i32, ptr %4, align 4, !tbaa !39
   %25 = icmp eq i32 %24, 2
   %26 = zext i1 %25 to i32
   %27 = call i32 @VP8PutBit(ptr noundef %23, i32 noundef %26, i32 noundef 163)
@@ -332,81 +360,81 @@ define internal i32 @PutI4Mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !39
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  %8 = load i32, ptr %5, align 4, !tbaa !39
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !22
   %12 = getelementptr inbounds i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i32
   %15 = call i32 @VP8PutBit(ptr noundef %7, i32 noundef %10, i32 noundef %14)
   %16 = icmp ne i32 %15, 0
   br i1 %16, label %17, label %109
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i32, ptr %5, align 4
+  %18 = load ptr, ptr %4, align 8, !tbaa !13
+  %19 = load i32, ptr %5, align 4, !tbaa !39
   %20 = icmp ne i32 %19, 1
   %21 = zext i1 %20 to i32
-  %22 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8, !tbaa !22
   %23 = getelementptr inbounds i8, ptr %22, i64 1
-  %24 = load i8, ptr %23, align 1
+  %24 = load i8, ptr %23, align 1, !tbaa !37
   %25 = zext i8 %24 to i32
   %26 = call i32 @VP8PutBit(ptr noundef %18, i32 noundef %21, i32 noundef %25)
   %27 = icmp ne i32 %26, 0
   br i1 %27, label %28, label %108
 
 28:                                               ; preds = %17
-  %29 = load ptr, ptr %4, align 8
-  %30 = load i32, ptr %5, align 4
+  %29 = load ptr, ptr %4, align 8, !tbaa !13
+  %30 = load i32, ptr %5, align 4, !tbaa !39
   %31 = icmp ne i32 %30, 2
   %32 = zext i1 %31 to i32
-  %33 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8, !tbaa !22
   %34 = getelementptr inbounds i8, ptr %33, i64 2
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 1, !tbaa !37
   %36 = zext i8 %35 to i32
   %37 = call i32 @VP8PutBit(ptr noundef %29, i32 noundef %32, i32 noundef %36)
   %38 = icmp ne i32 %37, 0
   br i1 %38, label %39, label %107
 
 39:                                               ; preds = %28
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i32, ptr %5, align 4
+  %40 = load ptr, ptr %4, align 8, !tbaa !13
+  %41 = load i32, ptr %5, align 4, !tbaa !39
   %42 = icmp sge i32 %41, 6
   %43 = zext i1 %42 to i32
-  %44 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %6, align 8, !tbaa !22
   %45 = getelementptr inbounds i8, ptr %44, i64 3
-  %46 = load i8, ptr %45, align 1
+  %46 = load i8, ptr %45, align 1, !tbaa !37
   %47 = zext i8 %46 to i32
   %48 = call i32 @VP8PutBit(ptr noundef %40, i32 noundef %43, i32 noundef %47)
   %49 = icmp ne i32 %48, 0
   br i1 %49, label %72, label %50
 
 50:                                               ; preds = %39
-  %51 = load ptr, ptr %4, align 8
-  %52 = load i32, ptr %5, align 4
+  %51 = load ptr, ptr %4, align 8, !tbaa !13
+  %52 = load i32, ptr %5, align 4, !tbaa !39
   %53 = icmp ne i32 %52, 3
   %54 = zext i1 %53 to i32
-  %55 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %6, align 8, !tbaa !22
   %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 1, !tbaa !37
   %58 = zext i8 %57 to i32
   %59 = call i32 @VP8PutBit(ptr noundef %51, i32 noundef %54, i32 noundef %58)
   %60 = icmp ne i32 %59, 0
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %50
-  %62 = load ptr, ptr %4, align 8
-  %63 = load i32, ptr %5, align 4
+  %62 = load ptr, ptr %4, align 8, !tbaa !13
+  %63 = load i32, ptr %5, align 4, !tbaa !39
   %64 = icmp ne i32 %63, 4
   %65 = zext i1 %64 to i32
-  %66 = load ptr, ptr %6, align 8
+  %66 = load ptr, ptr %6, align 8, !tbaa !22
   %67 = getelementptr inbounds i8, ptr %66, i64 5
-  %68 = load i8, ptr %67, align 1
+  %68 = load i8, ptr %67, align 1, !tbaa !37
   %69 = zext i8 %68 to i32
   %70 = call i32 @VP8PutBit(ptr noundef %62, i32 noundef %65, i32 noundef %69)
   br label %71
@@ -415,39 +443,39 @@ define internal i32 @PutI4Mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   br label %106
 
 72:                                               ; preds = %39
-  %73 = load ptr, ptr %4, align 8
-  %74 = load i32, ptr %5, align 4
+  %73 = load ptr, ptr %4, align 8, !tbaa !13
+  %74 = load i32, ptr %5, align 4, !tbaa !39
   %75 = icmp ne i32 %74, 6
   %76 = zext i1 %75 to i32
-  %77 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %6, align 8, !tbaa !22
   %78 = getelementptr inbounds i8, ptr %77, i64 6
-  %79 = load i8, ptr %78, align 1
+  %79 = load i8, ptr %78, align 1, !tbaa !37
   %80 = zext i8 %79 to i32
   %81 = call i32 @VP8PutBit(ptr noundef %73, i32 noundef %76, i32 noundef %80)
   %82 = icmp ne i32 %81, 0
   br i1 %82, label %83, label %105
 
 83:                                               ; preds = %72
-  %84 = load ptr, ptr %4, align 8
-  %85 = load i32, ptr %5, align 4
+  %84 = load ptr, ptr %4, align 8, !tbaa !13
+  %85 = load i32, ptr %5, align 4, !tbaa !39
   %86 = icmp ne i32 %85, 7
   %87 = zext i1 %86 to i32
-  %88 = load ptr, ptr %6, align 8
+  %88 = load ptr, ptr %6, align 8, !tbaa !22
   %89 = getelementptr inbounds i8, ptr %88, i64 7
-  %90 = load i8, ptr %89, align 1
+  %90 = load i8, ptr %89, align 1, !tbaa !37
   %91 = zext i8 %90 to i32
   %92 = call i32 @VP8PutBit(ptr noundef %84, i32 noundef %87, i32 noundef %91)
   %93 = icmp ne i32 %92, 0
   br i1 %93, label %94, label %104
 
 94:                                               ; preds = %83
-  %95 = load ptr, ptr %4, align 8
-  %96 = load i32, ptr %5, align 4
+  %95 = load ptr, ptr %4, align 8, !tbaa !13
+  %96 = load i32, ptr %5, align 4, !tbaa !39
   %97 = icmp ne i32 %96, 8
   %98 = zext i1 %97 to i32
-  %99 = load ptr, ptr %6, align 8
+  %99 = load ptr, ptr %6, align 8, !tbaa !22
   %100 = getelementptr inbounds i8, ptr %99, i64 8
-  %101 = load i8, ptr %100, align 1
+  %101 = load i8, ptr %100, align 1, !tbaa !37
   %102 = zext i8 %101 to i32
   %103 = call i32 @VP8PutBit(ptr noundef %95, i32 noundef %98, i32 noundef %102)
   br label %104
@@ -468,7 +496,7 @@ define internal i32 @PutI4Mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   br label %109
 
 109:                                              ; preds = %108, %3
-  %110 = load i32, ptr %5, align 4
+  %110 = load i32, ptr %5, align 4, !tbaa !39
   ret i32 %110
 }
 
@@ -476,10 +504,10 @@ define internal i32 @PutI4Mode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
 define internal void @PutUVMode(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !13
+  %6 = load i32, ptr %4, align 4, !tbaa !39
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
   %9 = call i32 @VP8PutBit(ptr noundef %5, i32 noundef %8, i32 noundef 142)
@@ -487,8 +515,8 @@ define internal void @PutUVMode(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %4, align 4
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = load i32, ptr %4, align 4, !tbaa !39
   %14 = icmp ne i32 %13, 2
   %15 = zext i1 %14 to i32
   %16 = call i32 @VP8PutBit(ptr noundef %12, i32 noundef %15, i32 noundef 114)
@@ -496,8 +524,8 @@ define internal void @PutUVMode(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr %3, align 8
-  %20 = load i32, ptr %4, align 4
+  %19 = load ptr, ptr %3, align 8, !tbaa !13
+  %20 = load i32, ptr %4, align 4, !tbaa !39
   %21 = icmp ne i32 %20, 3
   %22 = zext i1 %21 to i32
   %23 = call i32 @VP8PutBit(ptr noundef %19, i32 noundef %22, i32 noundef 183)
@@ -510,7 +538,7 @@ define internal void @PutUVMode(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare i32 @VP8IteratorNext(ptr noundef) #3
+declare i32 @VP8IteratorNext(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef %1) #0 {
@@ -522,184 +550,235 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i32 0, ptr %5, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %5, align 4, !tbaa !39
   br label %11
 
 11:                                               ; preds = %95, %2
-  %12 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %5, align 4, !tbaa !39
   %13 = icmp slt i32 %12, 4
   br i1 %13, label %14, label %98
 
 14:                                               ; preds = %11
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !39
   br label %15
 
 15:                                               ; preds = %91, %14
-  %16 = load i32, ptr %6, align 4
+  %16 = load i32, ptr %6, align 4, !tbaa !39
   %17 = icmp slt i32 %16, 8
   br i1 %17, label %18, label %94
 
 18:                                               ; preds = %15
-  store i32 0, ptr %7, align 4
+  store i32 0, ptr %7, align 4, !tbaa !39
   br label %19
 
 19:                                               ; preds = %87, %18
-  %20 = load i32, ptr %7, align 4
+  %20 = load i32, ptr %7, align 4, !tbaa !39
   %21 = icmp slt i32 %20, 3
   br i1 %21, label %22, label %90
 
 22:                                               ; preds = %19
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !39
   br label %23
 
 23:                                               ; preds = %83, %22
-  %24 = load i32, ptr %8, align 4
+  %24 = load i32, ptr %8, align 4, !tbaa !39
   %25 = icmp slt i32 %24, 11
   br i1 %25, label %26, label %86
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.VP8EncProba, ptr %27, i32 0, i32 2
-  %29 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %5, align 4, !tbaa !39
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %28, i64 0, i64 %30
-  %32 = load i32, ptr %6, align 4
+  %32 = load i32, ptr %6, align 4, !tbaa !39
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [8 x [3 x [11 x i8]]], ptr %31, i64 0, i64 %33
-  %35 = load i32, ptr %7, align 4
+  %35 = load i32, ptr %7, align 4, !tbaa !39
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds [3 x [11 x i8]], ptr %34, i64 0, i64 %36
-  %38 = load i32, ptr %8, align 4
+  %38 = load i32, ptr %8, align 4, !tbaa !39
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [11 x i8], ptr %37, i64 0, i64 %39
-  %41 = load i8, ptr %40, align 1
-  store i8 %41, ptr %9, align 1
-  %42 = load i8, ptr %9, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !37
+  store i8 %41, ptr %9, align 1, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  %42 = load i8, ptr %9, align 1, !tbaa !37
   %43 = zext i8 %42 to i32
-  %44 = load i32, ptr %5, align 4
+  %44 = load i32, ptr %5, align 4, !tbaa !39
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %45
-  %47 = load i32, ptr %6, align 4
+  %47 = load i32, ptr %6, align 4, !tbaa !39
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [8 x [3 x [11 x i8]]], ptr %46, i64 0, i64 %48
-  %50 = load i32, ptr %7, align 4
+  %50 = load i32, ptr %7, align 4, !tbaa !39
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [3 x [11 x i8]], ptr %49, i64 0, i64 %51
-  %53 = load i32, ptr %8, align 4
+  %53 = load i32, ptr %8, align 4, !tbaa !39
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds [11 x i8], ptr %52, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1
+  %56 = load i8, ptr %55, align 1, !tbaa !37
   %57 = zext i8 %56 to i32
   %58 = icmp ne i32 %43, %57
   %59 = zext i1 %58 to i32
-  store i32 %59, ptr %10, align 4
-  %60 = load ptr, ptr %3, align 8
-  %61 = load i32, ptr %10, align 4
-  %62 = load i32, ptr %5, align 4
+  store i32 %59, ptr %10, align 4, !tbaa !39
+  %60 = load ptr, ptr %3, align 8, !tbaa !13
+  %61 = load i32, ptr %10, align 4, !tbaa !39
+  %62 = load i32, ptr %5, align 4, !tbaa !39
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %63
-  %65 = load i32, ptr %6, align 4
+  %65 = load i32, ptr %6, align 4, !tbaa !39
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [8 x [3 x [11 x i8]]], ptr %64, i64 0, i64 %66
-  %68 = load i32, ptr %7, align 4
+  %68 = load i32, ptr %7, align 4, !tbaa !39
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds [3 x [11 x i8]], ptr %67, i64 0, i64 %69
-  %71 = load i32, ptr %8, align 4
+  %71 = load i32, ptr %8, align 4, !tbaa !39
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds [11 x i8], ptr %70, i64 0, i64 %72
-  %74 = load i8, ptr %73, align 1
+  %74 = load i8, ptr %73, align 1, !tbaa !37
   %75 = zext i8 %74 to i32
   %76 = call i32 @VP8PutBit(ptr noundef %60, i32 noundef %61, i32 noundef %75)
   %77 = icmp ne i32 %76, 0
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %26
-  %79 = load ptr, ptr %3, align 8
-  %80 = load i8, ptr %9, align 1
+  %79 = load ptr, ptr %3, align 8, !tbaa !13
+  %80 = load i8, ptr %9, align 1, !tbaa !37
   %81 = zext i8 %80 to i32
   call void @VP8PutBits(ptr noundef %79, i32 noundef %81, i32 noundef 8)
   br label %82
 
 82:                                               ; preds = %78, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
   br label %83
 
 83:                                               ; preds = %82
-  %84 = load i32, ptr %8, align 4
+  %84 = load i32, ptr %8, align 4, !tbaa !39
   %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %8, align 4
-  br label %23, !llvm.loop !8
+  store i32 %85, ptr %8, align 4, !tbaa !39
+  br label %23, !llvm.loop !44
 
 86:                                               ; preds = %23
   br label %87
 
 87:                                               ; preds = %86
-  %88 = load i32, ptr %7, align 4
+  %88 = load i32, ptr %7, align 4, !tbaa !39
   %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %7, align 4
-  br label %19, !llvm.loop !9
+  store i32 %89, ptr %7, align 4, !tbaa !39
+  br label %19, !llvm.loop !45
 
 90:                                               ; preds = %19
   br label %91
 
 91:                                               ; preds = %90
-  %92 = load i32, ptr %6, align 4
+  %92 = load i32, ptr %6, align 4, !tbaa !39
   %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %6, align 4
-  br label %15, !llvm.loop !10
+  store i32 %93, ptr %6, align 4, !tbaa !39
+  br label %15, !llvm.loop !46
 
 94:                                               ; preds = %15
   br label %95
 
 95:                                               ; preds = %94
-  %96 = load i32, ptr %5, align 4
+  %96 = load i32, ptr %5, align 4, !tbaa !39
   %97 = add nsw i32 %96, 1
-  store i32 %97, ptr %5, align 4
-  br label %11, !llvm.loop !11
+  store i32 %97, ptr %5, align 4, !tbaa !39
+  br label %11, !llvm.loop !47
 
 98:                                               ; preds = %11
-  %99 = load ptr, ptr %3, align 8
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds %struct.VP8EncProba, ptr %100, i32 0, i32 7
-  %102 = load i32, ptr %101, align 4
+  %99 = load ptr, ptr %3, align 8, !tbaa !13
+  %100 = load ptr, ptr %4, align 8, !tbaa !8
+  %101 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %100, i32 0, i32 7
+  %102 = load i32, ptr %101, align 4, !tbaa !9
   %103 = call i32 @VP8PutBitUniform(ptr noundef %99, i32 noundef %102)
   %104 = icmp ne i32 %103, 0
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %98
-  %106 = load ptr, ptr %3, align 8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.VP8EncProba, ptr %107, i32 0, i32 1
-  %109 = load i8, ptr %108, align 1
+  %106 = load ptr, ptr %3, align 8, !tbaa !13
+  %107 = load ptr, ptr %4, align 8, !tbaa !8
+  %108 = getelementptr inbounds nuw %struct.VP8EncProba, ptr %107, i32 0, i32 1
+  %109 = load i8, ptr %108, align 1, !tbaa !48
   %110 = zext i8 %109 to i32
   call void @VP8PutBits(ptr noundef %106, i32 noundef %110, i32 noundef 8)
   br label %111
 
 111:                                              ; preds = %105, %98
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
-declare void @VP8PutBits(ptr noundef, i32 noundef, i32 noundef) #3
+declare void @VP8PutBits(ptr noundef, i32 noundef, i32 noundef) #4
 
-declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) #3
+declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS10VP8Encoder", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !11, i64 19884}
+!10 = !{!"", !6, i64 0, !6, i64 3, !6, i64 4, !6, i64 1060, !6, i64 5284, !6, i64 18344, !11, i64 19880, !11, i64 19884, !11, i64 19888}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!10, !11, i64 19880}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS12VP8BitWriter", !5, i64 0}
+!15 = !{!16, !5, i64 48}
+!16 = !{!"", !11, i64 0, !11, i64 4, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !4, i64 40, !5, i64 48, !14, i64 56, !17, i64 64, !18, i64 72, !6, i64 80, !17, i64 120, !11, i64 128, !6, i64 132, !6, i64 168, !6, i64 208, !19, i64 304, !19, i64 312, !20, i64 320, !11, i64 328, !11, i64 332, !11, i64 336, !11, i64 340, !6, i64 344, !17, i64 352, !17, i64 360, !17, i64 368, !17, i64 376, !17, i64 384, !17, i64 392, !6, i64 400, !6, i64 488}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!"p1 int", !5, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!"p1 double", !5, i64 0}
+!21 = !{!16, !17, i64 64}
+!22 = !{!17, !17, i64 0}
+!23 = !{!24, !11, i64 36}
+!24 = !{!"VP8Encoder", !25, i64 0, !26, i64 8, !27, i64 16, !28, i64 32, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !29, i64 64, !6, i64 112, !30, i64 496, !11, i64 536, !11, i64 540, !17, i64 544, !11, i64 552, !34, i64 560, !6, i64 608, !11, i64 3584, !11, i64 3588, !11, i64 3592, !11, i64 3596, !11, i64 3600, !11, i64 3604, !11, i64 3608, !11, i64 3612, !10, i64 3616, !6, i64 23512, !19, i64 23544, !11, i64 23552, !6, i64 23556, !6, i64 23604, !11, i64 23616, !11, i64 23620, !11, i64 23624, !11, i64 23628, !11, i64 23632, !11, i64 23636, !11, i64 23640, !5, i64 23648, !17, i64 23656, !18, i64 23664, !17, i64 23672, !17, i64 23680, !20, i64 23688, !17, i64 23696}
+!25 = !{!"p1 _ZTS10WebPConfig", !5, i64 0}
+!26 = !{!"p1 _ZTS11WebPPicture", !5, i64 0}
+!27 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
+!28 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8}
+!29 = !{!"VP8BitWriter", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !17, i64 16, !19, i64 24, !19, i64 32, !11, i64 40}
+!30 = !{!"", !31, i64 0, !32, i64 8, !33, i64 16, !11, i64 24, !11, i64 28, !11, i64 32}
+!31 = !{!"p1 _ZTS9VP8Tokens", !5, i64 0}
+!32 = !{!"p2 _ZTS9VP8Tokens", !5, i64 0}
+!33 = !{!"p1 short", !5, i64 0}
+!34 = !{!"", !5, i64 0, !11, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !11, i64 40}
+!35 = !{!24, !11, i64 23500}
+!36 = !{!24, !6, i64 3619}
+!37 = !{!6, !6, i64 0}
+!38 = !{!24, !11, i64 56}
+!39 = !{!11, !11, i64 0}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !41}
+!43 = distinct !{!43, !41}
+!44 = distinct !{!44, !41}
+!45 = distinct !{!45, !41}
+!46 = distinct !{!46, !41}
+!47 = distinct !{!47, !41}
+!48 = !{!10, !6, i64 3}

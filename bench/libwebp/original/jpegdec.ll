@@ -1,7 +1,6 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i32, ptr, i64, i64 }
 %struct.jpeg_decompress_struct = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, double, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, [4 x ptr], [4 x ptr], [4 x ptr], i32, ptr, i32, i32, i32, [16 x i8], [16 x i8], [16 x i8], i32, i32, i8, i8, i8, i16, i16, i32, i8, i32, ptr, i32, i32, i32, i32, i32, ptr, i32, [4 x ptr], i32, i32, i32, [10 x i32], i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.my_error_mgr = type { %struct.jpeg_error_mgr, [1 x %struct.__jmp_buf_tag] }
 %struct.jpeg_error_mgr = type { ptr, ptr, ptr, ptr, ptr, i32, %union.anon, i32, i64, ptr, i32, ptr, i32, i32 }
@@ -14,6 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jpeg_common_struct = type { ptr, ptr, ptr, ptr, i32, i32 }
 %struct.Metadata = type { %struct.MetadataPayload, %struct.MetadataPayload, %struct.MetadataPayload }
 %struct.MetadataPayload = type { ptr, i64 }
+%struct.anon = type { i32, ptr, i64, i64 }
 %struct.jpeg_marker_struct = type { ptr, i8, i32, i32, ptr }
 %struct.ICCPSegment = type { ptr, i64, i32 }
 
@@ -21,13 +21,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [33 x i8] c"Error extracting JPEG metadata!\0A\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"libjpeg error: \00", align 1
 @.str.2 = private unnamed_addr constant [56 x i8] c"`jpegtran -copy all` MAY be able to process this file.\0A\00", align 1
-@ExtractMetadataFromJPEG.kJPEGMetadataMap = internal constant [3 x %struct.anon] [%struct.anon { i32 225, ptr @.str.3, i64 6, i64 0 }, %struct.anon { i32 225, ptr @.str.4, i64 29, i64 32 }, %struct.anon zeroinitializer], align 16
+@ExtractMetadataFromJPEG.kJPEGMetadataMap = internal constant [3 x { i32, [4 x i8], ptr, i64, i64 }] [{ i32, [4 x i8], ptr, i64, i64 } { i32 225, [4 x i8] zeroinitializer, ptr @.str.3, i64 6, i64 0 }, { i32, [4 x i8], ptr, i64, i64 } { i32 225, [4 x i8] zeroinitializer, ptr @.str.4, i64 29, i64 32 }, { i32, [4 x i8], ptr, i64, i64 } zeroinitializer], align 16
 @.str.3 = private unnamed_addr constant [6 x i8] c"Exif\00\00", align 1
 @.str.4 = private unnamed_addr constant [29 x i8] c"http://ns.adobe.com/xap/1.0/\00", align 1
 @.str.5 = private unnamed_addr constant [33 x i8] c"Ignoring additional '%s' marker\0A\00", align 1
 @StoreICCP.kICCPSignature = internal constant [12 x i8] c"ICC_PROFILE\00", align 1
-@StoreICCP.kICCPSignatureLength = internal constant i64 12, align 8
-@StoreICCP.kICCPSkipLength = internal constant i64 14, align 8
 @.str.6 = private unnamed_addr constant [67 x i8] c"[ICCP] size (%d) / count (%d) / sequence number (%d) cannot be 0!\0A\00", align 1
 @.str.7 = private unnamed_addr constant [46 x i8] c"[ICCP] Inconsistent segment count (%d / %d)!\0A\00", align 1
 @.str.8 = private unnamed_addr constant [39 x i8] c"[ICCP] Duplicate segment number (%d)!\0A\00", align 1
@@ -51,333 +49,359 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %18 = alloca ptr, align 8
   %19 = alloca [1 x ptr], align 8
   %20 = alloca %struct.JPEGReadContext, align 8
-  store ptr %0, ptr %7, align 8
-  store i64 %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store ptr %4, ptr %11, align 8
-  store volatile i32 0, ptr %12, align 4
-  store volatile ptr null, ptr %18, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %29, label %23
+  %21 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store i64 %1, ptr %8, align 8, !tbaa !9
+  store ptr %2, ptr %9, align 8, !tbaa !11
+  store i32 %3, ptr %10, align 4, !tbaa !13
+  store ptr %4, ptr %11, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store volatile i32 0, ptr %12, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 656, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 368, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  store volatile ptr null, ptr %18, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 72, ptr %20) #10
+  %22 = load ptr, ptr %7, align 8, !tbaa !4
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %5
-  %24 = load i64, ptr %8, align 8
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %29, label %26
+24:                                               ; preds = %5
+  %25 = load i64, ptr %8, align 8, !tbaa !9
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %9, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %9, align 8, !tbaa !11
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %26, %23, %5
+30:                                               ; preds = %27, %24, %5
   store i32 0, ptr %6, align 4
-  br label %150
+  store i32 1, ptr %21, align 4
+  br label %151
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 72, i1 false)
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.JPEGReadContext, ptr %20, i32 0, i32 1
-  store ptr %31, ptr %32, align 8
-  %33 = load i64, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.JPEGReadContext, ptr %20, i32 0, i32 2
-  store i64 %33, ptr %34, align 8
+  %32 = load ptr, ptr %7, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %20, i32 0, i32 1
+  store ptr %32, ptr %33, align 8, !tbaa !17
+  %34 = load i64, ptr %8, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %20, i32 0, i32 2
+  store i64 %34, ptr %35, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 656, i1 false)
-  %35 = getelementptr inbounds %struct.my_error_mgr, ptr %17, i32 0, i32 0
-  %36 = call ptr @jpeg_std_error(ptr noundef %35)
-  %37 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 0
-  store volatile ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds %struct.my_error_mgr, ptr %17, i32 0, i32 0
-  %39 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %38, i32 0, i32 0
-  store ptr @my_error_exit, ptr %39, align 8
-  %40 = getelementptr inbounds %struct.my_error_mgr, ptr %17, i32 0, i32 1
-  %41 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %40, i64 0, i64 0
-  %42 = call i32 @_setjmp(ptr noundef %41) #9
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %47
+  %36 = getelementptr inbounds nuw %struct.my_error_mgr, ptr %17, i32 0, i32 0
+  %37 = call ptr @jpeg_std_error(ptr noundef %36)
+  %38 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 0
+  store volatile ptr %37, ptr %38, align 8, !tbaa !21
+  %39 = getelementptr inbounds nuw %struct.my_error_mgr, ptr %17, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %39, i32 0, i32 0
+  store ptr @my_error_exit, ptr %40, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw %struct.my_error_mgr, ptr %17, i32 0, i32 1
+  %42 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %41, i64 0, i64 0
+  %43 = call i32 @_setjmp(ptr noundef %42) #11
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %30
-  br label %45
+45:                                               ; preds = %31
+  br label %46
 
-45:                                               ; preds = %121, %107, %93, %84, %59, %44
-  %46 = load ptr, ptr %11, align 8
-  call void @MetadataFree(ptr noundef %46)
+46:                                               ; preds = %122, %108, %94, %85, %60, %45
+  %47 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @MetadataFree(ptr noundef %47)
   call void @jpeg_destroy_decompress(ptr noundef %16)
-  br label %147
+  br label %148
 
-47:                                               ; preds = %30
+48:                                               ; preds = %31
   call void @jpeg_CreateDecompress(ptr noundef %16, i32 noundef 80, i64 noundef 656)
   call void @ContextSetup(ptr noundef %16, ptr noundef %20)
-  %48 = load ptr, ptr %11, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %51
+  %49 = load ptr, ptr %11, align 8, !tbaa !15
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   call void @SaveMetadataMarkers(ptr noundef %16)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %47
-  %52 = call i32 @jpeg_read_header(ptr noundef %16, i32 noundef 1)
-  %53 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 11
-  store volatile i32 2, ptr %53, align 8
-  %54 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 18
-  store volatile i32 1, ptr %54, align 4
-  %55 = call i32 @jpeg_start_decompress(ptr noundef %16)
-  %56 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 30
-  %57 = load volatile i32, ptr %56, align 4
-  %58 = icmp ne i32 %57, 3
-  br i1 %58, label %59, label %60
+52:                                               ; preds = %51, %48
+  %53 = call i32 @jpeg_read_header(ptr noundef %16, i32 noundef 1)
+  %54 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 11
+  store volatile i32 2, ptr %54, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 18
+  store volatile i32 1, ptr %55, align 4, !tbaa !47
+  %56 = call i32 @jpeg_start_decompress(ptr noundef %16)
+  %57 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 30
+  %58 = load volatile i32, ptr %57, align 4, !tbaa !48
+  %59 = icmp ne i32 %58, 3
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %51
-  br label %45
+60:                                               ; preds = %52
+  br label %46
 
-60:                                               ; preds = %51
-  %61 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 27
-  %62 = load volatile i32, ptr %61, align 8
-  store i32 %62, ptr %13, align 4
-  %63 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 28
-  %64 = load volatile i32, ptr %63, align 4
-  store i32 %64, ptr %14, align 4
-  %65 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 27
-  %66 = load volatile i32, ptr %65, align 8
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 30
-  %69 = load volatile i32, ptr %68, align 4
-  %70 = sext i32 %69 to i64
-  %71 = mul nsw i64 %67, %70
-  %72 = mul i64 %71, 1
-  store i64 %72, ptr %15, align 8
-  %73 = load i64, ptr %15, align 8
-  %74 = load i64, ptr %15, align 8
-  %75 = trunc i64 %74 to i32
-  %76 = sext i32 %75 to i64
-  %77 = icmp ne i64 %73, %76
-  br i1 %77, label %84, label %78
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 27
+  %63 = load volatile i32, ptr %62, align 8, !tbaa !49
+  store i32 %63, ptr %13, align 4, !tbaa !13
+  %64 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 28
+  %65 = load volatile i32, ptr %64, align 4, !tbaa !50
+  store i32 %65, ptr %14, align 4, !tbaa !13
+  %66 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 27
+  %67 = load volatile i32, ptr %66, align 8, !tbaa !49
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 30
+  %70 = load volatile i32, ptr %69, align 4, !tbaa !48
+  %71 = sext i32 %70 to i64
+  %72 = mul nsw i64 %68, %71
+  %73 = mul i64 %72, 1
+  store i64 %73, ptr %15, align 8, !tbaa !9
+  %74 = load i64, ptr %15, align 8, !tbaa !9
+  %75 = load i64, ptr %15, align 8, !tbaa !9
+  %76 = trunc i64 %75 to i32
+  %77 = sext i32 %76 to i64
+  %78 = icmp ne i64 %74, %77
+  br i1 %78, label %85, label %79
 
-78:                                               ; preds = %60
-  %79 = load i64, ptr %15, align 8
-  %80 = load i32, ptr %14, align 4
-  %81 = sext i32 %80 to i64
-  %82 = call i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef %79, i64 noundef %81)
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %85, label %84
+79:                                               ; preds = %61
+  %80 = load i64, ptr %15, align 8, !tbaa !9
+  %81 = load i32, ptr %14, align 4, !tbaa !13
+  %82 = sext i32 %81 to i64
+  %83 = call i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef %80, i64 noundef %82)
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %86, label %85
 
-84:                                               ; preds = %78, %60
-  br label %45
+85:                                               ; preds = %79, %61
+  br label %46
 
-85:                                               ; preds = %78
-  %86 = load i64, ptr %15, align 8
-  %87 = load i32, ptr %14, align 4
-  %88 = sext i32 %87 to i64
-  %89 = mul i64 %86, %88
-  %90 = call noalias ptr @malloc(i64 noundef %89) #10
-  store volatile ptr %90, ptr %18, align 8
-  %91 = load volatile ptr, ptr %18, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %94
+86:                                               ; preds = %79
+  %87 = load i64, ptr %15, align 8, !tbaa !9
+  %88 = load i32, ptr %14, align 4, !tbaa !13
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 %87, %89
+  %91 = call noalias ptr @malloc(i64 noundef %90) #12
+  store volatile ptr %91, ptr %18, align 8, !tbaa !4
+  %92 = load volatile ptr, ptr %18, align 8, !tbaa !4
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %85
-  br label %45
+94:                                               ; preds = %86
+  br label %46
 
-94:                                               ; preds = %85
-  %95 = load volatile ptr, ptr %18, align 8
-  %96 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
-  store ptr %95, ptr %96, align 8
-  br label %97
+95:                                               ; preds = %86
+  %96 = load volatile ptr, ptr %18, align 8, !tbaa !4
+  %97 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
+  store ptr %96, ptr %97, align 8, !tbaa !4
+  br label %98
 
-97:                                               ; preds = %108, %94
-  %98 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 34
-  %99 = load volatile i32, ptr %98, align 8
-  %100 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 28
-  %101 = load volatile i32, ptr %100, align 4
-  %102 = icmp ult i32 %99, %101
-  br i1 %102, label %103, label %113
+98:                                               ; preds = %109, %95
+  %99 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 34
+  %100 = load volatile i32, ptr %99, align 8, !tbaa !51
+  %101 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %16, i32 0, i32 28
+  %102 = load volatile i32, ptr %101, align 4, !tbaa !50
+  %103 = icmp ult i32 %100, %102
+  br i1 %103, label %104, label %114
 
-103:                                              ; preds = %97
-  %104 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
-  %105 = call i32 @jpeg_read_scanlines(ptr noundef %16, ptr noundef %104, i32 noundef 1)
-  %106 = icmp ne i32 %105, 1
-  br i1 %106, label %107, label %108
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
+  %106 = call i32 @jpeg_read_scanlines(ptr noundef %16, ptr noundef %105, i32 noundef 1)
+  %107 = icmp ne i32 %106, 1
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %103
-  br label %45
+108:                                              ; preds = %104
+  br label %46
 
-108:                                              ; preds = %103
-  %109 = load i64, ptr %15, align 8
-  %110 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 %109
-  store ptr %112, ptr %110, align 8
-  br label %97, !llvm.loop !5
+109:                                              ; preds = %104
+  %110 = load i64, ptr %15, align 8, !tbaa !9
+  %111 = getelementptr inbounds [1 x ptr], ptr %19, i64 0, i64 0
+  %112 = load ptr, ptr %111, align 8, !tbaa !4
+  %113 = getelementptr inbounds i8, ptr %112, i64 %110
+  store ptr %113, ptr %111, align 8, !tbaa !4
+  br label %98, !llvm.loop !52
 
-113:                                              ; preds = %97
-  %114 = load ptr, ptr %11, align 8
-  %115 = icmp ne ptr %114, null
-  br i1 %115, label %116, label %125
+114:                                              ; preds = %98
+  %115 = load ptr, ptr %11, align 8, !tbaa !15
+  %116 = icmp ne ptr %115, null
+  br i1 %116, label %117, label %126
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %11, align 8
-  %118 = call i32 @ExtractMetadataFromJPEG(ptr noundef %16, ptr noundef %117)
-  store volatile i32 %118, ptr %12, align 4
-  %119 = load volatile i32, ptr %12, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %124, label %121
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %11, align 8, !tbaa !15
+  %119 = call i32 @ExtractMetadataFromJPEG(ptr noundef %16, ptr noundef %118)
+  store volatile i32 %119, ptr %12, align 4, !tbaa !13
+  %120 = load volatile i32, ptr %12, align 4, !tbaa !13
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %125, label %122
 
-121:                                              ; preds = %116
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef @.str) #11
-  br label %45
+122:                                              ; preds = %117
+  %123 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef @.str) #10
+  br label %46
 
-124:                                              ; preds = %116
-  br label %125
+125:                                              ; preds = %117
+  br label %126
 
-125:                                              ; preds = %124, %113
-  %126 = call i32 @jpeg_finish_decompress(ptr noundef %16)
+126:                                              ; preds = %125, %114
+  %127 = call i32 @jpeg_finish_decompress(ptr noundef %16)
   call void @jpeg_destroy_decompress(ptr noundef %16)
-  %127 = load i32, ptr %13, align 4
-  %128 = load ptr, ptr %9, align 8
-  %129 = getelementptr inbounds %struct.WebPPicture, ptr %128, i32 0, i32 2
-  store i32 %127, ptr %129, align 8
-  %130 = load i32, ptr %14, align 4
-  %131 = load ptr, ptr %9, align 8
-  %132 = getelementptr inbounds %struct.WebPPicture, ptr %131, i32 0, i32 3
-  store i32 %130, ptr %132, align 4
-  %133 = load ptr, ptr %9, align 8
-  %134 = load volatile ptr, ptr %18, align 8
-  %135 = load i64, ptr %15, align 8
-  %136 = trunc i64 %135 to i32
-  %137 = call i32 @WebPPictureImportRGB(ptr noundef %133, ptr noundef %134, i32 noundef %136)
-  store volatile i32 %137, ptr %12, align 4
-  %138 = load volatile i32, ptr %12, align 4
-  %139 = icmp ne i32 %138, 0
-  br i1 %139, label %146, label %140
+  %128 = load i32, ptr %13, align 4, !tbaa !13
+  %129 = load ptr, ptr %9, align 8, !tbaa !11
+  %130 = getelementptr inbounds nuw %struct.WebPPicture, ptr %129, i32 0, i32 2
+  store i32 %128, ptr %130, align 8, !tbaa !56
+  %131 = load i32, ptr %14, align 4, !tbaa !13
+  %132 = load ptr, ptr %9, align 8, !tbaa !11
+  %133 = getelementptr inbounds nuw %struct.WebPPicture, ptr %132, i32 0, i32 3
+  store i32 %131, ptr %133, align 4, !tbaa !59
+  %134 = load ptr, ptr %9, align 8, !tbaa !11
+  %135 = load volatile ptr, ptr %18, align 8, !tbaa !4
+  %136 = load i64, ptr %15, align 8, !tbaa !9
+  %137 = trunc i64 %136 to i32
+  %138 = call i32 @WebPPictureImportRGB(ptr noundef %134, ptr noundef %135, i32 noundef %137)
+  store volatile i32 %138, ptr %12, align 4, !tbaa !13
+  %139 = load volatile i32, ptr %12, align 4, !tbaa !13
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %147, label %141
 
-140:                                              ; preds = %125
-  %141 = load ptr, ptr %9, align 8
-  %142 = getelementptr inbounds %struct.WebPPicture, ptr %141, i32 0, i32 2
-  store i32 0, ptr %142, align 8
-  %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct.WebPPicture, ptr %143, i32 0, i32 3
-  store i32 0, ptr %144, align 4
-  %145 = load ptr, ptr %11, align 8
-  call void @MetadataFree(ptr noundef %145)
-  br label %146
-
-146:                                              ; preds = %140, %125
+141:                                              ; preds = %126
+  %142 = load ptr, ptr %9, align 8, !tbaa !11
+  %143 = getelementptr inbounds nuw %struct.WebPPicture, ptr %142, i32 0, i32 2
+  store i32 0, ptr %143, align 8, !tbaa !56
+  %144 = load ptr, ptr %9, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %struct.WebPPicture, ptr %144, i32 0, i32 3
+  store i32 0, ptr %145, align 4, !tbaa !59
+  %146 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @MetadataFree(ptr noundef %146)
   br label %147
 
-147:                                              ; preds = %146, %45
-  %148 = load volatile ptr, ptr %18, align 8
-  call void @free(ptr noundef %148) #11
-  %149 = load volatile i32, ptr %12, align 4
-  store i32 %149, ptr %6, align 4
-  br label %150
+147:                                              ; preds = %141, %126
+  br label %148
 
-150:                                              ; preds = %147, %29
-  %151 = load i32, ptr %6, align 4
-  ret i32 %151
+148:                                              ; preds = %147, %46
+  %149 = load volatile ptr, ptr %18, align 8, !tbaa !4
+  call void @free(ptr noundef %149) #10
+  %150 = load volatile i32, ptr %12, align 4, !tbaa !13
+  store i32 %150, ptr %6, align 4
+  store i32 1, ptr %21, align 4
+  br label %151
+
+151:                                              ; preds = %148, %30
+  call void @llvm.lifetime.end.p0(i64 72, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 368, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 656, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  %152 = load i32, ptr %6, align 4
+  ret i32 %152
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @jpeg_std_error(ptr noundef) #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
+declare ptr @jpeg_std_error(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.jpeg_common_struct, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.my_error_mgr, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %9, i32 0, i32 5
-  %11 = load i32, ptr %10, align 8
-  store i32 %11, ptr %4, align 4
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.1) #11
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.jpeg_common_struct, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !60
+  %6 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !62
+  store ptr %7, ptr %3, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  %8 = load ptr, ptr %3, align 8, !tbaa !64
+  %9 = getelementptr inbounds nuw %struct.my_error_mgr, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %9, i32 0, i32 5
+  %11 = load i32, ptr %10, align 8, !tbaa !66
+  store i32 %11, ptr %4, align 4, !tbaa !13
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.1) #10
+  %14 = load ptr, ptr %2, align 8, !tbaa !60
+  %15 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !62
+  %17 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  %19 = load ptr, ptr %2, align 8, !tbaa !60
   call void %18(ptr noundef %19)
-  %20 = load i32, ptr %4, align 4
+  %20 = load i32, ptr %4, align 4, !tbaa !13
   %21 = icmp eq i32 %20, 44
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %1
-  %23 = load i32, ptr %4, align 4
+  %23 = load i32, ptr %4, align 4, !tbaa !13
   %24 = icmp eq i32 %23, 37
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22, %1
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.2) #11
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.2) #10
   br label %28
 
 28:                                               ; preds = %25, %22
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.my_error_mgr, ptr %29, i32 0, i32 1
+  %29 = load ptr, ptr %3, align 8, !tbaa !64
+  %30 = getelementptr inbounds nuw %struct.my_error_mgr, ptr %29, i32 0, i32 1
   %31 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %30, i64 0, i64 0
-  call void @longjmp(ptr noundef %31, i32 noundef 1) #12
+  call void @longjmp(ptr noundef %31, i32 noundef 1) #13
   unreachable
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) #3
+declare i32 @_setjmp(ptr noundef) #4
 
-declare void @MetadataFree(ptr noundef) #2
+declare void @MetadataFree(ptr noundef) #3
 
-declare void @jpeg_destroy_decompress(ptr noundef) #2
+declare void @jpeg_destroy_decompress(ptr noundef) #3
 
-declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) #2
+declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @ContextSetup(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %6, i32 0, i32 6
-  store volatile ptr %5, ptr %7, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.JPEGReadContext, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %9, i32 0, i32 2
-  store ptr @ContextInit, ptr %10, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.JPEGReadContext, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %12, i32 0, i32 3
-  store ptr @ContextFill, ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.JPEGReadContext, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %15, i32 0, i32 4
-  store ptr @ContextSkip, ptr %16, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.JPEGReadContext, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %18, i32 0, i32 5
-  store ptr @jpeg_resync_to_restart, ptr %19, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.JPEGReadContext, ptr %20, i32 0, i32 0
-  %22 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %21, i32 0, i32 6
-  store ptr @ContextTerm, ptr %22, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.JPEGReadContext, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %24, i32 0, i32 1
-  store i64 0, ptr %25, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.JPEGReadContext, ptr %26, i32 0, i32 0
-  %28 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %27, i32 0, i32 0
-  store ptr null, ptr %28, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  store ptr %1, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %6 = load ptr, ptr %3, align 8, !tbaa !68
+  %7 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %6, i32 0, i32 6
+  store volatile ptr %5, ptr %7, align 8, !tbaa !71
+  %8 = load ptr, ptr %4, align 8, !tbaa !70
+  %9 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %9, i32 0, i32 2
+  store ptr @ContextInit, ptr %10, align 8, !tbaa !72
+  %11 = load ptr, ptr %4, align 8, !tbaa !70
+  %12 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %12, i32 0, i32 3
+  store ptr @ContextFill, ptr %13, align 8, !tbaa !73
+  %14 = load ptr, ptr %4, align 8, !tbaa !70
+  %15 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %15, i32 0, i32 4
+  store ptr @ContextSkip, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %4, align 8, !tbaa !70
+  %18 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %18, i32 0, i32 5
+  store ptr @jpeg_resync_to_restart, ptr %19, align 8, !tbaa !75
+  %20 = load ptr, ptr %4, align 8, !tbaa !70
+  %21 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %21, i32 0, i32 6
+  store ptr @ContextTerm, ptr %22, align 8, !tbaa !76
+  %23 = load ptr, ptr %4, align 8, !tbaa !70
+  %24 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %24, i32 0, i32 1
+  store i64 0, ptr %25, align 8, !tbaa !77
+  %26 = load ptr, ptr %4, align 8, !tbaa !70
+  %27 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %27, i32 0, i32 0
+  store ptr null, ptr %28, align 8, !tbaa !78
   ret void
 }
 
@@ -385,25 +409,27 @@ define internal void @ContextSetup(ptr noundef %0, ptr noundef %1) #0 {
 define internal void @SaveMetadataMarkers(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 65535, ptr %3, align 4
-  %4 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  store i32 65535, ptr %3, align 4, !tbaa !13
+  %4 = load ptr, ptr %2, align 8, !tbaa !68
   call void @jpeg_save_markers(ptr noundef %4, i32 noundef 225, i32 noundef 65535)
-  %5 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !68
   call void @jpeg_save_markers(ptr noundef %5, i32 noundef 226, i32 noundef 65535)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
   ret void
 }
 
-declare i32 @jpeg_read_header(ptr noundef, i32 noundef) #2
+declare i32 @jpeg_read_header(ptr noundef, i32 noundef) #3
 
-declare i32 @jpeg_start_decompress(ptr noundef) #2
+declare i32 @jpeg_start_decompress(ptr noundef) #3
 
-declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) #2
+declare i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #5
 
-declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ExtractMetadataFromJPEG(ptr noundef %0, ptr noundef %1) #0 {
@@ -412,237 +438,286 @@ define internal i32 @ExtractMetadataFromJPEG(ptr noundef %0, ptr noundef %1) #0 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.Metadata, ptr %12, i32 0, i32 1
-  %14 = call i32 @StoreICCP(ptr noundef %11, ptr noundef %13)
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %128
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !68
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %12 = load ptr, ptr %4, align 8, !tbaa !68
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw %struct.Metadata, ptr %13, i32 0, i32 1
+  %15 = call i32 @StoreICCP(ptr noundef %12, ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %18, i32 0, i32 61
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %6, align 8
-  br label %21
-
-21:                                               ; preds = %123, %17
-  %22 = load ptr, ptr %6, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %127
-
-24:                                               ; preds = %21
-  store i32 0, ptr %7, align 4
-  br label %25
-
-25:                                               ; preds = %119, %24
-  %26 = load i32, ptr %7, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %27
-  %29 = getelementptr inbounds %struct.anon, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 16
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %122
-
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %33, i32 0, i32 1
-  %35 = load i8, ptr %34, align 8
-  %36 = zext i8 %35 to i32
-  %37 = load i32, ptr %7, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %38
-  %40 = getelementptr inbounds %struct.anon, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 16
-  %42 = icmp eq i32 %36, %41
-  br i1 %42, label %43, label %118
-
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %44, i32 0, i32 3
-  %46 = load i32, ptr %45, align 8
-  %47 = zext i32 %46 to i64
-  %48 = load i32, ptr %7, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %49
-  %51 = getelementptr inbounds %struct.anon, ptr %50, i32 0, i32 2
-  %52 = load i64, ptr %51, align 16
-  %53 = icmp ugt i64 %47, %52
-  br i1 %53, label %54, label %118
-
-54:                                               ; preds = %43
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %55, i32 0, i32 4
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %59
-  %61 = getelementptr inbounds %struct.anon, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = load i32, ptr %7, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %64
-  %66 = getelementptr inbounds %struct.anon, ptr %65, i32 0, i32 2
-  %67 = load i64, ptr %66, align 16
-  %68 = call i32 @memcmp(ptr noundef %57, ptr noundef %62, i64 noundef %67) #13
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %118, label %70
-
-70:                                               ; preds = %54
-  %71 = load ptr, ptr %5, align 8
-  %72 = load i32, ptr %7, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %73
-  %75 = getelementptr inbounds %struct.anon, ptr %74, i32 0, i32 3
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 %76
-  store ptr %77, ptr %8, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.MetadataPayload, ptr %78, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %109
-
-82:                                               ; preds = %70
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %83, i32 0, i32 4
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i32, ptr %7, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %87
-  %89 = getelementptr inbounds %struct.anon, ptr %88, i32 0, i32 2
-  %90 = load i64, ptr %89, align 16
-  %91 = getelementptr inbounds i8, ptr %85, i64 %90
-  store ptr %91, ptr %9, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %92, i32 0, i32 3
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %96 = load i32, ptr %7, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %97
-  %99 = getelementptr inbounds %struct.anon, ptr %98, i32 0, i32 2
-  %100 = load i64, ptr %99, align 16
-  %101 = sub i64 %95, %100
-  store i64 %101, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = load i64, ptr %10, align 8
-  %104 = load ptr, ptr %8, align 8
-  %105 = call i32 @MetadataCopy(ptr noundef %102, i64 noundef %103, ptr noundef %104)
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %108, label %107
-
-107:                                              ; preds = %82
   store i32 0, ptr %3, align 4
-  br label %128
+  store i32 1, ptr %7, align 4
+  br label %138
 
-108:                                              ; preds = %82
-  br label %117
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !68
+  %20 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %19, i32 0, i32 61
+  %21 = load ptr, ptr %20, align 8, !tbaa !79
+  store ptr %21, ptr %6, align 8, !tbaa !80
+  br label %22
 
-109:                                              ; preds = %70
-  %110 = load ptr, ptr @stderr, align 8
+22:                                               ; preds = %133, %18
+  %23 = load ptr, ptr %6, align 8, !tbaa !80
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %137
+
+25:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !13
+  br label %26
+
+26:                                               ; preds = %126, %25
+  %27 = load i32, ptr %8, align 4, !tbaa !13
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw %struct.anon, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 16, !tbaa !81
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %129
+
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %6, align 8, !tbaa !80
+  %35 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %34, i32 0, i32 1
+  %36 = load i8, ptr %35, align 8, !tbaa !83
+  %37 = zext i8 %36 to i32
+  %38 = load i32, ptr %8, align 4, !tbaa !13
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 16, !tbaa !81
+  %43 = icmp eq i32 %37, %42
+  br i1 %43, label %44, label %125
+
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %6, align 8, !tbaa !80
+  %46 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 8, !tbaa !85
+  %48 = zext i32 %47 to i64
+  %49 = load i32, ptr %8, align 4, !tbaa !13
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw %struct.anon, ptr %51, i32 0, i32 2
+  %53 = load i64, ptr %52, align 16, !tbaa !86
+  %54 = icmp ugt i64 %48, %53
+  br i1 %54, label %55, label %125
+
+55:                                               ; preds = %44
+  %56 = load ptr, ptr %6, align 8, !tbaa !80
+  %57 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %56, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8, !tbaa !87
+  %59 = load i32, ptr %8, align 4, !tbaa !13
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw %struct.anon, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !88
+  %64 = load i32, ptr %8, align 4, !tbaa !13
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw %struct.anon, ptr %66, i32 0, i32 2
+  %68 = load i64, ptr %67, align 16, !tbaa !86
+  %69 = call i32 @memcmp(ptr noundef %58, ptr noundef %63, i64 noundef %68) #14
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %125, label %71
+
+71:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %72 = load ptr, ptr %5, align 8, !tbaa !15
+  %73 = load i32, ptr %8, align 4, !tbaa !13
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %74
+  %76 = getelementptr inbounds nuw %struct.anon, ptr %75, i32 0, i32 3
+  %77 = load i64, ptr %76, align 8, !tbaa !89
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 %77
+  store ptr %78, ptr %9, align 8, !tbaa !90
+  %79 = load ptr, ptr %9, align 8, !tbaa !90
+  %80 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !92
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %113
+
+83:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %84 = load ptr, ptr %6, align 8, !tbaa !80
+  %85 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %84, i32 0, i32 4
+  %86 = load ptr, ptr %85, align 8, !tbaa !87
+  %87 = load i32, ptr %8, align 4, !tbaa !13
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %88
+  %90 = getelementptr inbounds nuw %struct.anon, ptr %89, i32 0, i32 2
+  %91 = load i64, ptr %90, align 16, !tbaa !86
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %91
+  store ptr %92, ptr %10, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %93 = load ptr, ptr %6, align 8, !tbaa !80
+  %94 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %93, i32 0, i32 3
+  %95 = load i32, ptr %94, align 8, !tbaa !85
+  %96 = zext i32 %95 to i64
+  %97 = load i32, ptr %8, align 4, !tbaa !13
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw %struct.anon, ptr %99, i32 0, i32 2
+  %101 = load i64, ptr %100, align 16, !tbaa !86
+  %102 = sub i64 %96, %101
+  store i64 %102, ptr %11, align 8, !tbaa !9
+  %103 = load ptr, ptr %10, align 8, !tbaa !4
+  %104 = load i64, ptr %11, align 8, !tbaa !9
+  %105 = load ptr, ptr %9, align 8, !tbaa !90
+  %106 = call i32 @MetadataCopy(ptr noundef %103, i64 noundef %104, ptr noundef %105)
+  %107 = icmp ne i32 %106, 0
+  br i1 %107, label %109, label %108
+
+108:                                              ; preds = %83
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %110
+
+109:                                              ; preds = %83
+  store i32 0, ptr %7, align 4
+  br label %110
+
+110:                                              ; preds = %109, %108
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
   %111 = load i32, ptr %7, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %112
-  %114 = getelementptr inbounds %struct.anon, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef @.str.5, ptr noundef %115) #11
-  br label %117
+  switch i32 %111, label %122 [
+    i32 0, label %112
+  ]
 
-117:                                              ; preds = %109, %108
-  br label %118
+112:                                              ; preds = %110
+  br label %121
 
-118:                                              ; preds = %117, %54, %43, %32
-  br label %119
+113:                                              ; preds = %71
+  %114 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %115 = load i32, ptr %8, align 4, !tbaa !13
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %116
+  %118 = getelementptr inbounds nuw %struct.anon, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8, !tbaa !88
+  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef @.str.5, ptr noundef %119) #10
+  br label %121
 
-119:                                              ; preds = %118
-  %120 = load i32, ptr %7, align 4
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %7, align 4
-  br label %25, !llvm.loop !7
+121:                                              ; preds = %113, %112
+  store i32 0, ptr %7, align 4
+  br label %122
 
-122:                                              ; preds = %25
-  br label %123
+122:                                              ; preds = %121, %110
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  %123 = load i32, ptr %7, align 4
+  switch i32 %123, label %130 [
+    i32 0, label %124
+  ]
 
-123:                                              ; preds = %122
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %124, i32 0, i32 0
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %6, align 8
-  br label %21, !llvm.loop !8
+124:                                              ; preds = %122
+  br label %125
 
-127:                                              ; preds = %21
+125:                                              ; preds = %124, %55, %44, %33
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load i32, ptr %8, align 4, !tbaa !13
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %8, align 4, !tbaa !13
+  br label %26, !llvm.loop !94
+
+129:                                              ; preds = %26
+  store i32 0, ptr %7, align 4
+  br label %130
+
+130:                                              ; preds = %129, %122
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %131 = load i32, ptr %7, align 4
+  switch i32 %131, label %138 [
+    i32 0, label %132
+  ]
+
+132:                                              ; preds = %130
+  br label %133
+
+133:                                              ; preds = %132
+  %134 = load ptr, ptr %6, align 8, !tbaa !80
+  %135 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %134, i32 0, i32 0
+  %136 = load ptr, ptr %135, align 8, !tbaa !95
+  store ptr %136, ptr %6, align 8, !tbaa !80
+  br label %22, !llvm.loop !96
+
+137:                                              ; preds = %22
   store i32 1, ptr %3, align 4
-  br label %128
+  store i32 1, ptr %7, align 4
+  br label %138
 
-128:                                              ; preds = %127, %107, %16
-  %129 = load i32, ptr %3, align 4
-  ret i32 %129
+138:                                              ; preds = %137, %130, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %139 = load i32, ptr %3, align 4
+  ret i32 %139
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
-declare i32 @jpeg_finish_decompress(ptr noundef) #2
+declare i32 @jpeg_finish_decompress(ptr noundef) #3
 
-declare i32 @WebPPictureImportRGB(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @WebPPictureImportRGB(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) #6
+declare void @longjmp(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal void @ContextInit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %4, i32 0, i32 6
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.JPEGReadContext, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.JPEGReadContext, ptr %10, i32 0, i32 0
-  %12 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %11, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.JPEGReadContext, ptr %13, i32 0, i32 2
-  %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.JPEGReadContext, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %17, i32 0, i32 1
-  store i64 %15, ptr %18, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !68
+  %5 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %4, i32 0, i32 6
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  store ptr %6, ptr %3, align 8, !tbaa !70
+  %7 = load ptr, ptr %3, align 8, !tbaa !70
+  %8 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %10 = load ptr, ptr %3, align 8, !tbaa !70
+  %11 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %11, i32 0, i32 0
+  store ptr %9, ptr %12, align 8, !tbaa !78
+  %13 = load ptr, ptr %3, align 8, !tbaa !70
+  %14 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %13, i32 0, i32 2
+  %15 = load i64, ptr %14, align 8, !tbaa !20
+  %16 = load ptr, ptr %3, align 8, !tbaa !70
+  %17 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %17, i32 0, i32 1
+  store i64 %15, ptr %18, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ContextFill(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %5, i32 0, i32 5
-  store i32 37, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %4 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %6 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %5, i32 0, i32 5
+  store i32 37, ptr %6, align 8, !tbaa !97
+  %7 = load ptr, ptr %2, align 8, !tbaa !68
+  %8 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !98
+  %12 = load ptr, ptr %2, align 8, !tbaa !68
   call void %11(ptr noundef %12)
   ret i32 0
 }
@@ -653,58 +728,62 @@ define internal void @ContextSkip(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %7, i32 0, i32 6
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load i64, ptr %4, align 8
-  store i64 %10, ptr %6, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.JPEGReadContext, ptr %12, i32 0, i32 0
-  %14 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %13, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !68
+  store i64 %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !68
+  %8 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %7, i32 0, i32 6
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  store ptr %9, ptr %5, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %10 = load i64, ptr %4, align 8, !tbaa !9
+  store i64 %10, ptr %6, align 8, !tbaa !9
+  %11 = load i64, ptr %6, align 8, !tbaa !9
+  %12 = load ptr, ptr %5, align 8, !tbaa !70
+  %13 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8, !tbaa !77
   %16 = icmp ugt i64 %11, %15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.JPEGReadContext, ptr %18, i32 0, i32 0
-  %20 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %19, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr %6, align 8
+  %18 = load ptr, ptr %5, align 8, !tbaa !70
+  %19 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %19, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !77
+  store i64 %21, ptr %6, align 8, !tbaa !9
   br label %22
 
 22:                                               ; preds = %17, %2
-  %23 = load i64, ptr %6, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.JPEGReadContext, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %25, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
+  %23 = load i64, ptr %6, align 8, !tbaa !9
+  %24 = load ptr, ptr %5, align 8, !tbaa !70
+  %25 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %25, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8, !tbaa !77
   %28 = sub i64 %27, %23
-  store i64 %28, ptr %26, align 8
-  %29 = load i64, ptr %6, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.JPEGReadContext, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.jpeg_source_mgr, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %29
-  store ptr %34, ptr %32, align 8
+  store i64 %28, ptr %26, align 8, !tbaa !77
+  %29 = load i64, ptr %6, align 8, !tbaa !9
+  %30 = load ptr, ptr %5, align 8, !tbaa !70
+  %31 = getelementptr inbounds nuw %struct.JPEGReadContext, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.jpeg_source_mgr, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !78
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %29
+  store ptr %34, ptr %32, align 8, !tbaa !78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-declare i32 @jpeg_resync_to_restart(ptr noundef, i32 noundef) #2
+declare i32 @jpeg_resync_to_restart(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @ContextTerm(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !68
   ret void
 }
 
-declare void @jpeg_save_markers(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @jpeg_save_markers(ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @StoreICCP(ptr noundef %0, ptr noundef %1) #0 {
@@ -722,308 +801,351 @@ define internal i32 @StoreICCP(ptr noundef %0, ptr noundef %1) #0 {
   %14 = alloca i64, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  %17 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i64 0, ptr %9, align 8
-  %18 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %18, i8 0, i64 6120, i1 false)
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.jpeg_decompress_struct, ptr %19, i32 0, i32 61
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %11, align 8
-  br label %22
+  %17 = alloca i32, align 4
+  %18 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !68
+  store ptr %1, ptr %5, align 8, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store i64 0, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 6120, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %19 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %19, i8 0, i64 6120, i1 false)
+  %20 = load ptr, ptr %4, align 8, !tbaa !68
+  %21 = getelementptr inbounds nuw %struct.jpeg_decompress_struct, ptr %20, i32 0, i32 61
+  %22 = load ptr, ptr %21, align 8, !tbaa !79
+  store ptr %22, ptr %11, align 8, !tbaa !80
+  br label %23
 
-22:                                               ; preds = %130, %2
-  %23 = load ptr, ptr %11, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %134
+23:                                               ; preds = %134, %2
+  %24 = load ptr, ptr %11, align 8, !tbaa !80
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %138
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %26, i32 0, i32 1
-  %28 = load i8, ptr %27, align 8
-  %29 = zext i8 %28 to i32
-  %30 = icmp eq i32 %29, 226
-  br i1 %30, label %31, label %129
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %11, align 8, !tbaa !80
+  %28 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %27, i32 0, i32 1
+  %29 = load i8, ptr %28, align 8, !tbaa !83
+  %30 = zext i8 %29 to i32
+  %31 = icmp eq i32 %30, 226
+  br i1 %31, label %32, label %133
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 8
-  %35 = zext i32 %34 to i64
-  %36 = icmp ugt i64 %35, 14
-  br i1 %36, label %37, label %129
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %11, align 8, !tbaa !80
+  %34 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 8, !tbaa !85
+  %36 = zext i32 %35 to i64
+  %37 = icmp ugt i64 %36, 14
+  br i1 %37, label %38, label %133
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %38, i32 0, i32 4
-  %40 = load ptr, ptr %39, align 8
-  %41 = call i32 @memcmp(ptr noundef %40, ptr noundef @StoreICCP.kICCPSignature, i64 noundef 12) #13
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %129, label %43
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %11, align 8, !tbaa !80
+  %40 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8, !tbaa !87
+  %42 = call i32 @memcmp(ptr noundef %41, ptr noundef @StoreICCP.kICCPSignature, i64 noundef 12) #14
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %133, label %44
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %44, i32 0, i32 4
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 12
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  store i32 %49, ptr %12, align 4
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %50, i32 0, i32 4
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 13
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  store i32 %55, ptr %13, align 4
-  %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %56, i32 0, i32 3
-  %58 = load i32, ptr %57, align 8
-  %59 = zext i32 %58 to i64
-  %60 = sub i64 %59, 14
-  store i64 %60, ptr %14, align 8
-  %61 = load i64, ptr %14, align 8
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %69, label %63
+44:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  %45 = load ptr, ptr %11, align 8, !tbaa !80
+  %46 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8, !tbaa !87
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %49 = load i8, ptr %48, align 1, !tbaa !99
+  %50 = zext i8 %49 to i32
+  store i32 %50, ptr %12, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %51 = load ptr, ptr %11, align 8, !tbaa !80
+  %52 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %51, i32 0, i32 4
+  %53 = load ptr, ptr %52, align 8, !tbaa !87
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 13
+  %55 = load i8, ptr %54, align 1, !tbaa !99
+  %56 = zext i8 %55 to i32
+  store i32 %56, ptr %13, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %57 = load ptr, ptr %11, align 8, !tbaa !80
+  %58 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 8, !tbaa !85
+  %60 = zext i32 %59 to i64
+  %61 = sub i64 %60, 14
+  store i64 %61, ptr %14, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %62 = load i64, ptr %14, align 8, !tbaa !9
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %70, label %64
 
-63:                                               ; preds = %43
-  %64 = load i32, ptr %13, align 4
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %69, label %66
+64:                                               ; preds = %44
+  %65 = load i32, ptr %13, align 4, !tbaa !13
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %70, label %67
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %12, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %76
+67:                                               ; preds = %64
+  %68 = load i32, ptr %12, align 4, !tbaa !13
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %77
 
-69:                                               ; preds = %66, %63, %43
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = load i64, ptr %14, align 8
-  %72 = trunc i64 %71 to i32
-  %73 = load i32, ptr %12, align 4
-  %74 = load i32, ptr %13, align 4
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.6, i32 noundef %72, i32 noundef %73, i32 noundef %74) #11
+70:                                               ; preds = %67, %64, %44
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %72 = load i64, ptr %14, align 8, !tbaa !9
+  %73 = trunc i64 %72 to i32
+  %74 = load i32, ptr %12, align 4, !tbaa !13
+  %75 = load i32, ptr %13, align 4, !tbaa !13
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.6, i32 noundef %73, i32 noundef %74, i32 noundef %75) #10
   store i32 0, ptr %3, align 4
-  br label %204
-
-76:                                               ; preds = %66
-  %77 = load i32, ptr %6, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %76
-  %80 = load i32, ptr %13, align 4
-  store i32 %80, ptr %6, align 4
-  br label %91
-
-81:                                               ; preds = %76
-  %82 = load i32, ptr %6, align 4
-  %83 = load i32, ptr %13, align 4
-  %84 = icmp ne i32 %82, %83
-  br i1 %84, label %85, label %90
-
-85:                                               ; preds = %81
-  %86 = load ptr, ptr @stderr, align 8
-  %87 = load i32, ptr %6, align 4
-  %88 = load i32, ptr %13, align 4
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef @.str.7, i32 noundef %87, i32 noundef %88) #11
-  store i32 0, ptr %3, align 4
-  br label %204
-
-90:                                               ; preds = %81
-  br label %91
-
-91:                                               ; preds = %90, %79
-  %92 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
-  %93 = load i32, ptr %12, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.ICCPSegment, ptr %92, i64 %94
-  %96 = getelementptr inbounds %struct.ICCPSegment, ptr %95, i64 -1
-  store ptr %96, ptr %15, align 8
-  %97 = load ptr, ptr %15, align 8
-  %98 = getelementptr inbounds %struct.ICCPSegment, ptr %97, i32 0, i32 1
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp ne i64 %99, 0
-  br i1 %100, label %101, label %105
-
-101:                                              ; preds = %91
-  %102 = load ptr, ptr @stderr, align 8
-  %103 = load i32, ptr %12, align 4
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.8, i32 noundef %103) #11
-  store i32 0, ptr %3, align 4
-  br label %204
-
-105:                                              ; preds = %91
-  %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %106, i32 0, i32 4
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 14
-  %110 = load ptr, ptr %15, align 8
-  %111 = getelementptr inbounds %struct.ICCPSegment, ptr %110, i32 0, i32 0
-  store ptr %109, ptr %111, align 8
-  %112 = load i64, ptr %14, align 8
-  %113 = load ptr, ptr %15, align 8
-  %114 = getelementptr inbounds %struct.ICCPSegment, ptr %113, i32 0, i32 1
-  store i64 %112, ptr %114, align 8
-  %115 = load i32, ptr %12, align 4
-  %116 = load ptr, ptr %15, align 8
-  %117 = getelementptr inbounds %struct.ICCPSegment, ptr %116, i32 0, i32 2
-  store i32 %115, ptr %117, align 8
-  %118 = load i64, ptr %14, align 8
-  %119 = load i64, ptr %9, align 8
-  %120 = add i64 %119, %118
-  store i64 %120, ptr %9, align 8
-  %121 = load i32, ptr %12, align 4
-  %122 = load i32, ptr %8, align 4
-  %123 = icmp sgt i32 %121, %122
-  br i1 %123, label %124, label %126
-
-124:                                              ; preds = %105
-  %125 = load i32, ptr %12, align 4
-  store i32 %125, ptr %8, align 4
-  br label %126
-
-126:                                              ; preds = %124, %105
-  %127 = load i32, ptr %7, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %7, align 4
-  br label %129
-
-129:                                              ; preds = %126, %37, %31, %25
+  store i32 1, ptr %16, align 4
   br label %130
 
-130:                                              ; preds = %129
-  %131 = load ptr, ptr %11, align 8
-  %132 = getelementptr inbounds %struct.jpeg_marker_struct, ptr %131, i32 0, i32 0
-  %133 = load ptr, ptr %132, align 8
-  store ptr %133, ptr %11, align 8
-  br label %22, !llvm.loop !9
+77:                                               ; preds = %67
+  %78 = load i32, ptr %6, align 4, !tbaa !13
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %82
 
-134:                                              ; preds = %22
-  %135 = load i32, ptr %7, align 4
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %138
+80:                                               ; preds = %77
+  %81 = load i32, ptr %13, align 4, !tbaa !13
+  store i32 %81, ptr %6, align 4, !tbaa !13
+  br label %92
 
-137:                                              ; preds = %134
+82:                                               ; preds = %77
+  %83 = load i32, ptr %6, align 4, !tbaa !13
+  %84 = load i32, ptr %13, align 4, !tbaa !13
+  %85 = icmp ne i32 %83, %84
+  br i1 %85, label %86, label %91
+
+86:                                               ; preds = %82
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %88 = load i32, ptr %6, align 4, !tbaa !13
+  %89 = load i32, ptr %13, align 4, !tbaa !13
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef @.str.7, i32 noundef %88, i32 noundef %89) #10
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %130
+
+91:                                               ; preds = %82
+  br label %92
+
+92:                                               ; preds = %91, %80
+  %93 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
+  %94 = load i32, ptr %12, align 4, !tbaa !13
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds %struct.ICCPSegment, ptr %93, i64 %95
+  %97 = getelementptr inbounds %struct.ICCPSegment, ptr %96, i64 -1
+  store ptr %97, ptr %15, align 8, !tbaa !70
+  %98 = load ptr, ptr %15, align 8, !tbaa !70
+  %99 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %98, i32 0, i32 1
+  %100 = load i64, ptr %99, align 8, !tbaa !100
+  %101 = icmp ne i64 %100, 0
+  br i1 %101, label %102, label %106
+
+102:                                              ; preds = %92
+  %103 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %104 = load i32, ptr %12, align 4, !tbaa !13
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef @.str.8, i32 noundef %104) #10
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %130
+
+106:                                              ; preds = %92
+  %107 = load ptr, ptr %11, align 8, !tbaa !80
+  %108 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %107, i32 0, i32 4
+  %109 = load ptr, ptr %108, align 8, !tbaa !87
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 14
+  %111 = load ptr, ptr %15, align 8, !tbaa !70
+  %112 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %111, i32 0, i32 0
+  store ptr %110, ptr %112, align 8, !tbaa !102
+  %113 = load i64, ptr %14, align 8, !tbaa !9
+  %114 = load ptr, ptr %15, align 8, !tbaa !70
+  %115 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %114, i32 0, i32 1
+  store i64 %113, ptr %115, align 8, !tbaa !100
+  %116 = load i32, ptr %12, align 4, !tbaa !13
+  %117 = load ptr, ptr %15, align 8, !tbaa !70
+  %118 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %117, i32 0, i32 2
+  store i32 %116, ptr %118, align 8, !tbaa !103
+  %119 = load i64, ptr %14, align 8, !tbaa !9
+  %120 = load i64, ptr %9, align 8, !tbaa !9
+  %121 = add i64 %120, %119
+  store i64 %121, ptr %9, align 8, !tbaa !9
+  %122 = load i32, ptr %12, align 4, !tbaa !13
+  %123 = load i32, ptr %8, align 4, !tbaa !13
+  %124 = icmp sgt i32 %122, %123
+  br i1 %124, label %125, label %127
+
+125:                                              ; preds = %106
+  %126 = load i32, ptr %12, align 4, !tbaa !13
+  store i32 %126, ptr %8, align 4, !tbaa !13
+  br label %127
+
+127:                                              ; preds = %125, %106
+  %128 = load i32, ptr %7, align 4, !tbaa !13
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %7, align 4, !tbaa !13
+  store i32 0, ptr %16, align 4
+  br label %130
+
+130:                                              ; preds = %127, %102, %86, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  %131 = load i32, ptr %16, align 4
+  switch i32 %131, label %208 [
+    i32 0, label %132
+  ]
+
+132:                                              ; preds = %130
+  br label %133
+
+133:                                              ; preds = %132, %38, %32, %26
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %11, align 8, !tbaa !80
+  %136 = getelementptr inbounds nuw %struct.jpeg_marker_struct, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8, !tbaa !95
+  store ptr %137, ptr %11, align 8, !tbaa !80
+  br label %23, !llvm.loop !104
+
+138:                                              ; preds = %23
+  %139 = load i32, ptr %7, align 4, !tbaa !13
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %138
   store i32 1, ptr %3, align 4
-  br label %204
-
-138:                                              ; preds = %134
-  %139 = load i32, ptr %8, align 4
-  %140 = load i32, ptr %7, align 4
-  %141 = icmp ne i32 %139, %140
-  br i1 %141, label %142, label %147
+  store i32 1, ptr %16, align 4
+  br label %208
 
 142:                                              ; preds = %138
-  %143 = load ptr, ptr @stderr, align 8
-  %144 = load i32, ptr %7, align 4
-  %145 = load i32, ptr %8, align 4
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef @.str.9, i32 noundef %144, i32 noundef %145) #11
+  %143 = load i32, ptr %8, align 4, !tbaa !13
+  %144 = load i32, ptr %7, align 4, !tbaa !13
+  %145 = icmp ne i32 %143, %144
+  br i1 %145, label %146, label %151
+
+146:                                              ; preds = %142
+  %147 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %148 = load i32, ptr %7, align 4, !tbaa !13
+  %149 = load i32, ptr %8, align 4, !tbaa !13
+  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef @.str.9, i32 noundef %148, i32 noundef %149) #10
   store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %208
+
+151:                                              ; preds = %142
+  %152 = load i32, ptr %6, align 4, !tbaa !13
+  %153 = load i32, ptr %7, align 4, !tbaa !13
+  %154 = icmp ne i32 %152, %153
+  br i1 %154, label %155, label %160
+
+155:                                              ; preds = %151
+  %156 = load ptr, ptr @stderr, align 8, !tbaa !54
+  %157 = load i32, ptr %7, align 4, !tbaa !13
+  %158 = load i32, ptr %6, align 4, !tbaa !13
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.10, i32 noundef %157, i32 noundef %158) #10
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %208
+
+160:                                              ; preds = %151
+  %161 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
+  %162 = load i32, ptr %7, align 4, !tbaa !13
+  %163 = sext i32 %162 to i64
+  call void @qsort(ptr noundef %161, i64 noundef %163, i64 noundef 24, ptr noundef @CompareICCPSegments)
+  %164 = load i64, ptr %9, align 8, !tbaa !9
+  %165 = call noalias ptr @malloc(i64 noundef %164) #12
+  %166 = load ptr, ptr %5, align 8, !tbaa !90
+  %167 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %166, i32 0, i32 0
+  store ptr %165, ptr %167, align 8, !tbaa !92
+  %168 = load ptr, ptr %5, align 8, !tbaa !90
+  %169 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %168, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8, !tbaa !92
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %173
+
+172:                                              ; preds = %160
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %16, align 4
+  br label %208
+
+173:                                              ; preds = %160
+  %174 = load i64, ptr %9, align 8, !tbaa !9
+  %175 = load ptr, ptr %5, align 8, !tbaa !90
+  %176 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %175, i32 0, i32 1
+  store i64 %174, ptr %176, align 8, !tbaa !105
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  store i64 0, ptr %18, align 8, !tbaa !9
+  store i32 0, ptr %17, align 4, !tbaa !13
+  br label %177
+
+177:                                              ; preds = %204, %173
+  %178 = load i32, ptr %17, align 4, !tbaa !13
+  %179 = load i32, ptr %8, align 4, !tbaa !13
+  %180 = icmp slt i32 %178, %179
+  br i1 %180, label %181, label %207
+
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %5, align 8, !tbaa !90
+  %183 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %182, i32 0, i32 0
+  %184 = load ptr, ptr %183, align 8, !tbaa !92
+  %185 = load i64, ptr %18, align 8, !tbaa !9
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 %185
+  %187 = load i32, ptr %17, align 4, !tbaa !13
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %188
+  %190 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %189, i32 0, i32 0
+  %191 = load ptr, ptr %190, align 8, !tbaa !102
+  %192 = load i32, ptr %17, align 4, !tbaa !13
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %194, i32 0, i32 1
+  %196 = load i64, ptr %195, align 8, !tbaa !100
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %186, ptr align 1 %191, i64 %196, i1 false)
+  %197 = load i32, ptr %17, align 4, !tbaa !13
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %198
+  %200 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %199, i32 0, i32 1
+  %201 = load i64, ptr %200, align 8, !tbaa !100
+  %202 = load i64, ptr %18, align 8, !tbaa !9
+  %203 = add i64 %202, %201
+  store i64 %203, ptr %18, align 8, !tbaa !9
   br label %204
 
-147:                                              ; preds = %138
-  %148 = load i32, ptr %6, align 4
-  %149 = load i32, ptr %7, align 4
-  %150 = icmp ne i32 %148, %149
-  br i1 %150, label %151, label %156
+204:                                              ; preds = %181
+  %205 = load i32, ptr %17, align 4, !tbaa !13
+  %206 = add nsw i32 %205, 1
+  store i32 %206, ptr %17, align 4, !tbaa !13
+  br label %177, !llvm.loop !106
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr @stderr, align 8
-  %153 = load i32, ptr %7, align 4
-  %154 = load i32, ptr %6, align 4
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef @.str.10, i32 noundef %153, i32 noundef %154) #11
-  store i32 0, ptr %3, align 4
-  br label %204
-
-156:                                              ; preds = %147
-  %157 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 0
-  %158 = load i32, ptr %7, align 4
-  %159 = sext i32 %158 to i64
-  call void @qsort(ptr noundef %157, i64 noundef %159, i64 noundef 24, ptr noundef @CompareICCPSegments)
-  %160 = load i64, ptr %9, align 8
-  %161 = call noalias ptr @malloc(i64 noundef %160) #10
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct.MetadataPayload, ptr %162, i32 0, i32 0
-  store ptr %161, ptr %163, align 8
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.MetadataPayload, ptr %164, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %169
-
-168:                                              ; preds = %156
-  store i32 0, ptr %3, align 4
-  br label %204
-
-169:                                              ; preds = %156
-  %170 = load i64, ptr %9, align 8
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.MetadataPayload, ptr %171, i32 0, i32 1
-  store i64 %170, ptr %172, align 8
-  store i64 0, ptr %17, align 8
-  store i32 0, ptr %16, align 4
-  br label %173
-
-173:                                              ; preds = %200, %169
-  %174 = load i32, ptr %16, align 4
-  %175 = load i32, ptr %8, align 4
-  %176 = icmp slt i32 %174, %175
-  br i1 %176, label %177, label %203
-
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.MetadataPayload, ptr %178, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i64, ptr %17, align 8
-  %182 = getelementptr inbounds i8, ptr %180, i64 %181
-  %183 = load i32, ptr %16, align 4
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %184
-  %186 = getelementptr inbounds %struct.ICCPSegment, ptr %185, i32 0, i32 0
-  %187 = load ptr, ptr %186, align 8
-  %188 = load i32, ptr %16, align 4
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %189
-  %191 = getelementptr inbounds %struct.ICCPSegment, ptr %190, i32 0, i32 1
-  %192 = load i64, ptr %191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %187, i64 %192, i1 false)
-  %193 = load i32, ptr %16, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %10, i64 0, i64 %194
-  %196 = getelementptr inbounds %struct.ICCPSegment, ptr %195, i32 0, i32 1
-  %197 = load i64, ptr %196, align 8
-  %198 = load i64, ptr %17, align 8
-  %199 = add i64 %198, %197
-  store i64 %199, ptr %17, align 8
-  br label %200
-
-200:                                              ; preds = %177
-  %201 = load i32, ptr %16, align 4
-  %202 = add nsw i32 %201, 1
-  store i32 %202, ptr %16, align 4
-  br label %173, !llvm.loop !10
-
-203:                                              ; preds = %173
+207:                                              ; preds = %177
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
   store i32 1, ptr %3, align 4
-  br label %204
+  store i32 1, ptr %16, align 4
+  br label %208
 
-204:                                              ; preds = %203, %168, %151, %142, %137, %101, %85, %69
-  %205 = load i32, ptr %3, align 4
-  ret i32 %205
+208:                                              ; preds = %207, %172, %155, %146, %141, %130
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 6120, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %209 = load i32, ptr %3, align 4
+  ret i32 %209
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
 
-declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @MetadataCopy(ptr noundef, i64 noundef, ptr noundef) #3
 
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CompareICCPSegments(ptr noundef %0, ptr noundef %1) #0 {
@@ -1031,50 +1153,151 @@ define internal i32 @CompareICCPSegments(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.ICCPSegment, ptr %9, i32 0, i32 2
-  %11 = load i32, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.ICCPSegment, ptr %12, i32 0, i32 2
-  %14 = load i32, ptr %13, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !70
+  store ptr %1, ptr %4, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !70
+  store ptr %7, ptr %5, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !70
+  store ptr %8, ptr %6, align 8, !tbaa !70
+  %9 = load ptr, ptr %5, align 8, !tbaa !70
+  %10 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %9, i32 0, i32 2
+  %11 = load i32, ptr %10, align 8, !tbaa !103
+  %12 = load ptr, ptr %6, align 8, !tbaa !70
+  %13 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %12, i32 0, i32 2
+  %14 = load i32, ptr %13, align 8, !tbaa !103
   %15 = sub nsw i32 %11, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %15
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind returns_twice }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind returns_twice }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11WebPPicture", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8Metadata", !6, i64 0}
+!17 = !{!18, !5, i64 56}
+!18 = !{!"", !19, i64 0, !5, i64 56, !10, i64 64}
+!19 = !{!"jpeg_source_mgr", !5, i64 0, !10, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!20 = !{!18, !10, i64 64}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"jpeg_decompress_struct", !23, i64 0, !24, i64 8, !25, i64 16, !6, i64 24, !14, i64 32, !14, i64 36, !26, i64 40, !14, i64 48, !14, i64 52, !14, i64 56, !14, i64 60, !14, i64 64, !14, i64 68, !14, i64 72, !27, i64 80, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !14, i64 104, !14, i64 108, !14, i64 112, !14, i64 116, !14, i64 120, !14, i64 124, !14, i64 128, !14, i64 132, !14, i64 136, !14, i64 140, !14, i64 144, !14, i64 148, !14, i64 152, !14, i64 156, !28, i64 160, !14, i64 168, !14, i64 172, !14, i64 176, !14, i64 180, !14, i64 184, !29, i64 192, !7, i64 200, !7, i64 232, !7, i64 264, !14, i64 296, !6, i64 304, !14, i64 312, !14, i64 316, !14, i64 320, !7, i64 324, !7, i64 340, !7, i64 356, !14, i64 372, !14, i64 376, !7, i64 380, !7, i64 381, !7, i64 382, !30, i64 384, !30, i64 386, !14, i64 388, !7, i64 392, !14, i64 396, !31, i64 400, !14, i64 408, !14, i64 412, !14, i64 416, !14, i64 420, !14, i64 424, !5, i64 432, !14, i64 440, !7, i64 448, !14, i64 480, !14, i64 484, !14, i64 488, !7, i64 492, !14, i64 532, !14, i64 536, !14, i64 540, !14, i64 544, !14, i64 548, !29, i64 552, !14, i64 560, !14, i64 564, !32, i64 568, !33, i64 576, !34, i64 584, !35, i64 592, !36, i64 600, !37, i64 608, !38, i64 616, !39, i64 624, !40, i64 632, !41, i64 640, !42, i64 648}
+!23 = !{!"p1 _ZTS14jpeg_error_mgr", !6, i64 0}
+!24 = !{!"p1 _ZTS15jpeg_memory_mgr", !6, i64 0}
+!25 = !{!"p1 _ZTS17jpeg_progress_mgr", !6, i64 0}
+!26 = !{!"p1 _ZTS15jpeg_source_mgr", !6, i64 0}
+!27 = !{!"double", !7, i64 0}
+!28 = !{!"p2 omnipotent char", !6, i64 0}
+!29 = !{!"p1 int", !6, i64 0}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!"p1 _ZTS18jpeg_marker_struct", !6, i64 0}
+!32 = !{!"p1 _ZTS18jpeg_decomp_master", !6, i64 0}
+!33 = !{!"p1 _ZTS22jpeg_d_main_controller", !6, i64 0}
+!34 = !{!"p1 _ZTS22jpeg_d_coef_controller", !6, i64 0}
+!35 = !{!"p1 _ZTS22jpeg_d_post_controller", !6, i64 0}
+!36 = !{!"p1 _ZTS21jpeg_input_controller", !6, i64 0}
+!37 = !{!"p1 _ZTS18jpeg_marker_reader", !6, i64 0}
+!38 = !{!"p1 _ZTS20jpeg_entropy_decoder", !6, i64 0}
+!39 = !{!"p1 _ZTS16jpeg_inverse_dct", !6, i64 0}
+!40 = !{!"p1 _ZTS14jpeg_upsampler", !6, i64 0}
+!41 = !{!"p1 _ZTS22jpeg_color_deconverter", !6, i64 0}
+!42 = !{!"p1 _ZTS20jpeg_color_quantizer", !6, i64 0}
+!43 = !{!44, !6, i64 0}
+!44 = !{!"my_error_mgr", !45, i64 0, !7, i64 168}
+!45 = !{!"jpeg_error_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !14, i64 40, !7, i64 44, !14, i64 124, !10, i64 128, !28, i64 136, !14, i64 144, !28, i64 152, !14, i64 160, !14, i64 164}
+!46 = !{!22, !14, i64 64}
+!47 = !{!22, !14, i64 100}
+!48 = !{!22, !14, i64 148}
+!49 = !{!22, !14, i64 136}
+!50 = !{!22, !14, i64 140}
+!51 = !{!22, !14, i64 168}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.mustprogress"}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!56 = !{!57, !14, i64 8}
+!57 = !{!"WebPPicture", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !5, i64 16, !5, i64 24, !5, i64 32, !14, i64 40, !14, i64 44, !5, i64 48, !14, i64 56, !7, i64 60, !29, i64 72, !14, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !14, i64 112, !5, i64 120, !58, i64 128, !14, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !5, i64 176, !5, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
+!58 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
+!59 = !{!57, !14, i64 12}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS18jpeg_common_struct", !6, i64 0}
+!62 = !{!63, !23, i64 0}
+!63 = !{!"jpeg_common_struct", !23, i64 0, !24, i64 8, !25, i64 16, !6, i64 24, !14, i64 32, !14, i64 36}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS12my_error_mgr", !6, i64 0}
+!66 = !{!44, !14, i64 40}
+!67 = !{!45, !6, i64 16}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS22jpeg_decompress_struct", !6, i64 0}
+!70 = !{!6, !6, i64 0}
+!71 = !{!22, !26, i64 40}
+!72 = !{!18, !6, i64 16}
+!73 = !{!18, !6, i64 24}
+!74 = !{!18, !6, i64 32}
+!75 = !{!18, !6, i64 40}
+!76 = !{!18, !6, i64 48}
+!77 = !{!18, !10, i64 8}
+!78 = !{!18, !5, i64 0}
+!79 = !{!22, !31, i64 400}
+!80 = !{!31, !31, i64 0}
+!81 = !{!82, !14, i64 0}
+!82 = !{!"", !14, i64 0, !5, i64 8, !10, i64 16, !10, i64 24}
+!83 = !{!84, !7, i64 8}
+!84 = !{!"jpeg_marker_struct", !31, i64 0, !7, i64 8, !14, i64 12, !14, i64 16, !5, i64 24}
+!85 = !{!84, !14, i64 16}
+!86 = !{!82, !10, i64 16}
+!87 = !{!84, !5, i64 24}
+!88 = !{!82, !5, i64 8}
+!89 = !{!82, !10, i64 24}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTS15MetadataPayload", !6, i64 0}
+!92 = !{!93, !5, i64 0}
+!93 = !{!"MetadataPayload", !5, i64 0, !10, i64 8}
+!94 = distinct !{!94, !53}
+!95 = !{!84, !31, i64 0}
+!96 = distinct !{!96, !53}
+!97 = !{!45, !14, i64 40}
+!98 = !{!45, !6, i64 0}
+!99 = !{!7, !7, i64 0}
+!100 = !{!101, !10, i64 8}
+!101 = !{!"", !5, i64 0, !10, i64 8, !14, i64 16}
+!102 = !{!101, !5, i64 0}
+!103 = !{!101, !14, i64 16}
+!104 = distinct !{!104, !53}
+!105 = !{!93, !10, i64 8}
+!106 = distinct !{!106, !53}

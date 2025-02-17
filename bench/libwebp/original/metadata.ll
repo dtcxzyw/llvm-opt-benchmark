@@ -7,8 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @MetadataInit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -16,7 +16,7 @@ define hidden void @MetadataInit(ptr noundef %0) #0 {
   br label %8
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 48, i1 false)
   br label %8
 
@@ -25,13 +25,13 @@ define hidden void @MetadataInit(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @MetadataPayloadDelete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -39,16 +39,16 @@ define hidden void @MetadataPayloadDelete(ptr noundef %0) #0 {
   br label %14
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.MetadataPayload, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %9) #5
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.MetadataPayload, ptr %10, i32 0, i32 0
-  store ptr null, ptr %11, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.MetadataPayload, ptr %12, i32 0, i32 1
-  store i64 0, ptr %13, align 8
+  %10 = load ptr, ptr %2, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %10, i32 0, i32 0
+  store ptr null, ptr %11, align 8, !tbaa !11
+  %12 = load ptr, ptr %2, align 8, !tbaa !9
+  %13 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %12, i32 0, i32 1
+  store i64 0, ptr %13, align 8, !tbaa !15
   br label %14
 
 14:                                               ; preds = %6, %5
@@ -61,8 +61,8 @@ declare void @free(ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define hidden void @MetadataFree(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -70,14 +70,14 @@ define hidden void @MetadataFree(ptr noundef %0) #0 {
   br label %13
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.Metadata, ptr %7, i32 0, i32 0
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.Metadata, ptr %7, i32 0, i32 0
   call void @MetadataPayloadDelete(ptr noundef %8)
-  %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.Metadata, ptr %9, i32 0, i32 1
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.Metadata, ptr %9, i32 0, i32 1
   call void @MetadataPayloadDelete(ptr noundef %10)
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.Metadata, ptr %11, i32 0, i32 2
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.Metadata, ptr %11, i32 0, i32 2
   call void @MetadataPayloadDelete(ptr noundef %12)
   br label %13
 
@@ -91,20 +91,20 @@ define hidden i32 @MetadataCopy(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !16
+  store i64 %1, ptr %6, align 8, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !9
+  %8 = load ptr, ptr %5, align 8, !tbaa !16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !17
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !9
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -113,14 +113,14 @@ define hidden i32 @MetadataCopy(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %36
 
 17:                                               ; preds = %13
-  %18 = load i64, ptr %6, align 8
+  %18 = load i64, ptr %6, align 8, !tbaa !17
   %19 = call noalias ptr @malloc(i64 noundef %18) #6
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.MetadataPayload, ptr %20, i32 0, i32 0
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.MetadataPayload, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
+  %20 = load ptr, ptr %7, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %20, i32 0, i32 0
+  store ptr %19, ptr %21, align 8, !tbaa !11
+  %22 = load ptr, ptr %7, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
@@ -129,15 +129,15 @@ define hidden i32 @MetadataCopy(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %36
 
 27:                                               ; preds = %17
-  %28 = load i64, ptr %6, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.MetadataPayload, ptr %29, i32 0, i32 1
-  store i64 %28, ptr %30, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.MetadataPayload, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = load i64, ptr %6, align 8
+  %28 = load i64, ptr %6, align 8, !tbaa !17
+  %29 = load ptr, ptr %7, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %29, i32 0, i32 1
+  store i64 %28, ptr %30, align 8, !tbaa !15
+  %31 = load ptr, ptr %7, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.MetadataPayload, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %34 = load ptr, ptr %5, align 8, !tbaa !16
+  %35 = load i64, ptr %6, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
   store i32 1, ptr %4, align 4
   br label %36
@@ -151,20 +151,33 @@ define hidden i32 @MetadataCopy(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
 declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8Metadata", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS15MetadataPayload", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"MetadataPayload", !13, i64 0, !14, i64 8}
+!13 = !{!"p1 omnipotent char", !6, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!12, !14, i64 8}
+!16 = !{!13, !13, i64 0}
+!17 = !{!14, !14, i64 0}

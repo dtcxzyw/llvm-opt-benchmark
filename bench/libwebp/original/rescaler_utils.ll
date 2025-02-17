@@ -20,325 +20,350 @@ define hidden i32 @WebPRescalerInit(ptr noundef %0, i32 noundef %1, i32 noundef 
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca i64, align 8
-  %25 = alloca i64, align 8
+  %25 = alloca i32, align 4
   %26 = alloca i64, align 8
   %27 = alloca i64, align 8
-  store ptr %0, ptr %11, align 8
-  store i32 %1, ptr %12, align 4
-  store i32 %2, ptr %13, align 4
-  store ptr %3, ptr %14, align 8
-  store i32 %4, ptr %15, align 4
-  store i32 %5, ptr %16, align 4
-  store i32 %6, ptr %17, align 4
-  store i32 %7, ptr %18, align 4
-  store ptr %8, ptr %19, align 8
-  %28 = load i32, ptr %12, align 4
-  store i32 %28, ptr %20, align 4
-  %29 = load i32, ptr %15, align 4
-  store i32 %29, ptr %21, align 4
-  %30 = load i32, ptr %13, align 4
-  store i32 %30, ptr %22, align 4
-  %31 = load i32, ptr %16, align 4
-  store i32 %31, ptr %23, align 4
-  %32 = load i32, ptr %15, align 4
-  %33 = sext i32 %32 to i64
-  %34 = mul i64 2, %33
-  %35 = load i32, ptr %18, align 4
-  %36 = sext i32 %35 to i64
-  %37 = mul i64 %34, %36
-  %38 = mul i64 %37, 4
-  store i64 %38, ptr %24, align 8
-  %39 = load i64, ptr %24, align 8
-  %40 = call i32 @CheckSizeOverflow(i64 noundef %39)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %9
-  store i32 0, ptr %10, align 4
-  br label %228
+  %28 = alloca i64, align 8
+  store ptr %0, ptr %11, align 8, !tbaa !3
+  store i32 %1, ptr %12, align 4, !tbaa !8
+  store i32 %2, ptr %13, align 4, !tbaa !8
+  store ptr %3, ptr %14, align 8, !tbaa !10
+  store i32 %4, ptr %15, align 4, !tbaa !8
+  store i32 %5, ptr %16, align 4, !tbaa !8
+  store i32 %6, ptr %17, align 4, !tbaa !8
+  store i32 %7, ptr %18, align 4, !tbaa !8
+  store ptr %8, ptr %19, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  %29 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %29, ptr %20, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  %30 = load i32, ptr %15, align 4, !tbaa !8
+  store i32 %30, ptr %21, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  %31 = load i32, ptr %13, align 4, !tbaa !8
+  store i32 %31, ptr %22, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #5
+  %32 = load i32, ptr %16, align 4, !tbaa !8
+  store i32 %32, ptr %23, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %33 = load i32, ptr %15, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = mul i64 2, %34
+  %36 = load i32, ptr %18, align 4, !tbaa !8
+  %37 = sext i32 %36 to i64
+  %38 = mul i64 %35, %37
+  %39 = mul i64 %38, 4
+  store i64 %39, ptr %24, align 8, !tbaa !14
+  %40 = load i64, ptr %24, align 8, !tbaa !14
+  %41 = call i32 @CheckSizeOverflow(i64 noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %44, label %43
 
 43:                                               ; preds = %9
-  %44 = load i32, ptr %12, align 4
-  %45 = load i32, ptr %15, align 4
-  %46 = icmp slt i32 %44, %45
-  %47 = zext i1 %46 to i32
-  %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds %struct.WebPRescaler, ptr %48, i32 0, i32 0
-  store i32 %47, ptr %49, align 8
-  %50 = load i32, ptr %13, align 4
-  %51 = load i32, ptr %16, align 4
-  %52 = icmp slt i32 %50, %51
-  %53 = zext i1 %52 to i32
-  %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds %struct.WebPRescaler, ptr %54, i32 0, i32 1
-  store i32 %53, ptr %55, align 4
-  %56 = load i32, ptr %12, align 4
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds %struct.WebPRescaler, ptr %57, i32 0, i32 11
-  store i32 %56, ptr %58, align 4
-  %59 = load i32, ptr %13, align 4
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds %struct.WebPRescaler, ptr %60, i32 0, i32 12
-  store i32 %59, ptr %61, align 8
-  %62 = load i32, ptr %15, align 4
-  %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.WebPRescaler, ptr %63, i32 0, i32 13
-  store i32 %62, ptr %64, align 4
-  %65 = load i32, ptr %16, align 4
-  %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds %struct.WebPRescaler, ptr %66, i32 0, i32 14
-  store i32 %65, ptr %67, align 8
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct.WebPRescaler, ptr %68, i32 0, i32 15
-  store i32 0, ptr %69, align 4
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct.WebPRescaler, ptr %70, i32 0, i32 16
-  store i32 0, ptr %71, align 8
-  %72 = load ptr, ptr %14, align 8
-  %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds %struct.WebPRescaler, ptr %73, i32 0, i32 17
-  store ptr %72, ptr %74, align 8
-  %75 = load i32, ptr %17, align 4
-  %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds %struct.WebPRescaler, ptr %76, i32 0, i32 18
-  store i32 %75, ptr %77, align 8
-  %78 = load i32, ptr %18, align 4
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct.WebPRescaler, ptr %79, i32 0, i32 2
-  store i32 %78, ptr %80, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds %struct.WebPRescaler, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %88
+  store i32 0, ptr %10, align 4
+  store i32 1, ptr %25, align 4
+  br label %229
 
-85:                                               ; preds = %43
-  %86 = load i32, ptr %21, align 4
-  %87 = sub nsw i32 %86, 1
-  br label %90
+44:                                               ; preds = %9
+  %45 = load i32, ptr %12, align 4, !tbaa !8
+  %46 = load i32, ptr %15, align 4, !tbaa !8
+  %47 = icmp slt i32 %45, %46
+  %48 = zext i1 %47 to i32
+  %49 = load ptr, ptr %11, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %49, i32 0, i32 0
+  store i32 %48, ptr %50, align 8, !tbaa !16
+  %51 = load i32, ptr %13, align 4, !tbaa !8
+  %52 = load i32, ptr %16, align 4, !tbaa !8
+  %53 = icmp slt i32 %51, %52
+  %54 = zext i1 %53 to i32
+  %55 = load ptr, ptr %11, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %55, i32 0, i32 1
+  store i32 %54, ptr %56, align 4, !tbaa !18
+  %57 = load i32, ptr %12, align 4, !tbaa !8
+  %58 = load ptr, ptr %11, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %58, i32 0, i32 11
+  store i32 %57, ptr %59, align 4, !tbaa !19
+  %60 = load i32, ptr %13, align 4, !tbaa !8
+  %61 = load ptr, ptr %11, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %61, i32 0, i32 12
+  store i32 %60, ptr %62, align 8, !tbaa !20
+  %63 = load i32, ptr %15, align 4, !tbaa !8
+  %64 = load ptr, ptr %11, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %64, i32 0, i32 13
+  store i32 %63, ptr %65, align 4, !tbaa !21
+  %66 = load i32, ptr %16, align 4, !tbaa !8
+  %67 = load ptr, ptr %11, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %67, i32 0, i32 14
+  store i32 %66, ptr %68, align 8, !tbaa !22
+  %69 = load ptr, ptr %11, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %69, i32 0, i32 15
+  store i32 0, ptr %70, align 4, !tbaa !23
+  %71 = load ptr, ptr %11, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %71, i32 0, i32 16
+  store i32 0, ptr %72, align 8, !tbaa !24
+  %73 = load ptr, ptr %14, align 8, !tbaa !10
+  %74 = load ptr, ptr %11, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %74, i32 0, i32 17
+  store ptr %73, ptr %75, align 8, !tbaa !25
+  %76 = load i32, ptr %17, align 4, !tbaa !8
+  %77 = load ptr, ptr %11, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %77, i32 0, i32 18
+  store i32 %76, ptr %78, align 8, !tbaa !26
+  %79 = load i32, ptr %18, align 4, !tbaa !8
+  %80 = load ptr, ptr %11, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %80, i32 0, i32 2
+  store i32 %79, ptr %81, align 8, !tbaa !27
+  %82 = load ptr, ptr %11, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8, !tbaa !16
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %89
 
-88:                                               ; preds = %43
-  %89 = load i32, ptr %20, align 4
-  br label %90
+86:                                               ; preds = %44
+  %87 = load i32, ptr %21, align 4, !tbaa !8
+  %88 = sub nsw i32 %87, 1
+  br label %91
 
-90:                                               ; preds = %88, %85
-  %91 = phi i32 [ %87, %85 ], [ %89, %88 ]
-  %92 = load ptr, ptr %11, align 8
-  %93 = getelementptr inbounds %struct.WebPRescaler, ptr %92, i32 0, i32 9
-  store i32 %91, ptr %93, align 4
-  %94 = load ptr, ptr %11, align 8
-  %95 = getelementptr inbounds %struct.WebPRescaler, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %101
+89:                                               ; preds = %44
+  %90 = load i32, ptr %20, align 4, !tbaa !8
+  br label %91
 
-98:                                               ; preds = %90
-  %99 = load i32, ptr %20, align 4
-  %100 = sub nsw i32 %99, 1
-  br label %103
+91:                                               ; preds = %89, %86
+  %92 = phi i32 [ %88, %86 ], [ %90, %89 ]
+  %93 = load ptr, ptr %11, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %93, i32 0, i32 9
+  store i32 %92, ptr %94, align 4, !tbaa !28
+  %95 = load ptr, ptr %11, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8, !tbaa !16
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %102
 
-101:                                              ; preds = %90
-  %102 = load i32, ptr %21, align 4
-  br label %103
+99:                                               ; preds = %91
+  %100 = load i32, ptr %20, align 4, !tbaa !8
+  %101 = sub nsw i32 %100, 1
+  br label %104
 
-103:                                              ; preds = %101, %98
-  %104 = phi i32 [ %100, %98 ], [ %102, %101 ]
-  %105 = load ptr, ptr %11, align 8
-  %106 = getelementptr inbounds %struct.WebPRescaler, ptr %105, i32 0, i32 10
-  store i32 %104, ptr %106, align 8
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds %struct.WebPRescaler, ptr %107, i32 0, i32 0
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %120, label %111
+102:                                              ; preds = %91
+  %103 = load i32, ptr %21, align 4, !tbaa !8
+  br label %104
 
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct.WebPRescaler, ptr %112, i32 0, i32 10
-  %114 = load i32, ptr %113, align 8
-  %115 = sext i32 %114 to i64
-  %116 = udiv i64 4294967296, %115
-  %117 = trunc i64 %116 to i32
-  %118 = load ptr, ptr %11, align 8
-  %119 = getelementptr inbounds %struct.WebPRescaler, ptr %118, i32 0, i32 3
-  store i32 %117, ptr %119, align 4
-  br label %120
+104:                                              ; preds = %102, %99
+  %105 = phi i32 [ %101, %99 ], [ %103, %102 ]
+  %106 = load ptr, ptr %11, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %106, i32 0, i32 10
+  store i32 %105, ptr %107, align 8, !tbaa !29
+  %108 = load ptr, ptr %11, align 8, !tbaa !3
+  %109 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %108, i32 0, i32 0
+  %110 = load i32, ptr %109, align 8, !tbaa !16
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %121, label %112
 
-120:                                              ; preds = %111, %103
-  %121 = load ptr, ptr %11, align 8
-  %122 = getelementptr inbounds %struct.WebPRescaler, ptr %121, i32 0, i32 1
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %128
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %11, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %113, i32 0, i32 10
+  %115 = load i32, ptr %114, align 8, !tbaa !29
+  %116 = sext i32 %115 to i64
+  %117 = udiv i64 4294967296, %116
+  %118 = trunc i64 %117 to i32
+  %119 = load ptr, ptr %11, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %119, i32 0, i32 3
+  store i32 %118, ptr %120, align 4, !tbaa !30
+  br label %121
 
-125:                                              ; preds = %120
-  %126 = load i32, ptr %22, align 4
-  %127 = sub nsw i32 %126, 1
-  br label %130
+121:                                              ; preds = %112, %104
+  %122 = load ptr, ptr %11, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %122, i32 0, i32 1
+  %124 = load i32, ptr %123, align 4, !tbaa !18
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %129
 
-128:                                              ; preds = %120
-  %129 = load i32, ptr %22, align 4
-  br label %130
+126:                                              ; preds = %121
+  %127 = load i32, ptr %22, align 4, !tbaa !8
+  %128 = sub nsw i32 %127, 1
+  br label %131
 
-130:                                              ; preds = %128, %125
-  %131 = phi i32 [ %127, %125 ], [ %129, %128 ]
-  %132 = load ptr, ptr %11, align 8
-  %133 = getelementptr inbounds %struct.WebPRescaler, ptr %132, i32 0, i32 7
-  store i32 %131, ptr %133, align 4
-  %134 = load ptr, ptr %11, align 8
-  %135 = getelementptr inbounds %struct.WebPRescaler, ptr %134, i32 0, i32 1
-  %136 = load i32, ptr %135, align 4
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %141
+129:                                              ; preds = %121
+  %130 = load i32, ptr %22, align 4, !tbaa !8
+  br label %131
 
-138:                                              ; preds = %130
-  %139 = load i32, ptr %23, align 4
-  %140 = sub nsw i32 %139, 1
-  br label %143
+131:                                              ; preds = %129, %126
+  %132 = phi i32 [ %128, %126 ], [ %130, %129 ]
+  %133 = load ptr, ptr %11, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %133, i32 0, i32 7
+  store i32 %132, ptr %134, align 4, !tbaa !31
+  %135 = load ptr, ptr %11, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %135, i32 0, i32 1
+  %137 = load i32, ptr %136, align 4, !tbaa !18
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %142
 
-141:                                              ; preds = %130
-  %142 = load i32, ptr %23, align 4
-  br label %143
+139:                                              ; preds = %131
+  %140 = load i32, ptr %23, align 4, !tbaa !8
+  %141 = sub nsw i32 %140, 1
+  br label %144
 
-143:                                              ; preds = %141, %138
-  %144 = phi i32 [ %140, %138 ], [ %142, %141 ]
-  %145 = load ptr, ptr %11, align 8
-  %146 = getelementptr inbounds %struct.WebPRescaler, ptr %145, i32 0, i32 8
-  store i32 %144, ptr %146, align 8
-  %147 = load ptr, ptr %11, align 8
-  %148 = getelementptr inbounds %struct.WebPRescaler, ptr %147, i32 0, i32 1
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %155
+142:                                              ; preds = %131
+  %143 = load i32, ptr %23, align 4, !tbaa !8
+  br label %144
 
-151:                                              ; preds = %143
-  %152 = load ptr, ptr %11, align 8
-  %153 = getelementptr inbounds %struct.WebPRescaler, ptr %152, i32 0, i32 8
-  %154 = load i32, ptr %153, align 8
-  br label %159
+144:                                              ; preds = %142, %139
+  %145 = phi i32 [ %141, %139 ], [ %143, %142 ]
+  %146 = load ptr, ptr %11, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %146, i32 0, i32 8
+  store i32 %145, ptr %147, align 8, !tbaa !32
+  %148 = load ptr, ptr %11, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %148, i32 0, i32 1
+  %150 = load i32, ptr %149, align 4, !tbaa !18
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %156
 
-155:                                              ; preds = %143
-  %156 = load ptr, ptr %11, align 8
-  %157 = getelementptr inbounds %struct.WebPRescaler, ptr %156, i32 0, i32 7
-  %158 = load i32, ptr %157, align 4
-  br label %159
+152:                                              ; preds = %144
+  %153 = load ptr, ptr %11, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %153, i32 0, i32 8
+  %155 = load i32, ptr %154, align 8, !tbaa !32
+  br label %160
 
-159:                                              ; preds = %155, %151
-  %160 = phi i32 [ %154, %151 ], [ %158, %155 ]
-  %161 = load ptr, ptr %11, align 8
-  %162 = getelementptr inbounds %struct.WebPRescaler, ptr %161, i32 0, i32 6
-  store i32 %160, ptr %162, align 8
-  %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr inbounds %struct.WebPRescaler, ptr %163, i32 0, i32 1
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %205, label %167
+156:                                              ; preds = %144
+  %157 = load ptr, ptr %11, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %157, i32 0, i32 7
+  %159 = load i32, ptr %158, align 4, !tbaa !31
+  br label %160
 
-167:                                              ; preds = %159
-  %168 = load i32, ptr %16, align 4
-  %169 = sext i32 %168 to i64
-  %170 = mul i64 %169, 4294967296
-  store i64 %170, ptr %25, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.WebPRescaler, ptr %171, i32 0, i32 9
-  %173 = load i32, ptr %172, align 4
-  %174 = sext i32 %173 to i64
-  %175 = load ptr, ptr %11, align 8
-  %176 = getelementptr inbounds %struct.WebPRescaler, ptr %175, i32 0, i32 7
-  %177 = load i32, ptr %176, align 4
-  %178 = sext i32 %177 to i64
-  %179 = mul i64 %174, %178
-  store i64 %179, ptr %26, align 8
-  %180 = load i64, ptr %25, align 8
-  %181 = load i64, ptr %26, align 8
-  %182 = udiv i64 %180, %181
-  store i64 %182, ptr %27, align 8
-  %183 = load i64, ptr %27, align 8
-  %184 = load i64, ptr %27, align 8
-  %185 = trunc i64 %184 to i32
-  %186 = zext i32 %185 to i64
-  %187 = icmp ne i64 %183, %186
-  br i1 %187, label %188, label %191
+160:                                              ; preds = %156, %152
+  %161 = phi i32 [ %155, %152 ], [ %159, %156 ]
+  %162 = load ptr, ptr %11, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %162, i32 0, i32 6
+  store i32 %161, ptr %163, align 8, !tbaa !33
+  %164 = load ptr, ptr %11, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %164, i32 0, i32 1
+  %166 = load i32, ptr %165, align 4, !tbaa !18
+  %167 = icmp ne i32 %166, 0
+  br i1 %167, label %206, label %168
 
-188:                                              ; preds = %167
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct.WebPRescaler, ptr %189, i32 0, i32 5
-  store i32 0, ptr %190, align 4
-  br label %196
+168:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  %169 = load i32, ptr %16, align 4, !tbaa !8
+  %170 = sext i32 %169 to i64
+  %171 = mul i64 %170, 4294967296
+  store i64 %171, ptr %26, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  %172 = load ptr, ptr %11, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %172, i32 0, i32 9
+  %174 = load i32, ptr %173, align 4, !tbaa !28
+  %175 = sext i32 %174 to i64
+  %176 = load ptr, ptr %11, align 8, !tbaa !3
+  %177 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %176, i32 0, i32 7
+  %178 = load i32, ptr %177, align 4, !tbaa !31
+  %179 = sext i32 %178 to i64
+  %180 = mul i64 %175, %179
+  store i64 %180, ptr %27, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #5
+  %181 = load i64, ptr %26, align 8, !tbaa !14
+  %182 = load i64, ptr %27, align 8, !tbaa !14
+  %183 = udiv i64 %181, %182
+  store i64 %183, ptr %28, align 8, !tbaa !14
+  %184 = load i64, ptr %28, align 8, !tbaa !14
+  %185 = load i64, ptr %28, align 8, !tbaa !14
+  %186 = trunc i64 %185 to i32
+  %187 = zext i32 %186 to i64
+  %188 = icmp ne i64 %184, %187
+  br i1 %188, label %189, label %192
 
-191:                                              ; preds = %167
-  %192 = load i64, ptr %27, align 8
-  %193 = trunc i64 %192 to i32
-  %194 = load ptr, ptr %11, align 8
-  %195 = getelementptr inbounds %struct.WebPRescaler, ptr %194, i32 0, i32 5
-  store i32 %193, ptr %195, align 4
-  br label %196
+189:                                              ; preds = %168
+  %190 = load ptr, ptr %11, align 8, !tbaa !3
+  %191 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %190, i32 0, i32 5
+  store i32 0, ptr %191, align 4, !tbaa !34
+  br label %197
 
-196:                                              ; preds = %191, %188
-  %197 = load ptr, ptr %11, align 8
-  %198 = getelementptr inbounds %struct.WebPRescaler, ptr %197, i32 0, i32 8
-  %199 = load i32, ptr %198, align 8
-  %200 = sext i32 %199 to i64
-  %201 = udiv i64 4294967296, %200
-  %202 = trunc i64 %201 to i32
-  %203 = load ptr, ptr %11, align 8
-  %204 = getelementptr inbounds %struct.WebPRescaler, ptr %203, i32 0, i32 4
-  store i32 %202, ptr %204, align 8
-  br label %214
+192:                                              ; preds = %168
+  %193 = load i64, ptr %28, align 8, !tbaa !14
+  %194 = trunc i64 %193 to i32
+  %195 = load ptr, ptr %11, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %195, i32 0, i32 5
+  store i32 %194, ptr %196, align 4, !tbaa !34
+  br label %197
 
-205:                                              ; preds = %159
-  %206 = load ptr, ptr %11, align 8
-  %207 = getelementptr inbounds %struct.WebPRescaler, ptr %206, i32 0, i32 9
-  %208 = load i32, ptr %207, align 4
-  %209 = sext i32 %208 to i64
-  %210 = udiv i64 4294967296, %209
-  %211 = trunc i64 %210 to i32
-  %212 = load ptr, ptr %11, align 8
-  %213 = getelementptr inbounds %struct.WebPRescaler, ptr %212, i32 0, i32 4
-  store i32 %211, ptr %213, align 8
-  br label %214
+197:                                              ; preds = %192, %189
+  %198 = load ptr, ptr %11, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %198, i32 0, i32 8
+  %200 = load i32, ptr %199, align 8, !tbaa !32
+  %201 = sext i32 %200 to i64
+  %202 = udiv i64 4294967296, %201
+  %203 = trunc i64 %202 to i32
+  %204 = load ptr, ptr %11, align 8, !tbaa !3
+  %205 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %204, i32 0, i32 4
+  store i32 %203, ptr %205, align 8, !tbaa !35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  br label %215
 
-214:                                              ; preds = %205, %196
-  %215 = load ptr, ptr %19, align 8
-  %216 = load ptr, ptr %11, align 8
-  %217 = getelementptr inbounds %struct.WebPRescaler, ptr %216, i32 0, i32 19
-  store ptr %215, ptr %217, align 8
-  %218 = load ptr, ptr %19, align 8
-  %219 = load i32, ptr %18, align 4
-  %220 = load i32, ptr %15, align 4
-  %221 = mul nsw i32 %219, %220
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i32, ptr %218, i64 %222
-  %224 = load ptr, ptr %11, align 8
-  %225 = getelementptr inbounds %struct.WebPRescaler, ptr %224, i32 0, i32 20
-  store ptr %223, ptr %225, align 8
-  %226 = load ptr, ptr %19, align 8
-  %227 = load i64, ptr %24, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %226, i8 0, i64 %227, i1 false)
+206:                                              ; preds = %160
+  %207 = load ptr, ptr %11, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %207, i32 0, i32 9
+  %209 = load i32, ptr %208, align 4, !tbaa !28
+  %210 = sext i32 %209 to i64
+  %211 = udiv i64 4294967296, %210
+  %212 = trunc i64 %211 to i32
+  %213 = load ptr, ptr %11, align 8, !tbaa !3
+  %214 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %213, i32 0, i32 4
+  store i32 %212, ptr %214, align 8, !tbaa !35
+  br label %215
+
+215:                                              ; preds = %206, %197
+  %216 = load ptr, ptr %19, align 8, !tbaa !12
+  %217 = load ptr, ptr %11, align 8, !tbaa !3
+  %218 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %217, i32 0, i32 19
+  store ptr %216, ptr %218, align 8, !tbaa !36
+  %219 = load ptr, ptr %19, align 8, !tbaa !12
+  %220 = load i32, ptr %18, align 4, !tbaa !8
+  %221 = load i32, ptr %15, align 4, !tbaa !8
+  %222 = mul nsw i32 %220, %221
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i32, ptr %219, i64 %223
+  %225 = load ptr, ptr %11, align 8, !tbaa !3
+  %226 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %225, i32 0, i32 20
+  store ptr %224, ptr %226, align 8, !tbaa !37
+  %227 = load ptr, ptr %19, align 8, !tbaa !12
+  %228 = load i64, ptr %24, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr align 4 %227, i8 0, i64 %228, i1 false)
   call void @WebPRescalerDspInit()
   store i32 1, ptr %10, align 4
-  br label %228
+  store i32 1, ptr %25, align 4
+  br label %229
 
-228:                                              ; preds = %214, %42
-  %229 = load i32, ptr %10, align 4
-  ret i32 %229
+229:                                              ; preds = %215, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  %230 = load i32, ptr %10, align 4
+  ret i32 %230
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @CheckSizeOverflow(i64 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @CheckSizeOverflow(i64 noundef %0) #2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %4 = load i64, ptr %2, align 8, !tbaa !14
   %5 = icmp eq i64 %3, %4
   %6 = zext i1 %5 to i32
   ret i32 %6
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @WebPRescalerDspInit() #2
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+declare void @WebPRescalerDspInit() #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPRescalerGetScaledDimensions(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -350,107 +375,116 @@ define hidden i32 @WebPRescalerGetScaledDimensions(i32 noundef %0, i32 noundef %
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %10, align 4
-  %15 = load ptr, ptr %9, align 8
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %11, align 4
-  store i32 1073741823, ptr %12, align 4
-  %17 = load i32, ptr %10, align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %36
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !8
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !12
+  store ptr %3, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  %14 = load ptr, ptr %8, align 8, !tbaa !12
+  %15 = load i32, ptr %14, align 4, !tbaa !8
+  store i32 %15, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %16 = load ptr, ptr %9, align 8, !tbaa !12
+  %17 = load i32, ptr %16, align 4, !tbaa !8
+  store i32 %17, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 1073741823, ptr %12, align 4, !tbaa !8
+  %18 = load i32, ptr %10, align 4, !tbaa !8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %37
 
-19:                                               ; preds = %4
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %36
+20:                                               ; preds = %4
+  %21 = load i32, ptr %7, align 4, !tbaa !8
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %23, label %37
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %6, align 4
-  %24 = sext i32 %23 to i64
-  %25 = load i32, ptr %11, align 4
-  %26 = sext i32 %25 to i64
-  %27 = mul i64 %24, %26
-  %28 = load i32, ptr %7, align 4
-  %29 = sext i32 %28 to i64
-  %30 = add i64 %27, %29
-  %31 = sub i64 %30, 1
-  %32 = load i32, ptr %7, align 4
-  %33 = sext i32 %32 to i64
-  %34 = udiv i64 %31, %33
-  %35 = trunc i64 %34 to i32
-  store i32 %35, ptr %10, align 4
-  br label %36
+23:                                               ; preds = %20
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = load i32, ptr %11, align 4, !tbaa !8
+  %27 = sext i32 %26 to i64
+  %28 = mul i64 %25, %27
+  %29 = load i32, ptr %7, align 4, !tbaa !8
+  %30 = sext i32 %29 to i64
+  %31 = add i64 %28, %30
+  %32 = sub i64 %31, 1
+  %33 = load i32, ptr %7, align 4, !tbaa !8
+  %34 = sext i32 %33 to i64
+  %35 = udiv i64 %32, %34
+  %36 = trunc i64 %35 to i32
+  store i32 %36, ptr %10, align 4, !tbaa !8
+  br label %37
 
-36:                                               ; preds = %22, %19, %4
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %56
+37:                                               ; preds = %23, %20, %4
+  %38 = load i32, ptr %11, align 4, !tbaa !8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %57
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %56
+40:                                               ; preds = %37
+  %41 = load i32, ptr %6, align 4, !tbaa !8
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %43, label %57
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %7, align 4
-  %44 = sext i32 %43 to i64
-  %45 = load i32, ptr %10, align 4
-  %46 = sext i32 %45 to i64
-  %47 = mul i64 %44, %46
-  %48 = load i32, ptr %6, align 4
-  %49 = sext i32 %48 to i64
-  %50 = add i64 %47, %49
-  %51 = sub i64 %50, 1
-  %52 = load i32, ptr %6, align 4
-  %53 = sext i32 %52 to i64
-  %54 = udiv i64 %51, %53
-  %55 = trunc i64 %54 to i32
-  store i32 %55, ptr %11, align 4
-  br label %56
+43:                                               ; preds = %40
+  %44 = load i32, ptr %7, align 4, !tbaa !8
+  %45 = sext i32 %44 to i64
+  %46 = load i32, ptr %10, align 4, !tbaa !8
+  %47 = sext i32 %46 to i64
+  %48 = mul i64 %45, %47
+  %49 = load i32, ptr %6, align 4, !tbaa !8
+  %50 = sext i32 %49 to i64
+  %51 = add i64 %48, %50
+  %52 = sub i64 %51, 1
+  %53 = load i32, ptr %6, align 4, !tbaa !8
+  %54 = sext i32 %53 to i64
+  %55 = udiv i64 %52, %54
+  %56 = trunc i64 %55 to i32
+  store i32 %56, ptr %11, align 4, !tbaa !8
+  br label %57
 
-56:                                               ; preds = %42, %39, %36
-  %57 = load i32, ptr %10, align 4
-  %58 = icmp sle i32 %57, 0
-  br i1 %58, label %68, label %59
+57:                                               ; preds = %43, %40, %37
+  %58 = load i32, ptr %10, align 4, !tbaa !8
+  %59 = icmp sle i32 %58, 0
+  br i1 %59, label %69, label %60
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %11, align 4
-  %61 = icmp sle i32 %60, 0
-  br i1 %61, label %68, label %62
+60:                                               ; preds = %57
+  %61 = load i32, ptr %11, align 4, !tbaa !8
+  %62 = icmp sle i32 %61, 0
+  br i1 %62, label %69, label %63
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %10, align 4
-  %64 = icmp sgt i32 %63, 1073741823
-  br i1 %64, label %68, label %65
+63:                                               ; preds = %60
+  %64 = load i32, ptr %10, align 4, !tbaa !8
+  %65 = icmp sgt i32 %64, 1073741823
+  br i1 %65, label %69, label %66
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %11, align 4
-  %67 = icmp sgt i32 %66, 1073741823
-  br i1 %67, label %68, label %69
+66:                                               ; preds = %63
+  %67 = load i32, ptr %11, align 4, !tbaa !8
+  %68 = icmp sgt i32 %67, 1073741823
+  br i1 %68, label %69, label %70
 
-68:                                               ; preds = %65, %62, %59, %56
+69:                                               ; preds = %66, %63, %60, %57
   store i32 0, ptr %5, align 4
-  br label %74
+  store i32 1, ptr %13, align 4
+  br label %75
 
-69:                                               ; preds = %65
-  %70 = load i32, ptr %10, align 4
-  %71 = load ptr, ptr %8, align 8
-  store i32 %70, ptr %71, align 4
-  %72 = load i32, ptr %11, align 4
-  %73 = load ptr, ptr %9, align 8
-  store i32 %72, ptr %73, align 4
+70:                                               ; preds = %66
+  %71 = load i32, ptr %10, align 4, !tbaa !8
+  %72 = load ptr, ptr %8, align 8, !tbaa !12
+  store i32 %71, ptr %72, align 4, !tbaa !8
+  %73 = load i32, ptr %11, align 4, !tbaa !8
+  %74 = load ptr, ptr %9, align 8, !tbaa !12
+  store i32 %73, ptr %74, align 4, !tbaa !8
   store i32 1, ptr %5, align 4
-  br label %74
+  store i32 1, ptr %13, align 4
+  br label %75
 
-74:                                               ; preds = %69, %68
-  %75 = load i32, ptr %5, align 4
-  ret i32 %75
+75:                                               ; preds = %70, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %76 = load i32, ptr %5, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -458,36 +492,38 @@ define hidden i32 @WebPRescaleNeededLines(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.WebPRescaler, ptr %6, i32 0, i32 6
-  %8 = load i32, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.WebPRescaler, ptr %9, i32 0, i32 8
-  %11 = load i32, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %6, i32 0, i32 6
+  %8 = load i32, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %9, i32 0, i32 8
+  %11 = load i32, ptr %10, align 8, !tbaa !32
   %12 = add nsw i32 %8, %11
   %13 = sub nsw i32 %12, 1
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.WebPRescaler, ptr %14, i32 0, i32 8
-  %16 = load i32, ptr %15, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %14, i32 0, i32 8
+  %16 = load i32, ptr %15, align 8, !tbaa !32
   %17 = sdiv i32 %13, %16
-  store i32 %17, ptr %5, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = load i32, ptr %4, align 4
+  store i32 %17, ptr %5, align 4, !tbaa !8
+  %18 = load i32, ptr %5, align 4, !tbaa !8
+  %19 = load i32, ptr %4, align 4, !tbaa !8
   %20 = icmp sgt i32 %18, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
-  %22 = load i32, ptr %4, align 4
+  %22 = load i32, ptr %4, align 4, !tbaa !8
   br label %25
 
 23:                                               ; preds = %2
-  %24 = load i32, ptr %5, align 4
+  %24 = load i32, ptr %5, align 4, !tbaa !8
   br label %25
 
 25:                                               ; preds = %23, %21
   %26 = phi i32 [ %22, %21 ], [ %24, %23 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret i32 %26
 }
 
@@ -500,21 +536,22 @@ define hidden i32 @WebPRescalerImport(ptr noundef %0, i32 noundef %1, ptr nounde
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  store i32 0, ptr %9, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  store i32 0, ptr %9, align 4, !tbaa !8
   br label %12
 
 12:                                               ; preds = %78, %4
-  %13 = load i32, ptr %9, align 4
-  %14 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %9, align 4, !tbaa !8
+  %14 = load i32, ptr %6, align 4, !tbaa !8
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
   %18 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %17)
   %19 = icmp ne i32 %18, 0
   %20 = xor i1 %19, true
@@ -525,125 +562,130 @@ define hidden i32 @WebPRescalerImport(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %22, label %23, label %96
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.WebPRescaler, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 4, !tbaa !18
   %27 = icmp ne i32 %26, 0
   br i1 %27, label %28, label %40
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.WebPRescaler, ptr %29, i32 0, i32 19
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %10, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.WebPRescaler, ptr %32, i32 0, i32 20
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.WebPRescaler, ptr %35, i32 0, i32 19
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.WebPRescaler, ptr %38, i32 0, i32 20
-  store ptr %37, ptr %39, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %29, i32 0, i32 19
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  store ptr %31, ptr %10, align 8, !tbaa !12
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %32, i32 0, i32 20
+  %34 = load ptr, ptr %33, align 8, !tbaa !37
+  %35 = load ptr, ptr %5, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %35, i32 0, i32 19
+  store ptr %34, ptr %36, align 8, !tbaa !36
+  %37 = load ptr, ptr %10, align 8, !tbaa !12
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %38, i32 0, i32 20
+  store ptr %37, ptr %39, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
   br label %40
 
 40:                                               ; preds = %28, %23
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = load ptr, ptr %7, align 8, !tbaa !10
   call void @WebPRescalerImportRow(ptr noundef %41, ptr noundef %42)
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.WebPRescaler, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 4
+  %43 = load ptr, ptr %5, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4, !tbaa !18
   %46 = icmp ne i32 %45, 0
   br i1 %46, label %78, label %47
 
 47:                                               ; preds = %40
-  store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !8
   br label %48
 
 48:                                               ; preds = %74, %47
-  %49 = load i32, ptr %11, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.WebPRescaler, ptr %50, i32 0, i32 2
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds %struct.WebPRescaler, ptr %53, i32 0, i32 13
-  %55 = load i32, ptr %54, align 4
+  %49 = load i32, ptr %11, align 4, !tbaa !8
+  %50 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8, !tbaa !27
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %53, i32 0, i32 13
+  %55 = load i32, ptr %54, align 4, !tbaa !21
   %56 = mul nsw i32 %52, %55
   %57 = icmp slt i32 %49, %56
   br i1 %57, label %58, label %77
 
 58:                                               ; preds = %48
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.WebPRescaler, ptr %59, i32 0, i32 20
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %11, align 4
+  %59 = load ptr, ptr %5, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %59, i32 0, i32 20
+  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %62 = load i32, ptr %11, align 4, !tbaa !8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %61, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.WebPRescaler, ptr %66, i32 0, i32 19
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %11, align 4
+  %65 = load i32, ptr %64, align 4, !tbaa !8
+  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %66, i32 0, i32 19
+  %68 = load ptr, ptr %67, align 8, !tbaa !36
+  %69 = load i32, ptr %11, align 4, !tbaa !8
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %68, i64 %70
-  %72 = load i32, ptr %71, align 4
+  %72 = load i32, ptr %71, align 4, !tbaa !8
   %73 = add i32 %72, %65
-  store i32 %73, ptr %71, align 4
+  store i32 %73, ptr %71, align 4, !tbaa !8
   br label %74
 
 74:                                               ; preds = %58
-  %75 = load i32, ptr %11, align 4
+  %75 = load i32, ptr %11, align 4, !tbaa !8
   %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %11, align 4
-  br label %48, !llvm.loop !4
+  store i32 %76, ptr %11, align 4, !tbaa !8
+  br label %48, !llvm.loop !38
 
 77:                                               ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   br label %78
 
 78:                                               ; preds = %77, %40
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.WebPRescaler, ptr %79, i32 0, i32 15
-  %81 = load i32, ptr %80, align 4
+  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %79, i32 0, i32 15
+  %81 = load i32, ptr %80, align 4, !tbaa !23
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %80, align 4
-  %83 = load i32, ptr %8, align 4
-  %84 = load ptr, ptr %7, align 8
+  store i32 %82, ptr %80, align 4, !tbaa !23
+  %83 = load i32, ptr %8, align 4, !tbaa !8
+  %84 = load ptr, ptr %7, align 8, !tbaa !10
   %85 = sext i32 %83 to i64
   %86 = getelementptr inbounds i8, ptr %84, i64 %85
-  store ptr %86, ptr %7, align 8
-  %87 = load i32, ptr %9, align 4
+  store ptr %86, ptr %7, align 8, !tbaa !10
+  %87 = load i32, ptr %9, align 4, !tbaa !8
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %9, align 4
-  %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds %struct.WebPRescaler, ptr %89, i32 0, i32 8
-  %91 = load i32, ptr %90, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.WebPRescaler, ptr %92, i32 0, i32 6
-  %94 = load i32, ptr %93, align 8
+  store i32 %88, ptr %9, align 4, !tbaa !8
+  %89 = load ptr, ptr %5, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !32
+  %92 = load ptr, ptr %5, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %92, i32 0, i32 6
+  %94 = load i32, ptr %93, align 8, !tbaa !33
   %95 = sub nsw i32 %94, %91
-  store i32 %95, ptr %93, align 8
-  br label %12, !llvm.loop !6
+  store i32 %95, ptr %93, align 8, !tbaa !33
+  br label %12, !llvm.loop !40
 
 96:                                               ; preds = %21
-  %97 = load i32, ptr %9, align 4
+  %97 = load i32, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %97
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = call i32 @WebPRescalerOutputDone(ptr noundef %3)
   %5 = icmp ne i32 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.WebPRescaler, ptr %7, i32 0, i32 6
-  %9 = load i32, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %7, i32 0, i32 6
+  %9 = load i32, ptr %8, align 8, !tbaa !33
   %10 = icmp sle i32 %9, 0
   br label %11
 
@@ -653,63 +695,102 @@ define internal i32 @WebPRescalerHasPendingOutput(ptr noundef %0) #0 {
   ret i32 %13
 }
 
-declare void @WebPRescalerImportRow(ptr noundef, ptr noundef) #2
+declare void @WebPRescalerImportRow(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPRescalerExport(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 0, ptr %3, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  store i32 0, ptr %3, align 4, !tbaa !8
   br label %4
 
 4:                                                ; preds = %8, %1
-  %5 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = call i32 @WebPRescalerHasPendingOutput(ptr noundef %5)
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
   call void @WebPRescalerExportRow(ptr noundef %9)
-  %10 = load i32, ptr %3, align 4
+  %10 = load i32, ptr %3, align 4, !tbaa !8
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %3, align 4
-  br label %4, !llvm.loop !7
+  store i32 %11, ptr %3, align 4, !tbaa !8
+  br label %4, !llvm.loop !41
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4
+  %13 = load i32, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret i32 %13
 }
 
-declare void @WebPRescalerExportRow(ptr noundef) #2
+declare void @WebPRescalerExportRow(ptr noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @WebPRescalerOutputDone(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @WebPRescalerOutputDone(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.WebPRescaler, ptr %3, i32 0, i32 16
-  %5 = load i32, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.WebPRescaler, ptr %6, i32 0, i32 14
-  %8 = load i32, ptr %7, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %3, i32 0, i32 16
+  %5 = load i32, ptr %4, align 8, !tbaa !24
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.WebPRescaler, ptr %6, i32 0, i32 14
+  %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = icmp sge i32 %5, %8
   %10 = zext i1 %9 to i32
   ret i32 %10
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS12WebPRescaler", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 int", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!17, !9, i64 0}
+!17 = !{!"WebPRescaler", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !11, i64 72, !9, i64 80, !13, i64 88, !13, i64 96}
+!18 = !{!17, !9, i64 4}
+!19 = !{!17, !9, i64 44}
+!20 = !{!17, !9, i64 48}
+!21 = !{!17, !9, i64 52}
+!22 = !{!17, !9, i64 56}
+!23 = !{!17, !9, i64 60}
+!24 = !{!17, !9, i64 64}
+!25 = !{!17, !11, i64 72}
+!26 = !{!17, !9, i64 80}
+!27 = !{!17, !9, i64 8}
+!28 = !{!17, !9, i64 36}
+!29 = !{!17, !9, i64 40}
+!30 = !{!17, !9, i64 12}
+!31 = !{!17, !9, i64 28}
+!32 = !{!17, !9, i64 32}
+!33 = !{!17, !9, i64 24}
+!34 = !{!17, !9, i64 20}
+!35 = !{!17, !9, i64 16}
+!36 = !{!17, !13, i64 88}
+!37 = !{!17, !13, i64 96}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}
