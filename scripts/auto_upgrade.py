@@ -21,6 +21,7 @@ supported_project = [
     "git",
     "graphviz",
     "hdf5",
+    "hwloc",
 ]
 
 modify_only = [

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.hwloc_xml_component = type { ptr, ptr }
-%struct.hwloc_component = type { i32, ptr, ptr, i32, i64, ptr }
 %struct.hwloc_xml_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.hwloc__xml_import_state_s = type { ptr, ptr, [32 x i8] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
@@ -12,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hwloc__xml_export_state_s = type { ptr, ptr, ptr, ptr, ptr, ptr, [48 x i8] }
 
 @hwloc_nolibxml_xml_component = internal global %struct.hwloc_xml_component { ptr @hwloc_xml_nolibxml_callbacks, ptr null }, align 8
-@hwloc_xml_nolibxml_component = hidden local_unnamed_addr constant %struct.hwloc_component { i32 8, ptr null, ptr null, i32 1, i64 0, ptr @hwloc_nolibxml_xml_component }, align 8
+@hwloc_xml_nolibxml_component = hidden local_unnamed_addr constant { i32, [4 x i8], ptr, ptr, i32, [4 x i8], i64, ptr } { i32 8, [4 x i8] zeroinitializer, ptr null, ptr null, i32 1, [4 x i8] zeroinitializer, i64 0, ptr @hwloc_nolibxml_xml_component }, align 8
 @hwloc_xml_nolibxml_callbacks = internal global %struct.hwloc_xml_callbacks { ptr @hwloc_nolibxml_backend_init, ptr @hwloc_nolibxml_export_file, ptr @hwloc_nolibxml_export_buffer, ptr @hwloc_nolibxml_free_buffer, ptr @hwloc_nolibxml_import_diff, ptr @hwloc_nolibxml_export_diff_file, ptr @hwloc_nolibxml_export_diff_buffer }, align 8
 @.str.1 = private unnamed_addr constant [11 x i8] c"/dev/stdin\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -28,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"#13;\00", align 1
 @.str.14 = private unnamed_addr constant [6 x i8] c"quot;\00", align 1
 @.str.17 = private unnamed_addr constant [5 x i8] c"amp;\00", align 1
-@.str.18 = private unnamed_addr constant [4 x i8] c" \09\0A\00", align 1
+@.str.18 = private unnamed_addr constant [5 x i8] c" \09\0A\0D\00", align 1
 @.str.19 = private unnamed_addr constant [38 x i8] c"abcdefghijklmnopqrstuvwxyz1234567890_\00", align 1
 @.str.20 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -62,30 +61,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #0 {
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %5, ptr %7, align 8
-  %.not24 = icmp eq ptr %2, null
-  br i1 %.not24, label %15, label %8
+  store ptr %5, ptr %7, align 8, !tbaa !3
+  %.not26 = icmp eq ptr %2, null
+  br i1 %.not26, label %15, label %8
 
 8:                                                ; preds = %6
   %9 = sext i32 %3 to i64
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #19
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #20
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %10, ptr %11, align 8
-  %.not25 = icmp eq ptr %10, null
-  br i1 %.not25, label %22, label %12
+  store ptr %10, ptr %11, align 8, !tbaa !10
+  %.not27 = icmp eq ptr %10, null
+  br i1 %.not27, label %22, label %12
 
 12:                                               ; preds = %8
-  store i64 %9, ptr %5, align 8
+  store i64 %9, ptr %5, align 8, !tbaa !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %2, i64 %9, i1 false)
   %13 = getelementptr i8, ptr %10, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -1
-  store i8 0, ptr %14, align 1
+  store i8 0, ptr %14, align 1, !tbaa !14
   br label %19
 
 15:                                               ; preds = %6
@@ -95,25 +94,25 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr noundef wr
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15, %12
-  store ptr @hwloc_nolibxml_look_init, ptr %0, align 8
+  store ptr @hwloc_nolibxml_look_init, ptr %0, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @hwloc_nolibxml_look_done, ptr %20, align 8
+  store ptr @hwloc_nolibxml_look_done, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @hwloc_nolibxml_backend_exit, ptr %21, align 8
+  store ptr @hwloc_nolibxml_backend_exit, ptr %21, align 8, !tbaa !17
   br label %23
 
 22:                                               ; preds = %15, %8
-  tail call void @free(ptr noundef nonnull %5) #20
+  tail call void @free(ptr noundef nonnull %5) #21
   br label %23
 
 23:                                               ; preds = %22, %4, %19
-  %.0 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %22 ]
-  ret i32 %.0
+  %.023 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %22 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 {
-  %5 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #19
+  %5 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #20
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %hwloc_nolibxml_export_buffer.exit.thread, label %6
 
@@ -127,81 +126,81 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
   br label %sub_0
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #21
-  %.not27.i = icmp eq ptr %10, null
-  br i1 %.not27.i, label %11, label %12
+  %10 = tail call ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #22
+  %.not30.not.i = icmp eq ptr %10, null
+  br i1 %.not30.not.i, label %.thread.i, label %11
 
-11:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %5) #20
+.thread.i:                                        ; preds = %9
+  tail call void @free(ptr noundef nonnull %5) #21
   br label %hwloc_nolibxml_export_buffer.exit.thread
 
-12:                                               ; preds = %9
-  %13 = trunc i64 %7 to i32
-  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %13, i64 noundef %3)
+11:                                               ; preds = %9
+  %12 = trunc i64 %7 to i32
+  %13 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %12, i64 noundef %3)
   br label %sub_0
 
-sub_0:                                            ; preds = %._crit_edge.i, %12
-  %.022 = phi ptr [ %5, %._crit_edge.i ], [ %10, %12 ]
-  %.021 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %13, %12 ]
-  %15 = load i8, ptr %2, align 1
-  %.not26 = icmp eq i8 %15, 45
+sub_0:                                            ; preds = %._crit_edge.i, %11
+  %.022 = phi ptr [ %5, %._crit_edge.i ], [ %10, %11 ]
+  %.021 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
+  %14 = load i8, ptr %2, align 1
+  %.not26 = icmp eq i8 %14, 45
   br i1 %.not26, label %hwloc_nolibxml_export_buffer.exit.tail, label %hwloc_nolibxml_export_buffer.exit.tail.thread
 
 hwloc_nolibxml_export_buffer.exit.tail:           ; preds = %sub_0
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %hwloc_nolibxml_export_buffer.exit.tail.thread
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %hwloc_nolibxml_export_buffer.exit.tail.thread
 
-19:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail
-  %20 = load ptr, ptr @stdout, align 8
-  br label %23
+18:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !18
+  br label %22
 
 hwloc_nolibxml_export_buffer.exit.tail.thread:    ; preds = %sub_0, %hwloc_nolibxml_export_buffer.exit.tail
-  %21 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.22)
-  %.not16 = icmp eq ptr %21, null
-  br i1 %.not16, label %22, label %23
+  %20 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.22)
+  %.not16 = icmp eq ptr %20, null
+  br i1 %.not16, label %21, label %22
 
-22:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail.thread
-  tail call void @free(ptr noundef nonnull %.022) #20
+21:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail.thread
+  tail call void @free(ptr noundef nonnull %.022) #21
   br label %hwloc_nolibxml_export_buffer.exit.thread
 
-23:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail.thread, %19
-  %.013 = phi ptr [ %21, %hwloc_nolibxml_export_buffer.exit.tail.thread ], [ %20, %19 ]
-  %24 = add nsw i32 %.021, -1
-  %25 = sext i32 %24 to i64
-  %26 = tail call i64 @fwrite(ptr noundef nonnull %.022, i64 noundef 1, i64 noundef %25, ptr noundef %.013)
-  %27 = trunc i64 %26 to i32
-  %28 = icmp eq i32 %24, %27
-  br i1 %28, label %32, label %29
+22:                                               ; preds = %hwloc_nolibxml_export_buffer.exit.tail.thread, %18
+  %.013 = phi ptr [ %20, %hwloc_nolibxml_export_buffer.exit.tail.thread ], [ %19, %18 ]
+  %23 = add nsw i32 %.021, -1
+  %24 = sext i32 %23 to i64
+  %25 = tail call i64 @fwrite(ptr noundef nonnull %.022, i64 noundef 1, i64 noundef %24, ptr noundef %.013)
+  %26 = trunc i64 %25 to i32
+  %27 = icmp eq i32 %23, %26
+  br i1 %27, label %31, label %28
 
-29:                                               ; preds = %23
-  %30 = tail call i32 @ferror(ptr noundef %.013) #20
-  %31 = tail call ptr @__errno_location() #22
-  store i32 %30, ptr %31, align 4
-  br label %32
+28:                                               ; preds = %22
+  %29 = tail call i32 @ferror(ptr noundef %.013) #21
+  %30 = tail call ptr @__errno_location() #23
+  store i32 %29, ptr %30, align 4, !tbaa !20
+  br label %31
 
-32:                                               ; preds = %23, %29
-  %.0 = phi i32 [ -1, %29 ], [ 0, %23 ]
-  tail call void @free(ptr noundef nonnull %.022) #20
-  %33 = load ptr, ptr @stdout, align 8
-  %.not17 = icmp eq ptr %.013, %33
-  br i1 %.not17, label %hwloc_nolibxml_export_buffer.exit.thread, label %34
+31:                                               ; preds = %22, %28
+  %.0 = phi i32 [ -1, %28 ], [ 0, %22 ]
+  tail call void @free(ptr noundef nonnull %.022) #21
+  %32 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %.not17 = icmp eq ptr %.013, %32
+  br i1 %.not17, label %hwloc_nolibxml_export_buffer.exit.thread, label %33
 
-34:                                               ; preds = %32
-  %35 = tail call i32 @fclose(ptr noundef %.013)
+33:                                               ; preds = %31
+  %34 = tail call i32 @fclose(ptr noundef %.013)
   br label %hwloc_nolibxml_export_buffer.exit.thread
 
-hwloc_nolibxml_export_buffer.exit.thread:         ; preds = %4, %11, %32, %34, %22
-  %.014 = phi i32 [ -1, %22 ], [ %.0, %34 ], [ %.0, %32 ], [ -1, %11 ], [ -1, %4 ]
+hwloc_nolibxml_export_buffer.exit.thread:         ; preds = %.thread.i, %4, %31, %33, %21
+  %.014 = phi i32 [ -1, %21 ], [ %.0, %33 ], [ %.0, %31 ], [ -1, %4 ], [ -1, %.thread.i ]
   ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) #0 {
-  %6 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #19
+  %6 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %17, label %7
+  br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %5
   %8 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %6, i32 noundef 16384, i64 noundef %4)
@@ -210,37 +209,37 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %
 
 ._crit_edge:                                      ; preds = %7
   %.pre = trunc nuw i64 %8 to i32
-  br label %16
+  br label %15
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #21
-  %.not27 = icmp eq ptr %11, null
-  br i1 %.not27, label %12, label %13
+  %11 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #22
+  %.not30.not = icmp eq ptr %11, null
+  br i1 %.not30.not, label %.thread, label %12
 
-12:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %6) #20
-  br label %17
-
-13:                                               ; preds = %10
-  %14 = trunc i64 %8 to i32
-  %15 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %14, i64 noundef %4)
+.thread:                                          ; preds = %10
+  tail call void @free(ptr noundef nonnull %6) #21
   br label %16
 
-16:                                               ; preds = %._crit_edge, %13
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %14, %13 ]
-  %.023 = phi ptr [ %6, %._crit_edge ], [ %11, %13 ]
-  store ptr %.023, ptr %2, align 8
-  store i32 %.pre-phi, ptr %3, align 4
-  br label %17
+12:                                               ; preds = %10
+  %13 = trunc i64 %8 to i32
+  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %13, i64 noundef %4)
+  br label %15
 
-17:                                               ; preds = %5, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ -1, %12 ], [ -1, %5 ]
+15:                                               ; preds = %._crit_edge, %12
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %13, %12 ]
+  %.025 = phi ptr [ %6, %._crit_edge ], [ %11, %12 ]
+  store ptr %.025, ptr %2, align 8, !tbaa !21
+  store i32 %.pre-phi, ptr %3, align 4, !tbaa !20
+  br label %16
+
+16:                                               ; preds = %.thread, %5, %15
+  %.0 = phi i32 [ 0, %15 ], [ -1, %5 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @hwloc_nolibxml_free_buffer(ptr noundef captures(none) %0) #1 {
-  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef %0) #21
   ret void
 }
 
@@ -252,199 +251,214 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr noundef read
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %6
   %14 = sext i32 %3 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #19
-  store ptr %15, ptr %8, align 8
-  %.not46 = icmp eq ptr %15, null
-  br i1 %.not46, label %90, label %16
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #20
+  store ptr %15, ptr %8, align 8, !tbaa !21
+  %.not48 = icmp eq ptr %15, null
+  br i1 %.not48, label %84, label %16
 
 16:                                               ; preds = %13
-  store i64 %14, ptr %9, align 8
+  store i64 %14, ptr %9, align 8, !tbaa !22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %2, i64 %14, i1 false)
   %17 = getelementptr i8, ptr %15, i64 %14
   %18 = getelementptr i8, ptr %17, i64 -1
-  store i8 0, ptr %18, align 1
-  br label %22
+  store i8 0, ptr %18, align 1, !tbaa !14
+  br label %.preheader75
 
 19:                                               ; preds = %6
   %20 = call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef %8, ptr noundef %9)
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %90, label %._crit_edge63
+  br i1 %21, label %84, label %._crit_edge69
 
-._crit_edge63:                                    ; preds = %19
-  %.pre = load ptr, ptr %8, align 8
+._crit_edge69:                                    ; preds = %19
+  %.pre = load ptr, ptr %8, align 8, !tbaa !21
+  br label %.preheader75
+
+.preheader75:                                     ; preds = %._crit_edge69, %16
+  %.041.ph = phi ptr [ %15, %16 ], [ %.pre, %._crit_edge69 ]
   br label %22
 
-22:                                               ; preds = %._crit_edge63, %16
-  %23 = phi ptr [ %.pre, %._crit_edge63 ], [ %15, %16 ]
-  br label %24
+22:                                               ; preds = %.preheader75, %.critedge
+  %.041 = phi ptr [ %27, %.critedge ], [ %.041.ph, %.preheader75 ]
+  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.041, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #24
+  %.not49 = icmp eq i32 %23, 0
+  br i1 %.not49, label %.critedge, label %24
 
-24:                                               ; preds = %.critedge, %22
-  %.0 = phi ptr [ %23, %22 ], [ %29, %.critedge ]
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #23
-  %.not47 = icmp eq i32 %25, 0
-  br i1 %.not47, label %.critedge, label %26
+24:                                               ; preds = %22
+  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.041, ptr noundef nonnull dereferenceable(11) @.str.4, i64 noundef 10) #24
+  %.not50 = icmp eq i32 %25, 0
+  br i1 %.not50, label %.critedge, label %28
 
-26:                                               ; preds = %24
-  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(11) @.str.4, i64 noundef 10) #23
-  %.not48 = icmp eq i32 %27, 0
-  br i1 %.not48, label %.critedge, label %30
+.critedge:                                        ; preds = %22, %24
+  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.041, i32 noundef 10) #24
+  %.not53 = icmp eq ptr %26, null
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  br i1 %.not53, label %hwloc__nolibxml_import_find_child.exit.thread, label %22, !llvm.loop !23
 
-.critedge:                                        ; preds = %24, %26
-  %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 10) #23
-  %.not51 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  br i1 %.not51, label %hwloc__nolibxml_import_find_child.exit.thread, label %24, !llvm.loop !4
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store ptr @hwloc__nolibxml_import_next_attr, ptr %31, align 8, !tbaa !29
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr @hwloc__nolibxml_import_find_child, ptr %32, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store ptr @hwloc__nolibxml_import_close_tag, ptr %33, align 8, !tbaa !31
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr @hwloc__nolibxml_import_close_child, ptr %34, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  store ptr @hwloc__nolibxml_import_get_content, ptr %35, align 8, !tbaa !33
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  store ptr @hwloc__nolibxml_import_close_content, ptr %36, align 8, !tbaa !34
+  store ptr null, ptr %0, align 8, !tbaa !35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %37, align 8, !tbaa !14
+  store ptr %.041, ptr %12, align 8, !tbaa !14
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store ptr %0, ptr %7, align 8, !tbaa !35
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %30, ptr %40, align 8, !tbaa !25
+  %41 = tail call i64 @strspn(ptr noundef nonnull readonly %.041, ptr noundef nonnull @.str.18) #24
+  %42 = getelementptr inbounds nuw i8, ptr %.041, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !14
+  %.not40.i = icmp eq i8 %43, 60
+  br i1 %.not40.i, label %44, label %hwloc__nolibxml_import_find_child.exit.thread
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr @hwloc__nolibxml_import_next_attr, ptr %33, align 8
-  %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr @hwloc__nolibxml_import_find_child, ptr %35, align 8
-  %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr @hwloc__nolibxml_import_close_tag, ptr %37, align 8
-  %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  store ptr @hwloc__nolibxml_import_close_child, ptr %39, align 8
-  %40 = load ptr, ptr %31, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  store ptr @hwloc__nolibxml_import_get_content, ptr %41, align 8
-  %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  store ptr @hwloc__nolibxml_import_close_content, ptr %43, align 8
-  store ptr null, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %44, align 8
-  store ptr %.0, ptr %12, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  store ptr %0, ptr %7, align 8
-  %47 = load ptr, ptr %31, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %47, ptr %48, align 8
-  %49 = tail call i64 @strspn(ptr noundef nonnull readonly %.0, ptr noundef nonnull @.str.18) #23
-  %50 = getelementptr inbounds i8, ptr %.0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %.not40.i = icmp eq i8 %51, 60
-  br i1 %.not40.i, label %52, label %hwloc__nolibxml_import_find_child.exit.thread
+44:                                               ; preds = %28
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !14
+  %47 = icmp eq i8 %46, 47
+  br i1 %47, label %hwloc__nolibxml_import_find_child.exit.thread, label %48
 
-52:                                               ; preds = %30
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %54 = load i8, ptr %53, align 1
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %45, ptr %49, align 8, !tbaa !14
+  %50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 62) #24
+  %.not41.i = icmp eq ptr %50, null
+  br i1 %.not41.i, label %hwloc__nolibxml_import_find_child.exit.thread, label %51
+
+51:                                               ; preds = %48
+  store i8 0, ptr %50, align 1, !tbaa !14
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  store ptr %52, ptr %39, align 8, !tbaa !14
+  %53 = getelementptr inbounds i8, ptr %50, i64 -1
+  %54 = load i8, ptr %53, align 1, !tbaa !14
   %55 = icmp eq i8 %54, 47
-  br i1 %55, label %hwloc__nolibxml_import_find_child.exit.thread, label %56
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  br i1 %55, label %57, label %58
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %53, ptr %57, align 8
-  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 62) #23
-  %.not41.i = icmp eq ptr %58, null
-  br i1 %.not41.i, label %hwloc__nolibxml_import_find_child.exit.thread, label %59
+57:                                               ; preds = %51
+  store i32 1, ptr %56, align 8, !tbaa !14
+  store i8 0, ptr %53, align 1, !tbaa !14
+  br label %59
 
-59:                                               ; preds = %56
-  store i8 0, ptr %58, align 1
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store ptr %60, ptr %46, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 -1
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, 47
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %63, label %65, label %66
+58:                                               ; preds = %51
+  store i32 0, ptr %56, align 8, !tbaa !14
+  br label %59
 
-65:                                               ; preds = %59
-  store i32 1, ptr %64, align 8
-  store i8 0, ptr %61, align 1
-  br label %67
-
-66:                                               ; preds = %59
-  store i32 0, ptr %64, align 8
-  br label %67
-
-67:                                               ; preds = %66, %65
-  %68 = tail call i64 @strspn(ptr noundef nonnull %53, ptr noundef nonnull @.str.19) #23
-  %69 = getelementptr inbounds i8, ptr %53, i64 %68
-  %70 = load i8, ptr %69, align 1
-  switch i8 %70, label %hwloc__nolibxml_import_find_child.exit.thread [
+59:                                               ; preds = %58, %57
+  %60 = tail call i64 @strspn(ptr noundef nonnull %45, ptr noundef nonnull @.str.19) #24
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !14
+  switch i8 %62, label %hwloc__nolibxml_import_find_child.exit.thread [
     i8 0, label %hwloc__nolibxml_import_find_child.exit
-    i8 32, label %71
+    i8 32, label %63
   ]
 
-71:                                               ; preds = %67
-  store i8 0, ptr %69, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
+63:                                               ; preds = %59
+  store i8 0, ptr %61, align 1, !tbaa !14
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 1
   br label %hwloc__nolibxml_import_find_child.exit
 
-hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
-  %.sink.i = phi ptr [ %72, %71 ], [ null, %67 ]
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sink.i, ptr %73, align 8
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(13) @.str.44) #23
-  %.not49 = icmp eq i32 %74, 0
-  br i1 %.not49, label %.preheader, label %hwloc__nolibxml_import_find_child.exit.thread
+hwloc__nolibxml_import_find_child.exit:           ; preds = %59, %63
+  %.sink.i = phi ptr [ %64, %63 ], [ null, %59 ]
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %.sink.i, ptr %65, align 8, !tbaa !14
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(13) @.str.44) #24
+  %.not51 = icmp eq i32 %66, 0
+  br i1 %.not51, label %.preheader, label %hwloc__nolibxml_import_find_child.exit.thread
 
 .preheader:                                       ; preds = %hwloc__nolibxml_import_find_child.exit
-  %75 = call i32 @hwloc__nolibxml_import_next_attr(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %._crit_edge, label %.lr.ph
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  %67 = call i32 @hwloc__nolibxml_import_next_attr(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %79
-  %.159 = phi ptr [ %81, %79 ], [ null, %.preheader ]
-  %77 = load ptr, ptr %10, align 8
-  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(8) @.str.45) #23
-  %.not50 = icmp eq i32 %78, 0
-  br i1 %.not50, label %79, label %hwloc__nolibxml_import_find_child.exit.thread
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.166 = phi ptr [ %73, %71 ], [ null, %.preheader ]
+  %69 = load ptr, ptr %10, align 8, !tbaa !21
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(8) @.str.45) #24
+  %.not52 = icmp eq i32 %70, 0
+  br i1 %.not52, label %71, label %.thread61
 
-79:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef %.159) #20
-  %80 = load ptr, ptr %11, align 8
-  %81 = tail call noalias ptr @strdup(ptr noundef %80) #20
-  %82 = call i32 @hwloc__nolibxml_import_next_attr(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %._crit_edge, label %.lr.ph
+.thread61:                                        ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  br label %hwloc__nolibxml_import_find_child.exit.thread
 
-._crit_edge:                                      ; preds = %79, %.preheader
-  %.1.lcssa = phi ptr [ null, %.preheader ], [ %81, %79 ]
-  %84 = call i32 @hwloc__xml_import_diff(ptr noundef nonnull %7, ptr noundef %4) #20
-  %85 = icmp eq ptr %5, null
-  %86 = icmp ne i32 %84, 0
-  %or.cond = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond, label %88, label %87
+71:                                               ; preds = %.lr.ph
+  tail call void @free(ptr noundef %.166) #21
+  %72 = load ptr, ptr %11, align 8, !tbaa !21
+  %73 = tail call noalias ptr @strdup(ptr noundef %72) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  %74 = call i32 @hwloc__nolibxml_import_next_attr(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %._crit_edge, label %.lr.ph
 
-87:                                               ; preds = %._crit_edge
-  store ptr %.1.lcssa, ptr %5, align 8
-  br label %89
+._crit_edge:                                      ; preds = %71, %.preheader
+  %.1.lcssa = phi ptr [ null, %.preheader ], [ %73, %71 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  %76 = call i32 @hwloc__xml_import_diff(ptr noundef nonnull %7, ptr noundef %4) #21
+  %77 = icmp eq ptr %5, null
+  %78 = icmp ne i32 %76, 0
+  %or.cond = select i1 %77, i1 true, i1 %78
+  br i1 %or.cond, label %80, label %79
 
-88:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %.1.lcssa) #20
-  br label %89
+79:                                               ; preds = %._crit_edge
+  store ptr %.1.lcssa, ptr %5, align 8, !tbaa !21
+  br label %81
 
-89:                                               ; preds = %88, %87
-  call void @free(ptr noundef %23) #20
-  br label %90
+80:                                               ; preds = %._crit_edge
+  call void @free(ptr noundef %.1.lcssa) #21
+  br label %81
 
-hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %.lr.ph, %52, %67, %56, %30, %hwloc__nolibxml_import_find_child.exit
-  %.040 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ null, %30 ], [ null, %56 ], [ null, %67 ], [ null, %52 ], [ %.159, %.lr.ph ], [ null, %.critedge ]
-  tail call void @free(ptr noundef %23) #20
-  tail call void @free(ptr noundef %.040) #20
-  br label %90
+81:                                               ; preds = %80, %79
+  %82 = load ptr, ptr %8, align 8, !tbaa !21
+  call void @free(ptr noundef %82) #21
+  br label %84
 
-90:                                               ; preds = %hwloc__nolibxml_import_find_child.exit.thread, %13, %19, %89
-  %.041 = phi i32 [ %84, %89 ], [ -1, %19 ], [ -1, %13 ], [ -1, %hwloc__nolibxml_import_find_child.exit.thread ]
-  ret i32 %.041
+hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %44, %59, %48, %28, %.thread61, %hwloc__nolibxml_import_find_child.exit
+  %.042 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ %.166, %.thread61 ], [ null, %28 ], [ null, %48 ], [ null, %59 ], [ null, %44 ], [ null, %.critedge ]
+  %83 = load ptr, ptr %8, align 8, !tbaa !21
+  tail call void @free(ptr noundef %83) #21
+  tail call void @free(ptr noundef %.042) #21
+  br label %84
+
+84:                                               ; preds = %hwloc__nolibxml_import_find_child.exit.thread, %13, %19, %81
+  %.043 = phi i32 [ %76, %81 ], [ -1, %19 ], [ -1, %13 ], [ -1, %hwloc__nolibxml_import_find_child.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #21
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #19
+  %4 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #20
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %hwloc_nolibxml_export_diff_buffer.exit.thread, label %5
 
@@ -458,81 +472,81 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
   br label %sub_0
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %6) #21
-  %.not25.i = icmp eq ptr %9, null
-  br i1 %.not25.i, label %10, label %11
+  %9 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %6) #22
+  %.not28.not.i = icmp eq ptr %9, null
+  br i1 %.not28.not.i, label %.thread.i, label %10
 
-10:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %4) #20
+.thread.i:                                        ; preds = %8
+  tail call void @free(ptr noundef nonnull %4) #21
   br label %hwloc_nolibxml_export_diff_buffer.exit.thread
 
-11:                                               ; preds = %8
-  %12 = trunc i64 %6 to i32
-  %13 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %12)
+10:                                               ; preds = %8
+  %11 = trunc i64 %6 to i32
+  %12 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %11)
   br label %sub_0
 
-sub_0:                                            ; preds = %._crit_edge.i, %11
-  %.021 = phi ptr [ %4, %._crit_edge.i ], [ %9, %11 ]
-  %.020 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
-  %14 = load i8, ptr %2, align 1
-  %.not25 = icmp eq i8 %14, 45
+sub_0:                                            ; preds = %._crit_edge.i, %10
+  %.021 = phi ptr [ %4, %._crit_edge.i ], [ %9, %10 ]
+  %.020 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %10 ]
+  %13 = load i8, ptr %2, align 1
+  %.not25 = icmp eq i8 %13, 45
   br i1 %.not25, label %hwloc_nolibxml_export_diff_buffer.exit.tail, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
 
 hwloc_nolibxml_export_diff_buffer.exit.tail:      ; preds = %sub_0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
 
-18:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail
-  %19 = load ptr, ptr @stdout, align 8
-  br label %22
+17:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !18
+  br label %21
 
 hwloc_nolibxml_export_diff_buffer.exit.tail.thread: ; preds = %sub_0, %hwloc_nolibxml_export_diff_buffer.exit.tail
-  %20 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.22)
-  %.not15 = icmp eq ptr %20, null
-  br i1 %.not15, label %21, label %22
+  %19 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.22)
+  %.not15 = icmp eq ptr %19, null
+  br i1 %.not15, label %20, label %21
 
-21:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
-  tail call void @free(ptr noundef nonnull %.021) #20
+20:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
+  tail call void @free(ptr noundef nonnull %.021) #21
   br label %hwloc_nolibxml_export_diff_buffer.exit.thread
 
-22:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail.thread, %18
-  %.012 = phi ptr [ %20, %hwloc_nolibxml_export_diff_buffer.exit.tail.thread ], [ %19, %18 ]
-  %23 = add nsw i32 %.020, -1
-  %24 = sext i32 %23 to i64
-  %25 = tail call i64 @fwrite(ptr noundef nonnull %.021, i64 noundef 1, i64 noundef %24, ptr noundef %.012)
-  %26 = trunc i64 %25 to i32
-  %27 = icmp eq i32 %23, %26
-  br i1 %27, label %31, label %28
+21:                                               ; preds = %hwloc_nolibxml_export_diff_buffer.exit.tail.thread, %17
+  %.012 = phi ptr [ %19, %hwloc_nolibxml_export_diff_buffer.exit.tail.thread ], [ %18, %17 ]
+  %22 = add nsw i32 %.020, -1
+  %23 = sext i32 %22 to i64
+  %24 = tail call i64 @fwrite(ptr noundef nonnull %.021, i64 noundef 1, i64 noundef %23, ptr noundef %.012)
+  %25 = trunc i64 %24 to i32
+  %26 = icmp eq i32 %22, %25
+  br i1 %26, label %30, label %27
 
-28:                                               ; preds = %22
-  %29 = tail call i32 @ferror(ptr noundef %.012) #20
-  %30 = tail call ptr @__errno_location() #22
-  store i32 %29, ptr %30, align 4
-  br label %31
+27:                                               ; preds = %21
+  %28 = tail call i32 @ferror(ptr noundef %.012) #21
+  %29 = tail call ptr @__errno_location() #23
+  store i32 %28, ptr %29, align 4, !tbaa !20
+  br label %30
 
-31:                                               ; preds = %22, %28
-  %.0 = phi i32 [ -1, %28 ], [ 0, %22 ]
-  tail call void @free(ptr noundef nonnull %.021) #20
-  %32 = load ptr, ptr @stdout, align 8
-  %.not16 = icmp eq ptr %.012, %32
-  br i1 %.not16, label %hwloc_nolibxml_export_diff_buffer.exit.thread, label %33
+30:                                               ; preds = %21, %27
+  %.0 = phi i32 [ -1, %27 ], [ 0, %21 ]
+  tail call void @free(ptr noundef nonnull %.021) #21
+  %31 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %.not16 = icmp eq ptr %.012, %31
+  br i1 %.not16, label %hwloc_nolibxml_export_diff_buffer.exit.thread, label %32
 
-33:                                               ; preds = %31
-  %34 = tail call i32 @fclose(ptr noundef %.012)
+32:                                               ; preds = %30
+  %33 = tail call i32 @fclose(ptr noundef %.012)
   br label %hwloc_nolibxml_export_diff_buffer.exit.thread
 
-hwloc_nolibxml_export_diff_buffer.exit.thread:    ; preds = %3, %10, %31, %33, %21
-  %.013 = phi i32 [ -1, %21 ], [ %.0, %33 ], [ %.0, %31 ], [ -1, %10 ], [ -1, %3 ]
+hwloc_nolibxml_export_diff_buffer.exit.thread:    ; preds = %.thread.i, %3, %30, %32, %20
+  %.013 = phi i32 [ -1, %20 ], [ %.0, %32 ], [ %.0, %30 ], [ -1, %3 ], [ -1, %.thread.i ]
   ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
-  %5 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #19
+  %5 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %16, label %6
+  br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %4
   %7 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef 16384)
@@ -541,44 +555,48 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noun
 
 ._crit_edge:                                      ; preds = %6
   %.pre = trunc nuw i64 %7 to i32
-  br label %15
+  br label %14
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #21
-  %.not25 = icmp eq ptr %10, null
-  br i1 %.not25, label %11, label %12
+  %10 = tail call ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #22
+  %.not28.not = icmp eq ptr %10, null
+  br i1 %.not28.not, label %.thread, label %11
 
-11:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %5) #20
-  br label %16
-
-12:                                               ; preds = %9
-  %13 = trunc i64 %7 to i32
-  %14 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %13)
+.thread:                                          ; preds = %9
+  tail call void @free(ptr noundef nonnull %5) #21
   br label %15
 
-15:                                               ; preds = %._crit_edge, %12
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %13, %12 ]
-  %.021 = phi ptr [ %5, %._crit_edge ], [ %10, %12 ]
-  store ptr %.021, ptr %2, align 8
-  store i32 %.pre-phi, ptr %3, align 4
-  br label %16
+11:                                               ; preds = %9
+  %12 = trunc i64 %7 to i32
+  %13 = tail call fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %12)
+  br label %14
 
-16:                                               ; preds = %4, %15, %11
-  %.0 = phi i32 [ 0, %15 ], [ -1, %11 ], [ -1, %4 ]
+14:                                               ; preds = %._crit_edge, %11
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %12, %11 ]
+  %.023 = phi ptr [ %5, %._crit_edge ], [ %10, %11 ]
+  store ptr %.023, ptr %2, align 8, !tbaa !21
+  store i32 %.pre-phi, ptr %3, align 4, !tbaa !20
+  br label %15
+
+15:                                               ; preds = %.thread, %4, %14
+  %.0 = phi i32 [ 0, %14 ], [ -1, %4 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @hwloc_nolibxml_read_file(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
 sub_0:
   %3 = alloca %struct.stat, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #21
   %4 = load i8, ptr %0, align 1
   %.not48 = icmp eq i8 %4, 45
   br i1 %.not48, label %sub_1, label %.tail
@@ -597,44 +615,44 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not37, label %41, label %10
 
 10:                                               ; preds = %.tail
-  %11 = call i32 @stat(ptr noundef nonnull %.not, ptr noundef nonnull %3) #20
+  %11 = call i32 @stat(ptr noundef nonnull %.not, ptr noundef nonnull %3) #21
   %.not38 = icmp eq i32 %11, 0
   br i1 %.not38, label %12, label %21
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 32768
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !39
   %20 = add nsw i64 %19, 1
   br label %21
 
 21:                                               ; preds = %12, %17, %10
   %.033 = phi i64 [ 4096, %10 ], [ %20, %17 ], [ 4096, %12 ]
   %22 = add i64 %.033, 1
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #19
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #20
   %.not39 = icmp eq ptr %23, null
   br i1 %.not39, label %39, label %.preheader
 
 .preheader:                                       ; preds = %21
   %24 = tail call i64 @fread(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %.033, ptr noundef nonnull %9)
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  store i8 0, ptr %25, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  store i8 0, ptr %25, align 1, !tbaa !14
   %.not4044 = icmp eq i64 %24, %.033
   br i1 %.not4044, label %.lr.ph, label %._crit_edge
 
 26:                                               ; preds = %.lr.ph
   %27 = and i64 %.145, 9223372036854775807
-  %28 = getelementptr inbounds i8, ptr %35, i64 %32
+  %28 = getelementptr inbounds nuw i8, ptr %35, i64 %32
   %29 = tail call i64 @fread(ptr noundef nonnull %28, i64 noundef 1, i64 noundef %27, ptr noundef nonnull %9)
   %30 = add i64 %29, %32
-  %31 = getelementptr inbounds i8, ptr %35, i64 %30
-  store i8 0, ptr %31, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %35, i64 %30
+  store i8 0, ptr %31, align 1, !tbaa !14
   %.not40 = icmp eq i64 %29, %27
   br i1 %.not40, label %.lr.ph, label %._crit_edge
 
@@ -644,7 +662,7 @@ sub_1:                                            ; preds = %sub_0
   %.145 = phi i64 [ %33, %26 ], [ %.033, %.preheader ]
   %33 = shl i64 %.145, 1
   %34 = or disjoint i64 %33, 1
-  %35 = tail call ptr @realloc(ptr noundef nonnull %.03046, i64 noundef %34) #21
+  %35 = tail call ptr @realloc(ptr noundef nonnull %.03046, i64 noundef %34) #22
   %.not41 = icmp eq ptr %35, null
   br i1 %.not41, label %38, label %26
 
@@ -652,13 +670,13 @@ sub_1:                                            ; preds = %sub_0
   %.030.lcssa = phi ptr [ %23, %.preheader ], [ %35, %26 ]
   %.lcssa = phi i64 [ %24, %.preheader ], [ %30, %26 ]
   %36 = tail call i32 @fclose(ptr noundef nonnull %9)
-  store ptr %.030.lcssa, ptr %1, align 8
+  store ptr %.030.lcssa, ptr %1, align 8, !tbaa !21
   %37 = add i64 %.lcssa, 1
-  store i64 %37, ptr %2, align 8
+  store i64 %37, ptr %2, align 8, !tbaa !22
   br label %41
 
 38:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %.03046) #20
+  tail call void @free(ptr noundef nonnull %.03046) #21
   br label %39
 
 39:                                               ; preds = %21, %38
@@ -667,76 +685,82 @@ sub_1:                                            ; preds = %sub_0
 
 41:                                               ; preds = %39, %.tail, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %.tail ], [ -1, %39 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #21
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #4 {
+define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
   br label %10
 
 10:                                               ; preds = %.critedge, %2
   %.033 = phi ptr [ %9, %2 ], [ %15, %.critedge ]
-  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #23
+  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(7) @.str.3, i64 noundef 6) #24
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(11) @.str.4, i64 noundef 10) #23
+  %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(11) @.str.4, i64 noundef 10) #24
   %.not37 = icmp eq i32 %13, 0
   br i1 %.not37, label %.critedge, label %16
 
 .critedge:                                        ; preds = %10, %12
-  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 10) #23
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 10) #24
   %.not40 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  br i1 %.not40, label %.loopexit, label %10, !llvm.loop !6
+  br i1 %.not40, label %.loopexit, label %10, !llvm.loop !40
 
 16:                                               ; preds = %12
-  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.033, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.033, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
   %18 = icmp eq i32 %17, 2
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr %3, align 4
+  %20 = load i32, ptr %3, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %20, ptr %21, align 8
-  %22 = load i32, ptr %4, align 4
+  store i32 %20, ptr %21, align 8, !tbaa !41
+  %22 = load i32, ptr %4, align 4, !tbaa !20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %22, ptr %23, align 4
-  %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 62) #23
+  store i32 %22, ptr %23, align 4, !tbaa !42
+  %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 62) #24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %38
 
 26:                                               ; preds = %16
-  %27 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(11) @.str.7, i64 noundef 10) #23
+  %27 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(11) @.str.7, i64 noundef 10) #24
   %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %28, label %32
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %29, align 8
+  store i32 1, ptr %29, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 0, ptr %30, align 4
+  store i32 0, ptr %30, align 4, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %.033, i64 10
   br label %38
 
 32:                                               ; preds = %26
-  %33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(7) @.str.8, i64 noundef 6) #23
+  %33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(7) @.str.8, i64 noundef 6) #24
   %.not39 = icmp eq i32 %33, 0
   br i1 %.not39, label %34, label %.loopexit
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %35, align 8
+  store i32 0, ptr %35, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 9, ptr %36, align 4
+  store i32 9, ptr %36, align 4, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %.033, i64 6
   br label %38
 
@@ -744,51 +768,48 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr noundef captu
   %.034 = phi ptr [ %25, %19 ], [ %37, %34 ], [ %31, %28 ]
   %.0 = phi ptr [ @.str.6, %19 ], [ @.str.9, %34 ], [ @.str.6, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr @hwloc__nolibxml_import_next_attr, ptr %41, align 8
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr @hwloc__nolibxml_import_find_child, ptr %43, align 8
-  %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store ptr @hwloc__nolibxml_import_close_tag, ptr %45, align 8
-  %46 = load ptr, ptr %39, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  store ptr @hwloc__nolibxml_import_close_child, ptr %47, align 8
-  %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  store ptr @hwloc__nolibxml_import_get_content, ptr %49, align 8
-  %50 = load ptr, ptr %39, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  store ptr @hwloc__nolibxml_import_close_content, ptr %51, align 8
-  store ptr null, ptr %1, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 0, ptr %52, align 8
-  store ptr %.034, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %.0, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %54, align 8
+  store ptr @hwloc__nolibxml_import_next_attr, ptr %41, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store ptr @hwloc__nolibxml_import_find_child, ptr %42, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store ptr @hwloc__nolibxml_import_close_tag, ptr %43, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  store ptr @hwloc__nolibxml_import_close_child, ptr %44, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  store ptr @hwloc__nolibxml_import_get_content, ptr %45, align 8, !tbaa !33
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  store ptr @hwloc__nolibxml_import_close_content, ptr %46, align 8, !tbaa !34
+  store ptr null, ptr %1, align 8, !tbaa !35
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i32 0, ptr %47, align 8, !tbaa !14
+  store ptr %.034, ptr %5, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %.0, ptr %48, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %49, align 8, !tbaa !14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %32, %38
   %.035 = phi i32 [ 0, %38 ], [ -1, %32 ], [ -1, %.critedge ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @hwloc_nolibxml_look_done(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 80
-  %.val = load ptr, ptr %3, align 8
+  %.val = load ptr, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
 
 6:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %5) #20
-  store ptr null, ptr %4, align 8
+  tail call void @free(ptr noundef nonnull %5) #21
+  store ptr null, ptr %4, align 8, !tbaa !10
   br label %hwloc_nolibxml_free_buffers.exit
 
 hwloc_nolibxml_free_buffers.exit:                 ; preds = %2, %6
@@ -796,13 +817,13 @@ hwloc_nolibxml_free_buffers.exit:                 ; preds = %2, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %hwloc_nolibxml_free_buffers.exit
-  %9 = tail call i32 @hwloc__xml_verbose() #20
+  %9 = tail call i32 @hwloc__xml_verbose() #21
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 134, i64 1, ptr %11) #24
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 134, i64 1, ptr %11) #25
   br label %13
 
 13:                                               ; preds = %10, %8, %hwloc_nolibxml_free_buffers.exit
@@ -810,81 +831,81 @@ hwloc_nolibxml_free_buffers.exit:                 ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @hwloc_nolibxml_backend_exit(ptr noundef readonly captures(none) %0) #5 {
+define internal void @hwloc_nolibxml_backend_exit(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %5) #20
+  tail call void @free(ptr noundef nonnull %5) #21
   br label %hwloc_nolibxml_free_buffers.exit
 
 hwloc_nolibxml_free_buffers.exit:                 ; preds = %1, %6
-  tail call void @free(ptr noundef nonnull %3) #20
+  tail call void @free(ptr noundef nonnull %3) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #10 {
+define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.18) #23
-  %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = tail call i64 @strspn(ptr noundef nonnull %8, ptr noundef nonnull @.str.10) #23
-  %10 = getelementptr inbounds i8, ptr %8, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %7 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.18) #24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
+  %9 = tail call i64 @strspn(ptr noundef nonnull %8, ptr noundef nonnull @.str.10) #24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %.not83 = icmp eq i8 %11, 61
   br i1 %.not83, label %12, label %.loopexit
 
 12:                                               ; preds = %6
   %13 = getelementptr i8, ptr %10, i64 1
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !14
   %.not84 = icmp eq i8 %14, 34
   br i1 %.not84, label %15, label %.loopexit
 
 15:                                               ; preds = %12
-  store i8 0, ptr %10, align 1
-  store ptr %8, ptr %1, align 8
+  store i8 0, ptr %10, align 1, !tbaa !14
+  store ptr %8, ptr %1, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store ptr %16, ptr %2, align 8
-  %.pre = load i8, ptr %16, align 1
+  store ptr %16, ptr %2, align 8, !tbaa !21
+  %.pre = load i8, ptr %16, align 1, !tbaa !14
   br label %17
 
 17:                                               ; preds = %60, %15
@@ -900,7 +921,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nound
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %19, i64 1
   %22 = getelementptr i8, ptr %21, i64 %.080
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #23
+  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #24
   %.not86 = icmp eq i32 %23, 0
   br i1 %.not86, label %24, label %26
 
@@ -909,7 +930,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nound
   br label %60
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #23
+  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #24
   %.not87 = icmp eq i32 %27, 0
   br i1 %.not87, label %28, label %sub_0
 
@@ -939,17 +960,17 @@ sub_1:                                            ; preds = %sub_0
   br label %60
 
 .tail.thread:                                     ; preds = %sub_0
-  %38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #23
+  %38 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #24
   %.not89 = icmp eq i32 %38, 0
   br i1 %.not89, label %41, label %sub_094
 
 .tail.thread.thread:                              ; preds = %sub_1
-  %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #23
+  %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #24
   %.not89123 = icmp eq i32 %39, 0
   br i1 %.not89123, label %41, label %.tail98.thread
 
 .thread:                                          ; preds = %.tail
-  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #23
+  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #24
   %.not89116 = icmp eq i32 %40, 0
   br i1 %.not89116, label %41, label %.tail98.thread
 
@@ -996,7 +1017,7 @@ sub_1100:                                         ; preds = %sub_094
   br label %60
 
 .tail98.thread:                                   ; preds = %sub_094, %.tail.thread.thread, %.thread, %sub_195, %.tail93, %sub_1100, %.tail98
-  %57 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #23
+  %57 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #24
   %.not92 = icmp eq i32 %57, 0
   br i1 %.not92, label %58, label %.loopexit
 
@@ -1007,21 +1028,21 @@ sub_1100:                                         ; preds = %sub_094
 60:                                               ; preds = %17, %24, %36, %48, %58, %55, %41, %28
   %.sink = phi i8 [ 10, %24 ], [ 9, %36 ], [ 60, %48 ], [ 38, %58 ], [ 62, %55 ], [ 34, %41 ], [ 13, %28 ], [ %18, %17 ]
   %.1 = phi i64 [ %25, %24 ], [ %37, %36 ], [ %49, %48 ], [ %59, %58 ], [ %56, %55 ], [ %42, %41 ], [ %29, %28 ], [ %.080, %17 ]
-  store i8 %.sink, ptr %19, align 1
+  store i8 %.sink, ptr %19, align 1, !tbaa !14
   %61 = add i64 %.079, 1
   %62 = getelementptr i8, ptr %16, i64 %61
   %63 = getelementptr i8, ptr %62, i64 %.1
-  %64 = load i8, ptr %63, align 1
+  %64 = load i8, ptr %63, align 1, !tbaa !14
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %.loopexit, label %17, !llvm.loop !7
+  br i1 %65, label %.loopexit, label %17, !llvm.loop !43
 
 66:                                               ; preds = %17
   %67 = getelementptr i8, ptr %19, i64 %.080
-  store i8 0, ptr %19, align 1
+  store i8 0, ptr %19, align 1, !tbaa !14
   %68 = getelementptr i8, ptr %67, i64 1
-  %69 = tail call i64 @strspn(ptr noundef readonly %68, ptr noundef nonnull @.str.18) #23
-  %70 = getelementptr inbounds i8, ptr %68, i64 %69
-  store ptr %70, ptr %4, align 8
+  %69 = tail call i64 @strspn(ptr noundef readonly %68, ptr noundef nonnull @.str.18) #24
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
+  store ptr %70, ptr %4, align 8, !tbaa !14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.tail98.thread, %6, %12, %3, %66
@@ -1030,78 +1051,78 @@ sub_1100:                                         ; preds = %sub_094
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) %2) #11 {
+define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef writeonly captures(none) %2) #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %4, align 8
-  store ptr %0, ptr %1, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %0, ptr %1, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !tbaa !14
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %3
-  %13 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #23
-  %14 = getelementptr inbounds i8, ptr %6, i64 %13
-  %15 = load i8, ptr %14, align 1
+  %13 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !14
   %.not40 = icmp eq i8 %15, 60
   br i1 %.not40, label %16, label %38
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %17, ptr %21, align 8
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 62) #23
+  store ptr %17, ptr %21, align 8, !tbaa !14
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 62) #24
   %.not41 = icmp eq ptr %22, null
   br i1 %.not41, label %38, label %23
 
 23:                                               ; preds = %20
-  store i8 0, ptr %22, align 1
+  store i8 0, ptr %22, align 1, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %24, ptr %5, align 8
+  store ptr %24, ptr %5, align 8, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %22, i64 -1
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = icmp eq i8 %26, 47
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br i1 %27, label %29, label %30
 
 29:                                               ; preds = %23
-  store i32 1, ptr %28, align 8
-  store i8 0, ptr %25, align 1
+  store i32 1, ptr %28, align 8, !tbaa !14
+  store i8 0, ptr %25, align 1, !tbaa !14
   br label %31
 
 30:                                               ; preds = %23
-  store i32 0, ptr %28, align 8
+  store i32 0, ptr %28, align 8, !tbaa !14
   br label %31
 
 31:                                               ; preds = %30, %29
-  %32 = tail call i64 @strspn(ptr noundef nonnull %17, ptr noundef nonnull @.str.19) #23
-  %33 = getelementptr inbounds i8, ptr %17, i64 %32
-  %34 = load i8, ptr %33, align 1
+  %32 = tail call i64 @strspn(ptr noundef nonnull %17, ptr noundef nonnull @.str.19) #24
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !14
   switch i8 %34, label %38 [
     i8 0, label %.sink.split
     i8 32, label %35
   ]
 
 35:                                               ; preds = %31
-  store i8 0, ptr %33, align 1
+  store i8 0, ptr %33, align 1, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %35
   %.sink = phi ptr [ %36, %35 ], [ null, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %.sink, ptr %37, align 8
-  store ptr %17, ptr %2, align 8
+  store ptr %.sink, ptr %37, align 8, !tbaa !14
+  store ptr %17, ptr %2, align 8, !tbaa !21
   br label %38
 
 38:                                               ; preds = %.sink.split, %31, %20, %16, %12, %3
@@ -1110,40 +1131,40 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr noundef captures(none) %0) #11 {
+define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr noundef captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !14
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #23
-  %8 = getelementptr inbounds i8, ptr %6, i64 %7
-  %9 = load i8, ptr %8, align 1
+  %6 = load ptr, ptr %2, align 8, !tbaa !14
+  %7 = tail call i64 @strspn(ptr noundef readonly %6, ptr noundef nonnull @.str.18) #24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
+  %9 = load i8, ptr %8, align 1, !tbaa !14
   %.not15 = icmp eq i8 %9, 60
   br i1 %.not15, label %10, label %21
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 62) #23
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 62) #24
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %21, label %13
 
 13:                                               ; preds = %10
-  store i8 0, ptr %12, align 1
+  store i8 0, ptr %12, align 1, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %14, ptr %2, align 8
-  %15 = load i8, ptr %11, align 1
+  store ptr %14, ptr %2, align 8, !tbaa !14
+  %15 = load i8, ptr %11, align 1, !tbaa !14
   %.not17 = icmp eq i8 %15, 47
   br i1 %.not17, label %16, label %21
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #23
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #24
   %.not18 = icmp ne i32 %20, 0
   %spec.select = sext i1 %.not18 to i32
   br label %21
@@ -1154,21 +1175,21 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @hwloc__nolibxml_import_close_child(ptr noundef readonly captures(none) %0) #12 {
+define internal void @hwloc__nolibxml_import_close_child(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %2, align 8
-  store ptr %5, ptr %4, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !14
+  store ptr %5, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
+define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -1177,7 +1198,7 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr nou
   br i1 %.not19, label %.sink.split, label %15
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 60) #23
+  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 60) #24
   %.not17 = icmp ne ptr %10, null
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %5 to i64
@@ -1187,14 +1208,14 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr nou
   br i1 %or.cond, label %14, label %15
 
 14:                                               ; preds = %9
-  store ptr %10, ptr %4, align 8
-  store i8 0, ptr %10, align 1
+  store ptr %10, ptr %4, align 8, !tbaa !14
+  store i8 0, ptr %10, align 1, !tbaa !14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %14
   %.sink = phi ptr [ %5, %14 ], [ @.str.20, %8 ]
   %.0.ph = phi i32 [ 1, %14 ], [ 0, %8 ]
-  store ptr %.sink, ptr %1, align 8
+  store ptr %.sink, ptr %1, align 8, !tbaa !21
   br label %15
 
 15:                                               ; preds = %.sink.split, %9, %8
@@ -1203,16 +1224,16 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @hwloc__nolibxml_import_close_content(ptr noundef readonly captures(none) %0) #12 {
+define internal void @hwloc__nolibxml_import_close_content(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
-  store i8 60, ptr %6, align 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  store i8 60, ptr %6, align 1, !tbaa !14
   br label %7
 
 7:                                                ; preds = %4, %1
@@ -1220,60 +1241,62 @@ define internal void @hwloc__nolibxml_import_close_content(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @hwloc__xml_verbose() local_unnamed_addr #13
+declare i32 @hwloc__xml_verbose() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #15
+declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
   %7 = alloca %struct.hwloc__xml_export_state_s, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #21
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %9, align 8
+  store ptr @hwloc__nolibxml_export_new_child, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %10, align 8
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %10, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %11, align 8
+  store ptr @hwloc__nolibxml_export_add_content, ptr %11, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %12, align 8
+  store ptr @hwloc__nolibxml_export_end_object, ptr %12, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %1, ptr %13, align 8
+  store ptr %1, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i32 0, ptr %14, align 8
+  store i32 0, ptr %14, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 0, ptr %15, align 8
-  store ptr %2, ptr %8, align 8
+  store i64 0, ptr %15, align 8, !tbaa !14
+  store ptr %2, ptr %8, align 8, !tbaa !14
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 %16, ptr %17, align 8
+  store i64 %16, ptr %17, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %19, align 8
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #20
+  store i32 0, ptr %19, align 8, !tbaa !14
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #21
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %hwloc__nolibxml_export_update_buffer.exit.i
 
 22:                                               ; preds = %5
   %23 = zext nneg i32 %20 to i64
-  store i64 %23, ptr %15, align 8
+  store i64 %23, ptr %15, align 8, !tbaa !14
   %.not.i = icmp slt i32 %20, %3
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %3, i32 1)
   %.0.i = select i1 %.not.i, i32 %20, i32 %spec.select.i
   %24 = sext i32 %.0.i to i64
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
-  store ptr %25, ptr %8, align 8
+  store ptr %25, ptr %8, align 8, !tbaa !14
   %26 = sub nsw i64 %16, %24
-  store i64 %26, ptr %17, align 8
+  store i64 %26, ptr %17, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit.i
 
 hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
@@ -1281,37 +1304,37 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
   %28 = phi i64 [ 0, %5 ], [ %23, %22 ]
   %29 = phi ptr [ %2, %5 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 2, ptr %18, align 4
-  store ptr %6, ptr %7, align 8
+  store i32 2, ptr %18, align 4, !tbaa !14
+  store ptr %6, ptr %7, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %31, align 8
+  store ptr @hwloc__nolibxml_export_new_child, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %32, align 8
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %32, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %33, align 8
+  store ptr @hwloc__nolibxml_export_add_content, ptr %33, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %34, align 8
+  store ptr @hwloc__nolibxml_export_end_object, ptr %34, align 8, !tbaa !50
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %1, ptr %35, align 8
-  store ptr %29, ptr %30, align 8
+  store ptr %1, ptr %35, align 8, !tbaa !51
+  store ptr %29, ptr %30, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i64 %28, ptr %36, align 8
+  store i64 %28, ptr %36, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %27, ptr %37, align 8
+  store i64 %27, ptr %37, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 2, ptr %38, align 8
+  store i32 2, ptr %38, align 8, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store i32 0, ptr %39, align 4
+  store i32 0, ptr %39, align 4, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 0, ptr %40, align 8
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %27, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
+  store i32 0, ptr %40, align 8, !tbaa !14
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %27, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #21
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %hwloc__nolibxml_export_new_child.exit
 
 43:                                               ; preds = %hwloc__nolibxml_export_update_buffer.exit.i
   %44 = zext nneg i32 %41 to i64
   %45 = add nuw nsw i64 %28, %44
-  store i64 %45, ptr %36, align 8
+  store i64 %45, ptr %36, align 8, !tbaa !14
   %46 = trunc i64 %27 to i32
   %.not.i35.i = icmp slt i32 %41, %46
   %.not12.i36.i = icmp eq i64 %27, 0
@@ -1320,9 +1343,9 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
   %.0.i38.i = select i1 %.not.i35.i, i32 %41, i32 %spec.select.i37.i
   %48 = sext i32 %.0.i38.i to i64
   %49 = getelementptr inbounds i8, ptr %29, i64 %48
-  store ptr %49, ptr %30, align 8
+  store ptr %49, ptr %30, align 8, !tbaa !14
   %50 = sub nsw i64 %27, %48
-  store i64 %50, ptr %37, align 8
+  store i64 %50, ptr %37, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_new_child.exit
 
 hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_export_update_buffer.exit.i, %43
@@ -1330,47 +1353,47 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   %.not = icmp eq i64 %51, 0
   %.str.27..str.26 = select i1 %.not, ptr @.str.27, ptr @.str.26
   call void @hwloc__nolibxml_export_new_prop(ptr noundef nonnull %7, ptr noundef nonnull @.str.25, ptr noundef nonnull %.str.27..str.26)
-  call void @hwloc__xml_export_topology(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %4) #20
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr %40, align 8
+  call void @hwloc__xml_export_topology(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %4) #21
+  %52 = load ptr, ptr %7, align 8, !tbaa !52
+  %53 = load i32, ptr %40, align 8, !tbaa !14
   %.not.i18 = icmp eq i32 %53, 0
   br i1 %.not.i18, label %58, label %54
 
 54:                                               ; preds = %hwloc__nolibxml_export_new_child.exit
-  %55 = load ptr, ptr %30, align 8
-  %56 = load i64, ptr %37, align 8
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.6) #20
+  %55 = load ptr, ptr %30, align 8, !tbaa !14
+  %56 = load i64, ptr %37, align 8, !tbaa !14
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.6) #21
   br label %68
 
 58:                                               ; preds = %hwloc__nolibxml_export_new_child.exit
-  %59 = load i32, ptr %39, align 4
+  %59 = load i32, ptr %39, align 4, !tbaa !14
   %.not20.i = icmp eq i32 %59, 0
-  %60 = load ptr, ptr %30, align 8
-  %61 = load i64, ptr %37, align 8
+  %60 = load ptr, ptr %30, align 8, !tbaa !14
+  %61 = load i64, ptr %37, align 8, !tbaa !14
   br i1 %.not20.i, label %66, label %62
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %64 = load i32, ptr %63, align 8
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
+  %64 = load i32, ptr %63, align 8, !tbaa !14
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #21
   br label %68
 
 66:                                               ; preds = %58
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.43) #20
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.43) #21
   br label %68
 
 68:                                               ; preds = %66, %62, %54
   %.0.i19 = phi i32 [ %57, %54 ], [ %65, %62 ], [ %67, %66 ]
   %69 = icmp sgt i32 %.0.i19, -1
-  %.pre.i = load ptr, ptr %30, align 8
+  %.pre.i = load ptr, ptr %30, align 8, !tbaa !14
   br i1 %69, label %70, label %hwloc__nolibxml_export_end_object.exit
 
 70:                                               ; preds = %68
   %71 = zext nneg i32 %.0.i19 to i64
-  %72 = load i64, ptr %36, align 8
+  %72 = load i64, ptr %36, align 8, !tbaa !14
   %73 = add i64 %72, %71
-  store i64 %73, ptr %36, align 8
-  %74 = load i64, ptr %37, align 8
+  store i64 %73, ptr %36, align 8, !tbaa !14
+  %74 = load i64, ptr %37, align 8, !tbaa !14
   %75 = trunc i64 %74 to i32
   %.not.i.i21 = icmp slt i32 %.0.i19, %75
   %.not12.i.i22 = icmp eq i64 %74, 0
@@ -1380,129 +1403,131 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   %77 = sext i32 %.0.i.i24 to i64
   %78 = getelementptr inbounds i8, ptr %.pre.i, i64 %77
   %79 = sub i64 %74, %77
-  store i64 %79, ptr %37, align 8
+  store i64 %79, ptr %37, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_end_object.exit
 
 hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
   %80 = phi ptr [ %.pre.i, %68 ], [ %78, %70 ]
   %81 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %80, ptr %81, align 8
-  %82 = load i64, ptr %36, align 8
+  store ptr %80, ptr %81, align 8, !tbaa !14
+  %82 = load i64, ptr %36, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  store i64 %82, ptr %83, align 8
-  %84 = load i64, ptr %37, align 8
+  store i64 %82, ptr %83, align 8, !tbaa !14
+  %84 = load i64, ptr %37, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  store i64 %84, ptr %85, align 8
-  %86 = load i64, ptr %15, align 8
+  store i64 %84, ptr %85, align 8, !tbaa !14
+  %86 = load i64, ptr %15, align 8, !tbaa !14
   %87 = add i64 %86, 1
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #21
   ret i64 %87
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr noundef captures(none) initializes((0, 84)) %1, ptr noundef %2) #4 {
+define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr noundef captures(none) initializes((0, 84)) %1, ptr noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %hwloc__nolibxml_export_update_buffer.exit
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i64, ptr %9, align 8
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.28) #20
+  %10 = load i64, ptr %9, align 8, !tbaa !14
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.28) #21
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %hwloc__nolibxml_export_update_buffer.exit
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load i64, ptr %15, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = add i64 %16, %14
-  store i64 %17, ptr %15, align 8
-  %18 = load i64, ptr %9, align 8
+  store i64 %17, ptr %15, align 8, !tbaa !14
+  %18 = load i64, ptr %9, align 8, !tbaa !14
   %19 = trunc i64 %18 to i32
   %.not.i = icmp slt i32 %11, %19
   %.not12.i = icmp eq i64 %18, 0
   %20 = add nsw i32 %19, -1
   %spec.select.i = select i1 %.not12.i, i32 0, i32 %20
   %.0.i = select i1 %.not.i, i32 %11, i32 %spec.select.i
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !14
   %22 = sext i32 %.0.i to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  store ptr %23, ptr %4, align 8
+  store ptr %23, ptr %4, align 8, !tbaa !14
   %24 = sub i64 %18, %22
-  store i64 %24, ptr %9, align 8
+  store i64 %24, ptr %9, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %13, %7, %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %5, align 4, !tbaa !14
   %27 = add i32 %26, 1
-  store i32 %27, ptr %5, align 4
-  store ptr %0, ptr %1, align 8
+  store i32 %27, ptr %5, align 4, !tbaa !14
+  store ptr %0, ptr %1, align 8, !tbaa !52
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %29, ptr %30, align 8
+  store ptr %29, ptr %30, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %32, ptr %33, align 8
+  store ptr %32, ptr %33, align 8, !tbaa !48
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %35, ptr %36, align 8
+  store ptr %35, ptr %36, align 8, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %38, ptr %39, align 8
+  store ptr %38, ptr %39, align 8, !tbaa !50
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %41, ptr %42, align 8
-  %43 = load ptr, ptr %4, align 8
-  store ptr %43, ptr %25, align 8
+  store ptr %41, ptr %42, align 8, !tbaa !51
+  %43 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %43, ptr %25, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %45 = load i64, ptr %44, align 8
+  %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %45, ptr %46, align 8
+  store i64 %45, ptr %46, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %48 = load i64, ptr %47, align 8
+  %48 = load i64, ptr %47, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %48, ptr %49, align 8
+  store i64 %48, ptr %49, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %51 = load i32, ptr %50, align 8
+  %51 = load i32, ptr %50, align 8, !tbaa !14
   %52 = add i32 %51, 2
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %52, ptr %53, align 8
+  store i32 %52, ptr %53, align 8, !tbaa !14
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  store i32 0, ptr %54, align 4
+  store i32 0, ptr %54, align 4, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 0, ptr %55, align 8
-  %56 = load i32, ptr %50, align 8
-  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %48, ptr noundef nonnull @.str.29, i32 noundef %56, ptr noundef nonnull @.str.20, ptr noundef %2) #20
+  store i32 0, ptr %55, align 8, !tbaa !14
+  %56 = load i32, ptr %50, align 8, !tbaa !14
+  %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %48, ptr noundef nonnull @.str.29, i32 noundef %56, ptr noundef nonnull @.str.20, ptr noundef %2) #21
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %59, label %hwloc__nolibxml_export_update_buffer.exit39
 
 59:                                               ; preds = %hwloc__nolibxml_export_update_buffer.exit
   %60 = zext nneg i32 %57 to i64
-  %61 = load i64, ptr %46, align 8
+  %61 = load i64, ptr %46, align 8, !tbaa !14
   %62 = add i64 %61, %60
-  store i64 %62, ptr %46, align 8
-  %63 = load i64, ptr %49, align 8
+  store i64 %62, ptr %46, align 8, !tbaa !14
+  %63 = load i64, ptr %49, align 8, !tbaa !14
   %64 = trunc i64 %63 to i32
   %.not.i35 = icmp slt i32 %57, %64
   %.not12.i36 = icmp eq i64 %63, 0
   %65 = add nsw i32 %64, -1
   %spec.select.i37 = select i1 %.not12.i36, i32 0, i32 %65
   %.0.i38 = select i1 %.not.i35, i32 %57, i32 %spec.select.i37
-  %66 = load ptr, ptr %25, align 8
+  %66 = load ptr, ptr %25, align 8, !tbaa !14
   %67 = sext i32 %.0.i38 to i64
   %68 = getelementptr inbounds i8, ptr %66, i64 %67
-  store ptr %68, ptr %25, align 8
+  store ptr %68, ptr %25, align 8, !tbaa !14
   %69 = sub i64 %63, %67
-  store i64 %69, ptr %49, align 8
+  store i64 %69, ptr %49, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit39
 
 hwloc__nolibxml_export_update_buffer.exit39:      ; preds = %hwloc__nolibxml_export_update_buffer.exit, %59
@@ -1512,24 +1537,24 @@ hwloc__nolibxml_export_update_buffer.exit39:      ; preds = %hwloc__nolibxml_exp
 ; Function Attrs: nounwind uwtable
 define internal void @hwloc__nolibxml_export_new_prop(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
-  %6 = tail call i64 @strcspn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.31) #23
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
+  %6 = tail call i64 @strcspn(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.31) #24
   %7 = icmp eq i64 %6, %5
   br i1 %7, label %hwloc__nolibxml_export_escape_string.exit, label %8
 
 8:                                                ; preds = %3
   %9 = mul i64 %5, 6
   %10 = or disjoint i64 %9, 1
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #19
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull readonly align 1 %2, i64 %6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %2, i64 %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %6
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   br label %14
 
 14:                                               ; preds = %23, %8
   %.037.i = phi ptr [ %12, %8 ], [ %27, %23 ]
   %.035.i = phi ptr [ %13, %8 ], [ %28, %23 ]
-  %15 = load i8, ptr %.037.i, align 1
+  %15 = load i8, ptr %.037.i, align 1, !tbaa !14
   switch i8 %15, label %23 [
     i8 0, label %29
     i8 10, label %16
@@ -1542,108 +1567,108 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr noundef captures(none)
   ]
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.32, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.32, i64 6, i1 false) #21
   br label %23
 
 17:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.33, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.33, i64 6, i1 false) #21
   br label %23
 
 18:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.34, i64 5, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.34, i64 5, i1 false) #21
   br label %23
 
 19:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.035.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.35, i64 7, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.035.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.35, i64 7, i1 false) #21
   br label %23
 
 20:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.36, i64 5, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.36, i64 5, i1 false) #21
   br label %23
 
 21:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.37, i64 5, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.035.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.37, i64 5, i1 false) #21
   br label %23
 
 22:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %.035.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 6, i1 false) #21
   br label %23
 
 23:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %14
   %.0.i = phi i64 [ 5, %22 ], [ 4, %21 ], [ 4, %20 ], [ 6, %19 ], [ 4, %18 ], [ 5, %17 ], [ 5, %16 ], [ 0, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.0.i
   %25 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
-  %26 = tail call i64 @strcspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.31) #23
+  %26 = tail call i64 @strcspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.31) #24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %25, i64 %26, i1 false)
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = getelementptr inbounds i8, ptr %24, i64 %26
-  br label %14, !llvm.loop !8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  br label %14, !llvm.loop !53
 
 29:                                               ; preds = %14
-  store i8 0, ptr %.035.i, align 1
+  store i8 0, ptr %.035.i, align 1, !tbaa !14
   br label %hwloc__nolibxml_export_escape_string.exit
 
 hwloc__nolibxml_export_escape_string.exit:        ; preds = %3, %29
   %.036.i = phi ptr [ %11, %29 ], [ null, %3 ]
-  %30 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %4, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = load i64, ptr %31, align 8
+  %32 = load i64, ptr %31, align 8, !tbaa !14
   %.not = icmp eq ptr %.036.i, null
   %33 = select i1 %.not, ptr %2, ptr %.036.i
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef nonnull %33) #20
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef nonnull %33) #21
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %36, label %hwloc__nolibxml_export_update_buffer.exit
 
 36:                                               ; preds = %hwloc__nolibxml_export_escape_string.exit
   %37 = zext nneg i32 %34 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !tbaa !14
   %40 = add i64 %39, %37
-  store i64 %40, ptr %38, align 8
-  %41 = load i64, ptr %31, align 8
+  store i64 %40, ptr %38, align 8, !tbaa !14
+  %41 = load i64, ptr %31, align 8, !tbaa !14
   %42 = trunc i64 %41 to i32
   %.not.i = icmp slt i32 %34, %42
   %.not12.i = icmp eq i64 %41, 0
   %43 = add nsw i32 %42, -1
   %spec.select.i = select i1 %.not12.i, i32 0, i32 %43
   %.0.i10 = select i1 %.not.i, i32 %34, i32 %spec.select.i
-  %44 = load ptr, ptr %4, align 8
+  %44 = load ptr, ptr %4, align 8, !tbaa !14
   %45 = sext i32 %.0.i10 to i64
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  store ptr %46, ptr %4, align 8
+  store ptr %46, ptr %4, align 8, !tbaa !14
   %47 = sub i64 %41, %45
-  store i64 %47, ptr %31, align 8
+  store i64 %47, ptr %31, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %hwloc__nolibxml_export_escape_string.exit, %36
-  tail call void @free(ptr noundef %.036.i) #20
+  tail call void @free(ptr noundef %.036.i) #21
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @hwloc__nolibxml_export_add_content(ptr noundef captures(none) %0, ptr noundef %1, i64 %2) #4 {
+define internal void @hwloc__nolibxml_export_add_content(ptr noundef captures(none) %0, ptr noundef %1, i64 %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !14
   %.not = icmp eq i32 %6, 0
-  %.pre16 = load ptr, ptr %4, align 8
+  %.pre16 = load ptr, ptr %4, align 8, !tbaa !14
   br i1 %.not, label %7, label %hwloc__nolibxml_export_update_buffer.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i64, ptr %8, align 8
-  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.pre16, i64 noundef %9, ptr noundef nonnull @.str.39) #20
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.pre16, i64 noundef %9, ptr noundef nonnull @.str.39) #21
   %11 = icmp sgt i32 %10, -1
-  %.pre = load ptr, ptr %4, align 8
+  %.pre = load ptr, ptr %4, align 8, !tbaa !14
   br i1 %11, label %12, label %hwloc__nolibxml_export_update_buffer.exit
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %10 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !14
   %16 = add i64 %15, %13
-  store i64 %16, ptr %14, align 8
-  %17 = load i64, ptr %8, align 8
+  store i64 %16, ptr %14, align 8, !tbaa !14
+  %17 = load i64, ptr %8, align 8, !tbaa !14
   %18 = trunc i64 %17 to i32
   %.not.i = icmp slt i32 %10, %18
   %.not12.i = icmp eq i64 %17, 0
@@ -1652,39 +1677,39 @@ define internal void @hwloc__nolibxml_export_add_content(ptr noundef captures(no
   %.0.i = select i1 %.not.i, i32 %10, i32 %spec.select.i
   %20 = sext i32 %.0.i to i64
   %21 = getelementptr inbounds i8, ptr %.pre, i64 %20
-  store ptr %21, ptr %4, align 8
+  store ptr %21, ptr %4, align 8, !tbaa !14
   %22 = sub i64 %17, %20
-  store i64 %22, ptr %8, align 8
+  store i64 %22, ptr %8, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %12, %7, %3
   %23 = phi ptr [ %21, %12 ], [ %.pre, %7 ], [ %.pre16, %3 ]
-  store i32 1, ptr %5, align 8
+  store i32 1, ptr %5, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load i64, ptr %24, align 8
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %25, ptr noundef nonnull @.str.40, ptr noundef %1) #20
+  %25 = load i64, ptr %24, align 8, !tbaa !14
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %25, ptr noundef nonnull @.str.40, ptr noundef %1) #21
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %hwloc__nolibxml_export_update_buffer.exit15
 
 28:                                               ; preds = %hwloc__nolibxml_export_update_buffer.exit
   %29 = zext nneg i32 %26 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i64, ptr %30, align 8
+  %31 = load i64, ptr %30, align 8, !tbaa !14
   %32 = add i64 %31, %29
-  store i64 %32, ptr %30, align 8
-  %33 = load i64, ptr %24, align 8
+  store i64 %32, ptr %30, align 8, !tbaa !14
+  %33 = load i64, ptr %24, align 8, !tbaa !14
   %34 = trunc i64 %33 to i32
   %.not.i11 = icmp slt i32 %26, %34
   %.not12.i12 = icmp eq i64 %33, 0
   %35 = add nsw i32 %34, -1
   %spec.select.i13 = select i1 %.not12.i12, i32 0, i32 %35
   %.0.i14 = select i1 %.not.i11, i32 %26, i32 %spec.select.i13
-  %36 = load ptr, ptr %4, align 8
+  %36 = load ptr, ptr %4, align 8, !tbaa !14
   %37 = sext i32 %.0.i14 to i64
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  store ptr %38, ptr %4, align 8
+  store ptr %38, ptr %4, align 8, !tbaa !14
   %39 = sub i64 %33, %37
-  store i64 %39, ptr %24, align 8
+  store i64 %39, ptr %24, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit15
 
 hwloc__nolibxml_export_update_buffer.exit15:      ; preds = %hwloc__nolibxml_export_update_buffer.exit, %28
@@ -1692,54 +1717,54 @@ hwloc__nolibxml_export_update_buffer.exit15:      ; preds = %hwloc__nolibxml_exp
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @hwloc__nolibxml_export_end_object(ptr noundef captures(none) %0, ptr noundef %1) #4 {
+define internal void @hwloc__nolibxml_export_end_object(ptr noundef captures(none) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i64, ptr %9, align 8
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.41, ptr noundef %1) #20
+  %10 = load i64, ptr %9, align 8, !tbaa !14
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.41, ptr noundef %1) #21
   br label %24
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !14
   %.not20 = icmp eq i32 %14, 0
-  %15 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i64, ptr %16, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !14
   br i1 %.not20, label %22, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %20 = load i32, ptr %19, align 8
-  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str.42, i32 noundef %20, ptr noundef nonnull @.str.20, ptr noundef %1) #20
+  %20 = load i32, ptr %19, align 8, !tbaa !14
+  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str.42, i32 noundef %20, ptr noundef nonnull @.str.20, ptr noundef %1) #21
   br label %24
 
 22:                                               ; preds = %12
-  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str.43) #20
+  %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str.43) #21
   br label %24
 
 24:                                               ; preds = %18, %22, %7
   %.0 = phi i32 [ %11, %7 ], [ %21, %18 ], [ %23, %22 ]
   %25 = icmp sgt i32 %.0, -1
-  %.pre = load ptr, ptr %3, align 8
+  %.pre = load ptr, ptr %3, align 8, !tbaa !14
   br i1 %25, label %26, label %hwloc__nolibxml_export_update_buffer.exit
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %.0 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load i64, ptr %28, align 8
+  %29 = load i64, ptr %28, align 8, !tbaa !14
   %30 = add i64 %29, %27
-  store i64 %30, ptr %28, align 8
+  store i64 %30, ptr %28, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = load i64, ptr %31, align 8
+  %32 = load i64, ptr %31, align 8, !tbaa !14
   %33 = trunc i64 %32 to i32
   %.not.i = icmp slt i32 %.0, %33
   %.not12.i = icmp eq i64 %32, 0
@@ -1748,83 +1773,85 @@ define internal void @hwloc__nolibxml_export_end_object(ptr noundef captures(non
   %.0.i = select i1 %.not.i, i32 %.0, i32 %spec.select.i
   %35 = sext i32 %.0.i to i64
   %36 = getelementptr inbounds i8, ptr %.pre, i64 %35
-  store ptr %36, ptr %3, align 8
+  store ptr %36, ptr %3, align 8, !tbaa !14
   %37 = sub i64 %32, %35
-  store i64 %37, ptr %31, align 8
+  store i64 %37, ptr %31, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %24, %26
   %38 = phi ptr [ %.pre, %24 ], [ %36, %26 ]
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %38, ptr %39, align 8
+  store ptr %38, ptr %39, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 %41, ptr %42, align 8
+  store i64 %41, ptr %42, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load i64, ptr %43, align 8
+  %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 %44, ptr %45, align 8
+  store i64 %44, ptr %45, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
-declare void @hwloc__xml_export_topology(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare void @hwloc__xml_export_topology(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
-declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.hwloc__xml_export_state_s, align 8
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %8, align 8
+  store ptr @hwloc__nolibxml_export_new_child, ptr %8, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %9, align 8
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %9, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %10, align 8
+  store ptr @hwloc__nolibxml_export_add_content, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %11, align 8
+  store ptr @hwloc__nolibxml_export_end_object, ptr %11, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %12, align 8
+  store ptr null, ptr %12, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i32 0, ptr %13, align 8
+  store i32 0, ptr %13, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 0, ptr %14, align 8
-  store ptr %2, ptr %7, align 8
+  store i64 0, ptr %14, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !14
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %15, ptr %16, align 8
+  store i64 %15, ptr %16, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 0, ptr %18, align 8
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %15, ptr noundef nonnull @.str.46) #20
+  store i32 0, ptr %18, align 8, !tbaa !14
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %15, ptr noundef nonnull @.str.46) #21
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %21, label %hwloc__nolibxml_export_update_buffer.exit.i
 
 21:                                               ; preds = %4
   %22 = zext nneg i32 %19 to i64
-  store i64 %22, ptr %14, align 8
+  store i64 %22, ptr %14, align 8, !tbaa !14
   %.not.i = icmp slt i32 %19, %3
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %3, i32 1)
   %.0.i = select i1 %.not.i, i32 %19, i32 %spec.select.i
   %23 = sext i32 %.0.i to i64
   %24 = getelementptr inbounds i8, ptr %2, i64 %23
-  store ptr %24, ptr %7, align 8
+  store ptr %24, ptr %7, align 8, !tbaa !14
   %25 = sub nsw i64 %15, %23
-  store i64 %25, ptr %16, align 8
+  store i64 %25, ptr %16, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_update_buffer.exit.i
 
 hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
@@ -1832,37 +1859,37 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
   %27 = phi i64 [ 0, %4 ], [ %22, %21 ]
   %28 = phi ptr [ %2, %4 ], [ %24, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 2, ptr %17, align 4
-  store ptr %5, ptr %6, align 8
+  store i32 2, ptr %17, align 4, !tbaa !14
+  store ptr %5, ptr %6, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @hwloc__nolibxml_export_new_child, ptr %30, align 8
+  store ptr @hwloc__nolibxml_export_new_child, ptr %30, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @hwloc__nolibxml_export_new_prop, ptr %31, align 8
+  store ptr @hwloc__nolibxml_export_new_prop, ptr %31, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @hwloc__nolibxml_export_add_content, ptr %32, align 8
+  store ptr @hwloc__nolibxml_export_add_content, ptr %32, align 8, !tbaa !49
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @hwloc__nolibxml_export_end_object, ptr %33, align 8
+  store ptr @hwloc__nolibxml_export_end_object, ptr %33, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %34, align 8
-  store ptr %28, ptr %29, align 8
+  store ptr null, ptr %34, align 8, !tbaa !51
+  store ptr %28, ptr %29, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 %27, ptr %35, align 8
+  store i64 %27, ptr %35, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 %26, ptr %36, align 8
+  store i64 %26, ptr %36, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i32 2, ptr %37, align 8
+  store i32 2, ptr %37, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  store i32 0, ptr %38, align 4
+  store i32 0, ptr %38, align 4, !tbaa !14
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 0, ptr %39, align 8
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %26, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
+  store i32 0, ptr %39, align 8, !tbaa !14
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %26, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #21
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %42, label %hwloc__nolibxml_export_new_child.exit
 
 42:                                               ; preds = %hwloc__nolibxml_export_update_buffer.exit.i
   %43 = zext nneg i32 %40 to i64
   %44 = add nuw nsw i64 %27, %43
-  store i64 %44, ptr %35, align 8
+  store i64 %44, ptr %35, align 8, !tbaa !14
   %45 = trunc i64 %26 to i32
   %.not.i35.i = icmp slt i32 %40, %45
   %.not12.i36.i = icmp eq i64 %26, 0
@@ -1871,9 +1898,9 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
   %.0.i38.i = select i1 %.not.i35.i, i32 %40, i32 %spec.select.i37.i
   %47 = sext i32 %.0.i38.i to i64
   %48 = getelementptr inbounds i8, ptr %28, i64 %47
-  store ptr %48, ptr %29, align 8
+  store ptr %48, ptr %29, align 8, !tbaa !14
   %49 = sub nsw i64 %26, %47
-  store i64 %49, ptr %36, align 8
+  store i64 %49, ptr %36, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_new_child.exit
 
 hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_export_update_buffer.exit.i, %42
@@ -1885,47 +1912,47 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   br label %51
 
 51:                                               ; preds = %50, %hwloc__nolibxml_export_new_child.exit
-  call void @hwloc__xml_export_diff(ptr noundef nonnull %6, ptr noundef %0) #20
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %39, align 8
+  call void @hwloc__xml_export_diff(ptr noundef nonnull %6, ptr noundef %0) #21
+  %52 = load ptr, ptr %6, align 8, !tbaa !52
+  %53 = load i32, ptr %39, align 8, !tbaa !14
   %.not.i16 = icmp eq i32 %53, 0
   br i1 %.not.i16, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %29, align 8
-  %56 = load i64, ptr %36, align 8
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.44) #20
+  %55 = load ptr, ptr %29, align 8, !tbaa !14
+  %56 = load i64, ptr %36, align 8, !tbaa !14
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.44) #21
   br label %68
 
 58:                                               ; preds = %51
-  %59 = load i32, ptr %38, align 4
+  %59 = load i32, ptr %38, align 4, !tbaa !14
   %.not20.i = icmp eq i32 %59, 0
-  %60 = load ptr, ptr %29, align 8
-  %61 = load i64, ptr %36, align 8
+  %60 = load ptr, ptr %29, align 8, !tbaa !14
+  %61 = load i64, ptr %36, align 8, !tbaa !14
   br i1 %.not20.i, label %66, label %62
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %64 = load i32, ptr %63, align 8
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
+  %64 = load i32, ptr %63, align 8, !tbaa !14
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #21
   br label %68
 
 66:                                               ; preds = %58
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.43) #20
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.43) #21
   br label %68
 
 68:                                               ; preds = %66, %62, %54
   %.0.i17 = phi i32 [ %57, %54 ], [ %65, %62 ], [ %67, %66 ]
   %69 = icmp sgt i32 %.0.i17, -1
-  %.pre.i = load ptr, ptr %29, align 8
+  %.pre.i = load ptr, ptr %29, align 8, !tbaa !14
   br i1 %69, label %70, label %hwloc__nolibxml_export_end_object.exit
 
 70:                                               ; preds = %68
   %71 = zext nneg i32 %.0.i17 to i64
-  %72 = load i64, ptr %35, align 8
+  %72 = load i64, ptr %35, align 8, !tbaa !14
   %73 = add i64 %72, %71
-  store i64 %73, ptr %35, align 8
-  %74 = load i64, ptr %36, align 8
+  store i64 %73, ptr %35, align 8, !tbaa !14
+  %74 = load i64, ptr %36, align 8, !tbaa !14
   %75 = trunc i64 %74 to i32
   %.not.i.i19 = icmp slt i32 %.0.i17, %75
   %.not12.i.i20 = icmp eq i64 %74, 0
@@ -1935,66 +1962,114 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   %77 = sext i32 %.0.i.i22 to i64
   %78 = getelementptr inbounds i8, ptr %.pre.i, i64 %77
   %79 = sub i64 %74, %77
-  store i64 %79, ptr %36, align 8
+  store i64 %79, ptr %36, align 8, !tbaa !14
   br label %hwloc__nolibxml_export_end_object.exit
 
 hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
   %80 = phi ptr [ %.pre.i, %68 ], [ %78, %70 ]
   %81 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %80, ptr %81, align 8
-  %82 = load i64, ptr %35, align 8
+  store ptr %80, ptr %81, align 8, !tbaa !14
+  %82 = load i64, ptr %35, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  store i64 %82, ptr %83, align 8
-  %84 = load i64, ptr %36, align 8
+  store i64 %82, ptr %83, align 8, !tbaa !14
+  %84 = load i64, ptr %36, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  store i64 %84, ptr %85, align 8
-  %86 = load i64, ptr %14, align 8
+  store i64 %84, ptr %85, align 8, !tbaa !14
+  %86 = load i64, ptr %14, align 8, !tbaa !14
   %87 = add i64 %86, 1
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #21
   ret i64 %87
 }
 
-declare void @hwloc__xml_export_diff(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare void @hwloc__xml_export_diff(ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #17
+declare i32 @llvm.usub.sat.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(1) }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { cold }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(1) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { cold }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !5, i64 80}
+!4 = !{!"hwloc_xml_backend_data_s", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !8, i64 72, !5, i64 80, !9, i64 88, !9, i64 92, !6, i64 96, !6, i64 97, !6, i64 98, !6, i64 99, !6, i64 100, !6, i64 101}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 omnipotent char", !5, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !8, i64 8}
+!11 = !{!"hwloc__nolibxml_backend_data_s", !12, i64 0, !8, i64 8}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!11, !12, i64 0}
+!14 = !{!6, !6, i64 0}
+!15 = !{!4, !5, i64 0}
+!16 = !{!4, !5, i64 8}
+!17 = !{!4, !5, i64 16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!20 = !{!9, !9, i64 0}
+!21 = !{!8, !8, i64 0}
+!22 = !{!12, !12, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !28, i64 8}
+!26 = !{!"hwloc__xml_import_state_s", !27, i64 0, !28, i64 8, !6, i64 16}
+!27 = !{!"p1 _ZTS25hwloc__xml_import_state_s", !5, i64 0}
+!28 = !{!"p1 _ZTS24hwloc_xml_backend_data_s", !5, i64 0}
+!29 = !{!4, !5, i64 24}
+!30 = !{!4, !5, i64 32}
+!31 = !{!4, !5, i64 40}
+!32 = !{!4, !5, i64 48}
+!33 = !{!4, !5, i64 56}
+!34 = !{!4, !5, i64 64}
+!35 = !{!26, !27, i64 0}
+!36 = !{!37, !9, i64 24}
+!37 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !38, i64 72, !38, i64 88, !38, i64 104, !6, i64 120}
+!38 = !{!"timespec", !12, i64 0, !12, i64 8}
+!39 = !{!37, !12, i64 48}
+!40 = distinct !{!40, !24}
+!41 = !{!4, !9, i64 88}
+!42 = !{!4, !9, i64 92}
+!43 = distinct !{!43, !24}
+!44 = !{!45, !5, i64 8}
+!45 = !{!"hwloc__xml_export_state_s", !46, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !47, i64 40, !6, i64 48}
+!46 = !{!"p1 _ZTS25hwloc__xml_export_state_s", !5, i64 0}
+!47 = !{!"p1 _ZTS24hwloc__xml_export_data_s", !5, i64 0}
+!48 = !{!45, !5, i64 16}
+!49 = !{!45, !5, i64 24}
+!50 = !{!45, !5, i64 32}
+!51 = !{!45, !47, i64 40}
+!52 = !{!45, !46, i64 0}
+!53 = distinct !{!53, !24}
