@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Agedgeinfo_t = type { %struct.Agrec_s, ptr, %struct.port, %struct.port, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, ptr, ptr, double, double, %struct.Ppoly_t, i8, i8, i16, i32, i32, i32, i16, i32, ptr }
 %struct.Agrec_s = type { ptr, ptr }
 %struct.port = type { %struct.pointf_s, double, ptr, i8, i8, i8, i8, i8, i8, ptr }
-%struct.Ppoly_t = type { ptr, i32 }
+%struct.Ppoly_t = type { ptr, i64 }
 %struct.splines = type { ptr, i64, %struct.boxf }
 %struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
-%struct.Agedge_s = type { %struct.Agobj_s, %struct._dtlink_s, %struct._dtlink_s, ptr }
-%struct._dtlink_s = type { ptr, %union.anon }
+%struct.Agedge_s = type { %struct.Agobj_s, %struct.dtlink_s_, %struct.dtlink_s_, ptr }
+%struct.dtlink_s_ = type { ptr, %union.anon }
 %union.anon = type { ptr }
-%struct.Agraphinfo_t = type { %struct.Agrec_s, ptr, ptr, %struct.boxf, [4 x %struct.pointf_s], i8, i8, i8, i8, i32, double, double, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.nlist_t, ptr, ptr, i64, i32, i32, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8 }
+%struct.Agraphinfo_t = type { %struct.Agrec_s, ptr, ptr, %struct.boxf, [4 x %struct.pointf_s], i8, i8, i8, i8, i32, double, double, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.nlist_t, ptr, ptr, i32, i32, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8 }
 %struct.nlist_t = type { ptr, i64 }
 %struct.Agnodeinfo_t = type { %struct.Agrec_s, ptr, ptr, %struct.pointf_s, double, double, %struct.boxf, double, double, double, double, double, ptr, ptr, ptr, i8, i8, i8, i8, i32, i32, i32, ptr, double, i8, i8, ptr, ptr, i8, i64, i8, i8, i8, ptr, ptr, %struct.elist, %struct.elist, %struct.elist, %struct.elist, %struct.elist, ptr, i32, ptr, i32, i32, double, %struct.elist, %struct.elist, %struct.elist, %struct.elist, ptr, i32, i32, i32, [1 x double] }
 %struct.elist = type { ptr, i64 }
@@ -38,66 +38,75 @@ define void @dot_compoundEdges(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
   %7 = call ptr @mkClustMap(ptr noundef %6)
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %2, align 8
+  store ptr %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
   %9 = call ptr @agfstnode(ptr noundef %8)
-  store ptr %9, ptr %4, align 8
+  store ptr %9, ptr %4, align 8, !tbaa !10
   br label %10
 
 10:                                               ; preds = %28, %1
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %32
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %2, align 8
-  %15 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
   %16 = call ptr @agfstout(ptr noundef %14, ptr noundef %15)
-  store ptr %16, ptr %3, align 8
+  store ptr %16, ptr %3, align 8, !tbaa !12
   br label %17
 
 17:                                               ; preds = %23, %13
-  %18 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !12
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %3, align 8
-  %22 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !12
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
   call void @makeCompoundEdge(ptr noundef %21, ptr noundef %22)
   br label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %2, align 8, !tbaa !3
+  %25 = load ptr, ptr %3, align 8, !tbaa !12
   %26 = call ptr @agnxtout(ptr noundef %24, ptr noundef %25)
-  store ptr %26, ptr %3, align 8
-  br label %17
+  store ptr %26, ptr %3, align 8, !tbaa !12
+  br label %17, !llvm.loop !14
 
 27:                                               ; preds = %17
   br label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %2, align 8
-  %30 = load ptr, ptr %4, align 8
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !10
   %31 = call ptr @agnxtnode(ptr noundef %29, ptr noundef %30)
-  store ptr %31, ptr %4, align 8
-  br label %10
+  store ptr %31, ptr %4, align 8, !tbaa !10
+  br label %10, !llvm.loop !16
 
 32:                                               ; preds = %10
-  %33 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
   %34 = call i32 @dtclose(ptr noundef %33)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
-declare ptr @mkClustMap(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @agfstnode(ptr noundef) #1
+declare ptr @mkClustMap(ptr noundef) #2
 
-declare ptr @agfstout(ptr noundef, ptr noundef) #1
+declare ptr @agfstnode(ptr noundef) #2
+
+declare ptr @agfstout(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @makeCompoundEdge(ptr noundef %0, ptr noundef %1) #0 {
@@ -107,1151 +116,1247 @@ define internal void @makeCompoundEdge(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca %struct.bezier, align 8
-  %14 = alloca i8, align 1
-  %15 = alloca ptr, align 8
-  %16 = alloca %struct.pointf_s, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.bezier, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
   %17 = alloca %struct.pointf_s, align 8
   %18 = alloca %struct.pointf_s, align 8
   %19 = alloca %struct.pointf_s, align 8
   %20 = alloca %struct.pointf_s, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca %struct.pointf_s, align 8
+  %21 = alloca %struct.pointf_s, align 8
+  %22 = alloca ptr, align 8
   %23 = alloca %struct.pointf_s, align 8
   %24 = alloca %struct.pointf_s, align 8
   %25 = alloca %struct.pointf_s, align 8
-  %26 = alloca [4 x %struct.pointf_s], align 16
-  %27 = alloca i64, align 8
+  %26 = alloca %struct.pointf_s, align 8
+  %27 = alloca [4 x %struct.pointf_s], align 16
   %28 = alloca i64, align 8
-  %29 = alloca %struct.pointf_s, align 8
-  %30 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca %struct.pointf_s, align 8
   %31 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i64 0, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = call ptr @agget(ptr noundef %32, ptr noundef @.str)
-  %34 = load ptr, ptr %4, align 8
-  %35 = call ptr @getCluster(ptr noundef %33, ptr noundef %34)
-  store ptr %35, ptr %7, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = call ptr @agget(ptr noundef %36, ptr noundef @.str.1)
-  %38 = load ptr, ptr %4, align 8
-  %39 = call ptr @getCluster(ptr noundef %37, ptr noundef %38)
-  store ptr %39, ptr %8, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %46, label %42
+  %32 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  store i64 0, ptr %5, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store i64 0, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %33 = load ptr, ptr %3, align 8, !tbaa !12
+  %34 = call ptr @agget(ptr noundef %33, ptr noundef @.str)
+  %35 = load ptr, ptr %4, align 8, !tbaa !8
+  %36 = call ptr @getCluster(ptr noundef %34, ptr noundef %35)
+  store ptr %36, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %37 = load ptr, ptr %3, align 8, !tbaa !12
+  %38 = call ptr @agget(ptr noundef %37, ptr noundef @.str.1)
+  %39 = load ptr, ptr %4, align 8, !tbaa !8
+  %40 = call ptr @getCluster(ptr noundef %38, ptr noundef %39)
+  store ptr %40, ptr %8, align 8, !tbaa !3
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %47, label %43
 
-42:                                               ; preds = %2
-  %43 = load ptr, ptr %7, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %46, label %45
+43:                                               ; preds = %2
+  %44 = load ptr, ptr %7, align 8, !tbaa !3
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %42
-  br label %834
+46:                                               ; preds = %43
+  store i32 1, ptr %9, align 4
+  br label %836
 
-46:                                               ; preds = %42, %2
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.Agobj_s, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %54, label %53
+47:                                               ; preds = %43, %2
+  %48 = load ptr, ptr %3, align 8, !tbaa !12
+  %49 = getelementptr inbounds nuw %struct.Agobj_s, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.Agedgeinfo_t, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %55, label %54
 
-53:                                               ; preds = %46
-  br label %834
+54:                                               ; preds = %47
+  store i32 1, ptr %9, align 4
+  br label %836
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.Agobj_s, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.splines, ptr %59, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp ugt i64 %61, 1
-  br i1 %62, label %63, label %95
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %3, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw %struct.Agobj_s, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !19
+  %59 = getelementptr inbounds nuw %struct.Agedgeinfo_t, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !24
+  %61 = getelementptr inbounds nuw %struct.splines, ptr %60, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8, !tbaa !37
+  %63 = icmp ugt i64 %62, 1
+  br i1 %63, label %64, label %95
 
-63:                                               ; preds = %54
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.Agobj_s, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 3
-  %68 = icmp eq i32 %67, 3
-  br i1 %68, label %69, label %71
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %3, align 8, !tbaa !12
+  %66 = getelementptr inbounds nuw %struct.Agobj_s, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 3
+  %69 = icmp eq i32 %68, 3
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %3, align 8
-  br label %74
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %75
 
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.Agedge_s, ptr %72, i64 1
-  br label %74
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %3, align 8, !tbaa !12
+  %74 = getelementptr inbounds %struct.Agedge_s, ptr %73, i64 1
+  br label %75
 
-74:                                               ; preds = %71, %69
-  %75 = phi ptr [ %70, %69 ], [ %73, %71 ]
-  %76 = getelementptr inbounds %struct.Agedge_s, ptr %75, i32 0, i32 3
-  %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @agnameof(ptr noundef %77)
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.Agobj_s, ptr %79, i32 0, i32 0
-  %81 = load i32, ptr %80, align 8
-  %82 = and i32 %81, 3
-  %83 = icmp eq i32 %82, 2
-  br i1 %83, label %84, label %86
+75:                                               ; preds = %72, %70
+  %76 = phi ptr [ %71, %70 ], [ %74, %72 ]
+  %77 = getelementptr inbounds nuw %struct.Agedge_s, ptr %76, i32 0, i32 3
+  %78 = load ptr, ptr %77, align 8, !tbaa !41
+  %79 = call ptr @agnameof(ptr noundef %78)
+  %80 = load ptr, ptr %3, align 8, !tbaa !12
+  %81 = getelementptr inbounds nuw %struct.Agobj_s, ptr %80, i32 0, i32 0
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, 3
+  %84 = icmp eq i32 %83, 2
+  br i1 %84, label %85, label %87
 
-84:                                               ; preds = %74
-  %85 = load ptr, ptr %3, align 8
-  br label %89
+85:                                               ; preds = %75
+  %86 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %90
 
-86:                                               ; preds = %74
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.Agedge_s, ptr %87, i64 -1
-  br label %89
+87:                                               ; preds = %75
+  %88 = load ptr, ptr %3, align 8, !tbaa !12
+  %89 = getelementptr inbounds %struct.Agedge_s, ptr %88, i64 -1
+  br label %90
 
-89:                                               ; preds = %86, %84
-  %90 = phi ptr [ %85, %84 ], [ %88, %86 ]
-  %91 = getelementptr inbounds %struct.Agedge_s, ptr %90, i32 0, i32 3
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @agnameof(ptr noundef %92)
-  %94 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.2, ptr noundef %78, ptr noundef %93)
-  br label %834
+90:                                               ; preds = %87, %85
+  %91 = phi ptr [ %86, %85 ], [ %89, %87 ]
+  %92 = getelementptr inbounds nuw %struct.Agedge_s, ptr %91, i32 0, i32 3
+  %93 = load ptr, ptr %92, align 8, !tbaa !41
+  %94 = call ptr @agnameof(ptr noundef %93)
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.2, ptr noundef %79, ptr noundef %94)
+  store i32 1, ptr %9, align 4
+  br label %836
 
-95:                                               ; preds = %54
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.Agobj_s, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.splines, ptr %100, i32 0, i32 0
-  %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr %9, align 8
-  %103 = load ptr, ptr %9, align 8
-  %104 = getelementptr inbounds %struct.bezier, ptr %103, i32 0, i32 1
-  %105 = load i64, ptr %104, align 8
-  store i64 %105, ptr %10, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.Agobj_s, ptr %106, i32 0, i32 0
+95:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %96 = load ptr, ptr %3, align 8, !tbaa !12
+  %97 = getelementptr inbounds nuw %struct.Agobj_s, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !19
+  %99 = getelementptr inbounds nuw %struct.Agedgeinfo_t, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8, !tbaa !24
+  %101 = getelementptr inbounds nuw %struct.splines, ptr %100, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8, !tbaa !45
+  store ptr %102, ptr %10, align 8, !tbaa !46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %103 = load ptr, ptr %10, align 8, !tbaa !46
+  %104 = getelementptr inbounds nuw %struct.bezier, ptr %103, i32 0, i32 1
+  %105 = load i64, ptr %104, align 8, !tbaa !47
+  store i64 %105, ptr %11, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %106 = load ptr, ptr %3, align 8, !tbaa !12
+  %107 = getelementptr inbounds nuw %struct.Agobj_s, ptr %106, i32 0, i32 0
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, 3
   %110 = icmp eq i32 %109, 2
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %95
-  %112 = load ptr, ptr %3, align 8
+  %112 = load ptr, ptr %3, align 8, !tbaa !12
   br label %116
 
 113:                                              ; preds = %95
-  %114 = load ptr, ptr %3, align 8
+  %114 = load ptr, ptr %3, align 8, !tbaa !12
   %115 = getelementptr inbounds %struct.Agedge_s, ptr %114, i64 -1
   br label %116
 
 116:                                              ; preds = %113, %111
   %117 = phi ptr [ %112, %111 ], [ %115, %113 ]
-  %118 = getelementptr inbounds %struct.Agedge_s, ptr %117, i32 0, i32 3
-  %119 = load ptr, ptr %118, align 8
-  store ptr %119, ptr %11, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.Agobj_s, ptr %120, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.Agedge_s, ptr %117, i32 0, i32 3
+  %119 = load ptr, ptr %118, align 8, !tbaa !41
+  store ptr %119, ptr %12, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %120 = load ptr, ptr %3, align 8, !tbaa !12
+  %121 = getelementptr inbounds nuw %struct.Agobj_s, ptr %120, i32 0, i32 0
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, 3
   %124 = icmp eq i32 %123, 3
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %116
-  %126 = load ptr, ptr %3, align 8
+  %126 = load ptr, ptr %3, align 8, !tbaa !12
   br label %130
 
 127:                                              ; preds = %116
-  %128 = load ptr, ptr %3, align 8
+  %128 = load ptr, ptr %3, align 8, !tbaa !12
   %129 = getelementptr inbounds %struct.Agedge_s, ptr %128, i64 1
   br label %130
 
 130:                                              ; preds = %127, %125
   %131 = phi ptr [ %126, %125 ], [ %129, %127 ]
-  %132 = getelementptr inbounds %struct.Agedge_s, ptr %131, i32 0, i32 3
-  %133 = load ptr, ptr %132, align 8
-  store ptr %133, ptr %12, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 56, i1 false)
-  %134 = load ptr, ptr %9, align 8
-  %135 = getelementptr inbounds %struct.bezier, ptr %134, i32 0, i32 3
-  %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 3
-  store i32 %136, ptr %137, align 4
-  %138 = load ptr, ptr %9, align 8
-  %139 = getelementptr inbounds %struct.bezier, ptr %138, i32 0, i32 2
-  %140 = load i32, ptr %139, align 8
-  %141 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 2
-  store i32 %140, ptr %141, align 8
-  store i8 0, ptr %14, align 1
-  %142 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds nuw %struct.Agedge_s, ptr %131, i32 0, i32 3
+  %133 = load ptr, ptr %132, align 8, !tbaa !41
+  store ptr %133, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 56, ptr %14) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 56, i1 false)
+  %134 = load ptr, ptr %10, align 8, !tbaa !46
+  %135 = getelementptr inbounds nuw %struct.bezier, ptr %134, i32 0, i32 3
+  %136 = load i32, ptr %135, align 4, !tbaa !49
+  %137 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 3
+  store i32 %136, ptr %137, align 4, !tbaa !49
+  %138 = load ptr, ptr %10, align 8, !tbaa !46
+  %139 = getelementptr inbounds nuw %struct.bezier, ptr %138, i32 0, i32 2
+  %140 = load i32, ptr %139, align 8, !tbaa !50
+  %141 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 2
+  store i32 %140, ptr %141, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #11
+  store i8 0, ptr %15, align 1, !tbaa !51
+  %142 = load ptr, ptr %7, align 8, !tbaa !3
   %143 = icmp ne ptr %142, null
-  br i1 %143, label %144, label %428
+  br i1 %143, label %144, label %426
 
 144:                                              ; preds = %130
-  %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds %struct.Agobj_s, ptr %145, i32 0, i32 1
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds %struct.Agraphinfo_t, ptr %147, i32 0, i32 3
-  store ptr %148, ptr %15, align 8
-  %149 = load ptr, ptr %11, align 8
-  %150 = getelementptr inbounds %struct.Agobj_s, ptr %149, i32 0, i32 1
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %151, i32 0, i32 3
-  %153 = load ptr, ptr %15, align 8
-  %154 = getelementptr inbounds { double, double }, ptr %152, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %145 = load ptr, ptr %7, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw %struct.Agobj_s, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !19
+  %148 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %147, i32 0, i32 3
+  store ptr %148, ptr %16, align 8, !tbaa !52
+  %149 = load ptr, ptr %12, align 8, !tbaa !10
+  %150 = getelementptr inbounds nuw %struct.Agobj_s, ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %150, align 8, !tbaa !19
+  %152 = getelementptr inbounds nuw %struct.Agnodeinfo_t, ptr %151, i32 0, i32 3
+  %153 = load ptr, ptr %16, align 8, !tbaa !52
+  %154 = getelementptr inbounds nuw { double, double }, ptr %152, i32 0, i32 0
   %155 = load double, ptr %154, align 8
-  %156 = getelementptr inbounds { double, double }, ptr %152, i32 0, i32 1
+  %156 = getelementptr inbounds nuw { double, double }, ptr %152, i32 0, i32 1
   %157 = load double, ptr %156, align 8
   %158 = call i32 @inBoxf(double %155, double %157, ptr noundef %153)
   %159 = icmp ne i32 %158, 0
-  br i1 %159, label %194, label %160
+  br i1 %159, label %193, label %160
 
 160:                                              ; preds = %144
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.Agobj_s, ptr %161, i32 0, i32 0
+  %161 = load ptr, ptr %3, align 8, !tbaa !12
+  %162 = getelementptr inbounds nuw %struct.Agobj_s, ptr %161, i32 0, i32 0
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 3
   %165 = icmp eq i32 %164, 3
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %160
-  %167 = load ptr, ptr %3, align 8
+  %167 = load ptr, ptr %3, align 8, !tbaa !12
   br label %171
 
 168:                                              ; preds = %160
-  %169 = load ptr, ptr %3, align 8
+  %169 = load ptr, ptr %3, align 8, !tbaa !12
   %170 = getelementptr inbounds %struct.Agedge_s, ptr %169, i64 1
   br label %171
 
 171:                                              ; preds = %168, %166
   %172 = phi ptr [ %167, %166 ], [ %170, %168 ]
-  %173 = getelementptr inbounds %struct.Agedge_s, ptr %172, i32 0, i32 3
-  %174 = load ptr, ptr %173, align 8
+  %173 = getelementptr inbounds nuw %struct.Agedge_s, ptr %172, i32 0, i32 3
+  %174 = load ptr, ptr %173, align 8, !tbaa !41
   %175 = call ptr @agnameof(ptr noundef %174)
-  %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds %struct.Agobj_s, ptr %176, i32 0, i32 0
+  %176 = load ptr, ptr %3, align 8, !tbaa !12
+  %177 = getelementptr inbounds nuw %struct.Agobj_s, ptr %176, i32 0, i32 0
   %178 = load i32, ptr %177, align 8
   %179 = and i32 %178, 3
   %180 = icmp eq i32 %179, 2
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %171
-  %182 = load ptr, ptr %3, align 8
+  %182 = load ptr, ptr %3, align 8, !tbaa !12
   br label %186
 
 183:                                              ; preds = %171
-  %184 = load ptr, ptr %3, align 8
+  %184 = load ptr, ptr %3, align 8, !tbaa !12
   %185 = getelementptr inbounds %struct.Agedge_s, ptr %184, i64 -1
   br label %186
 
 186:                                              ; preds = %183, %181
   %187 = phi ptr [ %182, %181 ], [ %185, %183 ]
-  %188 = getelementptr inbounds %struct.Agedge_s, ptr %187, i32 0, i32 3
-  %189 = load ptr, ptr %188, align 8
+  %188 = getelementptr inbounds nuw %struct.Agedge_s, ptr %187, i32 0, i32 3
+  %189 = load ptr, ptr %188, align 8, !tbaa !41
   %190 = call ptr @agnameof(ptr noundef %189)
-  %191 = load ptr, ptr %3, align 8
+  %191 = load ptr, ptr %3, align 8, !tbaa !12
   %192 = call ptr @agget(ptr noundef %191, ptr noundef @.str)
-  %193 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.3, ptr noundef %175, ptr noundef %190, ptr noundef %192)
-  br label %427
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.3, ptr noundef %175, ptr noundef %190, ptr noundef %192)
+  br label %425
 
-194:                                              ; preds = %144
-  %195 = load ptr, ptr %9, align 8
-  %196 = getelementptr inbounds %struct.bezier, ptr %195, i32 0, i32 0
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.pointf_s, ptr %197, i64 0
-  %199 = load ptr, ptr %15, align 8
-  %200 = getelementptr inbounds { double, double }, ptr %198, i32 0, i32 0
-  %201 = load double, ptr %200, align 8
-  %202 = getelementptr inbounds { double, double }, ptr %198, i32 0, i32 1
-  %203 = load double, ptr %202, align 8
-  %204 = call i32 @inBoxf(double %201, double %203, ptr noundef %199)
-  %205 = icmp ne i32 %204, 0
-  br i1 %205, label %206, label %358
+193:                                              ; preds = %144
+  %194 = load ptr, ptr %10, align 8, !tbaa !46
+  %195 = getelementptr inbounds nuw %struct.bezier, ptr %194, i32 0, i32 0
+  %196 = load ptr, ptr %195, align 8, !tbaa !53
+  %197 = getelementptr inbounds %struct.pointf_s, ptr %196, i64 0
+  %198 = load ptr, ptr %16, align 8, !tbaa !52
+  %199 = getelementptr inbounds nuw { double, double }, ptr %197, i32 0, i32 0
+  %200 = load double, ptr %199, align 8
+  %201 = getelementptr inbounds nuw { double, double }, ptr %197, i32 0, i32 1
+  %202 = load double, ptr %201, align 8
+  %203 = call i32 @inBoxf(double %200, double %202, ptr noundef %198)
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %356
 
-206:                                              ; preds = %194
-  %207 = load ptr, ptr %12, align 8
-  %208 = getelementptr inbounds %struct.Agobj_s, ptr %207, i32 0, i32 1
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %209, i32 0, i32 3
-  %211 = load ptr, ptr %15, align 8
-  %212 = getelementptr inbounds { double, double }, ptr %210, i32 0, i32 0
-  %213 = load double, ptr %212, align 8
-  %214 = getelementptr inbounds { double, double }, ptr %210, i32 0, i32 1
-  %215 = load double, ptr %214, align 8
-  %216 = call i32 @inBoxf(double %213, double %215, ptr noundef %211)
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %218, label %252
+205:                                              ; preds = %193
+  %206 = load ptr, ptr %13, align 8, !tbaa !10
+  %207 = getelementptr inbounds nuw %struct.Agobj_s, ptr %206, i32 0, i32 1
+  %208 = load ptr, ptr %207, align 8, !tbaa !19
+  %209 = getelementptr inbounds nuw %struct.Agnodeinfo_t, ptr %208, i32 0, i32 3
+  %210 = load ptr, ptr %16, align 8, !tbaa !52
+  %211 = getelementptr inbounds nuw { double, double }, ptr %209, i32 0, i32 0
+  %212 = load double, ptr %211, align 8
+  %213 = getelementptr inbounds nuw { double, double }, ptr %209, i32 0, i32 1
+  %214 = load double, ptr %213, align 8
+  %215 = call i32 @inBoxf(double %212, double %214, ptr noundef %210)
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %217, label %250
 
-218:                                              ; preds = %206
-  %219 = load ptr, ptr %3, align 8
-  %220 = getelementptr inbounds %struct.Agobj_s, ptr %219, i32 0, i32 0
-  %221 = load i32, ptr %220, align 8
-  %222 = and i32 %221, 3
-  %223 = icmp eq i32 %222, 3
-  br i1 %223, label %224, label %226
+217:                                              ; preds = %205
+  %218 = load ptr, ptr %3, align 8, !tbaa !12
+  %219 = getelementptr inbounds nuw %struct.Agobj_s, ptr %218, i32 0, i32 0
+  %220 = load i32, ptr %219, align 8
+  %221 = and i32 %220, 3
+  %222 = icmp eq i32 %221, 3
+  br i1 %222, label %223, label %225
 
-224:                                              ; preds = %218
-  %225 = load ptr, ptr %3, align 8
-  br label %229
+223:                                              ; preds = %217
+  %224 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %228
 
-226:                                              ; preds = %218
-  %227 = load ptr, ptr %3, align 8
-  %228 = getelementptr inbounds %struct.Agedge_s, ptr %227, i64 1
-  br label %229
+225:                                              ; preds = %217
+  %226 = load ptr, ptr %3, align 8, !tbaa !12
+  %227 = getelementptr inbounds %struct.Agedge_s, ptr %226, i64 1
+  br label %228
 
-229:                                              ; preds = %226, %224
-  %230 = phi ptr [ %225, %224 ], [ %228, %226 ]
-  %231 = getelementptr inbounds %struct.Agedge_s, ptr %230, i32 0, i32 3
-  %232 = load ptr, ptr %231, align 8
-  %233 = call ptr @agnameof(ptr noundef %232)
-  %234 = load ptr, ptr %3, align 8
-  %235 = getelementptr inbounds %struct.Agobj_s, ptr %234, i32 0, i32 0
-  %236 = load i32, ptr %235, align 8
-  %237 = and i32 %236, 3
-  %238 = icmp eq i32 %237, 2
-  br i1 %238, label %239, label %241
+228:                                              ; preds = %225, %223
+  %229 = phi ptr [ %224, %223 ], [ %227, %225 ]
+  %230 = getelementptr inbounds nuw %struct.Agedge_s, ptr %229, i32 0, i32 3
+  %231 = load ptr, ptr %230, align 8, !tbaa !41
+  %232 = call ptr @agnameof(ptr noundef %231)
+  %233 = load ptr, ptr %3, align 8, !tbaa !12
+  %234 = getelementptr inbounds nuw %struct.Agobj_s, ptr %233, i32 0, i32 0
+  %235 = load i32, ptr %234, align 8
+  %236 = and i32 %235, 3
+  %237 = icmp eq i32 %236, 2
+  br i1 %237, label %238, label %240
 
-239:                                              ; preds = %229
-  %240 = load ptr, ptr %3, align 8
-  br label %244
+238:                                              ; preds = %228
+  %239 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %243
 
-241:                                              ; preds = %229
-  %242 = load ptr, ptr %3, align 8
-  %243 = getelementptr inbounds %struct.Agedge_s, ptr %242, i64 -1
-  br label %244
+240:                                              ; preds = %228
+  %241 = load ptr, ptr %3, align 8, !tbaa !12
+  %242 = getelementptr inbounds %struct.Agedge_s, ptr %241, i64 -1
+  br label %243
 
-244:                                              ; preds = %241, %239
-  %245 = phi ptr [ %240, %239 ], [ %243, %241 ]
-  %246 = getelementptr inbounds %struct.Agedge_s, ptr %245, i32 0, i32 3
-  %247 = load ptr, ptr %246, align 8
-  %248 = call ptr @agnameof(ptr noundef %247)
-  %249 = load ptr, ptr %3, align 8
-  %250 = call ptr @agget(ptr noundef %249, ptr noundef @.str)
-  %251 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.4, ptr noundef %233, ptr noundef %248, ptr noundef %250)
-  br label %357
+243:                                              ; preds = %240, %238
+  %244 = phi ptr [ %239, %238 ], [ %242, %240 ]
+  %245 = getelementptr inbounds nuw %struct.Agedge_s, ptr %244, i32 0, i32 3
+  %246 = load ptr, ptr %245, align 8, !tbaa !41
+  %247 = call ptr @agnameof(ptr noundef %246)
+  %248 = load ptr, ptr %3, align 8, !tbaa !12
+  %249 = call ptr @agget(ptr noundef %248, ptr noundef @.str)
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.4, ptr noundef %232, ptr noundef %247, ptr noundef %249)
+  br label %355
 
-252:                                              ; preds = %206
-  %253 = load ptr, ptr %9, align 8
-  %254 = getelementptr inbounds %struct.bezier, ptr %253, i32 0, i32 0
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds %struct.pointf_s, ptr %255, i64 0
-  %257 = load ptr, ptr %9, align 8
-  %258 = getelementptr inbounds %struct.bezier, ptr %257, i32 0, i32 4
-  %259 = load ptr, ptr %15, align 8
-  %260 = getelementptr inbounds { double, double }, ptr %256, i32 0, i32 0
+250:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #11
+  %251 = load ptr, ptr %10, align 8, !tbaa !46
+  %252 = getelementptr inbounds nuw %struct.bezier, ptr %251, i32 0, i32 0
+  %253 = load ptr, ptr %252, align 8, !tbaa !53
+  %254 = getelementptr inbounds %struct.pointf_s, ptr %253, i64 0
+  %255 = load ptr, ptr %10, align 8, !tbaa !46
+  %256 = getelementptr inbounds nuw %struct.bezier, ptr %255, i32 0, i32 4
+  %257 = load ptr, ptr %16, align 8, !tbaa !52
+  %258 = getelementptr inbounds nuw { double, double }, ptr %254, i32 0, i32 0
+  %259 = load double, ptr %258, align 8
+  %260 = getelementptr inbounds nuw { double, double }, ptr %254, i32 0, i32 1
   %261 = load double, ptr %260, align 8
-  %262 = getelementptr inbounds { double, double }, ptr %256, i32 0, i32 1
+  %262 = getelementptr inbounds nuw { double, double }, ptr %256, i32 0, i32 0
   %263 = load double, ptr %262, align 8
-  %264 = getelementptr inbounds { double, double }, ptr %258, i32 0, i32 0
+  %264 = getelementptr inbounds nuw { double, double }, ptr %256, i32 0, i32 1
   %265 = load double, ptr %264, align 8
-  %266 = getelementptr inbounds { double, double }, ptr %258, i32 0, i32 1
-  %267 = load double, ptr %266, align 8
-  %268 = call { double, double } @boxIntersectf(double %261, double %263, double %265, double %267, ptr noundef %259)
-  %269 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 0
-  %270 = extractvalue { double, double } %268, 0
+  %266 = call { double, double } @boxIntersectf(double %259, double %261, double %263, double %265, ptr noundef %257)
+  %267 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 0
+  %268 = extractvalue { double, double } %266, 0
+  store double %268, ptr %267, align 8
+  %269 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 1
+  %270 = extractvalue { double, double } %266, 1
   store double %270, ptr %269, align 8
-  %271 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 1
-  %272 = extractvalue { double, double } %268, 1
-  store double %272, ptr %271, align 8
-  %273 = load ptr, ptr %9, align 8
-  %274 = getelementptr inbounds %struct.bezier, ptr %273, i32 0, i32 0
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds %struct.pointf_s, ptr %275, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %276, ptr align 8 %16, i64 16, i1 false)
-  %277 = load ptr, ptr %9, align 8
-  %278 = getelementptr inbounds %struct.bezier, ptr %277, i32 0, i32 0
-  %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds %struct.pointf_s, ptr %279, i64 1
-  %281 = load ptr, ptr %9, align 8
-  %282 = getelementptr inbounds %struct.bezier, ptr %281, i32 0, i32 4
-  %283 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 0
+  %271 = load ptr, ptr %10, align 8, !tbaa !46
+  %272 = getelementptr inbounds nuw %struct.bezier, ptr %271, i32 0, i32 0
+  %273 = load ptr, ptr %272, align 8, !tbaa !53
+  %274 = getelementptr inbounds %struct.pointf_s, ptr %273, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %274, ptr align 8 %17, i64 16, i1 false), !tbaa.struct !54
+  %275 = load ptr, ptr %10, align 8, !tbaa !46
+  %276 = getelementptr inbounds nuw %struct.bezier, ptr %275, i32 0, i32 0
+  %277 = load ptr, ptr %276, align 8, !tbaa !53
+  %278 = getelementptr inbounds %struct.pointf_s, ptr %277, i64 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #11
+  %279 = load ptr, ptr %10, align 8, !tbaa !46
+  %280 = getelementptr inbounds nuw %struct.bezier, ptr %279, i32 0, i32 4
+  %281 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 0
+  %282 = load double, ptr %281, align 8
+  %283 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 1
   %284 = load double, ptr %283, align 8
-  %285 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 1
+  %285 = getelementptr inbounds nuw { double, double }, ptr %280, i32 0, i32 0
   %286 = load double, ptr %285, align 8
-  %287 = getelementptr inbounds { double, double }, ptr %282, i32 0, i32 0
+  %287 = getelementptr inbounds nuw { double, double }, ptr %280, i32 0, i32 1
   %288 = load double, ptr %287, align 8
-  %289 = getelementptr inbounds { double, double }, ptr %282, i32 0, i32 1
-  %290 = load double, ptr %289, align 8
-  %291 = call { double, double } @mid_pointf(double %284, double %286, double %288, double %290)
-  %292 = getelementptr inbounds { double, double }, ptr %17, i32 0, i32 0
-  %293 = extractvalue { double, double } %291, 0
+  %289 = call { double, double } @mid_pointf(double %282, double %284, double %286, double %288)
+  %290 = getelementptr inbounds nuw { double, double }, ptr %18, i32 0, i32 0
+  %291 = extractvalue { double, double } %289, 0
+  store double %291, ptr %290, align 8
+  %292 = getelementptr inbounds nuw { double, double }, ptr %18, i32 0, i32 1
+  %293 = extractvalue { double, double } %289, 1
   store double %293, ptr %292, align 8
-  %294 = getelementptr inbounds { double, double }, ptr %17, i32 0, i32 1
-  %295 = extractvalue { double, double } %291, 1
-  store double %295, ptr %294, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %280, ptr align 8 %17, i64 16, i1 false)
-  %296 = load ptr, ptr %9, align 8
-  %297 = getelementptr inbounds %struct.bezier, ptr %296, i32 0, i32 0
-  %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds %struct.pointf_s, ptr %298, i64 0
-  %300 = load ptr, ptr %9, align 8
-  %301 = getelementptr inbounds %struct.bezier, ptr %300, i32 0, i32 0
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %struct.pointf_s, ptr %302, i64 1
-  %304 = load ptr, ptr %9, align 8
-  %305 = getelementptr inbounds %struct.bezier, ptr %304, i32 0, i32 4
-  %306 = getelementptr inbounds { double, double }, ptr %303, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %278, ptr align 8 %18, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #11
+  %294 = load ptr, ptr %10, align 8, !tbaa !46
+  %295 = getelementptr inbounds nuw %struct.bezier, ptr %294, i32 0, i32 0
+  %296 = load ptr, ptr %295, align 8, !tbaa !53
+  %297 = getelementptr inbounds %struct.pointf_s, ptr %296, i64 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #11
+  %298 = load ptr, ptr %10, align 8, !tbaa !46
+  %299 = getelementptr inbounds nuw %struct.bezier, ptr %298, i32 0, i32 0
+  %300 = load ptr, ptr %299, align 8, !tbaa !53
+  %301 = getelementptr inbounds %struct.pointf_s, ptr %300, i64 1
+  %302 = load ptr, ptr %10, align 8, !tbaa !46
+  %303 = getelementptr inbounds nuw %struct.bezier, ptr %302, i32 0, i32 4
+  %304 = getelementptr inbounds nuw { double, double }, ptr %301, i32 0, i32 0
+  %305 = load double, ptr %304, align 8
+  %306 = getelementptr inbounds nuw { double, double }, ptr %301, i32 0, i32 1
   %307 = load double, ptr %306, align 8
-  %308 = getelementptr inbounds { double, double }, ptr %303, i32 0, i32 1
+  %308 = getelementptr inbounds nuw { double, double }, ptr %303, i32 0, i32 0
   %309 = load double, ptr %308, align 8
-  %310 = getelementptr inbounds { double, double }, ptr %305, i32 0, i32 0
+  %310 = getelementptr inbounds nuw { double, double }, ptr %303, i32 0, i32 1
   %311 = load double, ptr %310, align 8
-  %312 = getelementptr inbounds { double, double }, ptr %305, i32 0, i32 1
-  %313 = load double, ptr %312, align 8
-  %314 = call { double, double } @mid_pointf(double %307, double %309, double %311, double %313)
-  %315 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 0
-  %316 = extractvalue { double, double } %314, 0
+  %312 = call { double, double } @mid_pointf(double %305, double %307, double %309, double %311)
+  %313 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 0
+  %314 = extractvalue { double, double } %312, 0
+  store double %314, ptr %313, align 8
+  %315 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 1
+  %316 = extractvalue { double, double } %312, 1
   store double %316, ptr %315, align 8
-  %317 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 1
-  %318 = extractvalue { double, double } %314, 1
-  store double %318, ptr %317, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %299, ptr align 8 %18, i64 16, i1 false)
-  %319 = load ptr, ptr %9, align 8
-  %320 = getelementptr inbounds %struct.bezier, ptr %319, i32 0, i32 0
-  %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds %struct.pointf_s, ptr %321, i64 2
-  %323 = load ptr, ptr %9, align 8
-  %324 = getelementptr inbounds %struct.bezier, ptr %323, i32 0, i32 0
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds %struct.pointf_s, ptr %325, i64 1
-  %327 = getelementptr inbounds { double, double }, ptr %326, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %297, ptr align 8 %19, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #11
+  %317 = load ptr, ptr %10, align 8, !tbaa !46
+  %318 = getelementptr inbounds nuw %struct.bezier, ptr %317, i32 0, i32 0
+  %319 = load ptr, ptr %318, align 8, !tbaa !53
+  %320 = getelementptr inbounds %struct.pointf_s, ptr %319, i64 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #11
+  %321 = load ptr, ptr %10, align 8, !tbaa !46
+  %322 = getelementptr inbounds nuw %struct.bezier, ptr %321, i32 0, i32 0
+  %323 = load ptr, ptr %322, align 8, !tbaa !53
+  %324 = getelementptr inbounds %struct.pointf_s, ptr %323, i64 1
+  %325 = getelementptr inbounds nuw { double, double }, ptr %324, i32 0, i32 0
+  %326 = load double, ptr %325, align 8
+  %327 = getelementptr inbounds nuw { double, double }, ptr %324, i32 0, i32 1
   %328 = load double, ptr %327, align 8
-  %329 = getelementptr inbounds { double, double }, ptr %326, i32 0, i32 1
+  %329 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 0
   %330 = load double, ptr %329, align 8
-  %331 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 0
+  %331 = getelementptr inbounds nuw { double, double }, ptr %17, i32 0, i32 1
   %332 = load double, ptr %331, align 8
-  %333 = getelementptr inbounds { double, double }, ptr %16, i32 0, i32 1
-  %334 = load double, ptr %333, align 8
-  %335 = call { double, double } @mid_pointf(double %328, double %330, double %332, double %334)
-  %336 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 0
-  %337 = extractvalue { double, double } %335, 0
+  %333 = call { double, double } @mid_pointf(double %326, double %328, double %330, double %332)
+  %334 = getelementptr inbounds nuw { double, double }, ptr %20, i32 0, i32 0
+  %335 = extractvalue { double, double } %333, 0
+  store double %335, ptr %334, align 8
+  %336 = getelementptr inbounds nuw { double, double }, ptr %20, i32 0, i32 1
+  %337 = extractvalue { double, double } %333, 1
   store double %337, ptr %336, align 8
-  %338 = getelementptr inbounds { double, double }, ptr %19, i32 0, i32 1
-  %339 = extractvalue { double, double } %335, 1
-  store double %339, ptr %338, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %322, ptr align 8 %19, i64 16, i1 false)
-  %340 = load ptr, ptr %9, align 8
-  %341 = getelementptr inbounds %struct.bezier, ptr %340, i32 0, i32 3
-  %342 = load i32, ptr %341, align 4
-  %343 = icmp ne i32 %342, 0
-  br i1 %343, label %344, label %354
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %320, ptr align 8 %20, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #11
+  %338 = load ptr, ptr %10, align 8, !tbaa !46
+  %339 = getelementptr inbounds nuw %struct.bezier, ptr %338, i32 0, i32 3
+  %340 = load i32, ptr %339, align 4, !tbaa !49
+  %341 = icmp ne i32 %340, 0
+  br i1 %341, label %342, label %352
 
-344:                                              ; preds = %252
-  %345 = load ptr, ptr %3, align 8
-  %346 = load ptr, ptr %9, align 8
-  %347 = getelementptr inbounds %struct.bezier, ptr %346, i32 0, i32 0
-  %348 = load ptr, ptr %347, align 8
-  %349 = load i64, ptr %5, align 8
-  %350 = load ptr, ptr %9, align 8
-  %351 = getelementptr inbounds %struct.bezier, ptr %350, i32 0, i32 3
-  %352 = load i32, ptr %351, align 4
-  %353 = call i64 @arrowEndClip(ptr noundef %345, ptr noundef %348, i64 noundef %349, i64 noundef 0, ptr noundef %13, i32 noundef %352)
-  store i64 %353, ptr %6, align 8
-  br label %354
+342:                                              ; preds = %250
+  %343 = load ptr, ptr %3, align 8, !tbaa !12
+  %344 = load ptr, ptr %10, align 8, !tbaa !46
+  %345 = getelementptr inbounds nuw %struct.bezier, ptr %344, i32 0, i32 0
+  %346 = load ptr, ptr %345, align 8, !tbaa !53
+  %347 = load i64, ptr %5, align 8, !tbaa !17
+  %348 = load ptr, ptr %10, align 8, !tbaa !46
+  %349 = getelementptr inbounds nuw %struct.bezier, ptr %348, i32 0, i32 3
+  %350 = load i32, ptr %349, align 4, !tbaa !49
+  %351 = call i64 @arrowEndClip(ptr noundef %343, ptr noundef %346, i64 noundef %347, i64 noundef 0, ptr noundef %14, i32 noundef %350)
+  store i64 %351, ptr %6, align 8, !tbaa !17
+  br label %352
 
-354:                                              ; preds = %344, %252
-  %355 = load i64, ptr %6, align 8
-  %356 = add i64 %355, 3
-  store i64 %356, ptr %6, align 8
-  store i8 1, ptr %14, align 1
+352:                                              ; preds = %342, %250
+  %353 = load i64, ptr %6, align 8, !tbaa !17
+  %354 = add i64 %353, 3
+  store i64 %354, ptr %6, align 8, !tbaa !17
+  store i8 1, ptr %15, align 1, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #11
+  br label %355
+
+355:                                              ; preds = %352, %243
+  br label %424
+
+356:                                              ; preds = %193
+  store i64 0, ptr %6, align 8, !tbaa !17
   br label %357
 
-357:                                              ; preds = %354, %244
-  br label %426
+357:                                              ; preds = %373, %356
+  %358 = load i64, ptr %6, align 8, !tbaa !17
+  %359 = load i64, ptr %11, align 8, !tbaa !17
+  %360 = sub i64 %359, 1
+  %361 = icmp ult i64 %358, %360
+  br i1 %361, label %362, label %376
 
-358:                                              ; preds = %194
-  store i64 0, ptr %6, align 8
-  br label %359
+362:                                              ; preds = %357
+  %363 = load ptr, ptr %10, align 8, !tbaa !46
+  %364 = getelementptr inbounds nuw %struct.bezier, ptr %363, i32 0, i32 0
+  %365 = load ptr, ptr %364, align 8, !tbaa !53
+  %366 = load i64, ptr %6, align 8, !tbaa !17
+  %367 = getelementptr inbounds nuw %struct.pointf_s, ptr %365, i64 %366
+  %368 = load ptr, ptr %16, align 8, !tbaa !52
+  %369 = call i32 @splineIntersectf(ptr noundef %367, ptr noundef %368)
+  %370 = icmp ne i32 %369, 0
+  br i1 %370, label %371, label %372
 
-359:                                              ; preds = %375, %358
-  %360 = load i64, ptr %6, align 8
-  %361 = load i64, ptr %10, align 8
-  %362 = sub i64 %361, 1
-  %363 = icmp ult i64 %360, %362
-  br i1 %363, label %364, label %378
+371:                                              ; preds = %362
+  br label %376
 
-364:                                              ; preds = %359
-  %365 = load ptr, ptr %9, align 8
-  %366 = getelementptr inbounds %struct.bezier, ptr %365, i32 0, i32 0
-  %367 = load ptr, ptr %366, align 8
-  %368 = load i64, ptr %6, align 8
-  %369 = getelementptr inbounds %struct.pointf_s, ptr %367, i64 %368
-  %370 = load ptr, ptr %15, align 8
-  %371 = call i32 @splineIntersectf(ptr noundef %369, ptr noundef %370)
-  %372 = icmp ne i32 %371, 0
-  br i1 %372, label %373, label %374
+372:                                              ; preds = %362
+  br label %373
 
-373:                                              ; preds = %364
-  br label %378
+373:                                              ; preds = %372
+  %374 = load i64, ptr %6, align 8, !tbaa !17
+  %375 = add i64 %374, 3
+  store i64 %375, ptr %6, align 8, !tbaa !17
+  br label %357, !llvm.loop !56
 
-374:                                              ; preds = %364
-  br label %375
+376:                                              ; preds = %371, %357
+  %377 = load i64, ptr %6, align 8, !tbaa !17
+  %378 = load i64, ptr %11, align 8, !tbaa !17
+  %379 = sub i64 %378, 1
+  %380 = icmp eq i64 %377, %379
+  br i1 %380, label %381, label %404
 
-375:                                              ; preds = %374
-  %376 = load i64, ptr %6, align 8
-  %377 = add i64 %376, 3
-  store i64 %377, ptr %6, align 8
-  br label %359
-
-378:                                              ; preds = %373, %359
-  %379 = load i64, ptr %6, align 8
-  %380 = load i64, ptr %10, align 8
-  %381 = sub i64 %380, 1
-  %382 = icmp eq i64 %379, %381
-  br i1 %382, label %383, label %406
-
-383:                                              ; preds = %378
-  %384 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 5
-  %385 = load ptr, ptr %9, align 8
-  %386 = getelementptr inbounds %struct.bezier, ptr %385, i32 0, i32 5
-  %387 = load ptr, ptr %9, align 8
-  %388 = getelementptr inbounds %struct.bezier, ptr %387, i32 0, i32 0
-  %389 = load ptr, ptr %388, align 8
-  %390 = load i64, ptr %6, align 8
-  %391 = getelementptr inbounds %struct.pointf_s, ptr %389, i64 %390
-  %392 = load ptr, ptr %15, align 8
-  %393 = getelementptr inbounds { double, double }, ptr %386, i32 0, i32 0
+381:                                              ; preds = %376
+  %382 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #11
+  %383 = load ptr, ptr %10, align 8, !tbaa !46
+  %384 = getelementptr inbounds nuw %struct.bezier, ptr %383, i32 0, i32 5
+  %385 = load ptr, ptr %10, align 8, !tbaa !46
+  %386 = getelementptr inbounds nuw %struct.bezier, ptr %385, i32 0, i32 0
+  %387 = load ptr, ptr %386, align 8, !tbaa !53
+  %388 = load i64, ptr %6, align 8, !tbaa !17
+  %389 = getelementptr inbounds nuw %struct.pointf_s, ptr %387, i64 %388
+  %390 = load ptr, ptr %16, align 8, !tbaa !52
+  %391 = getelementptr inbounds nuw { double, double }, ptr %384, i32 0, i32 0
+  %392 = load double, ptr %391, align 8
+  %393 = getelementptr inbounds nuw { double, double }, ptr %384, i32 0, i32 1
   %394 = load double, ptr %393, align 8
-  %395 = getelementptr inbounds { double, double }, ptr %386, i32 0, i32 1
+  %395 = getelementptr inbounds nuw { double, double }, ptr %389, i32 0, i32 0
   %396 = load double, ptr %395, align 8
-  %397 = getelementptr inbounds { double, double }, ptr %391, i32 0, i32 0
+  %397 = getelementptr inbounds nuw { double, double }, ptr %389, i32 0, i32 1
   %398 = load double, ptr %397, align 8
-  %399 = getelementptr inbounds { double, double }, ptr %391, i32 0, i32 1
-  %400 = load double, ptr %399, align 8
-  %401 = call { double, double } @boxIntersectf(double %394, double %396, double %398, double %400, ptr noundef %392)
-  %402 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 0
-  %403 = extractvalue { double, double } %401, 0
+  %399 = call { double, double } @boxIntersectf(double %392, double %394, double %396, double %398, ptr noundef %390)
+  %400 = getelementptr inbounds nuw { double, double }, ptr %21, i32 0, i32 0
+  %401 = extractvalue { double, double } %399, 0
+  store double %401, ptr %400, align 8
+  %402 = getelementptr inbounds nuw { double, double }, ptr %21, i32 0, i32 1
+  %403 = extractvalue { double, double } %399, 1
   store double %403, ptr %402, align 8
-  %404 = getelementptr inbounds { double, double }, ptr %20, i32 0, i32 1
-  %405 = extractvalue { double, double } %401, 1
-  store double %405, ptr %404, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %384, ptr align 8 %20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %382, ptr align 8 %21, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #11
+  br label %423
+
+404:                                              ; preds = %376
+  %405 = load ptr, ptr %10, align 8, !tbaa !46
+  %406 = getelementptr inbounds nuw %struct.bezier, ptr %405, i32 0, i32 3
+  %407 = load i32, ptr %406, align 4, !tbaa !49
+  %408 = icmp ne i32 %407, 0
+  br i1 %408, label %409, label %420
+
+409:                                              ; preds = %404
+  %410 = load ptr, ptr %3, align 8, !tbaa !12
+  %411 = load ptr, ptr %10, align 8, !tbaa !46
+  %412 = getelementptr inbounds nuw %struct.bezier, ptr %411, i32 0, i32 0
+  %413 = load ptr, ptr %412, align 8, !tbaa !53
+  %414 = load i64, ptr %5, align 8, !tbaa !17
+  %415 = load i64, ptr %6, align 8, !tbaa !17
+  %416 = load ptr, ptr %10, align 8, !tbaa !46
+  %417 = getelementptr inbounds nuw %struct.bezier, ptr %416, i32 0, i32 3
+  %418 = load i32, ptr %417, align 4, !tbaa !49
+  %419 = call i64 @arrowEndClip(ptr noundef %410, ptr noundef %413, i64 noundef %414, i64 noundef %415, ptr noundef %14, i32 noundef %418)
+  store i64 %419, ptr %6, align 8, !tbaa !17
+  br label %420
+
+420:                                              ; preds = %409, %404
+  %421 = load i64, ptr %6, align 8, !tbaa !17
+  %422 = add i64 %421, 3
+  store i64 %422, ptr %6, align 8, !tbaa !17
+  br label %423
+
+423:                                              ; preds = %420, %381
+  store i8 1, ptr %15, align 1, !tbaa !51
+  br label %424
+
+424:                                              ; preds = %423, %355
   br label %425
 
-406:                                              ; preds = %378
-  %407 = load ptr, ptr %9, align 8
-  %408 = getelementptr inbounds %struct.bezier, ptr %407, i32 0, i32 3
-  %409 = load i32, ptr %408, align 4
-  %410 = icmp ne i32 %409, 0
-  br i1 %410, label %411, label %422
-
-411:                                              ; preds = %406
-  %412 = load ptr, ptr %3, align 8
-  %413 = load ptr, ptr %9, align 8
-  %414 = getelementptr inbounds %struct.bezier, ptr %413, i32 0, i32 0
-  %415 = load ptr, ptr %414, align 8
-  %416 = load i64, ptr %5, align 8
-  %417 = load i64, ptr %6, align 8
-  %418 = load ptr, ptr %9, align 8
-  %419 = getelementptr inbounds %struct.bezier, ptr %418, i32 0, i32 3
-  %420 = load i32, ptr %419, align 4
-  %421 = call i64 @arrowEndClip(ptr noundef %412, ptr noundef %415, i64 noundef %416, i64 noundef %417, ptr noundef %13, i32 noundef %420)
-  store i64 %421, ptr %6, align 8
-  br label %422
-
-422:                                              ; preds = %411, %406
-  %423 = load i64, ptr %6, align 8
-  %424 = add i64 %423, 3
-  store i64 %424, ptr %6, align 8
-  br label %425
-
-425:                                              ; preds = %422, %383
-  store i8 1, ptr %14, align 1
+425:                                              ; preds = %424, %186
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
   br label %426
 
-426:                                              ; preds = %425, %357
-  br label %427
+426:                                              ; preds = %425, %130
+  %427 = load i8, ptr %15, align 1, !tbaa !51, !range !57, !noundef !58
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %441, label %429
 
-427:                                              ; preds = %426, %186
-  br label %428
+429:                                              ; preds = %426
+  %430 = load i64, ptr %11, align 8, !tbaa !17
+  %431 = sub i64 %430, 1
+  store i64 %431, ptr %6, align 8, !tbaa !17
+  %432 = load ptr, ptr %10, align 8, !tbaa !46
+  %433 = getelementptr inbounds nuw %struct.bezier, ptr %432, i32 0, i32 3
+  %434 = load i32, ptr %433, align 4, !tbaa !49
+  %435 = icmp ne i32 %434, 0
+  br i1 %435, label %436, label %440
 
-428:                                              ; preds = %427, %130
-  %429 = load i8, ptr %14, align 1
-  %430 = trunc i8 %429 to i1
-  br i1 %430, label %443, label %431
+436:                                              ; preds = %429
+  %437 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 5
+  %438 = load ptr, ptr %10, align 8, !tbaa !46
+  %439 = getelementptr inbounds nuw %struct.bezier, ptr %438, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %437, ptr align 8 %439, i64 16, i1 false), !tbaa.struct !54
+  br label %440
 
-431:                                              ; preds = %428
-  %432 = load i64, ptr %10, align 8
-  %433 = sub i64 %432, 1
-  store i64 %433, ptr %6, align 8
-  %434 = load ptr, ptr %9, align 8
-  %435 = getelementptr inbounds %struct.bezier, ptr %434, i32 0, i32 3
-  %436 = load i32, ptr %435, align 4
-  %437 = icmp ne i32 %436, 0
-  br i1 %437, label %438, label %442
+440:                                              ; preds = %436, %429
+  br label %441
 
-438:                                              ; preds = %431
-  %439 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 5
-  %440 = load ptr, ptr %9, align 8
-  %441 = getelementptr inbounds %struct.bezier, ptr %440, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %439, ptr align 8 %441, i64 16, i1 false)
-  br label %442
+441:                                              ; preds = %440, %426
+  store i8 0, ptr %15, align 1, !tbaa !51
+  %442 = load ptr, ptr %8, align 8, !tbaa !3
+  %443 = icmp ne ptr %442, null
+  br i1 %443, label %444, label %780
 
-442:                                              ; preds = %438, %431
-  br label %443
-
-443:                                              ; preds = %442, %428
-  store i8 0, ptr %14, align 1
-  %444 = load ptr, ptr %8, align 8
-  %445 = icmp ne ptr %444, null
-  br i1 %445, label %446, label %779
-
-446:                                              ; preds = %443
-  %447 = load ptr, ptr %8, align 8
-  %448 = getelementptr inbounds %struct.Agobj_s, ptr %447, i32 0, i32 1
-  %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds %struct.Agraphinfo_t, ptr %449, i32 0, i32 3
-  store ptr %450, ptr %21, align 8
-  %451 = load ptr, ptr %12, align 8
-  %452 = getelementptr inbounds %struct.Agobj_s, ptr %451, i32 0, i32 1
-  %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %453, i32 0, i32 3
-  %455 = load ptr, ptr %21, align 8
-  %456 = getelementptr inbounds { double, double }, ptr %454, i32 0, i32 0
+444:                                              ; preds = %441
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  %445 = load ptr, ptr %8, align 8, !tbaa !3
+  %446 = getelementptr inbounds nuw %struct.Agobj_s, ptr %445, i32 0, i32 1
+  %447 = load ptr, ptr %446, align 8, !tbaa !19
+  %448 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %447, i32 0, i32 3
+  store ptr %448, ptr %22, align 8, !tbaa !52
+  %449 = load ptr, ptr %13, align 8, !tbaa !10
+  %450 = getelementptr inbounds nuw %struct.Agobj_s, ptr %449, i32 0, i32 1
+  %451 = load ptr, ptr %450, align 8, !tbaa !19
+  %452 = getelementptr inbounds nuw %struct.Agnodeinfo_t, ptr %451, i32 0, i32 3
+  %453 = load ptr, ptr %22, align 8, !tbaa !52
+  %454 = getelementptr inbounds nuw { double, double }, ptr %452, i32 0, i32 0
+  %455 = load double, ptr %454, align 8
+  %456 = getelementptr inbounds nuw { double, double }, ptr %452, i32 0, i32 1
   %457 = load double, ptr %456, align 8
-  %458 = getelementptr inbounds { double, double }, ptr %454, i32 0, i32 1
-  %459 = load double, ptr %458, align 8
-  %460 = call i32 @inBoxf(double %457, double %459, ptr noundef %455)
-  %461 = icmp ne i32 %460, 0
-  br i1 %461, label %496, label %462
+  %458 = call i32 @inBoxf(double %455, double %457, ptr noundef %453)
+  %459 = icmp ne i32 %458, 0
+  br i1 %459, label %493, label %460
 
-462:                                              ; preds = %446
-  %463 = load ptr, ptr %3, align 8
-  %464 = getelementptr inbounds %struct.Agobj_s, ptr %463, i32 0, i32 0
-  %465 = load i32, ptr %464, align 8
-  %466 = and i32 %465, 3
-  %467 = icmp eq i32 %466, 3
-  br i1 %467, label %468, label %470
+460:                                              ; preds = %444
+  %461 = load ptr, ptr %3, align 8, !tbaa !12
+  %462 = getelementptr inbounds nuw %struct.Agobj_s, ptr %461, i32 0, i32 0
+  %463 = load i32, ptr %462, align 8
+  %464 = and i32 %463, 3
+  %465 = icmp eq i32 %464, 3
+  br i1 %465, label %466, label %468
 
-468:                                              ; preds = %462
-  %469 = load ptr, ptr %3, align 8
-  br label %473
+466:                                              ; preds = %460
+  %467 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %471
 
-470:                                              ; preds = %462
-  %471 = load ptr, ptr %3, align 8
-  %472 = getelementptr inbounds %struct.Agedge_s, ptr %471, i64 1
-  br label %473
+468:                                              ; preds = %460
+  %469 = load ptr, ptr %3, align 8, !tbaa !12
+  %470 = getelementptr inbounds %struct.Agedge_s, ptr %469, i64 1
+  br label %471
 
-473:                                              ; preds = %470, %468
-  %474 = phi ptr [ %469, %468 ], [ %472, %470 ]
-  %475 = getelementptr inbounds %struct.Agedge_s, ptr %474, i32 0, i32 3
-  %476 = load ptr, ptr %475, align 8
-  %477 = call ptr @agnameof(ptr noundef %476)
-  %478 = load ptr, ptr %3, align 8
-  %479 = getelementptr inbounds %struct.Agobj_s, ptr %478, i32 0, i32 0
-  %480 = load i32, ptr %479, align 8
-  %481 = and i32 %480, 3
-  %482 = icmp eq i32 %481, 2
-  br i1 %482, label %483, label %485
+471:                                              ; preds = %468, %466
+  %472 = phi ptr [ %467, %466 ], [ %470, %468 ]
+  %473 = getelementptr inbounds nuw %struct.Agedge_s, ptr %472, i32 0, i32 3
+  %474 = load ptr, ptr %473, align 8, !tbaa !41
+  %475 = call ptr @agnameof(ptr noundef %474)
+  %476 = load ptr, ptr %3, align 8, !tbaa !12
+  %477 = getelementptr inbounds nuw %struct.Agobj_s, ptr %476, i32 0, i32 0
+  %478 = load i32, ptr %477, align 8
+  %479 = and i32 %478, 3
+  %480 = icmp eq i32 %479, 2
+  br i1 %480, label %481, label %483
 
-483:                                              ; preds = %473
-  %484 = load ptr, ptr %3, align 8
-  br label %488
+481:                                              ; preds = %471
+  %482 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %486
 
-485:                                              ; preds = %473
-  %486 = load ptr, ptr %3, align 8
-  %487 = getelementptr inbounds %struct.Agedge_s, ptr %486, i64 -1
-  br label %488
+483:                                              ; preds = %471
+  %484 = load ptr, ptr %3, align 8, !tbaa !12
+  %485 = getelementptr inbounds %struct.Agedge_s, ptr %484, i64 -1
+  br label %486
 
-488:                                              ; preds = %485, %483
-  %489 = phi ptr [ %484, %483 ], [ %487, %485 ]
-  %490 = getelementptr inbounds %struct.Agedge_s, ptr %489, i32 0, i32 3
-  %491 = load ptr, ptr %490, align 8
-  %492 = call ptr @agnameof(ptr noundef %491)
-  %493 = load ptr, ptr %3, align 8
-  %494 = call ptr @agget(ptr noundef %493, ptr noundef @.str.1)
-  %495 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.5, ptr noundef %477, ptr noundef %492, ptr noundef %494)
-  br label %778
-
-496:                                              ; preds = %446
-  %497 = load ptr, ptr %9, align 8
-  %498 = getelementptr inbounds %struct.bezier, ptr %497, i32 0, i32 0
-  %499 = load ptr, ptr %498, align 8
-  %500 = load i64, ptr %6, align 8
-  %501 = getelementptr inbounds %struct.pointf_s, ptr %499, i64 %500
-  %502 = load ptr, ptr %21, align 8
-  %503 = getelementptr inbounds { double, double }, ptr %501, i32 0, i32 0
-  %504 = load double, ptr %503, align 8
-  %505 = getelementptr inbounds { double, double }, ptr %501, i32 0, i32 1
-  %506 = load double, ptr %505, align 8
-  %507 = call i32 @inBoxf(double %504, double %506, ptr noundef %502)
-  %508 = icmp ne i32 %507, 0
-  br i1 %508, label %509, label %672
-
-509:                                              ; preds = %496
-  %510 = load ptr, ptr %11, align 8
-  %511 = getelementptr inbounds %struct.Agobj_s, ptr %510, i32 0, i32 1
-  %512 = load ptr, ptr %511, align 8
-  %513 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %512, i32 0, i32 3
-  %514 = load ptr, ptr %21, align 8
-  %515 = getelementptr inbounds { double, double }, ptr %513, i32 0, i32 0
-  %516 = load double, ptr %515, align 8
-  %517 = getelementptr inbounds { double, double }, ptr %513, i32 0, i32 1
-  %518 = load double, ptr %517, align 8
-  %519 = call i32 @inBoxf(double %516, double %518, ptr noundef %514)
-  %520 = icmp ne i32 %519, 0
-  br i1 %520, label %521, label %555
-
-521:                                              ; preds = %509
-  %522 = load ptr, ptr %3, align 8
-  %523 = getelementptr inbounds %struct.Agobj_s, ptr %522, i32 0, i32 0
-  %524 = load i32, ptr %523, align 8
-  %525 = and i32 %524, 3
-  %526 = icmp eq i32 %525, 3
-  br i1 %526, label %527, label %529
-
-527:                                              ; preds = %521
-  %528 = load ptr, ptr %3, align 8
-  br label %532
-
-529:                                              ; preds = %521
-  %530 = load ptr, ptr %3, align 8
-  %531 = getelementptr inbounds %struct.Agedge_s, ptr %530, i64 1
-  br label %532
-
-532:                                              ; preds = %529, %527
-  %533 = phi ptr [ %528, %527 ], [ %531, %529 ]
-  %534 = getelementptr inbounds %struct.Agedge_s, ptr %533, i32 0, i32 3
-  %535 = load ptr, ptr %534, align 8
-  %536 = call ptr @agnameof(ptr noundef %535)
-  %537 = load ptr, ptr %3, align 8
-  %538 = getelementptr inbounds %struct.Agobj_s, ptr %537, i32 0, i32 0
-  %539 = load i32, ptr %538, align 8
-  %540 = and i32 %539, 3
-  %541 = icmp eq i32 %540, 2
-  br i1 %541, label %542, label %544
-
-542:                                              ; preds = %532
-  %543 = load ptr, ptr %3, align 8
-  br label %547
-
-544:                                              ; preds = %532
-  %545 = load ptr, ptr %3, align 8
-  %546 = getelementptr inbounds %struct.Agedge_s, ptr %545, i64 -1
-  br label %547
-
-547:                                              ; preds = %544, %542
-  %548 = phi ptr [ %543, %542 ], [ %546, %544 ]
-  %549 = getelementptr inbounds %struct.Agedge_s, ptr %548, i32 0, i32 3
-  %550 = load ptr, ptr %549, align 8
-  %551 = call ptr @agnameof(ptr noundef %550)
-  %552 = load ptr, ptr %3, align 8
-  %553 = call ptr @agget(ptr noundef %552, ptr noundef @.str.1)
-  %554 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.6, ptr noundef %536, ptr noundef %551, ptr noundef %553)
-  br label %671
-
-555:                                              ; preds = %509
-  %556 = load ptr, ptr %9, align 8
-  %557 = getelementptr inbounds %struct.bezier, ptr %556, i32 0, i32 0
-  %558 = load ptr, ptr %557, align 8
-  %559 = load i64, ptr %6, align 8
-  %560 = getelementptr inbounds %struct.pointf_s, ptr %558, i64 %559
-  %561 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 5
-  %562 = load ptr, ptr %21, align 8
-  %563 = getelementptr inbounds { double, double }, ptr %560, i32 0, i32 0
-  %564 = load double, ptr %563, align 8
-  %565 = getelementptr inbounds { double, double }, ptr %560, i32 0, i32 1
-  %566 = load double, ptr %565, align 8
-  %567 = getelementptr inbounds { double, double }, ptr %561, i32 0, i32 0
-  %568 = load double, ptr %567, align 8
-  %569 = getelementptr inbounds { double, double }, ptr %561, i32 0, i32 1
-  %570 = load double, ptr %569, align 8
-  %571 = call { double, double } @boxIntersectf(double %564, double %566, double %568, double %570, ptr noundef %562)
-  %572 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 0
-  %573 = extractvalue { double, double } %571, 0
-  store double %573, ptr %572, align 8
-  %574 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 1
-  %575 = extractvalue { double, double } %571, 1
-  store double %575, ptr %574, align 8
-  %576 = load i64, ptr %6, align 8
-  %577 = sub i64 %576, 3
-  store i64 %577, ptr %5, align 8
-  %578 = load ptr, ptr %9, align 8
-  %579 = getelementptr inbounds %struct.bezier, ptr %578, i32 0, i32 0
-  %580 = load ptr, ptr %579, align 8
-  %581 = load i64, ptr %5, align 8
-  %582 = getelementptr inbounds %struct.pointf_s, ptr %580, i64 %581
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %582, ptr align 8 %22, i64 16, i1 false)
-  %583 = load ptr, ptr %9, align 8
-  %584 = getelementptr inbounds %struct.bezier, ptr %583, i32 0, i32 0
-  %585 = load ptr, ptr %584, align 8
-  %586 = load i64, ptr %5, align 8
-  %587 = add i64 %586, 2
-  %588 = getelementptr inbounds %struct.pointf_s, ptr %585, i64 %587
-  %589 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 5
-  %590 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 0
-  %591 = load double, ptr %590, align 8
-  %592 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 1
-  %593 = load double, ptr %592, align 8
-  %594 = getelementptr inbounds { double, double }, ptr %589, i32 0, i32 0
-  %595 = load double, ptr %594, align 8
-  %596 = getelementptr inbounds { double, double }, ptr %589, i32 0, i32 1
-  %597 = load double, ptr %596, align 8
-  %598 = call { double, double } @mid_pointf(double %591, double %593, double %595, double %597)
-  %599 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 0
-  %600 = extractvalue { double, double } %598, 0
-  store double %600, ptr %599, align 8
-  %601 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
-  %602 = extractvalue { double, double } %598, 1
-  store double %602, ptr %601, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %588, ptr align 8 %23, i64 16, i1 false)
-  %603 = load ptr, ptr %9, align 8
-  %604 = getelementptr inbounds %struct.bezier, ptr %603, i32 0, i32 0
-  %605 = load ptr, ptr %604, align 8
-  %606 = load i64, ptr %5, align 8
-  %607 = add i64 %606, 3
-  %608 = getelementptr inbounds %struct.pointf_s, ptr %605, i64 %607
-  %609 = load ptr, ptr %9, align 8
-  %610 = getelementptr inbounds %struct.bezier, ptr %609, i32 0, i32 0
-  %611 = load ptr, ptr %610, align 8
-  %612 = load i64, ptr %5, align 8
-  %613 = add i64 %612, 2
-  %614 = getelementptr inbounds %struct.pointf_s, ptr %611, i64 %613
-  %615 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 5
-  %616 = getelementptr inbounds { double, double }, ptr %614, i32 0, i32 0
-  %617 = load double, ptr %616, align 8
-  %618 = getelementptr inbounds { double, double }, ptr %614, i32 0, i32 1
-  %619 = load double, ptr %618, align 8
-  %620 = getelementptr inbounds { double, double }, ptr %615, i32 0, i32 0
-  %621 = load double, ptr %620, align 8
-  %622 = getelementptr inbounds { double, double }, ptr %615, i32 0, i32 1
-  %623 = load double, ptr %622, align 8
-  %624 = call { double, double } @mid_pointf(double %617, double %619, double %621, double %623)
-  %625 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 0
-  %626 = extractvalue { double, double } %624, 0
-  store double %626, ptr %625, align 8
-  %627 = getelementptr inbounds { double, double }, ptr %24, i32 0, i32 1
-  %628 = extractvalue { double, double } %624, 1
-  store double %628, ptr %627, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %608, ptr align 8 %24, i64 16, i1 false)
-  %629 = load ptr, ptr %9, align 8
-  %630 = getelementptr inbounds %struct.bezier, ptr %629, i32 0, i32 0
-  %631 = load ptr, ptr %630, align 8
-  %632 = load i64, ptr %5, align 8
-  %633 = add i64 %632, 1
-  %634 = getelementptr inbounds %struct.pointf_s, ptr %631, i64 %633
-  %635 = load ptr, ptr %9, align 8
-  %636 = getelementptr inbounds %struct.bezier, ptr %635, i32 0, i32 0
-  %637 = load ptr, ptr %636, align 8
-  %638 = load i64, ptr %5, align 8
-  %639 = add i64 %638, 2
-  %640 = getelementptr inbounds %struct.pointf_s, ptr %637, i64 %639
-  %641 = getelementptr inbounds { double, double }, ptr %640, i32 0, i32 0
-  %642 = load double, ptr %641, align 8
-  %643 = getelementptr inbounds { double, double }, ptr %640, i32 0, i32 1
-  %644 = load double, ptr %643, align 8
-  %645 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 0
-  %646 = load double, ptr %645, align 8
-  %647 = getelementptr inbounds { double, double }, ptr %22, i32 0, i32 1
-  %648 = load double, ptr %647, align 8
-  %649 = call { double, double } @mid_pointf(double %642, double %644, double %646, double %648)
-  %650 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 0
-  %651 = extractvalue { double, double } %649, 0
-  store double %651, ptr %650, align 8
-  %652 = getelementptr inbounds { double, double }, ptr %25, i32 0, i32 1
-  %653 = extractvalue { double, double } %649, 1
-  store double %653, ptr %652, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %634, ptr align 8 %25, i64 16, i1 false)
-  %654 = load ptr, ptr %9, align 8
-  %655 = getelementptr inbounds %struct.bezier, ptr %654, i32 0, i32 2
-  %656 = load i32, ptr %655, align 8
-  %657 = icmp ne i32 %656, 0
-  br i1 %657, label %658, label %670
-
-658:                                              ; preds = %555
-  %659 = load ptr, ptr %3, align 8
-  %660 = load ptr, ptr %9, align 8
-  %661 = getelementptr inbounds %struct.bezier, ptr %660, i32 0, i32 0
-  %662 = load ptr, ptr %661, align 8
-  %663 = load i64, ptr %5, align 8
-  %664 = load i64, ptr %6, align 8
-  %665 = sub i64 %664, 3
-  %666 = load ptr, ptr %9, align 8
-  %667 = getelementptr inbounds %struct.bezier, ptr %666, i32 0, i32 2
-  %668 = load i32, ptr %667, align 8
-  %669 = call i64 @arrowStartClip(ptr noundef %659, ptr noundef %662, i64 noundef %663, i64 noundef %665, ptr noundef %13, i32 noundef %668)
-  store i64 %669, ptr %5, align 8
-  br label %670
-
-670:                                              ; preds = %658, %555
-  store i8 1, ptr %14, align 1
-  br label %671
-
-671:                                              ; preds = %670, %547
-  br label %777
-
-672:                                              ; preds = %496
-  %673 = load i64, ptr %6, align 8
-  store i64 %673, ptr %5, align 8
-  br label %674
-
-674:                                              ; preds = %718, %672
-  %675 = load i64, ptr %5, align 8
-  %676 = icmp ugt i64 %675, 0
-  br i1 %676, label %677, label %721
-
-677:                                              ; preds = %674
-  store i64 0, ptr %27, align 8
-  br label %678
-
-678:                                              ; preds = %691, %677
-  %679 = load i64, ptr %27, align 8
-  %680 = icmp ult i64 %679, 4
-  br i1 %680, label %681, label %694
-
-681:                                              ; preds = %678
-  %682 = load i64, ptr %27, align 8
-  %683 = getelementptr inbounds [4 x %struct.pointf_s], ptr %26, i64 0, i64 %682
-  %684 = load ptr, ptr %9, align 8
-  %685 = getelementptr inbounds %struct.bezier, ptr %684, i32 0, i32 0
-  %686 = load ptr, ptr %685, align 8
-  %687 = load i64, ptr %5, align 8
-  %688 = load i64, ptr %27, align 8
-  %689 = sub i64 %687, %688
-  %690 = getelementptr inbounds %struct.pointf_s, ptr %686, i64 %689
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %683, ptr align 8 %690, i64 16, i1 false)
-  br label %691
-
-691:                                              ; preds = %681
-  %692 = load i64, ptr %27, align 8
-  %693 = add i64 %692, 1
-  store i64 %693, ptr %27, align 8
-  br label %678
-
-694:                                              ; preds = %678
-  %695 = getelementptr inbounds [4 x %struct.pointf_s], ptr %26, i64 0, i64 0
-  %696 = load ptr, ptr %21, align 8
-  %697 = call i32 @splineIntersectf(ptr noundef %695, ptr noundef %696)
-  %698 = icmp ne i32 %697, 0
-  br i1 %698, label %699, label %717
-
-699:                                              ; preds = %694
-  store i64 0, ptr %28, align 8
-  br label %700
-
-700:                                              ; preds = %713, %699
-  %701 = load i64, ptr %28, align 8
-  %702 = icmp ult i64 %701, 4
-  br i1 %702, label %703, label %716
-
-703:                                              ; preds = %700
-  %704 = load ptr, ptr %9, align 8
-  %705 = getelementptr inbounds %struct.bezier, ptr %704, i32 0, i32 0
-  %706 = load ptr, ptr %705, align 8
-  %707 = load i64, ptr %5, align 8
-  %708 = load i64, ptr %28, align 8
-  %709 = sub i64 %707, %708
-  %710 = getelementptr inbounds %struct.pointf_s, ptr %706, i64 %709
-  %711 = load i64, ptr %28, align 8
-  %712 = getelementptr inbounds [4 x %struct.pointf_s], ptr %26, i64 0, i64 %711
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %710, ptr align 16 %712, i64 16, i1 false)
-  br label %713
-
-713:                                              ; preds = %703
-  %714 = load i64, ptr %28, align 8
-  %715 = add i64 %714, 1
-  store i64 %715, ptr %28, align 8
-  br label %700
-
-716:                                              ; preds = %700
-  br label %721
-
-717:                                              ; preds = %694
-  br label %718
-
-718:                                              ; preds = %717
-  %719 = load i64, ptr %5, align 8
-  %720 = sub i64 %719, 3
-  store i64 %720, ptr %5, align 8
-  br label %674
-
-721:                                              ; preds = %716, %674
-  %722 = load i64, ptr %5, align 8
-  %723 = icmp eq i64 %722, 0
-  br i1 %723, label %724, label %752
-
-724:                                              ; preds = %721
-  %725 = load ptr, ptr %9, align 8
-  %726 = getelementptr inbounds %struct.bezier, ptr %725, i32 0, i32 2
-  %727 = load i32, ptr %726, align 8
-  %728 = icmp ne i32 %727, 0
-  br i1 %728, label %729, label %752
-
-729:                                              ; preds = %724
-  %730 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 4
-  %731 = load ptr, ptr %9, align 8
-  %732 = getelementptr inbounds %struct.bezier, ptr %731, i32 0, i32 4
-  %733 = load ptr, ptr %9, align 8
-  %734 = getelementptr inbounds %struct.bezier, ptr %733, i32 0, i32 0
-  %735 = load ptr, ptr %734, align 8
-  %736 = load i64, ptr %5, align 8
-  %737 = getelementptr inbounds %struct.pointf_s, ptr %735, i64 %736
-  %738 = load ptr, ptr %21, align 8
-  %739 = getelementptr inbounds { double, double }, ptr %732, i32 0, i32 0
-  %740 = load double, ptr %739, align 8
-  %741 = getelementptr inbounds { double, double }, ptr %732, i32 0, i32 1
-  %742 = load double, ptr %741, align 8
-  %743 = getelementptr inbounds { double, double }, ptr %737, i32 0, i32 0
-  %744 = load double, ptr %743, align 8
-  %745 = getelementptr inbounds { double, double }, ptr %737, i32 0, i32 1
-  %746 = load double, ptr %745, align 8
-  %747 = call { double, double } @boxIntersectf(double %740, double %742, double %744, double %746, ptr noundef %738)
-  %748 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 0
-  %749 = extractvalue { double, double } %747, 0
-  store double %749, ptr %748, align 8
-  %750 = getelementptr inbounds { double, double }, ptr %29, i32 0, i32 1
-  %751 = extractvalue { double, double } %747, 1
-  store double %751, ptr %750, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %730, ptr align 8 %29, i64 16, i1 false)
-  br label %776
-
-752:                                              ; preds = %724, %721
-  %753 = load i64, ptr %5, align 8
-  %754 = icmp ne i64 %753, 0
-  br i1 %754, label %755, label %775
-
-755:                                              ; preds = %752
-  %756 = load i64, ptr %5, align 8
-  %757 = sub i64 %756, 3
-  store i64 %757, ptr %5, align 8
-  %758 = load ptr, ptr %9, align 8
-  %759 = getelementptr inbounds %struct.bezier, ptr %758, i32 0, i32 2
-  %760 = load i32, ptr %759, align 8
-  %761 = icmp ne i32 %760, 0
-  br i1 %761, label %762, label %774
-
-762:                                              ; preds = %755
-  %763 = load ptr, ptr %3, align 8
-  %764 = load ptr, ptr %9, align 8
-  %765 = getelementptr inbounds %struct.bezier, ptr %764, i32 0, i32 0
-  %766 = load ptr, ptr %765, align 8
-  %767 = load i64, ptr %5, align 8
-  %768 = load i64, ptr %6, align 8
-  %769 = sub i64 %768, 3
-  %770 = load ptr, ptr %9, align 8
-  %771 = getelementptr inbounds %struct.bezier, ptr %770, i32 0, i32 2
-  %772 = load i32, ptr %771, align 8
-  %773 = call i64 @arrowStartClip(ptr noundef %763, ptr noundef %766, i64 noundef %767, i64 noundef %769, ptr noundef %13, i32 noundef %772)
-  store i64 %773, ptr %5, align 8
-  br label %774
-
-774:                                              ; preds = %762, %755
-  br label %775
-
-775:                                              ; preds = %774, %752
-  br label %776
-
-776:                                              ; preds = %775, %729
-  store i8 1, ptr %14, align 1
-  br label %777
-
-777:                                              ; preds = %776, %671
-  br label %778
-
-778:                                              ; preds = %777, %488
+486:                                              ; preds = %483, %481
+  %487 = phi ptr [ %482, %481 ], [ %485, %483 ]
+  %488 = getelementptr inbounds nuw %struct.Agedge_s, ptr %487, i32 0, i32 3
+  %489 = load ptr, ptr %488, align 8, !tbaa !41
+  %490 = call ptr @agnameof(ptr noundef %489)
+  %491 = load ptr, ptr %3, align 8, !tbaa !12
+  %492 = call ptr @agget(ptr noundef %491, ptr noundef @.str.1)
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.5, ptr noundef %475, ptr noundef %490, ptr noundef %492)
   br label %779
 
-779:                                              ; preds = %778, %443
-  %780 = load i8, ptr %14, align 1
-  %781 = trunc i8 %780 to i1
-  br i1 %781, label %792, label %782
+493:                                              ; preds = %444
+  %494 = load ptr, ptr %10, align 8, !tbaa !46
+  %495 = getelementptr inbounds nuw %struct.bezier, ptr %494, i32 0, i32 0
+  %496 = load ptr, ptr %495, align 8, !tbaa !53
+  %497 = load i64, ptr %6, align 8, !tbaa !17
+  %498 = getelementptr inbounds nuw %struct.pointf_s, ptr %496, i64 %497
+  %499 = load ptr, ptr %22, align 8, !tbaa !52
+  %500 = getelementptr inbounds nuw { double, double }, ptr %498, i32 0, i32 0
+  %501 = load double, ptr %500, align 8
+  %502 = getelementptr inbounds nuw { double, double }, ptr %498, i32 0, i32 1
+  %503 = load double, ptr %502, align 8
+  %504 = call i32 @inBoxf(double %501, double %503, ptr noundef %499)
+  %505 = icmp ne i32 %504, 0
+  br i1 %505, label %506, label %668
 
-782:                                              ; preds = %779
-  %783 = load ptr, ptr %9, align 8
-  %784 = getelementptr inbounds %struct.bezier, ptr %783, i32 0, i32 2
-  %785 = load i32, ptr %784, align 8
-  %786 = icmp ne i32 %785, 0
-  br i1 %786, label %787, label %791
+506:                                              ; preds = %493
+  %507 = load ptr, ptr %12, align 8, !tbaa !10
+  %508 = getelementptr inbounds nuw %struct.Agobj_s, ptr %507, i32 0, i32 1
+  %509 = load ptr, ptr %508, align 8, !tbaa !19
+  %510 = getelementptr inbounds nuw %struct.Agnodeinfo_t, ptr %509, i32 0, i32 3
+  %511 = load ptr, ptr %22, align 8, !tbaa !52
+  %512 = getelementptr inbounds nuw { double, double }, ptr %510, i32 0, i32 0
+  %513 = load double, ptr %512, align 8
+  %514 = getelementptr inbounds nuw { double, double }, ptr %510, i32 0, i32 1
+  %515 = load double, ptr %514, align 8
+  %516 = call i32 @inBoxf(double %513, double %515, ptr noundef %511)
+  %517 = icmp ne i32 %516, 0
+  br i1 %517, label %518, label %551
 
-787:                                              ; preds = %782
-  %788 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 4
-  %789 = load ptr, ptr %9, align 8
-  %790 = getelementptr inbounds %struct.bezier, ptr %789, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %788, ptr align 8 %790, i64 16, i1 false)
-  br label %791
+518:                                              ; preds = %506
+  %519 = load ptr, ptr %3, align 8, !tbaa !12
+  %520 = getelementptr inbounds nuw %struct.Agobj_s, ptr %519, i32 0, i32 0
+  %521 = load i32, ptr %520, align 8
+  %522 = and i32 %521, 3
+  %523 = icmp eq i32 %522, 3
+  br i1 %523, label %524, label %526
 
-791:                                              ; preds = %787, %782
+524:                                              ; preds = %518
+  %525 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %529
+
+526:                                              ; preds = %518
+  %527 = load ptr, ptr %3, align 8, !tbaa !12
+  %528 = getelementptr inbounds %struct.Agedge_s, ptr %527, i64 1
+  br label %529
+
+529:                                              ; preds = %526, %524
+  %530 = phi ptr [ %525, %524 ], [ %528, %526 ]
+  %531 = getelementptr inbounds nuw %struct.Agedge_s, ptr %530, i32 0, i32 3
+  %532 = load ptr, ptr %531, align 8, !tbaa !41
+  %533 = call ptr @agnameof(ptr noundef %532)
+  %534 = load ptr, ptr %3, align 8, !tbaa !12
+  %535 = getelementptr inbounds nuw %struct.Agobj_s, ptr %534, i32 0, i32 0
+  %536 = load i32, ptr %535, align 8
+  %537 = and i32 %536, 3
+  %538 = icmp eq i32 %537, 2
+  br i1 %538, label %539, label %541
+
+539:                                              ; preds = %529
+  %540 = load ptr, ptr %3, align 8, !tbaa !12
+  br label %544
+
+541:                                              ; preds = %529
+  %542 = load ptr, ptr %3, align 8, !tbaa !12
+  %543 = getelementptr inbounds %struct.Agedge_s, ptr %542, i64 -1
+  br label %544
+
+544:                                              ; preds = %541, %539
+  %545 = phi ptr [ %540, %539 ], [ %543, %541 ]
+  %546 = getelementptr inbounds nuw %struct.Agedge_s, ptr %545, i32 0, i32 3
+  %547 = load ptr, ptr %546, align 8, !tbaa !41
+  %548 = call ptr @agnameof(ptr noundef %547)
+  %549 = load ptr, ptr %3, align 8, !tbaa !12
+  %550 = call ptr @agget(ptr noundef %549, ptr noundef @.str.1)
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.6, ptr noundef %533, ptr noundef %548, ptr noundef %550)
+  br label %667
+
+551:                                              ; preds = %506
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #11
+  %552 = load ptr, ptr %10, align 8, !tbaa !46
+  %553 = getelementptr inbounds nuw %struct.bezier, ptr %552, i32 0, i32 0
+  %554 = load ptr, ptr %553, align 8, !tbaa !53
+  %555 = load i64, ptr %6, align 8, !tbaa !17
+  %556 = getelementptr inbounds nuw %struct.pointf_s, ptr %554, i64 %555
+  %557 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 5
+  %558 = load ptr, ptr %22, align 8, !tbaa !52
+  %559 = getelementptr inbounds nuw { double, double }, ptr %556, i32 0, i32 0
+  %560 = load double, ptr %559, align 8
+  %561 = getelementptr inbounds nuw { double, double }, ptr %556, i32 0, i32 1
+  %562 = load double, ptr %561, align 8
+  %563 = getelementptr inbounds nuw { double, double }, ptr %557, i32 0, i32 0
+  %564 = load double, ptr %563, align 8
+  %565 = getelementptr inbounds nuw { double, double }, ptr %557, i32 0, i32 1
+  %566 = load double, ptr %565, align 8
+  %567 = call { double, double } @boxIntersectf(double %560, double %562, double %564, double %566, ptr noundef %558)
+  %568 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 0
+  %569 = extractvalue { double, double } %567, 0
+  store double %569, ptr %568, align 8
+  %570 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 1
+  %571 = extractvalue { double, double } %567, 1
+  store double %571, ptr %570, align 8
+  %572 = load i64, ptr %6, align 8, !tbaa !17
+  %573 = sub i64 %572, 3
+  store i64 %573, ptr %5, align 8, !tbaa !17
+  %574 = load ptr, ptr %10, align 8, !tbaa !46
+  %575 = getelementptr inbounds nuw %struct.bezier, ptr %574, i32 0, i32 0
+  %576 = load ptr, ptr %575, align 8, !tbaa !53
+  %577 = load i64, ptr %5, align 8, !tbaa !17
+  %578 = getelementptr inbounds nuw %struct.pointf_s, ptr %576, i64 %577
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %578, ptr align 8 %23, i64 16, i1 false), !tbaa.struct !54
+  %579 = load ptr, ptr %10, align 8, !tbaa !46
+  %580 = getelementptr inbounds nuw %struct.bezier, ptr %579, i32 0, i32 0
+  %581 = load ptr, ptr %580, align 8, !tbaa !53
+  %582 = load i64, ptr %5, align 8, !tbaa !17
+  %583 = add i64 %582, 2
+  %584 = getelementptr inbounds nuw %struct.pointf_s, ptr %581, i64 %583
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #11
+  %585 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 5
+  %586 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 0
+  %587 = load double, ptr %586, align 8
+  %588 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 1
+  %589 = load double, ptr %588, align 8
+  %590 = getelementptr inbounds nuw { double, double }, ptr %585, i32 0, i32 0
+  %591 = load double, ptr %590, align 8
+  %592 = getelementptr inbounds nuw { double, double }, ptr %585, i32 0, i32 1
+  %593 = load double, ptr %592, align 8
+  %594 = call { double, double } @mid_pointf(double %587, double %589, double %591, double %593)
+  %595 = getelementptr inbounds nuw { double, double }, ptr %24, i32 0, i32 0
+  %596 = extractvalue { double, double } %594, 0
+  store double %596, ptr %595, align 8
+  %597 = getelementptr inbounds nuw { double, double }, ptr %24, i32 0, i32 1
+  %598 = extractvalue { double, double } %594, 1
+  store double %598, ptr %597, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %584, ptr align 8 %24, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #11
+  %599 = load ptr, ptr %10, align 8, !tbaa !46
+  %600 = getelementptr inbounds nuw %struct.bezier, ptr %599, i32 0, i32 0
+  %601 = load ptr, ptr %600, align 8, !tbaa !53
+  %602 = load i64, ptr %5, align 8, !tbaa !17
+  %603 = add i64 %602, 3
+  %604 = getelementptr inbounds nuw %struct.pointf_s, ptr %601, i64 %603
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #11
+  %605 = load ptr, ptr %10, align 8, !tbaa !46
+  %606 = getelementptr inbounds nuw %struct.bezier, ptr %605, i32 0, i32 0
+  %607 = load ptr, ptr %606, align 8, !tbaa !53
+  %608 = load i64, ptr %5, align 8, !tbaa !17
+  %609 = add i64 %608, 2
+  %610 = getelementptr inbounds nuw %struct.pointf_s, ptr %607, i64 %609
+  %611 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 5
+  %612 = getelementptr inbounds nuw { double, double }, ptr %610, i32 0, i32 0
+  %613 = load double, ptr %612, align 8
+  %614 = getelementptr inbounds nuw { double, double }, ptr %610, i32 0, i32 1
+  %615 = load double, ptr %614, align 8
+  %616 = getelementptr inbounds nuw { double, double }, ptr %611, i32 0, i32 0
+  %617 = load double, ptr %616, align 8
+  %618 = getelementptr inbounds nuw { double, double }, ptr %611, i32 0, i32 1
+  %619 = load double, ptr %618, align 8
+  %620 = call { double, double } @mid_pointf(double %613, double %615, double %617, double %619)
+  %621 = getelementptr inbounds nuw { double, double }, ptr %25, i32 0, i32 0
+  %622 = extractvalue { double, double } %620, 0
+  store double %622, ptr %621, align 8
+  %623 = getelementptr inbounds nuw { double, double }, ptr %25, i32 0, i32 1
+  %624 = extractvalue { double, double } %620, 1
+  store double %624, ptr %623, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %604, ptr align 8 %25, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #11
+  %625 = load ptr, ptr %10, align 8, !tbaa !46
+  %626 = getelementptr inbounds nuw %struct.bezier, ptr %625, i32 0, i32 0
+  %627 = load ptr, ptr %626, align 8, !tbaa !53
+  %628 = load i64, ptr %5, align 8, !tbaa !17
+  %629 = add i64 %628, 1
+  %630 = getelementptr inbounds nuw %struct.pointf_s, ptr %627, i64 %629
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #11
+  %631 = load ptr, ptr %10, align 8, !tbaa !46
+  %632 = getelementptr inbounds nuw %struct.bezier, ptr %631, i32 0, i32 0
+  %633 = load ptr, ptr %632, align 8, !tbaa !53
+  %634 = load i64, ptr %5, align 8, !tbaa !17
+  %635 = add i64 %634, 2
+  %636 = getelementptr inbounds nuw %struct.pointf_s, ptr %633, i64 %635
+  %637 = getelementptr inbounds nuw { double, double }, ptr %636, i32 0, i32 0
+  %638 = load double, ptr %637, align 8
+  %639 = getelementptr inbounds nuw { double, double }, ptr %636, i32 0, i32 1
+  %640 = load double, ptr %639, align 8
+  %641 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 0
+  %642 = load double, ptr %641, align 8
+  %643 = getelementptr inbounds nuw { double, double }, ptr %23, i32 0, i32 1
+  %644 = load double, ptr %643, align 8
+  %645 = call { double, double } @mid_pointf(double %638, double %640, double %642, double %644)
+  %646 = getelementptr inbounds nuw { double, double }, ptr %26, i32 0, i32 0
+  %647 = extractvalue { double, double } %645, 0
+  store double %647, ptr %646, align 8
+  %648 = getelementptr inbounds nuw { double, double }, ptr %26, i32 0, i32 1
+  %649 = extractvalue { double, double } %645, 1
+  store double %649, ptr %648, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %630, ptr align 8 %26, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #11
+  %650 = load ptr, ptr %10, align 8, !tbaa !46
+  %651 = getelementptr inbounds nuw %struct.bezier, ptr %650, i32 0, i32 2
+  %652 = load i32, ptr %651, align 8, !tbaa !50
+  %653 = icmp ne i32 %652, 0
+  br i1 %653, label %654, label %666
+
+654:                                              ; preds = %551
+  %655 = load ptr, ptr %3, align 8, !tbaa !12
+  %656 = load ptr, ptr %10, align 8, !tbaa !46
+  %657 = getelementptr inbounds nuw %struct.bezier, ptr %656, i32 0, i32 0
+  %658 = load ptr, ptr %657, align 8, !tbaa !53
+  %659 = load i64, ptr %5, align 8, !tbaa !17
+  %660 = load i64, ptr %6, align 8, !tbaa !17
+  %661 = sub i64 %660, 3
+  %662 = load ptr, ptr %10, align 8, !tbaa !46
+  %663 = getelementptr inbounds nuw %struct.bezier, ptr %662, i32 0, i32 2
+  %664 = load i32, ptr %663, align 8, !tbaa !50
+  %665 = call i64 @arrowStartClip(ptr noundef %655, ptr noundef %658, i64 noundef %659, i64 noundef %661, ptr noundef %14, i32 noundef %664)
+  store i64 %665, ptr %5, align 8, !tbaa !17
+  br label %666
+
+666:                                              ; preds = %654, %551
+  store i8 1, ptr %15, align 1, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #11
+  br label %667
+
+667:                                              ; preds = %666, %544
+  br label %778
+
+668:                                              ; preds = %493
+  %669 = load i64, ptr %6, align 8, !tbaa !17
+  store i64 %669, ptr %5, align 8, !tbaa !17
+  br label %670
+
+670:                                              ; preds = %719, %668
+  %671 = load i64, ptr %5, align 8, !tbaa !17
+  %672 = icmp ugt i64 %671, 0
+  br i1 %672, label %673, label %722
+
+673:                                              ; preds = %670
+  call void @llvm.lifetime.start.p0(i64 64, ptr %27) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #11
+  store i64 0, ptr %28, align 8, !tbaa !17
+  br label %674
+
+674:                                              ; preds = %688, %673
+  %675 = load i64, ptr %28, align 8, !tbaa !17
+  %676 = icmp ult i64 %675, 4
+  br i1 %676, label %678, label %677
+
+677:                                              ; preds = %674
+  store i32 8, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #11
+  br label %691
+
+678:                                              ; preds = %674
+  %679 = load i64, ptr %28, align 8, !tbaa !17
+  %680 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %27, i64 0, i64 %679
+  %681 = load ptr, ptr %10, align 8, !tbaa !46
+  %682 = getelementptr inbounds nuw %struct.bezier, ptr %681, i32 0, i32 0
+  %683 = load ptr, ptr %682, align 8, !tbaa !53
+  %684 = load i64, ptr %5, align 8, !tbaa !17
+  %685 = load i64, ptr %28, align 8, !tbaa !17
+  %686 = sub i64 %684, %685
+  %687 = getelementptr inbounds nuw %struct.pointf_s, ptr %683, i64 %686
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %680, ptr align 8 %687, i64 16, i1 false), !tbaa.struct !54
+  br label %688
+
+688:                                              ; preds = %678
+  %689 = load i64, ptr %28, align 8, !tbaa !17
+  %690 = add i64 %689, 1
+  store i64 %690, ptr %28, align 8, !tbaa !17
+  br label %674, !llvm.loop !59
+
+691:                                              ; preds = %677
+  %692 = getelementptr inbounds [4 x %struct.pointf_s], ptr %27, i64 0, i64 0
+  %693 = load ptr, ptr %22, align 8, !tbaa !52
+  %694 = call i32 @splineIntersectf(ptr noundef %692, ptr noundef %693)
+  %695 = icmp ne i32 %694, 0
+  br i1 %695, label %696, label %715
+
+696:                                              ; preds = %691
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #11
+  store i64 0, ptr %29, align 8, !tbaa !17
+  br label %697
+
+697:                                              ; preds = %711, %696
+  %698 = load i64, ptr %29, align 8, !tbaa !17
+  %699 = icmp ult i64 %698, 4
+  br i1 %699, label %701, label %700
+
+700:                                              ; preds = %697
+  store i32 11, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #11
+  br label %714
+
+701:                                              ; preds = %697
+  %702 = load ptr, ptr %10, align 8, !tbaa !46
+  %703 = getelementptr inbounds nuw %struct.bezier, ptr %702, i32 0, i32 0
+  %704 = load ptr, ptr %703, align 8, !tbaa !53
+  %705 = load i64, ptr %5, align 8, !tbaa !17
+  %706 = load i64, ptr %29, align 8, !tbaa !17
+  %707 = sub i64 %705, %706
+  %708 = getelementptr inbounds nuw %struct.pointf_s, ptr %704, i64 %707
+  %709 = load i64, ptr %29, align 8, !tbaa !17
+  %710 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %27, i64 0, i64 %709
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %708, ptr align 16 %710, i64 16, i1 false), !tbaa.struct !54
+  br label %711
+
+711:                                              ; preds = %701
+  %712 = load i64, ptr %29, align 8, !tbaa !17
+  %713 = add i64 %712, 1
+  store i64 %713, ptr %29, align 8, !tbaa !17
+  br label %697, !llvm.loop !60
+
+714:                                              ; preds = %700
+  store i32 5, ptr %9, align 4
+  br label %716
+
+715:                                              ; preds = %691
+  store i32 0, ptr %9, align 4
+  br label %716
+
+716:                                              ; preds = %715, %714
+  call void @llvm.lifetime.end.p0(i64 64, ptr %27) #11
+  %717 = load i32, ptr %9, align 4
+  switch i32 %717, label %839 [
+    i32 0, label %718
+    i32 5, label %722
+  ]
+
+718:                                              ; preds = %716
+  br label %719
+
+719:                                              ; preds = %718
+  %720 = load i64, ptr %5, align 8, !tbaa !17
+  %721 = sub i64 %720, 3
+  store i64 %721, ptr %5, align 8, !tbaa !17
+  br label %670, !llvm.loop !61
+
+722:                                              ; preds = %716, %670
+  %723 = load i64, ptr %5, align 8, !tbaa !17
+  %724 = icmp eq i64 %723, 0
+  br i1 %724, label %725, label %753
+
+725:                                              ; preds = %722
+  %726 = load ptr, ptr %10, align 8, !tbaa !46
+  %727 = getelementptr inbounds nuw %struct.bezier, ptr %726, i32 0, i32 2
+  %728 = load i32, ptr %727, align 8, !tbaa !50
+  %729 = icmp ne i32 %728, 0
+  br i1 %729, label %730, label %753
+
+730:                                              ; preds = %725
+  %731 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %30) #11
+  %732 = load ptr, ptr %10, align 8, !tbaa !46
+  %733 = getelementptr inbounds nuw %struct.bezier, ptr %732, i32 0, i32 4
+  %734 = load ptr, ptr %10, align 8, !tbaa !46
+  %735 = getelementptr inbounds nuw %struct.bezier, ptr %734, i32 0, i32 0
+  %736 = load ptr, ptr %735, align 8, !tbaa !53
+  %737 = load i64, ptr %5, align 8, !tbaa !17
+  %738 = getelementptr inbounds nuw %struct.pointf_s, ptr %736, i64 %737
+  %739 = load ptr, ptr %22, align 8, !tbaa !52
+  %740 = getelementptr inbounds nuw { double, double }, ptr %733, i32 0, i32 0
+  %741 = load double, ptr %740, align 8
+  %742 = getelementptr inbounds nuw { double, double }, ptr %733, i32 0, i32 1
+  %743 = load double, ptr %742, align 8
+  %744 = getelementptr inbounds nuw { double, double }, ptr %738, i32 0, i32 0
+  %745 = load double, ptr %744, align 8
+  %746 = getelementptr inbounds nuw { double, double }, ptr %738, i32 0, i32 1
+  %747 = load double, ptr %746, align 8
+  %748 = call { double, double } @boxIntersectf(double %741, double %743, double %745, double %747, ptr noundef %739)
+  %749 = getelementptr inbounds nuw { double, double }, ptr %30, i32 0, i32 0
+  %750 = extractvalue { double, double } %748, 0
+  store double %750, ptr %749, align 8
+  %751 = getelementptr inbounds nuw { double, double }, ptr %30, i32 0, i32 1
+  %752 = extractvalue { double, double } %748, 1
+  store double %752, ptr %751, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %731, ptr align 8 %30, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 16, ptr %30) #11
+  br label %777
+
+753:                                              ; preds = %725, %722
+  %754 = load i64, ptr %5, align 8, !tbaa !17
+  %755 = icmp ne i64 %754, 0
+  br i1 %755, label %756, label %776
+
+756:                                              ; preds = %753
+  %757 = load i64, ptr %5, align 8, !tbaa !17
+  %758 = sub i64 %757, 3
+  store i64 %758, ptr %5, align 8, !tbaa !17
+  %759 = load ptr, ptr %10, align 8, !tbaa !46
+  %760 = getelementptr inbounds nuw %struct.bezier, ptr %759, i32 0, i32 2
+  %761 = load i32, ptr %760, align 8, !tbaa !50
+  %762 = icmp ne i32 %761, 0
+  br i1 %762, label %763, label %775
+
+763:                                              ; preds = %756
+  %764 = load ptr, ptr %3, align 8, !tbaa !12
+  %765 = load ptr, ptr %10, align 8, !tbaa !46
+  %766 = getelementptr inbounds nuw %struct.bezier, ptr %765, i32 0, i32 0
+  %767 = load ptr, ptr %766, align 8, !tbaa !53
+  %768 = load i64, ptr %5, align 8, !tbaa !17
+  %769 = load i64, ptr %6, align 8, !tbaa !17
+  %770 = sub i64 %769, 3
+  %771 = load ptr, ptr %10, align 8, !tbaa !46
+  %772 = getelementptr inbounds nuw %struct.bezier, ptr %771, i32 0, i32 2
+  %773 = load i32, ptr %772, align 8, !tbaa !50
+  %774 = call i64 @arrowStartClip(ptr noundef %764, ptr noundef %767, i64 noundef %768, i64 noundef %770, ptr noundef %14, i32 noundef %773)
+  store i64 %774, ptr %5, align 8, !tbaa !17
+  br label %775
+
+775:                                              ; preds = %763, %756
+  br label %776
+
+776:                                              ; preds = %775, %753
+  br label %777
+
+777:                                              ; preds = %776, %730
+  store i8 1, ptr %15, align 1, !tbaa !51
+  br label %778
+
+778:                                              ; preds = %777, %667
+  br label %779
+
+779:                                              ; preds = %778, %486
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  br label %780
+
+780:                                              ; preds = %779, %441
+  %781 = load i8, ptr %15, align 1, !tbaa !51, !range !57, !noundef !58
+  %782 = trunc i8 %781 to i1
+  br i1 %782, label %793, label %783
+
+783:                                              ; preds = %780
+  %784 = load ptr, ptr %10, align 8, !tbaa !46
+  %785 = getelementptr inbounds nuw %struct.bezier, ptr %784, i32 0, i32 2
+  %786 = load i32, ptr %785, align 8, !tbaa !50
+  %787 = icmp ne i32 %786, 0
+  br i1 %787, label %788, label %792
+
+788:                                              ; preds = %783
+  %789 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 4
+  %790 = load ptr, ptr %10, align 8, !tbaa !46
+  %791 = getelementptr inbounds nuw %struct.bezier, ptr %790, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %789, ptr align 8 %791, i64 16, i1 false), !tbaa.struct !54
   br label %792
 
-792:                                              ; preds = %791, %779
-  %793 = load i64, ptr %6, align 8
-  %794 = load i64, ptr %5, align 8
-  %795 = sub i64 %793, %794
-  %796 = add i64 %795, 1
-  %797 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 1
-  store i64 %796, ptr %797, align 8
-  %798 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 1
-  %799 = load i64, ptr %798, align 8
-  %800 = call ptr @gv_calloc(i64 noundef %799, i64 noundef 16)
-  %801 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 0
-  store ptr %800, ptr %801, align 8
-  store i64 0, ptr %30, align 8
-  %802 = load i64, ptr %5, align 8
-  store i64 %802, ptr %31, align 8
-  br label %803
+792:                                              ; preds = %788, %783
+  br label %793
 
-803:                                              ; preds = %818, %792
-  %804 = load i64, ptr %30, align 8
-  %805 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 1
-  %806 = load i64, ptr %805, align 8
-  %807 = icmp ult i64 %804, %806
-  br i1 %807, label %808, label %823
+793:                                              ; preds = %792, %780
+  %794 = load i64, ptr %6, align 8, !tbaa !17
+  %795 = load i64, ptr %5, align 8, !tbaa !17
+  %796 = sub i64 %794, %795
+  %797 = add i64 %796, 1
+  %798 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 1
+  store i64 %797, ptr %798, align 8, !tbaa !47
+  %799 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 1
+  %800 = load i64, ptr %799, align 8, !tbaa !47
+  %801 = call ptr @gv_calloc(i64 noundef %800, i64 noundef 16)
+  %802 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 0
+  store ptr %801, ptr %802, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #11
+  store i64 0, ptr %31, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #11
+  %803 = load i64, ptr %5, align 8, !tbaa !17
+  store i64 %803, ptr %32, align 8, !tbaa !17
+  br label %804
 
-808:                                              ; preds = %803
-  %809 = getelementptr inbounds %struct.bezier, ptr %13, i32 0, i32 0
-  %810 = load ptr, ptr %809, align 8
-  %811 = load i64, ptr %30, align 8
-  %812 = getelementptr inbounds %struct.pointf_s, ptr %810, i64 %811
-  %813 = load ptr, ptr %9, align 8
-  %814 = getelementptr inbounds %struct.bezier, ptr %813, i32 0, i32 0
-  %815 = load ptr, ptr %814, align 8
-  %816 = load i64, ptr %31, align 8
-  %817 = getelementptr inbounds %struct.pointf_s, ptr %815, i64 %816
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %812, ptr align 8 %817, i64 16, i1 false)
-  br label %818
+804:                                              ; preds = %820, %793
+  %805 = load i64, ptr %31, align 8, !tbaa !17
+  %806 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 1
+  %807 = load i64, ptr %806, align 8, !tbaa !47
+  %808 = icmp ult i64 %805, %807
+  br i1 %808, label %810, label %809
 
-818:                                              ; preds = %808
-  %819 = load i64, ptr %30, align 8
-  %820 = add i64 %819, 1
-  store i64 %820, ptr %30, align 8
-  %821 = load i64, ptr %31, align 8
+809:                                              ; preds = %804
+  store i32 14, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #11
+  br label %825
+
+810:                                              ; preds = %804
+  %811 = getelementptr inbounds nuw %struct.bezier, ptr %14, i32 0, i32 0
+  %812 = load ptr, ptr %811, align 8, !tbaa !53
+  %813 = load i64, ptr %31, align 8, !tbaa !17
+  %814 = getelementptr inbounds nuw %struct.pointf_s, ptr %812, i64 %813
+  %815 = load ptr, ptr %10, align 8, !tbaa !46
+  %816 = getelementptr inbounds nuw %struct.bezier, ptr %815, i32 0, i32 0
+  %817 = load ptr, ptr %816, align 8, !tbaa !53
+  %818 = load i64, ptr %32, align 8, !tbaa !17
+  %819 = getelementptr inbounds nuw %struct.pointf_s, ptr %817, i64 %818
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %814, ptr align 8 %819, i64 16, i1 false), !tbaa.struct !54
+  br label %820
+
+820:                                              ; preds = %810
+  %821 = load i64, ptr %31, align 8, !tbaa !17
   %822 = add i64 %821, 1
-  store i64 %822, ptr %31, align 8
-  br label %803
+  store i64 %822, ptr %31, align 8, !tbaa !17
+  %823 = load i64, ptr %32, align 8, !tbaa !17
+  %824 = add i64 %823, 1
+  store i64 %824, ptr %32, align 8, !tbaa !17
+  br label %804, !llvm.loop !62
 
-823:                                              ; preds = %803
-  %824 = load ptr, ptr %9, align 8
-  %825 = getelementptr inbounds %struct.bezier, ptr %824, i32 0, i32 0
-  %826 = load ptr, ptr %825, align 8
-  call void @free(ptr noundef %826) #9
-  %827 = load ptr, ptr %3, align 8
-  %828 = getelementptr inbounds %struct.Agobj_s, ptr %827, i32 0, i32 1
-  %829 = load ptr, ptr %828, align 8
-  %830 = getelementptr inbounds %struct.Agedgeinfo_t, ptr %829, i32 0, i32 1
-  %831 = load ptr, ptr %830, align 8
-  %832 = getelementptr inbounds %struct.splines, ptr %831, i32 0, i32 0
-  %833 = load ptr, ptr %832, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %833, ptr align 8 %13, i64 56, i1 false)
-  br label %834
+825:                                              ; preds = %809
+  %826 = load ptr, ptr %10, align 8, !tbaa !46
+  %827 = getelementptr inbounds nuw %struct.bezier, ptr %826, i32 0, i32 0
+  %828 = load ptr, ptr %827, align 8, !tbaa !53
+  call void @free(ptr noundef %828) #11
+  %829 = load ptr, ptr %3, align 8, !tbaa !12
+  %830 = getelementptr inbounds nuw %struct.Agobj_s, ptr %829, i32 0, i32 1
+  %831 = load ptr, ptr %830, align 8, !tbaa !19
+  %832 = getelementptr inbounds nuw %struct.Agedgeinfo_t, ptr %831, i32 0, i32 1
+  %833 = load ptr, ptr %832, align 8, !tbaa !24
+  %834 = getelementptr inbounds nuw %struct.splines, ptr %833, i32 0, i32 0
+  %835 = load ptr, ptr %834, align 8, !tbaa !45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %835, ptr align 8 %14, i64 56, i1 false), !tbaa.struct !63
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 56, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  store i32 0, ptr %9, align 4
+  br label %836
 
-834:                                              ; preds = %823, %89, %53, %45
+836:                                              ; preds = %825, %90, %54, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  %837 = load i32, ptr %9, align 4
+  switch i32 %837, label %839 [
+    i32 0, label %838
+    i32 1, label %838
+  ]
+
+838:                                              ; preds = %836, %836
   ret void
+
+839:                                              ; preds = %836, %716
+  unreachable
 }
 
-declare ptr @agnxtout(ptr noundef, ptr noundef) #1
+declare ptr @agnxtout(ptr noundef, ptr noundef) #2
 
-declare ptr @agnxtnode(ptr noundef, ptr noundef) #1
+declare ptr @agnxtnode(ptr noundef, ptr noundef) #2
 
-declare i32 @dtclose(ptr noundef) #1
+declare i32 @dtclose(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @getCluster(ptr noundef %0, ptr noundef %1) #0 {
@@ -1259,101 +1364,106 @@ define internal ptr @getCluster(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %14
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !66
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !66
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i8, ptr %10, align 1
-  %12 = sext i8 %11 to i32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %15
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !66
+  %12 = load i8, ptr %11, align 1, !tbaa !67
+  %13 = sext i8 %12 to i32
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %9, %2
+15:                                               ; preds = %10, %2
   store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
   br label %26
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = call ptr @findCluster(ptr noundef %16, ptr noundef %17)
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %24
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = load ptr, ptr %4, align 8, !tbaa !66
+  %19 = call ptr @findCluster(ptr noundef %17, ptr noundef %18)
+  store ptr %19, ptr %6, align 8, !tbaa !3
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %4, align 8
-  %23 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.7, ptr noundef %22)
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %4, align 8, !tbaa !66
+  call void (ptr, ...) @agwarningf(ptr noundef @.str.7, ptr noundef %23)
   br label %24
 
-24:                                               ; preds = %21, %15
-  %25 = load ptr, ptr %6, align 8
+24:                                               ; preds = %22, %16
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %25, ptr %3, align 8
+  store i32 1, ptr %7, align 4
   br label %26
 
-26:                                               ; preds = %24, %14
+26:                                               ; preds = %24, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   %27 = load ptr, ptr %3, align 8
   ret ptr %27
 }
 
-declare ptr @agget(ptr noundef, ptr noundef) #1
+declare ptr @agget(ptr noundef, ptr noundef) #2
 
-declare i32 @agerr(i32 noundef, ptr noundef, ...) #1
+declare void @agwarningf(ptr noundef, ...) #2
 
-declare ptr @agnameof(ptr noundef) #1
+declare ptr @agnameof(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @inBoxf(double %0, double %1, ptr noundef %2) #0 {
   %4 = alloca %struct.pointf_s, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds { double, double }, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
   store double %0, ptr %6, align 8
-  %7 = getelementptr inbounds { double, double }, ptr %4, i32 0, i32 1
+  %7 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
   store double %1, ptr %7, align 8
-  store ptr %2, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.boxf, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds %struct.pointf_s, ptr %9, i32 0, i32 0
-  %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.pointf_s, ptr %4, i32 0, i32 0
-  %13 = load double, ptr %12, align 8
+  store ptr %2, ptr %5, align 8, !tbaa !52
+  %8 = load ptr, ptr %5, align 8, !tbaa !52
+  %9 = getelementptr inbounds nuw %struct.boxf, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.pointf_s, ptr %9, i32 0, i32 0
+  %11 = load double, ptr %10, align 8, !tbaa !68
+  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i32 0, i32 0
+  %13 = load double, ptr %12, align 8, !tbaa !69
   %14 = fcmp ole double %11, %13
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds %struct.pointf_s, ptr %4, i32 0, i32 0
-  %17 = load double, ptr %16, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.boxf, ptr %18, i32 0, i32 1
-  %20 = getelementptr inbounds %struct.pointf_s, ptr %19, i32 0, i32 0
-  %21 = load double, ptr %20, align 8
+  %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i32 0, i32 0
+  %17 = load double, ptr %16, align 8, !tbaa !69
+  %18 = load ptr, ptr %5, align 8, !tbaa !52
+  %19 = getelementptr inbounds nuw %struct.boxf, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i32 0, i32 0
+  %21 = load double, ptr %20, align 8, !tbaa !70
   %22 = fcmp ole double %17, %21
   br i1 %22, label %23, label %41
 
 23:                                               ; preds = %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.boxf, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.pointf_s, ptr %25, i32 0, i32 1
-  %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.pointf_s, ptr %4, i32 0, i32 1
-  %29 = load double, ptr %28, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !52
+  %25 = getelementptr inbounds nuw %struct.boxf, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.pointf_s, ptr %25, i32 0, i32 1
+  %27 = load double, ptr %26, align 8, !tbaa !71
+  %28 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i32 0, i32 1
+  %29 = load double, ptr %28, align 8, !tbaa !72
   %30 = fcmp ole double %27, %29
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds %struct.pointf_s, ptr %4, i32 0, i32 1
-  %33 = load double, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.boxf, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds %struct.pointf_s, ptr %35, i32 0, i32 1
-  %37 = load double, ptr %36, align 8
+  %32 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i32 0, i32 1
+  %33 = load double, ptr %32, align 8, !tbaa !72
+  %34 = load ptr, ptr %5, align 8, !tbaa !52
+  %35 = getelementptr inbounds nuw %struct.boxf, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct.pointf_s, ptr %35, i32 0, i32 1
+  %37 = load double, ptr %36, align 8, !tbaa !73
   %38 = fcmp ole double %33, %37
   br label %39
 
@@ -1379,306 +1489,324 @@ define internal { double, double } @boxIntersectf(double %0, double %1, double %
   %13 = alloca double, align 8
   %14 = alloca %struct.pointf_s, align 8
   %15 = alloca %struct.pointf_s, align 8
-  %16 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
-  store double %0, ptr %16, align 8
-  %17 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
-  store double %1, ptr %17, align 8
-  %18 = getelementptr inbounds { double, double }, ptr %8, i32 0, i32 0
-  store double %2, ptr %18, align 8
-  %19 = getelementptr inbounds { double, double }, ptr %8, i32 0, i32 1
-  store double %3, ptr %19, align 8
-  store ptr %4, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 0
-  %21 = load double, ptr %20, align 8
-  store double %21, ptr %10, align 8
-  %22 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  store double %23, ptr %11, align 8
-  %24 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
-  %25 = load double, ptr %24, align 8
-  store double %25, ptr %12, align 8
-  %26 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
-  %27 = load double, ptr %26, align 8
-  store double %27, ptr %13, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.boxf, ptr %28, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %29, i64 16, i1 false)
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.boxf, ptr %30, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %31, i64 16, i1 false)
-  %32 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 0
-  %35 = load double, ptr %34, align 8
-  %36 = fcmp olt double %33, %35
-  br i1 %36, label %37, label %72
+  %16 = alloca i32, align 4
+  %17 = getelementptr inbounds nuw { double, double }, ptr %7, i32 0, i32 0
+  store double %0, ptr %17, align 8
+  %18 = getelementptr inbounds nuw { double, double }, ptr %7, i32 0, i32 1
+  store double %1, ptr %18, align 8
+  %19 = getelementptr inbounds nuw { double, double }, ptr %8, i32 0, i32 0
+  store double %2, ptr %19, align 8
+  %20 = getelementptr inbounds nuw { double, double }, ptr %8, i32 0, i32 1
+  store double %3, ptr %20, align 8
+  store ptr %4, ptr %9, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %21 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 0
+  %22 = load double, ptr %21, align 8, !tbaa !69
+  store double %22, ptr %10, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %23 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !72
+  store double %24, ptr %11, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %25 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 0
+  %26 = load double, ptr %25, align 8, !tbaa !69
+  store double %26, ptr %12, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %27 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 1
+  %28 = load double, ptr %27, align 8, !tbaa !72
+  store double %28, ptr %13, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #11
+  %29 = load ptr, ptr %9, align 8, !tbaa !52
+  %30 = getelementptr inbounds nuw %struct.boxf, ptr %29, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %30, i64 16, i1 false), !tbaa.struct !54
+  %31 = load ptr, ptr %9, align 8, !tbaa !52
+  %32 = getelementptr inbounds nuw %struct.boxf, ptr %31, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %32, i64 16, i1 false), !tbaa.struct !54
+  %33 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 0
+  %34 = load double, ptr %33, align 8, !tbaa !69
+  %35 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 0
+  %36 = load double, ptr %35, align 8, !tbaa !69
+  %37 = fcmp olt double %34, %36
+  br i1 %37, label %38, label %73
 
-37:                                               ; preds = %5
-  %38 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 0
-  %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  store double %39, ptr %40, align 8
-  %41 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 1
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %44 = load double, ptr %43, align 8
-  %45 = load double, ptr %10, align 8
-  %46 = fsub double %44, %45
-  %47 = load double, ptr %11, align 8
-  %48 = load double, ptr %13, align 8
-  %49 = fsub double %47, %48
-  %50 = fmul double %46, %49
-  %51 = load double, ptr %10, align 8
-  %52 = load double, ptr %12, align 8
-  %53 = fsub double %51, %52
-  %54 = fdiv double %50, %53
-  %55 = fptosi double %54 to i32
-  %56 = sitofp i32 %55 to double
-  %57 = fadd double %42, %56
-  %58 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 1
-  %62 = load double, ptr %61, align 8
-  %63 = fcmp oge double %60, %62
-  br i1 %63, label %64, label %71
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 0
+  %40 = load double, ptr %39, align 8, !tbaa !69
+  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  store double %40, ptr %41, align 8, !tbaa !69
+  %42 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 1
+  %43 = load double, ptr %42, align 8, !tbaa !72
+  %44 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %45 = load double, ptr %44, align 8, !tbaa !69
+  %46 = load double, ptr %10, align 8, !tbaa !55
+  %47 = fsub double %45, %46
+  %48 = load double, ptr %11, align 8, !tbaa !55
+  %49 = load double, ptr %13, align 8, !tbaa !55
+  %50 = fsub double %48, %49
+  %51 = fmul double %47, %50
+  %52 = load double, ptr %10, align 8, !tbaa !55
+  %53 = load double, ptr %12, align 8, !tbaa !55
+  %54 = fsub double %52, %53
+  %55 = fdiv double %51, %54
+  %56 = fptosi double %55 to i32
+  %57 = sitofp i32 %56 to double
+  %58 = fadd double %43, %57
+  %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  store double %58, ptr %59, align 8, !tbaa !72
+  %60 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %61 = load double, ptr %60, align 8, !tbaa !72
+  %62 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 1
+  %63 = load double, ptr %62, align 8, !tbaa !72
+  %64 = fcmp oge double %61, %63
+  br i1 %64, label %65, label %72
 
-64:                                               ; preds = %37
-  %65 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 1
-  %68 = load double, ptr %67, align 8
-  %69 = fcmp ole double %66, %68
-  br i1 %69, label %70, label %71
+65:                                               ; preds = %38
+  %66 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %67 = load double, ptr %66, align 8, !tbaa !72
+  %68 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 1
+  %69 = load double, ptr %68, align 8, !tbaa !72
+  %70 = fcmp ole double %67, %69
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %64
+71:                                               ; preds = %65
+  store i32 1, ptr %16, align 4
   br label %213
 
-71:                                               ; preds = %64, %37
-  br label %72
+72:                                               ; preds = %65, %38
+  br label %73
 
-72:                                               ; preds = %71, %5
-  %73 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
-  %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 0
-  %76 = load double, ptr %75, align 8
-  %77 = fcmp ogt double %74, %76
-  br i1 %77, label %78, label %113
+73:                                               ; preds = %72, %5
+  %74 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 0
+  %75 = load double, ptr %74, align 8, !tbaa !69
+  %76 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 0
+  %77 = load double, ptr %76, align 8, !tbaa !69
+  %78 = fcmp ogt double %75, %77
+  br i1 %78, label %79, label %114
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 0
-  %80 = load double, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  store double %80, ptr %81, align 8
-  %82 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 1
-  %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %85 = load double, ptr %84, align 8
-  %86 = load double, ptr %10, align 8
-  %87 = fsub double %85, %86
-  %88 = load double, ptr %11, align 8
-  %89 = load double, ptr %13, align 8
-  %90 = fsub double %88, %89
-  %91 = fmul double %87, %90
-  %92 = load double, ptr %10, align 8
-  %93 = load double, ptr %12, align 8
-  %94 = fsub double %92, %93
-  %95 = fdiv double %91, %94
-  %96 = fptosi double %95 to i32
-  %97 = sitofp i32 %96 to double
-  %98 = fadd double %83, %97
-  %99 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  store double %98, ptr %99, align 8
-  %100 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 1
-  %103 = load double, ptr %102, align 8
-  %104 = fcmp oge double %101, %103
-  br i1 %104, label %105, label %112
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 0
+  %81 = load double, ptr %80, align 8, !tbaa !69
+  %82 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  store double %81, ptr %82, align 8, !tbaa !69
+  %83 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 1
+  %84 = load double, ptr %83, align 8, !tbaa !72
+  %85 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %86 = load double, ptr %85, align 8, !tbaa !69
+  %87 = load double, ptr %10, align 8, !tbaa !55
+  %88 = fsub double %86, %87
+  %89 = load double, ptr %11, align 8, !tbaa !55
+  %90 = load double, ptr %13, align 8, !tbaa !55
+  %91 = fsub double %89, %90
+  %92 = fmul double %88, %91
+  %93 = load double, ptr %10, align 8, !tbaa !55
+  %94 = load double, ptr %12, align 8, !tbaa !55
+  %95 = fsub double %93, %94
+  %96 = fdiv double %92, %95
+  %97 = fptosi double %96 to i32
+  %98 = sitofp i32 %97 to double
+  %99 = fadd double %84, %98
+  %100 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  store double %99, ptr %100, align 8, !tbaa !72
+  %101 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %102 = load double, ptr %101, align 8, !tbaa !72
+  %103 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 1
+  %104 = load double, ptr %103, align 8, !tbaa !72
+  %105 = fcmp oge double %102, %104
+  br i1 %105, label %106, label %113
 
-105:                                              ; preds = %78
-  %106 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 1
-  %109 = load double, ptr %108, align 8
-  %110 = fcmp ole double %107, %109
-  br i1 %110, label %111, label %112
+106:                                              ; preds = %79
+  %107 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %108 = load double, ptr %107, align 8, !tbaa !72
+  %109 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 1
+  %110 = load double, ptr %109, align 8, !tbaa !72
+  %111 = fcmp ole double %108, %110
+  br i1 %111, label %112, label %113
 
-111:                                              ; preds = %105
+112:                                              ; preds = %106
+  store i32 1, ptr %16, align 4
   br label %213
 
-112:                                              ; preds = %105, %78
-  br label %113
+113:                                              ; preds = %106, %79
+  br label %114
 
-113:                                              ; preds = %112, %72
-  %114 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
-  %115 = load double, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 1
-  %117 = load double, ptr %116, align 8
-  %118 = fcmp olt double %115, %117
-  br i1 %118, label %119, label %154
+114:                                              ; preds = %113, %73
+  %115 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 1
+  %116 = load double, ptr %115, align 8, !tbaa !72
+  %117 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 1
+  %118 = load double, ptr %117, align 8, !tbaa !72
+  %119 = fcmp olt double %116, %118
+  br i1 %119, label %120, label %155
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 1
-  %121 = load double, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  store double %121, ptr %122, align 8
-  %123 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 0
-  %124 = load double, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %126 = load double, ptr %125, align 8
-  %127 = load double, ptr %11, align 8
-  %128 = fsub double %126, %127
-  %129 = load double, ptr %10, align 8
-  %130 = load double, ptr %12, align 8
-  %131 = fsub double %129, %130
-  %132 = fmul double %128, %131
-  %133 = load double, ptr %11, align 8
-  %134 = load double, ptr %13, align 8
-  %135 = fsub double %133, %134
-  %136 = fdiv double %132, %135
-  %137 = fptosi double %136 to i32
-  %138 = sitofp i32 %137 to double
-  %139 = fadd double %124, %138
-  %140 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  store double %139, ptr %140, align 8
-  %141 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %142 = load double, ptr %141, align 8
-  %143 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 0
-  %144 = load double, ptr %143, align 8
-  %145 = fcmp oge double %142, %144
-  br i1 %145, label %146, label %153
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 1
+  %122 = load double, ptr %121, align 8, !tbaa !72
+  %123 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  store double %122, ptr %123, align 8, !tbaa !72
+  %124 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 0
+  %125 = load double, ptr %124, align 8, !tbaa !69
+  %126 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %127 = load double, ptr %126, align 8, !tbaa !72
+  %128 = load double, ptr %11, align 8, !tbaa !55
+  %129 = fsub double %127, %128
+  %130 = load double, ptr %10, align 8, !tbaa !55
+  %131 = load double, ptr %12, align 8, !tbaa !55
+  %132 = fsub double %130, %131
+  %133 = fmul double %129, %132
+  %134 = load double, ptr %11, align 8, !tbaa !55
+  %135 = load double, ptr %13, align 8, !tbaa !55
+  %136 = fsub double %134, %135
+  %137 = fdiv double %133, %136
+  %138 = fptosi double %137 to i32
+  %139 = sitofp i32 %138 to double
+  %140 = fadd double %125, %139
+  %141 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  store double %140, ptr %141, align 8, !tbaa !69
+  %142 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %143 = load double, ptr %142, align 8, !tbaa !69
+  %144 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 0
+  %145 = load double, ptr %144, align 8, !tbaa !69
+  %146 = fcmp oge double %143, %145
+  br i1 %146, label %147, label %154
 
-146:                                              ; preds = %119
-  %147 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %148 = load double, ptr %147, align 8
-  %149 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 0
-  %150 = load double, ptr %149, align 8
-  %151 = fcmp ole double %148, %150
-  br i1 %151, label %152, label %153
+147:                                              ; preds = %120
+  %148 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %149 = load double, ptr %148, align 8, !tbaa !69
+  %150 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 0
+  %151 = load double, ptr %150, align 8, !tbaa !69
+  %152 = fcmp ole double %149, %151
+  br i1 %152, label %153, label %154
 
-152:                                              ; preds = %146
+153:                                              ; preds = %147
+  store i32 1, ptr %16, align 4
   br label %213
 
-153:                                              ; preds = %146, %119
-  br label %154
+154:                                              ; preds = %147, %120
+  br label %155
 
-154:                                              ; preds = %153, %113
-  %155 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
-  %156 = load double, ptr %155, align 8
-  %157 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 1
-  %158 = load double, ptr %157, align 8
-  %159 = fcmp ogt double %156, %158
-  br i1 %159, label %160, label %195
+155:                                              ; preds = %154, %114
+  %156 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 1
+  %157 = load double, ptr %156, align 8, !tbaa !72
+  %158 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 1
+  %159 = load double, ptr %158, align 8, !tbaa !72
+  %160 = fcmp ogt double %157, %159
+  br i1 %160, label %161, label %196
 
-160:                                              ; preds = %154
-  %161 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 1
-  %162 = load double, ptr %161, align 8
-  %163 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  store double %162, ptr %163, align 8
-  %164 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 0
-  %165 = load double, ptr %164, align 8
-  %166 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %167 = load double, ptr %166, align 8
-  %168 = load double, ptr %11, align 8
-  %169 = fsub double %167, %168
-  %170 = load double, ptr %10, align 8
-  %171 = load double, ptr %12, align 8
-  %172 = fsub double %170, %171
-  %173 = fmul double %169, %172
-  %174 = load double, ptr %11, align 8
-  %175 = load double, ptr %13, align 8
-  %176 = fsub double %174, %175
-  %177 = fdiv double %173, %176
-  %178 = fptosi double %177 to i32
-  %179 = sitofp i32 %178 to double
-  %180 = fadd double %165, %179
-  %181 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  store double %180, ptr %181, align 8
-  %182 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %183 = load double, ptr %182, align 8
-  %184 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 0
-  %185 = load double, ptr %184, align 8
-  %186 = fcmp oge double %183, %185
-  br i1 %186, label %187, label %194
+161:                                              ; preds = %155
+  %162 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 1
+  %163 = load double, ptr %162, align 8, !tbaa !72
+  %164 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  store double %163, ptr %164, align 8, !tbaa !72
+  %165 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 0
+  %166 = load double, ptr %165, align 8, !tbaa !69
+  %167 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %168 = load double, ptr %167, align 8, !tbaa !72
+  %169 = load double, ptr %11, align 8, !tbaa !55
+  %170 = fsub double %168, %169
+  %171 = load double, ptr %10, align 8, !tbaa !55
+  %172 = load double, ptr %12, align 8, !tbaa !55
+  %173 = fsub double %171, %172
+  %174 = fmul double %170, %173
+  %175 = load double, ptr %11, align 8, !tbaa !55
+  %176 = load double, ptr %13, align 8, !tbaa !55
+  %177 = fsub double %175, %176
+  %178 = fdiv double %174, %177
+  %179 = fptosi double %178 to i32
+  %180 = sitofp i32 %179 to double
+  %181 = fadd double %166, %180
+  %182 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  store double %181, ptr %182, align 8, !tbaa !69
+  %183 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %184 = load double, ptr %183, align 8, !tbaa !69
+  %185 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 0
+  %186 = load double, ptr %185, align 8, !tbaa !69
+  %187 = fcmp oge double %184, %186
+  br i1 %187, label %188, label %195
 
-187:                                              ; preds = %160
-  %188 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %189 = load double, ptr %188, align 8
-  %190 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 0
-  %191 = load double, ptr %190, align 8
-  %192 = fcmp ole double %189, %191
-  br i1 %192, label %193, label %194
+188:                                              ; preds = %161
+  %189 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %190 = load double, ptr %189, align 8, !tbaa !69
+  %191 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 0
+  %192 = load double, ptr %191, align 8, !tbaa !69
+  %193 = fcmp ole double %190, %192
+  br i1 %193, label %194, label %195
 
-193:                                              ; preds = %187
+194:                                              ; preds = %188
+  store i32 1, ptr %16, align 4
   br label %213
 
-194:                                              ; preds = %187, %160
-  br label %195
+195:                                              ; preds = %188, %161
+  br label %196
 
-195:                                              ; preds = %194, %154
-  %196 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 0
-  %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 1
-  %199 = load double, ptr %198, align 8
-  %200 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 0
-  %201 = load double, ptr %200, align 8
-  %202 = getelementptr inbounds %struct.pointf_s, ptr %8, i32 0, i32 1
-  %203 = load double, ptr %202, align 8
-  %204 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 0
-  %205 = load double, ptr %204, align 8
-  %206 = getelementptr inbounds %struct.pointf_s, ptr %14, i32 0, i32 1
-  %207 = load double, ptr %206, align 8
-  %208 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 0
-  %209 = load double, ptr %208, align 8
-  %210 = getelementptr inbounds %struct.pointf_s, ptr %15, i32 0, i32 1
-  %211 = load double, ptr %210, align 8
-  %212 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.8, double noundef %197, double noundef %199, double noundef %201, double noundef %203, double noundef %205, double noundef %207, double noundef %209, double noundef %211)
+196:                                              ; preds = %195, %155
+  %197 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 0
+  %198 = load double, ptr %197, align 8, !tbaa !69
+  %199 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 1
+  %200 = load double, ptr %199, align 8, !tbaa !72
+  %201 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 0
+  %202 = load double, ptr %201, align 8, !tbaa !69
+  %203 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i32 0, i32 1
+  %204 = load double, ptr %203, align 8, !tbaa !72
+  %205 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 0
+  %206 = load double, ptr %205, align 8, !tbaa !69
+  %207 = getelementptr inbounds nuw %struct.pointf_s, ptr %14, i32 0, i32 1
+  %208 = load double, ptr %207, align 8, !tbaa !72
+  %209 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 0
+  %210 = load double, ptr %209, align 8, !tbaa !69
+  %211 = getelementptr inbounds nuw %struct.pointf_s, ptr %15, i32 0, i32 1
+  %212 = load double, ptr %211, align 8, !tbaa !72
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.8, double noundef %198, double noundef %200, double noundef %202, double noundef %204, double noundef %206, double noundef %208, double noundef %210, double noundef %212)
+  store i32 1, ptr %16, align 4
   br label %213
 
-213:                                              ; preds = %195, %193, %152, %111, %70
+213:                                              ; preds = %196, %194, %153, %112, %71
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
   %214 = load { double, double }, ptr %6, align 8
   ret { double, double } %214
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: nounwind uwtable
-define internal { double, double } @mid_pointf(double %0, double %1, double %2, double %3) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal { double, double } @mid_pointf(double %0, double %1, double %2, double %3) #5 {
   %5 = alloca %struct.pointf_s, align 8
   %6 = alloca %struct.pointf_s, align 8
   %7 = alloca %struct.pointf_s, align 8
-  %8 = getelementptr inbounds { double, double }, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw { double, double }, ptr %6, i32 0, i32 0
   store double %0, ptr %8, align 8
-  %9 = getelementptr inbounds { double, double }, ptr %6, i32 0, i32 1
+  %9 = getelementptr inbounds nuw { double, double }, ptr %6, i32 0, i32 1
   store double %1, ptr %9, align 8
-  %10 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { double, double }, ptr %7, i32 0, i32 0
   store double %2, ptr %10, align 8
-  %11 = getelementptr inbounds { double, double }, ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { double, double }, ptr %7, i32 0, i32 1
   store double %3, ptr %11, align 8
-  %12 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 0
-  %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 0
-  %15 = load double, ptr %14, align 8
+  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 0
+  %13 = load double, ptr %12, align 8, !tbaa !69
+  %14 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 0
+  %15 = load double, ptr %14, align 8, !tbaa !69
   %16 = fadd double %13, %15
   %17 = fdiv double %16, 2.000000e+00
-  %18 = getelementptr inbounds %struct.pointf_s, ptr %5, i32 0, i32 0
-  store double %17, ptr %18, align 8
-  %19 = getelementptr inbounds %struct.pointf_s, ptr %6, i32 0, i32 1
-  %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.pointf_s, ptr %7, i32 0, i32 1
-  %22 = load double, ptr %21, align 8
+  %18 = getelementptr inbounds nuw %struct.pointf_s, ptr %5, i32 0, i32 0
+  store double %17, ptr %18, align 8, !tbaa !69
+  %19 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i32 0, i32 1
+  %20 = load double, ptr %19, align 8, !tbaa !72
+  %21 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i32 0, i32 1
+  %22 = load double, ptr %21, align 8, !tbaa !72
   %23 = fadd double %20, %22
   %24 = fdiv double %23, 2.000000e+00
-  %25 = getelementptr inbounds %struct.pointf_s, ptr %5, i32 0, i32 1
-  store double %24, ptr %25, align 8
+  %25 = getelementptr inbounds nuw %struct.pointf_s, ptr %5, i32 0, i32 1
+  store double %24, ptr %25, align 8, !tbaa !72
   %26 = load { double, double }, ptr %5, align 8
   ret { double, double } %26
 }
 
-declare i64 @arrowEndClip(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
+declare i64 @arrowEndClip(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @splineIntersectf(ptr noundef %0, ptr noundef %1) #0 {
@@ -1693,320 +1821,335 @@ define internal i32 @splineIntersectf(ptr noundef %0, ptr noundef %1) #0 {
   %11 = alloca %struct.pointf_s, align 8
   %12 = alloca %struct.pointf_s, align 8
   %13 = alloca %struct.pointf_s, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store double 2.000000e+00, ptr %6, align 8
-  store i32 0, ptr %9, align 4
-  br label %14
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !64
+  store ptr %1, ptr %5, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store double 2.000000e+00, ptr %6, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 64, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 0, ptr %9, align 4, !tbaa !65
+  br label %15
 
-14:                                               ; preds = %25, %2
-  %15 = load i32, ptr %9, align 4
-  %16 = icmp slt i32 %15, 4
-  br i1 %16, label %17, label %28
+15:                                               ; preds = %26, %2
+  %16 = load i32, ptr %9, align 4, !tbaa !65
+  %17 = icmp slt i32 %16, 4
+  br i1 %17, label %18, label %29
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %9, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %19
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %20, ptr align 8 %24, i64 16, i1 false)
-  br label %25
+18:                                               ; preds = %15
+  %19 = load i32, ptr %9, align 4, !tbaa !65
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %20
+  %22 = load ptr, ptr %4, align 8, !tbaa !64
+  %23 = load i32, ptr %9, align 4, !tbaa !65
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %struct.pointf_s, ptr %22, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %21, ptr align 8 %25, i64 16, i1 false), !tbaa.struct !54
+  br label %26
 
-25:                                               ; preds = %17
-  %26 = load i32, ptr %9, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %9, align 4
-  br label %14
+26:                                               ; preds = %18
+  %27 = load i32, ptr %9, align 4, !tbaa !65
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %9, align 4, !tbaa !65
+  br label %15, !llvm.loop !74
 
-28:                                               ; preds = %14
-  %29 = load ptr, ptr %4, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.boxf, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.pointf_s, ptr %31, i32 0, i32 0
-  %33 = load double, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.boxf, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds %struct.pointf_s, ptr %35, i32 0, i32 1
-  %37 = load double, ptr %36, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.boxf, ptr %38, i32 0, i32 1
-  %40 = getelementptr inbounds %struct.pointf_s, ptr %39, i32 0, i32 1
-  %41 = load double, ptr %40, align 8
-  %42 = call double @findVertical(ptr noundef %29, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %33, double noundef %37, double noundef %41)
-  store double %42, ptr %7, align 8
-  %43 = load double, ptr %7, align 8
-  %44 = fcmp oge double %43, 0.000000e+00
-  br i1 %44, label %45, label %59
+29:                                               ; preds = %15
+  %30 = load ptr, ptr %4, align 8, !tbaa !64
+  %31 = load ptr, ptr %5, align 8, !tbaa !52
+  %32 = getelementptr inbounds nuw %struct.boxf, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.pointf_s, ptr %32, i32 0, i32 0
+  %34 = load double, ptr %33, align 8, !tbaa !68
+  %35 = load ptr, ptr %5, align 8, !tbaa !52
+  %36 = getelementptr inbounds nuw %struct.boxf, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.pointf_s, ptr %36, i32 0, i32 1
+  %38 = load double, ptr %37, align 8, !tbaa !71
+  %39 = load ptr, ptr %5, align 8, !tbaa !52
+  %40 = getelementptr inbounds nuw %struct.boxf, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %40, i32 0, i32 1
+  %42 = load double, ptr %41, align 8, !tbaa !73
+  %43 = call double @findVertical(ptr noundef %30, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %34, double noundef %38, double noundef %42)
+  store double %43, ptr %7, align 8, !tbaa !55
+  %44 = load double, ptr %7, align 8, !tbaa !55
+  %45 = fcmp oge double %44, 0.000000e+00
+  br i1 %45, label %46, label %60
 
-45:                                               ; preds = %28
-  %46 = load double, ptr %7, align 8
-  %47 = load double, ptr %6, align 8
-  %48 = fcmp olt double %46, %47
-  br i1 %48, label %49, label %59
+46:                                               ; preds = %29
+  %47 = load double, ptr %7, align 8, !tbaa !55
+  %48 = load double, ptr %6, align 8, !tbaa !55
+  %49 = fcmp olt double %47, %48
+  br i1 %49, label %50, label %60
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
-  %51 = load double, ptr %7, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = call { double, double } @Bezier(ptr noundef %50, double noundef %51, ptr noundef %52, ptr noundef null)
-  %54 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 0
-  %55 = extractvalue { double, double } %53, 0
-  store double %55, ptr %54, align 8
-  %56 = getelementptr inbounds { double, double }, ptr %10, i32 0, i32 1
-  %57 = extractvalue { double, double } %53, 1
-  store double %57, ptr %56, align 8
-  %58 = load double, ptr %7, align 8
-  store double %58, ptr %6, align 8
-  br label %59
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
+  %52 = load double, ptr %7, align 8, !tbaa !55
+  %53 = load ptr, ptr %4, align 8, !tbaa !64
+  %54 = call { double, double } @Bezier(ptr noundef %51, double noundef %52, ptr noundef %53, ptr noundef null)
+  %55 = getelementptr inbounds nuw { double, double }, ptr %10, i32 0, i32 0
+  %56 = extractvalue { double, double } %54, 0
+  store double %56, ptr %55, align 8
+  %57 = getelementptr inbounds nuw { double, double }, ptr %10, i32 0, i32 1
+  %58 = extractvalue { double, double } %54, 1
+  store double %58, ptr %57, align 8
+  %59 = load double, ptr %7, align 8, !tbaa !55
+  store double %59, ptr %6, align 8, !tbaa !55
+  br label %60
 
-59:                                               ; preds = %49, %45, %28
-  %60 = load ptr, ptr %4, align 8
-  %61 = load double, ptr %6, align 8
-  %62 = fcmp olt double 1.000000e+00, %61
-  br i1 %62, label %63, label %64
+60:                                               ; preds = %50, %46, %29
+  %61 = load ptr, ptr %4, align 8, !tbaa !64
+  %62 = load double, ptr %6, align 8, !tbaa !55
+  %63 = fcmp olt double 1.000000e+00, %62
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %59
-  br label %66
+64:                                               ; preds = %60
+  br label %67
 
-64:                                               ; preds = %59
-  %65 = load double, ptr %6, align 8
-  br label %66
+65:                                               ; preds = %60
+  %66 = load double, ptr %6, align 8, !tbaa !55
+  br label %67
 
-66:                                               ; preds = %64, %63
-  %67 = phi double [ 1.000000e+00, %63 ], [ %65, %64 ]
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.boxf, ptr %68, i32 0, i32 1
-  %70 = getelementptr inbounds %struct.pointf_s, ptr %69, i32 0, i32 0
-  %71 = load double, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.boxf, ptr %72, i32 0, i32 0
-  %74 = getelementptr inbounds %struct.pointf_s, ptr %73, i32 0, i32 1
-  %75 = load double, ptr %74, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.boxf, ptr %76, i32 0, i32 1
-  %78 = getelementptr inbounds %struct.pointf_s, ptr %77, i32 0, i32 1
-  %79 = load double, ptr %78, align 8
-  %80 = call double @findVertical(ptr noundef %60, double noundef 0.000000e+00, double noundef %67, double noundef %71, double noundef %75, double noundef %79)
-  store double %80, ptr %7, align 8
-  %81 = load double, ptr %7, align 8
-  %82 = fcmp oge double %81, 0.000000e+00
-  br i1 %82, label %83, label %97
+67:                                               ; preds = %65, %64
+  %68 = phi double [ 1.000000e+00, %64 ], [ %66, %65 ]
+  %69 = load ptr, ptr %5, align 8, !tbaa !52
+  %70 = getelementptr inbounds nuw %struct.boxf, ptr %69, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %70, i32 0, i32 0
+  %72 = load double, ptr %71, align 8, !tbaa !70
+  %73 = load ptr, ptr %5, align 8, !tbaa !52
+  %74 = getelementptr inbounds nuw %struct.boxf, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i32 0, i32 1
+  %76 = load double, ptr %75, align 8, !tbaa !71
+  %77 = load ptr, ptr %5, align 8, !tbaa !52
+  %78 = getelementptr inbounds nuw %struct.boxf, ptr %77, i32 0, i32 1
+  %79 = getelementptr inbounds nuw %struct.pointf_s, ptr %78, i32 0, i32 1
+  %80 = load double, ptr %79, align 8, !tbaa !73
+  %81 = call double @findVertical(ptr noundef %61, double noundef 0.000000e+00, double noundef %68, double noundef %72, double noundef %76, double noundef %80)
+  store double %81, ptr %7, align 8, !tbaa !55
+  %82 = load double, ptr %7, align 8, !tbaa !55
+  %83 = fcmp oge double %82, 0.000000e+00
+  br i1 %83, label %84, label %98
 
-83:                                               ; preds = %66
-  %84 = load double, ptr %7, align 8
-  %85 = load double, ptr %6, align 8
-  %86 = fcmp olt double %84, %85
-  br i1 %86, label %87, label %97
+84:                                               ; preds = %67
+  %85 = load double, ptr %7, align 8, !tbaa !55
+  %86 = load double, ptr %6, align 8, !tbaa !55
+  %87 = fcmp olt double %85, %86
+  br i1 %87, label %88, label %98
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
-  %89 = load double, ptr %7, align 8
-  %90 = load ptr, ptr %4, align 8
-  %91 = call { double, double } @Bezier(ptr noundef %88, double noundef %89, ptr noundef %90, ptr noundef null)
-  %92 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 0
-  %93 = extractvalue { double, double } %91, 0
-  store double %93, ptr %92, align 8
-  %94 = getelementptr inbounds { double, double }, ptr %11, i32 0, i32 1
-  %95 = extractvalue { double, double } %91, 1
-  store double %95, ptr %94, align 8
-  %96 = load double, ptr %7, align 8
-  store double %96, ptr %6, align 8
-  br label %97
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
+  %90 = load double, ptr %7, align 8, !tbaa !55
+  %91 = load ptr, ptr %4, align 8, !tbaa !64
+  %92 = call { double, double } @Bezier(ptr noundef %89, double noundef %90, ptr noundef %91, ptr noundef null)
+  %93 = getelementptr inbounds nuw { double, double }, ptr %11, i32 0, i32 0
+  %94 = extractvalue { double, double } %92, 0
+  store double %94, ptr %93, align 8
+  %95 = getelementptr inbounds nuw { double, double }, ptr %11, i32 0, i32 1
+  %96 = extractvalue { double, double } %92, 1
+  store double %96, ptr %95, align 8
+  %97 = load double, ptr %7, align 8, !tbaa !55
+  store double %97, ptr %6, align 8, !tbaa !55
+  br label %98
 
-97:                                               ; preds = %87, %83, %66
-  %98 = load ptr, ptr %4, align 8
-  %99 = load double, ptr %6, align 8
-  %100 = fcmp olt double 1.000000e+00, %99
-  br i1 %100, label %101, label %102
+98:                                               ; preds = %88, %84, %67
+  %99 = load ptr, ptr %4, align 8, !tbaa !64
+  %100 = load double, ptr %6, align 8, !tbaa !55
+  %101 = fcmp olt double 1.000000e+00, %100
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %97
-  br label %104
+102:                                              ; preds = %98
+  br label %105
 
-102:                                              ; preds = %97
-  %103 = load double, ptr %6, align 8
-  br label %104
+103:                                              ; preds = %98
+  %104 = load double, ptr %6, align 8, !tbaa !55
+  br label %105
 
-104:                                              ; preds = %102, %101
-  %105 = phi double [ 1.000000e+00, %101 ], [ %103, %102 ]
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.boxf, ptr %106, i32 0, i32 0
-  %108 = getelementptr inbounds %struct.pointf_s, ptr %107, i32 0, i32 1
-  %109 = load double, ptr %108, align 8
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.boxf, ptr %110, i32 0, i32 0
-  %112 = getelementptr inbounds %struct.pointf_s, ptr %111, i32 0, i32 0
-  %113 = load double, ptr %112, align 8
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds %struct.boxf, ptr %114, i32 0, i32 1
-  %116 = getelementptr inbounds %struct.pointf_s, ptr %115, i32 0, i32 0
-  %117 = load double, ptr %116, align 8
-  %118 = call double @findHorizontal(ptr noundef %98, double noundef 0.000000e+00, double noundef %105, double noundef %109, double noundef %113, double noundef %117)
-  store double %118, ptr %7, align 8
-  %119 = load double, ptr %7, align 8
-  %120 = fcmp oge double %119, 0.000000e+00
-  br i1 %120, label %121, label %135
+105:                                              ; preds = %103, %102
+  %106 = phi double [ 1.000000e+00, %102 ], [ %104, %103 ]
+  %107 = load ptr, ptr %5, align 8, !tbaa !52
+  %108 = getelementptr inbounds nuw %struct.boxf, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %struct.pointf_s, ptr %108, i32 0, i32 1
+  %110 = load double, ptr %109, align 8, !tbaa !71
+  %111 = load ptr, ptr %5, align 8, !tbaa !52
+  %112 = getelementptr inbounds nuw %struct.boxf, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.pointf_s, ptr %112, i32 0, i32 0
+  %114 = load double, ptr %113, align 8, !tbaa !68
+  %115 = load ptr, ptr %5, align 8, !tbaa !52
+  %116 = getelementptr inbounds nuw %struct.boxf, ptr %115, i32 0, i32 1
+  %117 = getelementptr inbounds nuw %struct.pointf_s, ptr %116, i32 0, i32 0
+  %118 = load double, ptr %117, align 8, !tbaa !70
+  %119 = call double @findHorizontal(ptr noundef %99, double noundef 0.000000e+00, double noundef %106, double noundef %110, double noundef %114, double noundef %118)
+  store double %119, ptr %7, align 8, !tbaa !55
+  %120 = load double, ptr %7, align 8, !tbaa !55
+  %121 = fcmp oge double %120, 0.000000e+00
+  br i1 %121, label %122, label %136
 
-121:                                              ; preds = %104
-  %122 = load double, ptr %7, align 8
-  %123 = load double, ptr %6, align 8
-  %124 = fcmp olt double %122, %123
-  br i1 %124, label %125, label %135
+122:                                              ; preds = %105
+  %123 = load double, ptr %7, align 8, !tbaa !55
+  %124 = load double, ptr %6, align 8, !tbaa !55
+  %125 = fcmp olt double %123, %124
+  br i1 %125, label %126, label %136
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
-  %127 = load double, ptr %7, align 8
-  %128 = load ptr, ptr %4, align 8
-  %129 = call { double, double } @Bezier(ptr noundef %126, double noundef %127, ptr noundef %128, ptr noundef null)
-  %130 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 0
-  %131 = extractvalue { double, double } %129, 0
-  store double %131, ptr %130, align 8
-  %132 = getelementptr inbounds { double, double }, ptr %12, i32 0, i32 1
-  %133 = extractvalue { double, double } %129, 1
-  store double %133, ptr %132, align 8
-  %134 = load double, ptr %7, align 8
-  store double %134, ptr %6, align 8
-  br label %135
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
+  %128 = load double, ptr %7, align 8, !tbaa !55
+  %129 = load ptr, ptr %4, align 8, !tbaa !64
+  %130 = call { double, double } @Bezier(ptr noundef %127, double noundef %128, ptr noundef %129, ptr noundef null)
+  %131 = getelementptr inbounds nuw { double, double }, ptr %12, i32 0, i32 0
+  %132 = extractvalue { double, double } %130, 0
+  store double %132, ptr %131, align 8
+  %133 = getelementptr inbounds nuw { double, double }, ptr %12, i32 0, i32 1
+  %134 = extractvalue { double, double } %130, 1
+  store double %134, ptr %133, align 8
+  %135 = load double, ptr %7, align 8, !tbaa !55
+  store double %135, ptr %6, align 8, !tbaa !55
+  br label %136
 
-135:                                              ; preds = %125, %121, %104
-  %136 = load ptr, ptr %4, align 8
-  %137 = load double, ptr %6, align 8
-  %138 = fcmp olt double 1.000000e+00, %137
-  br i1 %138, label %139, label %140
+136:                                              ; preds = %126, %122, %105
+  %137 = load ptr, ptr %4, align 8, !tbaa !64
+  %138 = load double, ptr %6, align 8, !tbaa !55
+  %139 = fcmp olt double 1.000000e+00, %138
+  br i1 %139, label %140, label %141
 
-139:                                              ; preds = %135
-  br label %142
+140:                                              ; preds = %136
+  br label %143
 
-140:                                              ; preds = %135
-  %141 = load double, ptr %6, align 8
-  br label %142
+141:                                              ; preds = %136
+  %142 = load double, ptr %6, align 8, !tbaa !55
+  br label %143
 
-142:                                              ; preds = %140, %139
-  %143 = phi double [ 1.000000e+00, %139 ], [ %141, %140 ]
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds %struct.boxf, ptr %144, i32 0, i32 1
-  %146 = getelementptr inbounds %struct.pointf_s, ptr %145, i32 0, i32 1
-  %147 = load double, ptr %146, align 8
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds %struct.boxf, ptr %148, i32 0, i32 0
-  %150 = getelementptr inbounds %struct.pointf_s, ptr %149, i32 0, i32 0
-  %151 = load double, ptr %150, align 8
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct.boxf, ptr %152, i32 0, i32 1
-  %154 = getelementptr inbounds %struct.pointf_s, ptr %153, i32 0, i32 0
-  %155 = load double, ptr %154, align 8
-  %156 = call double @findHorizontal(ptr noundef %136, double noundef 0.000000e+00, double noundef %143, double noundef %147, double noundef %151, double noundef %155)
-  store double %156, ptr %7, align 8
-  %157 = load double, ptr %7, align 8
-  %158 = fcmp oge double %157, 0.000000e+00
-  br i1 %158, label %159, label %173
+143:                                              ; preds = %141, %140
+  %144 = phi double [ 1.000000e+00, %140 ], [ %142, %141 ]
+  %145 = load ptr, ptr %5, align 8, !tbaa !52
+  %146 = getelementptr inbounds nuw %struct.boxf, ptr %145, i32 0, i32 1
+  %147 = getelementptr inbounds nuw %struct.pointf_s, ptr %146, i32 0, i32 1
+  %148 = load double, ptr %147, align 8, !tbaa !73
+  %149 = load ptr, ptr %5, align 8, !tbaa !52
+  %150 = getelementptr inbounds nuw %struct.boxf, ptr %149, i32 0, i32 0
+  %151 = getelementptr inbounds nuw %struct.pointf_s, ptr %150, i32 0, i32 0
+  %152 = load double, ptr %151, align 8, !tbaa !68
+  %153 = load ptr, ptr %5, align 8, !tbaa !52
+  %154 = getelementptr inbounds nuw %struct.boxf, ptr %153, i32 0, i32 1
+  %155 = getelementptr inbounds nuw %struct.pointf_s, ptr %154, i32 0, i32 0
+  %156 = load double, ptr %155, align 8, !tbaa !70
+  %157 = call double @findHorizontal(ptr noundef %137, double noundef 0.000000e+00, double noundef %144, double noundef %148, double noundef %152, double noundef %156)
+  store double %157, ptr %7, align 8, !tbaa !55
+  %158 = load double, ptr %7, align 8, !tbaa !55
+  %159 = fcmp oge double %158, 0.000000e+00
+  br i1 %159, label %160, label %174
 
-159:                                              ; preds = %142
-  %160 = load double, ptr %7, align 8
-  %161 = load double, ptr %6, align 8
-  %162 = fcmp olt double %160, %161
-  br i1 %162, label %163, label %173
+160:                                              ; preds = %143
+  %161 = load double, ptr %7, align 8, !tbaa !55
+  %162 = load double, ptr %6, align 8, !tbaa !55
+  %163 = fcmp olt double %161, %162
+  br i1 %163, label %164, label %174
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
-  %165 = load double, ptr %7, align 8
-  %166 = load ptr, ptr %4, align 8
-  %167 = call { double, double } @Bezier(ptr noundef %164, double noundef %165, ptr noundef %166, ptr noundef null)
-  %168 = getelementptr inbounds { double, double }, ptr %13, i32 0, i32 0
-  %169 = extractvalue { double, double } %167, 0
-  store double %169, ptr %168, align 8
-  %170 = getelementptr inbounds { double, double }, ptr %13, i32 0, i32 1
-  %171 = extractvalue { double, double } %167, 1
-  store double %171, ptr %170, align 8
-  %172 = load double, ptr %7, align 8
-  store double %172, ptr %6, align 8
-  br label %173
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 0
+  %166 = load double, ptr %7, align 8, !tbaa !55
+  %167 = load ptr, ptr %4, align 8, !tbaa !64
+  %168 = call { double, double } @Bezier(ptr noundef %165, double noundef %166, ptr noundef %167, ptr noundef null)
+  %169 = getelementptr inbounds nuw { double, double }, ptr %13, i32 0, i32 0
+  %170 = extractvalue { double, double } %168, 0
+  store double %170, ptr %169, align 8
+  %171 = getelementptr inbounds nuw { double, double }, ptr %13, i32 0, i32 1
+  %172 = extractvalue { double, double } %168, 1
+  store double %172, ptr %171, align 8
+  %173 = load double, ptr %7, align 8, !tbaa !55
+  store double %173, ptr %6, align 8, !tbaa !55
+  br label %174
 
-173:                                              ; preds = %163, %159, %142
-  %174 = load double, ptr %6, align 8
-  %175 = fcmp olt double %174, 2.000000e+00
-  br i1 %175, label %176, label %177
+174:                                              ; preds = %164, %160, %143
+  %175 = load double, ptr %6, align 8, !tbaa !55
+  %176 = fcmp olt double %175, 2.000000e+00
+  br i1 %176, label %177, label %178
 
-176:                                              ; preds = %173
+177:                                              ; preds = %174
   store i32 1, ptr %3, align 4
-  br label %178
+  store i32 1, ptr %14, align 4
+  br label %179
 
-177:                                              ; preds = %173
+178:                                              ; preds = %174
   store i32 0, ptr %3, align 4
-  br label %178
+  store i32 1, ptr %14, align 4
+  br label %179
 
-178:                                              ; preds = %177, %176
-  %179 = load i32, ptr %3, align 4
-  ret i32 %179
+179:                                              ; preds = %178, %177
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %180 = load i32, ptr %3, align 4
+  ret i32 %180
 }
 
-declare i64 @arrowStartClip(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
+declare i64 @arrowStartClip(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @gv_calloc(i64 noundef %0, i64 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @gv_calloc(i64 noundef %0, i64 noundef %1) #5 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %3, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %6 = load i64, ptr %3, align 8, !tbaa !17
   %7 = icmp ugt i64 %6, 0
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr %3, align 8
+  %9 = load i64, ptr %3, align 8, !tbaa !17
   %10 = udiv i64 -1, %9
-  %11 = load i64, ptr %4, align 8
+  %11 = load i64, ptr %4, align 8, !tbaa !17
   %12 = icmp ult i64 %10, %11
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = load i64, ptr %3, align 8
-  %16 = load i64, ptr %4, align 8
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.9, i64 noundef %15, i64 noundef %16) #9
-  call void @graphviz_exit(i32 noundef 1) #10
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !75
+  %15 = load i64, ptr %3, align 8, !tbaa !17
+  %16 = load i64, ptr %4, align 8, !tbaa !17
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.9, i64 noundef %15, i64 noundef %16) #11
+  call void @graphviz_exit(i32 noundef 1) #12
   unreachable
 
 18:                                               ; preds = %8, %2
-  %19 = load i64, ptr %3, align 8
-  %20 = load i64, ptr %4, align 8
-  %21 = call noalias ptr @calloc(i64 noundef %19, i64 noundef %20) #11
-  store ptr %21, ptr %5, align 8
-  %22 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %19 = load i64, ptr %3, align 8, !tbaa !17
+  %20 = load i64, ptr %4, align 8, !tbaa !17
+  %21 = call noalias ptr @calloc(i64 noundef %19, i64 noundef %20) #13
+  store ptr %21, ptr %5, align 8, !tbaa !52
+  %22 = load i64, ptr %3, align 8, !tbaa !17
   %23 = icmp ugt i64 %22, 0
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %18
-  %25 = load i64, ptr %4, align 8
+  %25 = load i64, ptr %4, align 8, !tbaa !17
   %26 = icmp ugt i64 %25, 0
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !52
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load i64, ptr %3, align 8
-  %33 = load i64, ptr %4, align 8
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !75
+  %32 = load i64, ptr %3, align 8, !tbaa !17
+  %33 = load i64, ptr %4, align 8, !tbaa !17
   %34 = mul i64 %32, %33
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.10, i64 noundef %34) #9
-  call void @graphviz_exit(i32 noundef 1) #10
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.10, i64 noundef %34) #11
+  call void @graphviz_exit(i32 noundef 1) #12
   unreachable
 
 36:                                               ; preds = %27, %24, %18
-  %37 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8, !tbaa !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret ptr %37
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #6
 
-declare ptr @findCluster(ptr noundef, ptr noundef) #1
+declare ptr @findCluster(ptr noundef, ptr noundef) #2
+
+declare void @agerrorf(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define internal double @findVertical(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) #0 {
@@ -2021,130 +2164,145 @@ define internal double @findVertical(ptr noundef %0, double noundef %1, double n
   %15 = alloca [4 x %struct.pointf_s], align 16
   %16 = alloca double, align 8
   %17 = alloca i32, align 4
-  %18 = alloca %struct.pointf_s, align 8
-  store ptr %0, ptr %8, align 8
-  store double %1, ptr %9, align 8
-  store double %2, ptr %10, align 8
-  store double %3, ptr %11, align 8
-  store double %4, ptr %12, align 8
-  store double %5, ptr %13, align 8
-  %19 = load double, ptr %9, align 8
-  %20 = load double, ptr %10, align 8
-  %21 = fcmp oeq double %19, %20
-  br i1 %21, label %22, label %24
+  %18 = alloca i32, align 4
+  %19 = alloca %struct.pointf_s, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !64
+  store double %1, ptr %9, align 8, !tbaa !55
+  store double %2, ptr %10, align 8, !tbaa !55
+  store double %3, ptr %11, align 8, !tbaa !55
+  store double %4, ptr %12, align 8, !tbaa !55
+  store double %5, ptr %13, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 64, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 64, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %20 = load double, ptr %9, align 8, !tbaa !55
+  %21 = load double, ptr %10, align 8, !tbaa !55
+  %22 = fcmp oeq double %20, %21
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %6
-  %23 = load double, ptr %9, align 8
-  store double %23, ptr %7, align 8
-  br label %94
+23:                                               ; preds = %6
+  %24 = load double, ptr %9, align 8, !tbaa !55
+  store double %24, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-24:                                               ; preds = %6
-  %25 = load ptr, ptr %8, align 8
-  %26 = load double, ptr %11, align 8
-  %27 = call i32 @countVertCross(ptr noundef %25, double noundef %26)
-  store i32 %27, ptr %17, align 4
-  %28 = load i32, ptr %17, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %8, align 8, !tbaa !64
+  %27 = load double, ptr %11, align 8, !tbaa !55
+  %28 = call i32 @countVertCross(ptr noundef %26, double noundef %27)
+  store i32 %28, ptr %17, align 4, !tbaa !65
+  %29 = load i32, ptr %17, align 4, !tbaa !65
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   store double -1.000000e+00, ptr %7, align 8
-  br label %94
+  store i32 1, ptr %18, align 4
+  br label %95
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %17, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %60
+32:                                               ; preds = %25
+  %33 = load i32, ptr %17, align 4, !tbaa !65
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %61
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.pointf_s, ptr %35, i64 3
-  %37 = getelementptr inbounds %struct.pointf_s, ptr %36, i32 0, i32 0
-  %38 = load double, ptr %37, align 8
-  %39 = load double, ptr %11, align 8
-  %40 = fsub double %38, %39
-  %41 = call double @llvm.fabs.f64(double %40)
-  %42 = fcmp ole double %41, 5.000000e-03
-  br i1 %42, label %43, label %60
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %8, align 8, !tbaa !64
+  %37 = getelementptr inbounds %struct.pointf_s, ptr %36, i64 3
+  %38 = getelementptr inbounds nuw %struct.pointf_s, ptr %37, i32 0, i32 0
+  %39 = load double, ptr %38, align 8, !tbaa !69
+  %40 = load double, ptr %11, align 8, !tbaa !55
+  %41 = fsub double %39, %40
+  %42 = call double @llvm.fabs.f64(double %41)
+  %43 = fcmp ole double %42, 5.000000e-03
+  br i1 %43, label %44, label %61
 
-43:                                               ; preds = %34
-  %44 = load double, ptr %12, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.pointf_s, ptr %45, i64 3
-  %47 = getelementptr inbounds %struct.pointf_s, ptr %46, i32 0, i32 1
-  %48 = load double, ptr %47, align 8
-  %49 = fcmp ole double %44, %48
-  br i1 %49, label %50, label %59
+44:                                               ; preds = %35
+  %45 = load double, ptr %12, align 8, !tbaa !55
+  %46 = load ptr, ptr %8, align 8, !tbaa !64
+  %47 = getelementptr inbounds %struct.pointf_s, ptr %46, i64 3
+  %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %47, i32 0, i32 1
+  %49 = load double, ptr %48, align 8, !tbaa !72
+  %50 = fcmp ole double %45, %49
+  br i1 %50, label %51, label %60
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.pointf_s, ptr %51, i64 3
-  %53 = getelementptr inbounds %struct.pointf_s, ptr %52, i32 0, i32 1
-  %54 = load double, ptr %53, align 8
-  %55 = load double, ptr %13, align 8
-  %56 = fcmp ole double %54, %55
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %8, align 8, !tbaa !64
+  %53 = getelementptr inbounds %struct.pointf_s, ptr %52, i64 3
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %53, i32 0, i32 1
+  %55 = load double, ptr %54, align 8, !tbaa !72
+  %56 = load double, ptr %13, align 8, !tbaa !55
+  %57 = fcmp ole double %55, %56
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %50
-  %58 = load double, ptr %10, align 8
-  store double %58, ptr %7, align 8
-  br label %94
+58:                                               ; preds = %51
+  %59 = load double, ptr %10, align 8, !tbaa !55
+  store double %59, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-59:                                               ; preds = %50, %43
+60:                                               ; preds = %51, %44
   store double -1.000000e+00, ptr %7, align 8
-  br label %94
+  store i32 1, ptr %18, align 4
+  br label %95
 
-60:                                               ; preds = %34, %31
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
-  %63 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
-  %64 = call { double, double } @Bezier(ptr noundef %61, double noundef 5.000000e-01, ptr noundef %62, ptr noundef %63)
-  %65 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 0
-  %66 = extractvalue { double, double } %64, 0
-  store double %66, ptr %65, align 8
-  %67 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 1
-  %68 = extractvalue { double, double } %64, 1
-  store double %68, ptr %67, align 8
-  %69 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
-  %70 = load double, ptr %9, align 8
-  %71 = load double, ptr %9, align 8
-  %72 = load double, ptr %10, align 8
-  %73 = fadd double %71, %72
-  %74 = fdiv double %73, 2.000000e+00
-  %75 = load double, ptr %11, align 8
-  %76 = load double, ptr %12, align 8
-  %77 = load double, ptr %13, align 8
-  %78 = call double @findVertical(ptr noundef %69, double noundef %70, double noundef %74, double noundef %75, double noundef %76, double noundef %77)
-  store double %78, ptr %16, align 8
-  %79 = load double, ptr %16, align 8
-  %80 = fcmp oge double %79, 0.000000e+00
-  br i1 %80, label %81, label %83
+61:                                               ; preds = %35, %32
+  %62 = load ptr, ptr %8, align 8, !tbaa !64
+  %63 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
+  %64 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
+  %65 = call { double, double } @Bezier(ptr noundef %62, double noundef 5.000000e-01, ptr noundef %63, ptr noundef %64)
+  %66 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 0
+  %67 = extractvalue { double, double } %65, 0
+  store double %67, ptr %66, align 8
+  %68 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 1
+  %69 = extractvalue { double, double } %65, 1
+  store double %69, ptr %68, align 8
+  %70 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
+  %71 = load double, ptr %9, align 8, !tbaa !55
+  %72 = load double, ptr %9, align 8, !tbaa !55
+  %73 = load double, ptr %10, align 8, !tbaa !55
+  %74 = fadd double %72, %73
+  %75 = fdiv double %74, 2.000000e+00
+  %76 = load double, ptr %11, align 8, !tbaa !55
+  %77 = load double, ptr %12, align 8, !tbaa !55
+  %78 = load double, ptr %13, align 8, !tbaa !55
+  %79 = call double @findVertical(ptr noundef %70, double noundef %71, double noundef %75, double noundef %76, double noundef %77, double noundef %78)
+  store double %79, ptr %16, align 8, !tbaa !55
+  %80 = load double, ptr %16, align 8, !tbaa !55
+  %81 = fcmp oge double %80, 0.000000e+00
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %60
-  %82 = load double, ptr %16, align 8
-  store double %82, ptr %7, align 8
-  br label %94
+82:                                               ; preds = %61
+  %83 = load double, ptr %16, align 8, !tbaa !55
+  store double %83, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-83:                                               ; preds = %60
-  %84 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
-  %85 = load double, ptr %9, align 8
-  %86 = load double, ptr %10, align 8
-  %87 = fadd double %85, %86
-  %88 = fdiv double %87, 2.000000e+00
-  %89 = load double, ptr %10, align 8
-  %90 = load double, ptr %11, align 8
-  %91 = load double, ptr %12, align 8
-  %92 = load double, ptr %13, align 8
-  %93 = call double @findVertical(ptr noundef %84, double noundef %88, double noundef %89, double noundef %90, double noundef %91, double noundef %92)
-  store double %93, ptr %7, align 8
-  br label %94
+84:                                               ; preds = %61
+  %85 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
+  %86 = load double, ptr %9, align 8, !tbaa !55
+  %87 = load double, ptr %10, align 8, !tbaa !55
+  %88 = fadd double %86, %87
+  %89 = fdiv double %88, 2.000000e+00
+  %90 = load double, ptr %10, align 8, !tbaa !55
+  %91 = load double, ptr %11, align 8, !tbaa !55
+  %92 = load double, ptr %12, align 8, !tbaa !55
+  %93 = load double, ptr %13, align 8, !tbaa !55
+  %94 = call double @findVertical(ptr noundef %85, double noundef %89, double noundef %90, double noundef %91, double noundef %92, double noundef %93)
+  store double %94, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-94:                                               ; preds = %83, %81, %59, %57, %30, %22
-  %95 = load double, ptr %7, align 8
-  ret double %95
+95:                                               ; preds = %84, %82, %60, %58, %31, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %14) #11
+  %96 = load double, ptr %7, align 8
+  ret double %96
 }
 
-declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) #1
+declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal double @findHorizontal(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) #0 {
@@ -2159,127 +2317,142 @@ define internal double @findHorizontal(ptr noundef %0, double noundef %1, double
   %15 = alloca [4 x %struct.pointf_s], align 16
   %16 = alloca double, align 8
   %17 = alloca i32, align 4
-  %18 = alloca %struct.pointf_s, align 8
-  store ptr %0, ptr %8, align 8
-  store double %1, ptr %9, align 8
-  store double %2, ptr %10, align 8
-  store double %3, ptr %11, align 8
-  store double %4, ptr %12, align 8
-  store double %5, ptr %13, align 8
-  %19 = load double, ptr %9, align 8
-  %20 = load double, ptr %10, align 8
-  %21 = fcmp oeq double %19, %20
-  br i1 %21, label %22, label %24
+  %18 = alloca i32, align 4
+  %19 = alloca %struct.pointf_s, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !64
+  store double %1, ptr %9, align 8, !tbaa !55
+  store double %2, ptr %10, align 8, !tbaa !55
+  store double %3, ptr %11, align 8, !tbaa !55
+  store double %4, ptr %12, align 8, !tbaa !55
+  store double %5, ptr %13, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 64, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 64, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %20 = load double, ptr %9, align 8, !tbaa !55
+  %21 = load double, ptr %10, align 8, !tbaa !55
+  %22 = fcmp oeq double %20, %21
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %6
-  %23 = load double, ptr %9, align 8
-  store double %23, ptr %7, align 8
-  br label %94
+23:                                               ; preds = %6
+  %24 = load double, ptr %9, align 8, !tbaa !55
+  store double %24, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-24:                                               ; preds = %6
-  %25 = load ptr, ptr %8, align 8
-  %26 = load double, ptr %11, align 8
-  %27 = call i32 @countHorzCross(ptr noundef %25, double noundef %26)
-  store i32 %27, ptr %17, align 4
-  %28 = load i32, ptr %17, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %8, align 8, !tbaa !64
+  %27 = load double, ptr %11, align 8, !tbaa !55
+  %28 = call i32 @countHorzCross(ptr noundef %26, double noundef %27)
+  store i32 %28, ptr %17, align 4, !tbaa !65
+  %29 = load i32, ptr %17, align 4, !tbaa !65
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   store double -1.000000e+00, ptr %7, align 8
-  br label %94
+  store i32 1, ptr %18, align 4
+  br label %95
 
-31:                                               ; preds = %24
-  %32 = load i32, ptr %17, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %60
+32:                                               ; preds = %25
+  %33 = load i32, ptr %17, align 4, !tbaa !65
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %61
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.pointf_s, ptr %35, i64 3
-  %37 = getelementptr inbounds %struct.pointf_s, ptr %36, i32 0, i32 1
-  %38 = load double, ptr %37, align 8
-  %39 = load double, ptr %11, align 8
-  %40 = fsub double %38, %39
-  %41 = call double @llvm.fabs.f64(double %40)
-  %42 = fcmp ole double %41, 5.000000e-03
-  br i1 %42, label %43, label %60
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %8, align 8, !tbaa !64
+  %37 = getelementptr inbounds %struct.pointf_s, ptr %36, i64 3
+  %38 = getelementptr inbounds nuw %struct.pointf_s, ptr %37, i32 0, i32 1
+  %39 = load double, ptr %38, align 8, !tbaa !72
+  %40 = load double, ptr %11, align 8, !tbaa !55
+  %41 = fsub double %39, %40
+  %42 = call double @llvm.fabs.f64(double %41)
+  %43 = fcmp ole double %42, 5.000000e-03
+  br i1 %43, label %44, label %61
 
-43:                                               ; preds = %34
-  %44 = load double, ptr %12, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.pointf_s, ptr %45, i64 3
-  %47 = getelementptr inbounds %struct.pointf_s, ptr %46, i32 0, i32 0
-  %48 = load double, ptr %47, align 8
-  %49 = fcmp ole double %44, %48
-  br i1 %49, label %50, label %59
+44:                                               ; preds = %35
+  %45 = load double, ptr %12, align 8, !tbaa !55
+  %46 = load ptr, ptr %8, align 8, !tbaa !64
+  %47 = getelementptr inbounds %struct.pointf_s, ptr %46, i64 3
+  %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %47, i32 0, i32 0
+  %49 = load double, ptr %48, align 8, !tbaa !69
+  %50 = fcmp ole double %45, %49
+  br i1 %50, label %51, label %60
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.pointf_s, ptr %51, i64 3
-  %53 = getelementptr inbounds %struct.pointf_s, ptr %52, i32 0, i32 0
-  %54 = load double, ptr %53, align 8
-  %55 = load double, ptr %13, align 8
-  %56 = fcmp ole double %54, %55
-  br i1 %56, label %57, label %59
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %8, align 8, !tbaa !64
+  %53 = getelementptr inbounds %struct.pointf_s, ptr %52, i64 3
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %53, i32 0, i32 0
+  %55 = load double, ptr %54, align 8, !tbaa !69
+  %56 = load double, ptr %13, align 8, !tbaa !55
+  %57 = fcmp ole double %55, %56
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %50
-  %58 = load double, ptr %10, align 8
-  store double %58, ptr %7, align 8
-  br label %94
+58:                                               ; preds = %51
+  %59 = load double, ptr %10, align 8, !tbaa !55
+  store double %59, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-59:                                               ; preds = %50, %43
+60:                                               ; preds = %51, %44
   store double -1.000000e+00, ptr %7, align 8
-  br label %94
+  store i32 1, ptr %18, align 4
+  br label %95
 
-60:                                               ; preds = %34, %31
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
-  %63 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
-  %64 = call { double, double } @Bezier(ptr noundef %61, double noundef 5.000000e-01, ptr noundef %62, ptr noundef %63)
-  %65 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 0
-  %66 = extractvalue { double, double } %64, 0
-  store double %66, ptr %65, align 8
-  %67 = getelementptr inbounds { double, double }, ptr %18, i32 0, i32 1
-  %68 = extractvalue { double, double } %64, 1
-  store double %68, ptr %67, align 8
-  %69 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
-  %70 = load double, ptr %9, align 8
-  %71 = load double, ptr %9, align 8
-  %72 = load double, ptr %10, align 8
-  %73 = fadd double %71, %72
-  %74 = fdiv double %73, 2.000000e+00
-  %75 = load double, ptr %11, align 8
-  %76 = load double, ptr %12, align 8
-  %77 = load double, ptr %13, align 8
-  %78 = call double @findHorizontal(ptr noundef %69, double noundef %70, double noundef %74, double noundef %75, double noundef %76, double noundef %77)
-  store double %78, ptr %16, align 8
-  %79 = load double, ptr %16, align 8
-  %80 = fcmp oge double %79, 0.000000e+00
-  br i1 %80, label %81, label %83
+61:                                               ; preds = %35, %32
+  %62 = load ptr, ptr %8, align 8, !tbaa !64
+  %63 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
+  %64 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
+  %65 = call { double, double } @Bezier(ptr noundef %62, double noundef 5.000000e-01, ptr noundef %63, ptr noundef %64)
+  %66 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 0
+  %67 = extractvalue { double, double } %65, 0
+  store double %67, ptr %66, align 8
+  %68 = getelementptr inbounds nuw { double, double }, ptr %19, i32 0, i32 1
+  %69 = extractvalue { double, double } %65, 1
+  store double %69, ptr %68, align 8
+  %70 = getelementptr inbounds [4 x %struct.pointf_s], ptr %14, i64 0, i64 0
+  %71 = load double, ptr %9, align 8, !tbaa !55
+  %72 = load double, ptr %9, align 8, !tbaa !55
+  %73 = load double, ptr %10, align 8, !tbaa !55
+  %74 = fadd double %72, %73
+  %75 = fdiv double %74, 2.000000e+00
+  %76 = load double, ptr %11, align 8, !tbaa !55
+  %77 = load double, ptr %12, align 8, !tbaa !55
+  %78 = load double, ptr %13, align 8, !tbaa !55
+  %79 = call double @findHorizontal(ptr noundef %70, double noundef %71, double noundef %75, double noundef %76, double noundef %77, double noundef %78)
+  store double %79, ptr %16, align 8, !tbaa !55
+  %80 = load double, ptr %16, align 8, !tbaa !55
+  %81 = fcmp oge double %80, 0.000000e+00
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %60
-  %82 = load double, ptr %16, align 8
-  store double %82, ptr %7, align 8
-  br label %94
+82:                                               ; preds = %61
+  %83 = load double, ptr %16, align 8, !tbaa !55
+  store double %83, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-83:                                               ; preds = %60
-  %84 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
-  %85 = load double, ptr %9, align 8
-  %86 = load double, ptr %10, align 8
-  %87 = fadd double %85, %86
-  %88 = fdiv double %87, 2.000000e+00
-  %89 = load double, ptr %10, align 8
-  %90 = load double, ptr %11, align 8
-  %91 = load double, ptr %12, align 8
-  %92 = load double, ptr %13, align 8
-  %93 = call double @findHorizontal(ptr noundef %84, double noundef %88, double noundef %89, double noundef %90, double noundef %91, double noundef %92)
-  store double %93, ptr %7, align 8
-  br label %94
+84:                                               ; preds = %61
+  %85 = getelementptr inbounds [4 x %struct.pointf_s], ptr %15, i64 0, i64 0
+  %86 = load double, ptr %9, align 8, !tbaa !55
+  %87 = load double, ptr %10, align 8, !tbaa !55
+  %88 = fadd double %86, %87
+  %89 = fdiv double %88, 2.000000e+00
+  %90 = load double, ptr %10, align 8, !tbaa !55
+  %91 = load double, ptr %11, align 8, !tbaa !55
+  %92 = load double, ptr %12, align 8, !tbaa !55
+  %93 = load double, ptr %13, align 8, !tbaa !55
+  %94 = call double @findHorizontal(ptr noundef %85, double noundef %89, double noundef %90, double noundef %91, double noundef %92, double noundef %93)
+  store double %94, ptr %7, align 8
+  store i32 1, ptr %18, align 4
+  br label %95
 
-94:                                               ; preds = %83, %81, %59, %57, %30, %22
-  %95 = load double, ptr %7, align 8
-  ret double %95
+95:                                               ; preds = %84, %82, %60, %58, %31, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %14) #11
+  %96 = load double, ptr %7, align 8
+  ret double %96
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2290,115 +2463,122 @@ define internal i32 @countVertCross(ptr noundef %0, double noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  store i32 0, ptr %8, align 4
-  %9 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store double %1, ptr %4, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !65
+  %9 = load ptr, ptr %3, align 8, !tbaa !64
   %10 = getelementptr inbounds %struct.pointf_s, ptr %9, i64 0
-  %11 = getelementptr inbounds %struct.pointf_s, ptr %10, i32 0, i32 0
-  %12 = load double, ptr %11, align 8
-  %13 = load double, ptr %4, align 8
-  %14 = fcmp olt double %12, %13
-  br i1 %14, label %15, label %16
+  %11 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i32 0, i32 0
+  %12 = load double, ptr %11, align 8, !tbaa !69
+  %13 = load double, ptr %4, align 8, !tbaa !55
+  %14 = call i32 @fcmp(double noundef %12, double noundef %13)
+  store i32 %14, ptr %6, align 4, !tbaa !65
+  %15 = load i32, ptr %6, align 4, !tbaa !65
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
 
-15:                                               ; preds = %2
-  br label %24
+17:                                               ; preds = %2
+  %18 = load i32, ptr %8, align 4, !tbaa !65
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %8, align 4, !tbaa !65
+  br label %20
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.pointf_s, ptr %17, i64 0
-  %19 = getelementptr inbounds %struct.pointf_s, ptr %18, i32 0, i32 0
-  %20 = load double, ptr %19, align 8
-  %21 = load double, ptr %4, align 8
-  %22 = fcmp ogt double %20, %21
-  %23 = select i1 %22, i32 1, i32 0
-  br label %24
+20:                                               ; preds = %17, %2
+  store i32 1, ptr %5, align 4, !tbaa !65
+  br label %21
 
-24:                                               ; preds = %16, %15
-  %25 = phi i32 [ -1, %15 ], [ %23, %16 ]
-  store i32 %25, ptr %6, align 4
-  %26 = load i32, ptr %6, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+21:                                               ; preds = %44, %20
+  %22 = load i32, ptr %5, align 4, !tbaa !65
+  %23 = icmp sle i32 %22, 3
+  br i1 %23, label %24, label %47
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %8, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %8, align 4
-  br label %31
+24:                                               ; preds = %21
+  %25 = load i32, ptr %6, align 4, !tbaa !65
+  store i32 %25, ptr %7, align 4, !tbaa !65
+  %26 = load ptr, ptr %3, align 8, !tbaa !64
+  %27 = load i32, ptr %5, align 4, !tbaa !65
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.pointf_s, ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw %struct.pointf_s, ptr %29, i32 0, i32 0
+  %31 = load double, ptr %30, align 8, !tbaa !69
+  %32 = load double, ptr %4, align 8, !tbaa !55
+  %33 = call i32 @fcmp(double noundef %31, double noundef %32)
+  store i32 %33, ptr %6, align 4, !tbaa !65
+  %34 = load i32, ptr %6, align 4, !tbaa !65
+  %35 = load i32, ptr %7, align 4, !tbaa !65
+  %36 = icmp ne i32 %34, %35
+  br i1 %36, label %37, label %43
 
-31:                                               ; preds = %28, %24
-  store i32 1, ptr %5, align 4
-  br label %32
+37:                                               ; preds = %24
+  %38 = load i32, ptr %7, align 4, !tbaa !65
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %43
 
-32:                                               ; preds = %68, %31
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp sle i32 %33, 3
-  br i1 %34, label %35, label %71
+40:                                               ; preds = %37
+  %41 = load i32, ptr %8, align 4, !tbaa !65
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %8, align 4, !tbaa !65
+  br label %43
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %6, align 4
-  store i32 %36, ptr %7, align 4
-  %37 = load ptr, ptr %3, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.pointf_s, ptr %37, i64 %39
-  %41 = getelementptr inbounds %struct.pointf_s, ptr %40, i32 0, i32 0
-  %42 = load double, ptr %41, align 8
-  %43 = load double, ptr %4, align 8
-  %44 = fcmp olt double %42, %43
-  br i1 %44, label %45, label %46
+43:                                               ; preds = %40, %37, %24
+  br label %44
 
-45:                                               ; preds = %35
-  br label %56
+44:                                               ; preds = %43
+  %45 = load i32, ptr %5, align 4, !tbaa !65
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %5, align 4, !tbaa !65
+  br label %21, !llvm.loop !77
 
-46:                                               ; preds = %35
-  %47 = load ptr, ptr %3, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.pointf_s, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.pointf_s, ptr %50, i32 0, i32 0
-  %52 = load double, ptr %51, align 8
-  %53 = load double, ptr %4, align 8
-  %54 = fcmp ogt double %52, %53
-  %55 = select i1 %54, i32 1, i32 0
-  br label %56
-
-56:                                               ; preds = %46, %45
-  %57 = phi i32 [ -1, %45 ], [ %55, %46 ]
-  store i32 %57, ptr %6, align 4
-  %58 = load i32, ptr %6, align 4
-  %59 = load i32, ptr %7, align 4
-  %60 = icmp ne i32 %58, %59
-  br i1 %60, label %61, label %67
-
-61:                                               ; preds = %56
-  %62 = load i32, ptr %7, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %67
-
-64:                                               ; preds = %61
-  %65 = load i32, ptr %8, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %8, align 4
-  br label %67
-
-67:                                               ; preds = %64, %61, %56
-  br label %68
-
-68:                                               ; preds = %67
-  %69 = load i32, ptr %5, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %5, align 4
-  br label %32
-
-71:                                               ; preds = %32
-  %72 = load i32, ptr %8, align 4
-  ret i32 %72
+47:                                               ; preds = %21
+  %48 = load i32, ptr %8, align 4, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  ret i32 %48
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #7
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fcmp(double noundef %0, double noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  store double %0, ptr %4, align 8, !tbaa !55
+  store double %1, ptr %5, align 8, !tbaa !55
+  %6 = load double, ptr %4, align 8, !tbaa !55
+  %7 = load double, ptr %5, align 8, !tbaa !55
+  %8 = fcmp olt double %6, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store i32 -1, ptr %3, align 4
+  br label %16
+
+10:                                               ; preds = %2
+  %11 = load double, ptr %4, align 8, !tbaa !55
+  %12 = load double, ptr %5, align 8, !tbaa !55
+  %13 = fcmp ogt double %11, %12
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %10
+  store i32 1, ptr %3, align 4
+  br label %16
+
+15:                                               ; preds = %10
+  store i32 0, ptr %3, align 4
+  br label %16
+
+16:                                               ; preds = %15, %14, %9
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
+}
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @countHorzCross(ptr noundef %0, double noundef %1) #0 {
@@ -2408,148 +2588,197 @@ define internal i32 @countHorzCross(ptr noundef %0, double noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
-  store i32 0, ptr %8, align 4
-  %9 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store double %1, ptr %4, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !65
+  %9 = load ptr, ptr %3, align 8, !tbaa !64
   %10 = getelementptr inbounds %struct.pointf_s, ptr %9, i64 0
-  %11 = getelementptr inbounds %struct.pointf_s, ptr %10, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
-  %13 = load double, ptr %4, align 8
-  %14 = fcmp olt double %12, %13
-  br i1 %14, label %15, label %16
+  %11 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i32 0, i32 1
+  %12 = load double, ptr %11, align 8, !tbaa !72
+  %13 = load double, ptr %4, align 8, !tbaa !55
+  %14 = call i32 @fcmp(double noundef %12, double noundef %13)
+  store i32 %14, ptr %6, align 4, !tbaa !65
+  %15 = load i32, ptr %6, align 4, !tbaa !65
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
 
-15:                                               ; preds = %2
-  br label %24
+17:                                               ; preds = %2
+  %18 = load i32, ptr %8, align 4, !tbaa !65
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %8, align 4, !tbaa !65
+  br label %20
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.pointf_s, ptr %17, i64 0
-  %19 = getelementptr inbounds %struct.pointf_s, ptr %18, i32 0, i32 1
-  %20 = load double, ptr %19, align 8
-  %21 = load double, ptr %4, align 8
-  %22 = fcmp ogt double %20, %21
-  %23 = select i1 %22, i32 1, i32 0
-  br label %24
+20:                                               ; preds = %17, %2
+  store i32 1, ptr %5, align 4, !tbaa !65
+  br label %21
 
-24:                                               ; preds = %16, %15
-  %25 = phi i32 [ -1, %15 ], [ %23, %16 ]
-  store i32 %25, ptr %6, align 4
-  %26 = load i32, ptr %6, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+21:                                               ; preds = %44, %20
+  %22 = load i32, ptr %5, align 4, !tbaa !65
+  %23 = icmp sle i32 %22, 3
+  br i1 %23, label %24, label %47
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %8, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %8, align 4
-  br label %31
+24:                                               ; preds = %21
+  %25 = load i32, ptr %6, align 4, !tbaa !65
+  store i32 %25, ptr %7, align 4, !tbaa !65
+  %26 = load ptr, ptr %3, align 8, !tbaa !64
+  %27 = load i32, ptr %5, align 4, !tbaa !65
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds %struct.pointf_s, ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw %struct.pointf_s, ptr %29, i32 0, i32 1
+  %31 = load double, ptr %30, align 8, !tbaa !72
+  %32 = load double, ptr %4, align 8, !tbaa !55
+  %33 = call i32 @fcmp(double noundef %31, double noundef %32)
+  store i32 %33, ptr %6, align 4, !tbaa !65
+  %34 = load i32, ptr %6, align 4, !tbaa !65
+  %35 = load i32, ptr %7, align 4, !tbaa !65
+  %36 = icmp ne i32 %34, %35
+  br i1 %36, label %37, label %43
 
-31:                                               ; preds = %28, %24
-  store i32 1, ptr %5, align 4
-  br label %32
+37:                                               ; preds = %24
+  %38 = load i32, ptr %7, align 4, !tbaa !65
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %43
 
-32:                                               ; preds = %68, %31
-  %33 = load i32, ptr %5, align 4
-  %34 = icmp sle i32 %33, 3
-  br i1 %34, label %35, label %71
+40:                                               ; preds = %37
+  %41 = load i32, ptr %8, align 4, !tbaa !65
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %8, align 4, !tbaa !65
+  br label %43
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %6, align 4
-  store i32 %36, ptr %7, align 4
-  %37 = load ptr, ptr %3, align 8
-  %38 = load i32, ptr %5, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.pointf_s, ptr %37, i64 %39
-  %41 = getelementptr inbounds %struct.pointf_s, ptr %40, i32 0, i32 1
-  %42 = load double, ptr %41, align 8
-  %43 = load double, ptr %4, align 8
-  %44 = fcmp olt double %42, %43
-  br i1 %44, label %45, label %46
+43:                                               ; preds = %40, %37, %24
+  br label %44
 
-45:                                               ; preds = %35
-  br label %56
+44:                                               ; preds = %43
+  %45 = load i32, ptr %5, align 4, !tbaa !65
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %5, align 4, !tbaa !65
+  br label %21, !llvm.loop !78
 
-46:                                               ; preds = %35
-  %47 = load ptr, ptr %3, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.pointf_s, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.pointf_s, ptr %50, i32 0, i32 1
-  %52 = load double, ptr %51, align 8
-  %53 = load double, ptr %4, align 8
-  %54 = fcmp ogt double %52, %53
-  %55 = select i1 %54, i32 1, i32 0
-  br label %56
-
-56:                                               ; preds = %46, %45
-  %57 = phi i32 [ -1, %45 ], [ %55, %46 ]
-  store i32 %57, ptr %6, align 4
-  %58 = load i32, ptr %6, align 4
-  %59 = load i32, ptr %7, align 4
-  %60 = icmp ne i32 %58, %59
-  br i1 %60, label %61, label %67
-
-61:                                               ; preds = %56
-  %62 = load i32, ptr %7, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %67
-
-64:                                               ; preds = %61
-  %65 = load i32, ptr %8, align 4
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %8, align 4
-  br label %67
-
-67:                                               ; preds = %64, %61, %56
-  br label %68
-
-68:                                               ; preds = %67
-  %69 = load i32, ptr %5, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %5, align 4
-  br label %32
-
-71:                                               ; preds = %32
-  %72 = load i32, ptr %8, align 4
-  ret i32 %72
+47:                                               ; preds = %21
+  %48 = load i32, ptr %8, align 4, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  ret i32 %48
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
-; Function Attrs: noreturn nounwind uwtable
-define internal void @graphviz_exit(i32 noundef %0) #6 {
+; Function Attrs: inlinehint noreturn nounwind uwtable
+define internal void @graphviz_exit(i32 noundef %0) #8 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  call void @exit(i32 noundef %3) #12
+  store i32 %0, ptr %2, align 4, !tbaa !65
+  %3 = load i32, ptr %2, align 4, !tbaa !65
+  call void @exit(i32 noundef %3) #14
   unreachable
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #7
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #8
+declare void @exit(i32 noundef) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind allocsize(0,1) }
+attributes #14 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8Agedge_s", !5, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!20, !23, i64 16}
+!20 = !{!"Agobj_s", !21, i64 0, !23, i64 16}
+!21 = !{!"Agtag_s", !22, i64 0, !22, i64 0, !22, i64 0, !22, i64 0, !18, i64 8}
+!22 = !{!"int", !6, i64 0}
+!23 = !{!"p1 _ZTS7Agrec_s", !5, i64 0}
+!24 = !{!25, !28, i64 16}
+!25 = !{!"Agedgeinfo_t", !26, i64 0, !28, i64 16, !29, i64 24, !29, i64 72, !33, i64 120, !33, i64 128, !33, i64 136, !33, i64 144, !6, i64 152, !6, i64 153, !6, i64 154, !6, i64 155, !6, i64 156, !13, i64 160, !5, i64 168, !31, i64 176, !31, i64 184, !34, i64 192, !6, i64 208, !32, i64 209, !36, i64 210, !22, i64 212, !22, i64 216, !22, i64 220, !36, i64 224, !22, i64 228, !13, i64 232}
+!26 = !{!"Agrec_s", !27, i64 0, !23, i64 8}
+!27 = !{!"p1 omnipotent char", !5, i64 0}
+!28 = !{!"p1 _ZTS7splines", !5, i64 0}
+!29 = !{!"port", !30, i64 0, !31, i64 16, !5, i64 24, !32, i64 32, !32, i64 33, !32, i64 34, !32, i64 35, !6, i64 36, !6, i64 37, !27, i64 40}
+!30 = !{!"pointf_s", !31, i64 0, !31, i64 8}
+!31 = !{!"double", !6, i64 0}
+!32 = !{!"_Bool", !6, i64 0}
+!33 = !{!"p1 _ZTS11textlabel_t", !5, i64 0}
+!34 = !{!"Ppoly_t", !35, i64 0, !18, i64 8}
+!35 = !{!"p1 _ZTS8pointf_s", !5, i64 0}
+!36 = !{!"short", !6, i64 0}
+!37 = !{!38, !18, i64 8}
+!38 = !{!"splines", !39, i64 0, !18, i64 8, !40, i64 16}
+!39 = !{!"p1 _ZTS6bezier", !5, i64 0}
+!40 = !{!"", !30, i64 0, !30, i64 16}
+!41 = !{!42, !11, i64 56}
+!42 = !{!"Agedge_s", !20, i64 0, !43, i64 24, !43, i64 40, !11, i64 56}
+!43 = !{!"dtlink_s_", !44, i64 0, !6, i64 8}
+!44 = !{!"p1 _ZTS9dtlink_s_", !5, i64 0}
+!45 = !{!38, !39, i64 0}
+!46 = !{!39, !39, i64 0}
+!47 = !{!48, !18, i64 8}
+!48 = !{!"bezier", !35, i64 0, !18, i64 8, !22, i64 16, !22, i64 20, !30, i64 24, !30, i64 40}
+!49 = !{!48, !22, i64 20}
+!50 = !{!48, !22, i64 16}
+!51 = !{!32, !32, i64 0}
+!52 = !{!5, !5, i64 0}
+!53 = !{!48, !35, i64 0}
+!54 = !{i64 0, i64 8, !55, i64 8, i64 8, !55}
+!55 = !{!31, !31, i64 0}
+!56 = distinct !{!56, !15}
+!57 = !{i8 0, i8 2}
+!58 = !{}
+!59 = distinct !{!59, !15}
+!60 = distinct !{!60, !15}
+!61 = distinct !{!61, !15}
+!62 = distinct !{!62, !15}
+!63 = !{i64 0, i64 8, !64, i64 8, i64 8, !17, i64 16, i64 4, !65, i64 20, i64 4, !65, i64 24, i64 8, !55, i64 32, i64 8, !55, i64 40, i64 8, !55, i64 48, i64 8, !55}
+!64 = !{!35, !35, i64 0}
+!65 = !{!22, !22, i64 0}
+!66 = !{!27, !27, i64 0}
+!67 = !{!6, !6, i64 0}
+!68 = !{!40, !31, i64 0}
+!69 = !{!30, !31, i64 0}
+!70 = !{!40, !31, i64 16}
+!71 = !{!40, !31, i64 8}
+!72 = !{!30, !31, i64 8}
+!73 = !{!40, !31, i64 24}
+!74 = distinct !{!74, !15}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!77 = distinct !{!77, !15}
+!78 = distinct !{!78, !15}

@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.LeafList = type { ptr, ptr }
-%struct.RTree = type { ptr, %struct.split_q_s, i32 }
+%struct.RTree = type { ptr, %struct.split_q_s }
 %struct.split_q_s = type { [65 x %struct.Branch], %struct.Rect, i64, [1 x %struct.PartitionVars] }
 %struct.Branch = type { %struct.Rect, ptr }
 %struct.Rect = type { [4 x i32] }
@@ -13,29 +13,37 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @RTreeNewLeafList(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 16) #5
-  store ptr %4, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 16) #7
+  store ptr %4, ptr %3, align 8, !tbaa !8
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.LeafList, ptr %8, i32 0, i32 1
-  store ptr %7, ptr %9, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.LeafList, ptr %10, i32 0, i32 0
-  store ptr null, ptr %11, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.LeafList, ptr %8, i32 0, i32 1
+  store ptr %7, ptr %9, align 8, !tbaa !10
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.LeafList, ptr %10, i32 0, i32 0
+  store ptr null, ptr %11, align 8, !tbaa !12
   br label %12
 
 12:                                               ; preds = %6, %1
-  %13 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret ptr %13
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #1
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) #0 {
@@ -43,27 +51,29 @@ define ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
   %8 = icmp ne ptr %7, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
   store ptr %10, ptr %3, align 8
   br label %18
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
   %13 = call ptr @RTreeNewLeafList(ptr noundef %12)
-  store ptr %13, ptr %6, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.LeafList, ptr %15, i32 0, i32 0
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %6, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = load ptr, ptr %6, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.LeafList, ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8, !tbaa !12
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
   store ptr %17, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
   br label %18
 
 18:                                               ; preds = %11, %9
@@ -75,84 +85,90 @@ define ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) #0 {
 define void @RTreeLeafListFree(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   br label %4
 
 4:                                                ; preds = %9, %1
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.LeafList, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.LeafList, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.LeafList, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.LeafList, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  store ptr %12, ptr %3, align 8, !tbaa !8
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
   call void @free(ptr noundef %13) #6
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr %2, align 8
-  br label %4
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %14, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
+  br label %4, !llvm.loop !13
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %2, align 8, !tbaa !8
   call void @free(ptr noundef %16) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @RTreeOpen() #0 {
   %1 = alloca ptr, align 8
-  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 2176) #5
-  store ptr %2, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  %2 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 2168) #7
+  store ptr %2, ptr %1, align 8, !tbaa !15
   %3 = icmp ne ptr %2, null
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %0
   %5 = call ptr @RTreeNewIndex()
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds %struct.RTree, ptr %6, i32 0, i32 0
-  store ptr %5, ptr %7, align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw %struct.RTree, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !17
   br label %8
 
 8:                                                ; preds = %4, %0
-  %9 = load ptr, ptr %1, align 8
+  %9 = load ptr, ptr %1, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @RTreeNewIndex() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %2 = call ptr @RTreeNewNode()
-  store ptr %2, ptr %1, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds %struct.Node, ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
-  %5 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %4 = getelementptr inbounds nuw %struct.Node, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !24
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret ptr %5
 }
 
-declare ptr @RTreeNewNode() #3
+declare ptr @RTreeNewNode() #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @RTreeClose(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.RTree, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %4 = load ptr, ptr %2, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw %struct.RTree, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = call i32 @RTreeClose2(ptr noundef %3, ptr noundef %6)
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.RTree, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw %struct.RTree, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   call void @free(ptr noundef %10) #6
-  %11 = load ptr, ptr %2, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !15
   call void @free(ptr noundef %11) #6
   ret i32 0
 }
@@ -163,115 +179,125 @@ define internal i32 @RTreeClose2(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.Node, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = getelementptr inbounds nuw %struct.Node, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %51
+  br i1 %10, label %11, label %52
 
 11:                                               ; preds = %2
-  store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  store i32 0, ptr %5, align 4, !tbaa !27
   br label %12
 
-12:                                               ; preds = %47, %11
-  %13 = load i32, ptr %5, align 4
+12:                                               ; preds = %48, %11
+  %13 = load i32, ptr %5, align 4, !tbaa !27
   %14 = icmp slt i32 %13, 64
-  br i1 %14, label %15, label %50
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Node, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %5, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [64 x %struct.Branch], ptr %17, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.Branch, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %25, label %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  br label %51
 
-24:                                               ; preds = %15
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %4, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %struct.Node, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %5, align 4, !tbaa !27
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [64 x %struct.Branch], ptr %18, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %struct.Branch, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %26, label %25
+
+25:                                               ; preds = %16
+  br label %48
+
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %3, align 8, !tbaa !15
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw %struct.Node, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %5, align 4, !tbaa !27
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds [64 x %struct.Branch], ptr %29, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw %struct.Branch, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %35 = call i32 @RTreeClose2(ptr noundef %27, ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %47, label %37
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %4, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.Node, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %5, align 4, !tbaa !27
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [64 x %struct.Branch], ptr %39, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw %struct.Branch, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  call void @free(ptr noundef %44) #6
+  %45 = load ptr, ptr %4, align 8, !tbaa !23
+  %46 = load i32, ptr %5, align 4, !tbaa !27
+  call void @DisconBranch(ptr noundef %45, i32 noundef %46)
   br label %47
 
-25:                                               ; preds = %15
-  %26 = load ptr, ptr %3, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.Node, ptr %27, i32 0, i32 2
-  %29 = load i32, ptr %5, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [64 x %struct.Branch], ptr %28, i64 0, i64 %30
-  %32 = getelementptr inbounds %struct.Branch, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i32 @RTreeClose2(ptr noundef %26, ptr noundef %33)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %46, label %36
+47:                                               ; preds = %37, %26
+  br label %48
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.Node, ptr %37, i32 0, i32 2
-  %39 = load i32, ptr %5, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [64 x %struct.Branch], ptr %38, i64 0, i64 %40
-  %42 = getelementptr inbounds %struct.Branch, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  call void @free(ptr noundef %43) #6
-  %44 = load ptr, ptr %4, align 8
-  %45 = load i32, ptr %5, align 4
-  call void @DisconBranch(ptr noundef %44, i32 noundef %45)
-  br label %46
+48:                                               ; preds = %47, %25
+  %49 = load i32, ptr %5, align 4, !tbaa !27
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !27
+  br label %12, !llvm.loop !30
 
-46:                                               ; preds = %36, %25
-  br label %47
+51:                                               ; preds = %15
+  br label %74
 
-47:                                               ; preds = %46, %24
-  %48 = load i32, ptr %5, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %5, align 4
-  br label %12
+52:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 0, ptr %6, align 4, !tbaa !27
+  br label %53
 
-50:                                               ; preds = %12
-  br label %72
+53:                                               ; preds = %70, %52
+  %54 = load i32, ptr %6, align 4, !tbaa !27
+  %55 = icmp slt i32 %54, 64
+  br i1 %55, label %57, label %56
 
-51:                                               ; preds = %2
-  store i32 0, ptr %6, align 4
-  br label %52
+56:                                               ; preds = %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  br label %73
 
-52:                                               ; preds = %68, %51
-  %53 = load i32, ptr %6, align 4
-  %54 = icmp slt i32 %53, 64
-  br i1 %54, label %55, label %71
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %4, align 8, !tbaa !23
+  %59 = getelementptr inbounds nuw %struct.Node, ptr %58, i32 0, i32 2
+  %60 = load i32, ptr %6, align 4, !tbaa !27
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [64 x %struct.Branch], ptr %59, i64 0, i64 %61
+  %63 = getelementptr inbounds nuw %struct.Branch, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !28
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %67, label %66
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.Node, ptr %56, i32 0, i32 2
-  %58 = load i32, ptr %6, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [64 x %struct.Branch], ptr %57, i64 0, i64 %59
-  %61 = getelementptr inbounds %struct.Branch, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %65, label %64
+66:                                               ; preds = %57
+  br label %70
 
-64:                                               ; preds = %55
-  br label %68
+67:                                               ; preds = %57
+  %68 = load ptr, ptr %4, align 8, !tbaa !23
+  %69 = load i32, ptr %6, align 4, !tbaa !27
+  call void @DisconBranch(ptr noundef %68, i32 noundef %69)
+  br label %70
 
-65:                                               ; preds = %55
-  %66 = load ptr, ptr %4, align 8
-  %67 = load i32, ptr %6, align 4
-  call void @DisconBranch(ptr noundef %66, i32 noundef %67)
-  br label %68
+70:                                               ; preds = %67, %66
+  %71 = load i32, ptr %6, align 4, !tbaa !27
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %6, align 4, !tbaa !27
+  br label %53, !llvm.loop !31
 
-68:                                               ; preds = %65, %64
-  %69 = load i32, ptr %6, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %6, align 4
-  br label %52
+73:                                               ; preds = %56
+  br label %74
 
-71:                                               ; preds = %52
-  br label %72
-
-72:                                               ; preds = %71, %50
+74:                                               ; preds = %73, %51
   ret i32 0
 }
 
@@ -285,163 +311,179 @@ define ptr @RTreeSearch(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.Node, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  store ptr null, ptr %7, align 8, !tbaa !8
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw %struct.Node, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !24
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %71
+  br i1 %15, label %16, label %72
 
 16:                                               ; preds = %3
-  store i64 0, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  store i64 0, ptr %8, align 8, !tbaa !34
   br label %17
 
-17:                                               ; preds = %67, %16
-  %18 = load i64, ptr %8, align 8
+17:                                               ; preds = %68, %16
+  %18 = load i64, ptr %8, align 8, !tbaa !34
   %19 = icmp ult i64 %18, 64
-  br i1 %19, label %20, label %70
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.Node, ptr %21, i32 0, i32 2
-  %23 = load i64, ptr %8, align 8
-  %24 = getelementptr inbounds [64 x %struct.Branch], ptr %22, i64 0, i64 %23
-  %25 = getelementptr inbounds %struct.Branch, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %71
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.Node, ptr %30, i32 0, i32 2
-  %32 = load i64, ptr %8, align 8
-  %33 = getelementptr inbounds [64 x %struct.Branch], ptr %31, i64 0, i64 %32
-  %34 = getelementptr inbounds %struct.Branch, ptr %33, i32 0, i32 0
-  %35 = call zeroext i1 @Overlap(ptr noundef %29, ptr noundef %34)
-  br i1 %35, label %36, label %66
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw %struct.Node, ptr %22, i32 0, i32 2
+  %24 = load i64, ptr %8, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %23, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw %struct.Branch, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %67
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.Node, ptr %38, i32 0, i32 2
-  %40 = load i64, ptr %8, align 8
-  %41 = getelementptr inbounds [64 x %struct.Branch], ptr %39, i64 0, i64 %40
-  %42 = getelementptr inbounds %struct.Branch, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = call ptr @RTreeSearch(ptr noundef %37, ptr noundef %43, ptr noundef %44)
-  store ptr %45, ptr %9, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %63
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %6, align 8, !tbaa !32
+  %31 = load ptr, ptr %5, align 8, !tbaa !23
+  %32 = getelementptr inbounds nuw %struct.Node, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %8, align 8, !tbaa !34
+  %34 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %32, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw %struct.Branch, ptr %34, i32 0, i32 0
+  %36 = call zeroext i1 @Overlap(ptr noundef %30, ptr noundef %35)
+  br i1 %36, label %37, label %67
 
-48:                                               ; preds = %36
-  %49 = load ptr, ptr %7, align 8
-  store ptr %49, ptr %10, align 8
-  br label %50
+37:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %38 = load ptr, ptr %4, align 8, !tbaa !15
+  %39 = load ptr, ptr %5, align 8, !tbaa !23
+  %40 = getelementptr inbounds nuw %struct.Node, ptr %39, i32 0, i32 2
+  %41 = load i64, ptr %8, align 8, !tbaa !34
+  %42 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %40, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw %struct.Branch, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %45 = load ptr, ptr %6, align 8, !tbaa !32
+  %46 = call ptr @RTreeSearch(ptr noundef %38, ptr noundef %44, ptr noundef %45)
+  store ptr %46, ptr %9, align 8, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %64
 
-50:                                               ; preds = %55, %48
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct.LeafList, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %59
+49:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %50 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %50, ptr %10, align 8, !tbaa !8
+  br label %51
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct.LeafList, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %10, align 8
-  br label %50
+51:                                               ; preds = %56, %49
+  %52 = load ptr, ptr %10, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.LeafList, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !12
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %60
 
-59:                                               ; preds = %50
-  %60 = load ptr, ptr %9, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds %struct.LeafList, ptr %61, i32 0, i32 0
-  store ptr %60, ptr %62, align 8
-  br label %65
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.LeafList, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !12
+  store ptr %59, ptr %10, align 8, !tbaa !8
+  br label %51, !llvm.loop !35
 
-63:                                               ; preds = %36
-  %64 = load ptr, ptr %9, align 8
-  store ptr %64, ptr %7, align 8
-  br label %65
-
-65:                                               ; preds = %63, %59
+60:                                               ; preds = %51
+  %61 = load ptr, ptr %9, align 8, !tbaa !8
+  %62 = load ptr, ptr %10, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw %struct.LeafList, ptr %62, i32 0, i32 0
+  store ptr %61, ptr %63, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
   br label %66
 
-66:                                               ; preds = %65, %28, %20
+64:                                               ; preds = %37
+  %65 = load ptr, ptr %9, align 8, !tbaa !8
+  store ptr %65, ptr %7, align 8, !tbaa !8
+  br label %66
+
+66:                                               ; preds = %64, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   br label %67
 
-67:                                               ; preds = %66
-  %68 = load i64, ptr %8, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %8, align 8
-  br label %17
+67:                                               ; preds = %66, %29, %21
+  br label %68
 
-70:                                               ; preds = %17
-  br label %103
+68:                                               ; preds = %67
+  %69 = load i64, ptr %8, align 8, !tbaa !34
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %8, align 8, !tbaa !34
+  br label %17, !llvm.loop !36
 
-71:                                               ; preds = %3
-  store i64 0, ptr %11, align 8
-  br label %72
+71:                                               ; preds = %20
+  br label %105
 
-72:                                               ; preds = %99, %71
-  %73 = load i64, ptr %11, align 8
-  %74 = icmp ult i64 %73, 64
-  br i1 %74, label %75, label %102
+72:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  store i64 0, ptr %11, align 8, !tbaa !34
+  br label %73
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.Node, ptr %76, i32 0, i32 2
-  %78 = load i64, ptr %11, align 8
-  %79 = getelementptr inbounds [64 x %struct.Branch], ptr %77, i64 0, i64 %78
-  %80 = getelementptr inbounds %struct.Branch, ptr %79, i32 0, i32 1
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %98
+73:                                               ; preds = %101, %72
+  %74 = load i64, ptr %11, align 8, !tbaa !34
+  %75 = icmp ult i64 %74, 64
+  br i1 %75, label %77, label %76
 
-83:                                               ; preds = %75
-  %84 = load ptr, ptr %6, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.Node, ptr %85, i32 0, i32 2
-  %87 = load i64, ptr %11, align 8
-  %88 = getelementptr inbounds [64 x %struct.Branch], ptr %86, i64 0, i64 %87
-  %89 = getelementptr inbounds %struct.Branch, ptr %88, i32 0, i32 0
-  %90 = call zeroext i1 @Overlap(ptr noundef %84, ptr noundef %89)
-  br i1 %90, label %91, label %98
+76:                                               ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %104
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %7, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.Node, ptr %93, i32 0, i32 2
-  %95 = load i64, ptr %11, align 8
-  %96 = getelementptr inbounds [64 x %struct.Branch], ptr %94, i64 0, i64 %95
-  %97 = call ptr @RTreeLeafListAdd(ptr noundef %92, ptr noundef %96)
-  store ptr %97, ptr %7, align 8
-  br label %98
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %5, align 8, !tbaa !23
+  %79 = getelementptr inbounds nuw %struct.Node, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %11, align 8, !tbaa !34
+  %81 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %79, i64 0, i64 %80
+  %82 = getelementptr inbounds nuw %struct.Branch, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !28
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %100
 
-98:                                               ; preds = %91, %83, %75
-  br label %99
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %6, align 8, !tbaa !32
+  %87 = load ptr, ptr %5, align 8, !tbaa !23
+  %88 = getelementptr inbounds nuw %struct.Node, ptr %87, i32 0, i32 2
+  %89 = load i64, ptr %11, align 8, !tbaa !34
+  %90 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %88, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw %struct.Branch, ptr %90, i32 0, i32 0
+  %92 = call zeroext i1 @Overlap(ptr noundef %86, ptr noundef %91)
+  br i1 %92, label %93, label %100
 
-99:                                               ; preds = %98
-  %100 = load i64, ptr %11, align 8
-  %101 = add i64 %100, 1
-  store i64 %101, ptr %11, align 8
-  br label %72
+93:                                               ; preds = %85
+  %94 = load ptr, ptr %7, align 8, !tbaa !8
+  %95 = load ptr, ptr %5, align 8, !tbaa !23
+  %96 = getelementptr inbounds nuw %struct.Node, ptr %95, i32 0, i32 2
+  %97 = load i64, ptr %11, align 8, !tbaa !34
+  %98 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %96, i64 0, i64 %97
+  %99 = call ptr @RTreeLeafListAdd(ptr noundef %94, ptr noundef %98)
+  store ptr %99, ptr %7, align 8, !tbaa !8
+  br label %100
 
-102:                                              ; preds = %72
-  br label %103
+100:                                              ; preds = %93, %85, %77
+  br label %101
 
-103:                                              ; preds = %102, %70
-  %104 = load ptr, ptr %7, align 8
-  ret ptr %104
+101:                                              ; preds = %100
+  %102 = load i64, ptr %11, align 8, !tbaa !34
+  %103 = add i64 %102, 1
+  store i64 %103, ptr %11, align 8, !tbaa !34
+  br label %73, !llvm.loop !37
+
+104:                                              ; preds = %76
+  br label %105
+
+105:                                              ; preds = %104, %71
+  %106 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret ptr %106
 }
 
-declare zeroext i1 @Overlap(ptr noundef, ptr noundef) #3
+declare zeroext i1 @Overlap(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -457,97 +499,114 @@ define i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %15 = alloca ptr, align 8
   %16 = alloca %struct.Rect, align 4
   %17 = alloca %struct.Rect, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 %4, ptr %10, align 4
-  store ptr null, ptr %11, align 8
-  store i32 0, ptr %13, align 4
-  store i64 0, ptr %14, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store ptr %1, ptr %7, align 8, !tbaa !32
+  store ptr %2, ptr %8, align 8, !tbaa !38
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i32 %4, ptr %10, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  store ptr null, ptr %11, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 24, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  store i32 0, ptr %13, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  store i64 0, ptr %14, align 8, !tbaa !34
   br label %18
 
-18:                                               ; preds = %22, %5
-  %19 = load i64, ptr %14, align 8
+18:                                               ; preds = %23, %5
+  %19 = load i64, ptr %14, align 8, !tbaa !34
   %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %25
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %18
-  br label %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  br label %26
 
-22:                                               ; preds = %21
-  %23 = load i64, ptr %14, align 8
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %14, align 8
-  br label %18
+22:                                               ; preds = %18
+  br label %23
 
-25:                                               ; preds = %18
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = call i32 @RTreeInsert2(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %30, ptr noundef %11, i32 noundef %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %73
+23:                                               ; preds = %22
+  %24 = load i64, ptr %14, align 8, !tbaa !34
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %14, align 8, !tbaa !34
+  br label %18, !llvm.loop !41
 
-34:                                               ; preds = %25
-  %35 = call ptr @RTreeNewNode()
-  store ptr %35, ptr %15, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.Node, ptr %37, i32 0, i32 1
-  %39 = load i32, ptr %38, align 4
-  %40 = add nsw i32 %39, 1
-  %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds %struct.Node, ptr %41, i32 0, i32 1
-  store i32 %40, ptr %42, align 4
-  %43 = getelementptr inbounds %struct.Branch, ptr %12, i32 0, i32 0
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = call { i64, i64 } @NodeCover(ptr noundef %45)
-  %47 = getelementptr inbounds %struct.Rect, ptr %16, i32 0, i32 0
-  %48 = getelementptr inbounds { i64, i64 }, ptr %47, i32 0, i32 0
-  %49 = extractvalue { i64, i64 } %46, 0
-  store i64 %49, ptr %48, align 4
-  %50 = getelementptr inbounds { i64, i64 }, ptr %47, i32 0, i32 1
-  %51 = extractvalue { i64, i64 } %46, 1
-  store i64 %51, ptr %50, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 4 %16, i64 16, i1 false)
-  %52 = load ptr, ptr %9, align 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.Branch, ptr %12, i32 0, i32 1
-  store ptr %53, ptr %54, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %15, align 8
-  %57 = call i32 @AddBranch(ptr noundef %55, ptr noundef %12, ptr noundef %56, ptr noundef null)
-  %58 = getelementptr inbounds %struct.Branch, ptr %12, i32 0, i32 0
-  %59 = load ptr, ptr %11, align 8
-  %60 = call { i64, i64 } @NodeCover(ptr noundef %59)
-  %61 = getelementptr inbounds %struct.Rect, ptr %17, i32 0, i32 0
-  %62 = getelementptr inbounds { i64, i64 }, ptr %61, i32 0, i32 0
-  %63 = extractvalue { i64, i64 } %60, 0
-  store i64 %63, ptr %62, align 4
-  %64 = getelementptr inbounds { i64, i64 }, ptr %61, i32 0, i32 1
-  %65 = extractvalue { i64, i64 } %60, 1
-  store i64 %65, ptr %64, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %58, ptr align 4 %17, i64 16, i1 false)
-  %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds %struct.Branch, ptr %12, i32 0, i32 1
-  store ptr %66, ptr %67, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = load ptr, ptr %15, align 8
-  %70 = call i32 @AddBranch(ptr noundef %68, ptr noundef %12, ptr noundef %69, ptr noundef null)
-  %71 = load ptr, ptr %15, align 8
-  %72 = load ptr, ptr %9, align 8
-  store ptr %71, ptr %72, align 8
-  store i32 1, ptr %13, align 4
-  br label %73
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %6, align 8, !tbaa !15
+  %28 = load ptr, ptr %7, align 8, !tbaa !32
+  %29 = load ptr, ptr %8, align 8, !tbaa !38
+  %30 = load ptr, ptr %9, align 8, !tbaa !39
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %32 = load i32, ptr %10, align 4, !tbaa !27
+  %33 = call i32 @RTreeInsert2(ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %31, ptr noundef %11, i32 noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %74
 
-73:                                               ; preds = %34, %25
-  %74 = load i32, ptr %13, align 4
-  ret i32 %74
+35:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %36 = call ptr @RTreeNewNode()
+  store ptr %36, ptr %15, align 8, !tbaa !23
+  %37 = load ptr, ptr %9, align 8, !tbaa !39
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.Node, ptr %38, i32 0, i32 1
+  %40 = load i32, ptr %39, align 4, !tbaa !24
+  %41 = add nsw i32 %40, 1
+  %42 = load ptr, ptr %15, align 8, !tbaa !23
+  %43 = getelementptr inbounds nuw %struct.Node, ptr %42, i32 0, i32 1
+  store i32 %41, ptr %43, align 4, !tbaa !24
+  %44 = getelementptr inbounds nuw %struct.Branch, ptr %12, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #6
+  %45 = load ptr, ptr %9, align 8, !tbaa !39
+  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  %47 = call { i64, i64 } @NodeCover(ptr noundef %46)
+  %48 = getelementptr inbounds nuw %struct.Rect, ptr %16, i32 0, i32 0
+  %49 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 0
+  %50 = extractvalue { i64, i64 } %47, 0
+  store i64 %50, ptr %49, align 4
+  %51 = getelementptr inbounds nuw { i64, i64 }, ptr %48, i32 0, i32 1
+  %52 = extractvalue { i64, i64 } %47, 1
+  store i64 %52, ptr %51, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 4 %16, i64 16, i1 false), !tbaa.struct !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #6
+  %53 = load ptr, ptr %9, align 8, !tbaa !39
+  %54 = load ptr, ptr %53, align 8, !tbaa !23
+  %55 = getelementptr inbounds nuw %struct.Branch, ptr %12, i32 0, i32 1
+  store ptr %54, ptr %55, align 8, !tbaa !28
+  %56 = load ptr, ptr %6, align 8, !tbaa !15
+  %57 = load ptr, ptr %15, align 8, !tbaa !23
+  %58 = call i32 @AddBranch(ptr noundef %56, ptr noundef %12, ptr noundef %57, ptr noundef null)
+  %59 = getelementptr inbounds nuw %struct.Branch, ptr %12, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #6
+  %60 = load ptr, ptr %11, align 8, !tbaa !23
+  %61 = call { i64, i64 } @NodeCover(ptr noundef %60)
+  %62 = getelementptr inbounds nuw %struct.Rect, ptr %17, i32 0, i32 0
+  %63 = getelementptr inbounds nuw { i64, i64 }, ptr %62, i32 0, i32 0
+  %64 = extractvalue { i64, i64 } %61, 0
+  store i64 %64, ptr %63, align 4
+  %65 = getelementptr inbounds nuw { i64, i64 }, ptr %62, i32 0, i32 1
+  %66 = extractvalue { i64, i64 } %61, 1
+  store i64 %66, ptr %65, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 4 %17, i64 16, i1 false), !tbaa.struct !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #6
+  %67 = load ptr, ptr %11, align 8, !tbaa !23
+  %68 = getelementptr inbounds nuw %struct.Branch, ptr %12, i32 0, i32 1
+  store ptr %67, ptr %68, align 8, !tbaa !28
+  %69 = load ptr, ptr %6, align 8, !tbaa !15
+  %70 = load ptr, ptr %15, align 8, !tbaa !23
+  %71 = call i32 @AddBranch(ptr noundef %69, ptr noundef %12, ptr noundef %70, ptr noundef null)
+  %72 = load ptr, ptr %15, align 8, !tbaa !23
+  %73 = load ptr, ptr %9, align 8, !tbaa !39
+  store ptr %72, ptr %73, align 8, !tbaa !23
+  store i32 1, ptr %13, align 4, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  br label %74
+
+74:                                               ; preds = %35, %26
+  %75 = load i32, ptr %13, align 4, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  ret i32 %75
 }
 
 ; Function Attrs: nounwind uwtable
@@ -563,167 +622,228 @@ define internal i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   %17 = alloca %struct.Rect, align 4
-  %18 = alloca %struct.Rect, align 4
+  %18 = alloca i32, align 4
   %19 = alloca %struct.Rect, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store i32 %5, ptr %13, align 4
-  store ptr null, ptr %15, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct.Node, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 4
-  %23 = load i32, ptr %13, align 4
-  %24 = icmp sgt i32 %22, %23
-  br i1 %24, label %25, label %96
+  %20 = alloca %struct.Rect, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !15
+  store ptr %1, ptr %9, align 8, !tbaa !32
+  store ptr %2, ptr %10, align 8, !tbaa !38
+  store ptr %3, ptr %11, align 8, !tbaa !23
+  store ptr %4, ptr %12, align 8, !tbaa !39
+  store i32 %5, ptr %13, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store ptr null, ptr %15, align 8, !tbaa !23
+  %21 = load ptr, ptr %11, align 8, !tbaa !23
+  %22 = getelementptr inbounds nuw %struct.Node, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4, !tbaa !24
+  %24 = load i32, ptr %13, align 4, !tbaa !27
+  %25 = icmp sgt i32 %23, %24
+  br i1 %25, label %26, label %98
 
-25:                                               ; preds = %6
-  %26 = load ptr, ptr %9, align 8
-  %27 = load ptr, ptr %11, align 8
-  %28 = call i32 @PickBranch(ptr noundef %26, ptr noundef %27)
-  store i32 %28, ptr %16, align 4
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct.Node, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %16, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [64 x %struct.Branch], ptr %33, i64 0, i64 %35
-  %37 = getelementptr inbounds %struct.Branch, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %13, align 4
-  %40 = call i32 @RTreeInsert2(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %38, ptr noundef %15, i32 noundef %39)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %62, label %42
+26:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %27 = load ptr, ptr %9, align 8, !tbaa !32
+  %28 = load ptr, ptr %11, align 8, !tbaa !23
+  %29 = call i32 @PickBranch(ptr noundef %27, ptr noundef %28)
+  store i32 %29, ptr %16, align 4, !tbaa !27
+  %30 = load ptr, ptr %8, align 8, !tbaa !15
+  %31 = load ptr, ptr %9, align 8, !tbaa !32
+  %32 = load ptr, ptr %10, align 8, !tbaa !38
+  %33 = load ptr, ptr %11, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw %struct.Node, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %16, align 4, !tbaa !27
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds [64 x %struct.Branch], ptr %34, i64 0, i64 %36
+  %38 = getelementptr inbounds nuw %struct.Branch, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !28
+  %40 = load i32, ptr %13, align 4, !tbaa !27
+  %41 = call i32 @RTreeInsert2(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %39, ptr noundef %15, i32 noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %63, label %43
 
-42:                                               ; preds = %25
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct.Node, ptr %43, i32 0, i32 2
-  %45 = load i32, ptr %16, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [64 x %struct.Branch], ptr %44, i64 0, i64 %46
-  %48 = getelementptr inbounds %struct.Branch, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %9, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds %struct.Node, ptr %50, i32 0, i32 2
-  %52 = load i32, ptr %16, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [64 x %struct.Branch], ptr %51, i64 0, i64 %53
-  %55 = getelementptr inbounds %struct.Branch, ptr %54, i32 0, i32 0
-  %56 = call { i64, i64 } @CombineRect(ptr noundef %49, ptr noundef %55)
-  %57 = getelementptr inbounds %struct.Rect, ptr %17, i32 0, i32 0
-  %58 = getelementptr inbounds { i64, i64 }, ptr %57, i32 0, i32 0
-  %59 = extractvalue { i64, i64 } %56, 0
-  store i64 %59, ptr %58, align 4
-  %60 = getelementptr inbounds { i64, i64 }, ptr %57, i32 0, i32 1
-  %61 = extractvalue { i64, i64 } %56, 1
-  store i64 %61, ptr %60, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 4 %17, i64 16, i1 false)
+43:                                               ; preds = %26
+  %44 = load ptr, ptr %11, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw %struct.Node, ptr %44, i32 0, i32 2
+  %46 = load i32, ptr %16, align 4, !tbaa !27
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [64 x %struct.Branch], ptr %45, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw %struct.Branch, ptr %48, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #6
+  %50 = load ptr, ptr %9, align 8, !tbaa !32
+  %51 = load ptr, ptr %11, align 8, !tbaa !23
+  %52 = getelementptr inbounds nuw %struct.Node, ptr %51, i32 0, i32 2
+  %53 = load i32, ptr %16, align 4, !tbaa !27
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [64 x %struct.Branch], ptr %52, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct.Branch, ptr %55, i32 0, i32 0
+  %57 = call { i64, i64 } @CombineRect(ptr noundef %50, ptr noundef %56)
+  %58 = getelementptr inbounds nuw %struct.Rect, ptr %17, i32 0, i32 0
+  %59 = getelementptr inbounds nuw { i64, i64 }, ptr %58, i32 0, i32 0
+  %60 = extractvalue { i64, i64 } %57, 0
+  store i64 %60, ptr %59, align 4
+  %61 = getelementptr inbounds nuw { i64, i64 }, ptr %58, i32 0, i32 1
+  %62 = extractvalue { i64, i64 } %57, 1
+  store i64 %62, ptr %61, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 4 %17, i64 16, i1 false), !tbaa.struct !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #6
   store i32 0, ptr %7, align 4
-  br label %112
+  store i32 1, ptr %18, align 4
+  br label %97
 
-62:                                               ; preds = %25
-  %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.Node, ptr %63, i32 0, i32 2
-  %65 = load i32, ptr %16, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [64 x %struct.Branch], ptr %64, i64 0, i64 %66
-  %68 = getelementptr inbounds %struct.Branch, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.Node, ptr %69, i32 0, i32 2
-  %71 = load i32, ptr %16, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [64 x %struct.Branch], ptr %70, i64 0, i64 %72
-  %74 = getelementptr inbounds %struct.Branch, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = call { i64, i64 } @NodeCover(ptr noundef %75)
-  %77 = getelementptr inbounds %struct.Rect, ptr %18, i32 0, i32 0
-  %78 = getelementptr inbounds { i64, i64 }, ptr %77, i32 0, i32 0
-  %79 = extractvalue { i64, i64 } %76, 0
-  store i64 %79, ptr %78, align 4
-  %80 = getelementptr inbounds { i64, i64 }, ptr %77, i32 0, i32 1
-  %81 = extractvalue { i64, i64 } %76, 1
-  store i64 %81, ptr %80, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 4 %18, i64 16, i1 false)
-  %82 = load ptr, ptr %15, align 8
-  %83 = getelementptr inbounds %struct.Branch, ptr %14, i32 0, i32 1
-  store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds %struct.Branch, ptr %14, i32 0, i32 0
-  %85 = load ptr, ptr %15, align 8
-  %86 = call { i64, i64 } @NodeCover(ptr noundef %85)
-  %87 = getelementptr inbounds %struct.Rect, ptr %19, i32 0, i32 0
-  %88 = getelementptr inbounds { i64, i64 }, ptr %87, i32 0, i32 0
-  %89 = extractvalue { i64, i64 } %86, 0
-  store i64 %89, ptr %88, align 4
-  %90 = getelementptr inbounds { i64, i64 }, ptr %87, i32 0, i32 1
-  %91 = extractvalue { i64, i64 } %86, 1
-  store i64 %91, ptr %90, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 4 %19, i64 16, i1 false)
-  %92 = load ptr, ptr %8, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = call i32 @AddBranch(ptr noundef %92, ptr noundef %14, ptr noundef %93, ptr noundef %94)
-  store i32 %95, ptr %7, align 4
-  br label %112
+63:                                               ; preds = %26
+  %64 = load ptr, ptr %11, align 8, !tbaa !23
+  %65 = getelementptr inbounds nuw %struct.Node, ptr %64, i32 0, i32 2
+  %66 = load i32, ptr %16, align 4, !tbaa !27
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds [64 x %struct.Branch], ptr %65, i64 0, i64 %67
+  %69 = getelementptr inbounds nuw %struct.Branch, ptr %68, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #6
+  %70 = load ptr, ptr %11, align 8, !tbaa !23
+  %71 = getelementptr inbounds nuw %struct.Node, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %16, align 4, !tbaa !27
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [64 x %struct.Branch], ptr %71, i64 0, i64 %73
+  %75 = getelementptr inbounds nuw %struct.Branch, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8, !tbaa !28
+  %77 = call { i64, i64 } @NodeCover(ptr noundef %76)
+  %78 = getelementptr inbounds nuw %struct.Rect, ptr %19, i32 0, i32 0
+  %79 = getelementptr inbounds nuw { i64, i64 }, ptr %78, i32 0, i32 0
+  %80 = extractvalue { i64, i64 } %77, 0
+  store i64 %80, ptr %79, align 4
+  %81 = getelementptr inbounds nuw { i64, i64 }, ptr %78, i32 0, i32 1
+  %82 = extractvalue { i64, i64 } %77, 1
+  store i64 %82, ptr %81, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 4 %19, i64 16, i1 false), !tbaa.struct !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #6
+  %83 = load ptr, ptr %15, align 8, !tbaa !23
+  %84 = getelementptr inbounds nuw %struct.Branch, ptr %14, i32 0, i32 1
+  store ptr %83, ptr %84, align 8, !tbaa !28
+  %85 = getelementptr inbounds nuw %struct.Branch, ptr %14, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #6
+  %86 = load ptr, ptr %15, align 8, !tbaa !23
+  %87 = call { i64, i64 } @NodeCover(ptr noundef %86)
+  %88 = getelementptr inbounds nuw %struct.Rect, ptr %20, i32 0, i32 0
+  %89 = getelementptr inbounds nuw { i64, i64 }, ptr %88, i32 0, i32 0
+  %90 = extractvalue { i64, i64 } %87, 0
+  store i64 %90, ptr %89, align 4
+  %91 = getelementptr inbounds nuw { i64, i64 }, ptr %88, i32 0, i32 1
+  %92 = extractvalue { i64, i64 } %87, 1
+  store i64 %92, ptr %91, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 4 %20, i64 16, i1 false), !tbaa.struct !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #6
+  %93 = load ptr, ptr %8, align 8, !tbaa !15
+  %94 = load ptr, ptr %11, align 8, !tbaa !23
+  %95 = load ptr, ptr %12, align 8, !tbaa !39
+  %96 = call i32 @AddBranch(ptr noundef %93, ptr noundef %14, ptr noundef %94, ptr noundef %95)
+  store i32 %96, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %97
 
-96:                                               ; preds = %6
-  %97 = load ptr, ptr %11, align 8
-  %98 = getelementptr inbounds %struct.Node, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 4
-  %100 = load i32, ptr %13, align 4
-  %101 = icmp eq i32 %99, %100
-  br i1 %101, label %102, label %111
+97:                                               ; preds = %63, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  br label %114
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds %struct.Branch, ptr %14, i32 0, i32 0
-  %104 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %103, ptr align 4 %104, i64 16, i1 false)
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.Branch, ptr %14, i32 0, i32 1
-  store ptr %105, ptr %106, align 8
-  %107 = load ptr, ptr %8, align 8
-  %108 = load ptr, ptr %11, align 8
-  %109 = load ptr, ptr %12, align 8
-  %110 = call i32 @AddBranch(ptr noundef %107, ptr noundef %14, ptr noundef %108, ptr noundef %109)
-  store i32 %110, ptr %7, align 4
-  br label %112
+98:                                               ; preds = %6
+  %99 = load ptr, ptr %11, align 8, !tbaa !23
+  %100 = getelementptr inbounds nuw %struct.Node, ptr %99, i32 0, i32 1
+  %101 = load i32, ptr %100, align 4, !tbaa !24
+  %102 = load i32, ptr %13, align 4, !tbaa !27
+  %103 = icmp eq i32 %101, %102
+  br i1 %103, label %104, label %113
 
-111:                                              ; preds = %96
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw %struct.Branch, ptr %14, i32 0, i32 0
+  %106 = load ptr, ptr %9, align 8, !tbaa !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 4 %106, i64 16, i1 false), !tbaa.struct !42
+  %107 = load ptr, ptr %10, align 8, !tbaa !38
+  %108 = getelementptr inbounds nuw %struct.Branch, ptr %14, i32 0, i32 1
+  store ptr %107, ptr %108, align 8, !tbaa !28
+  %109 = load ptr, ptr %8, align 8, !tbaa !15
+  %110 = load ptr, ptr %11, align 8, !tbaa !23
+  %111 = load ptr, ptr %12, align 8, !tbaa !39
+  %112 = call i32 @AddBranch(ptr noundef %109, ptr noundef %14, ptr noundef %110, ptr noundef %111)
+  store i32 %112, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %114
+
+113:                                              ; preds = %98
   store i32 0, ptr %7, align 4
-  br label %112
+  store i32 1, ptr %18, align 4
+  br label %114
 
-112:                                              ; preds = %111, %102, %62, %42
-  %113 = load i32, ptr %7, align 4
-  ret i32 %113
+114:                                              ; preds = %113, %104, %97
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #6
+  %115 = load i32, ptr %7, align 4
+  ret i32 %115
 }
 
-declare { i64, i64 } @NodeCover(ptr noundef) #3
+declare { i64, i64 } @NodeCover(ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
-declare void @DisconBranch(ptr noundef, i32 noundef) #3
+declare void @DisconBranch(ptr noundef, i32 noundef) #4
 
-declare i32 @PickBranch(ptr noundef, ptr noundef) #3
+declare i32 @PickBranch(ptr noundef, ptr noundef) #4
 
-declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) #3
+declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind allocsize(0,1) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS4Leaf", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS8LeafList", !5, i64 0}
+!10 = !{!11, !4, i64 8}
+!11 = !{!"LeafList", !9, i64 0, !4, i64 8}
+!12 = !{!11, !9, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS5RTree", !5, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"RTree", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 _ZTS4Node", !5, i64 0}
+!20 = !{!"split_q_s", !6, i64 0, !21, i64 1560, !22, i64 1576, !6, i64 1584}
+!21 = !{!"Rect", !6, i64 0}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!19, !19, i64 0}
+!24 = !{!25, !26, i64 4}
+!25 = !{!"Node", !26, i64 0, !26, i64 4, !6, i64 8}
+!26 = !{!"int", !6, i64 0}
+!27 = !{!26, !26, i64 0}
+!28 = !{!29, !19, i64 16}
+!29 = !{!"Branch", !21, i64 0, !19, i64 16}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS4Rect", !5, i64 0}
+!34 = !{!22, !22, i64 0}
+!35 = distinct !{!35, !14}
+!36 = distinct !{!36, !14}
+!37 = distinct !{!37, !14}
+!38 = !{!5, !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p2 _ZTS4Node", !5, i64 0}
+!41 = distinct !{!41, !14}
+!42 = !{i64 0, i64 16, !43}
+!43 = !{!6, !6, i64 0}

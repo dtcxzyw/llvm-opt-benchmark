@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Agiodisc_s = type { ptr, ptr, ptr }
 %struct.tms = type { i64, i64, i64, i64 }
-%struct._dtdisc_s = type { i32, i32, i32, ptr, ptr, ptr }
-%struct.hsvrgbacolor_t = type { ptr, i8, i8, i8, i8, i8, i8, i8 }
 %struct.agxbuf = type { %union.anon.0 }
 %union.anon.0 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
@@ -19,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"edge\00", align 1
 @.str.5 = private unnamed_addr constant [43 x i8] c"NULL graph with non-graph object in copy()\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str.6 = private unnamed_addr constant [44 x i8] c"%s:%d: claimed unreachable code was reached\00", align 1
+@.str.6 = private unnamed_addr constant [45 x i8] c"%s:%d: claimed unreachable code was reached\0A\00", align 1
 @.str.8 = private unnamed_addr constant [44 x i8] c"NULL graph with non-graph object in clone()\00", align 1
 @compOf.id = internal unnamed_addr global i32 0, align 4
 @.str.9 = private unnamed_addr constant [8 x i8] c"userval\00", align 1
@@ -51,30 +49,26 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [7 x i8] c" %.03f\00", align 1
 @.str.35 = private unnamed_addr constant [14 x i8] c"#%02x%02x%02x\00", align 1
 @.str.36 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
-@.str.37 = private unnamed_addr constant [18 x i8] c"#%02x%02x%02x%02x\00", align 1
 @T = internal global %struct.tms zeroinitializer, align 8
-@edgepair = internal global %struct._dtdisc_s { i32 16, i32 8, i32 0, ptr null, ptr null, ptr @cmppair }, align 8
 @Dtoset = external local_unnamed_addr global ptr, align 8
-@.str.38 = private unnamed_addr constant [36 x i8] c"error cloning node %s from graph %s\00", align 1
-@.str.39 = private unnamed_addr constant [45 x i8] c"error cloning edge (%s,%s)[%s] from graph %s\00", align 1
-@.str.40 = private unnamed_addr constant [41 x i8] c"error cloning edge (%s,%s) from graph %s\00", align 1
-@.str.41 = private unnamed_addr constant [40 x i8] c"error cloning subgraph %s from graph %s\00", align 1
-@.str.42 = private unnamed_addr constant [37 x i8] c"node %s not found in cloned graph %s\00", align 1
-@.str.43 = private unnamed_addr constant [46 x i8] c"edge (%s,%s)[%s] not found in cloned graph %s\00", align 1
-@.str.44 = private unnamed_addr constant [42 x i8] c"edge (%s,%s) not found in cloned graph %s\00", align 1
-@.str.46 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
-@colorxlate.last = internal unnamed_addr global ptr null, align 8
+@.str.37 = private unnamed_addr constant [36 x i8] c"error cloning node %s from graph %s\00", align 1
+@.str.38 = private unnamed_addr constant [45 x i8] c"error cloning edge (%s,%s)[%s] from graph %s\00", align 1
+@.str.39 = private unnamed_addr constant [41 x i8] c"error cloning edge (%s,%s) from graph %s\00", align 1
+@.str.40 = private unnamed_addr constant [40 x i8] c"error cloning subgraph %s from graph %s\00", align 1
+@edgepair = internal global { i32, i32, i32, [4 x i8], ptr, ptr, ptr } { i32 16, i32 8, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr @cmppair }, align 8
+@.str.42 = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
+@.str.43 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
+@.str.44 = private unnamed_addr constant [37 x i8] c"node %s not found in cloned graph %s\00", align 1
+@.str.45 = private unnamed_addr constant [46 x i8] c"edge (%s,%s)[%s] not found in cloned graph %s\00", align 1
+@.str.46 = private unnamed_addr constant [42 x i8] c"edge (%s,%s) not found in cloned graph %s\00", align 1
 @.str.47 = private unnamed_addr constant [14 x i8] c"#%2x%2x%2x%2x\00", align 1
 @.str.48 = private unnamed_addr constant [11 x i8] c"#%1x%1x%1x\00", align 1
 @.str.49 = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/gvpr/../common/colxlate.c\00", align 1
 @.str.50 = private unnamed_addr constant [13 x i8] c"%lf%lf%lf%lf\00", align 1
-@color_lib = internal global [2515 x %struct.hsvrgbacolor_t] [%struct.hsvrgbacolor_t { ptr @.str.56, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.57, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.58, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.59, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.60, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.61, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.62, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.63, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.64, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.65, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.66, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.67, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.68, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.69, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.70, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.71, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.72, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.73, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.74, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.75, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.76, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.77, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.78, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.79, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.80, i8 17, i8 -32, i8 -65, i8 -65, i8 91, i8 23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.81, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.82, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.83, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.84, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.85, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.86, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.87, i8 17, i8 -32, i8 -65, i8 -65, i8 91, i8 23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.88, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.89, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.90, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.91, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.92, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.93, i8 -113, i8 46, i8 -25, i8 -67, i8 -41, i8 -25, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.94, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.95, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.96, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.97, i8 -113, i8 46, i8 -25, i8 -67, i8 -41, i8 -25, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.98, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.99, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.100, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.101, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.102, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.103, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.104, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.105, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.106, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.107, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.108, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.109, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.110, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.111, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.112, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.113, i8 -105, i8 -15, i8 -108, i8 8, i8 69, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.114, i8 -108, i8 8, i8 -1, i8 -9, i8 -5, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.115, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.116, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.117, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.118, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.119, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.120, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.121, i8 -105, i8 -15, i8 -108, i8 8, i8 69, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.122, i8 -108, i8 8, i8 -1, i8 -9, i8 -5, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.123, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.124, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.125, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.126, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.127, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.128, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.129, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.130, i8 -104, i8 -21, i8 107, i8 8, i8 48, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.131, i8 23, i8 -17, i8 84, i8 84, i8 48, i8 5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.132, i8 119, i8 -1, i8 60, i8 0, i8 60, i8 48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.133, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.134, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.135, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.136, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.137, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.138, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.139, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.140, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.141, i8 23, i8 -17, i8 84, i8 84, i8 48, i8 5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.142, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.143, i8 119, i8 -1, i8 60, i8 0, i8 60, i8 48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.144, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.145, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.146, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.147, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.148, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.149, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.150, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.151, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.152, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.153, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.154, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.155, i8 21, i8 -41, i8 -90, i8 -90, i8 97, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.156, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.157, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.158, i8 121, i8 -3, i8 -123, i8 1, i8 -123, i8 113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.159, i8 21, i8 -41, i8 -90, i8 -90, i8 97, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.160, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.161, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.162, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.163, i8 121, i8 -3, i8 -123, i8 1, i8 -123, i8 113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.164, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.165, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.166, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.167, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.168, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.169, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.170, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.171, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.172, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.173, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.174, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.175, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.176, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.177, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.178, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.179, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.180, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.181, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.182, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.183, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.184, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.185, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.186, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.187, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.188, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.189, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.190, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.191, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.192, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.193, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.194, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.195, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.196, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.197, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.198, i8 127, i8 54, i8 -30, i8 -78, i8 -30, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.199, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.200, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.201, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.202, i8 127, i8 54, i8 -30, i8 -78, i8 -30, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.203, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.204, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.205, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.206, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.207, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.208, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.209, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.210, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.211, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.212, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.213, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.214, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.215, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.216, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.217, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.218, i8 102, i8 -1, i8 88, i8 0, i8 88, i8 36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.219, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.220, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.221, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.222, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.223, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.224, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.225, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.226, i8 102, i8 -1, i8 88, i8 0, i8 88, i8 36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.227, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.228, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.229, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.230, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.231, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.232, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.233, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.234, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.235, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.236, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.237, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.238, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.239, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.240, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.241, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.242, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.243, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.244, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.245, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.246, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.247, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.248, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.249, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.250, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.251, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.252, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.253, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.254, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.255, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.256, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.257, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.258, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.259, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.260, i8 -43, i8 -4, i8 110, i8 110, i8 1, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.261, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.262, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.263, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.264, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.265, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.266, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.267, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.268, i8 -43, i8 -4, i8 110, i8 110, i8 1, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.269, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.270, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.271, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.272, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.273, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.274, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.275, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.276, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.277, i8 -43, i8 -1, i8 77, i8 77, i8 0, i8 75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.278, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.279, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.280, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.281, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.282, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.283, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.284, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.285, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.286, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.287, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.288, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.289, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.290, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.291, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.292, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.293, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.294, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.295, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.296, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.297, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.298, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.299, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.300, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.301, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.302, i8 27, i8 -46, i8 -90, i8 -90, i8 118, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.303, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.304, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.305, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.306, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.307, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.308, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.309, i8 27, i8 -46, i8 -90, i8 -90, i8 118, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.310, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.311, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.312, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.313, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.314, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.315, i8 87, i8 46, i8 -28, i8 -70, i8 -28, i8 -68, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.316, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.317, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.318, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.319, i8 87, i8 46, i8 -28, i8 -70, i8 -28, i8 -68, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.320, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.321, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.322, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.323, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.324, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.325, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.326, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.327, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.328, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.329, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.330, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.331, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.332, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.333, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.334, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.335, i8 -109, i8 -14, i8 -98, i8 8, i8 88, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.336, i8 60, i8 12, i8 -4, i8 -9, i8 -4, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.337, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.338, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.339, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.340, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.341, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.342, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.343, i8 -109, i8 -14, i8 -98, i8 8, i8 88, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.344, i8 60, i8 12, i8 -4, i8 -9, i8 -4, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.345, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.346, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.347, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.348, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.349, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.350, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.351, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.352, i8 -106, i8 -17, i8 -127, i8 8, i8 64, i8 -127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.353, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.354, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.355, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.356, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.357, i8 78, i8 54, i8 -28, i8 -70, i8 -28, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.358, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.359, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.360, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.361, i8 78, i8 54, i8 -28, i8 -70, i8 -28, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.362, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.363, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.364, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.365, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.366, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.367, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.368, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.369, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.370, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.371, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.372, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.373, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.374, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.375, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.376, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.377, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.378, i8 72, i8 7, i8 -4, i8 -9, i8 -4, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.379, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.380, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.381, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.382, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.383, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.384, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.385, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.386, i8 72, i8 7, i8 -4, i8 -9, i8 -4, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.387, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.388, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.389, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.390, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.391, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.392, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.393, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.394, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.395, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.396, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.397, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.398, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.399, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.400, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.401, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.402, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.403, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.404, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.405, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.406, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.407, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.408, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.409, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.410, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.411, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.412, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.413, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.414, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.415, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.416, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.417, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.418, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.419, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.420, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.421, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.422, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.423, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.424, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.425, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.426, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.427, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.428, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.429, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.430, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.431, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.432, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.433, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.434, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.435, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.436, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.437, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.438, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.439, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.440, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.441, i8 20, i8 120, i8 -3, i8 -3, i8 -66, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.442, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.443, i8 13, i8 -3, i8 -39, i8 -39, i8 71, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.444, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.445, i8 20, i8 120, i8 -3, i8 -3, i8 -66, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.446, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.447, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.448, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.449, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.450, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.451, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.452, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.453, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.454, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.455, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.456, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.457, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.458, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.459, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.460, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.461, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.462, i8 21, i8 20, i8 -1, i8 -1, i8 -11, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.463, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.464, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.465, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.466, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.467, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.468, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.469, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.470, i8 21, i8 20, i8 -1, i8 -1, i8 -11, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.471, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.472, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.473, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.474, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.475, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.476, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.477, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.478, i8 12, i8 -10, i8 127, i8 127, i8 39, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.479, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.480, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.481, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.482, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.483, i8 24, i8 115, i8 -3, i8 -3, i8 -52, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.484, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.485, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.486, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.487, i8 24, i8 115, i8 -3, i8 -3, i8 -52, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.488, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.489, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.490, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.491, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.492, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.493, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.494, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.495, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.496, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.497, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.498, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.499, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.500, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.501, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.502, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.503, i8 0, i8 -1, i8 -103, i8 -103, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.504, i8 24, i8 18, i8 -1, i8 -1, i8 -9, i8 -20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.505, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.506, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.507, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.508, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.509, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.510, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.511, i8 0, i8 -1, i8 -103, i8 -103, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.512, i8 24, i8 18, i8 -1, i8 -1, i8 -9, i8 -20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.513, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.514, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.515, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.516, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.517, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.518, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.519, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.520, i8 0, i8 -1, i8 127, i8 127, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.521, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.522, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.523, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.524, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.525, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.526, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.527, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.528, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.529, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.530, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.531, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.532, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.533, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.534, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.535, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.536, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.537, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.538, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.539, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.540, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.541, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.542, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.543, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.544, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.545, i8 15, i8 -59, i8 -79, i8 -79, i8 89, i8 40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.546, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.547, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.548, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.549, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.550, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.551, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.552, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.553, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.554, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.555, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.556, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.557, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.558, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.559, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.560, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.561, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.562, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.563, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.564, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.565, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.566, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.567, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.568, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.569, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.570, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.571, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.572, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.573, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.574, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.575, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.576, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.577, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.578, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.579, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.580, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.581, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.582, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.583, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.584, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.585, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.586, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.587, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.588, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.589, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.590, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.591, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.592, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.593, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.594, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.595, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.596, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.597, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.598, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.599, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.600, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.601, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.602, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.603, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.604, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.605, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.606, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.607, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.608, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.609, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.610, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.611, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.612, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.613, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.614, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.615, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.616, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.617, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.618, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.619, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.620, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.621, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.622, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.623, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.624, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.625, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.626, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.627, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.628, i8 -23, i8 35, i8 -3, i8 -3, i8 -38, i8 -20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.629, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.630, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.631, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.632, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.633, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.634, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.635, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.636, i8 -23, i8 35, i8 -3, i8 -3, i8 -38, i8 -20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.637, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.638, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.639, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.640, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.641, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.642, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.643, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.644, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.645, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.646, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.647, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.648, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.649, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.650, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.651, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.652, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.653, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.654, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.655, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.656, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.657, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.658, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.659, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.660, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.661, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.662, i8 25, i8 39, i8 -15, i8 -15, i8 -30, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.663, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.664, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.665, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.666, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.667, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.668, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.669, i8 25, i8 39, i8 -15, i8 -15, i8 -30, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.670, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.671, i8 -26, i8 -3, i8 -114, i8 -114, i8 1, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.672, i8 77, i8 -65, i8 100, i8 39, i8 100, i8 25, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.673, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.674, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.675, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.676, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.677, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.678, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.679, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.680, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.681, i8 -26, i8 -3, i8 -114, i8 -114, i8 1, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.682, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.683, i8 77, i8 -65, i8 100, i8 39, i8 100, i8 25, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.684, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.685, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.686, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.687, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.688, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.689, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.690, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.691, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.692, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.693, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.694, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.695, i8 -28, i8 -36, i8 -48, i8 -48, i8 28, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.696, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.697, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.698, i8 72, i8 -58, i8 -84, i8 77, i8 -84, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.699, i8 -28, i8 -36, i8 -48, i8 -48, i8 28, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.700, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.701, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.702, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.703, i8 72, i8 -58, i8 -84, i8 77, i8 -84, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.704, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.705, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.706, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.707, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.708, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.709, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.710, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.711, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.712, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.713, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.714, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.715, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.716, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.717, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.718, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.719, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.720, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.721, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.722, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.723, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.724, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.725, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.726, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.727, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.728, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.729, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.730, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.731, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.732, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.733, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.734, i8 -50, i8 -1, i8 75, i8 64, i8 0, i8 75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.735, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.736, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.737, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.738, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.739, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.740, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.741, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.742, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.743, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.744, i8 -50, i8 -1, i8 75, i8 64, i8 0, i8 75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.745, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.746, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.747, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.748, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.749, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.750, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.751, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.752, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.753, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.754, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.755, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.756, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.757, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.758, i8 -55, i8 -88, i8 -108, i8 123, i8 50, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.759, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.760, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.761, i8 102, i8 -1, i8 -120, i8 0, i8 -120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.762, i8 -55, i8 -88, i8 -108, i8 123, i8 50, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.763, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.764, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.765, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.766, i8 102, i8 -1, i8 -120, i8 0, i8 -120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.767, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.768, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.769, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.770, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.771, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.772, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.773, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.774, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.775, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.776, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.777, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.778, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.779, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.780, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.781, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.782, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.783, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.784, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.785, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.786, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.787, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.788, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.789, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.790, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.791, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.792, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.793, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.794, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.795, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.796, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.797, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.798, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.799, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.800, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.801, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.802, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.803, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.804, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.805, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.806, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.807, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.808, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.809, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.810, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.811, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.812, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.813, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.814, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.815, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.816, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.817, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.818, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.819, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.820, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.821, i8 -113, i8 -8, i8 123, i8 3, i8 78, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.822, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.823, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.824, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.825, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.826, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.827, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.828, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.829, i8 -113, i8 -8, i8 123, i8 3, i8 78, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.830, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.831, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.832, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.833, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.834, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.835, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.836, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.837, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.838, i8 -113, i8 -7, i8 88, i8 2, i8 56, i8 88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.839, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.840, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.841, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.842, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.843, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.844, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.845, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.846, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.847, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.848, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.849, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.850, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.851, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.852, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.853, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.854, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.855, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.856, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.857, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.858, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.859, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.860, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.861, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.862, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.863, i8 118, i8 -4, i8 100, i8 1, i8 100, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.864, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.865, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.866, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.867, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.868, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.869, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.870, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.871, i8 118, i8 -4, i8 100, i8 1, i8 100, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.872, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.873, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.874, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.875, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.876, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.877, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.878, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.879, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.880, i8 117, i8 -5, i8 70, i8 1, i8 70, i8 54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.881, i8 18, i8 -18, i8 127, i8 127, i8 59, i8 8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.882, i8 -61, i8 -1, i8 75, i8 45, i8 0, i8 75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.883, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.884, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.885, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.886, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.887, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.888, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.889, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.890, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.891, i8 18, i8 -18, i8 127, i8 127, i8 59, i8 8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.892, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.893, i8 -61, i8 -1, i8 75, i8 45, i8 0, i8 75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.894, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.895, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.896, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.897, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.898, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.899, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.900, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.901, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.902, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.903, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.904, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.905, i8 17, i8 -3, i8 -26, i8 -26, i8 97, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.906, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.907, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.908, i8 -71, i8 -101, i8 -103, i8 94, i8 60, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.909, i8 17, i8 -3, i8 -26, i8 -26, i8 97, i8 1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.910, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.911, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.912, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.913, i8 -71, i8 -101, i8 -103, i8 94, i8 60, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.914, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.915, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.916, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.917, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.918, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.919, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.920, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.921, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.922, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.923, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.924, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.925, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.926, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.927, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.928, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.929, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.930, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.931, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.932, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.933, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.934, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.935, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.936, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.937, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.938, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.939, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.940, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.941, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.942, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.943, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.944, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.945, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.946, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.947, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.948, i8 -45, i8 41, i8 -40, i8 -41, i8 -75, i8 -40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.949, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.950, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.951, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.952, i8 -45, i8 41, i8 -40, i8 -41, i8 -75, i8 -40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.953, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.954, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.955, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.956, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.957, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.958, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.959, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.960, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.961, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.962, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.963, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.964, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.965, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.966, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.967, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.968, i8 -20, i8 -1, i8 -111, i8 -111, i8 0, i8 63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.969, i8 -61, i8 5, i8 -7, i8 -9, i8 -12, i8 -7, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.970, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.971, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.972, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.973, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.974, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.975, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.976, i8 -20, i8 -1, i8 -111, i8 -111, i8 0, i8 63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.977, i8 -61, i8 5, i8 -7, i8 -9, i8 -12, i8 -7, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.978, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.979, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.980, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.981, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.982, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.983, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.984, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.985, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.986, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.987, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.988, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.989, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.990, i8 -83, i8 28, i8 -30, i8 -53, i8 -55, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.991, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.992, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.993, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.994, i8 -83, i8 28, i8 -30, i8 -53, i8 -55, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.995, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.996, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.997, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.998, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.999, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1000, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1001, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1002, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1003, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1004, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1005, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1006, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1007, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1008, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1009, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1010, i8 -66, i8 -40, i8 -122, i8 74, i8 20, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1011, i8 -65, i8 2, i8 -3, i8 -4, i8 -5, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1012, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1013, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1014, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1015, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1016, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1017, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1018, i8 -66, i8 -40, i8 -122, i8 74, i8 20, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1019, i8 -65, i8 2, i8 -3, i8 -4, i8 -5, i8 -3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1020, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1021, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1022, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1023, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1024, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1025, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1026, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1027, i8 -65, i8 -1, i8 125, i8 63, i8 0, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1028, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1029, i8 -106, i8 -15, i8 97, i8 5, i8 48, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1030, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1031, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1032, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1033, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1034, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1035, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1036, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1037, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1038, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1039, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1040, i8 -106, i8 -15, i8 97, i8 5, i8 48, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1041, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1042, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1043, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1044, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1045, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1046, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1047, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1048, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1049, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1050, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1051, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1052, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1053, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1054, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1055, i8 -113, i8 -9, i8 -80, i8 5, i8 113, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1056, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1057, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1058, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1059, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1060, i8 -113, i8 -9, i8 -80, i8 5, i8 113, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1061, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1062, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1063, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1064, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1065, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1066, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1067, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1068, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1069, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1070, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1071, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1072, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1073, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1074, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1075, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1076, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1077, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1078, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1079, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1080, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1081, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1082, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1083, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1084, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1085, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1086, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1087, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1088, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1089, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1090, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1091, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1092, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1093, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1094, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1095, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1096, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1097, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1098, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1099, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1100, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1101, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1102, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1103, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1104, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1105, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1106, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1107, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1108, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1109, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1110, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1111, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1112, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1113, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1114, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1115, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1116, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1117, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1118, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1119, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1120, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1121, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1122, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1123, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1124, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1125, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1126, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1127, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1128, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1129, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1130, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1131, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1132, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1133, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1134, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1135, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1136, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1137, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1138, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1139, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1140, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1141, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1142, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1143, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1144, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1145, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1146, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1147, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1148, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1149, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1150, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1151, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1152, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1153, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1154, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1155, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1156, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1157, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1158, i8 -4, i8 72, i8 -5, i8 -5, i8 -76, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1159, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1160, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1161, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1162, i8 -4, i8 72, i8 -5, i8 -5, i8 -76, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1163, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1164, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1165, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1166, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1167, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1168, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1169, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1170, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1171, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1172, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1173, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1174, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1175, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1176, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1177, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1178, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1179, i8 14, i8 12, i8 -1, i8 -1, i8 -9, i8 -13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1180, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1181, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1182, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1183, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1184, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1185, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1186, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1187, i8 14, i8 12, i8 -1, i8 -1, i8 -9, i8 -13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1188, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1189, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1190, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1191, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1192, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1193, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1194, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1195, i8 -57, i8 -1, i8 106, i8 73, i8 0, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1196, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1197, i8 -89, i8 -85, i8 -107, i8 49, i8 54, i8 -107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1198, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1199, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1200, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1201, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1202, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1203, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1204, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1205, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1206, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1207, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1208, i8 -89, i8 -85, i8 -107, i8 49, i8 54, i8 -107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1209, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1210, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1211, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1212, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1213, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1214, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1215, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1216, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1217, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1218, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1219, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1220, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1221, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1222, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1223, i8 -111, i8 -63, i8 -74, i8 44, i8 123, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1224, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1225, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1226, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1227, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1228, i8 -111, i8 -63, i8 -74, i8 44, i8 123, i8 -74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1229, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1230, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1231, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1232, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1233, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1234, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1235, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1236, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1237, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1238, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1239, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1240, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1241, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1242, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1243, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1244, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1245, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1246, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1247, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1248, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1249, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1250, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1251, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1252, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1253, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1254, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1255, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1256, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1257, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1258, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1259, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1260, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1261, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1262, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1263, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1264, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1265, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1266, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1267, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1268, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1269, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1270, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1271, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1272, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1273, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1274, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1275, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1276, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1277, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1278, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1279, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1280, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1281, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1282, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1283, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1284, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1285, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1286, i8 98, i8 -46, i8 -106, i8 26, i8 -106, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1287, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1288, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1289, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1290, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1291, i8 98, i8 -46, i8 -106, i8 26, i8 -106, i8 65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1292, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1293, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1294, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1295, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1296, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1297, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1298, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1299, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1300, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1301, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1302, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1303, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1304, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1305, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1306, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1307, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1308, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1309, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1310, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1311, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1312, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1313, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1314, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1315, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1316, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1317, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1318, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1319, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1320, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1321, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1322, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1323, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1324, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1325, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1326, i8 11, i8 108, i8 -4, i8 -4, i8 -82, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1327, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1328, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1329, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1330, i8 11, i8 108, i8 -4, i8 -4, i8 -82, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1331, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1332, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1333, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1334, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1335, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1336, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1337, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1338, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1339, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1340, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1341, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1342, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1343, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1344, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1345, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1346, i8 -5, i8 -1, i8 -103, i8 -103, i8 0, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1347, i8 14, i8 15, i8 -1, i8 -1, i8 -11, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1348, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1349, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1350, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1351, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1352, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1353, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1354, i8 -5, i8 -1, i8 -103, i8 -103, i8 0, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1355, i8 14, i8 15, i8 -1, i8 -1, i8 -11, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1356, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1357, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1358, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1359, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1360, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1361, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1362, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1363, i8 -7, i8 -1, i8 103, i8 103, i8 0, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1364, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1365, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1366, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1367, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1368, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1369, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1370, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1371, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1372, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1373, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1374, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1375, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1376, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1377, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1378, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1379, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1380, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1381, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1382, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1383, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1384, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1385, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1386, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1387, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1388, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1389, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1390, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1391, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1392, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1393, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1394, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1395, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1396, i8 -24, i8 121, i8 -9, i8 -9, i8 -127, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1397, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1398, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1399, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1400, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1401, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1402, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1403, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1404, i8 -24, i8 121, i8 -9, i8 -9, i8 -127, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1405, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1406, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1407, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1408, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1409, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1410, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1411, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1412, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1413, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1414, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1415, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1416, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1417, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1418, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1419, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1420, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1421, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1422, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1423, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1424, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1425, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1426, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1427, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1428, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1429, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1430, i8 25, i8 90, i8 -27, i8 -27, i8 -60, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1431, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1432, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1433, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1434, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1435, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1436, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1437, i8 25, i8 90, i8 -27, i8 -27, i8 -60, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1438, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1439, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1440, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1441, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1442, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1443, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1444, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1445, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1446, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1447, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1448, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1449, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1450, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1451, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1452, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1453, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1454, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1455, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1456, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1457, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1458, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1459, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1460, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1461, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1462, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1463, i8 37, i8 -112, i8 -1, i8 -1, i8 -19, i8 111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1464, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1465, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1466, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1467, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1468, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1469, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1470, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1471, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1472, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1473, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1474, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1475, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1476, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1477, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1478, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1479, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1480, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1481, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1482, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1483, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1484, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1485, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1486, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1487, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1488, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1489, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1490, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1491, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1492, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1493, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1494, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1495, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1496, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1497, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1498, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1499, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1500, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1501, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1502, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1503, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1504, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1505, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1506, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1507, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1508, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1509, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1510, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1511, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1512, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1513, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1514, i8 -19, i8 -3, i8 -98, i8 -98, i8 1, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1515, i8 -79, i8 -126, i8 -94, i8 94, i8 79, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1516, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1517, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1518, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1519, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1520, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1521, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1522, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1523, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1524, i8 -19, i8 -3, i8 -98, i8 -98, i8 1, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1525, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1526, i8 -79, i8 -126, i8 -94, i8 94, i8 79, i8 -94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1527, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1528, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1529, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1530, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1531, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1532, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1533, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1534, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1535, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1536, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1537, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1538, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1539, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1540, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1541, i8 -113, i8 -60, i8 -70, i8 43, i8 -125, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1542, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1543, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1544, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1545, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1546, i8 -113, i8 -60, i8 -70, i8 43, i8 -125, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1547, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1548, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1549, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1550, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1551, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1552, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1553, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1554, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1555, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1556, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1557, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1558, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1559, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1560, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1561, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1562, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1563, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1564, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1565, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1566, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1567, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1568, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1569, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1570, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1571, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1572, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1573, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1574, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1575, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1576, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1577, i8 -109, i8 15, i8 -1, i8 -16, i8 -8, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1578, i8 24, i8 35, i8 -6, i8 -6, i8 -21, i8 -41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1579, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1580, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1581, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1582, i8 42, i8 26, i8 -11, i8 -11, i8 -11, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1583, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1584, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1585, i8 25, i8 49, i8 -1, i8 -1, i8 -21, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1586, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1587, i8 -64, i8 -50, i8 -30, i8 -118, i8 43, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1588, i8 0, i8 -66, i8 -91, i8 -91, i8 42, i8 42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1589, i8 23, i8 99, i8 -34, i8 -34, i8 -72, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1590, i8 -128, i8 103, i8 -96, i8 95, i8 -98, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1591, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1592, i8 17, i8 -38, i8 -46, i8 -46, i8 105, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1593, i8 11, i8 -81, i8 -1, i8 -1, i8 127, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1594, i8 -102, i8 -109, i8 -19, i8 100, i8 -107, i8 -19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1595, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1596, i8 -10, i8 -25, i8 -36, i8 -36, i8 20, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1597, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1598, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1599, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1600, i8 30, i8 -17, i8 -72, i8 -72, i8 -122, i8 11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1601, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1602, i8 85, i8 -1, i8 100, i8 0, i8 100, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1603, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1604, i8 39, i8 110, i8 -67, i8 -67, i8 -73, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1605, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1606, i8 58, i8 -114, i8 107, i8 85, i8 107, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1607, i8 23, i8 -1, i8 -1, i8 -1, i8 -116, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1608, i8 -58, i8 -64, i8 -52, i8 -103, i8 50, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1609, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1610, i8 10, i8 121, i8 -23, i8 -23, i8 -106, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1611, i8 85, i8 61, i8 -68, i8 -113, i8 -68, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1612, i8 -81, i8 -113, i8 -117, i8 72, i8 61, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1613, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1614, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1615, i8 -128, i8 -1, i8 -47, i8 0, i8 -50, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1616, i8 -57, i8 -1, i8 -45, i8 -108, i8 0, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1617, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1618, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1619, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1620, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1621, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1622, i8 0, i8 -50, i8 -78, i8 -78, i8 34, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1623, i8 28, i8 15, i8 -1, i8 -1, i8 -6, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1624, i8 85, i8 -64, i8 -117, i8 34, i8 -117, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1625, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1626, i8 0, i8 0, i8 -36, i8 -36, i8 -36, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1627, i8 -86, i8 7, i8 -1, i8 -8, i8 -8, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1628, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1629, i8 30, i8 -39, i8 -38, i8 -38, i8 -91, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1630, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1631, i8 85, i8 -1, i8 -128, i8 0, i8 -128, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1632, i8 59, i8 -48, i8 -1, i8 -83, i8 -1, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1633, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1634, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1635, i8 -23, i8 -106, i8 -1, i8 -1, i8 105, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1636, i8 0, i8 -116, i8 -51, i8 -51, i8 92, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1637, i8 -62, i8 -1, i8 -126, i8 75, i8 0, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1638, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1639, i8 38, i8 106, i8 -16, i8 -16, i8 -26, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1640, i8 -86, i8 20, i8 -6, i8 -26, i8 -26, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1641, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1642, i8 64, i8 -1, i8 -4, i8 124, i8 -4, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1643, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1644, i8 -119, i8 63, i8 -26, i8 -83, i8 -40, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1645, i8 0, i8 119, i8 -16, i8 -16, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1646, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1647, i8 42, i8 40, i8 -6, i8 -6, i8 -6, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1648, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1649, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1650, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1651, i8 -8, i8 73, i8 -1, i8 -1, i8 -74, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1652, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1653, i8 125, i8 -47, i8 -78, i8 32, i8 -78, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1654, i8 -113, i8 117, i8 -6, i8 -121, i8 -50, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1655, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1656, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1657, i8 -105, i8 52, i8 -34, i8 -80, i8 -60, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1658, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1659, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1660, i8 85, i8 -64, i8 -51, i8 50, i8 -51, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1661, i8 21, i8 20, i8 -6, i8 -6, i8 -16, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1662, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1663, i8 0, i8 -1, i8 -128, i8 -128, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1664, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1665, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1666, i8 -52, i8 -104, i8 -45, i8 -70, i8 85, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1667, i8 -73, i8 124, i8 -37, i8 -109, i8 112, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1668, i8 103, i8 -87, i8 -77, i8 60, i8 -77, i8 113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1669, i8 -80, i8 -113, i8 -18, i8 123, i8 104, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1670, i8 111, i8 -1, i8 -6, i8 0, i8 -6, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1671, i8 125, i8 -89, i8 -47, i8 72, i8 -47, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1672, i8 -28, i8 -28, i8 -57, i8 -57, i8 21, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1673, i8 -86, i8 -58, i8 112, i8 25, i8 25, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1674, i8 106, i8 9, i8 -1, i8 -11, i8 -1, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1675, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1676, i8 26, i8 73, i8 -1, i8 -1, i8 -28, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1677, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1678, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1679, i8 27, i8 23, i8 -3, i8 -3, i8 -11, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1680, i8 42, i8 -1, i8 -128, i8 -128, i8 -128, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1681, i8 56, i8 -64, i8 -114, i8 107, i8 -114, i8 35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1682, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1683, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1684, i8 -42, i8 123, i8 -38, i8 -38, i8 112, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1685, i8 38, i8 72, i8 -18, i8 -18, i8 -24, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1686, i8 85, i8 100, i8 -5, i8 -104, i8 -5, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1687, i8 127, i8 67, i8 -18, i8 -81, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1688, i8 -15, i8 124, i8 -37, i8 -37, i8 112, i8 -109, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1689, i8 26, i8 41, i8 -1, i8 -1, i8 -17, i8 -43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1690, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1691, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1692, i8 -9, i8 63, i8 -1, i8 -1, i8 -64, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1693, i8 -44, i8 70, i8 -35, i8 -35, i8 -96, i8 -35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1694, i8 -124, i8 59, i8 -26, i8 -80, i8 -32, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1695, i8 -44, i8 -1, i8 -128, i8 -128, i8 0, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1696, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1697, i8 0, i8 61, i8 -68, i8 -68, i8 -113, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1698, i8 -97, i8 -75, i8 -31, i8 65, i8 105, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1699, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1700, i8 4, i8 -118, i8 -6, i8 -6, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1701, i8 19, i8 -102, i8 -12, i8 -12, i8 -92, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1702, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1703, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1704, i8 13, i8 -73, i8 -96, i8 -96, i8 82, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1705, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1706, i8 -117, i8 108, i8 -21, i8 -121, i8 -50, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1707, i8 -81, i8 -113, i8 -51, i8 106, i8 90, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1708, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1709, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1710, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1711, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1712, i8 -110, i8 -101, i8 -76, i8 70, i8 -126, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1713, i8 24, i8 84, i8 -46, i8 -46, i8 -76, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1714, i8 127, i8 -1, i8 -128, i8 0, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1715, i8 -44, i8 29, i8 -40, i8 -40, i8 -65, i8 -40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1716, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1717, i8 123, i8 -74, i8 -32, i8 64, i8 -32, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1718, i8 -44, i8 115, i8 -18, i8 -18, i8 -126, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1719, i8 27, i8 68, i8 -11, i8 -11, i8 -34, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1720, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1721, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1722, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1723, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1724, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1725, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1726, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1727, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1728, i8 62, i8 85, i8 -26, i8 -62, i8 -26, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1729, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1730, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1731, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1732, i8 62, i8 85, i8 -26, i8 -62, i8 -26, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1733, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1734, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1735, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1736, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1737, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1738, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1739, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1740, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1741, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1742, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1743, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1744, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1745, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1746, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1747, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1748, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1749, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1750, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1751, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1752, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1753, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1754, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1755, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1756, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1757, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1758, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1759, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1760, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1761, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1762, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1763, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1764, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1765, i8 110, i8 -1, i8 69, i8 0, i8 69, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1766, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1767, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1768, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1769, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1770, i8 99, i8 66, i8 -38, i8 -95, i8 -38, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1771, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1772, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1773, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1774, i8 99, i8 66, i8 -38, i8 -95, i8 -38, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1775, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1776, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1777, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1778, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1779, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1780, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1781, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1782, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1783, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1784, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1785, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1786, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1787, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1788, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1789, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1790, i8 -98, i8 -25, i8 -124, i8 12, i8 44, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1791, i8 42, i8 38, i8 -1, i8 -1, i8 -1, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1792, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1793, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1794, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1795, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1796, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1797, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1798, i8 -98, i8 -25, i8 -124, i8 12, i8 44, i8 -124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1799, i8 42, i8 38, i8 -1, i8 -1, i8 -1, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1800, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1801, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1802, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1803, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1804, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1805, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1806, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1807, i8 -98, i8 -25, i8 88, i8 8, i8 29, i8 88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1808, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1809, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1810, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1811, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1812, i8 28, i8 112, i8 -2, i8 -2, i8 -39, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1813, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1814, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1815, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1816, i8 28, i8 112, i8 -2, i8 -2, i8 -39, i8 -114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1817, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1818, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1819, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1820, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1821, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1822, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1823, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1824, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1825, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1826, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1827, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1828, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1829, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1830, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1831, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1832, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1833, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1834, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1835, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1836, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1837, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1838, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1839, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1840, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1841, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1842, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1843, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1844, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1845, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1846, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1847, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1848, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1849, i8 13, i8 -16, i8 102, i8 102, i8 37, i8 6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1850, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1851, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1852, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1853, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1854, i8 29, i8 -94, i8 -2, i8 -2, i8 -52, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1855, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1856, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1857, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1858, i8 29, i8 -94, i8 -2, i8 -2, i8 -52, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1859, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1860, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1861, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1862, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1863, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1864, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1865, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1866, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1867, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1868, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1869, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1870, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1871, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1872, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1873, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1874, i8 -11, i8 -1, i8 -79, i8 -79, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1875, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1876, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1877, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1878, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1879, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1880, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1881, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1882, i8 -11, i8 -1, i8 -79, i8 -79, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1883, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1884, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1885, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1886, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1887, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1888, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1889, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1890, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1891, i8 -14, i8 -1, i8 -128, i8 -128, i8 0, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1892, i8 -109, i8 15, i8 -1, i8 -16, i8 -8, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1893, i8 24, i8 35, i8 -6, i8 -6, i8 -21, i8 -41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1894, i8 23, i8 36, i8 -1, i8 -1, i8 -17, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1895, i8 23, i8 36, i8 -18, i8 -18, i8 -33, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1896, i8 23, i8 36, i8 -51, i8 -51, i8 -64, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1897, i8 24, i8 34, i8 -117, i8 -117, i8 -125, i8 120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1898, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1899, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1900, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1901, i8 113, i8 -128, i8 -18, i8 118, i8 -18, i8 -58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1902, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1903, i8 113, i8 -128, i8 -117, i8 69, i8 -117, i8 116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1904, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1905, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1906, i8 127, i8 15, i8 -18, i8 -32, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1907, i8 127, i8 14, i8 -51, i8 -63, i8 -51, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1908, i8 127, i8 14, i8 -117, i8 -125, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1909, i8 42, i8 26, i8 -11, i8 -11, i8 -11, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1910, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1911, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1912, i8 23, i8 58, i8 -18, i8 -18, i8 -43, i8 -73, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1913, i8 22, i8 58, i8 -51, i8 -51, i8 -73, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1914, i8 23, i8 58, i8 -117, i8 -117, i8 125, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.51, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1915, i8 25, i8 49, i8 -1, i8 -1, i8 -21, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1916, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1917, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1918, i8 -86, i8 -1, i8 -18, i8 0, i8 0, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1919, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1920, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1921, i8 -64, i8 -50, i8 -30, i8 -118, i8 43, i8 -30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1922, i8 0, i8 -66, i8 -91, i8 -91, i8 42, i8 42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1923, i8 0, i8 -65, i8 -1, i8 -1, i8 64, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1924, i8 0, i8 -65, i8 -18, i8 -18, i8 59, i8 59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1925, i8 0, i8 -65, i8 -51, i8 -51, i8 51, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1926, i8 0, i8 -66, i8 -117, i8 -117, i8 35, i8 35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1927, i8 23, i8 99, i8 -34, i8 -34, i8 -72, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1928, i8 23, i8 100, i8 -1, i8 -1, i8 -45, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1929, i8 23, i8 99, i8 -18, i8 -18, i8 -59, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1930, i8 23, i8 99, i8 -51, i8 -51, i8 -86, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1931, i8 23, i8 99, i8 -117, i8 -117, i8 115, i8 85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1932, i8 -128, i8 103, i8 -96, i8 95, i8 -98, i8 -96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1933, i8 -125, i8 103, i8 -1, i8 -104, i8 -11, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1934, i8 -125, i8 102, i8 -18, i8 -114, i8 -27, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1935, i8 -125, i8 103, i8 -51, i8 122, i8 -59, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1936, i8 -125, i8 102, i8 -117, i8 83, i8 -122, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1937, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1938, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1939, i8 63, i8 -1, i8 -18, i8 118, i8 -18, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1940, i8 63, i8 -1, i8 -51, i8 102, i8 -51, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1941, i8 63, i8 -1, i8 -117, i8 69, i8 -117, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1942, i8 17, i8 -38, i8 -46, i8 -46, i8 105, i8 30, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1943, i8 17, i8 -37, i8 -1, i8 -1, i8 127, i8 36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1944, i8 17, i8 -37, i8 -18, i8 -18, i8 118, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1945, i8 17, i8 -38, i8 -51, i8 -51, i8 102, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1946, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1947, i8 11, i8 -81, i8 -1, i8 -1, i8 127, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1948, i8 7, i8 -87, i8 -1, i8 -1, i8 114, i8 86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1949, i8 6, i8 -87, i8 -18, i8 -18, i8 106, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1950, i8 6, i8 -87, i8 -51, i8 -51, i8 91, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1951, i8 6, i8 -88, i8 -117, i8 -117, i8 62, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1952, i8 -102, i8 -109, i8 -19, i8 100, i8 -107, i8 -19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1953, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1954, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1955, i8 34, i8 35, i8 -18, i8 -18, i8 -24, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1956, i8 34, i8 34, i8 -51, i8 -51, i8 -56, i8 -79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1957, i8 35, i8 34, i8 -117, i8 -117, i8 -120, i8 120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1958, i8 -10, i8 -25, i8 -36, i8 -36, i8 20, i8 60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1959, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1960, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1961, i8 127, i8 -1, i8 -18, i8 0, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1962, i8 127, i8 -1, i8 -51, i8 0, i8 -51, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1963, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1964, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1965, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1966, i8 30, i8 -17, i8 -72, i8 -72, i8 -122, i8 11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1967, i8 30, i8 -16, i8 -1, i8 -1, i8 -71, i8 15, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1968, i8 30, i8 -16, i8 -18, i8 -18, i8 -83, i8 14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1969, i8 30, i8 -16, i8 -51, i8 -51, i8 -107, i8 12, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1970, i8 30, i8 -16, i8 -117, i8 -117, i8 101, i8 8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1971, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1972, i8 85, i8 -1, i8 100, i8 0, i8 100, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1973, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1974, i8 39, i8 110, i8 -67, i8 -67, i8 -73, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1975, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1976, i8 58, i8 -114, i8 107, i8 85, i8 107, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1977, i8 58, i8 -113, i8 -1, i8 -54, i8 -1, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1978, i8 58, i8 -113, i8 -18, i8 -68, i8 -18, i8 104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1979, i8 58, i8 -113, i8 -51, i8 -94, i8 -51, i8 90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1980, i8 58, i8 -113, i8 -117, i8 110, i8 -117, i8 61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1981, i8 23, i8 -1, i8 -1, i8 -1, i8 -116, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1982, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1983, i8 21, i8 -1, i8 -18, i8 -18, i8 118, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1984, i8 21, i8 -1, i8 -51, i8 -51, i8 102, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1985, i8 21, i8 -1, i8 -117, i8 -117, i8 69, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1986, i8 -58, i8 -64, i8 -52, i8 -103, i8 50, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1987, i8 -58, i8 -63, i8 -1, i8 -65, i8 62, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1988, i8 -58, i8 -64, i8 -18, i8 -78, i8 58, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1989, i8 -58, i8 -64, i8 -51, i8 -102, i8 50, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1990, i8 -58, i8 -64, i8 -117, i8 104, i8 34, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1991, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1992, i8 10, i8 121, i8 -23, i8 -23, i8 -106, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1993, i8 85, i8 61, i8 -68, i8 -113, i8 -68, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1994, i8 85, i8 62, i8 -1, i8 -63, i8 -1, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1995, i8 85, i8 62, i8 -18, i8 -76, i8 -18, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1996, i8 85, i8 62, i8 -51, i8 -101, i8 -51, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1997, i8 85, i8 62, i8 -117, i8 105, i8 -117, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1998, i8 -81, i8 -113, i8 -117, i8 72, i8 61, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.1999, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2000, i8 127, i8 104, i8 -1, i8 -105, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2001, i8 127, i8 103, i8 -18, i8 -115, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2002, i8 127, i8 104, i8 -51, i8 121, i8 -51, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2003, i8 127, i8 104, i8 -117, i8 82, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2004, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2005, i8 -128, i8 -1, i8 -47, i8 0, i8 -50, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2006, i8 -57, i8 -1, i8 -45, i8 -108, i8 0, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2007, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2008, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2009, i8 -24, i8 -21, i8 -18, i8 -18, i8 18, i8 -119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2010, i8 -24, i8 -21, i8 -51, i8 -51, i8 16, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2011, i8 -25, i8 -20, i8 -117, i8 -117, i8 10, i8 80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2012, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2013, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2014, i8 -118, i8 -1, i8 -18, i8 0, i8 -78, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2015, i8 -118, i8 -1, i8 -51, i8 0, i8 -102, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2016, i8 -118, i8 -1, i8 -117, i8 0, i8 104, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2017, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2018, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2019, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2020, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2021, i8 -108, i8 -31, i8 -18, i8 28, i8 -122, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2022, i8 -108, i8 -31, i8 -51, i8 24, i8 116, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2023, i8 -108, i8 -31, i8 -117, i8 16, i8 78, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2024, i8 0, i8 -50, i8 -78, i8 -78, i8 34, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2025, i8 0, i8 -49, i8 -1, i8 -1, i8 48, i8 48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2026, i8 0, i8 -49, i8 -18, i8 -18, i8 44, i8 44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2027, i8 0, i8 -49, i8 -51, i8 -51, i8 38, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2028, i8 0, i8 -49, i8 -117, i8 -117, i8 26, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2029, i8 28, i8 15, i8 -1, i8 -1, i8 -6, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2030, i8 85, i8 -64, i8 -117, i8 34, i8 -117, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2031, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2032, i8 0, i8 0, i8 -36, i8 -36, i8 -36, i8 -36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2033, i8 -86, i8 7, i8 -1, i8 -8, i8 -8, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2034, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2035, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2036, i8 35, i8 -1, i8 -18, i8 -18, i8 -55, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2037, i8 35, i8 -1, i8 -51, i8 -51, i8 -83, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2038, i8 35, i8 -1, i8 -117, i8 -117, i8 117, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2039, i8 30, i8 -39, i8 -38, i8 -38, i8 -91, i8 32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2040, i8 30, i8 -38, i8 -1, i8 -1, i8 -63, i8 37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2041, i8 30, i8 -38, i8 -18, i8 -18, i8 -76, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2042, i8 30, i8 -38, i8 -51, i8 -51, i8 -101, i8 29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2043, i8 30, i8 -38, i8 -117, i8 -117, i8 105, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2044, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2045, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2046, i8 0, i8 0, i8 3, i8 3, i8 3, i8 3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2047, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2048, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2049, i8 0, i8 0, i8 28, i8 28, i8 28, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2050, i8 0, i8 0, i8 31, i8 31, i8 31, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2051, i8 0, i8 0, i8 33, i8 33, i8 33, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2052, i8 0, i8 0, i8 36, i8 36, i8 36, i8 36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2053, i8 0, i8 0, i8 38, i8 38, i8 38, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2054, i8 0, i8 0, i8 41, i8 41, i8 41, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2055, i8 0, i8 0, i8 43, i8 43, i8 43, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2056, i8 0, i8 0, i8 46, i8 46, i8 46, i8 46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2057, i8 0, i8 0, i8 48, i8 48, i8 48, i8 48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2058, i8 0, i8 0, i8 5, i8 5, i8 5, i8 5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2059, i8 0, i8 0, i8 51, i8 51, i8 51, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2060, i8 0, i8 0, i8 54, i8 54, i8 54, i8 54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2061, i8 0, i8 0, i8 56, i8 56, i8 56, i8 56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2062, i8 0, i8 0, i8 59, i8 59, i8 59, i8 59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2063, i8 0, i8 0, i8 61, i8 61, i8 61, i8 61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2064, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2065, i8 0, i8 0, i8 66, i8 66, i8 66, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2066, i8 0, i8 0, i8 69, i8 69, i8 69, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2067, i8 0, i8 0, i8 71, i8 71, i8 71, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2068, i8 0, i8 0, i8 74, i8 74, i8 74, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2069, i8 0, i8 0, i8 8, i8 8, i8 8, i8 8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2070, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2071, i8 0, i8 0, i8 79, i8 79, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2072, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2073, i8 0, i8 0, i8 84, i8 84, i8 84, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2074, i8 0, i8 0, i8 87, i8 87, i8 87, i8 87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2075, i8 0, i8 0, i8 89, i8 89, i8 89, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2076, i8 0, i8 0, i8 92, i8 92, i8 92, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2077, i8 0, i8 0, i8 94, i8 94, i8 94, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2078, i8 0, i8 0, i8 97, i8 97, i8 97, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2079, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2080, i8 0, i8 0, i8 10, i8 10, i8 10, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2081, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2082, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2083, i8 0, i8 0, i8 107, i8 107, i8 107, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2084, i8 0, i8 0, i8 110, i8 110, i8 110, i8 110, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2085, i8 0, i8 0, i8 112, i8 112, i8 112, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2086, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2087, i8 0, i8 0, i8 117, i8 117, i8 117, i8 117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2088, i8 0, i8 0, i8 120, i8 120, i8 120, i8 120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2089, i8 0, i8 0, i8 122, i8 122, i8 122, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2090, i8 0, i8 0, i8 125, i8 125, i8 125, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2091, i8 0, i8 0, i8 13, i8 13, i8 13, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2092, i8 0, i8 0, i8 127, i8 127, i8 127, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2093, i8 0, i8 0, i8 -126, i8 -126, i8 -126, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2094, i8 0, i8 0, i8 -123, i8 -123, i8 -123, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2095, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2096, i8 0, i8 0, i8 -118, i8 -118, i8 -118, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2097, i8 0, i8 0, i8 -116, i8 -116, i8 -116, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2098, i8 0, i8 0, i8 -113, i8 -113, i8 -113, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2099, i8 0, i8 0, i8 -111, i8 -111, i8 -111, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2100, i8 0, i8 0, i8 -108, i8 -108, i8 -108, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2101, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2102, i8 0, i8 0, i8 15, i8 15, i8 15, i8 15, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2103, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2104, i8 0, i8 0, i8 -100, i8 -100, i8 -100, i8 -100, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2105, i8 0, i8 0, i8 -98, i8 -98, i8 -98, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2106, i8 0, i8 0, i8 -95, i8 -95, i8 -95, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2107, i8 0, i8 0, i8 -93, i8 -93, i8 -93, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2108, i8 0, i8 0, i8 -90, i8 -90, i8 -90, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2109, i8 0, i8 0, i8 -88, i8 -88, i8 -88, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2110, i8 0, i8 0, i8 -85, i8 -85, i8 -85, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2111, i8 0, i8 0, i8 -83, i8 -83, i8 -83, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2112, i8 0, i8 0, i8 -80, i8 -80, i8 -80, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2113, i8 0, i8 0, i8 18, i8 18, i8 18, i8 18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2114, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2115, i8 0, i8 0, i8 -75, i8 -75, i8 -75, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2116, i8 0, i8 0, i8 -72, i8 -72, i8 -72, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2117, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2118, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2119, i8 0, i8 0, i8 -65, i8 -65, i8 -65, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2120, i8 0, i8 0, i8 -62, i8 -62, i8 -62, i8 -62, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2121, i8 0, i8 0, i8 -60, i8 -60, i8 -60, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2122, i8 0, i8 0, i8 -57, i8 -57, i8 -57, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2123, i8 0, i8 0, i8 -55, i8 -55, i8 -55, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2124, i8 0, i8 0, i8 20, i8 20, i8 20, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2125, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2126, i8 0, i8 0, i8 -49, i8 -49, i8 -49, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2127, i8 0, i8 0, i8 -47, i8 -47, i8 -47, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2128, i8 0, i8 0, i8 -44, i8 -44, i8 -44, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2129, i8 0, i8 0, i8 -42, i8 -42, i8 -42, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2130, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2131, i8 0, i8 0, i8 -37, i8 -37, i8 -37, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2132, i8 0, i8 0, i8 -34, i8 -34, i8 -34, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2133, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2134, i8 0, i8 0, i8 -29, i8 -29, i8 -29, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2135, i8 0, i8 0, i8 23, i8 23, i8 23, i8 23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2136, i8 0, i8 0, i8 -27, i8 -27, i8 -27, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2137, i8 0, i8 0, i8 -24, i8 -24, i8 -24, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2138, i8 0, i8 0, i8 -21, i8 -21, i8 -21, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2139, i8 0, i8 0, i8 -19, i8 -19, i8 -19, i8 -19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2140, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2141, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2142, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2143, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2144, i8 0, i8 0, i8 -6, i8 -6, i8 -6, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2145, i8 0, i8 0, i8 -4, i8 -4, i8 -4, i8 -4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2146, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2147, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2148, i8 85, i8 -1, i8 -18, i8 0, i8 -18, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2149, i8 85, i8 -1, i8 -51, i8 0, i8 -51, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2150, i8 85, i8 -1, i8 -117, i8 0, i8 -117, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2151, i8 59, i8 -48, i8 -1, i8 -83, i8 -1, i8 47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2152, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2153, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2154, i8 0, i8 0, i8 3, i8 3, i8 3, i8 3, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2155, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2156, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2157, i8 0, i8 0, i8 28, i8 28, i8 28, i8 28, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2158, i8 0, i8 0, i8 31, i8 31, i8 31, i8 31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2159, i8 0, i8 0, i8 33, i8 33, i8 33, i8 33, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2160, i8 0, i8 0, i8 36, i8 36, i8 36, i8 36, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2161, i8 0, i8 0, i8 38, i8 38, i8 38, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2162, i8 0, i8 0, i8 41, i8 41, i8 41, i8 41, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2163, i8 0, i8 0, i8 43, i8 43, i8 43, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2164, i8 0, i8 0, i8 46, i8 46, i8 46, i8 46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2165, i8 0, i8 0, i8 48, i8 48, i8 48, i8 48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2166, i8 0, i8 0, i8 5, i8 5, i8 5, i8 5, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2167, i8 0, i8 0, i8 51, i8 51, i8 51, i8 51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2168, i8 0, i8 0, i8 54, i8 54, i8 54, i8 54, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2169, i8 0, i8 0, i8 56, i8 56, i8 56, i8 56, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2170, i8 0, i8 0, i8 59, i8 59, i8 59, i8 59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2171, i8 0, i8 0, i8 61, i8 61, i8 61, i8 61, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2172, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2173, i8 0, i8 0, i8 66, i8 66, i8 66, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2174, i8 0, i8 0, i8 69, i8 69, i8 69, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2175, i8 0, i8 0, i8 71, i8 71, i8 71, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2176, i8 0, i8 0, i8 74, i8 74, i8 74, i8 74, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2177, i8 0, i8 0, i8 8, i8 8, i8 8, i8 8, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2178, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2179, i8 0, i8 0, i8 79, i8 79, i8 79, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2180, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2181, i8 0, i8 0, i8 84, i8 84, i8 84, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2182, i8 0, i8 0, i8 87, i8 87, i8 87, i8 87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2183, i8 0, i8 0, i8 89, i8 89, i8 89, i8 89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2184, i8 0, i8 0, i8 92, i8 92, i8 92, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2185, i8 0, i8 0, i8 94, i8 94, i8 94, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2186, i8 0, i8 0, i8 97, i8 97, i8 97, i8 97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2187, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2188, i8 0, i8 0, i8 10, i8 10, i8 10, i8 10, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2189, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2190, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2191, i8 0, i8 0, i8 107, i8 107, i8 107, i8 107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2192, i8 0, i8 0, i8 110, i8 110, i8 110, i8 110, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2193, i8 0, i8 0, i8 112, i8 112, i8 112, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2194, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2195, i8 0, i8 0, i8 117, i8 117, i8 117, i8 117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2196, i8 0, i8 0, i8 120, i8 120, i8 120, i8 120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2197, i8 0, i8 0, i8 122, i8 122, i8 122, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2198, i8 0, i8 0, i8 125, i8 125, i8 125, i8 125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2199, i8 0, i8 0, i8 13, i8 13, i8 13, i8 13, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2200, i8 0, i8 0, i8 127, i8 127, i8 127, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2201, i8 0, i8 0, i8 -126, i8 -126, i8 -126, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2202, i8 0, i8 0, i8 -123, i8 -123, i8 -123, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2203, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2204, i8 0, i8 0, i8 -118, i8 -118, i8 -118, i8 -118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2205, i8 0, i8 0, i8 -116, i8 -116, i8 -116, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2206, i8 0, i8 0, i8 -113, i8 -113, i8 -113, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2207, i8 0, i8 0, i8 -111, i8 -111, i8 -111, i8 -111, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2208, i8 0, i8 0, i8 -108, i8 -108, i8 -108, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2209, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2210, i8 0, i8 0, i8 15, i8 15, i8 15, i8 15, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2211, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2212, i8 0, i8 0, i8 -100, i8 -100, i8 -100, i8 -100, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2213, i8 0, i8 0, i8 -98, i8 -98, i8 -98, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2214, i8 0, i8 0, i8 -95, i8 -95, i8 -95, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2215, i8 0, i8 0, i8 -93, i8 -93, i8 -93, i8 -93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2216, i8 0, i8 0, i8 -90, i8 -90, i8 -90, i8 -90, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2217, i8 0, i8 0, i8 -88, i8 -88, i8 -88, i8 -88, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2218, i8 0, i8 0, i8 -85, i8 -85, i8 -85, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2219, i8 0, i8 0, i8 -83, i8 -83, i8 -83, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2220, i8 0, i8 0, i8 -80, i8 -80, i8 -80, i8 -80, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2221, i8 0, i8 0, i8 18, i8 18, i8 18, i8 18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2222, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2223, i8 0, i8 0, i8 -75, i8 -75, i8 -75, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2224, i8 0, i8 0, i8 -72, i8 -72, i8 -72, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2225, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2226, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2227, i8 0, i8 0, i8 -65, i8 -65, i8 -65, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2228, i8 0, i8 0, i8 -62, i8 -62, i8 -62, i8 -62, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2229, i8 0, i8 0, i8 -60, i8 -60, i8 -60, i8 -60, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2230, i8 0, i8 0, i8 -57, i8 -57, i8 -57, i8 -57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2231, i8 0, i8 0, i8 -55, i8 -55, i8 -55, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2232, i8 0, i8 0, i8 20, i8 20, i8 20, i8 20, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2233, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2234, i8 0, i8 0, i8 -49, i8 -49, i8 -49, i8 -49, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2235, i8 0, i8 0, i8 -47, i8 -47, i8 -47, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2236, i8 0, i8 0, i8 -44, i8 -44, i8 -44, i8 -44, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2237, i8 0, i8 0, i8 -42, i8 -42, i8 -42, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2238, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2239, i8 0, i8 0, i8 -37, i8 -37, i8 -37, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2240, i8 0, i8 0, i8 -34, i8 -34, i8 -34, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2241, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2242, i8 0, i8 0, i8 -29, i8 -29, i8 -29, i8 -29, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2243, i8 0, i8 0, i8 23, i8 23, i8 23, i8 23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2244, i8 0, i8 0, i8 -27, i8 -27, i8 -27, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2245, i8 0, i8 0, i8 -24, i8 -24, i8 -24, i8 -24, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2246, i8 0, i8 0, i8 -21, i8 -21, i8 -21, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2247, i8 0, i8 0, i8 -19, i8 -19, i8 -19, i8 -19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2248, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2249, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2250, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2251, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2252, i8 0, i8 0, i8 -6, i8 -6, i8 -6, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2253, i8 0, i8 0, i8 -4, i8 -4, i8 -4, i8 -4, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2254, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2255, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2256, i8 85, i8 15, i8 -18, i8 -32, i8 -18, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2257, i8 85, i8 14, i8 -51, i8 -63, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2258, i8 85, i8 14, i8 -117, i8 -125, i8 -117, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2259, i8 -23, i8 -106, i8 -1, i8 -1, i8 105, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2260, i8 -22, i8 -111, i8 -1, i8 -1, i8 110, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2261, i8 -21, i8 -115, i8 -18, i8 -18, i8 106, i8 -89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2262, i8 -20, i8 -121, i8 -51, i8 -51, i8 96, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2263, i8 -22, i8 -108, i8 -117, i8 -117, i8 58, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2264, i8 0, i8 -116, i8 -51, i8 -51, i8 92, i8 92, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2265, i8 0, i8 -108, i8 -1, i8 -1, i8 106, i8 106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2266, i8 0, i8 -108, i8 -18, i8 -18, i8 99, i8 99, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2267, i8 0, i8 -107, i8 -51, i8 -51, i8 85, i8 85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2268, i8 0, i8 -108, i8 -117, i8 -117, i8 58, i8 58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2269, i8 -62, i8 -1, i8 -126, i8 75, i8 0, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2270, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0 }, %struct.hsvrgbacolor_t { ptr @.str.2271, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2272, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2273, i8 42, i8 15, i8 -18, i8 -18, i8 -18, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2274, i8 42, i8 14, i8 -51, i8 -51, i8 -51, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2275, i8 42, i8 14, i8 -117, i8 -117, i8 -117, i8 -125, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2276, i8 38, i8 106, i8 -16, i8 -16, i8 -26, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2277, i8 39, i8 112, i8 -1, i8 -1, i8 -10, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2278, i8 39, i8 112, i8 -18, i8 -18, i8 -26, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2279, i8 39, i8 111, i8 -51, i8 -51, i8 -58, i8 115, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2280, i8 39, i8 111, i8 -117, i8 -117, i8 -122, i8 78, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2281, i8 -86, i8 20, i8 -6, i8 -26, i8 -26, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2282, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2283, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2284, i8 -17, i8 15, i8 -18, i8 -18, i8 -32, i8 -27, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2285, i8 -16, i8 14, i8 -51, i8 -51, i8 -63, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2286, i8 -17, i8 14, i8 -117, i8 -117, i8 -125, i8 -122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2287, i8 64, i8 -1, i8 -4, i8 124, i8 -4, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2288, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2289, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2290, i8 37, i8 50, i8 -18, i8 -18, i8 -23, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2291, i8 38, i8 49, i8 -51, i8 -51, i8 -55, i8 -91, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2292, i8 39, i8 49, i8 -117, i8 -117, i8 -119, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2293, i8 -119, i8 63, i8 -26, i8 -83, i8 -40, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2294, i8 -118, i8 64, i8 -1, i8 -65, i8 -17, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2295, i8 -118, i8 64, i8 -18, i8 -78, i8 -33, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2296, i8 -118, i8 63, i8 -51, i8 -102, i8 -64, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2297, i8 -119, i8 64, i8 -117, i8 104, i8 -125, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2298, i8 0, i8 119, i8 -16, i8 -16, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2299, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2300, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2301, i8 127, i8 31, i8 -18, i8 -47, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2302, i8 127, i8 31, i8 -51, i8 -76, i8 -51, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2303, i8 127, i8 31, i8 -117, i8 122, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2304, i8 35, i8 115, i8 -18, i8 -18, i8 -35, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2305, i8 35, i8 116, i8 -1, i8 -1, i8 -20, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2306, i8 35, i8 115, i8 -18, i8 -18, i8 -36, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2307, i8 35, i8 115, i8 -51, i8 -51, i8 -66, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2308, i8 35, i8 115, i8 -117, i8 -117, i8 -127, i8 76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2309, i8 42, i8 40, i8 -6, i8 -6, i8 -6, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2310, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2311, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.53, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2312, i8 -8, i8 73, i8 -1, i8 -1, i8 -74, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2313, i8 -7, i8 81, i8 -1, i8 -1, i8 -82, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2314, i8 -8, i8 81, i8 -18, i8 -18, i8 -94, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2315, i8 -7, i8 80, i8 -51, i8 -51, i8 -116, i8 -107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2316, i8 -7, i8 80, i8 -117, i8 -117, i8 95, i8 101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2317, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2318, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2319, i8 11, i8 -124, i8 -18, i8 -18, i8 -107, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2320, i8 12, i8 -123, i8 -51, i8 -51, i8 -127, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2321, i8 12, i8 -123, i8 -117, i8 -117, i8 87, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2322, i8 125, i8 -47, i8 -78, i8 32, i8 -78, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2323, i8 -113, i8 117, i8 -6, i8 -121, i8 -50, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2324, i8 -113, i8 79, i8 -1, i8 -80, i8 -30, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2325, i8 -113, i8 79, i8 -18, i8 -92, i8 -45, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2326, i8 -114, i8 79, i8 -51, i8 -115, i8 -74, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2327, i8 -113, i8 78, i8 -117, i8 96, i8 123, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2328, i8 -81, i8 -113, i8 -1, i8 -124, i8 112, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2329, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2330, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2331, i8 -105, i8 52, i8 -34, i8 -80, i8 -60, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2332, i8 -105, i8 53, i8 -1, i8 -54, i8 -31, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2333, i8 -105, i8 53, i8 -18, i8 -68, i8 -46, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2334, i8 -105, i8 53, i8 -51, i8 -94, i8 -75, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2335, i8 -106, i8 53, i8 -117, i8 110, i8 123, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2336, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2337, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2338, i8 42, i8 31, i8 -18, i8 -18, i8 -18, i8 -47, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2339, i8 42, i8 31, i8 -51, i8 -51, i8 -51, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2340, i8 42, i8 31, i8 -117, i8 -117, i8 -117, i8 122, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2341, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2342, i8 85, i8 -64, i8 -51, i8 50, i8 -51, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2343, i8 21, i8 20, i8 -6, i8 -6, i8 -16, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2344, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2345, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2346, i8 -44, i8 -1, i8 -18, i8 -18, i8 0, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2347, i8 -44, i8 -1, i8 -51, i8 -51, i8 0, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2348, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2349, i8 -17, i8 -71, i8 -80, i8 -80, i8 48, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2350, i8 -28, i8 -53, i8 -1, i8 -1, i8 52, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2351, i8 -28, i8 -53, i8 -18, i8 -18, i8 48, i8 -89, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2352, i8 -28, i8 -52, i8 -51, i8 -51, i8 41, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2353, i8 -28, i8 -53, i8 -117, i8 -117, i8 28, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2354, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2355, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2356, i8 -52, i8 -104, i8 -45, i8 -70, i8 85, i8 -45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2357, i8 -53, i8 -103, i8 -1, i8 -32, i8 102, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2358, i8 -53, i8 -103, i8 -18, i8 -47, i8 95, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2359, i8 -53, i8 -103, i8 -51, i8 -76, i8 82, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2360, i8 -53, i8 -102, i8 -117, i8 122, i8 55, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2361, i8 -73, i8 124, i8 -37, i8 -109, i8 112, i8 -37, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2362, i8 -73, i8 125, i8 -1, i8 -85, i8 -126, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2363, i8 -73, i8 125, i8 -18, i8 -97, i8 121, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2364, i8 -73, i8 125, i8 -51, i8 -119, i8 104, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2365, i8 -73, i8 124, i8 -117, i8 93, i8 71, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2366, i8 103, i8 -87, i8 -77, i8 60, i8 -77, i8 113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2367, i8 -80, i8 -113, i8 -18, i8 123, i8 104, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2368, i8 111, i8 -1, i8 -6, i8 0, i8 -6, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2369, i8 125, i8 -89, i8 -47, i8 72, i8 -47, i8 -52, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2370, i8 -28, i8 -28, i8 -57, i8 -57, i8 21, i8 -123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2371, i8 -86, i8 -58, i8 112, i8 25, i8 25, i8 112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2372, i8 106, i8 9, i8 -1, i8 -11, i8 -1, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2373, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2374, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2375, i8 4, i8 30, i8 -18, i8 -18, i8 -43, i8 -46, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2376, i8 3, i8 29, i8 -51, i8 -51, i8 -73, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2377, i8 5, i8 29, i8 -117, i8 -117, i8 125, i8 123, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2378, i8 26, i8 73, i8 -1, i8 -1, i8 -28, i8 -75, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2379, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2380, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2381, i8 25, i8 82, i8 -18, i8 -18, i8 -49, i8 -95, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2382, i8 25, i8 82, i8 -51, i8 -51, i8 -77, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2383, i8 25, i8 82, i8 -117, i8 -117, i8 121, i8 94, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2384, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2385, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2386, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0 }, %struct.hsvrgbacolor_t { ptr @.str.2387, i8 27, i8 23, i8 -3, i8 -3, i8 -11, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2388, i8 42, i8 -1, i8 -128, i8 -128, i8 -128, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2389, i8 56, i8 -64, i8 -114, i8 107, i8 -114, i8 35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2390, i8 56, i8 -63, i8 -1, i8 -64, i8 -1, i8 62, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2391, i8 56, i8 -64, i8 -18, i8 -77, i8 -18, i8 58, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2392, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2393, i8 56, i8 -64, i8 -117, i8 105, i8 -117, i8 34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2394, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2395, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2396, i8 27, i8 -1, i8 -18, i8 -18, i8 -102, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2397, i8 27, i8 -1, i8 -51, i8 -51, i8 -123, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2398, i8 27, i8 -1, i8 -117, i8 -117, i8 90, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2399, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2400, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2401, i8 11, i8 -1, i8 -18, i8 -18, i8 64, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2402, i8 11, i8 -1, i8 -51, i8 -51, i8 55, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2403, i8 11, i8 -1, i8 -117, i8 -117, i8 37, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2404, i8 -42, i8 123, i8 -38, i8 -38, i8 112, i8 -42, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2405, i8 -42, i8 124, i8 -1, i8 -1, i8 -125, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2406, i8 -42, i8 124, i8 -18, i8 -18, i8 122, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2407, i8 -42, i8 124, i8 -51, i8 -51, i8 105, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2408, i8 -43, i8 124, i8 -117, i8 -117, i8 71, i8 -119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2409, i8 38, i8 72, i8 -18, i8 -18, i8 -24, i8 -86, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2410, i8 85, i8 100, i8 -5, i8 -104, i8 -5, i8 -104, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2411, i8 85, i8 101, i8 -1, i8 -102, i8 -1, i8 -102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2412, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2413, i8 85, i8 100, i8 -51, i8 124, i8 -51, i8 124, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2414, i8 85, i8 100, i8 -117, i8 84, i8 -117, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2415, i8 127, i8 67, i8 -18, i8 -81, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2416, i8 127, i8 68, i8 -1, i8 -69, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2417, i8 127, i8 68, i8 -18, i8 -82, i8 -18, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2418, i8 127, i8 68, i8 -51, i8 -106, i8 -51, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2419, i8 127, i8 67, i8 -117, i8 102, i8 -117, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2420, i8 -15, i8 124, i8 -37, i8 -37, i8 112, i8 -109, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2421, i8 -15, i8 125, i8 -1, i8 -1, i8 -126, i8 -85, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2422, i8 -15, i8 125, i8 -18, i8 -18, i8 121, i8 -97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2423, i8 -15, i8 125, i8 -51, i8 -51, i8 104, i8 -119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2424, i8 -15, i8 124, i8 -117, i8 -117, i8 71, i8 93, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2425, i8 26, i8 41, i8 -1, i8 -1, i8 -17, i8 -43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2426, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2427, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2428, i8 19, i8 69, i8 -18, i8 -18, i8 -53, i8 -83, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2429, i8 19, i8 69, i8 -51, i8 -51, i8 -81, i8 -107, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2430, i8 20, i8 69, i8 -117, i8 -117, i8 119, i8 101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2431, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2432, i8 -9, i8 63, i8 -1, i8 -1, i8 -64, i8 -53, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2433, i8 -11, i8 73, i8 -1, i8 -1, i8 -75, i8 -59, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2434, i8 -11, i8 73, i8 -18, i8 -18, i8 -87, i8 -72, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2435, i8 -11, i8 74, i8 -51, i8 -51, i8 -111, i8 -98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2436, i8 -11, i8 73, i8 -117, i8 -117, i8 99, i8 108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2437, i8 -44, i8 70, i8 -35, i8 -35, i8 -96, i8 -35, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2438, i8 -44, i8 68, i8 -1, i8 -1, i8 -69, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2439, i8 -44, i8 68, i8 -18, i8 -18, i8 -82, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2440, i8 -44, i8 68, i8 -51, i8 -51, i8 -106, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2441, i8 -44, i8 67, i8 -117, i8 -117, i8 102, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2442, i8 -124, i8 59, i8 -26, i8 -80, i8 -32, i8 -26, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2443, i8 -60, i8 -35, i8 -16, i8 -96, i8 32, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2444, i8 -65, i8 -49, i8 -1, i8 -101, i8 48, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2445, i8 -64, i8 -49, i8 -18, i8 -111, i8 44, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2446, i8 -64, i8 -49, i8 -51, i8 125, i8 38, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2447, i8 -64, i8 -49, i8 -117, i8 85, i8 26, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2448, i8 -65, i8 -86, i8 -103, i8 102, i8 51, i8 -103, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2449, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2450, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2451, i8 0, i8 -1, i8 -18, i8 -18, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2452, i8 0, i8 -1, i8 -51, i8 -51, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2453, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2454, i8 0, i8 61, i8 -68, i8 -68, i8 -113, i8 -113, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2455, i8 0, i8 62, i8 -1, i8 -1, i8 -63, i8 -63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2456, i8 0, i8 62, i8 -18, i8 -18, i8 -76, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2457, i8 0, i8 62, i8 -51, i8 -51, i8 -101, i8 -101, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2458, i8 0, i8 62, i8 -117, i8 -117, i8 105, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2459, i8 -97, i8 -75, i8 -31, i8 65, i8 105, i8 -31, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2460, i8 -97, i8 -73, i8 -1, i8 72, i8 118, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2461, i8 -97, i8 -73, i8 -18, i8 67, i8 110, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2462, i8 -97, i8 -74, i8 -51, i8 58, i8 95, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2463, i8 -97, i8 -73, i8 -117, i8 39, i8 64, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2464, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2465, i8 4, i8 -118, i8 -6, i8 -6, i8 -128, i8 114, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2466, i8 9, i8 -106, i8 -1, i8 -1, i8 -116, i8 105, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2467, i8 9, i8 -106, i8 -18, i8 -18, i8 -126, i8 98, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2468, i8 9, i8 -106, i8 -51, i8 -51, i8 112, i8 84, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2469, i8 9, i8 -106, i8 -117, i8 -117, i8 76, i8 57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2470, i8 19, i8 -102, i8 -12, i8 -12, i8 -92, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2471, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2472, i8 103, i8 -85, i8 -1, i8 84, i8 -1, i8 -97, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2473, i8 103, i8 -85, i8 -18, i8 78, i8 -18, i8 -108, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2474, i8 103, i8 -85, i8 -51, i8 67, i8 -51, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2475, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2476, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2477, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2478, i8 18, i8 17, i8 -18, i8 -18, i8 -27, i8 -34, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2479, i8 18, i8 17, i8 -51, i8 -51, i8 -59, i8 -65, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2480, i8 18, i8 16, i8 -117, i8 -117, i8 -122, i8 -126, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2481, i8 13, i8 -73, i8 -96, i8 -96, i8 82, i8 45, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2482, i8 13, i8 -72, i8 -1, i8 -1, i8 -126, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2483, i8 13, i8 -72, i8 -18, i8 -18, i8 121, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2484, i8 13, i8 -72, i8 -51, i8 -51, i8 104, i8 57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2485, i8 13, i8 -71, i8 -117, i8 -117, i8 71, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2486, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2487, i8 -117, i8 108, i8 -21, i8 -121, i8 -50, i8 -21, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2488, i8 -112, i8 120, i8 -1, i8 -121, i8 -50, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2489, i8 -112, i8 120, i8 -18, i8 126, i8 -64, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2490, i8 -112, i8 120, i8 -51, i8 108, i8 -90, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2491, i8 -111, i8 119, i8 -117, i8 74, i8 112, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2492, i8 -81, i8 -113, i8 -51, i8 106, i8 90, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2493, i8 -81, i8 -112, i8 -1, i8 -125, i8 111, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2494, i8 -81, i8 -112, i8 -18, i8 122, i8 103, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2495, i8 -81, i8 -112, i8 -51, i8 105, i8 89, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2496, i8 -81, i8 -112, i8 -117, i8 71, i8 60, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2497, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2498, i8 -107, i8 56, i8 -1, i8 -58, i8 -30, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2499, i8 -107, i8 56, i8 -18, i8 -71, i8 -45, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2500, i8 -108, i8 57, i8 -51, i8 -97, i8 -74, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2501, i8 -107, i8 56, i8 -117, i8 108, i8 123, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2502, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2503, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2504, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2505, i8 0, i8 5, i8 -18, i8 -18, i8 -23, i8 -23, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2506, i8 0, i8 4, i8 -51, i8 -51, i8 -55, i8 -55, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2507, i8 0, i8 3, i8 -117, i8 -117, i8 -119, i8 -119, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2508, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2509, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2510, i8 106, i8 -1, i8 -18, i8 0, i8 -18, i8 118, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2511, i8 106, i8 -1, i8 -51, i8 0, i8 -51, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2512, i8 106, i8 -1, i8 -117, i8 0, i8 -117, i8 69, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2513, i8 -110, i8 -101, i8 -76, i8 70, i8 -126, i8 -76, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2514, i8 -110, i8 -100, i8 -1, i8 99, i8 -72, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2515, i8 -110, i8 -100, i8 -18, i8 92, i8 -84, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2516, i8 -110, i8 -100, i8 -51, i8 79, i8 -108, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2517, i8 -109, i8 -101, i8 -117, i8 54, i8 100, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2518, i8 24, i8 84, i8 -46, i8 -46, i8 -76, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2519, i8 20, i8 -80, i8 -1, i8 -1, i8 -91, i8 79, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2520, i8 20, i8 -80, i8 -18, i8 -18, i8 -102, i8 73, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2521, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2522, i8 20, i8 -80, i8 -117, i8 -117, i8 90, i8 43, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2523, i8 127, i8 -1, i8 -128, i8 0, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2524, i8 -44, i8 29, i8 -40, i8 -40, i8 -65, i8 -40, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2525, i8 -44, i8 30, i8 -1, i8 -1, i8 -31, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2526, i8 -44, i8 30, i8 -18, i8 -18, i8 -46, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2527, i8 -44, i8 29, i8 -51, i8 -51, i8 -75, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2528, i8 -44, i8 29, i8 -117, i8 -117, i8 123, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2529, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2530, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2531, i8 6, i8 -72, i8 -18, i8 -18, i8 92, i8 66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2532, i8 6, i8 -72, i8 -51, i8 -51, i8 79, i8 57, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2533, i8 6, i8 -71, i8 -117, i8 -117, i8 54, i8 38, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2534, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0 }, %struct.hsvrgbacolor_t { ptr @.str.2535, i8 123, i8 -74, i8 -32, i8 64, i8 -32, i8 -48, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2536, i8 -127, i8 -1, i8 -1, i8 0, i8 -11, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2537, i8 -127, i8 -1, i8 -18, i8 0, i8 -27, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2538, i8 -127, i8 -1, i8 -51, i8 0, i8 -59, i8 -51, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2539, i8 -127, i8 -1, i8 -117, i8 0, i8 -122, i8 -117, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2540, i8 -44, i8 115, i8 -18, i8 -18, i8 -126, i8 -18, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2541, i8 -29, i8 -41, i8 -48, i8 -48, i8 32, i8 -112, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2542, i8 -21, i8 -63, i8 -1, i8 -1, i8 62, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2543, i8 -21, i8 -64, i8 -18, i8 -18, i8 58, i8 -116, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2544, i8 -21, i8 -64, i8 -51, i8 -51, i8 50, i8 120, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2545, i8 -21, i8 -64, i8 -117, i8 -117, i8 34, i8 82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2546, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2547, i8 85, i8 -1, i8 -128, i8 0, i8 -128, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2548, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2549, i8 0, i8 -1, i8 -128, i8 -128, i8 0, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2550, i8 -44, i8 -1, i8 -128, i8 -128, i8 0, i8 -128, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2551, i8 27, i8 68, i8 -11, i8 -11, i8 -34, i8 -77, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2552, i8 27, i8 69, i8 -1, i8 -1, i8 -25, i8 -70, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2553, i8 27, i8 68, i8 -18, i8 -18, i8 -40, i8 -82, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2554, i8 27, i8 68, i8 -51, i8 -51, i8 -70, i8 -106, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2555, i8 27, i8 67, i8 -117, i8 -117, i8 126, i8 102, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.52, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2556, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2557, i8 0, i8 0, i8 -66, i8 -66, i8 -66, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2558, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2559, i8 0, i8 0, i8 -66, i8 -66, i8 -66, i8 -66, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2560, i8 -17, i8 -71, i8 -80, i8 -80, i8 48, i8 96, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2561, i8 -60, i8 -35, i8 -16, i8 -96, i8 32, i8 -16, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2562, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2563, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2564, i8 42, i8 -1, i8 -18, i8 -18, i8 -18, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2565, i8 42, i8 -1, i8 -51, i8 -51, i8 -51, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2566, i8 42, i8 -1, i8 -117, i8 -117, i8 -117, i8 0, i8 -1 }, %struct.hsvrgbacolor_t { ptr @.str.2567, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1 }], align 16
 @.str.51 = private unnamed_addr constant [6 x i8] c"black\00", align 1
 @.str.52 = private unnamed_addr constant [6 x i8] c"white\00", align 1
 @.str.53 = private unnamed_addr constant [10 x i8] c"lightgrey\00", align 1
 @.str.54 = private unnamed_addr constant [5 x i8] c"X11/\00", align 1
-@canontoken.canon = internal unnamed_addr global ptr null, align 8
-@canontoken.allocated = internal unnamed_addr global i64 0, align 8
 @.str.56 = private unnamed_addr constant [11 x i8] c"/accent3/1\00", align 1
 @.str.57 = private unnamed_addr constant [11 x i8] c"/accent3/2\00", align 1
 @.str.58 = private unnamed_addr constant [11 x i8] c"/accent3/3\00", align 1
@@ -2587,6 +2581,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2565 = private unnamed_addr constant [8 x i8] c"yellow3\00", align 1
 @.str.2566 = private unnamed_addr constant [8 x i8] c"yellow4\00", align 1
 @.str.2567 = private unnamed_addr constant [12 x i8] c"yellowgreen\00", align 1
+@color_lib = internal unnamed_addr constant [2515 x { ptr, i8, i8, i8, i8, i8, i8, i8, i8 }] [{ ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.56, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.57, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.58, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.59, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.60, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.61, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.62, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.63, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.64, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.65, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.66, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.67, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.68, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.69, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.70, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.71, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.72, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.73, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.74, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.75, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.76, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.77, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.78, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.79, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.80, i8 17, i8 -32, i8 -65, i8 -65, i8 91, i8 23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.81, i8 85, i8 93, i8 -55, i8 127, i8 -55, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.82, i8 -69, i8 45, i8 -44, i8 -66, i8 -82, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.83, i8 20, i8 119, i8 -3, i8 -3, i8 -64, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.84, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.85, i8 -105, i8 -83, i8 -80, i8 56, i8 108, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.86, i8 -24, i8 -4, i8 -16, i8 -16, i8 2, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.87, i8 17, i8 -32, i8 -65, i8 -65, i8 91, i8 23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.88, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.89, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.90, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.91, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.92, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.93, i8 -113, i8 46, i8 -25, i8 -67, i8 -41, i8 -25, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.94, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.95, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.96, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.97, i8 -113, i8 46, i8 -25, i8 -67, i8 -41, i8 -25, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.98, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.99, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.100, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.101, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.102, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.103, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.104, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.105, i8 -111, i8 -68, i8 -67, i8 49, i8 -126, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.106, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.107, i8 -97, i8 16, i8 -1, i8 -17, i8 -13, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.108, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.109, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.110, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.111, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.112, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.113, i8 -105, i8 -15, i8 -108, i8 8, i8 69, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.114, i8 -108, i8 8, i8 -1, i8 -9, i8 -5, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.115, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.116, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.117, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.118, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.119, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.120, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.121, i8 -105, i8 -15, i8 -108, i8 8, i8 69, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.122, i8 -108, i8 8, i8 -1, i8 -9, i8 -5, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.123, i8 -109, i8 25, i8 -9, i8 -34, i8 -21, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.124, i8 -108, i8 43, i8 -17, i8 -58, i8 -37, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.125, i8 -114, i8 75, i8 -31, i8 -98, i8 -54, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.126, i8 -113, i8 127, i8 -42, i8 107, i8 -82, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.127, i8 -112, i8 -87, i8 -58, i8 66, i8 -110, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.128, i8 -109, i8 -48, i8 -75, i8 33, i8 113, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.129, i8 -107, i8 -15, i8 -100, i8 8, i8 81, i8 -100, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.130, i8 -104, i8 -21, i8 107, i8 8, i8 48, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.131, i8 23, i8 -17, i8 84, i8 84, i8 48, i8 5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.132, i8 119, i8 -1, i8 60, i8 0, i8 60, i8 48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.133, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.134, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.135, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.136, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.137, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.138, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.139, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.140, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.141, i8 23, i8 -17, i8 84, i8 84, i8 48, i8 5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.142, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.143, i8 119, i8 -1, i8 60, i8 0, i8 60, i8 48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.144, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.145, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.146, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.147, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.148, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.149, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.150, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.151, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.152, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.153, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.154, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.155, i8 21, i8 -41, i8 -90, i8 -90, i8 97, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.156, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.157, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.158, i8 121, i8 -3, i8 -123, i8 1, i8 -123, i8 113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.159, i8 21, i8 -41, i8 -90, i8 -90, i8 97, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.160, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.161, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.162, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.163, i8 121, i8 -3, i8 -123, i8 1, i8 -123, i8 113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.164, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.165, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.166, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.167, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.168, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.169, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.170, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.171, i8 28, i8 -121, i8 -40, i8 -40, i8 -77, i8 101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.172, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.173, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.174, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.175, i8 123, i8 127, i8 -76, i8 90, i8 -76, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.176, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.177, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.178, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.179, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.180, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.181, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.182, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.183, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.184, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.185, i8 23, i8 -20, i8 -116, i8 -116, i8 81, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.186, i8 24, i8 -62, i8 -65, i8 -65, i8 -127, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.187, i8 29, i8 112, i8 -33, i8 -33, i8 -62, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.188, i8 30, i8 52, i8 -10, i8 -10, i8 -24, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.189, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.190, i8 121, i8 38, i8 -22, i8 -57, i8 -22, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.191, i8 120, i8 95, i8 -51, i8 -128, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.192, i8 124, i8 -91, i8 -105, i8 53, i8 -105, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.193, i8 124, i8 -4, i8 102, i8 1, i8 102, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.194, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.195, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.196, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.197, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.198, i8 127, i8 54, i8 -30, i8 -78, i8 -30, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.199, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.200, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.201, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.202, i8 127, i8 54, i8 -30, i8 -78, i8 -30, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.203, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.204, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.205, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.206, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.207, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.208, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.209, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.210, i8 103, i8 -71, i8 -94, i8 44, i8 -94, i8 95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.211, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.212, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.213, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.214, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.215, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.216, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.217, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.218, i8 102, i8 -1, i8 88, i8 0, i8 88, i8 36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.219, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.220, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.221, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.222, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.223, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.224, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.225, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.226, i8 102, i8 -1, i8 88, i8 0, i8 88, i8 36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.227, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.228, i8 -121, i8 20, i8 -7, i8 -27, i8 -11, i8 -7, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.229, i8 119, i8 34, i8 -20, i8 -52, i8 -20, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.230, i8 117, i8 74, i8 -40, i8 -103, i8 -40, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.231, i8 113, i8 120, i8 -62, i8 102, i8 -62, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.232, i8 105, i8 -97, i8 -82, i8 65, i8 -82, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.233, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.234, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.235, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.236, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.237, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.238, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.239, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.240, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.241, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.242, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.243, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.244, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.245, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.246, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.247, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.248, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.249, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.250, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.251, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.252, i8 -60, i8 123, i8 -89, i8 -120, i8 86, i8 -89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.253, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.254, i8 -120, i8 14, i8 -5, i8 -19, i8 -8, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.255, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.256, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.257, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.258, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.259, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.260, i8 -43, i8 -4, i8 110, i8 110, i8 1, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.261, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.262, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.263, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.264, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.265, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.266, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.267, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.268, i8 -43, i8 -4, i8 110, i8 110, i8 1, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.269, i8 -122, i8 6, i8 -3, i8 -9, i8 -4, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.270, i8 -112, i8 20, i8 -12, i8 -32, i8 -20, i8 -12, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.271, i8 -108, i8 43, i8 -26, i8 -65, i8 -45, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.272, i8 -108, i8 70, i8 -38, i8 -98, i8 -68, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.273, i8 -94, i8 74, i8 -58, i8 -116, i8 -106, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.274, i8 -66, i8 100, i8 -79, i8 -116, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.275, i8 -54, i8 -107, i8 -99, i8 -120, i8 65, i8 -99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.276, i8 -42, i8 -31, i8 -127, i8 -127, i8 15, i8 124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.277, i8 -43, i8 -1, i8 77, i8 77, i8 0, i8 75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.278, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.279, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.280, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.281, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.282, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.283, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.284, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.285, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.286, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.287, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.288, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.289, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.290, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.291, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.292, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.293, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.294, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.295, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.296, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.297, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.298, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.299, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.300, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.301, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.302, i8 27, i8 -46, i8 -90, i8 -90, i8 118, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.303, i8 114, i8 -45, i8 -98, i8 27, i8 -98, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.304, i8 18, i8 -4, i8 -39, i8 -39, i8 95, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.305, i8 -83, i8 95, i8 -77, i8 117, i8 112, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.306, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.307, i8 62, i8 -48, i8 -90, i8 102, i8 -90, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.308, i8 31, i8 -4, i8 -26, i8 -26, i8 -85, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.309, i8 27, i8 -46, i8 -90, i8 -90, i8 118, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.310, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.311, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.312, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.313, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.314, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.315, i8 87, i8 46, i8 -28, i8 -70, i8 -28, i8 -68, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.316, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.317, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.318, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.319, i8 87, i8 46, i8 -28, i8 -70, i8 -28, i8 -68, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.320, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.321, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.322, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.323, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.324, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.325, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.326, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.327, i8 -116, i8 -86, i8 -54, i8 67, i8 -94, i8 -54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.328, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.329, i8 65, i8 17, i8 -7, i8 -16, i8 -7, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.330, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.331, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.332, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.333, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.334, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.335, i8 -109, i8 -14, i8 -98, i8 8, i8 88, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.336, i8 60, i8 12, i8 -4, i8 -9, i8 -4, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.337, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.338, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.339, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.340, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.341, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.342, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.343, i8 -109, i8 -14, i8 -98, i8 8, i8 88, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.344, i8 60, i8 12, i8 -4, i8 -9, i8 -4, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.345, i8 76, i8 25, i8 -13, i8 -32, i8 -13, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.346, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.347, i8 95, i8 61, i8 -35, i8 -88, i8 -35, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.348, i8 123, i8 101, i8 -52, i8 123, i8 -52, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.349, i8 -119, i8 -96, i8 -45, i8 78, i8 -77, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.350, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.351, i8 -111, i8 -13, i8 -84, i8 8, i8 104, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.352, i8 -106, i8 -17, i8 -127, i8 8, i8 64, i8 -127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.353, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.354, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.355, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.356, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.357, i8 78, i8 54, i8 -28, i8 -70, i8 -28, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.358, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.359, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.360, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.361, i8 78, i8 54, i8 -28, i8 -70, i8 -28, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.362, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.363, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.364, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.365, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.366, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.367, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.368, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.369, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.370, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.371, i8 73, i8 15, i8 -8, i8 -19, i8 -8, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.372, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.373, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.374, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.375, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.376, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.377, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.378, i8 72, i8 7, i8 -4, i8 -9, i8 -4, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.379, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.380, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.381, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.382, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.383, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.384, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.385, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.386, i8 72, i8 7, i8 -4, i8 -9, i8 -4, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.387, i8 74, i8 21, i8 -11, i8 -27, i8 -11, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.388, i8 77, i8 44, i8 -23, i8 -57, i8 -23, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.389, i8 80, i8 72, i8 -39, i8 -95, i8 -39, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.390, i8 86, i8 104, i8 -60, i8 116, i8 -60, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.391, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.392, i8 98, i8 -66, i8 -117, i8 35, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.393, i8 102, i8 -1, i8 109, i8 0, i8 109, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.394, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.395, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.396, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.397, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.398, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.399, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.400, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.401, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.402, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.403, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.404, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.405, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.406, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.407, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.408, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.409, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.410, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.411, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.412, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.413, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.414, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.415, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.416, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.417, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.418, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.419, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.420, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.421, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.422, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.423, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.424, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.425, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.426, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.427, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.428, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.429, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.430, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.431, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.432, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.433, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.434, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.435, i8 0, i8 0, i8 37, i8 37, i8 37, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.436, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.437, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.438, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.439, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.440, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.441, i8 20, i8 120, i8 -3, i8 -3, i8 -66, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.442, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.443, i8 13, i8 -3, i8 -39, i8 -39, i8 71, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.444, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.445, i8 20, i8 120, i8 -3, i8 -3, i8 -66, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.446, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.447, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.448, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.449, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.450, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.451, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.452, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.453, i8 14, i8 -16, i8 -26, i8 -26, i8 85, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.454, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.455, i8 19, i8 32, i8 -2, i8 -2, i8 -19, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.456, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.457, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.458, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.459, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.460, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.461, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.462, i8 21, i8 20, i8 -1, i8 -1, i8 -11, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.463, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.464, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.465, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.466, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.467, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.468, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.469, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.470, i8 21, i8 20, i8 -1, i8 -1, i8 -11, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.471, i8 21, i8 48, i8 -2, i8 -2, i8 -26, i8 -50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.472, i8 21, i8 91, i8 -3, i8 -3, i8 -48, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.473, i8 19, i8 -109, i8 -3, i8 -3, i8 -82, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.474, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.475, i8 16, i8 -22, i8 -15, i8 -15, i8 105, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.476, i8 13, i8 -3, i8 -39, i8 -39, i8 72, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.477, i8 13, i8 -6, i8 -90, i8 -90, i8 54, i8 3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.478, i8 12, i8 -10, i8 127, i8 127, i8 39, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.479, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.480, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.481, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.482, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.483, i8 24, i8 115, i8 -3, i8 -3, i8 -52, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.484, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.485, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.486, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.487, i8 24, i8 115, i8 -3, i8 -3, i8 -52, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.488, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.489, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.490, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.491, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.492, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.493, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.494, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.495, i8 5, i8 -59, i8 -29, i8 -29, i8 74, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.496, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.497, i8 26, i8 37, i8 -2, i8 -2, i8 -16, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.498, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.499, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.500, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.501, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.502, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.503, i8 0, i8 -1, i8 -103, i8 -103, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.504, i8 24, i8 18, i8 -1, i8 -1, i8 -9, i8 -20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.505, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.506, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.507, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.508, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.509, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.510, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.511, i8 0, i8 -1, i8 -103, i8 -103, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.512, i8 24, i8 18, i8 -1, i8 -1, i8 -9, i8 -20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.513, i8 25, i8 54, i8 -2, i8 -2, i8 -24, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.514, i8 24, i8 95, i8 -3, i8 -3, i8 -44, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.515, i8 19, i8 121, i8 -3, i8 -3, i8 -69, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.516, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.517, i8 7, i8 -78, i8 -17, i8 -17, i8 101, i8 72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.518, i8 3, i8 -38, i8 -41, i8 -41, i8 48, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.519, i8 0, i8 -1, i8 -77, i8 -77, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.520, i8 0, i8 -1, i8 127, i8 127, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.521, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.522, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.523, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.524, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.525, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.526, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.527, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.528, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.529, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.530, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.531, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.532, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.533, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.534, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.535, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.536, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.537, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.538, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.539, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.540, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.541, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.542, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.543, i8 -66, i8 -103, i8 -102, i8 106, i8 61, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.544, i8 42, i8 102, i8 -1, i8 -1, i8 -1, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.545, i8 15, i8 -59, i8 -79, i8 -79, i8 89, i8 40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.546, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.547, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.548, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.549, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.550, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.551, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.552, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.553, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.554, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.555, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.556, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.557, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.558, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.559, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.560, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.561, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.562, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.563, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.564, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.565, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.566, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.567, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.568, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.569, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.570, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.571, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.572, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.573, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.574, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.575, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.576, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.577, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.578, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.579, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.580, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.581, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.582, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.583, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.584, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.585, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.586, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.587, i8 -114, i8 68, i8 -29, i8 -90, i8 -50, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.588, i8 -112, i8 -45, i8 -76, i8 31, i8 120, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.589, i8 65, i8 97, i8 -33, i8 -78, i8 -33, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.590, i8 82, i8 -72, i8 -96, i8 51, i8 -96, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.591, i8 0, i8 99, i8 -5, i8 -5, i8 -102, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.592, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.593, i8 23, i8 -113, i8 -3, i8 -3, i8 -65, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.594, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.595, i8 -58, i8 42, i8 -42, i8 -54, i8 -78, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.596, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.597, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.598, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.599, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.600, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.601, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.602, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.603, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.604, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.605, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.606, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.607, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.608, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.609, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.610, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.611, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.612, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.613, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.614, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.615, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.616, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.617, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.618, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.619, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.620, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.621, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.622, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.623, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.624, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.625, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.626, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.627, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.628, i8 -23, i8 35, i8 -3, i8 -3, i8 -38, i8 -20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.629, i8 3, i8 78, i8 -5, i8 -5, i8 -76, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.630, i8 -110, i8 53, i8 -29, i8 -77, i8 -51, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.631, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.632, i8 -54, i8 27, i8 -28, i8 -34, i8 -53, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.633, i8 24, i8 88, i8 -2, i8 -2, i8 -39, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.634, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.635, i8 28, i8 44, i8 -27, i8 -27, i8 -40, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.636, i8 -23, i8 35, i8 -3, i8 -3, i8 -38, i8 -20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.637, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.638, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.639, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.640, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.641, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.642, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.643, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.644, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.645, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.646, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.647, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.648, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.649, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.650, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.651, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.652, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.653, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.654, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.655, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.656, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.657, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.658, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.659, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.660, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.661, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.662, i8 25, i8 39, i8 -15, i8 -15, i8 -30, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.663, i8 108, i8 53, i8 -30, i8 -77, i8 -30, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.664, i8 17, i8 81, i8 -3, i8 -3, i8 -51, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.665, i8 -101, i8 31, i8 -24, i8 -53, i8 -43, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.666, i8 -28, i8 43, i8 -12, i8 -12, i8 -54, i8 -28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.667, i8 56, i8 45, i8 -11, i8 -26, i8 -11, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.668, i8 35, i8 81, i8 -1, i8 -1, i8 -14, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.669, i8 25, i8 39, i8 -15, i8 -15, i8 -30, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.670, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.671, i8 -26, i8 -3, i8 -114, i8 -114, i8 1, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.672, i8 77, i8 -65, i8 100, i8 39, i8 100, i8 25, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.673, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.674, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.675, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.676, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.677, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.678, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.679, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.680, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.681, i8 -26, i8 -3, i8 -114, i8 -114, i8 1, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.682, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.683, i8 77, i8 -65, i8 100, i8 39, i8 100, i8 25, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.684, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.685, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.686, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.687, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.688, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.689, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.690, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.691, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.692, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.693, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.694, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.695, i8 -28, i8 -36, i8 -48, i8 -48, i8 28, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.696, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.697, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.698, i8 72, i8 -58, i8 -84, i8 77, i8 -84, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.699, i8 -28, i8 -36, i8 -48, i8 -48, i8 28, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.700, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.701, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.702, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.703, i8 72, i8 -58, i8 -84, i8 77, i8 -84, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.704, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.705, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.706, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.707, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.708, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.709, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.710, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.711, i8 -25, i8 76, i8 -23, i8 -23, i8 -93, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.712, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.713, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.714, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.715, i8 63, i8 -127, i8 -41, i8 -95, i8 -41, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.716, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.717, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.718, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.719, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.720, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.721, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.722, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.723, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.724, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.725, i8 -26, i8 -36, i8 -59, i8 -59, i8 27, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.726, i8 -24, i8 118, i8 -34, i8 -34, i8 119, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.727, i8 -27, i8 62, i8 -15, i8 -15, i8 -74, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.728, i8 -23, i8 29, i8 -3, i8 -3, i8 -32, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.729, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.730, i8 59, i8 38, i8 -11, i8 -26, i8 -11, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.731, i8 61, i8 103, i8 -31, i8 -72, i8 -31, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.732, i8 63, i8 -90, i8 -68, i8 127, i8 -68, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.733, i8 68, i8 -59, i8 -110, i8 77, i8 -110, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.734, i8 -50, i8 -1, i8 75, i8 64, i8 0, i8 75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.735, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.736, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.737, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.738, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.739, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.740, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.741, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.742, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.743, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.744, i8 -50, i8 -1, i8 75, i8 64, i8 0, i8 75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.745, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.746, i8 101, i8 -1, i8 68, i8 0, i8 68, i8 27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.747, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.748, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.749, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.750, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.751, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.752, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.753, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.754, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.755, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.756, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.757, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.758, i8 -55, i8 -88, i8 -108, i8 123, i8 50, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.759, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.760, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.761, i8 102, i8 -1, i8 -120, i8 0, i8 -120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.762, i8 -55, i8 -88, i8 -108, i8 123, i8 50, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.763, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.764, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.765, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.766, i8 102, i8 -1, i8 -120, i8 0, i8 -120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.767, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.768, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.769, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.770, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.771, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.772, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.773, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.774, i8 -60, i8 70, i8 -61, i8 -81, i8 -115, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.775, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.776, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.777, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.778, i8 82, i8 90, i8 -65, i8 127, i8 -65, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.779, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.780, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.781, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.782, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.783, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.784, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.785, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.786, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.787, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.788, i8 -50, i8 -83, i8 -125, i8 118, i8 42, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.789, i8 -57, i8 87, i8 -85, i8 -103, i8 112, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.790, i8 -57, i8 51, i8 -49, i8 -62, i8 -91, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.791, i8 -46, i8 21, i8 -24, i8 -25, i8 -44, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.792, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.793, i8 76, i8 30, i8 -16, i8 -39, i8 -16, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.794, i8 80, i8 68, i8 -37, i8 -90, i8 -37, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.795, i8 88, i8 123, i8 -82, i8 90, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.796, i8 97, i8 -59, i8 120, i8 27, i8 120, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.797, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.798, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.799, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.800, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.801, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.802, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.803, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.804, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.805, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.806, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.807, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.808, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.809, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.810, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.811, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.812, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.813, i8 -115, i8 -59, i8 -66, i8 43, i8 -116, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.814, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.815, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.816, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.817, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.818, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.819, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.820, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.821, i8 -113, i8 -8, i8 123, i8 3, i8 78, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.822, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.823, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.824, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.825, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.826, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.827, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.828, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.829, i8 -113, i8 -8, i8 123, i8 3, i8 78, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.830, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.831, i8 -67, i8 11, i8 -14, i8 -20, i8 -25, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.832, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.833, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.834, i8 -111, i8 112, i8 -49, i8 116, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.835, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.836, i8 -113, i8 -9, i8 -80, i8 5, i8 112, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.837, i8 -113, i8 -9, i8 -115, i8 4, i8 90, i8 -115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.838, i8 -113, i8 -7, i8 88, i8 2, i8 56, i8 88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.839, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.840, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.841, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.842, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.843, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.844, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.845, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.846, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.847, i8 -101, i8 40, i8 -31, i8 -67, i8 -55, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.848, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.849, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.850, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.851, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.852, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.853, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.854, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.855, i8 -126, i8 -48, i8 -103, i8 28, i8 -112, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.856, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.857, i8 -49, i8 8, i8 -9, i8 -10, i8 -17, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.858, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.859, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.860, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.861, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.862, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.863, i8 118, i8 -4, i8 100, i8 1, i8 100, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.864, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.865, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.866, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.867, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.868, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.869, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.870, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.871, i8 118, i8 -4, i8 100, i8 1, i8 100, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.872, i8 -23, i8 8, i8 -1, i8 -1, i8 -9, i8 -5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.873, i8 -56, i8 14, i8 -16, i8 -20, i8 -30, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.874, i8 -88, i8 24, i8 -26, i8 -48, i8 -47, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.875, i8 -105, i8 61, i8 -37, i8 -90, i8 -67, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.876, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.877, i8 -114, i8 -73, i8 -64, i8 54, i8 -112, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.878, i8 -126, i8 -5, i8 -118, i8 2, i8 -127, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.879, i8 119, i8 -4, i8 108, i8 1, i8 108, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.880, i8 117, i8 -5, i8 70, i8 1, i8 70, i8 54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.881, i8 18, i8 -18, i8 127, i8 127, i8 59, i8 8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.882, i8 -61, i8 -1, i8 75, i8 45, i8 0, i8 75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.883, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.884, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.885, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.886, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.887, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.888, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.889, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.890, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.891, i8 18, i8 -18, i8 127, i8 127, i8 59, i8 8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.892, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.893, i8 -61, i8 -1, i8 75, i8 45, i8 0, i8 75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.894, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.895, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.896, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.897, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.898, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.899, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.900, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.901, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.902, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.903, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.904, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.905, i8 17, i8 -3, i8 -26, i8 -26, i8 97, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.906, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.907, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.908, i8 -71, i8 -101, i8 -103, i8 94, i8 60, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.909, i8 17, i8 -3, i8 -26, i8 -26, i8 97, i8 1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.910, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.911, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.912, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.913, i8 -71, i8 -101, i8 -103, i8 94, i8 60, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.914, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.915, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.916, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.917, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.918, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.919, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.920, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.921, i8 23, i8 -69, i8 -15, i8 -15, i8 -93, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.922, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.923, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.924, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.925, i8 -78, i8 69, i8 -61, i8 -103, i8 -114, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.926, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.927, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.928, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.929, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.930, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.931, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.932, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.933, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.934, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.935, i8 20, i8 -10, i8 -77, i8 -77, i8 88, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.936, i8 22, i8 -24, i8 -32, i8 -32, i8 -126, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.937, i8 23, i8 -101, i8 -3, i8 -3, i8 -72, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.938, i8 24, i8 72, i8 -2, i8 -2, i8 -32, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.939, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.940, i8 -91, i8 20, i8 -21, i8 -40, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.941, i8 -79, i8 47, i8 -46, i8 -78, i8 -85, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.942, i8 -77, i8 84, i8 -84, i8 -128, i8 115, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.943, i8 -67, i8 -75, i8 -120, i8 84, i8 39, i8 -120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.944, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.945, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.946, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.947, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.948, i8 -45, i8 41, i8 -40, i8 -41, i8 -75, i8 -40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.949, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.950, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.951, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.952, i8 -45, i8 41, i8 -40, i8 -41, i8 -75, i8 -40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.953, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.954, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.955, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.956, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.957, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.958, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.959, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.960, i8 -22, i8 -34, i8 -35, i8 -35, i8 28, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.961, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.962, i8 -71, i8 8, i8 -10, i8 -15, i8 -18, i8 -10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.963, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.964, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.965, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.966, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.967, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.968, i8 -20, i8 -1, i8 -111, i8 -111, i8 0, i8 63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.969, i8 -61, i8 5, i8 -7, i8 -9, i8 -12, i8 -7, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.970, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.971, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.972, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.973, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.974, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.975, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.976, i8 -20, i8 -1, i8 -111, i8 -111, i8 0, i8 63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.977, i8 -61, i8 5, i8 -7, i8 -9, i8 -12, i8 -7, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.978, i8 -68, i8 14, i8 -17, i8 -25, i8 -31, i8 -17, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.979, i8 -52, i8 38, i8 -38, i8 -44, i8 -71, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.980, i8 -42, i8 67, i8 -55, i8 -55, i8 -108, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.981, i8 -28, i8 -117, i8 -33, i8 -33, i8 101, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.982, i8 -23, i8 -47, i8 -25, i8 -25, i8 41, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.983, i8 -17, i8 -24, i8 -50, i8 -50, i8 18, i8 86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.984, i8 -20, i8 -1, i8 -104, i8 -104, i8 0, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.985, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.986, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.987, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.988, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.989, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.990, i8 -83, i8 28, i8 -30, i8 -53, i8 -55, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.991, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.992, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.993, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.994, i8 -83, i8 28, i8 -30, i8 -53, i8 -55, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.995, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.996, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.997, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.998, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.999, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1000, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1001, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1002, i8 -80, i8 100, i8 -79, i8 117, i8 107, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1003, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1004, i8 -74, i8 7, i8 -9, i8 -14, i8 -16, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1005, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1006, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1007, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1008, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1009, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1010, i8 -66, i8 -40, i8 -122, i8 74, i8 20, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1011, i8 -65, i8 2, i8 -3, i8 -4, i8 -5, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1012, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1013, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1014, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1015, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1016, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1017, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1018, i8 -66, i8 -40, i8 -122, i8 74, i8 20, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1019, i8 -65, i8 2, i8 -3, i8 -4, i8 -5, i8 -3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1020, i8 -76, i8 8, i8 -11, i8 -17, i8 -19, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1021, i8 -86, i8 18, i8 -21, i8 -38, i8 -38, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1022, i8 -88, i8 37, i8 -36, i8 -68, i8 -67, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1023, i8 -83, i8 58, i8 -56, i8 -98, i8 -102, i8 -56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1024, i8 -84, i8 83, i8 -70, i8 -128, i8 125, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1025, i8 -74, i8 -128, i8 -93, i8 106, i8 81, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1026, i8 -68, i8 -71, i8 -113, i8 84, i8 39, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1027, i8 -65, i8 -1, i8 125, i8 63, i8 0, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1028, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1029, i8 -106, i8 -15, i8 97, i8 5, i8 48, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1030, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1031, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1032, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1033, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1034, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1035, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1036, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1037, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1038, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1039, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1040, i8 -106, i8 -15, i8 97, i8 5, i8 48, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1041, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1042, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1043, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1044, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1045, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1046, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1047, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1048, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1049, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1050, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1051, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1052, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1053, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1054, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1055, i8 -113, i8 -9, i8 -80, i8 5, i8 113, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1056, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1057, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1058, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1059, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1060, i8 -113, i8 -9, i8 -80, i8 5, i8 113, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1061, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1062, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1063, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1064, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1065, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1066, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1067, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1068, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1069, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1070, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1071, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1072, i8 -113, i8 -128, i8 -49, i8 103, i8 -87, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1073, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1074, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1075, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1076, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1077, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1078, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1079, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1080, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1081, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1082, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1083, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1084, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1085, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1086, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1087, i8 -114, i8 32, i8 -16, i8 -47, i8 -27, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1088, i8 -115, i8 87, i8 -34, i8 -110, i8 -59, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1089, i8 -113, i8 -89, i8 -61, i8 67, i8 -109, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1090, i8 -108, i8 -50, i8 -84, i8 33, i8 102, i8 -84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1091, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1092, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1093, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1094, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1095, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1096, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1097, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1098, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1099, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1100, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1101, i8 -14, i8 -1, i8 103, i8 103, i8 0, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1102, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1103, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1104, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1105, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1106, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1107, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1108, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1109, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1110, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1111, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1112, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1113, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1114, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1115, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1116, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1117, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1118, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1119, i8 -8, i8 -1, i8 -54, i8 -54, i8 0, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1120, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1121, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1122, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1123, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1124, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1125, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1126, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1127, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1128, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1129, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1130, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1131, i8 12, i8 -106, i8 -17, i8 -17, i8 -118, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1132, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1133, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1134, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1135, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1136, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1137, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1138, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1139, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1140, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1141, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1142, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1143, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1144, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1145, i8 -7, i8 -36, i8 -78, i8 -78, i8 24, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1146, i8 5, i8 -93, i8 -42, i8 -42, i8 96, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1147, i8 13, i8 119, i8 -12, i8 -12, i8 -91, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1148, i8 15, i8 54, i8 -3, i8 -3, i8 -37, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1149, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1150, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1151, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1152, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1153, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1154, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1155, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1156, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1157, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1158, i8 -4, i8 72, i8 -5, i8 -5, i8 -76, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1159, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1160, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1161, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1162, i8 -4, i8 72, i8 -5, i8 -5, i8 -76, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1163, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1164, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1165, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1166, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1167, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1168, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1169, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1170, i8 -29, i8 -36, i8 -59, i8 -59, i8 27, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1171, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1172, i8 13, i8 28, i8 -2, i8 -2, i8 -21, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1173, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1174, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1175, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1176, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1177, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1178, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1179, i8 14, i8 12, i8 -1, i8 -1, i8 -9, i8 -13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1180, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1181, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1182, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1183, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1184, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1185, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1186, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1187, i8 14, i8 12, i8 -1, i8 -1, i8 -9, i8 -13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1188, i8 3, i8 32, i8 -3, i8 -3, i8 -32, i8 -35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1189, i8 3, i8 60, i8 -4, i8 -4, i8 -59, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1190, i8 -12, i8 92, i8 -6, i8 -6, i8 -97, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1191, i8 -18, i8 -109, i8 -9, i8 -9, i8 104, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1192, i8 -26, i8 -61, i8 -35, i8 -35, i8 52, i8 -105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1193, i8 -32, i8 -3, i8 -82, i8 -82, i8 1, i8 126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1194, i8 -43, i8 -4, i8 122, i8 122, i8 1, i8 119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1195, i8 -57, i8 -1, i8 106, i8 73, i8 0, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1196, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1197, i8 -89, i8 -85, i8 -107, i8 49, i8 54, i8 -107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1198, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1199, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1200, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1201, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1202, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1203, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1204, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1205, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1206, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1207, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1208, i8 -89, i8 -85, i8 -107, i8 49, i8 54, i8 -107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1209, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1210, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1211, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1212, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1213, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1214, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1215, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1216, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1217, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1218, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1219, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1220, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1221, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1222, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1223, i8 -111, i8 -63, i8 -74, i8 44, i8 123, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1224, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1225, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1226, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1227, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1228, i8 -111, i8 -63, i8 -74, i8 44, i8 123, i8 -74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1229, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1230, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1231, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1232, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1233, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1234, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1235, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1236, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1237, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1238, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1239, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1240, i8 -113, i8 86, i8 -37, i8 -111, i8 -65, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1241, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1242, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1243, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1244, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1245, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1246, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1247, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1248, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1249, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1250, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1251, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1252, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1253, i8 30, i8 110, i8 -2, i8 -2, i8 -32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1254, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1255, i8 -120, i8 24, i8 -8, i8 -32, i8 -13, i8 -8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1256, i8 -118, i8 67, i8 -23, i8 -85, i8 -39, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1257, i8 -113, i8 113, i8 -47, i8 116, i8 -83, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1258, i8 -105, i8 -99, i8 -76, i8 69, i8 117, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1259, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1260, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1261, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1262, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1263, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1264, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1265, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1266, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1267, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1268, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1269, i8 -11, i8 -1, i8 -91, i8 -91, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1270, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1271, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1272, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1273, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1274, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1275, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1276, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1277, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1278, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1279, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1280, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1281, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1282, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1283, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1284, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1285, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1286, i8 98, i8 -46, i8 -106, i8 26, i8 -106, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1287, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1288, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1289, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1290, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1291, i8 98, i8 -46, i8 -106, i8 26, i8 -106, i8 65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1292, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1293, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1294, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1295, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1296, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1297, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1298, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1299, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1300, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1301, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1302, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1303, i8 66, i8 -120, i8 -49, i8 -111, i8 -49, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1304, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1305, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1306, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1307, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1308, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1309, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1310, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1311, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1312, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1313, i8 2, i8 -48, i8 -41, i8 -41, i8 48, i8 39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1314, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1315, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1316, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1317, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1318, i8 51, i8 106, i8 -17, i8 -39, i8 -17, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1319, i8 62, i8 -126, i8 -39, i8 -90, i8 -39, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1320, i8 83, i8 121, i8 -67, i8 102, i8 -67, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1321, i8 103, i8 -45, i8 -104, i8 26, i8 -104, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1322, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1323, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1324, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1325, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1326, i8 11, i8 108, i8 -4, i8 -4, i8 -82, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1327, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1328, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1329, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1330, i8 11, i8 108, i8 -4, i8 -4, i8 -82, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1331, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1332, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1333, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1334, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1335, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1336, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1337, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1338, i8 1, i8 -45, i8 -34, i8 -34, i8 45, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1339, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1340, i8 13, i8 37, i8 -2, i8 -2, i8 -27, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1341, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1342, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1343, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1344, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1345, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1346, i8 -5, i8 -1, i8 -103, i8 -103, i8 0, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1347, i8 14, i8 15, i8 -1, i8 -1, i8 -11, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1348, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1349, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1350, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1351, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1352, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1353, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1354, i8 -5, i8 -1, i8 -103, i8 -103, i8 0, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1355, i8 14, i8 15, i8 -1, i8 -1, i8 -11, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1356, i8 13, i8 44, i8 -2, i8 -2, i8 -32, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1357, i8 12, i8 92, i8 -4, i8 -4, i8 -69, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1358, i8 9, i8 -117, i8 -4, i8 -4, i8 -110, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1359, i8 7, i8 -77, i8 -5, i8 -5, i8 106, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1360, i8 3, i8 -48, i8 -17, i8 -17, i8 59, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1361, i8 -3, i8 -32, i8 -53, i8 -53, i8 24, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1362, i8 -3, i8 -25, i8 -91, i8 -91, i8 15, i8 21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1363, i8 -7, i8 -1, i8 103, i8 103, i8 0, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1364, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1365, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1366, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1367, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1368, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1369, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1370, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1371, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1372, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1373, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1374, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1375, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1376, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1377, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1378, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1379, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1380, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1381, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1382, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1383, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1384, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1385, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1386, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1387, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1388, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1389, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1390, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1391, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1392, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1393, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1394, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1395, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1396, i8 -24, i8 121, i8 -9, i8 -9, i8 -127, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1397, i8 -2, i8 -31, i8 -28, i8 -28, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1398, i8 -110, i8 -78, i8 -72, i8 55, i8 126, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1399, i8 83, i8 -109, i8 -81, i8 77, i8 -81, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1400, i8 -49, i8 -124, i8 -93, i8 -104, i8 78, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1401, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1402, i8 42, i8 -52, i8 -1, i8 -1, i8 -1, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1403, i8 15, i8 -63, i8 -90, i8 -90, i8 86, i8 40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1404, i8 -24, i8 121, i8 -9, i8 -9, i8 -127, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1405, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1406, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1407, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1408, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1409, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1410, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1411, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1412, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1413, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1414, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1415, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1416, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1417, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1418, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1419, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1420, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1421, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1422, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1423, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1424, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1425, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1426, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1427, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1428, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1429, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1430, i8 25, i8 90, i8 -27, i8 -27, i8 -60, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1431, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1432, i8 11, i8 -101, i8 -4, i8 -4, i8 -115, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1433, i8 -100, i8 77, i8 -53, i8 -115, i8 -96, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1434, i8 -28, i8 102, i8 -25, i8 -25, i8 -118, i8 -61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1435, i8 58, i8 -101, i8 -40, i8 -90, i8 -40, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1436, i8 34, i8 -48, i8 -1, i8 -1, i8 -39, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1437, i8 25, i8 90, i8 -27, i8 -27, i8 -60, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1438, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1439, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1440, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1441, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1442, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1443, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1444, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1445, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1446, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1447, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1448, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1449, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1450, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1451, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1452, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1453, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1454, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1455, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1456, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1457, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1458, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1459, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1460, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1461, i8 -45, i8 82, i8 -67, i8 -68, i8 -128, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1462, i8 77, i8 41, i8 -21, i8 -52, i8 -21, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1463, i8 37, i8 -112, i8 -1, i8 -1, i8 -19, i8 111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1464, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1465, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1466, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1467, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1468, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1469, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1470, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1471, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1472, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1473, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1474, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1475, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1476, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1477, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1478, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1479, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1480, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1481, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1482, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1483, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1484, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1485, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1486, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1487, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1488, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1489, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1490, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1491, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1492, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1493, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1494, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1495, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1496, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1497, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1498, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1499, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1500, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1501, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1502, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1503, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1504, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1505, i8 120, i8 84, i8 -45, i8 -115, i8 -45, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1506, i8 42, i8 76, i8 -1, i8 -1, i8 -1, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1507, i8 -81, i8 37, i8 -38, i8 -66, i8 -70, i8 -38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1508, i8 4, i8 -117, i8 -5, i8 -5, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1509, i8 -112, i8 100, i8 -45, i8 -128, i8 -79, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1510, i8 22, i8 -100, i8 -3, i8 -3, i8 -76, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1511, i8 58, i8 -122, i8 -34, i8 -77, i8 -34, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1512, i8 -23, i8 47, i8 -4, i8 -4, i8 -51, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1513, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1514, i8 -19, i8 -3, i8 -98, i8 -98, i8 1, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1515, i8 -79, i8 -126, i8 -94, i8 94, i8 79, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1516, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1517, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1518, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1519, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1520, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1521, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1522, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1523, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1524, i8 -19, i8 -3, i8 -98, i8 -98, i8 1, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1525, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1526, i8 -79, i8 -126, i8 -94, i8 94, i8 79, i8 -94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1527, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1528, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1529, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1530, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1531, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1532, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1533, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1534, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1535, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1536, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1537, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1538, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1539, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1540, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1541, i8 -113, i8 -60, i8 -70, i8 43, i8 -125, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1542, i8 -2, i8 -31, i8 -41, i8 -41, i8 25, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1543, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1544, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1545, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1546, i8 -113, i8 -60, i8 -70, i8 43, i8 -125, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1547, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1548, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1549, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1550, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1551, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1552, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1553, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1554, i8 13, i8 -92, i8 -4, i8 -4, i8 -115, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1555, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1556, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1557, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1558, i8 81, i8 77, i8 -43, i8 -103, i8 -43, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1559, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1560, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1561, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1562, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1563, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1564, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1565, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1566, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1567, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1568, i8 -6, i8 -76, i8 -43, i8 -43, i8 62, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1569, i8 10, i8 -72, i8 -12, i8 -12, i8 109, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1570, i8 20, i8 -99, i8 -3, i8 -3, i8 -82, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1571, i8 31, i8 115, i8 -2, i8 -2, i8 -32, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1572, i8 42, i8 64, i8 -1, i8 -1, i8 -1, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1573, i8 49, i8 96, i8 -11, i8 -26, i8 -11, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1574, i8 79, i8 65, i8 -35, i8 -85, i8 -35, i8 -92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1575, i8 114, i8 120, i8 -62, i8 102, i8 -62, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1576, i8 -113, i8 -69, i8 -67, i8 50, i8 -120, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1577, i8 -109, i8 15, i8 -1, i8 -16, i8 -8, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1578, i8 24, i8 35, i8 -6, i8 -6, i8 -21, i8 -41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1579, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1580, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1581, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1582, i8 42, i8 26, i8 -11, i8 -11, i8 -11, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1583, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1584, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1585, i8 25, i8 49, i8 -1, i8 -1, i8 -21, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1586, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1587, i8 -64, i8 -50, i8 -30, i8 -118, i8 43, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1588, i8 0, i8 -66, i8 -91, i8 -91, i8 42, i8 42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1589, i8 23, i8 99, i8 -34, i8 -34, i8 -72, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1590, i8 -128, i8 103, i8 -96, i8 95, i8 -98, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1591, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1592, i8 17, i8 -38, i8 -46, i8 -46, i8 105, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1593, i8 11, i8 -81, i8 -1, i8 -1, i8 127, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1594, i8 -102, i8 -109, i8 -19, i8 100, i8 -107, i8 -19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1595, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1596, i8 -10, i8 -25, i8 -36, i8 -36, i8 20, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1597, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1598, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1599, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1600, i8 30, i8 -17, i8 -72, i8 -72, i8 -122, i8 11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1601, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1602, i8 85, i8 -1, i8 100, i8 0, i8 100, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1603, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1604, i8 39, i8 110, i8 -67, i8 -67, i8 -73, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1605, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1606, i8 58, i8 -114, i8 107, i8 85, i8 107, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1607, i8 23, i8 -1, i8 -1, i8 -1, i8 -116, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1608, i8 -58, i8 -64, i8 -52, i8 -103, i8 50, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1609, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1610, i8 10, i8 121, i8 -23, i8 -23, i8 -106, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1611, i8 85, i8 61, i8 -68, i8 -113, i8 -68, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1612, i8 -81, i8 -113, i8 -117, i8 72, i8 61, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1613, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1614, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1615, i8 -128, i8 -1, i8 -47, i8 0, i8 -50, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1616, i8 -57, i8 -1, i8 -45, i8 -108, i8 0, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1617, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1618, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1619, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1620, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1621, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1622, i8 0, i8 -50, i8 -78, i8 -78, i8 34, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1623, i8 28, i8 15, i8 -1, i8 -1, i8 -6, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1624, i8 85, i8 -64, i8 -117, i8 34, i8 -117, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1625, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1626, i8 0, i8 0, i8 -36, i8 -36, i8 -36, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1627, i8 -86, i8 7, i8 -1, i8 -8, i8 -8, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1628, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1629, i8 30, i8 -39, i8 -38, i8 -38, i8 -91, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1630, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1631, i8 85, i8 -1, i8 -128, i8 0, i8 -128, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1632, i8 59, i8 -48, i8 -1, i8 -83, i8 -1, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1633, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1634, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1635, i8 -23, i8 -106, i8 -1, i8 -1, i8 105, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1636, i8 0, i8 -116, i8 -51, i8 -51, i8 92, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1637, i8 -62, i8 -1, i8 -126, i8 75, i8 0, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1638, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1639, i8 38, i8 106, i8 -16, i8 -16, i8 -26, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1640, i8 -86, i8 20, i8 -6, i8 -26, i8 -26, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1641, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1642, i8 64, i8 -1, i8 -4, i8 124, i8 -4, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1643, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1644, i8 -119, i8 63, i8 -26, i8 -83, i8 -40, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1645, i8 0, i8 119, i8 -16, i8 -16, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1646, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1647, i8 42, i8 40, i8 -6, i8 -6, i8 -6, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1648, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1649, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1650, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1651, i8 -8, i8 73, i8 -1, i8 -1, i8 -74, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1652, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1653, i8 125, i8 -47, i8 -78, i8 32, i8 -78, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1654, i8 -113, i8 117, i8 -6, i8 -121, i8 -50, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1655, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1656, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1657, i8 -105, i8 52, i8 -34, i8 -80, i8 -60, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1658, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1659, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1660, i8 85, i8 -64, i8 -51, i8 50, i8 -51, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1661, i8 21, i8 20, i8 -6, i8 -6, i8 -16, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1662, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1663, i8 0, i8 -1, i8 -128, i8 -128, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1664, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1665, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1666, i8 -52, i8 -104, i8 -45, i8 -70, i8 85, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1667, i8 -73, i8 124, i8 -37, i8 -109, i8 112, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1668, i8 103, i8 -87, i8 -77, i8 60, i8 -77, i8 113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1669, i8 -80, i8 -113, i8 -18, i8 123, i8 104, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1670, i8 111, i8 -1, i8 -6, i8 0, i8 -6, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1671, i8 125, i8 -89, i8 -47, i8 72, i8 -47, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1672, i8 -28, i8 -28, i8 -57, i8 -57, i8 21, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1673, i8 -86, i8 -58, i8 112, i8 25, i8 25, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1674, i8 106, i8 9, i8 -1, i8 -11, i8 -1, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1675, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1676, i8 26, i8 73, i8 -1, i8 -1, i8 -28, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1677, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1678, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1679, i8 27, i8 23, i8 -3, i8 -3, i8 -11, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1680, i8 42, i8 -1, i8 -128, i8 -128, i8 -128, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1681, i8 56, i8 -64, i8 -114, i8 107, i8 -114, i8 35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1682, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1683, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1684, i8 -42, i8 123, i8 -38, i8 -38, i8 112, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1685, i8 38, i8 72, i8 -18, i8 -18, i8 -24, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1686, i8 85, i8 100, i8 -5, i8 -104, i8 -5, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1687, i8 127, i8 67, i8 -18, i8 -81, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1688, i8 -15, i8 124, i8 -37, i8 -37, i8 112, i8 -109, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1689, i8 26, i8 41, i8 -1, i8 -1, i8 -17, i8 -43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1690, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1691, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1692, i8 -9, i8 63, i8 -1, i8 -1, i8 -64, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1693, i8 -44, i8 70, i8 -35, i8 -35, i8 -96, i8 -35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1694, i8 -124, i8 59, i8 -26, i8 -80, i8 -32, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1695, i8 -44, i8 -1, i8 -128, i8 -128, i8 0, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1696, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1697, i8 0, i8 61, i8 -68, i8 -68, i8 -113, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1698, i8 -97, i8 -75, i8 -31, i8 65, i8 105, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1699, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1700, i8 4, i8 -118, i8 -6, i8 -6, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1701, i8 19, i8 -102, i8 -12, i8 -12, i8 -92, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1702, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1703, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1704, i8 13, i8 -73, i8 -96, i8 -96, i8 82, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1705, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1706, i8 -117, i8 108, i8 -21, i8 -121, i8 -50, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1707, i8 -81, i8 -113, i8 -51, i8 106, i8 90, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1708, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1709, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1710, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1711, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1712, i8 -110, i8 -101, i8 -76, i8 70, i8 -126, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1713, i8 24, i8 84, i8 -46, i8 -46, i8 -76, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1714, i8 127, i8 -1, i8 -128, i8 0, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1715, i8 -44, i8 29, i8 -40, i8 -40, i8 -65, i8 -40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1716, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1717, i8 123, i8 -74, i8 -32, i8 64, i8 -32, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1718, i8 -44, i8 115, i8 -18, i8 -18, i8 -126, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1719, i8 27, i8 68, i8 -11, i8 -11, i8 -34, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1720, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1721, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1722, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1723, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1724, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1725, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1726, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1727, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1728, i8 62, i8 85, i8 -26, i8 -62, i8 -26, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1729, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1730, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1731, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1732, i8 62, i8 85, i8 -26, i8 -62, i8 -26, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1733, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1734, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1735, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1736, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1737, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1738, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1739, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1740, i8 98, i8 -78, i8 -93, i8 49, i8 -93, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1741, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1742, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1743, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1744, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1745, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1746, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1747, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1748, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1749, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1750, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1751, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1752, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1753, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1754, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1755, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1756, i8 108, i8 -1, i8 90, i8 0, i8 90, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1757, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1758, i8 45, i8 67, i8 -4, i8 -9, i8 -4, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1759, i8 55, i8 81, i8 -16, i8 -39, i8 -16, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1760, i8 68, i8 91, i8 -35, i8 -83, i8 -35, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1761, i8 85, i8 100, i8 -58, i8 120, i8 -58, i8 121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1762, i8 96, i8 -98, i8 -85, i8 65, i8 -85, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1763, i8 99, i8 -69, i8 -124, i8 35, i8 -124, i8 67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1764, i8 107, i8 -1, i8 104, i8 0, i8 104, i8 55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1765, i8 110, i8 -1, i8 69, i8 0, i8 69, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1766, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1767, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1768, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1769, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1770, i8 99, i8 66, i8 -38, i8 -95, i8 -38, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1771, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1772, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1773, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1774, i8 99, i8 66, i8 -38, i8 -95, i8 -38, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1775, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1776, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1777, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1778, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1779, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1780, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1781, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1782, i8 -112, i8 -62, i8 -72, i8 44, i8 127, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1783, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1784, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1785, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1786, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1787, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1788, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1789, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1790, i8 -98, i8 -25, i8 -124, i8 12, i8 44, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1791, i8 42, i8 38, i8 -1, i8 -1, i8 -1, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1792, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1793, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1794, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1795, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1796, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1797, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1798, i8 -98, i8 -25, i8 -124, i8 12, i8 44, i8 -124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1799, i8 42, i8 38, i8 -1, i8 -1, i8 -1, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1800, i8 49, i8 73, i8 -8, i8 -19, i8 -8, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1801, i8 69, i8 58, i8 -23, i8 -57, i8 -23, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1802, i8 117, i8 97, i8 -51, i8 127, i8 -51, i8 -69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1803, i8 -124, i8 -86, i8 -60, i8 65, i8 -74, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1804, i8 -117, i8 -40, i8 -64, i8 29, i8 -111, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1805, i8 -106, i8 -53, i8 -88, i8 34, i8 94, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1806, i8 -92, i8 -65, i8 -108, i8 37, i8 52, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1807, i8 -98, i8 -25, i8 88, i8 8, i8 29, i8 88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1808, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1809, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1810, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1811, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1812, i8 28, i8 112, i8 -2, i8 -2, i8 -39, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1813, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1814, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1815, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1816, i8 28, i8 112, i8 -2, i8 -2, i8 -39, i8 -114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1817, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1818, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1819, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1820, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1821, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1822, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1823, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1824, i8 16, i8 -18, i8 -39, i8 -39, i8 95, i8 14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1825, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1826, i8 42, i8 42, i8 -1, i8 -1, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1827, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1828, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1829, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1830, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1831, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1832, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1833, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1834, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1835, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1836, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1837, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1838, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1839, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1840, i8 12, i8 -9, i8 -116, i8 -116, i8 45, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1841, i8 42, i8 25, i8 -1, i8 -1, i8 -1, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1842, i8 37, i8 66, i8 -1, i8 -1, i8 -9, i8 -68, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1843, i8 31, i8 109, i8 -2, i8 -2, i8 -29, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1844, i8 28, i8 -81, i8 -2, i8 -2, i8 -60, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1845, i8 22, i8 -43, i8 -2, i8 -2, i8 -103, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1846, i8 18, i8 -23, i8 -20, i8 -20, i8 112, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1847, i8 15, i8 -4, i8 -52, i8 -52, i8 76, i8 2, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1848, i8 13, i8 -8, i8 -103, i8 -103, i8 52, i8 4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1849, i8 13, i8 -16, i8 102, i8 102, i8 37, i8 6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1850, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1851, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1852, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1853, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1854, i8 29, i8 -94, i8 -2, i8 -2, i8 -52, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1855, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1856, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1857, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1858, i8 29, i8 -94, i8 -2, i8 -2, i8 -52, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1859, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1860, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1861, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1862, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1863, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1864, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1865, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1866, i8 5, i8 -35, i8 -16, i8 -16, i8 59, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1867, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1868, i8 42, i8 77, i8 -1, i8 -1, i8 -1, i8 -78, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1869, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1870, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1871, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1872, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1873, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1874, i8 -11, i8 -1, i8 -79, i8 -79, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1875, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1876, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1877, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1878, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1879, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1880, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1881, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1882, i8 -11, i8 -1, i8 -79, i8 -79, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1883, i8 42, i8 50, i8 -1, i8 -1, i8 -1, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1884, i8 34, i8 95, i8 -1, i8 -1, i8 -19, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1885, i8 30, i8 -120, i8 -2, i8 -2, i8 -39, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1886, i8 24, i8 -78, i8 -2, i8 -2, i8 -78, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1887, i8 17, i8 -62, i8 -3, i8 -3, i8 -115, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1888, i8 7, i8 -44, i8 -4, i8 -4, i8 78, i8 42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1889, i8 -2, i8 -31, i8 -29, i8 -29, i8 26, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1890, i8 -10, i8 -1, i8 -67, i8 -67, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1891, i8 -14, i8 -1, i8 -128, i8 -128, i8 0, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1892, i8 -109, i8 15, i8 -1, i8 -16, i8 -8, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1893, i8 24, i8 35, i8 -6, i8 -6, i8 -21, i8 -41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1894, i8 23, i8 36, i8 -1, i8 -1, i8 -17, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1895, i8 23, i8 36, i8 -18, i8 -18, i8 -33, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1896, i8 23, i8 36, i8 -51, i8 -51, i8 -64, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1897, i8 24, i8 34, i8 -117, i8 -117, i8 -125, i8 120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1898, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1899, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1900, i8 113, i8 -128, i8 -1, i8 127, i8 -1, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1901, i8 113, i8 -128, i8 -18, i8 118, i8 -18, i8 -58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1902, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1903, i8 113, i8 -128, i8 -117, i8 69, i8 -117, i8 116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1904, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1905, i8 127, i8 15, i8 -1, i8 -16, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1906, i8 127, i8 15, i8 -18, i8 -32, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1907, i8 127, i8 14, i8 -51, i8 -63, i8 -51, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1908, i8 127, i8 14, i8 -117, i8 -125, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1909, i8 42, i8 26, i8 -11, i8 -11, i8 -11, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1910, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1911, i8 23, i8 58, i8 -1, i8 -1, i8 -28, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1912, i8 23, i8 58, i8 -18, i8 -18, i8 -43, i8 -73, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1913, i8 22, i8 58, i8 -51, i8 -51, i8 -73, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1914, i8 23, i8 58, i8 -117, i8 -117, i8 125, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.51, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1915, i8 25, i8 49, i8 -1, i8 -1, i8 -21, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1916, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1917, i8 -86, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1918, i8 -86, i8 -1, i8 -18, i8 0, i8 0, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1919, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1920, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1921, i8 -64, i8 -50, i8 -30, i8 -118, i8 43, i8 -30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1922, i8 0, i8 -66, i8 -91, i8 -91, i8 42, i8 42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1923, i8 0, i8 -65, i8 -1, i8 -1, i8 64, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1924, i8 0, i8 -65, i8 -18, i8 -18, i8 59, i8 59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1925, i8 0, i8 -65, i8 -51, i8 -51, i8 51, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1926, i8 0, i8 -66, i8 -117, i8 -117, i8 35, i8 35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1927, i8 23, i8 99, i8 -34, i8 -34, i8 -72, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1928, i8 23, i8 100, i8 -1, i8 -1, i8 -45, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1929, i8 23, i8 99, i8 -18, i8 -18, i8 -59, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1930, i8 23, i8 99, i8 -51, i8 -51, i8 -86, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1931, i8 23, i8 99, i8 -117, i8 -117, i8 115, i8 85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1932, i8 -128, i8 103, i8 -96, i8 95, i8 -98, i8 -96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1933, i8 -125, i8 103, i8 -1, i8 -104, i8 -11, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1934, i8 -125, i8 102, i8 -18, i8 -114, i8 -27, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1935, i8 -125, i8 103, i8 -51, i8 122, i8 -59, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1936, i8 -125, i8 102, i8 -117, i8 83, i8 -122, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1937, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1938, i8 63, i8 -1, i8 -1, i8 127, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1939, i8 63, i8 -1, i8 -18, i8 118, i8 -18, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1940, i8 63, i8 -1, i8 -51, i8 102, i8 -51, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1941, i8 63, i8 -1, i8 -117, i8 69, i8 -117, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1942, i8 17, i8 -38, i8 -46, i8 -46, i8 105, i8 30, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1943, i8 17, i8 -37, i8 -1, i8 -1, i8 127, i8 36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1944, i8 17, i8 -37, i8 -18, i8 -18, i8 118, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1945, i8 17, i8 -38, i8 -51, i8 -51, i8 102, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1946, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1947, i8 11, i8 -81, i8 -1, i8 -1, i8 127, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1948, i8 7, i8 -87, i8 -1, i8 -1, i8 114, i8 86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1949, i8 6, i8 -87, i8 -18, i8 -18, i8 106, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1950, i8 6, i8 -87, i8 -51, i8 -51, i8 91, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1951, i8 6, i8 -88, i8 -117, i8 -117, i8 62, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1952, i8 -102, i8 -109, i8 -19, i8 100, i8 -107, i8 -19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1953, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1954, i8 33, i8 34, i8 -1, i8 -1, i8 -8, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1955, i8 34, i8 35, i8 -18, i8 -18, i8 -24, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1956, i8 34, i8 34, i8 -51, i8 -51, i8 -56, i8 -79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1957, i8 35, i8 34, i8 -117, i8 -117, i8 -120, i8 120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1958, i8 -10, i8 -25, i8 -36, i8 -36, i8 20, i8 60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1959, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1960, i8 127, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1961, i8 127, i8 -1, i8 -18, i8 0, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1962, i8 127, i8 -1, i8 -51, i8 0, i8 -51, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1963, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1964, i8 -86, i8 -1, i8 -117, i8 0, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1965, i8 127, i8 -1, i8 -117, i8 0, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1966, i8 30, i8 -17, i8 -72, i8 -72, i8 -122, i8 11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1967, i8 30, i8 -16, i8 -1, i8 -1, i8 -71, i8 15, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1968, i8 30, i8 -16, i8 -18, i8 -18, i8 -83, i8 14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1969, i8 30, i8 -16, i8 -51, i8 -51, i8 -107, i8 12, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1970, i8 30, i8 -16, i8 -117, i8 -117, i8 101, i8 8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1971, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1972, i8 85, i8 -1, i8 100, i8 0, i8 100, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1973, i8 0, i8 0, i8 -87, i8 -87, i8 -87, i8 -87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1974, i8 39, i8 110, i8 -67, i8 -67, i8 -73, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1975, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1976, i8 58, i8 -114, i8 107, i8 85, i8 107, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1977, i8 58, i8 -113, i8 -1, i8 -54, i8 -1, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1978, i8 58, i8 -113, i8 -18, i8 -68, i8 -18, i8 104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1979, i8 58, i8 -113, i8 -51, i8 -94, i8 -51, i8 90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1980, i8 58, i8 -113, i8 -117, i8 110, i8 -117, i8 61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1981, i8 23, i8 -1, i8 -1, i8 -1, i8 -116, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1982, i8 21, i8 -1, i8 -1, i8 -1, i8 127, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1983, i8 21, i8 -1, i8 -18, i8 -18, i8 118, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1984, i8 21, i8 -1, i8 -51, i8 -51, i8 102, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1985, i8 21, i8 -1, i8 -117, i8 -117, i8 69, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1986, i8 -58, i8 -64, i8 -52, i8 -103, i8 50, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1987, i8 -58, i8 -63, i8 -1, i8 -65, i8 62, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1988, i8 -58, i8 -64, i8 -18, i8 -78, i8 58, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1989, i8 -58, i8 -64, i8 -51, i8 -102, i8 50, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1990, i8 -58, i8 -64, i8 -117, i8 104, i8 34, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1991, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1992, i8 10, i8 121, i8 -23, i8 -23, i8 -106, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1993, i8 85, i8 61, i8 -68, i8 -113, i8 -68, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1994, i8 85, i8 62, i8 -1, i8 -63, i8 -1, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1995, i8 85, i8 62, i8 -18, i8 -76, i8 -18, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1996, i8 85, i8 62, i8 -51, i8 -101, i8 -51, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1997, i8 85, i8 62, i8 -117, i8 105, i8 -117, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1998, i8 -81, i8 -113, i8 -117, i8 72, i8 61, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.1999, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2000, i8 127, i8 104, i8 -1, i8 -105, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2001, i8 127, i8 103, i8 -18, i8 -115, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2002, i8 127, i8 104, i8 -51, i8 121, i8 -51, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2003, i8 127, i8 104, i8 -117, i8 82, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2004, i8 127, i8 103, i8 79, i8 47, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2005, i8 -128, i8 -1, i8 -47, i8 0, i8 -50, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2006, i8 -57, i8 -1, i8 -45, i8 -108, i8 0, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2007, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2008, i8 -24, i8 -21, i8 -1, i8 -1, i8 20, i8 -109, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2009, i8 -24, i8 -21, i8 -18, i8 -18, i8 18, i8 -119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2010, i8 -24, i8 -21, i8 -51, i8 -51, i8 16, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2011, i8 -25, i8 -20, i8 -117, i8 -117, i8 10, i8 80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2012, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2013, i8 -118, i8 -1, i8 -1, i8 0, i8 -65, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2014, i8 -118, i8 -1, i8 -18, i8 0, i8 -78, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2015, i8 -118, i8 -1, i8 -51, i8 0, i8 -102, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2016, i8 -118, i8 -1, i8 -117, i8 0, i8 104, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2017, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2018, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2019, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2020, i8 -108, i8 -31, i8 -1, i8 30, i8 -112, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2021, i8 -108, i8 -31, i8 -18, i8 28, i8 -122, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2022, i8 -108, i8 -31, i8 -51, i8 24, i8 116, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2023, i8 -108, i8 -31, i8 -117, i8 16, i8 78, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2024, i8 0, i8 -50, i8 -78, i8 -78, i8 34, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2025, i8 0, i8 -49, i8 -1, i8 -1, i8 48, i8 48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2026, i8 0, i8 -49, i8 -18, i8 -18, i8 44, i8 44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2027, i8 0, i8 -49, i8 -51, i8 -51, i8 38, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2028, i8 0, i8 -49, i8 -117, i8 -117, i8 26, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2029, i8 28, i8 15, i8 -1, i8 -1, i8 -6, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2030, i8 85, i8 -64, i8 -117, i8 34, i8 -117, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2031, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2032, i8 0, i8 0, i8 -36, i8 -36, i8 -36, i8 -36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2033, i8 -86, i8 7, i8 -1, i8 -8, i8 -8, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2034, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2035, i8 35, i8 -1, i8 -1, i8 -1, i8 -41, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2036, i8 35, i8 -1, i8 -18, i8 -18, i8 -55, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2037, i8 35, i8 -1, i8 -51, i8 -51, i8 -83, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2038, i8 35, i8 -1, i8 -117, i8 -117, i8 117, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2039, i8 30, i8 -39, i8 -38, i8 -38, i8 -91, i8 32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2040, i8 30, i8 -38, i8 -1, i8 -1, i8 -63, i8 37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2041, i8 30, i8 -38, i8 -18, i8 -18, i8 -76, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2042, i8 30, i8 -38, i8 -51, i8 -51, i8 -101, i8 29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2043, i8 30, i8 -38, i8 -117, i8 -117, i8 105, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2044, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2045, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2046, i8 0, i8 0, i8 3, i8 3, i8 3, i8 3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2047, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2048, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2049, i8 0, i8 0, i8 28, i8 28, i8 28, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2050, i8 0, i8 0, i8 31, i8 31, i8 31, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2051, i8 0, i8 0, i8 33, i8 33, i8 33, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2052, i8 0, i8 0, i8 36, i8 36, i8 36, i8 36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2053, i8 0, i8 0, i8 38, i8 38, i8 38, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2054, i8 0, i8 0, i8 41, i8 41, i8 41, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2055, i8 0, i8 0, i8 43, i8 43, i8 43, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2056, i8 0, i8 0, i8 46, i8 46, i8 46, i8 46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2057, i8 0, i8 0, i8 48, i8 48, i8 48, i8 48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2058, i8 0, i8 0, i8 5, i8 5, i8 5, i8 5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2059, i8 0, i8 0, i8 51, i8 51, i8 51, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2060, i8 0, i8 0, i8 54, i8 54, i8 54, i8 54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2061, i8 0, i8 0, i8 56, i8 56, i8 56, i8 56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2062, i8 0, i8 0, i8 59, i8 59, i8 59, i8 59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2063, i8 0, i8 0, i8 61, i8 61, i8 61, i8 61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2064, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2065, i8 0, i8 0, i8 66, i8 66, i8 66, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2066, i8 0, i8 0, i8 69, i8 69, i8 69, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2067, i8 0, i8 0, i8 71, i8 71, i8 71, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2068, i8 0, i8 0, i8 74, i8 74, i8 74, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2069, i8 0, i8 0, i8 8, i8 8, i8 8, i8 8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2070, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2071, i8 0, i8 0, i8 79, i8 79, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2072, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2073, i8 0, i8 0, i8 84, i8 84, i8 84, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2074, i8 0, i8 0, i8 87, i8 87, i8 87, i8 87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2075, i8 0, i8 0, i8 89, i8 89, i8 89, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2076, i8 0, i8 0, i8 92, i8 92, i8 92, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2077, i8 0, i8 0, i8 94, i8 94, i8 94, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2078, i8 0, i8 0, i8 97, i8 97, i8 97, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2079, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2080, i8 0, i8 0, i8 10, i8 10, i8 10, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2081, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2082, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2083, i8 0, i8 0, i8 107, i8 107, i8 107, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2084, i8 0, i8 0, i8 110, i8 110, i8 110, i8 110, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2085, i8 0, i8 0, i8 112, i8 112, i8 112, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2086, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2087, i8 0, i8 0, i8 117, i8 117, i8 117, i8 117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2088, i8 0, i8 0, i8 120, i8 120, i8 120, i8 120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2089, i8 0, i8 0, i8 122, i8 122, i8 122, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2090, i8 0, i8 0, i8 125, i8 125, i8 125, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2091, i8 0, i8 0, i8 13, i8 13, i8 13, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2092, i8 0, i8 0, i8 127, i8 127, i8 127, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2093, i8 0, i8 0, i8 -126, i8 -126, i8 -126, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2094, i8 0, i8 0, i8 -123, i8 -123, i8 -123, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2095, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2096, i8 0, i8 0, i8 -118, i8 -118, i8 -118, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2097, i8 0, i8 0, i8 -116, i8 -116, i8 -116, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2098, i8 0, i8 0, i8 -113, i8 -113, i8 -113, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2099, i8 0, i8 0, i8 -111, i8 -111, i8 -111, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2100, i8 0, i8 0, i8 -108, i8 -108, i8 -108, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2101, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2102, i8 0, i8 0, i8 15, i8 15, i8 15, i8 15, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2103, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2104, i8 0, i8 0, i8 -100, i8 -100, i8 -100, i8 -100, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2105, i8 0, i8 0, i8 -98, i8 -98, i8 -98, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2106, i8 0, i8 0, i8 -95, i8 -95, i8 -95, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2107, i8 0, i8 0, i8 -93, i8 -93, i8 -93, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2108, i8 0, i8 0, i8 -90, i8 -90, i8 -90, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2109, i8 0, i8 0, i8 -88, i8 -88, i8 -88, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2110, i8 0, i8 0, i8 -85, i8 -85, i8 -85, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2111, i8 0, i8 0, i8 -83, i8 -83, i8 -83, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2112, i8 0, i8 0, i8 -80, i8 -80, i8 -80, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2113, i8 0, i8 0, i8 18, i8 18, i8 18, i8 18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2114, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2115, i8 0, i8 0, i8 -75, i8 -75, i8 -75, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2116, i8 0, i8 0, i8 -72, i8 -72, i8 -72, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2117, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2118, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2119, i8 0, i8 0, i8 -65, i8 -65, i8 -65, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2120, i8 0, i8 0, i8 -62, i8 -62, i8 -62, i8 -62, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2121, i8 0, i8 0, i8 -60, i8 -60, i8 -60, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2122, i8 0, i8 0, i8 -57, i8 -57, i8 -57, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2123, i8 0, i8 0, i8 -55, i8 -55, i8 -55, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2124, i8 0, i8 0, i8 20, i8 20, i8 20, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2125, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2126, i8 0, i8 0, i8 -49, i8 -49, i8 -49, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2127, i8 0, i8 0, i8 -47, i8 -47, i8 -47, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2128, i8 0, i8 0, i8 -44, i8 -44, i8 -44, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2129, i8 0, i8 0, i8 -42, i8 -42, i8 -42, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2130, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2131, i8 0, i8 0, i8 -37, i8 -37, i8 -37, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2132, i8 0, i8 0, i8 -34, i8 -34, i8 -34, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2133, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2134, i8 0, i8 0, i8 -29, i8 -29, i8 -29, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2135, i8 0, i8 0, i8 23, i8 23, i8 23, i8 23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2136, i8 0, i8 0, i8 -27, i8 -27, i8 -27, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2137, i8 0, i8 0, i8 -24, i8 -24, i8 -24, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2138, i8 0, i8 0, i8 -21, i8 -21, i8 -21, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2139, i8 0, i8 0, i8 -19, i8 -19, i8 -19, i8 -19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2140, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2141, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2142, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2143, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2144, i8 0, i8 0, i8 -6, i8 -6, i8 -6, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2145, i8 0, i8 0, i8 -4, i8 -4, i8 -4, i8 -4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2146, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2147, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2148, i8 85, i8 -1, i8 -18, i8 0, i8 -18, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2149, i8 85, i8 -1, i8 -51, i8 0, i8 -51, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2150, i8 85, i8 -1, i8 -117, i8 0, i8 -117, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2151, i8 59, i8 -48, i8 -1, i8 -83, i8 -1, i8 47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2152, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2153, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2154, i8 0, i8 0, i8 3, i8 3, i8 3, i8 3, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2155, i8 0, i8 0, i8 26, i8 26, i8 26, i8 26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2156, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2157, i8 0, i8 0, i8 28, i8 28, i8 28, i8 28, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2158, i8 0, i8 0, i8 31, i8 31, i8 31, i8 31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2159, i8 0, i8 0, i8 33, i8 33, i8 33, i8 33, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2160, i8 0, i8 0, i8 36, i8 36, i8 36, i8 36, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2161, i8 0, i8 0, i8 38, i8 38, i8 38, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2162, i8 0, i8 0, i8 41, i8 41, i8 41, i8 41, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2163, i8 0, i8 0, i8 43, i8 43, i8 43, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2164, i8 0, i8 0, i8 46, i8 46, i8 46, i8 46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2165, i8 0, i8 0, i8 48, i8 48, i8 48, i8 48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2166, i8 0, i8 0, i8 5, i8 5, i8 5, i8 5, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2167, i8 0, i8 0, i8 51, i8 51, i8 51, i8 51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2168, i8 0, i8 0, i8 54, i8 54, i8 54, i8 54, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2169, i8 0, i8 0, i8 56, i8 56, i8 56, i8 56, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2170, i8 0, i8 0, i8 59, i8 59, i8 59, i8 59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2171, i8 0, i8 0, i8 61, i8 61, i8 61, i8 61, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2172, i8 0, i8 0, i8 64, i8 64, i8 64, i8 64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2173, i8 0, i8 0, i8 66, i8 66, i8 66, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2174, i8 0, i8 0, i8 69, i8 69, i8 69, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2175, i8 0, i8 0, i8 71, i8 71, i8 71, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2176, i8 0, i8 0, i8 74, i8 74, i8 74, i8 74, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2177, i8 0, i8 0, i8 8, i8 8, i8 8, i8 8, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2178, i8 0, i8 0, i8 77, i8 77, i8 77, i8 77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2179, i8 0, i8 0, i8 79, i8 79, i8 79, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2180, i8 0, i8 0, i8 82, i8 82, i8 82, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2181, i8 0, i8 0, i8 84, i8 84, i8 84, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2182, i8 0, i8 0, i8 87, i8 87, i8 87, i8 87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2183, i8 0, i8 0, i8 89, i8 89, i8 89, i8 89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2184, i8 0, i8 0, i8 92, i8 92, i8 92, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2185, i8 0, i8 0, i8 94, i8 94, i8 94, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2186, i8 0, i8 0, i8 97, i8 97, i8 97, i8 97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2187, i8 0, i8 0, i8 99, i8 99, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2188, i8 0, i8 0, i8 10, i8 10, i8 10, i8 10, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2189, i8 0, i8 0, i8 102, i8 102, i8 102, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2190, i8 0, i8 0, i8 105, i8 105, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2191, i8 0, i8 0, i8 107, i8 107, i8 107, i8 107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2192, i8 0, i8 0, i8 110, i8 110, i8 110, i8 110, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2193, i8 0, i8 0, i8 112, i8 112, i8 112, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2194, i8 0, i8 0, i8 115, i8 115, i8 115, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2195, i8 0, i8 0, i8 117, i8 117, i8 117, i8 117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2196, i8 0, i8 0, i8 120, i8 120, i8 120, i8 120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2197, i8 0, i8 0, i8 122, i8 122, i8 122, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2198, i8 0, i8 0, i8 125, i8 125, i8 125, i8 125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2199, i8 0, i8 0, i8 13, i8 13, i8 13, i8 13, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2200, i8 0, i8 0, i8 127, i8 127, i8 127, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2201, i8 0, i8 0, i8 -126, i8 -126, i8 -126, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2202, i8 0, i8 0, i8 -123, i8 -123, i8 -123, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2203, i8 0, i8 0, i8 -121, i8 -121, i8 -121, i8 -121, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2204, i8 0, i8 0, i8 -118, i8 -118, i8 -118, i8 -118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2205, i8 0, i8 0, i8 -116, i8 -116, i8 -116, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2206, i8 0, i8 0, i8 -113, i8 -113, i8 -113, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2207, i8 0, i8 0, i8 -111, i8 -111, i8 -111, i8 -111, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2208, i8 0, i8 0, i8 -108, i8 -108, i8 -108, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2209, i8 0, i8 0, i8 -106, i8 -106, i8 -106, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2210, i8 0, i8 0, i8 15, i8 15, i8 15, i8 15, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2211, i8 0, i8 0, i8 -103, i8 -103, i8 -103, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2212, i8 0, i8 0, i8 -100, i8 -100, i8 -100, i8 -100, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2213, i8 0, i8 0, i8 -98, i8 -98, i8 -98, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2214, i8 0, i8 0, i8 -95, i8 -95, i8 -95, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2215, i8 0, i8 0, i8 -93, i8 -93, i8 -93, i8 -93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2216, i8 0, i8 0, i8 -90, i8 -90, i8 -90, i8 -90, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2217, i8 0, i8 0, i8 -88, i8 -88, i8 -88, i8 -88, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2218, i8 0, i8 0, i8 -85, i8 -85, i8 -85, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2219, i8 0, i8 0, i8 -83, i8 -83, i8 -83, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2220, i8 0, i8 0, i8 -80, i8 -80, i8 -80, i8 -80, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2221, i8 0, i8 0, i8 18, i8 18, i8 18, i8 18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2222, i8 0, i8 0, i8 -77, i8 -77, i8 -77, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2223, i8 0, i8 0, i8 -75, i8 -75, i8 -75, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2224, i8 0, i8 0, i8 -72, i8 -72, i8 -72, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2225, i8 0, i8 0, i8 -70, i8 -70, i8 -70, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2226, i8 0, i8 0, i8 -67, i8 -67, i8 -67, i8 -67, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2227, i8 0, i8 0, i8 -65, i8 -65, i8 -65, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2228, i8 0, i8 0, i8 -62, i8 -62, i8 -62, i8 -62, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2229, i8 0, i8 0, i8 -60, i8 -60, i8 -60, i8 -60, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2230, i8 0, i8 0, i8 -57, i8 -57, i8 -57, i8 -57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2231, i8 0, i8 0, i8 -55, i8 -55, i8 -55, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2232, i8 0, i8 0, i8 20, i8 20, i8 20, i8 20, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2233, i8 0, i8 0, i8 -52, i8 -52, i8 -52, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2234, i8 0, i8 0, i8 -49, i8 -49, i8 -49, i8 -49, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2235, i8 0, i8 0, i8 -47, i8 -47, i8 -47, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2236, i8 0, i8 0, i8 -44, i8 -44, i8 -44, i8 -44, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2237, i8 0, i8 0, i8 -42, i8 -42, i8 -42, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2238, i8 0, i8 0, i8 -39, i8 -39, i8 -39, i8 -39, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2239, i8 0, i8 0, i8 -37, i8 -37, i8 -37, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2240, i8 0, i8 0, i8 -34, i8 -34, i8 -34, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2241, i8 0, i8 0, i8 -32, i8 -32, i8 -32, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2242, i8 0, i8 0, i8 -29, i8 -29, i8 -29, i8 -29, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2243, i8 0, i8 0, i8 23, i8 23, i8 23, i8 23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2244, i8 0, i8 0, i8 -27, i8 -27, i8 -27, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2245, i8 0, i8 0, i8 -24, i8 -24, i8 -24, i8 -24, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2246, i8 0, i8 0, i8 -21, i8 -21, i8 -21, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2247, i8 0, i8 0, i8 -19, i8 -19, i8 -19, i8 -19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2248, i8 0, i8 0, i8 -16, i8 -16, i8 -16, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2249, i8 0, i8 0, i8 -14, i8 -14, i8 -14, i8 -14, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2250, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2251, i8 0, i8 0, i8 -9, i8 -9, i8 -9, i8 -9, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2252, i8 0, i8 0, i8 -6, i8 -6, i8 -6, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2253, i8 0, i8 0, i8 -4, i8 -4, i8 -4, i8 -4, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2254, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2255, i8 85, i8 15, i8 -1, i8 -16, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2256, i8 85, i8 15, i8 -18, i8 -32, i8 -18, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2257, i8 85, i8 14, i8 -51, i8 -63, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2258, i8 85, i8 14, i8 -117, i8 -125, i8 -117, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2259, i8 -23, i8 -106, i8 -1, i8 -1, i8 105, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2260, i8 -22, i8 -111, i8 -1, i8 -1, i8 110, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2261, i8 -21, i8 -115, i8 -18, i8 -18, i8 106, i8 -89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2262, i8 -20, i8 -121, i8 -51, i8 -51, i8 96, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2263, i8 -22, i8 -108, i8 -117, i8 -117, i8 58, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2264, i8 0, i8 -116, i8 -51, i8 -51, i8 92, i8 92, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2265, i8 0, i8 -108, i8 -1, i8 -1, i8 106, i8 106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2266, i8 0, i8 -108, i8 -18, i8 -18, i8 99, i8 99, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2267, i8 0, i8 -107, i8 -51, i8 -51, i8 85, i8 85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2268, i8 0, i8 -108, i8 -117, i8 -117, i8 58, i8 58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2269, i8 -62, i8 -1, i8 -126, i8 75, i8 0, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2270, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2271, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2272, i8 42, i8 15, i8 -1, i8 -1, i8 -1, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2273, i8 42, i8 15, i8 -18, i8 -18, i8 -18, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2274, i8 42, i8 14, i8 -51, i8 -51, i8 -51, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2275, i8 42, i8 14, i8 -117, i8 -117, i8 -117, i8 -125, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2276, i8 38, i8 106, i8 -16, i8 -16, i8 -26, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2277, i8 39, i8 112, i8 -1, i8 -1, i8 -10, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2278, i8 39, i8 112, i8 -18, i8 -18, i8 -26, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2279, i8 39, i8 111, i8 -51, i8 -51, i8 -58, i8 115, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2280, i8 39, i8 111, i8 -117, i8 -117, i8 -122, i8 78, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2281, i8 -86, i8 20, i8 -6, i8 -26, i8 -26, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2282, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2283, i8 -16, i8 15, i8 -1, i8 -1, i8 -16, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2284, i8 -17, i8 15, i8 -18, i8 -18, i8 -32, i8 -27, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2285, i8 -16, i8 14, i8 -51, i8 -51, i8 -63, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2286, i8 -17, i8 14, i8 -117, i8 -117, i8 -125, i8 -122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2287, i8 64, i8 -1, i8 -4, i8 124, i8 -4, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2288, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2289, i8 38, i8 49, i8 -1, i8 -1, i8 -6, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2290, i8 37, i8 50, i8 -18, i8 -18, i8 -23, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2291, i8 38, i8 49, i8 -51, i8 -51, i8 -55, i8 -91, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2292, i8 39, i8 49, i8 -117, i8 -117, i8 -119, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2293, i8 -119, i8 63, i8 -26, i8 -83, i8 -40, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2294, i8 -118, i8 64, i8 -1, i8 -65, i8 -17, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2295, i8 -118, i8 64, i8 -18, i8 -78, i8 -33, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2296, i8 -118, i8 63, i8 -51, i8 -102, i8 -64, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2297, i8 -119, i8 64, i8 -117, i8 104, i8 -125, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2298, i8 0, i8 119, i8 -16, i8 -16, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2299, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2300, i8 127, i8 31, i8 -1, i8 -32, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2301, i8 127, i8 31, i8 -18, i8 -47, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2302, i8 127, i8 31, i8 -51, i8 -76, i8 -51, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2303, i8 127, i8 31, i8 -117, i8 122, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2304, i8 35, i8 115, i8 -18, i8 -18, i8 -35, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2305, i8 35, i8 116, i8 -1, i8 -1, i8 -20, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2306, i8 35, i8 115, i8 -18, i8 -18, i8 -36, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2307, i8 35, i8 115, i8 -51, i8 -51, i8 -66, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2308, i8 35, i8 115, i8 -117, i8 -117, i8 -127, i8 76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2309, i8 42, i8 40, i8 -6, i8 -6, i8 -6, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2310, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2311, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.53, i8 0, i8 0, i8 -45, i8 -45, i8 -45, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2312, i8 -8, i8 73, i8 -1, i8 -1, i8 -74, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2313, i8 -7, i8 81, i8 -1, i8 -1, i8 -82, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2314, i8 -8, i8 81, i8 -18, i8 -18, i8 -94, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2315, i8 -7, i8 80, i8 -51, i8 -51, i8 -116, i8 -107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2316, i8 -7, i8 80, i8 -117, i8 -117, i8 95, i8 101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2317, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2318, i8 12, i8 -124, i8 -1, i8 -1, i8 -96, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2319, i8 11, i8 -124, i8 -18, i8 -18, i8 -107, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2320, i8 12, i8 -123, i8 -51, i8 -51, i8 -127, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2321, i8 12, i8 -123, i8 -117, i8 -117, i8 87, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2322, i8 125, i8 -47, i8 -78, i8 32, i8 -78, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2323, i8 -113, i8 117, i8 -6, i8 -121, i8 -50, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2324, i8 -113, i8 79, i8 -1, i8 -80, i8 -30, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2325, i8 -113, i8 79, i8 -18, i8 -92, i8 -45, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2326, i8 -114, i8 79, i8 -51, i8 -115, i8 -74, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2327, i8 -113, i8 78, i8 -117, i8 96, i8 123, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2328, i8 -81, i8 -113, i8 -1, i8 -124, i8 112, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2329, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2330, i8 -108, i8 56, i8 -103, i8 119, i8 -120, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2331, i8 -105, i8 52, i8 -34, i8 -80, i8 -60, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2332, i8 -105, i8 53, i8 -1, i8 -54, i8 -31, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2333, i8 -105, i8 53, i8 -18, i8 -68, i8 -46, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2334, i8 -105, i8 53, i8 -51, i8 -94, i8 -75, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2335, i8 -106, i8 53, i8 -117, i8 110, i8 123, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2336, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2337, i8 42, i8 31, i8 -1, i8 -1, i8 -1, i8 -32, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2338, i8 42, i8 31, i8 -18, i8 -18, i8 -18, i8 -47, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2339, i8 42, i8 31, i8 -51, i8 -51, i8 -51, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2340, i8 42, i8 31, i8 -117, i8 -117, i8 -117, i8 122, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2341, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2342, i8 85, i8 -64, i8 -51, i8 50, i8 -51, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2343, i8 21, i8 20, i8 -6, i8 -6, i8 -16, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2344, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2345, i8 -44, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2346, i8 -44, i8 -1, i8 -18, i8 -18, i8 0, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2347, i8 -44, i8 -1, i8 -51, i8 -51, i8 0, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2348, i8 -44, i8 -1, i8 -117, i8 -117, i8 0, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2349, i8 -17, i8 -71, i8 -80, i8 -80, i8 48, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2350, i8 -28, i8 -53, i8 -1, i8 -1, i8 52, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2351, i8 -28, i8 -53, i8 -18, i8 -18, i8 48, i8 -89, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2352, i8 -28, i8 -52, i8 -51, i8 -51, i8 41, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2353, i8 -28, i8 -53, i8 -117, i8 -117, i8 28, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2354, i8 113, i8 -128, i8 -51, i8 102, i8 -51, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2355, i8 -86, i8 -1, i8 -51, i8 0, i8 0, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2356, i8 -52, i8 -104, i8 -45, i8 -70, i8 85, i8 -45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2357, i8 -53, i8 -103, i8 -1, i8 -32, i8 102, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2358, i8 -53, i8 -103, i8 -18, i8 -47, i8 95, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2359, i8 -53, i8 -103, i8 -51, i8 -76, i8 82, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2360, i8 -53, i8 -102, i8 -117, i8 122, i8 55, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2361, i8 -73, i8 124, i8 -37, i8 -109, i8 112, i8 -37, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2362, i8 -73, i8 125, i8 -1, i8 -85, i8 -126, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2363, i8 -73, i8 125, i8 -18, i8 -97, i8 121, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2364, i8 -73, i8 125, i8 -51, i8 -119, i8 104, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2365, i8 -73, i8 124, i8 -117, i8 93, i8 71, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2366, i8 103, i8 -87, i8 -77, i8 60, i8 -77, i8 113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2367, i8 -80, i8 -113, i8 -18, i8 123, i8 104, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2368, i8 111, i8 -1, i8 -6, i8 0, i8 -6, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2369, i8 125, i8 -89, i8 -47, i8 72, i8 -47, i8 -52, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2370, i8 -28, i8 -28, i8 -57, i8 -57, i8 21, i8 -123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2371, i8 -86, i8 -58, i8 112, i8 25, i8 25, i8 112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2372, i8 106, i8 9, i8 -1, i8 -11, i8 -1, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2373, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2374, i8 4, i8 30, i8 -1, i8 -1, i8 -28, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2375, i8 4, i8 30, i8 -18, i8 -18, i8 -43, i8 -46, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2376, i8 3, i8 29, i8 -51, i8 -51, i8 -73, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2377, i8 5, i8 29, i8 -117, i8 -117, i8 125, i8 123, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2378, i8 26, i8 73, i8 -1, i8 -1, i8 -28, i8 -75, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2379, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2380, i8 25, i8 81, i8 -1, i8 -1, i8 -34, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2381, i8 25, i8 82, i8 -18, i8 -18, i8 -49, i8 -95, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2382, i8 25, i8 82, i8 -51, i8 -51, i8 -77, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2383, i8 25, i8 82, i8 -117, i8 -117, i8 121, i8 94, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2384, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2385, i8 -86, i8 -1, i8 -128, i8 0, i8 0, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2386, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2387, i8 27, i8 23, i8 -3, i8 -3, i8 -11, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2388, i8 42, i8 -1, i8 -128, i8 -128, i8 -128, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2389, i8 56, i8 -64, i8 -114, i8 107, i8 -114, i8 35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2390, i8 56, i8 -63, i8 -1, i8 -64, i8 -1, i8 62, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2391, i8 56, i8 -64, i8 -18, i8 -77, i8 -18, i8 58, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2392, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2393, i8 56, i8 -64, i8 -117, i8 105, i8 -117, i8 34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2394, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2395, i8 27, i8 -1, i8 -1, i8 -1, i8 -91, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2396, i8 27, i8 -1, i8 -18, i8 -18, i8 -102, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2397, i8 27, i8 -1, i8 -51, i8 -51, i8 -123, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2398, i8 27, i8 -1, i8 -117, i8 -117, i8 90, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2399, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2400, i8 11, i8 -1, i8 -1, i8 -1, i8 69, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2401, i8 11, i8 -1, i8 -18, i8 -18, i8 64, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2402, i8 11, i8 -1, i8 -51, i8 -51, i8 55, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2403, i8 11, i8 -1, i8 -117, i8 -117, i8 37, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2404, i8 -42, i8 123, i8 -38, i8 -38, i8 112, i8 -42, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2405, i8 -42, i8 124, i8 -1, i8 -1, i8 -125, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2406, i8 -42, i8 124, i8 -18, i8 -18, i8 122, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2407, i8 -42, i8 124, i8 -51, i8 -51, i8 105, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2408, i8 -43, i8 124, i8 -117, i8 -117, i8 71, i8 -119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2409, i8 38, i8 72, i8 -18, i8 -18, i8 -24, i8 -86, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2410, i8 85, i8 100, i8 -5, i8 -104, i8 -5, i8 -104, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2411, i8 85, i8 101, i8 -1, i8 -102, i8 -1, i8 -102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2412, i8 85, i8 100, i8 -18, i8 -112, i8 -18, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2413, i8 85, i8 100, i8 -51, i8 124, i8 -51, i8 124, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2414, i8 85, i8 100, i8 -117, i8 84, i8 -117, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2415, i8 127, i8 67, i8 -18, i8 -81, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2416, i8 127, i8 68, i8 -1, i8 -69, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2417, i8 127, i8 68, i8 -18, i8 -82, i8 -18, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2418, i8 127, i8 68, i8 -51, i8 -106, i8 -51, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2419, i8 127, i8 67, i8 -117, i8 102, i8 -117, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2420, i8 -15, i8 124, i8 -37, i8 -37, i8 112, i8 -109, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2421, i8 -15, i8 125, i8 -1, i8 -1, i8 -126, i8 -85, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2422, i8 -15, i8 125, i8 -18, i8 -18, i8 121, i8 -97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2423, i8 -15, i8 125, i8 -51, i8 -51, i8 104, i8 -119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2424, i8 -15, i8 124, i8 -117, i8 -117, i8 71, i8 93, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2425, i8 26, i8 41, i8 -1, i8 -1, i8 -17, i8 -43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2426, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2427, i8 20, i8 70, i8 -1, i8 -1, i8 -38, i8 -71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2428, i8 19, i8 69, i8 -18, i8 -18, i8 -53, i8 -83, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2429, i8 19, i8 69, i8 -51, i8 -51, i8 -81, i8 -107, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2430, i8 20, i8 69, i8 -117, i8 -117, i8 119, i8 101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2431, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2432, i8 -9, i8 63, i8 -1, i8 -1, i8 -64, i8 -53, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2433, i8 -11, i8 73, i8 -1, i8 -1, i8 -75, i8 -59, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2434, i8 -11, i8 73, i8 -18, i8 -18, i8 -87, i8 -72, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2435, i8 -11, i8 74, i8 -51, i8 -51, i8 -111, i8 -98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2436, i8 -11, i8 73, i8 -117, i8 -117, i8 99, i8 108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2437, i8 -44, i8 70, i8 -35, i8 -35, i8 -96, i8 -35, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2438, i8 -44, i8 68, i8 -1, i8 -1, i8 -69, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2439, i8 -44, i8 68, i8 -18, i8 -18, i8 -82, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2440, i8 -44, i8 68, i8 -51, i8 -51, i8 -106, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2441, i8 -44, i8 67, i8 -117, i8 -117, i8 102, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2442, i8 -124, i8 59, i8 -26, i8 -80, i8 -32, i8 -26, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2443, i8 -60, i8 -35, i8 -16, i8 -96, i8 32, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2444, i8 -65, i8 -49, i8 -1, i8 -101, i8 48, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2445, i8 -64, i8 -49, i8 -18, i8 -111, i8 44, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2446, i8 -64, i8 -49, i8 -51, i8 125, i8 38, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2447, i8 -64, i8 -49, i8 -117, i8 85, i8 26, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2448, i8 -65, i8 -86, i8 -103, i8 102, i8 51, i8 -103, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2449, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2450, i8 0, i8 -1, i8 -1, i8 -1, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2451, i8 0, i8 -1, i8 -18, i8 -18, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2452, i8 0, i8 -1, i8 -51, i8 -51, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2453, i8 0, i8 -1, i8 -117, i8 -117, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2454, i8 0, i8 61, i8 -68, i8 -68, i8 -113, i8 -113, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2455, i8 0, i8 62, i8 -1, i8 -1, i8 -63, i8 -63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2456, i8 0, i8 62, i8 -18, i8 -18, i8 -76, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2457, i8 0, i8 62, i8 -51, i8 -51, i8 -101, i8 -101, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2458, i8 0, i8 62, i8 -117, i8 -117, i8 105, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2459, i8 -97, i8 -75, i8 -31, i8 65, i8 105, i8 -31, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2460, i8 -97, i8 -73, i8 -1, i8 72, i8 118, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2461, i8 -97, i8 -73, i8 -18, i8 67, i8 110, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2462, i8 -97, i8 -74, i8 -51, i8 58, i8 95, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2463, i8 -97, i8 -73, i8 -117, i8 39, i8 64, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2464, i8 17, i8 -36, i8 -117, i8 -117, i8 69, i8 19, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2465, i8 4, i8 -118, i8 -6, i8 -6, i8 -128, i8 114, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2466, i8 9, i8 -106, i8 -1, i8 -1, i8 -116, i8 105, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2467, i8 9, i8 -106, i8 -18, i8 -18, i8 -126, i8 98, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2468, i8 9, i8 -106, i8 -51, i8 -51, i8 112, i8 84, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2469, i8 9, i8 -106, i8 -117, i8 -117, i8 76, i8 57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2470, i8 19, i8 -102, i8 -12, i8 -12, i8 -92, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2471, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2472, i8 103, i8 -85, i8 -1, i8 84, i8 -1, i8 -97, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2473, i8 103, i8 -85, i8 -18, i8 78, i8 -18, i8 -108, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2474, i8 103, i8 -85, i8 -51, i8 67, i8 -51, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2475, i8 103, i8 -86, i8 -117, i8 46, i8 -117, i8 87, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2476, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2477, i8 17, i8 16, i8 -1, i8 -1, i8 -11, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2478, i8 18, i8 17, i8 -18, i8 -18, i8 -27, i8 -34, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2479, i8 18, i8 17, i8 -51, i8 -51, i8 -59, i8 -65, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2480, i8 18, i8 16, i8 -117, i8 -117, i8 -122, i8 -126, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2481, i8 13, i8 -73, i8 -96, i8 -96, i8 82, i8 45, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2482, i8 13, i8 -72, i8 -1, i8 -1, i8 -126, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2483, i8 13, i8 -72, i8 -18, i8 -18, i8 121, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2484, i8 13, i8 -72, i8 -51, i8 -51, i8 104, i8 57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2485, i8 13, i8 -71, i8 -117, i8 -117, i8 71, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2486, i8 0, i8 0, i8 -64, i8 -64, i8 -64, i8 -64, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2487, i8 -117, i8 108, i8 -21, i8 -121, i8 -50, i8 -21, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2488, i8 -112, i8 120, i8 -1, i8 -121, i8 -50, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2489, i8 -112, i8 120, i8 -18, i8 126, i8 -64, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2490, i8 -112, i8 120, i8 -51, i8 108, i8 -90, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2491, i8 -111, i8 119, i8 -117, i8 74, i8 112, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2492, i8 -81, i8 -113, i8 -51, i8 106, i8 90, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2493, i8 -81, i8 -112, i8 -1, i8 -125, i8 111, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2494, i8 -81, i8 -112, i8 -18, i8 122, i8 103, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2495, i8 -81, i8 -112, i8 -51, i8 105, i8 89, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2496, i8 -81, i8 -112, i8 -117, i8 71, i8 60, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2497, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2498, i8 -107, i8 56, i8 -1, i8 -58, i8 -30, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2499, i8 -107, i8 56, i8 -18, i8 -71, i8 -45, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2500, i8 -108, i8 57, i8 -51, i8 -97, i8 -74, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2501, i8 -107, i8 56, i8 -117, i8 108, i8 123, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2502, i8 -108, i8 56, i8 -112, i8 112, i8 -128, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2503, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2504, i8 0, i8 5, i8 -1, i8 -1, i8 -6, i8 -6, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2505, i8 0, i8 5, i8 -18, i8 -18, i8 -23, i8 -23, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2506, i8 0, i8 4, i8 -51, i8 -51, i8 -55, i8 -55, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2507, i8 0, i8 3, i8 -117, i8 -117, i8 -119, i8 -119, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2508, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2509, i8 106, i8 -1, i8 -1, i8 0, i8 -1, i8 127, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2510, i8 106, i8 -1, i8 -18, i8 0, i8 -18, i8 118, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2511, i8 106, i8 -1, i8 -51, i8 0, i8 -51, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2512, i8 106, i8 -1, i8 -117, i8 0, i8 -117, i8 69, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2513, i8 -110, i8 -101, i8 -76, i8 70, i8 -126, i8 -76, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2514, i8 -110, i8 -100, i8 -1, i8 99, i8 -72, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2515, i8 -110, i8 -100, i8 -18, i8 92, i8 -84, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2516, i8 -110, i8 -100, i8 -51, i8 79, i8 -108, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2517, i8 -109, i8 -101, i8 -117, i8 54, i8 100, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2518, i8 24, i8 84, i8 -46, i8 -46, i8 -76, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2519, i8 20, i8 -80, i8 -1, i8 -1, i8 -91, i8 79, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2520, i8 20, i8 -80, i8 -18, i8 -18, i8 -102, i8 73, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2521, i8 20, i8 -80, i8 -51, i8 -51, i8 -123, i8 63, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2522, i8 20, i8 -80, i8 -117, i8 -117, i8 90, i8 43, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2523, i8 127, i8 -1, i8 -128, i8 0, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2524, i8 -44, i8 29, i8 -40, i8 -40, i8 -65, i8 -40, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2525, i8 -44, i8 30, i8 -1, i8 -1, i8 -31, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2526, i8 -44, i8 30, i8 -18, i8 -18, i8 -46, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2527, i8 -44, i8 29, i8 -51, i8 -51, i8 -75, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2528, i8 -44, i8 29, i8 -117, i8 -117, i8 123, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2529, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2530, i8 6, i8 -72, i8 -1, i8 -1, i8 99, i8 71, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2531, i8 6, i8 -72, i8 -18, i8 -18, i8 92, i8 66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2532, i8 6, i8 -72, i8 -51, i8 -51, i8 79, i8 57, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2533, i8 6, i8 -71, i8 -117, i8 -117, i8 54, i8 38, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2534, i8 42, i8 0, i8 -1, i8 -1, i8 -1, i8 -2, i8 0, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2535, i8 123, i8 -74, i8 -32, i8 64, i8 -32, i8 -48, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2536, i8 -127, i8 -1, i8 -1, i8 0, i8 -11, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2537, i8 -127, i8 -1, i8 -18, i8 0, i8 -27, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2538, i8 -127, i8 -1, i8 -51, i8 0, i8 -59, i8 -51, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2539, i8 -127, i8 -1, i8 -117, i8 0, i8 -122, i8 -117, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2540, i8 -44, i8 115, i8 -18, i8 -18, i8 -126, i8 -18, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2541, i8 -29, i8 -41, i8 -48, i8 -48, i8 32, i8 -112, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2542, i8 -21, i8 -63, i8 -1, i8 -1, i8 62, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2543, i8 -21, i8 -64, i8 -18, i8 -18, i8 58, i8 -116, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2544, i8 -21, i8 -64, i8 -51, i8 -51, i8 50, i8 120, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2545, i8 -21, i8 -64, i8 -117, i8 -117, i8 34, i8 82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2546, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2547, i8 85, i8 -1, i8 -128, i8 0, i8 -128, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2548, i8 0, i8 0, i8 -128, i8 -128, i8 -128, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2549, i8 0, i8 -1, i8 -128, i8 -128, i8 0, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2550, i8 -44, i8 -1, i8 -128, i8 -128, i8 0, i8 -128, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2551, i8 27, i8 68, i8 -11, i8 -11, i8 -34, i8 -77, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2552, i8 27, i8 69, i8 -1, i8 -1, i8 -25, i8 -70, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2553, i8 27, i8 68, i8 -18, i8 -18, i8 -40, i8 -82, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2554, i8 27, i8 68, i8 -51, i8 -51, i8 -70, i8 -106, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2555, i8 27, i8 67, i8 -117, i8 -117, i8 126, i8 102, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.52, i8 0, i8 0, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2556, i8 0, i8 0, i8 -11, i8 -11, i8 -11, i8 -11, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2557, i8 0, i8 0, i8 -66, i8 -66, i8 -66, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2558, i8 85, i8 -1, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2559, i8 0, i8 0, i8 -66, i8 -66, i8 -66, i8 -66, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2560, i8 -17, i8 -71, i8 -80, i8 -80, i8 48, i8 96, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2561, i8 -60, i8 -35, i8 -16, i8 -96, i8 32, i8 -16, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2562, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2563, i8 42, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2564, i8 42, i8 -1, i8 -18, i8 -18, i8 -18, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2565, i8 42, i8 -1, i8 -51, i8 -51, i8 -51, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2566, i8 42, i8 -1, i8 -117, i8 -117, i8 -117, i8 0, i8 -1, i8 0 }, { ptr, i8, i8, i8, i8, i8, i8, i8, i8 } { ptr @.str.2567, i8 56, i8 -64, i8 -51, i8 -102, i8 -51, i8 50, i8 -1, i8 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
 define ptr @sameG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -2602,7 +2597,7 @@ define ptr @sameG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3
   br i1 %.not19, label %11, label %10
 
 10:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef %2) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef %2) #24
   br label %24
 
 11:                                               ; preds = %9
@@ -2618,7 +2613,7 @@ define ptr @sameG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3
   %21 = icmp eq i32 %19, 1
   %22 = select i1 %21, ptr @.str.3, ptr @.str.4
   %23 = select i1 %20, ptr @.str.2, ptr %22
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %23, ptr noundef %2) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %23, ptr noundef %2) #24
   br label %24
 
 24:                                               ; preds = %4, %10, %11
@@ -2626,14 +2621,20 @@ define ptr @sameG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3
   ret ptr %.0
 }
 
-declare ptr @agroot(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
+declare ptr @agroot(ptr noundef) local_unnamed_addr #2
 
-declare void @_err_msg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare ptr @agraphof(ptr noundef) local_unnamed_addr #2
+
+declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @indexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define i32 @indexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp eq ptr %3, null
   %5 = ptrtoint ptr %3 to i64
@@ -2645,11 +2646,11 @@ define i32 @indexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
-  %3 = load i8, ptr %1, align 1
+define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+  %3 = load i8, ptr %1, align 1, !tbaa !3
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %6 = icmp eq i8 %3, 0
@@ -2661,7 +2662,7 @@ define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) loc
 
 9:                                                ; preds = %7
   %10 = sub nuw i64 %4, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %5) #25
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -2690,22 +2691,24 @@ define i64 @rindexOf(ptr noundef %0, ptr noundef readonly captures(none) %1) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @match(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = alloca [2 x i32], align 4
+define i64 @match(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca [2 x i64], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
   %4 = call i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0) #24
   %.not = icmp eq i32 %4, 0
-  %5 = load i32, ptr %3, align 4
-  %.0 = select i1 %.not, i32 -1, i32 %5
-  ret i32 %.0
+  %5 = load i64, ptr %3, align 16
+  %.0 = select i1 %.not, i64 -1, i64 %5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
+  ret i64 %.0
 }
 
-declare i32 @strgrpmatch(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @strgrpmatch(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @copyAttr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2722,15 +2725,15 @@ define noundef i32 @copyAttr(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 .lr.ph:                                           ; preds = %2, %28
   %10 = phi ptr [ %29, %28 ], [ %9, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
   %13 = tail call ptr @agattrsym(ptr noundef nonnull %1, ptr noundef %12) #24
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %14, label %19
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %11, align 8
+  %15 = load ptr, ptr %11, align 8, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = tail call ptr @agattr(ptr noundef %8, i32 noundef %6, ptr noundef %15, ptr noundef %17) #24
   br label %19
 
@@ -2744,7 +2747,7 @@ define noundef i32 @copyAttr(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 22:                                               ; preds = %19
   %23 = tail call ptr @agstrdup_html(ptr noundef %8, ptr noundef %20) #24
   %24 = tail call i32 @agxset(ptr noundef nonnull %1, ptr noundef %.026, ptr noundef %23) #24
-  %25 = tail call i32 @agstrfree(ptr noundef %8, ptr noundef %23) #24
+  %25 = tail call i32 @agstrfree(ptr noundef %8, ptr noundef %23, i1 noundef zeroext true) #24
   br label %28
 
 26:                                               ; preds = %19
@@ -2754,27 +2757,27 @@ define noundef i32 @copyAttr(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 28:                                               ; preds = %26, %22
   %29 = tail call ptr @agnxtattr(ptr noundef %7, i32 noundef %4, ptr noundef nonnull %10) #24
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %28, %2
   ret i32 0
 }
 
-declare ptr @agnxtattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agnxtattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @agattrsym(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agattrsym(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @aghtmlstr(ptr noundef) local_unnamed_addr #1
+declare i32 @aghtmlstr(ptr noundef) local_unnamed_addr #2
 
-declare ptr @agstrdup_html(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agstrdup_html(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @agstrfree(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @agstrfree(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2821,7 +2824,7 @@ define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.idx = select i1 %21, i64 0, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = tail call ptr @agnameof(ptr noundef %24) #24
   %26 = tail call ptr @openNode(ptr noundef %0, ptr noundef %25) #24
   %27 = load i32, ptr %1, align 8
@@ -2830,7 +2833,7 @@ define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %30 = getelementptr inbounds i8, ptr %1, i64 -64
   %31 = select i1 %29, ptr %1, ptr %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = tail call ptr @agnameof(ptr noundef %33) #24
   %35 = tail call ptr @openNode(ptr noundef %0, ptr noundef %34) #24
   %36 = load i32, ptr %1, align 8
@@ -2858,23 +2861,23 @@ default.unreachable36:                            ; preds = %8
   ret ptr %.0
 }
 
-declare void @exerror(ptr noundef, ...) local_unnamed_addr #1
+declare void @exerror(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
+declare ptr @agnameof(ptr noundef) local_unnamed_addr #2
 
-declare ptr @openNode(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @openNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @openSubg(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @openSubg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @openG(ptr noundef, i32) local_unnamed_addr #1
+declare ptr @openG(ptr noundef, i32) local_unnamed_addr #2
 
-declare ptr @openEdge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @openEdge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @cloneG(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2882,7 +2885,7 @@ define ptr @cloneG(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = load i8, ptr %1, align 1
+  %4 = load i8, ptr %1, align 1, !tbaa !3
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %8
 
@@ -2909,129 +2912,158 @@ define ptr @cloneG(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cloneGraph(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr @Dtoset, align 8
+  %3 = load ptr, ptr @Dtoset, align 8, !tbaa !23
   %4 = tail call ptr @dtopen(ptr noundef nonnull @edgepair, ptr noundef %3) #24
   %5 = tail call i32 @agnedges(ptr noundef %1) #24
   %6 = sext i32 %5 to i64
-  %7 = shl nsw i64 %6, 5
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #26
-  %9 = tail call ptr @agfstnode(ptr noundef %1) #24
-  %.not73 = icmp eq ptr %9, null
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %.thread.i, label %8
+
+.thread.i:                                        ; preds = %2
+  %7 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 32) #26
+  br label %gv_calloc.exit
+
+8:                                                ; preds = %2
+  %mul.ov.i = icmp slt i32 %5, 0
+  br i1 %mul.ov.i, label %9, label %12
+
+9:                                                ; preds = %8
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.42, i64 noundef %6, i64 noundef 32) #27
+  tail call fastcc void @graphviz_exit() #28
+  unreachable
+
+12:                                               ; preds = %8
+  %13 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 32) #26
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %gv_calloc.exit
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %17 = shl nuw nsw i64 %6, 5
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.43, i64 noundef %17) #27
+  tail call fastcc void @graphviz_exit() #28
+  unreachable
+
+gv_calloc.exit:                                   ; preds = %.thread.i, %12
+  %19 = phi ptr [ %7, %.thread.i ], [ %13, %12 ]
+  %20 = tail call ptr @agfstnode(ptr noundef %1) #24
+  %.not73 = icmp eq ptr %20, null
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %14
-  %.05874 = phi ptr [ %15, %14 ], [ %9, %2 ]
-  %10 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05874)
-  %.not70 = icmp eq ptr %10, null
-  br i1 %.not70, label %11, label %14
+.lr.ph:                                           ; preds = %gv_calloc.exit, %25
+  %.05874 = phi ptr [ %26, %25 ], [ %20, %gv_calloc.exit ]
+  %21 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05874)
+  %.not70 = icmp eq ptr %21, null
+  br i1 %.not70, label %22, label %25
 
-11:                                               ; preds = %.lr.ph
-  %12 = tail call ptr @agnameof(ptr noundef nonnull %.05874) #24
-  %13 = tail call ptr @agnameof(ptr noundef %1) #24
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.38, ptr noundef %12, ptr noundef %13) #24
-  br label %14
+22:                                               ; preds = %.lr.ph
+  %23 = tail call ptr @agnameof(ptr noundef nonnull %.05874) #24
+  %24 = tail call ptr @agnameof(ptr noundef %1) #24
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.37, ptr noundef %23, ptr noundef %24) #24
+  br label %25
 
-14:                                               ; preds = %.lr.ph, %11
-  %15 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.05874) #24
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+25:                                               ; preds = %.lr.ph, %22
+  %26 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.05874) #24
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %14, %2
-  %16 = tail call ptr @agfstnode(ptr noundef %1) #24
-  %.not6381 = icmp eq ptr %16, null
+._crit_edge:                                      ; preds = %25, %gv_calloc.exit
+  %27 = tail call ptr @agfstnode(ptr noundef %1) #24
+  %.not6381 = icmp eq ptr %27, null
   br i1 %.not6381, label %._crit_edge86, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %._crit_edge, %._crit_edge80
-  %.083 = phi ptr [ %.1.lcssa, %._crit_edge80 ], [ %8, %._crit_edge ]
-  %.15982 = phi ptr [ %50, %._crit_edge80 ], [ %16, %._crit_edge ]
-  %17 = tail call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.15982) #24
-  %.not6675 = icmp eq ptr %17, null
+  %.083 = phi ptr [ %.1.lcssa, %._crit_edge80 ], [ %19, %._crit_edge ]
+  %.15982 = phi ptr [ %61, %._crit_edge80 ], [ %27, %._crit_edge ]
+  %28 = tail call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.15982) #24
+  %.not6675 = icmp eq ptr %28, null
   br i1 %.not6675, label %._crit_edge80, label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %.lr.ph85, %43
-  %.177 = phi ptr [ %47, %43 ], [ %.083, %.lr.ph85 ]
-  %.05776 = phi ptr [ %49, %43 ], [ %17, %.lr.ph85 ]
-  %18 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05776)
-  %.not67 = icmp eq ptr %18, null
-  br i1 %.not67, label %19, label %43
+.lr.ph79:                                         ; preds = %.lr.ph85, %54
+  %.177 = phi ptr [ %58, %54 ], [ %.083, %.lr.ph85 ]
+  %.05776 = phi ptr [ %60, %54 ], [ %28, %.lr.ph85 ]
+  %29 = tail call ptr @copy(ptr noundef nonnull %0, ptr noundef nonnull %.05776)
+  %.not67 = icmp eq ptr %29, null
+  br i1 %.not67, label %30, label %54
 
-19:                                               ; preds = %.lr.ph79
-  %20 = load i32, ptr %.05776, align 8
-  %21 = and i32 %20, 3
-  %22 = icmp eq i32 %21, 2
-  %23 = getelementptr inbounds i8, ptr %.05776, i64 -64
-  %24 = select i1 %22, ptr %.05776, ptr %23
-  %25 = tail call ptr @agnameof(ptr noundef nonnull %24) #24
-  %.not68 = icmp eq ptr %25, null
-  %26 = load i32, ptr %.05776, align 8
-  %27 = and i32 %26, 3
-  %28 = icmp eq i32 %27, 3
-  %.idx = select i1 %28, i64 0, i64 64
-  %29 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.idx
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @agnameof(ptr noundef %31) #24
-  %33 = load i32, ptr %.05776, align 8
-  %34 = and i32 %33, 3
-  %35 = icmp eq i32 %34, 2
-  %36 = select i1 %35, ptr %.05776, ptr %23
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @agnameof(ptr noundef %38) #24
-  %40 = tail call ptr @agnameof(ptr noundef %1) #24
-  br i1 %.not68, label %42, label %41
+30:                                               ; preds = %.lr.ph79
+  %31 = load i32, ptr %.05776, align 8
+  %32 = and i32 %31, 3
+  %33 = icmp eq i32 %32, 2
+  %34 = getelementptr inbounds i8, ptr %.05776, i64 -64
+  %35 = select i1 %33, ptr %.05776, ptr %34
+  %36 = tail call ptr @agnameof(ptr noundef nonnull %35) #24
+  %.not68 = icmp eq ptr %36, null
+  %37 = load i32, ptr %.05776, align 8
+  %38 = and i32 %37, 3
+  %39 = icmp eq i32 %38, 3
+  %.idx = select i1 %39, i64 0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.idx
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load ptr, ptr %41, align 8, !tbaa !16
+  %43 = tail call ptr @agnameof(ptr noundef %42) #24
+  %44 = load i32, ptr %.05776, align 8
+  %45 = and i32 %44, 3
+  %46 = icmp eq i32 %45, 2
+  %47 = select i1 %46, ptr %.05776, ptr %34
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %49 = load ptr, ptr %48, align 8, !tbaa !16
+  %50 = tail call ptr @agnameof(ptr noundef %49) #24
+  %51 = tail call ptr @agnameof(ptr noundef %1) #24
+  br i1 %.not68, label %53, label %52
 
-41:                                               ; preds = %19
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.39, ptr noundef %32, ptr noundef %39, ptr noundef nonnull %25, ptr noundef %40) #24
+52:                                               ; preds = %30
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.38, ptr noundef %43, ptr noundef %50, ptr noundef nonnull %36, ptr noundef %51) #24
   br label %.loopexit
 
-42:                                               ; preds = %19
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40, ptr noundef %32, ptr noundef %39, ptr noundef %40) #24
+53:                                               ; preds = %30
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.39, ptr noundef %43, ptr noundef %50, ptr noundef %51) #24
   br label %.loopexit
 
-43:                                               ; preds = %.lr.ph79
-  %44 = getelementptr inbounds nuw i8, ptr %.177, i64 16
-  store ptr %.05776, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.177, i64 24
-  store ptr %18, ptr %45, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.177, i64 32
-  %48 = tail call ptr %46(ptr noundef nonnull %4, ptr noundef %.177, i32 noundef 1) #24
-  %49 = tail call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.05776) #24
-  %.not66 = icmp eq ptr %49, null
-  br i1 %.not66, label %._crit_edge80, label %.lr.ph79
+54:                                               ; preds = %.lr.ph79
+  %55 = getelementptr inbounds nuw i8, ptr %.177, i64 16
+  store ptr %.05776, ptr %55, align 8, !tbaa !27
+  %56 = getelementptr inbounds nuw i8, ptr %.177, i64 24
+  store ptr %29, ptr %56, align 8, !tbaa !30
+  %57 = load ptr, ptr %4, align 8, !tbaa !31
+  %58 = getelementptr inbounds nuw i8, ptr %.177, i64 32
+  %59 = tail call ptr %57(ptr noundef nonnull %4, ptr noundef %.177, i32 noundef 1) #24
+  %60 = tail call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.05776) #24
+  %.not66 = icmp eq ptr %60, null
+  br i1 %.not66, label %._crit_edge80, label %.lr.ph79, !llvm.loop !36
 
-._crit_edge80:                                    ; preds = %43, %.lr.ph85
-  %.1.lcssa = phi ptr [ %.083, %.lr.ph85 ], [ %47, %43 ]
-  %50 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.15982) #24
-  %.not63 = icmp eq ptr %50, null
-  br i1 %.not63, label %._crit_edge86, label %.lr.ph85
+._crit_edge80:                                    ; preds = %54, %.lr.ph85
+  %.1.lcssa = phi ptr [ %.083, %.lr.ph85 ], [ %58, %54 ]
+  %61 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.15982) #24
+  %.not63 = icmp eq ptr %61, null
+  br i1 %.not63, label %._crit_edge86, label %.lr.ph85, !llvm.loop !37
 
 ._crit_edge86:                                    ; preds = %._crit_edge80, %._crit_edge
-  %51 = tail call ptr @agfstsubg(ptr noundef %1) #24
-  %.not6487 = icmp eq ptr %51, null
+  %62 = tail call ptr @agfstsubg(ptr noundef %1) #24
+  %.not6487 = icmp eq ptr %62, null
   br i1 %.not6487, label %.loopexit, label %.lr.ph90
 
-.lr.ph90:                                         ; preds = %._crit_edge86, %56
-  %.06088 = phi ptr [ %57, %56 ], [ %51, %._crit_edge86 ]
-  %52 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %.06088, ptr noundef %4)
-  %.not65 = icmp eq ptr %52, null
-  br i1 %.not65, label %53, label %56
+.lr.ph90:                                         ; preds = %._crit_edge86, %67
+  %.06088 = phi ptr [ %68, %67 ], [ %62, %._crit_edge86 ]
+  %63 = tail call fastcc ptr @cloneSubg(ptr noundef %0, ptr noundef %.06088, ptr noundef %4)
+  %.not65 = icmp eq ptr %63, null
+  br i1 %.not65, label %64, label %67
 
-53:                                               ; preds = %.lr.ph90
-  %54 = tail call ptr @agnameof(ptr noundef nonnull %.06088) #24
-  %55 = tail call ptr @agnameof(ptr noundef %1) #24
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.41, ptr noundef %54, ptr noundef %55) #24
-  br label %56
+64:                                               ; preds = %.lr.ph90
+  %65 = tail call ptr @agnameof(ptr noundef nonnull %.06088) #24
+  %66 = tail call ptr @agnameof(ptr noundef %1) #24
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40, ptr noundef %65, ptr noundef %66) #24
+  br label %67
 
-56:                                               ; preds = %.lr.ph90, %53
-  %57 = tail call ptr @agnxtsubg(ptr noundef nonnull %.06088) #24
-  %.not64 = icmp eq ptr %57, null
-  br i1 %.not64, label %.loopexit, label %.lr.ph90
+67:                                               ; preds = %.lr.ph90, %64
+  %68 = tail call ptr @agnxtsubg(ptr noundef nonnull %.06088) #24
+  %.not64 = icmp eq ptr %68, null
+  br i1 %.not64, label %.loopexit, label %.lr.ph90, !llvm.loop !38
 
-.loopexit:                                        ; preds = %56, %._crit_edge86, %41, %42
-  %58 = tail call i32 @dtclose(ptr noundef %4) #24
-  tail call void @free(ptr noundef %8) #24
+.loopexit:                                        ; preds = %67, %._crit_edge86, %52, %53
+  %69 = tail call i32 @dtclose(ptr noundef %4) #24
+  tail call void @free(ptr noundef %19) #24
   ret void
 }
 
@@ -3095,7 +3127,7 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.idx = select i1 %26, i64 0, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = tail call ptr @cloneO(ptr noundef %0, ptr noundef %29)
   %31 = load i32, ptr %1, align 8
   %32 = and i32 %31, 3
@@ -3103,7 +3135,7 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %34 = getelementptr inbounds i8, ptr %1, i64 -64
   %35 = select i1 %33, ptr %1, ptr %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = tail call ptr @cloneO(ptr noundef %0, ptr noundef %37)
   %39 = load i32, ptr %1, align 8
   %40 = and i32 %39, 3
@@ -3129,8 +3161,9 @@ default.unreachable50:                            ; preds = %8
 ; Function Attrs: nounwind uwtable
 define noundef ptr @compOf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = tail call ptr @agidnode(ptr noundef %0, i64 noundef %5, i32 noundef 0) #24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %18, label %7
@@ -3144,17 +3177,17 @@ define noundef ptr @compOf(ptr noundef %0, ptr noundef readonly captures(none) %
   %.017 = phi ptr [ %13, %.lr.ph ], [ %8, %7 ]
   %9 = tail call ptr @aggetrec(ptr noundef nonnull %.017, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = and i64 %11, -3
-  store i64 %12, ptr %10, align 8
+  store i64 %12, ptr %10, align 8, !tbaa !3
   %13 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.017) #24
   %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %14 = load i32, ptr @compOf.id, align 4
+  %14 = load i32, ptr @compOf.id, align 4, !tbaa !41
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr @compOf.id, align 4
+  store i32 %15, ptr @compOf.id, align 4, !tbaa !41
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.10, i32 noundef %14) #24
   %17 = call ptr @openSubg(ptr noundef %0, ptr noundef nonnull %3) #24
   call fastcc void @cc_dfs(ptr noundef %0, ptr noundef %17, ptr noundef nonnull %6)
@@ -3162,29 +3195,30 @@ define noundef ptr @compOf(ptr noundef %0, ptr noundef readonly captures(none) %
 
 18:                                               ; preds = %2, %._crit_edge
   %.013 = phi ptr [ %17, %._crit_edge ], [ null, %2 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
   ret ptr %.013
 }
 
-declare ptr @agidnode(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @agidnode(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
+declare ptr @agfstnode(ptr noundef) local_unnamed_addr #2
 
-declare ptr @aggetrec(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @aggetrec(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @aggetrec(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = or i64 %6, 2
-  store i64 %7, ptr %5, align 8
+  store i64 %7, ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = tail call ptr @agidnode(ptr noundef %1, i64 noundef %9, i32 noundef 1) #24
   %11 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %2) #24
   %.not27 = icmp eq ptr %11, null
@@ -3198,7 +3232,7 @@ define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.idx = select i1 %14, i64 0, i64 64
   %15 = getelementptr inbounds nuw i8, ptr %.02328, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = icmp eq ptr %17, %2
   br i1 %18, label %19, label %24
 
@@ -3207,14 +3241,14 @@ define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.idx25 = select i1 %20, i64 0, i64 -64
   %21 = getelementptr inbounds i8, ptr %.02328, i64 %.idx25
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
   br label %24
 
 24:                                               ; preds = %.lr.ph, %19
   %.0 = phi ptr [ %23, %19 ], [ %17, %.lr.ph ]
   %25 = tail call ptr @aggetrec(ptr noundef %.0, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = and i64 %27, 2
   %.not26 = icmp eq i64 %28, 0
   br i1 %.not26, label %29, label %30
@@ -3226,7 +3260,7 @@ define internal fastcc void @cc_dfs(ptr noundef %0, ptr noundef %1, ptr noundef 
 30:                                               ; preds = %24, %29
   %31 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02328, ptr noundef %2) #24
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %30, %3
   ret void
@@ -3242,7 +3276,7 @@ define ptr @isEdge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   br i1 %.not.i, label %sameG.exit, label %sameG.exit.thread
 
 sameG.exit.thread:                                ; preds = %4
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #24
   br label %14
 
 sameG.exit:                                       ; preds = %4
@@ -3268,7 +3302,7 @@ sameG.exit:                                       ; preds = %4
   ret ptr %.0
 }
 
-declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @addNode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -3292,7 +3326,7 @@ sameG.exit.thread:                                ; preds = %3
   %17 = icmp eq i32 %15, 1
   %18 = select i1 %17, ptr @.str.3, ptr @.str.4
   %19 = select i1 %16, ptr @.str.2, ptr %18
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull @.str.13) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull @.str.13) #24
   br label %22
 
 sameG.exit:                                       ; preds = %3
@@ -3308,7 +3342,7 @@ sameG.exit:                                       ; preds = %3
   ret ptr %.0
 }
 
-declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @addEdge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -3332,7 +3366,7 @@ sameG.exit.thread:                                ; preds = %3
   %17 = icmp eq i32 %15, 1
   %18 = select i1 %17, ptr @.str.3, ptr @.str.4
   %19 = select i1 %16, ptr @.str.2, ptr %18
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull @.str.14) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull @.str.14) #24
   br label %22
 
 sameG.exit:                                       ; preds = %3
@@ -3348,7 +3382,7 @@ sameG.exit:                                       ; preds = %3
   ret ptr %.0
 }
 
-declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3357,48 +3391,51 @@ define range(i32 -1, 2) i32 @lockGraph(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.15) #24
-  br label %22
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.15) #24
+  br label %21
 
 5:                                                ; preds = %2
   %6 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
-  %9 = and i8 %8, 1
-  %10 = zext nneg i8 %9 to i32
-  %11 = icmp sgt i32 %1, 0
-  br i1 %11, label %12, label %14
+  %.mask = and i8 %8, 1
+  %9 = zext nneg i8 %.mask to i32
+  %10 = icmp sgt i32 %1, 0
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %5
-  %13 = or i8 %8, 1
-  store i8 %13, ptr %7, align 8
-  br label %22
+11:                                               ; preds = %5
+  %12 = or i8 %8, 1
+  store i8 %12, ptr %7, align 8
+  br label %21
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
+  %14 = trunc i8 %8 to i1
   %15 = icmp eq i32 %1, 0
-  %16 = icmp ne i8 %9, 0
-  %or.cond = select i1 %15, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %22
+  %or.cond = select i1 %15, i1 %14, i1 false
+  br i1 %or.cond, label %16, label %21
 
-17:                                               ; preds = %14
-  %18 = and i8 %8, 2
-  %.not15 = icmp eq i8 %18, 0
-  br i1 %.not15, label %21, label %19
+16:                                               ; preds = %13
+  %17 = and i8 %8, 2
+  %.not16 = icmp eq i8 %17, 0
+  br i1 %.not16, label %20, label %18
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @agclose(ptr noundef %0) #24
-  br label %22
+18:                                               ; preds = %16
+  %19 = tail call i32 @agclose(ptr noundef %0) #24
+  br label %21
 
-21:                                               ; preds = %17
-  store i8 0, ptr %7, align 8
-  br label %22
+20:                                               ; preds = %16
+  store i8 0, ptr %7, align 8, !tbaa !3
+  br label %21
 
-22:                                               ; preds = %12, %19, %21, %14, %4
-  %.0 = phi i32 [ -1, %4 ], [ %10, %14 ], [ %10, %21 ], [ %10, %19 ], [ %10, %12 ]
+21:                                               ; preds = %11, %18, %20, %13, %4
+  %.0 = phi i32 [ -1, %4 ], [ %9, %13 ], [ %9, %20 ], [ %9, %18 ], [ %9, %11 ]
   ret i32 %.0
 }
 
-declare i32 @agclose(ptr noundef) local_unnamed_addr #1
+declare i32 @agclose(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @deleteObj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3420,13 +3457,12 @@ define i32 @deleteObj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %11 = tail call ptr @aggetrec(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i32 noundef 0) #24
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not19 = icmp eq i8 %14, 0
-  br i1 %.not19, label %19, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
   %16 = tail call ptr @agnameof(ptr noundef nonnull %1) #24
-  tail call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.16, ptr noundef %16) #24
+  tail call void (i32, ptr, ...) @error(i32 noundef 1, ptr noundef nonnull @.str.16, ptr noundef %16) #24
   %17 = load i8, ptr %12, align 8
   %18 = or i8 %17, 2
   store i8 %18, ptr %12, align 8
@@ -3455,23 +3491,23 @@ define i32 @deleteObj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @sfioWrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8
-  store ptr @gprIoDisc, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  store ptr @gprIoDisc, ptr %5, align 8, !tbaa !49
   %7 = tail call i32 @agwrite(ptr noundef %0, ptr noundef %1) #24
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %6, ptr %9, align 8
+  store ptr %6, ptr %9, align 8, !tbaa !49
   ret i32 %7
 }
 
-declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @writeFile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3493,29 +3529,29 @@ define i32 @writeFile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr @gprIoDisc, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !49
+  store ptr @gprIoDisc, ptr %10, align 8, !tbaa !49
   %12 = tail call i32 @agwrite(ptr noundef %0, ptr noundef nonnull %5) #24
-  %13 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %11, ptr %14, align 8
+  store ptr %11, ptr %14, align 8, !tbaa !49
   %15 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %16
 
-16:                                               ; preds = %7, %6, %3
-  %.0 = phi i32 [ %12, %7 ], [ 1, %6 ], [ 1, %3 ]
+16:                                               ; preds = %6, %7, %3
+  %.0 = phi i32 [ 1, %3 ], [ %12, %7 ], [ 1, %6 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare void @exwarn(ptr noundef, ...) local_unnamed_addr #1
+declare void @exwarn(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @readFile(ptr noundef %0) local_unnamed_addr #0 {
@@ -3540,12 +3576,12 @@ define ptr @readFile(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %9
 
-9:                                                ; preds = %6, %5, %2
-  %.0 = phi ptr [ %7, %6 ], [ null, %5 ], [ null, %2 ]
+9:                                                ; preds = %5, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ %7, %6 ], [ null, %5 ]
   ret ptr %.0
 }
 
-declare ptr @readG(ptr noundef) local_unnamed_addr #1
+declare ptr @readG(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @fwriteFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -3555,7 +3591,7 @@ define i32 @fwriteFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %2
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
@@ -3565,14 +3601,14 @@ define i32 @fwriteFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr @gprIoDisc, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
+  store ptr @gprIoDisc, ptr %12, align 8, !tbaa !49
   %14 = tail call i32 @agwrite(ptr noundef %1, ptr noundef nonnull %7) #24
-  %15 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %10, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %13, ptr %16, align 8
+  store ptr %13, ptr %16, align 8, !tbaa !49
   br label %17
 
 17:                                               ; preds = %9, %8
@@ -3588,7 +3624,7 @@ define ptr @freadFile(ptr noundef readonly captures(none) %0, i64 noundef %1) lo
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %1
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
 
@@ -3613,14 +3649,14 @@ define range(i32 11, 10) i32 @openFile(ptr noundef captures(none) %0, ptr nounde
 5:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 3, %3 ], [ %indvars.iv.next, %8 ]
   %6 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %9, label %5
+  br i1 %exitcond.not, label %9, label %5, !llvm.loop !56
 
 9:                                                ; preds = %8
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.25) #24
@@ -3630,7 +3666,7 @@ define range(i32 11, 10) i32 @openFile(ptr noundef captures(none) %0, ptr nounde
   %10 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef %2)
-  store ptr %12, ptr %10, align 8
+  store ptr %12, ptr %10, align 8, !tbaa !24
   %.not14 = icmp eq ptr %12, null
   %..0 = select i1 %.not14, i32 -1, i32 %11
   br label %13
@@ -3660,7 +3696,7 @@ define noundef i32 @closeFile(ptr noundef captures(none) %0, i64 noundef %1) loc
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw [10 x ptr], ptr %7, i64 0, i64 %1
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %11
 
@@ -3674,7 +3710,7 @@ define noundef i32 @closeFile(ptr noundef captures(none) %0, i64 noundef %1) loc
   br i1 %.not20, label %13, label %14
 
 13:                                               ; preds = %11
-  store ptr null, ptr %8, align 8
+  store ptr null, ptr %8, align 8, !tbaa !24
   br label %14
 
 14:                                               ; preds = %11, %13, %10, %5, %3
@@ -3691,15 +3727,16 @@ define ptr @readLine(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %1
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %4, %2
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.29, i64 noundef %1) #24
-  br label %agxbfree.exit
+  br label %86
 
 9:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %10 = tail call i32 @getc(ptr noundef nonnull %7)
   %11 = icmp sgt i32 %10, 0
@@ -3714,8 +3751,8 @@ agxbsizeof.exit.i.lr.ph:                          ; preds = %9
   br label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.lr.ph, %agxbputc.exit
-  %.val.i.i1736 = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i1734, %agxbputc.exit ]
-  %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i32, %agxbputc.exit ]
+  %.val.i.i1735 = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i1733, %agxbputc.exit ]
+  %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i31, %agxbputc.exit ]
   %17 = phi i32 [ %10, %agxbsizeof.exit.i.lr.ph ], [ %34, %agxbputc.exit ]
   %18 = trunc i32 %17 to i8
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -3729,44 +3766,44 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
 
 22:                                               ; preds = %agxbsizeof.exit.i
   call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
-  %.val.i15.pre.i = load i8, ptr %14, align 1
+  %.val.i15.pre.i = load i8, ptr %14, align 1, !tbaa !3
   br label %23
 
 23:                                               ; preds = %22, %agxbsizeof.exit.i
-  %.val.i.i1735 = phi i8 [ %.val.i15.pre.i, %22 ], [ %.val.i.i1736, %agxbsizeof.exit.i ]
-  %.val.i.i30 = phi i8 [ %.val.i15.pre.i, %22 ], [ %.val.i.i, %agxbsizeof.exit.i ]
-  %.not.i16.i = icmp eq i8 %.val.i.i30, -1
+  %.val.i.i1734 = phi i8 [ %.val.i15.pre.i, %22 ], [ %.val.i.i1735, %agxbsizeof.exit.i ]
+  %.val.i.i29 = phi i8 [ %.val.i15.pre.i, %22 ], [ %.val.i.i, %agxbsizeof.exit.i ]
+  %.not.i16.i = icmp eq i8 %.val.i.i29, -1
   br i1 %.not.i16.i, label %29, label %24
 
 24:                                               ; preds = %23
-  %25 = zext i8 %.val.i.i30 to i64
+  %25 = zext i8 %.val.i.i29 to i64
   %26 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %25
-  store i8 %18, ptr %26, align 1
-  %27 = load i8, ptr %14, align 1
+  store i8 %18, ptr %26, align 1, !tbaa !3
+  %27 = load i8, ptr %14, align 1, !tbaa !3
   %28 = add i8 %27, 1
-  store i8 %28, ptr %14, align 1
+  store i8 %28, ptr %14, align 1, !tbaa !3
   br label %agxbputc.exit
 
 29:                                               ; preds = %23
-  %30 = load i64, ptr %15, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 %30
-  store i8 %18, ptr %32, align 1
+  %30 = load i64, ptr %15, align 8, !tbaa !3
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %30
+  store i8 %18, ptr %32, align 1, !tbaa !3
   %33 = add i64 %30, 1
-  store i64 %33, ptr %15, align 8
+  store i64 %33, ptr %15, align 8, !tbaa !3
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %24, %29
-  %.val.i.i1734 = phi i8 [ %28, %24 ], [ %.val.i.i1735, %29 ]
-  %.val.i.i32 = phi i8 [ %28, %24 ], [ -1, %29 ]
+  %.val.i.i1733 = phi i8 [ %28, %24 ], [ %.val.i.i1734, %29 ]
+  %.val.i.i31 = phi i8 [ %28, %24 ], [ -1, %29 ]
   %34 = tail call i32 @getc(ptr noundef nonnull %7)
   %35 = icmp sgt i32 %34, 0
   %36 = icmp ne i32 %34, 10
   %37 = and i1 %35, %36
-  br i1 %37, label %agxbsizeof.exit.i, label %._crit_edge
+  br i1 %37, label %agxbsizeof.exit.i, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %agxbputc.exit, %9
-  %.val.i.i17 = phi i8 [ 0, %9 ], [ %.val.i.i1734, %agxbputc.exit ]
+  %.val.i.i17 = phi i8 [ 0, %9 ], [ %.val.i.i1733, %agxbputc.exit ]
   %.lcssa = phi i32 [ %10, %9 ], [ %34, %agxbputc.exit ]
   %38 = icmp eq i32 %.lcssa, 10
   br i1 %38, label %agxbsizeof.exit.i20, label %agxbputc.exit27
@@ -3786,109 +3823,132 @@ agxbsizeof.exit.i20:                              ; preds = %._crit_edge
 
 45:                                               ; preds = %agxbsizeof.exit.i20
   call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
-  %.val.i15.pre.i24 = load i8, ptr %39, align 1
+  %.val.i15.pre.i24 = load i8, ptr %39, align 1, !tbaa !3
   br label %46
 
 46:                                               ; preds = %45, %agxbsizeof.exit.i20
   %.val.i15.i25 = phi i8 [ %.val.i15.pre.i24, %45 ], [ %.val.i.i17, %agxbsizeof.exit.i20 ]
   %.not.i16.i26 = icmp eq i8 %.val.i15.i25, -1
-  br i1 %.not.i16.i26, label %52, label %47
+  br i1 %.not.i16.i26, label %agxbputc.exit27.thread, label %47
 
 47:                                               ; preds = %46
   %48 = zext i8 %.val.i15.i25 to i64
   %49 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %48
-  store i8 10, ptr %49, align 1
-  %50 = load i8, ptr %39, align 1
+  store i8 10, ptr %49, align 1, !tbaa !3
+  %50 = load i8, ptr %39, align 1, !tbaa !3
   %51 = add i8 %50, 1
-  store i8 %51, ptr %39, align 1
+  store i8 %51, ptr %39, align 1, !tbaa !3
   br label %agxbputc.exit27
 
-52:                                               ; preds = %46
-  %53 = load i64, ptr %40, align 8
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 %53
-  store i8 10, ptr %55, align 1
-  %56 = add i64 %53, 1
-  store i64 %56, ptr %40, align 8
-  br label %agxbputc.exit27
+agxbputc.exit27.thread:                           ; preds = %46
+  %52 = load i64, ptr %40, align 8, !tbaa !3
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
+  store i8 10, ptr %54, align 1, !tbaa !3
+  %55 = add i64 %52, 1
+  store i64 %55, ptr %40, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 31
+  br label %59
 
-agxbputc.exit27:                                  ; preds = %52, %47, %._crit_edge
-  %.val.i.i.i = phi i8 [ -1, %52 ], [ %51, %47 ], [ %.val.i.i17, %._crit_edge ]
+agxbputc.exit27:                                  ; preds = %47, %._crit_edge
+  %.val.i = phi i8 [ %51, %47 ], [ %.val.i.i17, %._crit_edge ]
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 31
-  %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %61 = load i64, ptr %60, align 8
-  %62 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %59, i64 %62
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %61, i64 31
-  %.not.i.i28 = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i28, label %64, label %63
+  switch i8 %.val.i, label %agxblen.exit.i.i [
+    i8 -1, label %59
+    i8 31, label %agxbclear.exit.thread.i
+  ]
 
-63:                                               ; preds = %agxbputc.exit27
+agxblen.exit.i.i:                                 ; preds = %agxbputc.exit27
+  %58 = zext i8 %.val.i to i64
+  br label %agxbsizeof.exit.i.i
+
+59:                                               ; preds = %agxbputc.exit27.thread, %agxbputc.exit27
+  %60 = phi ptr [ %56, %agxbputc.exit27.thread ], [ %57, %agxbputc.exit27 ]
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %64 = load i64, ptr %63, align 8, !tbaa !3
+  br label %agxbsizeof.exit.i.i
+
+agxbsizeof.exit.i.i:                              ; preds = %59, %agxblen.exit.i.i
+  %65 = phi ptr [ %60, %59 ], [ %57, %agxblen.exit.i.i ]
+  %.val.i38 = phi i8 [ -1, %59 ], [ %.val.i, %agxblen.exit.i.i ]
+  %.0.i20.i.i = phi i64 [ %62, %59 ], [ %58, %agxblen.exit.i.i ]
+  %.0.i14.i.i = phi i64 [ %64, %59 ], [ 31, %agxblen.exit.i.i ]
+  %.not.i5.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
+  br i1 %.not.i5.i, label %67, label %66
+
+66:                                               ; preds = %agxbsizeof.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %57, align 1
-  br label %64
+  %.val.i15.pre.i.i = load i8, ptr %65, align 1, !tbaa !3
+  br label %67
 
-64:                                               ; preds = %63, %agxbputc.exit27
-  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %63 ], [ %.val.i.i.i, %agxbputc.exit27 ]
-  %.not.i16.i.i = icmp eq i8 %.val.i.pr.i, -1
+67:                                               ; preds = %66, %agxbsizeof.exit.i.i
+  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i, %66 ], [ %.val.i38, %agxbsizeof.exit.i.i ]
+  %.not.i16.i.i = icmp eq i8 %.val.i6.pr.i, -1
   br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
-agxbputc.exit.i.thread:                           ; preds = %64
-  %65 = load i64, ptr %58, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 %65
-  store i8 0, ptr %67, align 1
-  br label %73
+agxbputc.exit.i.thread:                           ; preds = %67
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !3
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
+  store i8 0, ptr %71, align 1, !tbaa !3
+  br label %78
 
-agxbputc.exit.i:                                  ; preds = %64
-  %68 = zext i8 %.val.i.pr.i to i64
-  %69 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %68
-  store i8 0, ptr %69, align 1
-  %70 = load i8, ptr %57, align 1
-  %71 = add i8 %70, 1
-  store i8 %71, ptr %57, align 1
-  %72 = icmp eq i8 %71, -1
-  br i1 %72, label %73, label %agxbclear.exit.thread.i
+agxbputc.exit.i:                                  ; preds = %67
+  %72 = zext i8 %.val.i6.pr.i to i64
+  %73 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %72
+  store i8 0, ptr %73, align 1, !tbaa !3
+  %74 = load i8, ptr %65, align 1, !tbaa !3
+  %75 = add i8 %74, 1
+  store i8 %75, ptr %65, align 1, !tbaa !3
+  %76 = icmp eq i8 %75, -1
+  br i1 %76, label %78, label %agxbclear.exit.thread.i
 
-agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr %57, align 1
+agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i, %agxbputc.exit27
+  %77 = phi ptr [ %65, %agxbputc.exit.i ], [ %57, %agxbputc.exit27 ]
+  store i8 0, ptr %77, align 1, !tbaa !3
   br label %agxbuse.exit
 
-73:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
-  store i64 0, ptr %58, align 8
-  %74 = load ptr, ptr %3, align 8
+78:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %79, align 8, !tbaa !3
+  %80 = load ptr, ptr %3, align 8, !tbaa !3
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %73
-  %75 = phi ptr [ %74, %73 ], [ %3, %agxbclear.exit.thread.i ]
-  %76 = call ptr @exstring(ptr noundef %0, ptr noundef %75) #24
-  %.val16 = load i8, ptr %57, align 1
-  %77 = icmp eq i8 %.val16, -1
-  br i1 %77, label %78, label %agxbfree.exit
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %78
+  %81 = phi ptr [ %65, %78 ], [ %77, %agxbclear.exit.thread.i ]
+  %82 = phi ptr [ %80, %78 ], [ %3, %agxbclear.exit.thread.i ]
+  %83 = call ptr @exstring(ptr noundef %0, ptr noundef %82) #24
+  %.val16 = load i8, ptr %81, align 1, !tbaa !3
+  %84 = icmp eq i8 %.val16, -1
+  br i1 %84, label %85, label %agxbfree.exit
 
-78:                                               ; preds = %agxbuse.exit
+85:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #24
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %78, %agxbuse.exit, %8
-  %.0 = phi ptr [ @.str.30, %8 ], [ %76, %agxbuse.exit ], [ %76, %78 ]
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %85
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  br label %86
+
+86:                                               ; preds = %agxbfree.exit, %8
+  %.0 = phi ptr [ @.str.30, %8 ], [ %83, %agxbfree.exit ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @exstring(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @exstring(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -3903,9 +3963,9 @@ define range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(address_is_nu
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %28, label %14
 
@@ -3941,38 +4001,37 @@ define ptr @toLower(ptr noundef %0, ptr noundef readonly captures(none) %1) loca
   %4 = add i64 %3, 1
   %5 = tail call ptr @exstralloc(ptr noundef %0, i64 noundef %4) #24
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %.preheader
+  br i1 %6, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.017 = phi i64 [ %13, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.017
-  %8 = load i8, ptr %7, align 1
-  %9 = sext i8 %8 to i32
-  %10 = tail call i32 @tolower(i32 noundef %9) #25
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.017
-  store i8 %11, ptr %12, align 1
-  %13 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %14 = getelementptr inbounds i8, ptr %5, i64 %3
-  store i8 0, ptr %14, align 1
-  br label %15
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %3
+  store i8 0, ptr %7, align 1, !tbaa !3
+  br label %16
 
-15:                                               ; preds = %2, %._crit_edge
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.017 = phi i64 [ %15, %.lr.ph ], [ 0, %.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
+  %9 = load i8, ptr %8, align 1, !tbaa !3
+  %10 = sext i8 %9 to i32
+  %11 = add nsw i32 %10, -65
+  %12 = icmp ult i32 %11, 26
+  %13 = add i8 %9, 32
+  %.0.i = select i1 %12, i8 %13, i8 %9
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.017
+  store i8 %.0.i, ptr %14, align 1, !tbaa !3
+  %15 = add nuw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %15, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+
+16:                                               ; preds = %2, %._crit_edge
   ret ptr %5
 }
 
-declare ptr @exstralloc(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #9
+declare ptr @exstralloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @toUpper(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -3980,36 +4039,35 @@ define ptr @toUpper(ptr noundef %0, ptr noundef readonly captures(none) %1) loca
   %4 = add i64 %3, 1
   %5 = tail call ptr @exstralloc(ptr noundef %0, i64 noundef %4) #24
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %.preheader
+  br i1 %6, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.017 = phi i64 [ %13, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.017
-  %8 = load i8, ptr %7, align 1
-  %9 = sext i8 %8 to i32
-  %10 = tail call i32 @toupper(i32 noundef %9) #25
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.017
-  store i8 %11, ptr %12, align 1
-  %13 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %14 = getelementptr inbounds i8, ptr %5, i64 %3
-  store i8 0, ptr %14, align 1
-  br label %15
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %3
+  store i8 0, ptr %7, align 1, !tbaa !3
+  br label %16
 
-15:                                               ; preds = %2, %._crit_edge
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.017 = phi i64 [ %15, %.lr.ph ], [ 0, %.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
+  %9 = load i8, ptr %8, align 1, !tbaa !3
+  %10 = sext i8 %9 to i32
+  %11 = add nsw i32 %10, -97
+  %12 = icmp ult i32 %11, 26
+  %13 = add i8 %9, -32
+  %.0.i = select i1 %12, i8 %13, i8 %9
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.017
+  store i8 %.0.i, ptr %14, align 1, !tbaa !3
+  %15 = add nuw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %15, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+
+16:                                               ; preds = %2, %._crit_edge
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define ptr @toHtml(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4032,10 +4090,10 @@ define ptr @canon(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @agcanonStr(ptr noundef) local_unnamed_addr #1
+declare ptr @agcanonStr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define ptr @colorx(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -4046,1154 +4104,882 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures
   %11 = alloca i32, align 4
   %12 = alloca %struct.agxbuf, align 8
   %13 = alloca %struct.agxbuf, align 8
-  %14 = load i8, ptr %2, align 1
+  %14 = load i8, ptr %2, align 1, !tbaa !3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %agxbfree.exit, label %16
+  br i1 %15, label %294, label %16
 
 16:                                               ; preds = %3
-  %17 = load i8, ptr %1, align 1
+  %17 = load i8, ptr %1, align 1, !tbaa !3
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %agxbfree.exit, label %19
+  br i1 %18, label %294, label %19
 
 19:                                               ; preds = %16
-  switch i8 %14, label %agxbfree.exit [
-    i8 82, label %.sink.split
+  switch i8 %14, label %294 [
+    i8 82, label %21
     i8 72, label %20
-    i8 67, label %22
   ]
 
 20:                                               ; preds = %19
-  br label %.sink.split
+  br label %21
 
-.sink.split:                                      ; preds = %19, %20
+21:                                               ; preds = %19, %20
   %.str.32.sink = phi ptr [ @.str.32, %20 ], [ @.str.31, %19 ]
-  %.016.ph = phi i32 [ 0, %20 ], [ 1, %19 ]
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) %.str.32.sink) #25
-  %.not = icmp ne i32 %21, 0
-  br label %22
-
-22:                                               ; preds = %.sink.split, %19
-  %.016 = phi i32 [ 3, %19 ], [ %.016.ph, %.sink.split ]
-  %.not20 = phi i1 [ true, %19 ], [ %.not, %.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  %.015 = phi i1 [ false, %20 ], [ true, %19 ]
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) %.str.32.sink) #25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #24
   br label %23
 
-23:                                               ; preds = %23, %22
-  %.0112.i = phi ptr [ %1, %22 ], [ %26, %23 ]
-  %24 = load i8, ptr %.0112.i, align 1
+23:                                               ; preds = %23, %21
+  %.0110.i = phi ptr [ %1, %21 ], [ %26, %23 ]
+  %24 = load i8, ptr %.0110.i, align 1, !tbaa !3
   %25 = icmp eq i8 %24, 32
-  %26 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 1
-  br i1 %25, label %23, label %27
+  %26 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 1
+  br i1 %25, label %23, label %27, !llvm.loop !60
 
 27:                                               ; preds = %23
-  store i32 255, ptr %11, align 4
-  %28 = icmp eq i8 %24, 35
-  br i1 %28, label %29, label %.thread187.i
+  %.not19.not = icmp eq i32 %22, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #24
+  store i32 255, ptr %11, align 4, !tbaa !41
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0110.i, ptr noundef nonnull @.str.47, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #24
+  %29 = icmp sgt i32 %28, 2
+  br i1 %29, label %._crit_edge, label %30
 
-29:                                               ; preds = %27
-  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0112.i, ptr noundef nonnull @.str.47, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #24
-  %31 = icmp sgt i32 %30, 2
-  br i1 %31, label %49, label %.threadthread-pre-split.i
+._crit_edge:                                      ; preds = %27
+  %.pre135 = load i32, ptr %8, align 4, !tbaa !41
+  br label %46
 
-.threadthread-pre-split.i:                        ; preds = %29
-  %.pr194.i = load i8, ptr %.0112.i, align 1
-  %32 = icmp eq i8 %.pr194.i, 35
-  br i1 %32, label %33, label %.thread187.i
+30:                                               ; preds = %27
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0110.i) #25
+  %32 = icmp eq i64 %31, 4
+  br i1 %32, label %33, label %.thread.i
 
-33:                                               ; preds = %.threadthread-pre-split.i
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0112.i) #25
-  %35 = icmp eq i64 %34, 4
-  br i1 %35, label %36, label %.thread187.i
+33:                                               ; preds = %30
+  %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0110.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #24
+  %35 = icmp eq i32 %34, 3
+  br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %33
-  %37 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0112.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #24
-  %38 = icmp eq i32 %37, 3
-  br i1 %38, label %39, label %..thread187_crit_edge.i
-
-..thread187_crit_edge.i:                          ; preds = %36
-  %.pre.i = load i8, ptr %.0112.i, align 1
-  br label %.thread187.i
-
-39:                                               ; preds = %36
-  %40 = load i32, ptr %8, align 4
+  %37 = load i32, ptr %8, align 4, !tbaa !41
+  %38 = shl i32 %37, 4
+  %39 = or i32 %38, %37
+  %40 = load i32, ptr %9, align 4, !tbaa !41
   %41 = shl i32 %40, 4
   %42 = or i32 %41, %40
-  store i32 %42, ptr %8, align 4
-  %43 = load i32, ptr %9, align 4
+  store i32 %42, ptr %9, align 4, !tbaa !41
+  %43 = load i32, ptr %10, align 4, !tbaa !41
   %44 = shl i32 %43, 4
   %45 = or i32 %44, %43
-  store i32 %45, ptr %9, align 4
-  %46 = load i32, ptr %10, align 4
-  %47 = shl i32 %46, 4
-  %48 = or i32 %47, %46
-  store i32 %48, ptr %10, align 4
-  br label %49
+  store i32 %45, ptr %10, align 4, !tbaa !41
+  br label %46
 
-49:                                               ; preds = %39, %29
-  switch i32 %.016, label %default.unreachable [
-    i32 0, label %50
-    i32 1, label %96
-    i32 3, label %107
-    i32 2, label %.thread288
-  ]
+46:                                               ; preds = %._crit_edge, %36
+  %47 = phi i32 [ %.pre135, %._crit_edge ], [ %39, %36 ]
+  %48 = load i32, ptr %10, align 4, !tbaa !41
+  br i1 %.015, label %90, label %49
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %8, align 4
-  %52 = uitofp i32 %51 to double
-  %53 = fdiv double %52, 2.550000e+02
-  %54 = load i32, ptr %9, align 4
-  %55 = uitofp i32 %54 to double
+49:                                               ; preds = %46
+  %50 = uitofp i32 %47 to double
+  %51 = fdiv double %50, 2.550000e+02
+  %52 = load i32, ptr %9, align 4, !tbaa !41
+  %53 = uitofp i32 %52 to double
+  %54 = fdiv double %53, 2.550000e+02
+  %55 = uitofp i32 %48 to double
   %56 = fdiv double %55, 2.550000e+02
-  %57 = load i32, ptr %10, align 4
+  %57 = load i32, ptr %11, align 4, !tbaa !41
   %58 = uitofp i32 %57 to double
-  %59 = fdiv double %58, 2.550000e+02
-  %60 = load i32, ptr %11, align 4
-  %61 = uitofp i32 %60 to double
-  %62 = call double @llvm.minnum.f64(double %56, double %59)
-  %63 = call double @llvm.minnum.f64(double %53, double %62)
-  %64 = call double @llvm.maxnum.f64(double %56, double %59)
-  %65 = call double @llvm.maxnum.f64(double %53, double %64)
-  %66 = fcmp ogt double %65, 0.000000e+00
-  %67 = fsub double %65, %63
-  %68 = fdiv double %67, %65
-  %.0.i.i = select i1 %66, double %68, double 0.000000e+00
-  %69 = fcmp ogt double %.0.i.i, 0.000000e+00
-  br i1 %69, label %70, label %rgb2hsv.exit.i
+  %59 = call double @llvm.minnum.f64(double %54, double %56)
+  %60 = call double @llvm.minnum.f64(double %51, double %59)
+  %61 = call double @llvm.maxnum.f64(double %54, double %56)
+  %62 = call double @llvm.maxnum.f64(double %51, double %61)
+  %63 = fcmp ogt double %62, 0.000000e+00
+  %64 = fsub double %62, %60
+  %65 = fdiv double %64, %62
+  %.0.i.i = select i1 %63, double %65, double 0.000000e+00
+  %66 = fcmp ogt double %.0.i.i, 0.000000e+00
+  br i1 %66, label %67, label %rgb2hsv.exit.i
 
-70:                                               ; preds = %50
-  %71 = fsub double %65, %53
-  %72 = fdiv double %71, %67
-  %73 = fsub double %65, %56
-  %74 = fdiv double %73, %67
-  %75 = fsub double %65, %59
-  %76 = fdiv double %75, %67
-  %77 = fcmp oeq double %53, %65
-  br i1 %77, label %78, label %80
+67:                                               ; preds = %49
+  %68 = fsub double %62, %51
+  %69 = fdiv double %68, %64
+  %70 = fsub double %62, %54
+  %71 = fdiv double %70, %64
+  %72 = fsub double %62, %56
+  %73 = fdiv double %72, %64
+  %lhsv.cast.i.i.i = bitcast double %51 to i64
+  %rhsv.cast.i.i.i = bitcast double %62 to i64
+  %.not.i.i.i = icmp eq i64 %lhsv.cast.i.i.i, %rhsv.cast.i.i.i
+  br i1 %.not.i.i.i, label %74, label %76
 
-78:                                               ; preds = %70
-  %79 = fsub double %76, %74
-  br label %90
+74:                                               ; preds = %67
+  %75 = fsub double %73, %71
+  br label %84
 
-80:                                               ; preds = %70
-  %81 = fcmp oeq double %56, %65
-  br i1 %81, label %82, label %85
+76:                                               ; preds = %67
+  %lhsv.cast.i48.i.i = bitcast double %54 to i64
+  %.not.i50.i.i = icmp eq i64 %lhsv.cast.i48.i.i, %rhsv.cast.i.i.i
+  br i1 %.not.i50.i.i, label %77, label %80
 
-82:                                               ; preds = %80
-  %83 = fadd double %72, 2.000000e+00
-  %84 = fsub double %83, %76
-  br label %90
+77:                                               ; preds = %76
+  %78 = fadd double %69, 2.000000e+00
+  %79 = fsub double %78, %73
+  br label %84
 
-85:                                               ; preds = %80
-  %86 = fcmp oeq double %59, %65
-  br i1 %86, label %87, label %90
+80:                                               ; preds = %76
+  %lhsv.cast.i51.i.i = bitcast double %56 to i64
+  %.not.i53.i.i = icmp eq i64 %lhsv.cast.i51.i.i, %rhsv.cast.i.i.i
+  br i1 %.not.i53.i.i, label %81, label %84
 
-87:                                               ; preds = %85
-  %88 = fadd double %74, 4.000000e+00
-  %89 = fsub double %88, %72
-  br label %90
+81:                                               ; preds = %80
+  %82 = fadd double %71, 4.000000e+00
+  %83 = fsub double %82, %69
+  br label %84
 
-90:                                               ; preds = %87, %85, %82, %78
-  %.1.i.i = phi double [ %79, %78 ], [ %84, %82 ], [ %89, %87 ], [ 0.000000e+00, %85 ]
-  %91 = fmul double %.1.i.i, 6.000000e+01
-  %92 = fcmp olt double %91, 0.000000e+00
-  br i1 %92, label %93, label %rgb2hsv.exit.i
+84:                                               ; preds = %81, %80, %77, %74
+  %.1.i.i = phi double [ %75, %74 ], [ %79, %77 ], [ %83, %81 ], [ 0.000000e+00, %80 ]
+  %85 = fmul double %.1.i.i, 6.000000e+01
+  %86 = fcmp olt double %85, 0.000000e+00
+  br i1 %86, label %87, label %rgb2hsv.exit.i
 
-93:                                               ; preds = %90
-  %94 = fadd double %91, 3.600000e+02
+87:                                               ; preds = %84
+  %88 = fadd double %85, 3.600000e+02
   br label %rgb2hsv.exit.i
 
-rgb2hsv.exit.i:                                   ; preds = %93, %90, %50
-  %.044.i.i = phi double [ %94, %93 ], [ %91, %90 ], [ 0.000000e+00, %50 ]
-  %95 = fdiv double %.044.i.i, 3.600000e+02
-  br label %.thread260
+rgb2hsv.exit.i:                                   ; preds = %87, %84, %49
+  %.044.i.i = phi double [ %88, %87 ], [ %85, %84 ], [ 0.000000e+00, %49 ]
+  %89 = fdiv double %.044.i.i, 3.600000e+02
+  br label %.thread
 
-96:                                               ; preds = %49
-  %97 = load i32, ptr %8, align 4
-  %98 = load i32, ptr %9, align 4
-  %99 = shl i32 %98, 8
-  %100 = and i32 %99, 65280
-  %101 = and i32 %97, 255
-  %.sroa.0.1.insert.insert170313 = or disjoint i32 %100, %101
-  %102 = load i32, ptr %10, align 4
-  %103 = shl i32 %102, 16
-  %104 = load i32, ptr %11, align 4
-  %105 = shl i32 %104, 24
-  %.masked315 = and i32 %103, 16711680
-  %106 = or disjoint i32 %.sroa.0.1.insert.insert170313, %.masked315
-  %.sroa.0.3.insert.insert232316 = or disjoint i32 %106, %105
-  br label %.thread271
+90:                                               ; preds = %46
+  %91 = load i32, ptr %9, align 4, !tbaa !41
+  %92 = shl i32 %91, 8
+  %93 = and i32 %92, 65280
+  %94 = and i32 %47, 255
+  %.sroa.0.1.insert.insert70127 = or disjoint i32 %93, %94
+  %95 = shl i32 %48, 16
+  %96 = load i32, ptr %11, align 4, !tbaa !41
+  %97 = shl i32 %96, 24
+  %.masked = and i32 %95, 16711680
+  %98 = or disjoint i32 %.sroa.0.1.insert.insert70127, %.masked
+  %.sroa.0.3.insert.insert96129 = or disjoint i32 %98, %97
+  br label %.thread119
 
-107:                                              ; preds = %49
-  %108 = load i32, ptr %8, align 4
-  %109 = uitofp i32 %108 to double
-  %110 = load i32, ptr %9, align 4
-  %111 = uitofp i32 %110 to double
-  %112 = load i32, ptr %10, align 4
-  %113 = uitofp i32 %112 to double
-  br label %.thread279
+.thread.i:                                        ; preds = %33, %30
+  %99 = load i8, ptr %.0110.i, align 1, !tbaa !3
+  %100 = icmp eq i8 %99, 46
+  %101 = sext i8 %99 to i32
+  %102 = add nsw i32 %101, -48
+  %103 = icmp ult i32 %102, 10
+  %or.cond.i = select i1 %100, i1 true, i1 %103
+  br i1 %or.cond.i, label %104, label %202
 
-default.unreachable:                              ; preds = %397, %thread-pre-split.thread.i, %161, %49
-  unreachable
-
-.thread187.i:                                     ; preds = %..thread187_crit_edge.i, %33, %.threadthread-pre-split.i, %27
-  %114 = phi i8 [ %.pre.i, %..thread187_crit_edge.i ], [ %24, %27 ], [ %.pr194.i, %.threadthread-pre-split.i ], [ 35, %33 ]
-  %115 = icmp eq i8 %114, 46
-  %116 = sext i8 %114 to i32
-  %117 = add nsw i32 %116, -48
-  %118 = icmp ult i32 %117, 10
-  %or.cond.i = select i1 %115, i1 true, i1 %118
-  br i1 %or.cond.i, label %119, label %agxbfree.exit133.i
-
-119:                                              ; preds = %.thread187.i
+104:                                              ; preds = %.thread.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %.not198.i = icmp eq i8 %114, 0
-  br i1 %.not198.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.lr.ph.i
+  %.not149.i = icmp eq i8 %99, 0
+  br i1 %.not149.i, label %._crit_edge.thread.i, label %agxbsizeof.exit.i.lr.ph.i
 
-agxbsizeof.exit.i.lr.ph.i:                        ; preds = %119
-  %120 = getelementptr inbounds nuw i8, ptr %12, i64 31
-  %121 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %12, i64 16
+._crit_edge.thread.i:                             ; preds = %104
+  store double 1.000000e+00, ptr %7, align 8, !tbaa !61
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 31
+  br label %agxblen.exit.i.i.i
+
+agxbsizeof.exit.i.lr.ph.i:                        ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 31
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %agxbputc.exit.i, %agxbsizeof.exit.i.lr.ph.i
-  %.val.i.i.i206.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i.i.i204.i, %agxbputc.exit.i ]
-  %.val.i.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i.i203.i, %agxbputc.exit.i ]
-  %123 = phi i8 [ %114, %agxbsizeof.exit.i.lr.ph.i ], [ %141, %agxbputc.exit.i ]
-  %.0111199.i = phi ptr [ %.0112.i, %agxbsizeof.exit.i.lr.ph.i ], [ %124, %agxbputc.exit.i ]
-  %124 = getelementptr inbounds nuw i8, ptr %.0111199.i, i64 1
-  %125 = icmp eq i8 %123, 44
-  %narrow.i = select i1 %125, i8 32, i8 %123
-  %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %126 = load i64, ptr %121, align 8
-  %127 = load i64, ptr %122, align 8
-  %128 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %126, i64 %128
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %127, i64 31
+  %.val.i158.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i156.i, %agxbputc.exit.i ]
+  %.val.i.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i.i155.i, %agxbputc.exit.i ]
+  %109 = phi i8 [ %99, %agxbsizeof.exit.i.lr.ph.i ], [ %127, %agxbputc.exit.i ]
+  %.0113150.i = phi ptr [ %.0110.i, %agxbsizeof.exit.i.lr.ph.i ], [ %110, %agxbputc.exit.i ]
+  %110 = getelementptr inbounds nuw i8, ptr %.0113150.i, i64 1
+  %111 = icmp eq i8 %109, 44
+  %narrow.i = select i1 %111, i8 32, i8 %109
+  %.not.i.i131.i = icmp eq i8 %.val.i.i.i, -1
+  %112 = load i64, ptr %107, align 8
+  %113 = load i64, ptr %108, align 8
+  %114 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i131.i, i64 %112, i64 %114
+  %.0.i14.i.i = select i1 %.not.i.i131.i, i64 %113, i64 31
   %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %130, label %129
+  br i1 %.not.i.i, label %116, label %115
 
-129:                                              ; preds = %agxbsizeof.exit.i.i
+115:                                              ; preds = %agxbsizeof.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %120, align 1
-  br label %130
+  %.val.i15.pre.i.i = load i8, ptr %106, align 1, !tbaa !3
+  br label %116
 
-130:                                              ; preds = %129, %agxbsizeof.exit.i.i
-  %.val.i.i.i205.i = phi i8 [ %.val.i15.pre.i.i, %129 ], [ %.val.i.i.i206.i, %agxbsizeof.exit.i.i ]
-  %.val.i.i201.i = phi i8 [ %.val.i15.pre.i.i, %129 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
-  %.not.i16.i.i = icmp eq i8 %.val.i.i201.i, -1
-  br i1 %.not.i16.i.i, label %136, label %131
+116:                                              ; preds = %115, %agxbsizeof.exit.i.i
+  %.val.i157.i = phi i8 [ %.val.i15.pre.i.i, %115 ], [ %.val.i158.i, %agxbsizeof.exit.i.i ]
+  %.val.i.i153.i = phi i8 [ %.val.i15.pre.i.i, %115 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+  %.not.i16.i.i = icmp eq i8 %.val.i.i153.i, -1
+  br i1 %.not.i16.i.i, label %122, label %117
 
-131:                                              ; preds = %130
-  %132 = zext i8 %.val.i.i201.i to i64
-  %133 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %132
-  store i8 %narrow.i, ptr %133, align 1
-  %134 = load i8, ptr %120, align 1
-  %135 = add i8 %134, 1
-  store i8 %135, ptr %120, align 1
+117:                                              ; preds = %116
+  %118 = zext i8 %.val.i.i153.i to i64
+  %119 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %118
+  store i8 %narrow.i, ptr %119, align 1, !tbaa !3
+  %120 = load i8, ptr %106, align 1, !tbaa !3
+  %121 = add i8 %120, 1
+  store i8 %121, ptr %106, align 1, !tbaa !3
   br label %agxbputc.exit.i
 
-136:                                              ; preds = %130
-  %137 = load i64, ptr %121, align 8
-  %138 = load ptr, ptr %12, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 %137
-  store i8 %narrow.i, ptr %139, align 1
-  %140 = add i64 %137, 1
-  store i64 %140, ptr %121, align 8
+122:                                              ; preds = %116
+  %123 = load i64, ptr %107, align 8, !tbaa !3
+  %124 = load ptr, ptr %12, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %123
+  store i8 %narrow.i, ptr %125, align 1, !tbaa !3
+  %126 = add i64 %123, 1
+  store i64 %126, ptr %107, align 8, !tbaa !3
   br label %agxbputc.exit.i
 
-agxbputc.exit.i:                                  ; preds = %136, %131
-  %.val.i.i.i204.i = phi i8 [ %135, %131 ], [ %.val.i.i.i205.i, %136 ]
-  %.val.i.i203.i = phi i8 [ %135, %131 ], [ -1, %136 ]
-  %141 = load i8, ptr %124, align 1
-  %.not.i = icmp eq i8 %141, 0
-  br i1 %.not.i, label %agxbsizeof.exit.i.i.loopexit.i, label %agxbsizeof.exit.i.i
+agxbputc.exit.i:                                  ; preds = %122, %117
+  %.val.i156.i = phi i8 [ %121, %117 ], [ %.val.i157.i, %122 ]
+  %.val.i.i155.i = phi i8 [ %121, %117 ], [ -1, %122 ]
+  %127 = load i8, ptr %110, align 1, !tbaa !3
+  %.not.i = icmp eq i8 %127, 0
+  br i1 %.not.i, label %._crit_edge.i, label %agxbsizeof.exit.i.i, !llvm.loop !63
 
-agxbsizeof.exit.i.i.loopexit.i:                   ; preds = %agxbputc.exit.i
-  %.pre208.i = load i64, ptr %121, align 8
-  %.pre210.i = load i64, ptr %122, align 8
+._crit_edge.i:                                    ; preds = %agxbputc.exit.i
+  store double 1.000000e+00, ptr %7, align 8, !tbaa !61
+  switch i8 %.val.i156.i, label %agxblen.exit.i.i.i [
+    i8 -1, label %130
+    i8 31, label %agxbuse.exit.thread.i
+  ]
+
+agxblen.exit.i.i.i:                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %128 = phi ptr [ %105, %._crit_edge.thread.i ], [ %106, %._crit_edge.i ]
+  %.val.i163.i = phi i8 [ 0, %._crit_edge.thread.i ], [ %.val.i156.i, %._crit_edge.i ]
+  %129 = zext i8 %.val.i163.i to i64
   br label %agxbsizeof.exit.i.i.i
 
-agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i.loopexit.i, %119
-  %142 = phi i64 [ %.pre210.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
-  %143 = phi i64 [ %.pre208.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
-  %.val.i.i.i.i = phi i8 [ %.val.i.i.i204.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
-  store double 1.000000e+00, ptr %7, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %12, i64 31
-  %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
-  %145 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %146 = zext i8 %.val.i.i.i.i to i64
-  %.0.i20.i.i.i = select i1 %.not.i.i.i.i, i64 %143, i64 %146
-  %.0.i14.i.i.i = select i1 %.not.i.i.i.i, i64 %142, i64 31
-  %.not.i.i124.i = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
-  br i1 %.not.i.i124.i, label %148, label %147
+130:                                              ; preds = %._crit_edge.i
+  %131 = load i64, ptr %107, align 8, !tbaa !3
+  %132 = load i64, ptr %108, align 8, !tbaa !3
+  br label %agxbsizeof.exit.i.i.i
 
-147:                                              ; preds = %agxbsizeof.exit.i.i.i
+agxbsizeof.exit.i.i.i:                            ; preds = %130, %agxblen.exit.i.i.i
+  %133 = phi ptr [ %106, %130 ], [ %128, %agxblen.exit.i.i.i ]
+  %.val.i162.i = phi i8 [ -1, %130 ], [ %.val.i163.i, %agxblen.exit.i.i.i ]
+  %.0.i20.i.i.i = phi i64 [ %131, %130 ], [ %129, %agxblen.exit.i.i.i ]
+  %.0.i14.i.i.i = phi i64 [ %132, %130 ], [ 31, %agxblen.exit.i.i.i ]
+  %.not.i5.i.i = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
+  br i1 %.not.i5.i.i, label %135, label %134
+
+134:                                              ; preds = %agxbsizeof.exit.i.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
-  %.val.i15.pre.i.i.i = load i8, ptr %144, align 1
-  br label %148
+  %.val.i15.pre.i.i.i = load i8, ptr %133, align 1, !tbaa !3
+  br label %135
 
-148:                                              ; preds = %147, %agxbsizeof.exit.i.i.i
-  %.val.i.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %147 ], [ %.val.i.i.i.i, %agxbsizeof.exit.i.i.i ]
-  %.not.i16.i.i.i = icmp eq i8 %.val.i.pr.i.i, -1
+135:                                              ; preds = %134, %agxbsizeof.exit.i.i.i
+  %.val.i6.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %134 ], [ %.val.i162.i, %agxbsizeof.exit.i.i.i ]
+  %.not.i16.i.i.i = icmp eq i8 %.val.i6.pr.i.i, -1
   br i1 %.not.i16.i.i.i, label %agxbputc.exit.i.thread.i, label %agxbputc.exit.i.i
 
-agxbputc.exit.i.thread.i:                         ; preds = %148
-  %149 = load i64, ptr %145, align 8
-  %150 = load ptr, ptr %12, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 %149
-  store i8 0, ptr %151, align 1
+agxbputc.exit.i.thread.i:                         ; preds = %135
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %137 = load i64, ptr %136, align 8, !tbaa !3
+  %138 = load ptr, ptr %12, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %137
+  store i8 0, ptr %139, align 1, !tbaa !3
   br label %agxbuse.exit.i
 
-agxbputc.exit.i.i:                                ; preds = %148
-  %152 = zext i8 %.val.i.pr.i.i to i64
-  %153 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %152
-  store i8 0, ptr %153, align 1
-  %154 = load i8, ptr %144, align 1
-  %155 = add i8 %154, 1
-  store i8 %155, ptr %144, align 1
-  %156 = icmp eq i8 %155, -1
-  br i1 %156, label %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, label %agxbuse.exit.i.thread
+agxbputc.exit.i.i:                                ; preds = %135
+  %140 = zext i8 %.val.i6.pr.i.i to i64
+  %141 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %140
+  store i8 0, ptr %141, align 1, !tbaa !3
+  %142 = load i8, ptr %133, align 1, !tbaa !3
+  %143 = add i8 %142, 1
+  store i8 %143, ptr %133, align 1, !tbaa !3
+  %144 = icmp eq i8 %143, -1
+  br i1 %144, label %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, label %agxbuse.exit.thread.i
 
 agxbputc.exit.i.i.agxbuse.exit.i_crit_edge:       ; preds = %agxbputc.exit.i.i
-  %.pre = load ptr, ptr %12, align 8
+  %.pre = load ptr, ptr %12, align 8, !tbaa !3
   br label %agxbuse.exit.i
 
 agxbuse.exit.i:                                   ; preds = %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, %agxbputc.exit.i.thread.i
-  %.val.i = phi ptr [ %.pre, %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge ], [ %150, %agxbputc.exit.i.thread.i ]
-  store i64 0, ptr %145, align 8
-  %157 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.val.i, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
-  %158 = icmp sgt i32 %157, 2
-  br i1 %158, label %161, label %293
+  %145 = phi ptr [ %.pre, %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge ], [ %138, %agxbputc.exit.i.thread.i ]
+  %146 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %145, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %147 = icmp slt i32 %146, 3
+  br i1 %147, label %201, label %151
 
-agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
-  store i8 0, ptr %144, align 1
-  %159 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
-  %160 = icmp sgt i32 %159, 2
-  br i1 %160, label %161, label %agxbfree.exit133.i
+agxbuse.exit.thread.i:                            ; preds = %agxbputc.exit.i.i, %._crit_edge.i
+  %148 = phi ptr [ %133, %agxbputc.exit.i.i ], [ %106, %._crit_edge.i ]
+  store i8 0, ptr %148, align 1, !tbaa !3
+  %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %150 = icmp slt i32 %149, 3
+  br i1 %150, label %agxbfree.exit.thread.i, label %151
 
-161:                                              ; preds = %agxbuse.exit.i.thread, %agxbuse.exit.i
-  %.val.i4.pr.i214.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
-  %162 = load double, ptr %4, align 8
+151:                                              ; preds = %agxbuse.exit.thread.i, %agxbuse.exit.i
+  %152 = phi i1 [ false, %agxbuse.exit.thread.i ], [ true, %agxbuse.exit.i ]
+  %153 = load double, ptr %4, align 8, !tbaa !61
+  %154 = call double @llvm.minnum.f64(double %153, double 1.000000e+00)
+  %155 = call double @llvm.maxnum.f64(double %154, double 0.000000e+00)
+  store double %155, ptr %4, align 8, !tbaa !61
+  %156 = load double, ptr %5, align 8, !tbaa !61
+  %157 = call double @llvm.minnum.f64(double %156, double 1.000000e+00)
+  %158 = call double @llvm.maxnum.f64(double %157, double 0.000000e+00)
+  store double %158, ptr %5, align 8, !tbaa !61
+  %159 = load double, ptr %6, align 8, !tbaa !61
+  %160 = call double @llvm.minnum.f64(double %159, double 1.000000e+00)
+  %161 = call double @llvm.maxnum.f64(double %160, double 0.000000e+00)
+  store double %161, ptr %6, align 8, !tbaa !61
+  %162 = load double, ptr %7, align 8, !tbaa !61
   %163 = call double @llvm.minnum.f64(double %162, double 1.000000e+00)
   %164 = call double @llvm.maxnum.f64(double %163, double 0.000000e+00)
-  store double %164, ptr %4, align 8
-  %165 = load double, ptr %5, align 8
-  %166 = call double @llvm.minnum.f64(double %165, double 1.000000e+00)
-  %167 = call double @llvm.maxnum.f64(double %166, double 0.000000e+00)
-  store double %167, ptr %5, align 8
-  %168 = load double, ptr %6, align 8
-  %169 = call double @llvm.minnum.f64(double %168, double 1.000000e+00)
-  %170 = call double @llvm.maxnum.f64(double %169, double 0.000000e+00)
-  store double %170, ptr %6, align 8
-  %171 = load double, ptr %7, align 8
-  %172 = call double @llvm.minnum.f64(double %171, double 1.000000e+00)
-  %173 = call double @llvm.maxnum.f64(double %172, double 0.000000e+00)
-  store double %173, ptr %7, align 8
-  switch i32 %.016, label %default.unreachable [
-    i32 0, label %291
-    i32 1, label %174
-    i32 3, label %214
-    i32 2, label %256
-  ]
+  store double %164, ptr %7, align 8, !tbaa !61
+  br i1 %.015, label %165, label %199
 
-174:                                              ; preds = %161
-  %175 = fcmp ugt double %167, 0.000000e+00
-  br i1 %175, label %176, label %hsv2rgb.exit.i
+165:                                              ; preds = %151
+  %166 = fcmp ugt double %158, 0.000000e+00
+  br i1 %166, label %167, label %hsv2rgb.exit.i
 
-176:                                              ; preds = %174
-  %177 = fcmp ult double %164, 1.000000e+00
-  %178 = fmul double %164, 6.000000e+00
-  %179 = select i1 %177, double %178, double 0.000000e+00
-  %180 = fptosi double %179 to i32
-  %181 = sitofp i32 %180 to double
-  %182 = fsub double %179, %181
-  %183 = fsub double 1.000000e+00, %167
-  %184 = fmul double %183, %170
-  %185 = fneg double %167
-  %186 = call double @llvm.fmuladd.f64(double %185, double %182, double 1.000000e+00)
-  %187 = fmul double %170, %186
-  %188 = fsub double 1.000000e+00, %182
-  %189 = call double @llvm.fmuladd.f64(double %185, double %188, double 1.000000e+00)
-  %190 = fmul double %170, %189
-  switch i32 %180, label %196 [
+167:                                              ; preds = %165
+  %168 = fcmp ult double %155, 1.000000e+00
+  %169 = fmul double %155, 6.000000e+00
+  %170 = select i1 %168, double %169, double 0.000000e+00
+  %171 = fptosi double %170 to i32
+  %172 = sitofp i32 %171 to double
+  %173 = fsub double %170, %172
+  %174 = fsub double 1.000000e+00, %158
+  %175 = fmul double %174, %161
+  %176 = fneg double %158
+  %177 = call double @llvm.fmuladd.f64(double %176, double %173, double 1.000000e+00)
+  %178 = fmul double %161, %177
+  %179 = fsub double 1.000000e+00, %173
+  %180 = call double @llvm.fmuladd.f64(double %176, double %179, double 1.000000e+00)
+  %181 = fmul double %161, %180
+  switch i32 %171, label %187 [
     i32 0, label %hsv2rgb.exit.i
-    i32 1, label %191
-    i32 2, label %192
-    i32 3, label %193
-    i32 4, label %194
-    i32 5, label %195
+    i32 1, label %182
+    i32 2, label %183
+    i32 3, label %184
+    i32 4, label %185
+    i32 5, label %186
   ]
 
-191:                                              ; preds = %176
+182:                                              ; preds = %167
   br label %hsv2rgb.exit.i
 
-192:                                              ; preds = %176
+183:                                              ; preds = %167
   br label %hsv2rgb.exit.i
 
-193:                                              ; preds = %176
+184:                                              ; preds = %167
   br label %hsv2rgb.exit.i
 
-194:                                              ; preds = %176
+185:                                              ; preds = %167
   br label %hsv2rgb.exit.i
 
-195:                                              ; preds = %176
+186:                                              ; preds = %167
   br label %hsv2rgb.exit.i
 
-196:                                              ; preds = %176
-  %197 = load ptr, ptr @stderr, align 8
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.49, i32 noundef 83) #27
-  call void @abort() #28
+187:                                              ; preds = %167
+  %188 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.49, i32 noundef 86) #27
+  call void @abort() #29
   unreachable
 
-hsv2rgb.exit.i:                                   ; preds = %195, %194, %193, %192, %191, %176, %174
-  %.sink59.i.i = phi double [ %187, %191 ], [ %184, %192 ], [ %184, %193 ], [ %190, %194 ], [ %170, %195 ], [ %170, %174 ], [ %170, %176 ]
-  %.sink58.i.i = phi double [ %170, %191 ], [ %170, %192 ], [ %187, %193 ], [ %184, %194 ], [ %184, %195 ], [ %170, %174 ], [ %190, %176 ]
-  %.sink.i.i = phi double [ %184, %191 ], [ %190, %192 ], [ %170, %193 ], [ %170, %194 ], [ %187, %195 ], [ %170, %174 ], [ %184, %176 ]
-  %199 = fmul double %.sink59.i.i, 2.550000e+02
-  %200 = fptosi double %199 to i32
-  %201 = fmul double %.sink58.i.i, 2.550000e+02
-  %202 = fptosi double %201 to i32
-  %203 = shl i32 %202, 8
-  %204 = and i32 %203, 65280
-  %205 = and i32 %200, 255
-  %206 = fmul double %.sink.i.i, 2.550000e+02
-  %207 = fptosi double %206 to i32
-  %208 = shl i32 %207, 16
-  %209 = fmul double %173, 2.550000e+02
-  %210 = fptosi double %209 to i32
-  %211 = shl i32 %210, 24
-  %.masked = and i32 %208, 16711680
-  %212 = or disjoint i32 %205, %211
-  %.sroa.0.1.insert.insert160304 = or disjoint i32 %212, %204
-  %.sroa.0.3.insert.insert222306 = or disjoint i32 %.sroa.0.1.insert.insert160304, %.masked
-  %.sroa.0.3.insert.insert222 = zext i32 %.sroa.0.3.insert.insert222306 to i64
-  %213 = bitcast i64 %.sroa.0.3.insert.insert222 to double
-  br label %291
+hsv2rgb.exit.i:                                   ; preds = %186, %185, %184, %183, %182, %167, %165
+  %.sink59.i.i = phi double [ %178, %182 ], [ %175, %183 ], [ %175, %184 ], [ %181, %185 ], [ %161, %186 ], [ %161, %165 ], [ %161, %167 ]
+  %.sink58.i.i = phi double [ %161, %182 ], [ %161, %183 ], [ %178, %184 ], [ %175, %185 ], [ %175, %186 ], [ %161, %165 ], [ %181, %167 ]
+  %.sink.i.i = phi double [ %175, %182 ], [ %181, %183 ], [ %161, %184 ], [ %161, %185 ], [ %178, %186 ], [ %161, %165 ], [ %175, %167 ]
+  %190 = fmul double %.sink59.i.i, 2.550000e+02
+  %191 = fptoui double %190 to i8
+  %.sroa.0.0.insert.ext49 = zext i8 %191 to i64
+  %192 = fmul double %.sink58.i.i, 2.550000e+02
+  %193 = fptoui double %192 to i8
+  %.sroa.0.1.insert.ext62 = zext i8 %193 to i64
+  %.sroa.0.1.insert.shift63 = shl nuw nsw i64 %.sroa.0.1.insert.ext62, 8
+  %.sroa.0.1.insert.insert65 = or disjoint i64 %.sroa.0.1.insert.shift63, %.sroa.0.0.insert.ext49
+  %194 = fmul double %.sink.i.i, 2.550000e+02
+  %195 = fptoui double %194 to i8
+  %.sroa.0.2.insert.ext75 = zext i8 %195 to i64
+  %.sroa.0.2.insert.shift76 = shl nuw nsw i64 %.sroa.0.2.insert.ext75, 16
+  %.sroa.0.2.insert.insert78 = or disjoint i64 %.sroa.0.1.insert.insert65, %.sroa.0.2.insert.shift76
+  %196 = fmul double %164, 2.550000e+02
+  %197 = fptoui double %196 to i8
+  %.sroa.0.3.insert.ext88 = zext i8 %197 to i64
+  %.sroa.0.3.insert.shift89 = shl nuw nsw i64 %.sroa.0.3.insert.ext88, 24
+  %.sroa.0.3.insert.insert91 = or disjoint i64 %.sroa.0.2.insert.insert78, %.sroa.0.3.insert.shift89
+  %198 = bitcast i64 %.sroa.0.3.insert.insert91 to double
+  br label %199
 
-214:                                              ; preds = %161
-  %215 = fcmp ugt double %167, 0.000000e+00
-  br i1 %215, label %216, label %hsv2rgb.exit128.i
+199:                                              ; preds = %151, %hsv2rgb.exit.i
+  %.sroa.28.0 = phi double [ 0.000000e+00, %hsv2rgb.exit.i ], [ %158, %151 ]
+  %.sroa.32.0 = phi double [ 0.000000e+00, %hsv2rgb.exit.i ], [ %161, %151 ]
+  %.sroa.36.0 = phi double [ 0.000000e+00, %hsv2rgb.exit.i ], [ %164, %151 ]
+  %.sroa.0.0 = phi double [ %198, %hsv2rgb.exit.i ], [ %155, %151 ]
+  br i1 %152, label %200, label %256
 
-216:                                              ; preds = %214
-  %217 = fcmp ult double %164, 1.000000e+00
-  %218 = fmul double %164, 6.000000e+00
-  %219 = select i1 %217, double %218, double 0.000000e+00
-  %220 = fptosi double %219 to i32
-  %221 = sitofp i32 %220 to double
-  %222 = fsub double %219, %221
-  %223 = fsub double 1.000000e+00, %167
-  %224 = fmul double %223, %170
-  %225 = fneg double %167
-  %226 = call double @llvm.fmuladd.f64(double %225, double %222, double 1.000000e+00)
-  %227 = fmul double %170, %226
-  %228 = fsub double 1.000000e+00, %222
-  %229 = call double @llvm.fmuladd.f64(double %225, double %228, double 1.000000e+00)
-  %230 = fmul double %170, %229
-  switch i32 %220, label %236 [
-    i32 0, label %hsv2rgb.exit128.i
-    i32 1, label %231
-    i32 2, label %232
-    i32 3, label %233
-    i32 4, label %234
-    i32 5, label %235
+200:                                              ; preds = %199
+  %.val129.i = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %.val129.i) #24
+  br label %256
+
+201:                                              ; preds = %agxbuse.exit.i
+  call void @free(ptr noundef %145) #24
+  br label %agxbfree.exit.thread.i
+
+agxbfree.exit.thread.i:                           ; preds = %201, %agxbuse.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #24
+  br label %202
+
+202:                                              ; preds = %agxbfree.exit.thread.i, %.thread.i
+  %203 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0110.i, ptr noundef nonnull dereferenceable(6) @.str.51) #25
+  %.not.i133.i = icmp eq i32 %203, 0
+  br i1 %.not.i133.i, label %resolveColor.exit.i, label %204
+
+204:                                              ; preds = %202
+  %205 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0110.i, ptr noundef nonnull dereferenceable(6) @.str.52) #25
+  %.not26.i.i = icmp eq i32 %205, 0
+  br i1 %.not26.i.i, label %resolveColor.exit.i, label %206
+
+206:                                              ; preds = %204
+  %207 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0110.i, ptr noundef nonnull dereferenceable(10) @.str.53) #25
+  %.not27.i.i = icmp eq i32 %207, 0
+  br i1 %.not27.i.i, label %resolveColor.exit.i, label %208
+
+208:                                              ; preds = %206
+  %209 = load i8, ptr %.0110.i, align 1, !tbaa !3
+  %210 = icmp eq i8 %209, 47
+  br i1 %210, label %211, label %resolveColor.exit.i
+
+211:                                              ; preds = %208
+  %212 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %26, i32 noundef 47) #25
+  %.not28.i.i = icmp eq ptr %212, null
+  br i1 %.not28.i.i, label %resolveColor.exit.i, label %213
+
+213:                                              ; preds = %211
+  %214 = load i8, ptr %26, align 1, !tbaa !3
+  %215 = icmp eq i8 %214, 47
+  br i1 %215, label %216, label %218
+
+216:                                              ; preds = %213
+  %217 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 2
+  br label %resolveColor.exit.i
+
+218:                                              ; preds = %213
+  %219 = call i32 @strncasecmp(ptr noundef nonnull @.str.54, ptr noundef nonnull readonly %26, i64 noundef 4) #25
+  %.not29.i.i = icmp eq i32 %219, 0
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 1
+  %spec.select.i.i = select i1 %.not29.i.i, ptr %220, ptr %.0110.i
+  br label %resolveColor.exit.i
+
+resolveColor.exit.i:                              ; preds = %218, %216, %211, %208, %206, %204, %202
+  %.1.sink.i.i = phi ptr [ %.0110.i, %202 ], [ %.0110.i, %204 ], [ %.0110.i, %206 ], [ %217, %216 ], [ %26, %211 ], [ %.0110.i, %208 ], [ %spec.select.i.i, %218 ]
+  %221 = call noalias ptr @strdup(ptr noundef nonnull %.1.sink.i.i) #24
+  %.not118.i = icmp eq ptr %221, null
+  br i1 %.not118.i, label %colorxlate.exit, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %resolveColor.exit.i, %232
+  %.01621.i.i = phi i64 [ %.1.i135.i, %232 ], [ 0, %resolveColor.exit.i ]
+  %.01720.i.i = phi i64 [ %.118.i.i, %232 ], [ 2515, %resolveColor.exit.i ]
+  %222 = add i64 %.01720.i.i, %.01621.i.i
+  %223 = lshr i64 %222, 1
+  %224 = shl i64 %223, 4
+  %225 = getelementptr inbounds nuw i8, ptr @color_lib, i64 %224
+  %226 = load ptr, ptr %225, align 16, !tbaa !64
+  %227 = call i32 @strcasecmp(ptr noundef nonnull readonly %221, ptr noundef %226) #25
+  %228 = icmp slt i32 %227, 0
+  br i1 %228, label %232, label %229
+
+229:                                              ; preds = %.lr.ph.i.i
+  %.not.i134.i = icmp eq i32 %227, 0
+  br i1 %.not.i134.i, label %234, label %230
+
+230:                                              ; preds = %229
+  %231 = add nuw i64 %223, 1
+  br label %232
+
+232:                                              ; preds = %230, %.lr.ph.i.i
+  %.118.i.i = phi i64 [ %.01720.i.i, %230 ], [ %223, %.lr.ph.i.i ]
+  %.1.i135.i = phi i64 [ %231, %230 ], [ %.01621.i.i, %.lr.ph.i.i ]
+  %233 = icmp ult i64 %.1.i135.i, %.118.i.i
+  br i1 %233, label %.lr.ph.i.i, label %255, !llvm.loop !66
+
+234:                                              ; preds = %229
+  %235 = getelementptr inbounds nuw i8, ptr @color_lib, i64 %224
+  call void @free(ptr noundef nonnull %221) #24
+  br i1 %.015, label %252, label %236
+
+236:                                              ; preds = %234
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %238 = load i8, ptr %237, align 8, !tbaa !67
+  %239 = uitofp i8 %238 to double
+  %240 = fdiv double %239, 2.550000e+02
+  %241 = getelementptr inbounds nuw i8, ptr %235, i64 9
+  %242 = load i8, ptr %241, align 1, !tbaa !68
+  %243 = uitofp i8 %242 to double
+  %244 = fdiv double %243, 2.550000e+02
+  %245 = getelementptr inbounds nuw i8, ptr %235, i64 10
+  %246 = load i8, ptr %245, align 2, !tbaa !69
+  %247 = uitofp i8 %246 to double
+  %248 = fdiv double %247, 2.550000e+02
+  %249 = getelementptr inbounds nuw i8, ptr %235, i64 14
+  %250 = load i8, ptr %249, align 2, !tbaa !70
+  %251 = uitofp i8 %250 to double
+  br label %.thread
+
+252:                                              ; preds = %234
+  %253 = getelementptr inbounds nuw i8, ptr %235, i64 11
+  %254 = load i32, ptr %253, align 1
+  br label %.thread119
+
+255:                                              ; preds = %232
+  call void @free(ptr noundef nonnull %221) #24
+  br label %colorxlate.exit
+
+colorxlate.exit:                                  ; preds = %255, %resolveColor.exit.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  br label %294
+
+.thread:                                          ; preds = %rgb2hsv.exit.i, %236
+  %.sroa.28.1.ph.ph = phi double [ %.0.i.i, %rgb2hsv.exit.i ], [ %244, %236 ]
+  %.sroa.32.1.ph.ph = phi double [ %62, %rgb2hsv.exit.i ], [ %248, %236 ]
+  %.sroa.36.1.ph.ph.in = phi double [ %58, %rgb2hsv.exit.i ], [ %251, %236 ]
+  %.sroa.0.1.ph.ph = phi double [ %89, %rgb2hsv.exit.i ], [ %240, %236 ]
+  %.sroa.36.1.ph.ph = fdiv double %.sroa.36.1.ph.ph.in, 2.550000e+02
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  br label %257
+
+.thread119:                                       ; preds = %90, %252
+  %.sroa.0.1.ph.ph118.in.in = phi i32 [ %.sroa.0.3.insert.insert96129, %90 ], [ %254, %252 ]
+  %.sroa.0.1.ph.ph118.in = zext i32 %.sroa.0.1.ph.ph118.in.in to i64
+  %.sroa.0.1.ph.ph118 = bitcast i64 %.sroa.0.1.ph.ph118.in to double
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  br label %259
+
+256:                                              ; preds = %199, %200
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  br i1 %.015, label %259, label %257
+
+257:                                              ; preds = %.thread, %256
+  %.sroa.0.1.ph116 = phi double [ %.sroa.0.1.ph.ph, %.thread ], [ %.sroa.0.0, %256 ]
+  %.sroa.36.1.ph115 = phi double [ %.sroa.36.1.ph.ph, %.thread ], [ %.sroa.36.0, %256 ]
+  %.sroa.32.1.ph114 = phi double [ %.sroa.32.1.ph.ph, %.thread ], [ %.sroa.32.0, %256 ]
+  %.sroa.28.1.ph113 = phi double [ %.sroa.28.1.ph.ph, %.thread ], [ %.sroa.28.0, %256 ]
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph116, double noundef %.sroa.28.1.ph113, double noundef %.sroa.32.1.ph114)
+  br i1 %.not19.not, label %258, label %268
+
+258:                                              ; preds = %257
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.36.1.ph115)
+  br label %268
+
+259:                                              ; preds = %.thread119, %256
+  %.sroa.0.1.ph126 = phi double [ %.sroa.0.1.ph.ph118, %.thread119 ], [ %.sroa.0.0, %256 ]
+  %260 = bitcast double %.sroa.0.1.ph126 to i64
+  %.sroa.0.0.extract.trunc = trunc i64 %260 to i32
+  %261 = and i32 %.sroa.0.0.extract.trunc, 255
+  %262 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %263 = and i32 %262, 255
+  %264 = lshr i32 %.sroa.0.0.extract.trunc, 16
+  %265 = and i32 %264, 255
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.35, i32 noundef %261, i32 noundef %263, i32 noundef %265)
+  br i1 %.not19.not, label %266, label %268
+
+266:                                              ; preds = %259
+  %267 = lshr i32 %.sroa.0.0.extract.trunc, 24
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.36, i32 noundef %267)
+  br label %268
+
+268:                                              ; preds = %259, %266, %257, %258
+  %269 = getelementptr inbounds nuw i8, ptr %13, i64 31
+  %.val.i23 = load i8, ptr %269, align 1, !tbaa !3
+  switch i8 %.val.i23, label %agxblen.exit.i.i [
+    i8 -1, label %271
+    i8 31, label %agxbclear.exit.thread.i
   ]
 
-231:                                              ; preds = %216
-  br label %hsv2rgb.exit128.i
+agxblen.exit.i.i:                                 ; preds = %268
+  %270 = zext i8 %.val.i23 to i64
+  br label %agxbsizeof.exit.i.i24
 
-232:                                              ; preds = %216
-  br label %hsv2rgb.exit128.i
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %273 = load i64, ptr %272, align 8, !tbaa !3
+  %274 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %275 = load i64, ptr %274, align 8, !tbaa !3
+  br label %agxbsizeof.exit.i.i24
 
-233:                                              ; preds = %216
-  br label %hsv2rgb.exit128.i
+agxbsizeof.exit.i.i24:                            ; preds = %271, %agxblen.exit.i.i
+  %.0.i20.i.i25 = phi i64 [ %273, %271 ], [ %270, %agxblen.exit.i.i ]
+  %.0.i14.i.i26 = phi i64 [ %275, %271 ], [ 31, %agxblen.exit.i.i ]
+  %.not.i5.i = icmp ult i64 %.0.i20.i.i25, %.0.i14.i.i26
+  br i1 %.not.i5.i, label %277, label %276
 
-234:                                              ; preds = %216
-  br label %hsv2rgb.exit128.i
-
-235:                                              ; preds = %216
-  br label %hsv2rgb.exit128.i
-
-236:                                              ; preds = %216
-  %237 = load ptr, ptr @stderr, align 8
-  %238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.49, i32 noundef 83) #27
-  call void @abort() #28
-  unreachable
-
-hsv2rgb.exit128.i:                                ; preds = %235, %234, %233, %232, %231, %216, %214
-  %.sink59.i125.i = phi double [ %227, %231 ], [ %224, %232 ], [ %224, %233 ], [ %230, %234 ], [ %170, %235 ], [ %170, %214 ], [ %170, %216 ]
-  %.sink58.i126.i = phi double [ %170, %231 ], [ %170, %232 ], [ %227, %233 ], [ %224, %234 ], [ %224, %235 ], [ %170, %214 ], [ %230, %216 ]
-  %.sink.i127.i = phi double [ %224, %231 ], [ %230, %232 ], [ %170, %233 ], [ %170, %234 ], [ %227, %235 ], [ %170, %214 ], [ %224, %216 ]
-  %239 = fsub double 1.000000e+00, %.sink59.i125.i
-  %240 = fsub double 1.000000e+00, %.sink58.i126.i
-  %241 = fsub double 1.000000e+00, %.sink.i127.i
-  %242 = call double @llvm.minnum.f64(double %239, double %240)
-  %243 = call double @llvm.minnum.f64(double %241, double %242)
-  %244 = fsub double %239, %243
-  %245 = fsub double %240, %243
-  %246 = fsub double %241, %243
-  %247 = fptosi double %244 to i32
-  %248 = sub i32 0, %247
-  %249 = fptosi double %245 to i32
-  %.neg298 = mul i32 %249, 65280
-  %250 = and i32 %.neg298, 65280
-  %251 = and i32 %248, 255
-  %252 = fptosi double %246 to i32
-  %.neg300 = mul i32 %252, 16711680
-  %253 = fptosi double %243 to i32
-  %.neg302 = mul i32 %253, -16777216
-  %.neg300.masked = and i32 %.neg300, 16711680
-  %254 = or disjoint i32 %251, %.neg302
-  %.sroa.0.1.insert.insert155299 = or disjoint i32 %254, %250
-  %.sroa.0.3.insert.insert217303 = or disjoint i32 %.sroa.0.1.insert.insert155299, %.neg300.masked
-  %.sroa.0.3.insert.insert217 = zext i32 %.sroa.0.3.insert.insert217303 to i64
-  %255 = bitcast i64 %.sroa.0.3.insert.insert217 to double
-  br label %291
-
-256:                                              ; preds = %161
-  %257 = fcmp ugt double %167, 0.000000e+00
-  br i1 %257, label %258, label %hsv2rgb.exit132.i
-
-258:                                              ; preds = %256
-  %259 = fcmp ult double %164, 1.000000e+00
-  %260 = fmul double %164, 6.000000e+00
-  %261 = select i1 %259, double %260, double 0.000000e+00
-  %262 = fptosi double %261 to i32
-  %263 = sitofp i32 %262 to double
-  %264 = fsub double %261, %263
-  %265 = fsub double 1.000000e+00, %167
-  %266 = fmul double %265, %170
-  %267 = fneg double %167
-  %268 = call double @llvm.fmuladd.f64(double %267, double %264, double 1.000000e+00)
-  %269 = fmul double %170, %268
-  %270 = fsub double 1.000000e+00, %264
-  %271 = call double @llvm.fmuladd.f64(double %267, double %270, double 1.000000e+00)
-  %272 = fmul double %170, %271
-  switch i32 %262, label %278 [
-    i32 0, label %hsv2rgb.exit132.i
-    i32 1, label %273
-    i32 2, label %274
-    i32 3, label %275
-    i32 4, label %276
-    i32 5, label %277
-  ]
-
-273:                                              ; preds = %258
-  br label %hsv2rgb.exit132.i
-
-274:                                              ; preds = %258
-  br label %hsv2rgb.exit132.i
-
-275:                                              ; preds = %258
-  br label %hsv2rgb.exit132.i
-
-276:                                              ; preds = %258
-  br label %hsv2rgb.exit132.i
-
-277:                                              ; preds = %258
-  br label %hsv2rgb.exit132.i
-
-278:                                              ; preds = %258
-  %279 = load ptr, ptr @stderr, align 8
-  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.49, i32 noundef 83) #27
-  call void @abort() #28
-  unreachable
-
-hsv2rgb.exit132.i:                                ; preds = %277, %276, %275, %274, %273, %258, %256
-  %.sink59.i129.i = phi double [ %269, %273 ], [ %266, %274 ], [ %266, %275 ], [ %272, %276 ], [ %170, %277 ], [ %170, %256 ], [ %170, %258 ]
-  %.sink58.i130.i = phi double [ %170, %273 ], [ %170, %274 ], [ %269, %275 ], [ %266, %276 ], [ %266, %277 ], [ %170, %256 ], [ %272, %258 ]
-  %.sink.i131.i = phi double [ %266, %273 ], [ %272, %274 ], [ %170, %275 ], [ %170, %276 ], [ %269, %277 ], [ %170, %256 ], [ %266, %258 ]
-  %281 = fmul double %.sink59.i129.i, 6.553500e+04
-  %282 = fptosi double %281 to i32
-  %.sroa.0.0.insert.ext102 = zext i32 %282 to i64
-  %283 = fmul double %.sink58.i130.i, 6.553500e+04
-  %284 = fptosi double %283 to i32
-  %.sroa.0.4.insert.ext237 = zext i32 %284 to i64
-  %.sroa.0.4.insert.shift238 = shl nuw i64 %.sroa.0.4.insert.ext237, 32
-  %.sroa.0.4.insert.insert240 = or disjoint i64 %.sroa.0.4.insert.shift238, %.sroa.0.0.insert.ext102
-  %285 = bitcast i64 %.sroa.0.4.insert.insert240 to double
-  %286 = fmul double %.sink.i131.i, 6.553500e+04
-  %287 = fptosi double %286 to i32
-  %.sroa.51.0.insert.ext73 = zext i32 %287 to i64
-  %288 = fmul double %173, 6.553500e+04
-  %289 = fptosi double %288 to i32
-  %.sroa.51.4.insert.ext86 = zext i32 %289 to i64
-  %.sroa.51.4.insert.shift87 = shl nuw i64 %.sroa.51.4.insert.ext86, 32
-  %.sroa.51.4.insert.insert89 = or disjoint i64 %.sroa.51.4.insert.shift87, %.sroa.51.0.insert.ext73
-  %290 = bitcast i64 %.sroa.51.4.insert.insert89 to double
-  br label %291
-
-291:                                              ; preds = %161, %hsv2rgb.exit132.i, %hsv2rgb.exit128.i, %hsv2rgb.exit.i
-  %.sroa.51.0 = phi double [ %290, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %167, %161 ]
-  %.sroa.63.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %170, %161 ]
-  %.sroa.67.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %173, %161 ]
-  %.sroa.0.0 = phi double [ %285, %hsv2rgb.exit132.i ], [ %255, %hsv2rgb.exit128.i ], [ %213, %hsv2rgb.exit.i ], [ %164, %161 ]
-  br i1 %.val.i4.pr.i214.i247, label %292, label %397
-
-292:                                              ; preds = %291
-  %.val122.i = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %.val122.i) #24
-  br label %397
-
-293:                                              ; preds = %agxbuse.exit.i
-  call void @free(ptr noundef %.val.i) #24
-  br label %agxbfree.exit133.i
-
-agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thread, %293, %.thread187.i
-  %294 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.51) #25
-  %.not.i134.i = icmp eq i32 %294, 0
-  br i1 %.not.i134.i, label %resolveColor.exit.thread.i, label %295
-
-295:                                              ; preds = %agxbfree.exit133.i
-  %296 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.52) #25
-  %.not25.i.i = icmp eq i32 %296, 0
-  br i1 %.not25.i.i, label %resolveColor.exit.thread.i, label %297
-
-297:                                              ; preds = %295
-  %298 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(10) @.str.53) #25
-  %.not26.i.i = icmp eq i32 %298, 0
-  br i1 %.not26.i.i, label %resolveColor.exit.thread.i, label %299
-
-299:                                              ; preds = %297
-  %300 = load i8, ptr %.0112.i, align 1
-  %301 = icmp eq i8 %300, 47
-  br i1 %301, label %302, label %312
-
-302:                                              ; preds = %299
-  %303 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %26, i32 noundef 47) #25
-  %.not27.i.i = icmp eq ptr %303, null
-  br i1 %.not27.i.i, label %312, label %304
-
-304:                                              ; preds = %302
-  %305 = load i8, ptr %26, align 1
-  %306 = icmp eq i8 %305, 47
-  br i1 %306, label %307, label %309
-
-307:                                              ; preds = %304
-  %308 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 2
-  br label %312
-
-309:                                              ; preds = %304
-  %310 = call i32 @strncasecmp(ptr noundef nonnull @.str.54, ptr noundef nonnull readonly %26, i64 noundef 4) #25
-  %.not28.i.i = icmp eq i32 %310, 0
-  %311 = getelementptr inbounds nuw i8, ptr %303, i64 1
-  %spec.select.i.i = select i1 %.not28.i.i, ptr %311, ptr %.0112.i
-  br label %312
-
-312:                                              ; preds = %309, %307, %302, %299
-  %.021.i.i = phi ptr [ %308, %307 ], [ %26, %302 ], [ %.0112.i, %299 ], [ %spec.select.i.i, %309 ]
-  %313 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.021.i.i) #25
-  %314 = load i64, ptr @canontoken.allocated, align 8
-  %.not.i.i135.i = icmp ult i64 %313, %314
-  %.pre.i.i.i = load ptr, ptr @canontoken.canon, align 8
-  br i1 %.not.i.i135.i, label %330, label %315
-
-315:                                              ; preds = %312
-  %316 = add i64 %313, 11
-  %317 = icmp eq i64 %316, 0
-  br i1 %317, label %318, label %319
-
-318:                                              ; preds = %315
-  call void @free(ptr noundef %.pre.i.i.i) #24
-  br label %gv_recalloc.exit.i.i.i
-
-319:                                              ; preds = %315
-  %320 = call ptr @realloc(ptr noundef %.pre.i.i.i, i64 noundef %316) #29
-  %321 = icmp eq ptr %320, null
-  br i1 %321, label %322, label %325
-
-322:                                              ; preds = %319
-  %323 = load ptr, ptr @stderr, align 8
-  %324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.46, i64 noundef %316) #27
-  call fastcc void @graphviz_exit() #30
-  unreachable
-
-325:                                              ; preds = %319
-  %326 = icmp ugt i64 %316, %314
-  br i1 %326, label %327, label %gv_recalloc.exit.i.i.i
-
-327:                                              ; preds = %325
-  %328 = getelementptr inbounds i8, ptr %320, i64 %314
-  %329 = sub nuw i64 %316, %314
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %328, i8 0, i64 %329, i1 false)
-  br label %gv_recalloc.exit.i.i.i
-
-gv_recalloc.exit.i.i.i:                           ; preds = %327, %325, %318
-  %.0.i.i.i.i.i = phi ptr [ null, %318 ], [ %320, %327 ], [ %320, %325 ]
-  store ptr %.0.i.i.i.i.i, ptr @canontoken.canon, align 8
-  store i64 %316, ptr @canontoken.allocated, align 8
-  br label %330
-
-330:                                              ; preds = %gv_recalloc.exit.i.i.i, %312
-  %331 = phi ptr [ %.0.i.i.i.i.i, %gv_recalloc.exit.i.i.i ], [ %.pre.i.i.i, %312 ]
-  %332 = load i8, ptr %.021.i.i, align 1
-  %.not1617.i.i.i = icmp eq i8 %332, 0
-  br i1 %.not1617.i.i.i, label %resolveColor.exit.i, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %330, %341
-  %333 = phi i8 [ %343, %341 ], [ %332, %330 ]
-  %.pn.i.i.i = phi ptr [ %334, %341 ], [ %.021.i.i, %330 ]
-  %.01218.i.i.i = phi ptr [ %342, %341 ], [ %331, %330 ]
-  %334 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 1
-  %335 = sext i8 %333 to i32
-  %336 = add nsw i32 %335, -65
-  %337 = icmp ult i32 %336, 26
-  br i1 %337, label %338, label %341
-
-338:                                              ; preds = %.lr.ph.i.i.i
-  %339 = call i32 @tolower(i32 noundef %335) #25
-  %340 = trunc i32 %339 to i8
-  br label %341
-
-341:                                              ; preds = %338, %.lr.ph.i.i.i
-  %.0.i.i.i = phi i8 [ %340, %338 ], [ %333, %.lr.ph.i.i.i ]
-  %342 = getelementptr inbounds nuw i8, ptr %.01218.i.i.i, i64 1
-  store i8 %.0.i.i.i, ptr %.01218.i.i.i, align 1
-  %343 = load i8, ptr %334, align 1
-  %.not16.i.i.i = icmp eq i8 %343, 0
-  br i1 %.not16.i.i.i, label %resolveColor.exit.i, label %.lr.ph.i.i.i
-
-resolveColor.exit.i:                              ; preds = %341, %330
-  %.012.lcssa.i.i.i = phi ptr [ %331, %330 ], [ %342, %341 ]
-  store i8 0, ptr %.012.lcssa.i.i.i, align 1
-  %.not118.i = icmp eq ptr %331, null
-  br i1 %.not118.i, label %colorxlate.exit, label %resolveColor.exit.thread.i
-
-resolveColor.exit.thread.i:                       ; preds = %resolveColor.exit.i, %297, %295, %agxbfree.exit133.i
-  %.0.i136193.i = phi ptr [ %331, %resolveColor.exit.i ], [ %.0112.i, %agxbfree.exit133.i ], [ %.0112.i, %295 ], [ %.0112.i, %297 ]
-  %344 = load ptr, ptr @colorxlate.last, align 8
-  %345 = icmp eq ptr %344, null
-  br i1 %345, label %thread-pre-split.i, label %346
-
-346:                                              ; preds = %resolveColor.exit.thread.i
-  %347 = load ptr, ptr %344, align 8
-  %348 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %347, ptr noundef nonnull dereferenceable(1) %.0.i136193.i) #25
-  %.not119.i = icmp eq i32 %348, 0
-  br i1 %.not119.i, label %thread-pre-split.thread.i, label %thread-pre-split.i
-
-thread-pre-split.i:                               ; preds = %346, %resolveColor.exit.thread.i
-  %349 = call ptr @bsearch(ptr noundef nonnull %.0.i136193.i, ptr noundef nonnull @color_lib, i64 noundef 2515, i64 noundef 16, ptr noundef nonnull @colorcmpf) #24
-  store ptr %349, ptr @colorxlate.last, align 8
-  %.not120.i = icmp eq ptr %349, null
-  br i1 %.not120.i, label %colorxlate.exit, label %thread-pre-split.thread.i
-
-thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %346
-  %350 = phi ptr [ %349, %thread-pre-split.i ], [ %344, %346 ]
-  switch i32 %.016, label %default.unreachable [
-    i32 0, label %351
-    i32 1, label %367
-    i32 3, label %370
-    i32 2, label %.thread288
-  ]
-
-351:                                              ; preds = %thread-pre-split.thread.i
-  %352 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  %353 = load i8, ptr %352, align 8
-  %354 = uitofp i8 %353 to double
-  %355 = fdiv double %354, 2.550000e+02
-  %356 = getelementptr inbounds nuw i8, ptr %350, i64 9
-  %357 = load i8, ptr %356, align 1
-  %358 = uitofp i8 %357 to double
-  %359 = fdiv double %358, 2.550000e+02
-  %360 = getelementptr inbounds nuw i8, ptr %350, i64 10
-  %361 = load i8, ptr %360, align 2
-  %362 = uitofp i8 %361 to double
-  %363 = fdiv double %362, 2.550000e+02
-  %364 = getelementptr inbounds nuw i8, ptr %350, i64 14
-  %365 = load i8, ptr %364, align 2
-  %366 = uitofp i8 %365 to double
-  br label %.thread260
-
-367:                                              ; preds = %thread-pre-split.thread.i
-  %368 = getelementptr inbounds nuw i8, ptr %350, i64 11
-  %369 = load i32, ptr %368, align 1
-  br label %.thread271
-
-370:                                              ; preds = %thread-pre-split.thread.i
-  %371 = getelementptr inbounds nuw i8, ptr %350, i64 11
-  %372 = load i8, ptr %371, align 1
-  %373 = uitofp i8 %372 to double
-  %374 = getelementptr inbounds nuw i8, ptr %350, i64 12
-  %375 = load i8, ptr %374, align 4
-  %376 = uitofp i8 %375 to double
-  %377 = getelementptr inbounds nuw i8, ptr %350, i64 13
-  %378 = load i8, ptr %377, align 1
-  %379 = uitofp i8 %378 to double
-  br label %.thread279
-
-colorxlate.exit:                                  ; preds = %thread-pre-split.i, %resolveColor.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %agxbfree.exit
-
-.thread260:                                       ; preds = %rgb2hsv.exit.i, %351
-  %.sroa.51.1.ph.ph = phi double [ %.0.i.i, %rgb2hsv.exit.i ], [ %359, %351 ]
-  %.sroa.63.1.ph.ph = phi double [ %65, %rgb2hsv.exit.i ], [ %363, %351 ]
-  %.sroa.67.1.ph.ph.in = phi double [ %61, %rgb2hsv.exit.i ], [ %366, %351 ]
-  %.sroa.0.1.ph.ph = phi double [ %95, %rgb2hsv.exit.i ], [ %355, %351 ]
-  %.sroa.67.1.ph.ph = fdiv double %.sroa.67.1.ph.ph.in, 2.550000e+02
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  br label %398
-
-.thread271:                                       ; preds = %96, %367
-  %.sroa.0.1.ph.ph270.in.in = phi i32 [ %.sroa.0.3.insert.insert232316, %96 ], [ %369, %367 ]
-  %.sroa.0.1.ph.ph270.in = zext i32 %.sroa.0.1.ph.ph270.in.in to i64
-  %.sroa.0.1.ph.ph270 = bitcast i64 %.sroa.0.1.ph.ph270.in to double
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  br label %400
-
-.thread279:                                       ; preds = %107, %370
-  %.sink343 = phi double [ %113, %107 ], [ %379, %370 ]
-  %.sink342.in = phi double [ %109, %107 ], [ %373, %370 ]
-  %.sink.in = phi double [ %111, %107 ], [ %376, %370 ]
-  %.sink = fdiv double %.sink.in, 2.550000e+02
-  %.sink342 = fdiv double %.sink342.in, 2.550000e+02
-  %380 = fdiv double %.sink343, 2.550000e+02
-  %381 = fsub double 1.000000e+00, %.sink342
-  %382 = fsub double 1.000000e+00, %.sink
-  %383 = fsub double 1.000000e+00, %380
-  %384 = call double @llvm.minnum.f64(double %381, double %382)
-  %385 = call double @llvm.minnum.f64(double %383, double %384)
-  %386 = fsub double %381, %385
-  %387 = fsub double %382, %385
-  %388 = fsub double %383, %385
-  %389 = fptosi double %386 to i32
-  %390 = sub i32 0, %389
-  %391 = fptosi double %387 to i32
-  %.neg307 = mul i32 %391, 65280
-  %392 = and i32 %.neg307, 65280
-  %393 = and i32 %390, 255
-  %394 = fptosi double %388 to i32
-  %.neg309 = mul i32 %394, 16711680
-  %395 = fptosi double %385 to i32
-  %.neg311 = mul i32 %395, -16777216
-  %.neg309.masked = and i32 %.neg309, 16711680
-  %396 = or disjoint i32 %393, %.neg311
-  %.sroa.0.1.insert.insert165308 = or disjoint i32 %396, %392
-  %.sroa.0.3.insert.insert227312 = or disjoint i32 %.sroa.0.1.insert.insert165308, %.neg309.masked
-  %.sroa.0.1.ph.ph278.in = zext i32 %.sroa.0.3.insert.insert227312 to i64
-  %.sroa.0.1.ph.ph278 = bitcast i64 %.sroa.0.1.ph.ph278.in to double
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  br label %409
-
-.thread288:                                       ; preds = %thread-pre-split.thread.i, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  br label %agxbsizeof.exit.i.i26
-
-397:                                              ; preds = %291, %292
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  switch i32 %.016, label %default.unreachable [
-    i32 0, label %398
-    i32 1, label %400
-    i32 3, label %409
-    i32 2, label %agxbsizeof.exit.i.i26
-  ]
-
-398:                                              ; preds = %.thread260, %397
-  %.sroa.0.1.ph268 = phi double [ %.sroa.0.1.ph.ph, %.thread260 ], [ %.sroa.0.0, %397 ]
-  %.sroa.67.1.ph267 = phi double [ %.sroa.67.1.ph.ph, %.thread260 ], [ %.sroa.67.0, %397 ]
-  %.sroa.63.1.ph266 = phi double [ %.sroa.63.1.ph.ph, %.thread260 ], [ %.sroa.63.0, %397 ]
-  %.sroa.51.1.ph265 = phi double [ %.sroa.51.1.ph.ph, %.thread260 ], [ %.sroa.51.0, %397 ]
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph268, double noundef %.sroa.51.1.ph265, double noundef %.sroa.63.1.ph266)
-  br i1 %.not20, label %agxbsizeof.exit.i.i26, label %399
-
-399:                                              ; preds = %398
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.67.1.ph267)
-  br label %agxbsizeof.exit.i.i26
-
-400:                                              ; preds = %.thread271, %397
-  %.sroa.0.1.ph276 = phi double [ %.sroa.0.1.ph.ph270, %.thread271 ], [ %.sroa.0.0, %397 ]
-  %401 = bitcast double %.sroa.0.1.ph276 to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %401 to i32
-  %402 = and i32 %.sroa.0.0.extract.trunc, 255
-  %403 = lshr i32 %.sroa.0.0.extract.trunc, 8
-  %404 = and i32 %403, 255
-  %405 = lshr i32 %.sroa.0.0.extract.trunc, 16
-  %406 = and i32 %405, 255
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.35, i32 noundef %402, i32 noundef %404, i32 noundef %406)
-  br i1 %.not20, label %agxbsizeof.exit.i.i26, label %407
-
-407:                                              ; preds = %400
-  %408 = lshr i32 %.sroa.0.0.extract.trunc, 24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.36, i32 noundef %408)
-  br label %agxbsizeof.exit.i.i26
-
-409:                                              ; preds = %.thread279, %397
-  %.sroa.0.1.ph284 = phi double [ %.sroa.0.1.ph.ph278, %.thread279 ], [ %.sroa.0.0, %397 ]
-  %410 = bitcast double %.sroa.0.1.ph284 to i64
-  %.sroa.0.0.extract.trunc110 = trunc i64 %410 to i32
-  %411 = and i32 %.sroa.0.0.extract.trunc110, 255
-  %412 = lshr i32 %.sroa.0.0.extract.trunc110, 8
-  %413 = and i32 %412, 255
-  %414 = lshr i32 %.sroa.0.0.extract.trunc110, 16
-  %415 = and i32 %414, 255
-  %416 = lshr i32 %.sroa.0.0.extract.trunc110, 24
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef %411, i32 noundef %413, i32 noundef %415, i32 noundef %416)
-  br label %agxbsizeof.exit.i.i26
-
-agxbsizeof.exit.i.i26:                            ; preds = %.thread288, %397, %400, %407, %398, %399, %409
-  %417 = getelementptr inbounds nuw i8, ptr %13, i64 31
-  %.val.i.i.i24 = load i8, ptr %417, align 1
-  %.not.i.i.i25 = icmp eq i8 %.val.i.i.i24, -1
-  %418 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %419 = load i64, ptr %418, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %421 = load i64, ptr %420, align 8
-  %422 = zext i8 %.val.i.i.i24 to i64
-  %.0.i20.i.i27 = select i1 %.not.i.i.i25, i64 %419, i64 %422
-  %.0.i14.i.i28 = select i1 %.not.i.i.i25, i64 %421, i64 31
-  %.not.i.i29 = icmp ult i64 %.0.i20.i.i27, %.0.i14.i.i28
-  br i1 %.not.i.i29, label %424, label %423
-
-423:                                              ; preds = %agxbsizeof.exit.i.i26
+276:                                              ; preds = %agxbsizeof.exit.i.i24
   call fastcc void @agxbmore(ptr noundef nonnull %13, i64 noundef 1)
-  %.val.i15.pre.i.i30 = load i8, ptr %417, align 1
-  br label %424
+  %.val.i15.pre.i.i27 = load i8, ptr %269, align 1, !tbaa !3
+  br label %277
 
-424:                                              ; preds = %423, %agxbsizeof.exit.i.i26
-  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i30, %423 ], [ %.val.i.i.i24, %agxbsizeof.exit.i.i26 ]
-  %.not.i16.i.i31 = icmp eq i8 %.val.i.pr.i, -1
-  br i1 %.not.i16.i.i31, label %agxbputc.exit.i32.thread, label %agxbputc.exit.i32
+277:                                              ; preds = %276, %agxbsizeof.exit.i.i24
+  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i27, %276 ], [ %.val.i23, %agxbsizeof.exit.i.i24 ]
+  %.not.i16.i.i28 = icmp eq i8 %.val.i6.pr.i, -1
+  br i1 %.not.i16.i.i28, label %agxbputc.exit.i29.thread, label %agxbputc.exit.i29
 
-agxbputc.exit.i32.thread:                         ; preds = %424
-  %425 = load i64, ptr %418, align 8
-  %426 = load ptr, ptr %13, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 %425
-  store i8 0, ptr %427, align 1
-  br label %433
+agxbputc.exit.i29.thread:                         ; preds = %277
+  %278 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %279 = load i64, ptr %278, align 8, !tbaa !3
+  %280 = load ptr, ptr %13, align 8, !tbaa !3
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 %279
+  store i8 0, ptr %281, align 1, !tbaa !3
+  br label %287
 
-agxbputc.exit.i32:                                ; preds = %424
-  %428 = zext i8 %.val.i.pr.i to i64
-  %429 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %428
-  store i8 0, ptr %429, align 1
-  %430 = load i8, ptr %417, align 1
-  %431 = add i8 %430, 1
-  store i8 %431, ptr %417, align 1
-  %432 = icmp eq i8 %431, -1
-  br i1 %432, label %433, label %agxbclear.exit.thread.i
+agxbputc.exit.i29:                                ; preds = %277
+  %282 = zext i8 %.val.i6.pr.i to i64
+  %283 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %282
+  store i8 0, ptr %283, align 1, !tbaa !3
+  %284 = load i8, ptr %269, align 1, !tbaa !3
+  %285 = add i8 %284, 1
+  store i8 %285, ptr %269, align 1, !tbaa !3
+  %286 = icmp eq i8 %285, -1
+  br i1 %286, label %287, label %agxbclear.exit.thread.i
 
-agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i32
-  store i8 0, ptr %417, align 1
+agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i29, %268
+  store i8 0, ptr %269, align 1, !tbaa !3
   br label %agxbuse.exit
 
-433:                                              ; preds = %agxbputc.exit.i32.thread, %agxbputc.exit.i32
-  store i64 0, ptr %418, align 8
-  %434 = load ptr, ptr %13, align 8
+287:                                              ; preds = %agxbputc.exit.i29.thread, %agxbputc.exit.i29
+  %288 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 0, ptr %288, align 8, !tbaa !3
+  %289 = load ptr, ptr %13, align 8, !tbaa !3
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %433
-  %435 = phi ptr [ %434, %433 ], [ %13, %agxbclear.exit.thread.i ]
-  %436 = call ptr @exstring(ptr noundef %0, ptr noundef %435) #24
-  %.val23 = load i8, ptr %417, align 1
-  %437 = icmp eq i8 %.val23, -1
-  br i1 %437, label %438, label %agxbfree.exit
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %287
+  %290 = phi ptr [ %289, %287 ], [ %13, %agxbclear.exit.thread.i ]
+  %291 = call ptr @exstring(ptr noundef %0, ptr noundef %290) #24
+  %.val22 = load i8, ptr %269, align 1, !tbaa !3
+  %292 = icmp eq i8 %.val22, -1
+  br i1 %292, label %293, label %agxbfree.exit
 
-438:                                              ; preds = %agxbuse.exit
+293:                                              ; preds = %agxbuse.exit
   %.val = load ptr, ptr %13, align 8
   call void @free(ptr noundef %.val) #24
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %438, %agxbuse.exit, %colorxlate.exit, %19, %3, %16
-  %.0 = phi ptr [ @.str.30, %16 ], [ @.str.30, %3 ], [ @.str.30, %19 ], [ @.str.30, %colorxlate.exit ], [ %436, %agxbuse.exit ], [ %436, %438 ]
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %293
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #24
+  br label %294
+
+294:                                              ; preds = %colorxlate.exit, %19, %3, %16, %agxbfree.exit
+  %.0 = phi ptr [ %291, %agxbfree.exit ], [ @.str.30, %16 ], [ @.str.30, %3 ], [ @.str.30, %19 ], [ @.str.30, %colorxlate.exit ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #11 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #24
+  %4 = alloca [32 x i8], align 16
+  %5 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.va_start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %5)
+  %6 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #24
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %2
-  call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.exit
+  %7 = icmp sgt i32 %6, -1
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  %narrow.i = add nuw i32 %5, 1
-  %9 = zext i32 %narrow.i to i64
-  %10 = getelementptr i8, ptr %0, i64 31
-  %.val.i.i = load i8, ptr %10, align 1
+  call void @llvm.va_end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
+  br label %vagxbprint.exit
+
+9:                                                ; preds = %2
+  %narrow.i = add nuw i32 %6, 1
+  %10 = zext i32 %narrow.i to i64
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
+  %11 = getelementptr i8, ptr %0, i64 31
+  %.val.i.i = load i8, ptr %11, align 1, !tbaa !3
   %.not.i.i = icmp eq i8 %.val.i.i, -1
-  br i1 %.not.i.i, label %12, label %agxbsizeof.exit.i
+  br i1 %.not.i.i, label %13, label %agxbsizeof.exit.i
 
-agxbsizeof.exit.i:                                ; preds = %8
-  %11 = zext i8 %.val.i.i to i64
+agxbsizeof.exit.i:                                ; preds = %9
+  %12 = zext i8 %.val.i.i to i64
   br label %agxblen.exit.i
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i64, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !3
   br label %agxblen.exit.i
 
-agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exit.i
-  %.0.i34.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %14, %12 ]
-  %.0.i32.i = phi i64 [ %11, %agxbsizeof.exit.i ], [ %16, %12 ]
-  %17 = sub i64 %.0.i34.i, %.0.i32.i
-  %18 = icmp ult i64 %17, %9
-  br i1 %18, label %19, label %21
+agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exit.i
+  %.0.i50.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %15, %13 ]
+  %.0.i43.i = phi i64 [ %12, %agxbsizeof.exit.i ], [ %17, %13 ]
+  %18 = sub i64 %.0.i50.i, %.0.i43.i
+  %19 = icmp ult i64 %18, %10
+  br i1 %19, label %20, label %26
 
-19:                                               ; preds = %agxblen.exit.i
-  %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
-  %.val.i.i.pre.i = load i8, ptr %10, align 1
-  br label %21
+20:                                               ; preds = %agxblen.exit.i
+  %21 = sub nuw nsw i64 %10, %18
+  %22 = icmp ne i8 %.val.i.i, -1
+  %23 = icmp eq i64 %21, 1
+  %or.cond.i = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond.i, label %25, label %24
 
-21:                                               ; preds = %19, %agxblen.exit.i
-  %.val.i.i.i = phi i8 [ %.val.i.i.pre.i, %19 ], [ %.val.i.i, %agxblen.exit.i ]
+24:                                               ; preds = %20
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %21)
+  %.val.i.i.pre.i = load i8, ptr %11, align 1, !tbaa !3
+  br label %26
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  br label %agxbnext.exit.i
+
+26:                                               ; preds = %24, %agxblen.exit.i
+  %.val.i.i.i = phi i8 [ %.val.i.i, %agxblen.exit.i ], [ %.val.i.i.pre.i, %24 ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  br i1 %.not.i.i.i, label %25, label %22
+  br i1 %.not.i.i.i, label %30, label %27
 
-22:                                               ; preds = %21
-  %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
+27:                                               ; preds = %26
+  %28 = zext i8 %.val.i.i.i to i64
+  %29 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %28
   br label %agxbnext.exit.i
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !3
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   br label %agxbnext.exit.i
 
-agxbnext.exit.i:                                  ; preds = %25, %22
-  %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #24
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.exit
+agxbnext.exit.i:                                  ; preds = %30, %27, %25
+  %.03655.i = phi i1 [ true, %25 ], [ false, %27 ], [ false, %30 ]
+  %35 = phi ptr [ %4, %25 ], [ %29, %27 ], [ %34, %30 ]
+  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #24
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %52
 
-33:                                               ; preds = %agxbnext.exit.i
-  %.val.i = load i8, ptr %10, align 1
+38:                                               ; preds = %agxbnext.exit.i
+  %.val.i = load i8, ptr %11, align 1, !tbaa !3
   %.not.i = icmp eq i8 %.val.i, -1
-  br i1 %.not.i, label %37, label %34
+  br i1 %.not.i, label %47, label %39
 
-34:                                               ; preds = %33
-  %35 = trunc i32 %31 to i8
-  %36 = add i8 %.val.i, %35
-  store i8 %36, ptr %10, align 1
+39:                                               ; preds = %38
+  br i1 %.03655.i, label %agxbnext.exit46.i, label %43
+
+agxbnext.exit46.i:                                ; preds = %39
+  %40 = zext i8 %.val.i to i64
+  %41 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %40
+  %42 = zext nneg i32 %36 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 16 %4, i64 %42, i1 false)
+  %.pre.i = load i8, ptr %11, align 1, !tbaa !3
+  br label %43
+
+43:                                               ; preds = %agxbnext.exit46.i, %39
+  %44 = phi i8 [ %.pre.i, %agxbnext.exit46.i ], [ %.val.i, %39 ]
+  %45 = trunc i32 %36 to i8
+  %46 = add i8 %44, %45
+  store i8 %46, ptr %11, align 1, !tbaa !3
+  br label %52
+
+47:                                               ; preds = %38
+  %48 = zext nneg i32 %36 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !3
+  %51 = add i64 %50, %48
+  store i64 %51, ptr %49, align 8, !tbaa !3
+  br label %52
+
+52:                                               ; preds = %47, %43, %agxbnext.exit.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
   br label %vagxbprint.exit
 
-37:                                               ; preds = %33
-  %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, %38
-  store i64 %41, ptr %39, align 8
-  br label %vagxbprint.exit
-
-vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end.p0(ptr nonnull %4)
+vagxbprint.exit:                                  ; preds = %8, %52
+  call void @llvm.va_end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @gvstart_timer() local_unnamed_addr #10 {
+define void @gvstart_timer() local_unnamed_addr #12 {
   %1 = tail call i64 @times(ptr noundef nonnull @T) #24
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define double @gvelapsed_sec() local_unnamed_addr #10 {
+define double @gvelapsed_sec() local_unnamed_addr #12 {
   %1 = alloca %struct.tms, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #24
   %2 = call i64 @times(ptr noundef nonnull %1) #24
-  %3 = load i64, ptr %1, align 8
+  %3 = load i64, ptr %1, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = load i64, ptr @T, align 8
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @T, i64 8), align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !73
+  %6 = load i64, ptr @T, align 8, !tbaa !71
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @T, i64 8), align 8, !tbaa !73
   %.neg2 = add i64 %5, %3
   %8 = add i64 %6, %7
   %9 = sub i64 %.neg2, %8
   %10 = sitofp i64 %9 to double
   %11 = fdiv double %10, 1.000000e+02
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #24
   ret double %11
 }
 
-declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare i32 @agnedges(ptr noundef) local_unnamed_addr #2
 
-declare i32 @agnedges(ptr noundef) local_unnamed_addr #1
+declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #1
+declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cloneSubg(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -5217,14 +5003,14 @@ define internal fastcc ptr @cloneSubg(ptr noundef nonnull %0, ptr noundef nonnul
 10:                                               ; preds = %.lr.ph
   %11 = tail call ptr @agnameof(ptr noundef nonnull %.05982) #24
   %12 = tail call ptr @agnameof(ptr noundef nonnull %0) #24
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.42, ptr noundef %11, ptr noundef %12) #24
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.44, ptr noundef %11, ptr noundef %12) #24
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph
   %14 = tail call ptr @agsubnode(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 1) #24
   %15 = tail call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.05982) #24
   %.not64 = icmp eq ptr %15, null
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %13, %6
   %16 = tail call ptr @agfstnode(ptr noundef nonnull %1) #24
@@ -5240,8 +5026,8 @@ define internal fastcc ptr @cloneSubg(ptr noundef nonnull %0, ptr noundef nonnul
 .lr.ph86:                                         ; preds = %.lr.ph91, %45
   %.05884 = phi ptr [ %47, %45 ], [ %17, %.lr.ph91 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.05884, ptr %4, align 8
-  %18 = load ptr, ptr %2, align 8
+  store ptr %.05884, ptr %4, align 8, !tbaa !75
+  %18 = load ptr, ptr %2, align 8, !tbaa !31
   %19 = call ptr %18(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 512) #24
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %mapEdge.exit.thread, label %mapEdge.exit
@@ -5252,7 +5038,7 @@ mapEdge.exit.thread:                              ; preds = %.lr.ph86
 
 mapEdge.exit:                                     ; preds = %.lr.ph86
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not69 = icmp eq ptr %21, null
   br i1 %.not69, label %.loopexit75, label %45
@@ -5271,36 +5057,36 @@ mapEdge.exit:                                     ; preds = %.lr.ph86
   %.idx = select i1 %30, i64 0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %.05884, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = call ptr @agnameof(ptr noundef %33) #24
   %35 = load i32, ptr %.05884, align 8
   %36 = and i32 %35, 3
   %37 = icmp eq i32 %36, 2
   %38 = select i1 %37, ptr %.05884, ptr %25
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = call ptr @agnameof(ptr noundef %40) #24
   %42 = call ptr @agnameof(ptr noundef nonnull %0) #24
   br i1 %.not70, label %44, label %43
 
 43:                                               ; preds = %.loopexit75
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.43, ptr noundef %34, ptr noundef %41, ptr noundef nonnull %27, ptr noundef %42) #24
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.45, ptr noundef %34, ptr noundef %41, ptr noundef nonnull %27, ptr noundef %42) #24
   br label %.loopexit
 
 44:                                               ; preds = %.loopexit75
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.44, ptr noundef %34, ptr noundef %41, ptr noundef %42) #24
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.46, ptr noundef %34, ptr noundef %41, ptr noundef %42) #24
   br label %.loopexit
 
 45:                                               ; preds = %mapEdge.exit
   %46 = call ptr @agsubedge(ptr noundef nonnull %5, ptr noundef nonnull %21, i32 noundef 1) #24
   %47 = call ptr @agnxtout(ptr noundef nonnull %1, ptr noundef nonnull %.05884) #24
   %.not68 = icmp eq ptr %47, null
-  br i1 %.not68, label %._crit_edge87, label %.lr.ph86
+  br i1 %.not68, label %._crit_edge87, label %.lr.ph86, !llvm.loop !76
 
 ._crit_edge87:                                    ; preds = %45, %.lr.ph91
   %48 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.189) #24
   %.not65 = icmp eq ptr %48, null
-  br i1 %.not65, label %._crit_edge92, label %.lr.ph91
+  br i1 %.not65, label %._crit_edge92, label %.lr.ph91, !llvm.loop !77
 
 ._crit_edge92:                                    ; preds = %._crit_edge87, %._crit_edge
   %49 = call ptr @agfstsubg(ptr noundef nonnull %1) #24
@@ -5316,45 +5102,57 @@ mapEdge.exit:                                     ; preds = %.lr.ph86
 51:                                               ; preds = %.lr.ph96
   %52 = call ptr @agnameof(ptr noundef nonnull %.05794) #24
   %53 = call ptr @agnameof(ptr noundef nonnull %1) #24
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.41, ptr noundef %52, ptr noundef %53) #24
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.40, ptr noundef %52, ptr noundef %53) #24
   br label %.loopexit
 
 54:                                               ; preds = %.lr.ph96
   %55 = call ptr @agnxtsubg(ptr noundef nonnull %.05794) #24
   %.not66 = icmp eq ptr %55, null
-  br i1 %.not66, label %.loopexit, label %.lr.ph96
+  br i1 %.not66, label %.loopexit, label %.lr.ph96, !llvm.loop !78
 
 .loopexit:                                        ; preds = %54, %._crit_edge92, %43, %44, %3, %51, %10
   %.0 = phi ptr [ null, %10 ], [ null, %51 ], [ null, %3 ], [ null, %44 ], [ null, %43 ], [ %5, %._crit_edge92 ], [ %5, %54 ]
   ret ptr %.0
 }
 
-declare ptr @agnxtsubg(ptr noundef) local_unnamed_addr #1
+declare ptr @agnxtsubg(ptr noundef) local_unnamed_addr #2
 
-declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
+declare i32 @dtclose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmppair(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #8 {
-  %5 = load ptr, ptr %1, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = icmp ugt ptr %5, %6
-  %8 = icmp ult ptr %5, %6
-  %. = sext i1 %8 to i32
-  %.0 = select i1 %7, i32 1, i32 %.
+define internal range(i32 -1, 2) i32 @cmppair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !75
+  %4 = load ptr, ptr %1, align 8, !tbaa !75
+  %5 = icmp ugt ptr %3, %4
+  %6 = icmp ult ptr %3, %4
+  %. = sext i1 %6 to i32
+  %.0 = select i1 %5, i32 1, i32 %.
   ret i32 %.0
 }
 
-declare ptr @agnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #14 {
+  tail call void @exit(i32 noundef 1) #30
+  unreachable
+}
 
-declare ptr @agfstedge(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
-declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #16
+
+declare ptr @agnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @agfstedge(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @agnxtedge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @iofread(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #10 {
+define internal noundef i32 @iofread(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #12 {
   %4 = tail call i32 @fileno(ptr noundef %0) #24
   %5 = sext i32 %2 to i64
   %6 = tail call i64 @read(i32 noundef %4, ptr noundef %1, i64 noundef %5) #24
@@ -5363,47 +5161,47 @@ define internal noundef i32 @iofread(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ioputstr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+define internal noundef i32 @ioputstr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = tail call i32 @fputs(ptr noundef %1, ptr noundef %0)
   ret i32 %3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @ioflush(ptr noundef captures(none) %0) #10 {
+define internal noundef i32 @ioflush(ptr noundef captures(none) %0) #12 {
   %2 = tail call i32 @fflush(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc void @agxbmore(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #11 {
   %3 = getelementptr i8, ptr %0, i64 31
-  %.val.i = load i8, ptr %3, align 1
+  %.val.i = load i8, ptr %3, align 1, !tbaa !3
   %.not.i = icmp eq i8 %.val.i, -1
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !3
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
   %7 = shl i64 %.fr, 1
-  %spec.select44 = select i1 %6, i64 8192, i64 %7
+  %spec.select46 = select i1 %6, i64 8192, i64 %7
   %8 = add i64 %.fr, %1
-  %spec.select33 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select44)
-  %9 = load ptr, ptr %0, align 8
-  %10 = icmp eq i64 %spec.select33, 0
+  %spec.select34 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select46)
+  %9 = load ptr, ptr %0, align 8, !tbaa !3
+  %10 = icmp eq i64 %spec.select34, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
@@ -5411,76 +5209,61 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select33) #29
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #31
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.46, i64 noundef %spec.select33) #27
-  tail call fastcc void @graphviz_exit() #30
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.43, i64 noundef %spec.select34) #27
+  tail call fastcc void @graphviz_exit() #28
   unreachable
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %spec.select33, %.fr
+  %19 = icmp ugt i64 %spec.select34, %.fr
   br i1 %19, label %20, label %gv_recalloc.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
-  %22 = sub nuw i64 %spec.select33, %.fr
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.fr
+  %22 = sub nuw i64 %spec.select34, %.fr
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
   %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
-  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #31
+  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #26
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.46, i64 noundef %spec.select) #27
-  tail call fastcc void @graphviz_exit() #30
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.43, i64 noundef %spec.select) #27
+  tail call fastcc void @graphviz_exit() #28
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %31, align 8
+  store i64 %30, ptr %31, align 8, !tbaa !3
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_calloc.exit
-  %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
+  %spec.select3742 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select34, %18 ], [ %spec.select34, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
-  store ptr %.0, ptr %0, align 8
+  store ptr %.0, ptr %0, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select3641, ptr %32, align 8
-  store i8 -1, ptr %3, align 1
+  store i64 %spec.select3742, ptr %32, align 8, !tbaa !3
+  store i8 -1, ptr %3, align 1, !tbaa !3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
-
-; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #15 {
-  tail call void @exit(i32 noundef 1) #32
-  unreachable
-}
-
-; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #16
-
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #17
-
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #19
@@ -5488,85 +5271,147 @@ declare double @llvm.minnum.f64(double, double) #19
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.maxnum.f64(double, double) #19
 
-declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @colorcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #20 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %3) #25
-  ret i32 %4
-}
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #19
 
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #20
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #21
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #21
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nounwind }
 attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { nounwind allocsize(0) }
+attributes #26 = { nounwind allocsize(0,1) }
 attributes #27 = { cold nounwind }
-attributes #28 = { noreturn nounwind }
-attributes #29 = { nounwind allocsize(1) }
-attributes #30 = { noreturn }
-attributes #31 = { nounwind allocsize(0,1) }
-attributes #32 = { cold noreturn nounwind }
+attributes #28 = { noreturn }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { cold noreturn nounwind }
+attributes #31 = { nounwind allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = !{!7, !11, i64 16}
+!7 = !{!"Agsym_s", !8, i64 0, !11, i64 16, !11, i64 24, !12, i64 32, !4, i64 36, !4, i64 37, !4, i64 38}
+!8 = !{!"dtlink_s_", !9, i64 0, !4, i64 8}
+!9 = !{!"p1 _ZTS9dtlink_s_", !10, i64 0}
+!10 = !{!"any pointer", !4, i64 0}
+!11 = !{!"p1 omnipotent char", !10, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = !{!7, !11, i64 24}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !22, i64 56}
+!17 = !{!"Agedge_s", !18, i64 0, !8, i64 24, !8, i64 40, !22, i64 56}
+!18 = !{!"Agobj_s", !19, i64 0, !21, i64 16}
+!19 = !{!"Agtag_s", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !20, i64 8}
+!20 = !{!"long", !4, i64 0}
+!21 = !{!"p1 _ZTS7Agrec_s", !10, i64 0}
+!22 = !{!"p1 _ZTS8Agnode_s", !10, i64 0}
+!23 = !{!10, !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!26 = distinct !{!26, !15}
+!27 = !{!28, !29, i64 16}
+!28 = !{!"", !8, i64 0, !29, i64 16, !29, i64 24}
+!29 = !{!"p1 _ZTS8Agedge_s", !10, i64 0}
+!30 = !{!28, !29, i64 24}
+!31 = !{!32, !10, i64 0}
+!32 = !{!"dt_s_", !10, i64 0, !33, i64 8, !34, i64 16, !10, i64 56, !12, i64 64, !35, i64 72, !35, i64 80, !10, i64 88}
+!33 = !{!"p1 _ZTS9dtdisc_s_", !10, i64 0}
+!34 = !{!"", !12, i64 0, !9, i64 8, !4, i64 16, !12, i64 24, !12, i64 28, !12, i64 32}
+!35 = !{!"p1 _ZTS5dt_s_", !10, i64 0}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = !{!18, !20, i64 8}
+!40 = distinct !{!40, !15}
+!41 = !{!12, !12, i64 0}
+!42 = distinct !{!42, !15}
+!43 = !{!44, !48, i64 128}
+!44 = !{!"Agraph_s", !18, i64 0, !45, i64 24, !8, i64 32, !8, i64 48, !35, i64 64, !46, i64 72, !35, i64 80, !35, i64 88, !35, i64 96, !35, i64 104, !47, i64 112, !47, i64 120, !48, i64 128}
+!45 = !{!"Agdesc_s", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0}
+!46 = !{!"p1 _ZTS17graphviz_node_set", !10, i64 0}
+!47 = !{!"p1 _ZTS8Agraph_s", !10, i64 0}
+!48 = !{!"p1 _ZTS8Agclos_s", !10, i64 0}
+!49 = !{!50, !53, i64 8}
+!50 = !{!"Agclos_s", !51, i64 0, !54, i64 16, !10, i64 24, !4, i64 32, !55, i64 56, !4, i64 64, !4, i64 88}
+!51 = !{!"Agdisc_s", !52, i64 0, !53, i64 8}
+!52 = !{!"p1 _ZTS10Agiddisc_s", !10, i64 0}
+!53 = !{!"p1 _ZTS10Agiodisc_s", !10, i64 0}
+!54 = !{!"Agdstate_s", !10, i64 0}
+!55 = !{!"p1 _ZTS11Agcbstack_s", !10, i64 0}
+!56 = distinct !{!56, !15}
+!57 = distinct !{!57, !15}
+!58 = distinct !{!58, !15}
+!59 = distinct !{!59, !15}
+!60 = distinct !{!60, !15}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"double", !4, i64 0}
+!63 = distinct !{!63, !15}
+!64 = !{!65, !11, i64 0}
+!65 = !{!"hsvrgbacolor_t", !11, i64 0, !4, i64 8, !4, i64 9, !4, i64 10, !4, i64 11, !4, i64 12, !4, i64 13, !4, i64 14}
+!66 = distinct !{!66, !15}
+!67 = !{!65, !4, i64 8}
+!68 = !{!65, !4, i64 9}
+!69 = !{!65, !4, i64 10}
+!70 = !{!65, !4, i64 14}
+!71 = !{!72, !20, i64 0}
+!72 = !{!"tms", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24}
+!73 = !{!72, !20, i64 8}
+!74 = distinct !{!74, !15}
+!75 = !{!29, !29, i64 0}
+!76 = distinct !{!76, !15}
+!77 = distinct !{!77, !15}
+!78 = distinct !{!78, !15}

@@ -1,8 +1,11 @@
 #!/bin/bash
 
+rm -rf original
+mkdir original
+export DUMP_PREFIX=$(pwd)/original
 mkdir -p bench_build
 cd bench_build
-../../../scripts/configure_cmake.sh ../graphviz -DBUILD_SHARED_LIBS=ON
+sed -i 's/CMAKE_INTERPROCEDURAL_OPTIMIZATION ON/CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF/g' ../graphviz/CMakeLists.txt
+../../../scripts/configure_cmake.sh ../graphviz -DBUILD_SHARED_LIBS=ON -DENABLE_SWIG=OFF -DENABLE_TCL=OFF
 cmake --build . -j
-cd ..
-find bench_build/ -name "*.o" -exec ../../scripts/extract_bc.sh {} \;
+git -C ../graphviz checkout CMakeLists.txt

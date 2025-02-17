@@ -9,50 +9,61 @@ target triple = "x86_64-pc-linux-gnu"
 define void @InitRect(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 0, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  store i64 0, ptr %3, align 8, !tbaa !8
   br label %4
 
-4:                                                ; preds = %12, %1
-  %5 = load i64, ptr %3, align 8
+4:                                                ; preds = %13, %1
+  %5 = load i64, ptr %3, align 8, !tbaa !8
   %6 = icmp ult i64 %5, 4
-  br i1 %6, label %7, label %15
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.Rect, ptr %8, i32 0, i32 0
-  %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %10
-  store i32 0, ptr %11, align 4
-  br label %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  br label %16
 
-12:                                               ; preds = %7
-  %13 = load i64, ptr %3, align 8
-  %14 = add i64 %13, 1
-  store i64 %14, ptr %3, align 8
-  br label %4
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.Rect, ptr %9, i32 0, i32 0
+  %11 = load i64, ptr %3, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %11
+  store i32 0, ptr %12, align 4, !tbaa !10
+  br label %13
 
-15:                                               ; preds = %4
+13:                                               ; preds = %8
+  %14 = load i64, ptr %3, align 8, !tbaa !8
+  %15 = add i64 %14, 1
+  store i64 %15, ptr %3, align 8, !tbaa !8
+  br label %4, !llvm.loop !12
+
+16:                                               ; preds = %7
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define { i64, i64 } @NullRect() #0 {
   %1 = alloca %struct.Rect, align 4
   call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 16, i1 false)
-  %2 = getelementptr inbounds %struct.Rect, ptr %1, i32 0, i32 0
+  %2 = getelementptr inbounds nuw %struct.Rect, ptr %1, i32 0, i32 0
   %3 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 0
-  store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds %struct.Rect, ptr %1, i32 0, i32 0
+  store i32 1, ptr %3, align 4, !tbaa !10
+  %4 = getelementptr inbounds nuw %struct.Rect, ptr %1, i32 0, i32 0
   %5 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 2
-  store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds %struct.Rect, ptr %1, i32 0, i32 0
+  store i32 -1, ptr %5, align 4, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct.Rect, ptr %1, i32 0, i32 0
   %7 = load { i64, i64 }, ptr %6, align 4
   ret { i64, i64 } %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @RectArea(ptr noundef %0) #0 {
@@ -61,99 +72,131 @@ define i64 @RectArea(ptr noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.Rect, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 0
-  %10 = load i32, ptr %9, align 4
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.Rect, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds [4 x i32], ptr %12, i64 0, i64 2
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp sgt i32 %10, %14
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %1
-  store i64 0, ptr %2, align 8
-  br label %55
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.Rect, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 0
+  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.Rect, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds [4 x i32], ptr %13, i64 0, i64 2
+  %15 = load i32, ptr %14, align 4, !tbaa !10
+  %16 = icmp sgt i32 %11, %15
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %1
-  store i64 1, ptr %4, align 8
-  store i64 0, ptr %5, align 8
-  br label %18
-
-18:                                               ; preds = %50, %17
-  %19 = load i64, ptr %5, align 8
-  %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %53
-
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Rect, ptr %22, i32 0, i32 0
-  %24 = load i64, ptr %5, align 8
-  %25 = add i64 %24, 2
-  %26 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.Rect, ptr %28, i32 0, i32 0
-  %30 = load i64, ptr %5, align 8
-  %31 = getelementptr inbounds [4 x i32], ptr %29, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = sub nsw i32 %27, %32
-  store i32 %33, ptr %6, align 4
-  %34 = load i32, ptr %6, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %21
   store i64 0, ptr %2, align 8
-  br label %55
+  br label %62
 
-37:                                               ; preds = %21
-  %38 = load i32, ptr %6, align 4
-  %39 = zext i32 %38 to i64
-  %40 = udiv i64 -1, %39
-  %41 = load i64, ptr %4, align 8
-  %42 = icmp ult i64 %40, %41
-  br i1 %42, label %43, label %45
+18:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  store i64 1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store i64 0, ptr %5, align 8, !tbaa !8
+  br label %19
 
-43:                                               ; preds = %37
-  %44 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str)
-  call void @graphviz_exit(i32 noundef 1) #6
+19:                                               ; preds = %54, %18
+  %20 = load i64, ptr %5, align 8, !tbaa !8
+  %21 = icmp ult i64 %20, 2
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %19
+  store i32 2, ptr %6, align 4
+  br label %57
+
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.Rect, ptr %24, i32 0, i32 0
+  %26 = load i64, ptr %5, align 8, !tbaa !8
+  %27 = add i64 %26, 2
+  %28 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %30 = load ptr, ptr %3, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.Rect, ptr %30, i32 0, i32 0
+  %32 = load i64, ptr %5, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %31, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %35 = sub nsw i32 %29, %34
+  store i32 %35, ptr %7, align 4, !tbaa !10
+  %36 = load i32, ptr %7, align 4, !tbaa !10
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %23
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %51
+
+39:                                               ; preds = %23
+  %40 = load i32, ptr %7, align 4, !tbaa !10
+  %41 = zext i32 %40 to i64
+  %42 = udiv i64 -1, %41
+  %43 = load i64, ptr %4, align 8, !tbaa !8
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %39
+  call void (ptr, ...) @agerrorf(ptr noundef @.str)
+  call void @graphviz_exit(i32 noundef 1) #8
   unreachable
 
-45:                                               ; preds = %37
-  %46 = load i32, ptr %6, align 4
-  %47 = zext i32 %46 to i64
-  %48 = load i64, ptr %4, align 8
-  %49 = mul i64 %48, %47
-  store i64 %49, ptr %4, align 8
-  br label %50
+46:                                               ; preds = %39
+  %47 = load i32, ptr %7, align 4, !tbaa !10
+  %48 = zext i32 %47 to i64
+  %49 = load i64, ptr %4, align 8, !tbaa !8
+  %50 = mul i64 %49, %48
+  store i64 %50, ptr %4, align 8, !tbaa !8
+  store i32 0, ptr %6, align 4
+  br label %51
 
-50:                                               ; preds = %45
-  %51 = load i64, ptr %5, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %5, align 8
-  br label %18
+51:                                               ; preds = %46, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  %52 = load i32, ptr %6, align 4
+  switch i32 %52, label %57 [
+    i32 0, label %53
+  ]
 
-53:                                               ; preds = %18
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %2, align 8
-  br label %55
+53:                                               ; preds = %51
+  br label %54
 
-55:                                               ; preds = %53, %36, %16
-  %56 = load i64, ptr %2, align 8
-  ret i64 %56
+54:                                               ; preds = %53
+  %55 = load i64, ptr %5, align 8, !tbaa !8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %5, align 8, !tbaa !8
+  br label %19, !llvm.loop !14
+
+57:                                               ; preds = %51, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %58 = load i32, ptr %6, align 4
+  switch i32 %58, label %61 [
+    i32 2, label %59
+  ]
+
+59:                                               ; preds = %57
+  %60 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %60, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %61
+
+61:                                               ; preds = %59, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  br label %62
+
+62:                                               ; preds = %61, %17
+  %63 = load i64, ptr %2, align 8
+  ret i64 %63
 }
 
-declare i32 @agerr(i32 noundef, ptr noundef, ...) #2
+declare void @agerrorf(ptr noundef, ...) #3
 
-; Function Attrs: noreturn nounwind uwtable
-define internal void @graphviz_exit(i32 noundef %0) #3 {
+; Function Attrs: inlinehint noreturn nounwind uwtable
+define internal void @graphviz_exit(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  call void @exit(i32 noundef %3) #7
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  %3 = load i32, ptr %2, align 4, !tbaa !10
+  call void @exit(i32 noundef %3) #9
   unreachable
 }
 
@@ -163,146 +206,160 @@ define { i64, i64 } @CombineRect(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.Rect, align 4
-  %7 = alloca i64, align 8
+  %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.Rect, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds [4 x i32], ptr %10, i64 0, i64 0
-  %12 = load i32, ptr %11, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.Rect, ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp sgt i32 %12, %16
-  br i1 %17, label %18, label %20
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #7
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.Rect, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 0
+  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.Rect, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 2
+  %17 = load i32, ptr %16, align 4, !tbaa !10
+  %18 = icmp sgt i32 %13, %17
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %19, i64 16, i1 false)
-  br label %99
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %20, i64 16, i1 false), !tbaa.struct !15
+  store i32 1, ptr %7, align 4
+  br label %101
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.Rect, ptr %21, i32 0, i32 0
-  %23 = getelementptr inbounds [4 x i32], ptr %22, i64 0, i64 0
-  %24 = load i32, ptr %23, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.Rect, ptr %25, i32 0, i32 0
-  %27 = getelementptr inbounds [4 x i32], ptr %26, i64 0, i64 2
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp sgt i32 %24, %28
-  br i1 %29, label %30, label %32
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.Rect, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 0
+  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.Rect, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [4 x i32], ptr %27, i64 0, i64 2
+  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %30 = icmp sgt i32 %25, %29
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %31, i64 16, i1 false)
-  br label %99
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %32, i64 16, i1 false), !tbaa.struct !15
+  store i32 1, ptr %7, align 4
+  br label %101
 
-32:                                               ; preds = %20
-  store i64 0, ptr %7, align 8
-  br label %33
+33:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %34
 
-33:                                               ; preds = %95, %32
-  %34 = load i64, ptr %7, align 8
-  %35 = icmp ult i64 %34, 2
-  br i1 %35, label %36, label %98
+34:                                               ; preds = %97, %33
+  %35 = load i64, ptr %8, align 8, !tbaa !8
+  %36 = icmp ult i64 %35, 2
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.Rect, ptr %37, i32 0, i32 0
-  %39 = load i64, ptr %7, align 8
-  %40 = getelementptr inbounds [4 x i32], ptr %38, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.Rect, ptr %42, i32 0, i32 0
-  %44 = load i64, ptr %7, align 8
-  %45 = getelementptr inbounds [4 x i32], ptr %43, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp slt i32 %41, %46
-  br i1 %47, label %48, label %54
+37:                                               ; preds = %34
+  store i32 2, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %100
 
-48:                                               ; preds = %36
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.Rect, ptr %49, i32 0, i32 0
-  %51 = load i64, ptr %7, align 8
-  %52 = getelementptr inbounds [4 x i32], ptr %50, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  br label %60
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.Rect, ptr %39, i32 0, i32 0
+  %41 = load i64, ptr %8, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw [4 x i32], ptr %40, i64 0, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.Rect, ptr %44, i32 0, i32 0
+  %46 = load i64, ptr %8, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %49 = icmp slt i32 %43, %48
+  br i1 %49, label %50, label %56
 
-54:                                               ; preds = %36
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.Rect, ptr %55, i32 0, i32 0
-  %57 = load i64, ptr %7, align 8
-  %58 = getelementptr inbounds [4 x i32], ptr %56, i64 0, i64 %57
-  %59 = load i32, ptr %58, align 4
-  br label %60
+50:                                               ; preds = %38
+  %51 = load ptr, ptr %4, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.Rect, ptr %51, i32 0, i32 0
+  %53 = load i64, ptr %8, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !10
+  br label %62
 
-60:                                               ; preds = %54, %48
-  %61 = phi i32 [ %53, %48 ], [ %59, %54 ]
-  %62 = getelementptr inbounds %struct.Rect, ptr %6, i32 0, i32 0
-  %63 = load i64, ptr %7, align 8
-  %64 = getelementptr inbounds [4 x i32], ptr %62, i64 0, i64 %63
-  store i32 %61, ptr %64, align 4
-  %65 = load i64, ptr %7, align 8
-  %66 = add i64 %65, 2
-  store i64 %66, ptr %8, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.Rect, ptr %67, i32 0, i32 0
-  %69 = load i64, ptr %8, align 8
-  %70 = getelementptr inbounds [4 x i32], ptr %68, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.Rect, ptr %72, i32 0, i32 0
-  %74 = load i64, ptr %8, align 8
-  %75 = getelementptr inbounds [4 x i32], ptr %73, i64 0, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = icmp sgt i32 %71, %76
-  br i1 %77, label %78, label %84
+56:                                               ; preds = %38
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.Rect, ptr %57, i32 0, i32 0
+  %59 = load i64, ptr %8, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw [4 x i32], ptr %58, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !10
+  br label %62
 
-78:                                               ; preds = %60
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.Rect, ptr %79, i32 0, i32 0
-  %81 = load i64, ptr %8, align 8
-  %82 = getelementptr inbounds [4 x i32], ptr %80, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
-  br label %90
+62:                                               ; preds = %56, %50
+  %63 = phi i32 [ %55, %50 ], [ %61, %56 ]
+  %64 = getelementptr inbounds nuw %struct.Rect, ptr %6, i32 0, i32 0
+  %65 = load i64, ptr %8, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw [4 x i32], ptr %64, i64 0, i64 %65
+  store i32 %63, ptr %66, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %67 = load i64, ptr %8, align 8, !tbaa !8
+  %68 = add i64 %67, 2
+  store i64 %68, ptr %9, align 8, !tbaa !8
+  %69 = load ptr, ptr %4, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.Rect, ptr %69, i32 0, i32 0
+  %71 = load i64, ptr %9, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw [4 x i32], ptr %70, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !10
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.Rect, ptr %74, i32 0, i32 0
+  %76 = load i64, ptr %9, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !10
+  %79 = icmp sgt i32 %73, %78
+  br i1 %79, label %80, label %86
 
-84:                                               ; preds = %60
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.Rect, ptr %85, i32 0, i32 0
-  %87 = load i64, ptr %8, align 8
-  %88 = getelementptr inbounds [4 x i32], ptr %86, i64 0, i64 %87
-  %89 = load i32, ptr %88, align 4
-  br label %90
+80:                                               ; preds = %62
+  %81 = load ptr, ptr %4, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.Rect, ptr %81, i32 0, i32 0
+  %83 = load i64, ptr %9, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw [4 x i32], ptr %82, i64 0, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !10
+  br label %92
 
-90:                                               ; preds = %84, %78
-  %91 = phi i32 [ %83, %78 ], [ %89, %84 ]
-  %92 = getelementptr inbounds %struct.Rect, ptr %6, i32 0, i32 0
-  %93 = load i64, ptr %8, align 8
-  %94 = getelementptr inbounds [4 x i32], ptr %92, i64 0, i64 %93
-  store i32 %91, ptr %94, align 4
-  br label %95
+86:                                               ; preds = %62
+  %87 = load ptr, ptr %5, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.Rect, ptr %87, i32 0, i32 0
+  %89 = load i64, ptr %9, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw [4 x i32], ptr %88, i64 0, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !10
+  br label %92
 
-95:                                               ; preds = %90
-  %96 = load i64, ptr %7, align 8
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %7, align 8
-  br label %33
+92:                                               ; preds = %86, %80
+  %93 = phi i32 [ %85, %80 ], [ %91, %86 ]
+  %94 = getelementptr inbounds nuw %struct.Rect, ptr %6, i32 0, i32 0
+  %95 = load i64, ptr %9, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw [4 x i32], ptr %94, i64 0, i64 %95
+  store i32 %93, ptr %96, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %97
 
-98:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %6, i64 16, i1 false)
-  br label %99
+97:                                               ; preds = %92
+  %98 = load i64, ptr %8, align 8, !tbaa !8
+  %99 = add i64 %98, 1
+  store i64 %99, ptr %8, align 8, !tbaa !8
+  br label %34, !llvm.loop !17
 
-99:                                               ; preds = %98, %30, %18
-  %100 = getelementptr inbounds %struct.Rect, ptr %3, i32 0, i32 0
-  %101 = load { i64, i64 }, ptr %100, align 4
-  ret { i64, i64 } %101
+100:                                              ; preds = %37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !15
+  store i32 1, ptr %7, align 4
+  br label %101
+
+101:                                              ; preds = %100, %31, %19
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #7
+  %102 = getelementptr inbounds nuw %struct.Rect, ptr %3, i32 0, i32 0
+  %103 = load { i64, i64 }, ptr %102, align 4
+  ret { i64, i64 } %103
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @Overlap(ptr noundef %0, ptr noundef %1) #0 {
@@ -310,85 +367,132 @@ define zeroext i1 @Overlap(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 0, ptr %6, align 8
-  br label %8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store i64 0, ptr %6, align 8, !tbaa !8
+  br label %9
 
-8:                                                ; preds = %39, %2
-  %9 = load i64, ptr %6, align 8
-  %10 = icmp ult i64 %9, 2
-  br i1 %10, label %11, label %42
+9:                                                ; preds = %44, %2
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = icmp ult i64 %10, 2
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr %6, align 8
-  %13 = add i64 %12, 2
-  store i64 %13, ptr %7, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.Rect, ptr %14, i32 0, i32 0
-  %16 = load i64, ptr %6, align 8
-  %17 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.Rect, ptr %19, i32 0, i32 0
-  %21 = load i64, ptr %7, align 8
-  %22 = getelementptr inbounds [4 x i32], ptr %20, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp sgt i32 %18, %23
-  br i1 %24, label %37, label %25
+12:                                               ; preds = %9
+  store i32 2, ptr %7, align 4
+  br label %47
 
-25:                                               ; preds = %11
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.Rect, ptr %26, i32 0, i32 0
-  %28 = load i64, ptr %6, align 8
-  %29 = getelementptr inbounds [4 x i32], ptr %27, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.Rect, ptr %31, i32 0, i32 0
-  %33 = load i64, ptr %7, align 8
-  %34 = getelementptr inbounds [4 x i32], ptr %32, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp sgt i32 %30, %35
-  br i1 %36, label %37, label %38
+13:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %14 = load i64, ptr %6, align 8, !tbaa !8
+  %15 = add i64 %14, 2
+  store i64 %15, ptr %8, align 8, !tbaa !8
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.Rect, ptr %16, i32 0, i32 0
+  %18 = load i64, ptr %6, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !10
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.Rect, ptr %21, i32 0, i32 0
+  %23 = load i64, ptr %8, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !10
+  %26 = icmp sgt i32 %20, %25
+  br i1 %26, label %39, label %27
 
-37:                                               ; preds = %25, %11
+27:                                               ; preds = %13
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.Rect, ptr %28, i32 0, i32 0
+  %30 = load i64, ptr %6, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !10
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.Rect, ptr %33, i32 0, i32 0
+  %35 = load i64, ptr %8, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %38 = icmp sgt i32 %32, %37
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %27, %13
   store i1 false, ptr %3, align 1
-  br label %43
+  store i32 1, ptr %7, align 4
+  br label %41
 
-38:                                               ; preds = %25
-  br label %39
+40:                                               ; preds = %27
+  store i32 0, ptr %7, align 4
+  br label %41
 
-39:                                               ; preds = %38
-  %40 = load i64, ptr %6, align 8
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %6, align 8
-  br label %8
+41:                                               ; preds = %40, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %42 = load i32, ptr %7, align 4
+  switch i32 %42, label %47 [
+    i32 0, label %43
+  ]
 
-42:                                               ; preds = %8
+43:                                               ; preds = %41
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load i64, ptr %6, align 8, !tbaa !8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %6, align 8, !tbaa !8
+  br label %9, !llvm.loop !18
+
+47:                                               ; preds = %41, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %48 = load i32, ptr %7, align 4
+  switch i32 %48, label %52 [
+    i32 2, label %49
+    i32 1, label %50
+  ]
+
+49:                                               ; preds = %47
   store i1 true, ptr %3, align 1
-  br label %43
+  br label %50
 
-43:                                               ; preds = %42, %37
-  %44 = load i1, ptr %3, align 1
-  ret i1 %44
+50:                                               ; preds = %49, %47
+  %51 = load i1, ptr %3, align 1
+  ret i1 %51
+
+52:                                               ; preds = %47
+  unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #5
+declare void @exit(i32 noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn }
-attributes #7 = { noreturn nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS4Rect", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = !{i64 0, i64 16, !16}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}

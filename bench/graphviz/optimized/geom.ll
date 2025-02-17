@@ -7,22 +7,22 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pointf_s = type { double, double }
 
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str = private unnamed_addr constant [44 x i8] c"%s:%d: claimed unreachable code was reached\00", align 1
+@.str = private unnamed_addr constant [45 x i8] c"%s:%d: claimed unreachable code was reached\0A\00", align 1
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/common/geom.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %3, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %4) local_unnamed_addr #0 {
-  %6 = load double, ptr %4, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !3
   %7 = fcmp ugt double %6, %0
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fcmp ugt double %0, %9
   %or.cond = select i1 %7, i1 true, i1 %10
-  br i1 %or.cond, label %.thread114, label %11
+  br i1 %or.cond, label %.thread116, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = fcmp ole double %13, %1
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load double, ptr %15, align 8
@@ -30,52 +30,52 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %18 = select i1 %14, i1 %17, i1 false
   %19 = fcmp ugt double %6, %2
   %20 = fcmp ugt double %2, %9
-  %or.cond76 = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond76, label %._crit_edge, label %30
+  %or.cond78 = select i1 %19, i1 true, i1 %20
+  br i1 %or.cond78, label %._crit_edge, label %30
 
-.thread114:                                       ; preds = %5
+.thread116:                                       ; preds = %5
   %21 = fcmp ugt double %6, %2
   %22 = fcmp ugt double %2, %9
-  %or.cond76115 = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond76115, label %.thread, label %.thread114._crit_edge
+  %or.cond78117 = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond78117, label %.thread, label %.thread116._crit_edge
 
-.thread114._crit_edge:                            ; preds = %.thread114
+.thread116._crit_edge:                            ; preds = %.thread116
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load double, ptr %23, align 8
+  %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fcmp ole double %24, %3
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = load double, ptr %26, align 8
   %28 = fcmp ole double %3, %27
   %29 = select i1 %25, i1 %28, i1 false
-  br i1 %29, label %95, label %.thread
+  br i1 %29, label %94, label %.thread
 
 ._crit_edge:                                      ; preds = %11
-  br i1 %18, label %95, label %.thread
+  br i1 %18, label %94, label %.thread
 
 30:                                               ; preds = %11
   %31 = fcmp ole double %13, %3
   %32 = fcmp ole double %3, %16
   %33 = select i1 %31, i1 %32, i1 false
   %34 = xor i1 %18, %33
-  br i1 %34, label %95, label %35
+  br i1 %34, label %94, label %35
 
 35:                                               ; preds = %30
   %brmerge.demorgan = and i1 %18, %33
-  br i1 %brmerge.demorgan, label %95, label %.thread
+  br i1 %brmerge.demorgan, label %94, label %.thread
 
-.thread:                                          ; preds = %.thread114, %.thread114._crit_edge, %._crit_edge, %35
+.thread:                                          ; preds = %.thread116, %.thread116._crit_edge, %._crit_edge, %35
   %36 = fcmp oeq double %0, %2
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load double, ptr %38, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !9
   %40 = fcmp oge double %1, %39
   %41 = fcmp ult double %3, %39
-  %.not78 = xor i1 %40, %41
-  %or.cond80 = or i1 %7, %.not78
-  %or.cond83 = select i1 %or.cond80, i1 true, i1 %10
-  br i1 %or.cond83, label %94, label %95
+  %.not80 = xor i1 %40, %41
+  %or.cond82 = or i1 %7, %.not80
+  %or.cond85 = select i1 %or.cond82, i1 true, i1 %10
+  br i1 %or.cond85, label %.critedge, label %94
 
 42:                                               ; preds = %.thread
   %43 = fcmp oeq double %1, %3
@@ -84,16 +84,16 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
 44:                                               ; preds = %42
   %45 = fcmp oge double %0, %6
   %46 = fcmp ult double %2, %6
-  %.not84 = xor i1 %45, %46
+  %.not86 = xor i1 %45, %46
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load double, ptr %47, align 8
   %49 = fcmp ugt double %48, %1
-  %or.cond87 = select i1 %.not84, i1 true, i1 %49
+  %or.cond89 = select i1 %.not86, i1 true, i1 %49
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = load double, ptr %50, align 8
   %52 = fcmp ugt double %1, %51
-  %or.cond90 = select i1 %or.cond87, i1 true, i1 %52
-  br i1 %or.cond90, label %94, label %95
+  %or.cond92 = select i1 %or.cond89, i1 true, i1 %52
+  br i1 %or.cond92, label %.critedge, label %94
 
 53:                                               ; preds = %42
   %54 = fsub double %3, %1
@@ -105,28 +105,28 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %56, double %1)
   %61 = fcmp ugt double %57, %6
   %62 = fcmp ugt double %6, %58
-  %or.cond91 = select i1 %61, i1 true, i1 %62
+  %or.cond93 = select i1 %61, i1 true, i1 %62
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load double, ptr %63, align 8
   %65 = fcmp ugt double %64, %60
-  %or.cond94 = select i1 %or.cond91, i1 true, i1 %65
+  %or.cond96 = select i1 %or.cond93, i1 true, i1 %65
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %67 = load double, ptr %66, align 8
   %68 = fcmp ugt double %60, %67
-  %or.cond97 = select i1 %or.cond94, i1 true, i1 %68
-  br i1 %or.cond97, label %69, label %95
+  %or.cond99 = select i1 %or.cond96, i1 true, i1 %68
+  br i1 %or.cond99, label %69, label %94
 
 69:                                               ; preds = %53
   %70 = fsub double %9, %6
   %71 = tail call double @llvm.fmuladd.f64(double %70, double %56, double %60)
   %72 = fcmp ugt double %64, %71
   %73 = fcmp ugt double %71, %67
-  %or.cond100 = select i1 %72, i1 true, i1 %73
+  %or.cond102 = select i1 %72, i1 true, i1 %73
   %74 = fcmp ugt double %57, %9
-  %or.cond101 = select i1 %or.cond100, i1 true, i1 %74
+  %or.cond103 = select i1 %or.cond102, i1 true, i1 %74
   %75 = fcmp ugt double %9, %58
-  %or.cond102 = select i1 %or.cond101, i1 true, i1 %75
-  br i1 %or.cond102, label %76, label %95
+  %or.cond104 = select i1 %or.cond103, i1 true, i1 %75
+  br i1 %or.cond104, label %76, label %94
 
 76:                                               ; preds = %69
   %77 = tail call double @llvm.minnum.f64(double %1, double %3)
@@ -136,12 +136,12 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %81 = fadd double %0, %80
   %82 = fcmp ugt double %6, %81
   %83 = fcmp ugt double %81, %9
-  %or.cond104 = select i1 %82, i1 true, i1 %83
+  %or.cond106 = select i1 %82, i1 true, i1 %83
   %84 = fcmp ugt double %77, %64
-  %or.cond105 = select i1 %or.cond104, i1 true, i1 %84
+  %or.cond107 = select i1 %or.cond106, i1 true, i1 %84
   %85 = fcmp ugt double %64, %78
-  %or.cond106 = select i1 %or.cond105, i1 true, i1 %85
-  br i1 %or.cond106, label %86, label %95
+  %or.cond108 = select i1 %or.cond107, i1 true, i1 %85
+  br i1 %or.cond108, label %86, label %94
 
 86:                                               ; preds = %76
   %87 = fsub double %67, %64
@@ -149,18 +149,18 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %89 = fadd double %81, %88
   %90 = fcmp ugt double %6, %89
   %91 = fcmp ugt double %89, %9
-  %or.cond108 = select i1 %90, i1 true, i1 %91
+  %or.cond110 = select i1 %90, i1 true, i1 %91
   %92 = fcmp ugt double %77, %67
-  %or.cond109 = select i1 %or.cond108, i1 true, i1 %92
+  %or.cond111 = select i1 %or.cond110, i1 true, i1 %92
   %93 = fcmp ugt double %67, %78
-  %or.cond110 = select i1 %or.cond109, i1 true, i1 %93
-  br i1 %or.cond110, label %94, label %95
+  %or.cond112 = select i1 %or.cond111, i1 true, i1 %93
+  br i1 %or.cond112, label %.critedge, label %94
 
-94:                                               ; preds = %44, %86, %37
-  br label %95
+.critedge:                                        ; preds = %86, %44, %37
+  br label %94
 
-95:                                               ; preds = %.thread114._crit_edge, %._crit_edge, %86, %76, %69, %53, %44, %37, %35, %30, %94
-  %.0 = phi i32 [ -1, %94 ], [ 0, %30 ], [ 1, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %53 ], [ 0, %69 ], [ 0, %76 ], [ 0, %86 ], [ 0, %._crit_edge ], [ 0, %.thread114._crit_edge ]
+94:                                               ; preds = %.thread116._crit_edge, %._crit_edge, %53, %69, %76, %86, %44, %37, %35, %30, %.critedge
+  %.0 = phi i32 [ -1, %.critedge ], [ 0, %30 ], [ 1, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %86 ], [ 0, %76 ], [ 0, %69 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %.thread116._crit_edge ]
   ret i32 %.0
 }
 
@@ -176,21 +176,21 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @rect2poly(ptr noundef captures(none) initializes((32, 64)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load double, ptr %2, align 8
+  %3 = load double, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %3, ptr %4, align 8
+  store double %3, ptr %4, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %3, ptr %5, align 8
+  store double %3, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load double, ptr %6, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %7, ptr %8, align 8
+  store double %7, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load double, ptr %9, align 8
+  %10 = load double, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %10, ptr %11, align 8
-  %12 = load double, ptr %0, align 8
-  store double %12, ptr %2, align 8
+  store double %10, ptr %11, align 8, !tbaa !11
+  %12 = load double, ptr %0, align 8, !tbaa !10
+  store double %12, ptr %2, align 8, !tbaa !10
   ret void
 }
 
@@ -215,12 +215,12 @@ define { double, double } @cwrotatepf(double %0, double %1, i32 noundef %2) loca
   br label %12
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164) #8
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167) #8
   tail call void @abort() #9
   unreachable
 
-12:                                               ; preds = %3, %8, %6, %4
+12:                                               ; preds = %8, %6, %4, %3
   %.sroa.0.0 = phi double [ %1, %8 ], [ %0, %6 ], [ %1, %4 ], [ %0, %3 ]
   %.sroa.6.0 = phi double [ %0, %8 ], [ %7, %6 ], [ %5, %4 ], [ %1, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
@@ -255,12 +255,12 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
   br label %12
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189) #8
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 192) #8
   tail call void @abort() #9
   unreachable
 
-12:                                               ; preds = %3, %8, %6, %4
+12:                                               ; preds = %8, %6, %4, %3
   %.sroa.0.0 = phi double [ %1, %8 ], [ %0, %6 ], [ %5, %4 ], [ %0, %3 ]
   %.sroa.6.0 = phi double [ %0, %8 ], [ %7, %6 ], [ %0, %4 ], [ %1, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
@@ -272,22 +272,22 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 define void @flip_rec_boxf(ptr dead_on_unwind noalias writable writeonly sret(%struct.boxf) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1, double %2, double %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load double, ptr %6, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load double, ptr %5, align 8
+  %9 = load double, ptr %5, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load double, ptr %11, align 8
-  %13 = load double, ptr %1, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !9
+  %13 = load double, ptr %1, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = fadd double %2, %12
-  store double %15, ptr %0, align 8
+  store double %15, ptr %0, align 8, !tbaa !3
   %16 = fadd double %3, %13
-  store double %16, ptr %14, align 8
+  store double %16, ptr %14, align 8, !tbaa !9
   %17 = fadd double %2, %7
-  store double %17, ptr %8, align 8
+  store double %17, ptr %8, align 8, !tbaa !16
   %18 = fadd double %3, %9
-  store double %18, ptr %10, align 8
+  store double %18, ptr %10, align 8, !tbaa !15
   ret void
 }
 
@@ -333,9 +333,9 @@ define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, doub
   %27 = fmul double %11, %25
   %28 = fsub double %0, %26
   %29 = fsub double %1, %27
-  store double %28, ptr %8, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %29, ptr %.sroa.22.0..sroa_idx, align 8
+  store double %28, ptr %8, align 8, !tbaa !17
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %29, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !17
   br label %30
 
 30:                                               ; preds = %9, %19
@@ -346,20 +346,34 @@ define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, doub
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nounwind }
 attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 0}
+!4 = !{!"", !5, i64 0, !5, i64 16}
+!5 = !{!"pointf_s", !6, i64 0, !6, i64 8}
+!6 = !{!"double", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!4, !6, i64 8}
+!10 = !{!5, !6, i64 0}
+!11 = !{!5, !6, i64 8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!4, !6, i64 24}
+!16 = !{!4, !6, i64 16}
+!17 = !{!6, !6, i64 0}

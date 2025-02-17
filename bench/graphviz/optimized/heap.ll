@@ -5,44 +5,131 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Halfedge = type { ptr, ptr, ptr, i32, i8, ptr, double, ptr }
 
-@PQhash = internal unnamed_addr global ptr null, align 8
-@PQcount = internal unnamed_addr global i32 0, align 4
-@PQmin = internal unnamed_addr global i32 0, align 4
 @sqrt_nsites = external local_unnamed_addr global i32, align 4
-@PQhashsize = internal unnamed_addr global i32 0, align 4
-@.str = private unnamed_addr constant [6 x i8] c"[%d]\0A\00", align 1
+@ymax = external local_unnamed_addr global double, align 8
 @ymin = external local_unnamed_addr global double, align 8
-@deltay = external local_unnamed_addr global double, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str.1 = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
-@.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
-@.str.3 = private unnamed_addr constant [23 x i8] c"  [%p] %p %p %d %d %d \00", align 1
-@.str.4 = private unnamed_addr constant [4 x i8] c"%zu\00", align 1
-@.str.5 = private unnamed_addr constant [3 x i8] c"-1\00", align 1
-@.str.6 = private unnamed_addr constant [5 x i8] c" %f\0A\00", align 1
+@.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
+@.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @PQinsert(ptr noundef initializes((32, 48)) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %4, align 8
-  tail call void @ref(ptr noundef %1) #13
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load double, ptr %5, align 8
-  %7 = fadd double %2, %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %7, ptr %8, align 8
-  %9 = load ptr, ptr @PQhash, align 8
-  %10 = load double, ptr @ymin, align 8
-  %11 = fsub double %7, %10
-  %12 = load double, ptr @deltay, align 8
-  %13 = fdiv double %11, %12
-  %14 = load i32, ptr @PQhashsize, align 4
+define void @PQinsert(ptr noundef captures(none) %0, ptr noundef initializes((32, 48)) %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %2, ptr %5, align 8, !tbaa !3
+  tail call void @ref(ptr noundef %2) #12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load double, ptr %6, align 8, !tbaa !13
+  %8 = fadd double %3, %7
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %8, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %0, align 8, !tbaa !18
+  %11 = load double, ptr @ymax, align 8, !tbaa !20
+  %12 = load double, ptr @ymin, align 8, !tbaa !20
+  %13 = fsub double %11, %12
+  %14 = fsub double %8, %12
+  %15 = fdiv double %14, %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !21
+  %18 = sitofp i32 %17 to double
+  %19 = fmul double %15, %18
+  %20 = fcmp olt double %19, 0.000000e+00
+  br i1 %20, label %27, label %21
+
+21:                                               ; preds = %4
+  %22 = fcmp ult double %19, %18
+  br i1 %22, label %25, label %23
+
+23:                                               ; preds = %21
+  %24 = add nsw i32 %17, -1
+  br label %27
+
+25:                                               ; preds = %21
+  %26 = fptosi double %19 to i32
+  br label %27
+
+27:                                               ; preds = %25, %23, %4
+  %.0.i = phi i32 [ %24, %23 ], [ %26, %25 ], [ 0, %4 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !22
+  %30 = icmp slt i32 %.0.i, %29
+  br i1 %30, label %31, label %PQbucket.exit
+
+31:                                               ; preds = %27
+  store i32 %.0.i, ptr %28, align 8, !tbaa !22
+  br label %PQbucket.exit
+
+PQbucket.exit:                                    ; preds = %27, %31
+  %32 = sext i32 %.0.i to i64
+  %33 = getelementptr inbounds %struct.Halfedge, ptr %10, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %.not24 = icmp eq ptr %35, null
+  br i1 %.not24, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %PQbucket.exit, %gt.exit.backedge
+  %36 = phi ptr [ %48, %gt.exit.backedge ], [ %35, %PQbucket.exit ]
+  %.025 = phi ptr [ %36, %gt.exit.backedge ], [ %33, %PQbucket.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %38 = load double, ptr %37, align 8, !tbaa !17
+  %39 = fcmp ogt double %8, %38
+  br i1 %39, label %gt.exit.backedge, label %40
+
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %43 = load double, ptr %42, align 8, !tbaa !24
+  %44 = load double, ptr %2, align 8, !tbaa !24
+  %45 = fcmp uge double %8, %38
+  %46 = fcmp ogt double %44, %43
+  %or.cond = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond, label %gt.exit.backedge, label %.critedge
+
+gt.exit.backedge:                                 ; preds = %40, %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
+  %.not = icmp eq ptr %48, null
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+
+.critedge:                                        ; preds = %gt.exit.backedge, %40, %PQbucket.exit
+  %.0.lcssa = phi ptr [ %33, %PQbucket.exit ], [ %.025, %40 ], [ %36, %gt.exit.backedge ]
+  %.lcssa = phi ptr [ null, %PQbucket.exit ], [ %36, %40 ], [ null, %gt.exit.backedge ]
+  %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %.lcssa, ptr %50, align 8, !tbaa !23
+  store ptr %1, ptr %49, align 8, !tbaa !23
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %52 = load i32, ptr %51, align 4, !tbaa !27
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 4, !tbaa !27
+  ret void
+}
+
+declare void @ref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define void @PQdelete(ptr noundef captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %41, label %5
+
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %0, align 8, !tbaa !18
+  %7 = getelementptr i8, ptr %1, i64 40
+  %.val = load double, ptr %7, align 8, !tbaa !17
+  %8 = load double, ptr @ymax, align 8, !tbaa !20
+  %9 = load double, ptr @ymin, align 8, !tbaa !20
+  %10 = fsub double %8, %9
+  %11 = fsub double %.val, %9
+  %12 = fdiv double %11, %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = sitofp i32 %14 to double
-  %16 = fmul double %13, %15
+  %16 = fmul double %12, %15
   %17 = fcmp olt double %16, 0.000000e+00
   br i1 %17, label %24, label %18
 
-18:                                               ; preds = %3
+18:                                               ; preds = %5
   %19 = fcmp ult double %16, %15
   br i1 %19, label %22, label %20
 
@@ -54,202 +141,122 @@ define void @PQinsert(ptr noundef initializes((32, 48)) %0, ptr noundef %1, doub
   %23 = fptosi double %16 to i32
   br label %24
 
-24:                                               ; preds = %22, %20, %3
-  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
-  %25 = load i32, ptr @PQmin, align 4
-  %26 = icmp slt i32 %.0.i, %25
-  br i1 %26, label %27, label %PQbucket.exit
+24:                                               ; preds = %22, %20, %5
+  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ 0, %5 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !22
+  %27 = icmp slt i32 %.0.i, %26
+  br i1 %27, label %28, label %PQbucket.exit
 
-27:                                               ; preds = %24
-  store i32 %.0.i, ptr @PQmin, align 4
+28:                                               ; preds = %24
+  store i32 %.0.i, ptr %25, align 8, !tbaa !22
   br label %PQbucket.exit
 
-PQbucket.exit:                                    ; preds = %24, %27
-  %28 = sext i32 %.0.i to i64
-  %29 = getelementptr inbounds %struct.Halfedge, ptr %9, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8
-  %.not25 = icmp eq ptr %31, null
-  br i1 %.not25, label %.critedge, label %.lr.ph
+PQbucket.exit:                                    ; preds = %24, %28
+  %29 = sext i32 %.0.i to i64
+  %30 = getelementptr inbounds %struct.Halfedge, ptr %6, i64 %29
+  br label %31
 
-.lr.ph:                                           ; preds = %PQbucket.exit, %.critedge2
-  %32 = phi ptr [ %45, %.critedge2 ], [ %31, %PQbucket.exit ]
-  %.026 = phi ptr [ %32, %.critedge2 ], [ %29, %PQbucket.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load double, ptr %33, align 8
-  %35 = fcmp ogt double %7, %34
-  br i1 %35, label %.critedge2, label %36
+31:                                               ; preds = %31, %PQbucket.exit
+  %.0 = phi ptr [ %30, %PQbucket.exit ], [ %33, %31 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %33 = load ptr, ptr %32, align 8, !tbaa !23
+  %.not14 = icmp eq ptr %33, %1
+  br i1 %.not14, label %34, label %31, !llvm.loop !28
 
-36:                                               ; preds = %.lr.ph
-  %37 = fcmp oeq double %7, %34
-  br i1 %37, label %38, label %.critedge
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  store ptr %37, ptr %35, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %39 = load i32, ptr %38, align 4, !tbaa !27
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %38, align 4, !tbaa !27
+  tail call void @deref(ptr noundef nonnull %4) #12
+  store ptr null, ptr %3, align 8, !tbaa !3
+  br label %41
 
-38:                                               ; preds = %36
-  %39 = load double, ptr %1, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = load double, ptr %41, align 8
-  %43 = fcmp ogt double %39, %42
-  br i1 %43, label %.critedge2, label %.critedge
-
-.critedge2:                                       ; preds = %.lr.ph, %38
-  %44 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %45 = load ptr, ptr %44, align 8
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %.critedge, label %.lr.ph
-
-.critedge:                                        ; preds = %38, %36, %.critedge2, %PQbucket.exit
-  %.0.lcssa = phi ptr [ %29, %PQbucket.exit ], [ %32, %.critedge2 ], [ %.026, %36 ], [ %.026, %38 ]
-  %.lcssa = phi ptr [ null, %PQbucket.exit ], [ null, %.critedge2 ], [ %32, %36 ], [ %32, %38 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 48
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.lcssa, ptr %47, align 8
-  store ptr %0, ptr %46, align 8
-  %48 = load i32, ptr @PQcount, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr @PQcount, align 4
-  ret void
-}
-
-declare void @ref(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define void @PQdelete(ptr noundef captures(address) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %37, label %4
-
-4:                                                ; preds = %1
-  %5 = load ptr, ptr @PQhash, align 8
-  %6 = getelementptr i8, ptr %0, i64 40
-  %.val = load double, ptr %6, align 8
-  %7 = load double, ptr @ymin, align 8
-  %8 = fsub double %.val, %7
-  %9 = load double, ptr @deltay, align 8
-  %10 = fdiv double %8, %9
-  %11 = load i32, ptr @PQhashsize, align 4
-  %12 = sitofp i32 %11 to double
-  %13 = fmul double %10, %12
-  %14 = fcmp olt double %13, 0.000000e+00
-  br i1 %14, label %21, label %15
-
-15:                                               ; preds = %4
-  %16 = fcmp ult double %13, %12
-  br i1 %16, label %19, label %17
-
-17:                                               ; preds = %15
-  %18 = add nsw i32 %11, -1
-  br label %21
-
-19:                                               ; preds = %15
-  %20 = fptosi double %13 to i32
-  br label %21
-
-21:                                               ; preds = %19, %17, %4
-  %.0.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ 0, %4 ]
-  %22 = load i32, ptr @PQmin, align 4
-  %23 = icmp slt i32 %.0.i, %22
-  br i1 %23, label %24, label %PQbucket.exit
-
-24:                                               ; preds = %21
-  store i32 %.0.i, ptr @PQmin, align 4
-  br label %PQbucket.exit
-
-PQbucket.exit:                                    ; preds = %21, %24
-  %25 = sext i32 %.0.i to i64
-  %26 = getelementptr inbounds %struct.Halfedge, ptr %5, i64 %25
-  br label %27
-
-27:                                               ; preds = %27, %PQbucket.exit
-  %.0 = phi ptr [ %26, %PQbucket.exit ], [ %29, %27 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %.not11 = icmp eq ptr %29, %0
-  br i1 %.not11, label %30, label %27
-
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %31, align 8
-  %34 = load i32, ptr @PQcount, align 4
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr @PQcount, align 4
-  %36 = load ptr, ptr %2, align 8
-  tail call void @deref(ptr noundef %36) #13
-  store ptr null, ptr %2, align 8
-  br label %37
-
-37:                                               ; preds = %30, %1
+41:                                               ; preds = %34, %2
   ret void
 }
 
 declare void @deref(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @PQempty() local_unnamed_addr #2 {
-  %1 = load i32, ptr @PQcount, align 4
-  %2 = icmp eq i32 %1, 0
-  ret i1 %2
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define zeroext i1 @PQempty(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i32, ptr %2, align 4, !tbaa !27
+  %4 = icmp eq i32 %3, 0
+  ret i1 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define { double, double } @PQ_min() local_unnamed_addr #3 {
-  %1 = load ptr, ptr @PQhash, align 8
-  %PQmin.promoted = load i32, ptr @PQmin, align 4
-  %2 = sext i32 %PQmin.promoted to i64
-  %3 = getelementptr inbounds %struct.Halfedge, ptr %1, i64 %2, i32 7
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %.lr.ph, label %10
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define { double, double } @PQ_min(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.promoted = load i32, ptr %3, align 8, !tbaa !22
+  %4 = sext i32 %.promoted to i64
+  %5 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %4, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.lr.ph, label %12
 
-.lr.ph:                                           ; preds = %0, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %2, %0 ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %4, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds %struct.Halfedge, ptr %1, i64 %indvars.iv.next, i32 7
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  %8 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %indvars.iv.next, i32 7
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %9, ptr @PQmin, align 4
-  br label %10
+  %11 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %11, ptr %3, align 8, !tbaa !22
+  br label %12
 
-10:                                               ; preds = %._crit_edge, %0
-  %.lcssa = phi ptr [ %7, %._crit_edge ], [ %4, %0 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
-  %15 = load double, ptr %14, align 8
-  %.fca.0.insert = insertvalue { double, double } poison, double %13, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %15, 1
+12:                                               ; preds = %._crit_edge, %1
+  %.lcssa = phi ptr [ %9, %._crit_edge ], [ %6, %1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
+  %15 = load double, ptr %14, align 8, !tbaa !24
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
+  %17 = load double, ptr %16, align 8, !tbaa !17
+  %.fca.0.insert = insertvalue { double, double } poison, double %15, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %17, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @PQextractmin() local_unnamed_addr #4 {
-  %1 = load ptr, ptr @PQhash, align 8
-  %2 = load i32, ptr @PQmin, align 4
-  %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %struct.Halfedge, ptr %1, i64 %3, i32 7
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %4, align 8
-  %8 = load i32, ptr @PQcount, align 4
-  %9 = add nsw i32 %8, -1
-  store i32 %9, ptr @PQcount, align 4
-  ret ptr %5
+define ptr @PQextractmin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !22
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds %struct.Halfedge, ptr %2, i64 %5, i32 7
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  store ptr %9, ptr %6, align 8, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !27
+  %12 = add nsw i32 %11, -1
+  store i32 %12, ptr %10, align 4, !tbaa !27
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PQcleanup() local_unnamed_addr #5 {
-  %1 = load ptr, ptr @PQhash, align 8
-  tail call void @free(ptr noundef %1) #13
-  store ptr null, ptr @PQhash, align 8
+define void @PQcleanup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %4, label %2
+
+2:                                                ; preds = %1
+  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  tail call void @free(ptr noundef %3) #12
+  br label %4
+
+4:                                                ; preds = %2, %1
+  tail call void @free(ptr noundef %0) #12
   ret void
 }
 
@@ -257,142 +264,64 @@ define void @PQcleanup() local_unnamed_addr #5 {
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define void @PQinitialize() local_unnamed_addr #7 {
-  store i32 0, ptr @PQcount, align 4
-  store i32 0, ptr @PQmin, align 4
-  %1 = load i32, ptr @sqrt_nsites, align 4
-  %2 = shl i32 %1, 2
-  store i32 %2, ptr @PQhashsize, align 4
-  %3 = load ptr, ptr @PQhash, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %18
+define noalias noundef ptr @PQinitialize() local_unnamed_addr #7 {
+  %1 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #13
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %3, label %gv_alloc.exit
 
-5:                                                ; preds = %0
-  %6 = sext i32 %2 to i64
-  %mul.ov.i = icmp slt i32 %1, 0
-  br i1 %mul.ov.i, label %7, label %10
-
-7:                                                ; preds = %5
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 56) #14
+3:                                                ; preds = %0
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !30
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.1, i64 noundef 24) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
-10:                                               ; preds = %5
-  %11 = icmp ne i32 %1, 0
-  %12 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 56) #16
-  %13 = icmp eq ptr %12, null
-  %or.cond3.i = and i1 %11, %13
-  br i1 %or.cond3.i, label %14, label %gv_calloc.exit
+gv_alloc.exit:                                    ; preds = %0
+  %6 = load i32, ptr @sqrt_nsites, align 4, !tbaa !32
+  %7 = shl nsw i32 %6, 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %7, ptr %8, align 8, !tbaa !21
+  %9 = sext i32 %7 to i64
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %.thread.i, label %11
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = mul nuw nsw i64 %6, 56
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %16) #14
+.thread.i:                                        ; preds = %gv_alloc.exit
+  %10 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 56) #13
+  br label %gv_calloc.exit
+
+11:                                               ; preds = %gv_alloc.exit
+  %mul.ov.i = icmp slt i32 %6, 0
+  br i1 %mul.ov.i, label %12, label %15
+
+12:                                               ; preds = %11
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !30
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 56) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
-gv_calloc.exit:                                   ; preds = %10
-  store ptr %12, ptr @PQhash, align 8
-  br label %18
+15:                                               ; preds = %11
+  %16 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 56) #13
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %gv_calloc.exit
 
-18:                                               ; preds = %gv_calloc.exit, %0
-  %19 = phi ptr [ %12, %gv_calloc.exit ], [ %3, %0 ]
-  %20 = icmp sgt i32 %1, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !30
+  %20 = mul nuw nsw i64 %9, 56
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef %20) #14
+  tail call fastcc void @graphviz_exit() #15
+  unreachable
 
-.lr.ph:                                           ; preds = %18
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %21
-
-21:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %struct.Halfedge, ptr %19, i64 %indvars.iv, i32 7
-  store ptr null, ptr %22, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21
-
-._crit_edge:                                      ; preds = %21, %18
-  ret void
+gv_calloc.exit:                                   ; preds = %.thread.i, %15
+  %22 = phi ptr [ %10, %.thread.i ], [ %16, %15 ]
+  store ptr %22, ptr %1, align 8, !tbaa !18
+  ret ptr %1
 }
-
-; Function Attrs: nofree nounwind uwtable
-define void @PQdump() local_unnamed_addr #7 {
-  %1 = load i32, ptr @PQhashsize, align 4
-  %2 = icmp sgt i32 %1, 0
-  br i1 %2, label %.lr.ph12, label %._crit_edge13
-
-.lr.ph12:                                         ; preds = %0, %._crit_edge
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %0 ]
-  %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
-  %5 = load ptr, ptr @PQhash, align 8
-  %6 = getelementptr inbounds nuw %struct.Halfedge, ptr %5, i64 %indvars.iv, i32 7
-  %.07 = load ptr, ptr %6, align 8
-  %.not8 = icmp eq ptr %.07, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph12, %PQdumphe.exit
-  %.09 = phi ptr [ %.0, %PQdumphe.exit ], [ %.07, %.lr.ph12 ]
-  %7 = load ptr, ptr %.09, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.09, i64 24
-  %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.09, i64 28
-  %17 = load i8, ptr %16, align 4
-  %18 = sext i8 %17 to i32
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %.09, ptr noundef %7, ptr noundef %9, i32 noundef %13, i32 noundef %15, i32 noundef %18)
-  %20 = getelementptr inbounds nuw i8, ptr %.09, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %26, label %22
-
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %24 = load i64, ptr %23, align 8
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i64 noundef %24)
-  br label %PQdumphe.exit
-
-26:                                               ; preds = %.lr.ph
-  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
-  br label %PQdumphe.exit
-
-PQdumphe.exit:                                    ; preds = %22, %26
-  %28 = getelementptr inbounds nuw i8, ptr %.09, i64 40
-  %29 = load double, ptr %28, align 8
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %29)
-  %31 = getelementptr inbounds nuw i8, ptr %.09, i64 48
-  %.0 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %PQdumphe.exit, %.lr.ph12
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr @PQhashsize, align 4
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph12, label %._crit_edge13
-
-._crit_edge13:                                    ; preds = %._crit_edge, %0
-  ret void
-}
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #9 {
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 }
 
@@ -402,31 +331,56 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0,1) }
 attributes #14 = { cold nounwind }
 attributes #15 = { noreturn }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { cold noreturn nounwind }
+attributes #16 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !11, i64 32}
+!4 = !{!"Halfedge", !5, i64 0, !5, i64 8, !9, i64 16, !10, i64 24, !7, i64 28, !11, i64 32, !12, i64 40, !5, i64 48}
+!5 = !{!"p1 _ZTS8Halfedge", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS4Edge", !6, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"p1 _ZTS4Site", !6, i64 0}
+!12 = !{!"double", !7, i64 0}
+!13 = !{!14, !12, i64 8}
+!14 = !{!"Site", !15, i64 0, !16, i64 16, !10, i64 24}
+!15 = !{!"pointf_s", !12, i64 0, !12, i64 8}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!4, !12, i64 40}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"pq", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 16}
+!20 = !{!12, !12, i64 0}
+!21 = !{!19, !10, i64 8}
+!22 = !{!19, !10, i64 16}
+!23 = !{!4, !5, i64 48}
+!24 = !{!14, !12, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!19, !10, i64 12}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!32 = !{!10, !10, i64 0}

@@ -1,473 +1,438 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Agnode_s = type { %struct.Agobj_s, ptr, %struct.Agsubnode_s }
-%struct.Agobj_s = type { %struct.Agtag_s, ptr }
-%struct.Agtag_s = type { i32, i64 }
-%struct.Agsubnode_s = type { %struct._dtlink_s, %struct._dtlink_s, ptr, ptr, ptr, ptr, ptr }
-%struct._dtlink_s = type { ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.Agnodeinfo_t = type { %struct.Agrec_s, i32, i8 }
-%struct.Agrec_s = type { ptr, ptr }
 %struct.graphviz_acyclic_options_t = type { ptr, i8, i8 }
-%struct.Agedge_s = type { %struct.Agobj_s, %struct._dtlink_s, %struct._dtlink_s, ptr }
 
-@.str = private unnamed_addr constant [5 x i8] c"info\00", align 1
-@.str.1 = private unnamed_addr constant [9 x i8] c"tailport\00", align 1
-@.str.2 = private unnamed_addr constant [9 x i8] c"headport\00", align 1
-@.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@__const.main.opts = private unnamed_addr constant { ptr, i8, i8, [6 x i8] } { ptr null, i8 1, i8 0, [6 x i8] zeroinitializer }, align 8
+@inFile = internal global ptr null, align 8
+@stderr = external global ptr, align 8
+@.str = private unnamed_addr constant [43 x i8] c"Graph \22%s\22 has cycles; %zu reversed edges\0A\00", align 1
+@.str.1 = private unnamed_addr constant [23 x i8] c"Graph \22%s\22 is acyclic\0A\00", align 1
+@.str.2 = private unnamed_addr constant [26 x i8] c"Graph \22%s\22 is undirected\0A\00", align 1
+@cmd = internal global ptr null, align 8
+@opterr = external global i32, align 4
+@.str.3 = private unnamed_addr constant [6 x i8] c":vno:\00", align 1
+@optarg = external global ptr, align 8
+@.str.4 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@optopt = external global i32, align 4
+@.str.5 = private unnamed_addr constant [29 x i8] c"%s: option -%c unrecognized\0A\00", align 1
+@.str.6 = private unnamed_addr constant [37 x i8] c"%s: missing argument for option -%c\0A\00", align 1
+@.str.7 = private unnamed_addr constant [45 x i8] c"%s:%d: claimed unreachable code was reached\0A\00", align 1
+@.str.8 = private unnamed_addr constant [115 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/cmd/tools/acyclic.c\00", align 1
+@optind = external global i32, align 4
+@.str.9 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@stdin = external global ptr, align 8
+@stdout = external global ptr, align 8
+@.str.10 = private unnamed_addr constant [8 x i8] c"reading\00", align 1
+@.str.11 = private unnamed_addr constant [8 x i8] c"writing\00", align 1
+@.str.12 = private unnamed_addr constant [35 x i8] c"%s: could not open file %s for %s\0A\00", align 1
+@useString = internal global ptr @.str.13, align 8
+@.str.13 = private unnamed_addr constant [155 x i8] c"Usage: %s [-nv?] [-o outfile] <file>\0A  -o <file> - put output in <file>\0A  -n        - do not output graph\0A  -v        - verbose\0A  -?        - print usage\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @graphviz_acyclic(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca ptr, align 8
+define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca i8, align 1
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 0, ptr %7, align 1
-  %9 = load ptr, ptr %4, align 8
-  call void @aginit(ptr noundef %9, i32 noundef 1, ptr noundef @.str, i32 noundef 24, i32 noundef 1)
-  %10 = load ptr, ptr %4, align 8
-  %11 = call ptr @agfstnode(ptr noundef %10)
-  store ptr %11, ptr %8, align 8
-  br label %12
-
-12:                                               ; preds = %36, %3
-  %13 = load ptr, ptr %8, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.graphviz_acyclic_options_t, align 8
+  %9 = alloca i64, align 8
+  store i32 0, ptr %3, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 0, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 @__const.main.opts, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  store i64 0, ptr %9, align 8, !tbaa !11
+  %10 = load i32, ptr %4, align 4, !tbaa !4
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @init(ptr noundef %8, i32 noundef %10, ptr noundef %11)
+  %12 = load ptr, ptr @inFile, align 8, !tbaa !13
+  %13 = call ptr @agread(ptr noundef %12, ptr noundef null)
+  store ptr %13, ptr %6, align 8, !tbaa !15
   %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %40
-
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.Agnode_s, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds %struct.Agobj_s, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %35
-
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = call zeroext i1 @dfs(ptr noundef %24, ptr noundef %25, i1 noundef zeroext false, ptr noundef %26)
-  %28 = zext i1 %27 to i32
-  %29 = load i8, ptr %7, align 1
-  %30 = trunc i8 %29 to i1
-  %31 = zext i1 %30 to i32
-  %32 = or i32 %31, %28
-  %33 = icmp ne i32 %32, 0
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %7, align 1
-  br label %35
-
-35:                                               ; preds = %23, %15
-  br label %36
-
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = call ptr @agnxtnode(ptr noundef %37, ptr noundef %38)
-  store ptr %39, ptr %8, align 8
-  br label %12
-
-40:                                               ; preds = %12
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.graphviz_acyclic_options_t, ptr %41, i32 0, i32 1
-  %43 = load i8, ptr %42, align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %55
-
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.graphviz_acyclic_options_t, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @agwrite(ptr noundef %46, ptr noundef %49)
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.graphviz_acyclic_options_t, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 @fflush(ptr noundef %53)
-  br label %55
-
-55:                                               ; preds = %45, %40
-  %56 = load i8, ptr %7, align 1
-  %57 = trunc i8 %56 to i1
-  ret i1 %57
-}
-
-declare void @aginit(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
-
-declare ptr @agfstnode(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i8, align 1
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %13 = zext i1 %2 to i8
-  store i8 %13, ptr %7, align 1
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.Agnode_s, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.Agobj_s, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %17, i32 0, i32 1
-  store i32 1, ptr %18, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.Agnode_s, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds %struct.Agobj_s, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %22, i32 0, i32 2
-  %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, -2
-  %26 = or i8 %25, 1
-  store i8 %26, ptr %23, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @agfstout(ptr noundef %27, ptr noundef %28)
-  store ptr %29, ptr %9, align 8
-  br label %30
-
-30:                                               ; preds = %154, %4
-  %31 = load ptr, ptr %9, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %156
-
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %9, align 8
-  %36 = call ptr @agnxtout(ptr noundef %34, ptr noundef %35)
-  store ptr %36, ptr %10, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.Agobj_s, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 3
-  %41 = icmp eq i32 %40, 3
-  br i1 %41, label %42, label %44
-
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %9, align 8
-  br label %47
-
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %struct.Agedge_s, ptr %45, i64 1
-  br label %47
-
-47:                                               ; preds = %44, %42
-  %48 = phi ptr [ %43, %42 ], [ %46, %44 ]
-  %49 = getelementptr inbounds %struct.Agedge_s, ptr %48, i32 0, i32 3
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct.Agobj_s, ptr %51, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 3
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %56, label %58
-
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %9, align 8
-  br label %61
-
-58:                                               ; preds = %47
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct.Agedge_s, ptr %59, i64 -1
-  br label %61
-
-61:                                               ; preds = %58, %56
-  %62 = phi ptr [ %57, %56 ], [ %60, %58 ]
-  %63 = getelementptr inbounds %struct.Agedge_s, ptr %62, i32 0, i32 3
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %50, %64
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %61
-  br label %154
-
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds %struct.Agobj_s, ptr %68, i32 0, i32 0
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 3
-  %72 = icmp eq i32 %71, 2
-  br i1 %72, label %73, label %75
-
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %9, align 8
-  br label %78
-
-75:                                               ; preds = %67
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.Agedge_s, ptr %76, i64 -1
-  br label %78
-
-78:                                               ; preds = %75, %73
-  %79 = phi ptr [ %74, %73 ], [ %77, %75 ]
-  %80 = getelementptr inbounds %struct.Agedge_s, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %11, align 8
-  %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds %struct.Agnode_s, ptr %82, i32 0, i32 0
-  %84 = getelementptr inbounds %struct.Agobj_s, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %85, i32 0, i32 2
-  %87 = load i8, ptr %86, align 4
-  %88 = and i8 %87, 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %130
-
-90:                                               ; preds = %78
-  %91 = load ptr, ptr %5, align 8
-  %92 = call i32 @agisstrict(ptr noundef %91)
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %94, label %107
-
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = call ptr @agedge(ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef null, i32 noundef 0)
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %106
-
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %5, align 8
-  %102 = load ptr, ptr %9, align 8
-  call void @addRevEdge(ptr noundef %101, ptr noundef %102)
-  %103 = load ptr, ptr %8, align 8
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, 1
-  store i64 %105, ptr %103, align 8
-  br label %106
-
-106:                                              ; preds = %100, %94
-  br label %126
-
-107:                                              ; preds = %90
-  %108 = load ptr, ptr %9, align 8
-  %109 = call ptr @agnameof(ptr noundef %108)
-  store ptr %109, ptr %12, align 8
-  %110 = load ptr, ptr %12, align 8
-  %111 = icmp ne ptr %110, null
-  br i1 %111, label %112, label %119
-
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = load ptr, ptr %12, align 8
-  %117 = call ptr @agedge(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef 0)
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %119, label %125
-
-119:                                              ; preds = %112, %107
-  %120 = load ptr, ptr %5, align 8
-  %121 = load ptr, ptr %9, align 8
-  call void @addRevEdge(ptr noundef %120, ptr noundef %121)
-  %122 = load ptr, ptr %8, align 8
-  %123 = load i64, ptr %122, align 8
-  %124 = add i64 %123, 1
-  store i64 %124, ptr %122, align 8
-  br label %125
-
-125:                                              ; preds = %119, %112
-  br label %126
-
-126:                                              ; preds = %125, %106
-  %127 = load ptr, ptr %5, align 8
-  %128 = load ptr, ptr %9, align 8
-  %129 = call i32 @agdelete(ptr noundef %127, ptr noundef %128)
-  store i8 1, ptr %7, align 1
-  br label %153
-
-130:                                              ; preds = %78
-  %131 = load ptr, ptr %11, align 8
-  %132 = getelementptr inbounds %struct.Agnode_s, ptr %131, i32 0, i32 0
-  %133 = getelementptr inbounds %struct.Agobj_s, ptr %132, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %134, i32 0, i32 1
-  %136 = load i32, ptr %135, align 8
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %152
-
-138:                                              ; preds = %130
-  %139 = load ptr, ptr %5, align 8
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i8, ptr %7, align 1
-  %142 = trunc i8 %141 to i1
-  %143 = load ptr, ptr %8, align 8
-  %144 = call zeroext i1 @dfs(ptr noundef %139, ptr noundef %140, i1 noundef zeroext %142, ptr noundef %143)
-  %145 = zext i1 %144 to i32
-  %146 = load i8, ptr %7, align 1
-  %147 = trunc i8 %146 to i1
-  %148 = zext i1 %147 to i32
-  %149 = or i32 %148, %145
-  %150 = icmp ne i32 %149, 0
-  %151 = zext i1 %150 to i8
-  store i8 %151, ptr %7, align 1
-  br label %152
-
-152:                                              ; preds = %138, %130
-  br label %153
-
-153:                                              ; preds = %152, %126
-  br label %154
-
-154:                                              ; preds = %153, %66
-  %155 = load ptr, ptr %10, align 8
-  store ptr %155, ptr %9, align 8
-  br label %30
-
-156:                                              ; preds = %30
-  %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds %struct.Agnode_s, ptr %157, i32 0, i32 0
-  %159 = getelementptr inbounds %struct.Agobj_s, ptr %158, i32 0, i32 1
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %struct.Agnodeinfo_t, ptr %160, i32 0, i32 2
-  %162 = load i8, ptr %161, align 4
-  %163 = and i8 %162, -2
-  %164 = or i8 %163, 0
-  store i8 %164, ptr %161, align 4
-  %165 = load i8, ptr %7, align 1
-  %166 = trunc i8 %165 to i1
-  ret i1 %166
-}
-
-declare ptr @agnxtnode(ptr noundef, ptr noundef) #1
-
-declare i32 @agwrite(ptr noundef, ptr noundef) #1
-
-declare i32 @fflush(ptr noundef) #1
-
-declare ptr @agfstout(ptr noundef, ptr noundef) #1
-
-declare ptr @agnxtout(ptr noundef, ptr noundef) #1
-
-declare i32 @agisstrict(ptr noundef) #1
-
-declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @addRevEdge(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.Agobj_s, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
-  %11 = and i32 %10, 3
-  %12 = icmp eq i32 %11, 2
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  br label %18
+  br i1 %14, label %15, label %56
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Agedge_s, ptr %16, i64 -1
-  br label %18
+  %16 = load ptr, ptr %6, align 8, !tbaa !15
+  %17 = call i32 @agisdirected(ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %44
 
-18:                                               ; preds = %15, %13
-  %19 = phi ptr [ %14, %13 ], [ %17, %15 ]
-  %20 = getelementptr inbounds %struct.Agedge_s, ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.Agobj_s, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 3
-  %26 = icmp eq i32 %25, 3
-  br i1 %26, label %27, label %29
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8, !tbaa !15
+  %21 = call zeroext i1 @graphviz_acyclic(ptr noundef %20, ptr noundef %8, ptr noundef %9)
+  %22 = zext i1 %21 to i32
+  %23 = load i32, ptr %7, align 4, !tbaa !4
+  %24 = or i32 %23, %22
+  store i32 %24, ptr %7, align 4, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %8, i32 0, i32 2
+  %26 = load i8, ptr %25, align 1, !tbaa !17, !range !20, !noundef !21
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %43
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %4, align 8
-  br label %32
+28:                                               ; preds = %19
+  %29 = load i32, ptr %7, align 4, !tbaa !4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %37
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.Agedge_s, ptr %30, i64 1
-  br label %32
+31:                                               ; preds = %28
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %33 = load ptr, ptr %6, align 8, !tbaa !15
+  %34 = call ptr @agnameof(ptr noundef %33)
+  %35 = load i64, ptr %9, align 8, !tbaa !11
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str, ptr noundef %34, i64 noundef %35) #9
+  br label %42
 
-32:                                               ; preds = %29, %27
-  %33 = phi ptr [ %28, %27 ], [ %31, %29 ]
-  %34 = getelementptr inbounds %struct.Agedge_s, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = call ptr @agnameof(ptr noundef %36)
-  %38 = call ptr @agedge(ptr noundef %7, ptr noundef %21, ptr noundef %35, ptr noundef %37, i32 noundef 1)
-  store ptr %38, ptr %6, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = call i32 @agcopyattr(ptr noundef %39, ptr noundef %40)
-  %42 = load ptr, ptr %3, align 8
-  %43 = call ptr @agattr(ptr noundef %42, i32 noundef 2, ptr noundef @.str.1, ptr noundef null)
-  store ptr %43, ptr %5, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %52
+37:                                               ; preds = %28
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %39 = load ptr, ptr %6, align 8, !tbaa !15
+  %40 = call ptr @agnameof(ptr noundef %39)
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.1, ptr noundef %40) #9
+  br label %42
 
-46:                                               ; preds = %32
-  %47 = load ptr, ptr %6, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = call ptr @agxget(ptr noundef %48, ptr noundef %49)
-  %51 = call i32 @agsafeset(ptr noundef %47, ptr noundef @.str.2, ptr noundef %50, ptr noundef @.str.3)
-  br label %52
+42:                                               ; preds = %37, %31
+  br label %43
 
-52:                                               ; preds = %46, %32
-  %53 = load ptr, ptr %3, align 8
-  %54 = call ptr @agattr(ptr noundef %53, i32 noundef 2, ptr noundef @.str.2, ptr noundef null)
-  store ptr %54, ptr %5, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %63
+43:                                               ; preds = %42, %19
+  br label %54
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = call ptr @agxget(ptr noundef %59, ptr noundef %60)
-  %62 = call i32 @agsafeset(ptr noundef %58, ptr noundef @.str.1, ptr noundef %61, ptr noundef @.str.3)
+44:                                               ; preds = %15
+  store i32 -1, ptr %7, align 4, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %8, i32 0, i32 2
+  %46 = load i8, ptr %45, align 1, !tbaa !17, !range !20, !noundef !21
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %44
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %50 = load ptr, ptr %6, align 8, !tbaa !15
+  %51 = call ptr @agnameof(ptr noundef %50)
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.2, ptr noundef %51) #9
+  br label %53
+
+53:                                               ; preds = %48, %44
+  br label %54
+
+54:                                               ; preds = %53, %43
+  %55 = load i32, ptr %7, align 4, !tbaa !4
+  call void @graphviz_exit(i32 noundef %55) #10
+  unreachable
+
+56:                                               ; preds = %2
+  call void @graphviz_exit(i32 noundef -1) #10
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @init(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %8 = load ptr, ptr %6, align 8, !tbaa !8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %10, ptr @cmd, align 8, !tbaa !23
+  store i32 0, ptr @opterr, align 4, !tbaa !4
+  br label %11
+
+11:                                               ; preds = %63, %3
+  %12 = load i32, ptr %5, align 4, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  %14 = call i32 @getopt(i32 noundef %12, ptr noundef %13, ptr noundef @.str.3) #9
+  store i32 %14, ptr %7, align 4, !tbaa !4
+  %15 = icmp ne i32 %14, -1
+  br i1 %15, label %16, label %64
+
+16:                                               ; preds = %11
+  %17 = load i32, ptr %7, align 4, !tbaa !4
+  switch i32 %17, label %57 [
+    i32 111, label %18
+    i32 110, label %36
+    i32 118, label %39
+    i32 63, label %42
+    i32 58, label %52
+  ]
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %4, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %27 = call i32 @fclose(ptr noundef %26)
+  br label %28
+
+28:                                               ; preds = %23, %18
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = getelementptr inbounds ptr, ptr %29, i64 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %32 = load ptr, ptr @optarg, align 8, !tbaa !23
+  %33 = call ptr @openFile(ptr noundef %31, ptr noundef %32, ptr noundef @.str.4)
+  %34 = load ptr, ptr %4, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8, !tbaa !25
   br label %63
 
-63:                                               ; preds = %57, %52
+36:                                               ; preds = %16
+  %37 = load ptr, ptr %4, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %37, i32 0, i32 1
+  store i8 0, ptr %38, align 8, !tbaa !26
+  br label %63
+
+39:                                               ; preds = %16
+  %40 = load ptr, ptr %4, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %40, i32 0, i32 2
+  store i8 1, ptr %41, align 1, !tbaa !17
+  br label %63
+
+42:                                               ; preds = %16
+  %43 = load i32, ptr @optopt, align 4, !tbaa !4
+  %44 = icmp eq i32 %43, 63
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
+  call void @usage(i32 noundef 0)
+  br label %51
+
+46:                                               ; preds = %42
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %48 = load ptr, ptr @cmd, align 8, !tbaa !23
+  %49 = load i32, ptr @optopt, align 4, !tbaa !4
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.5, ptr noundef %48, i32 noundef %49) #9
+  call void @usage(i32 noundef -1)
+  br label %51
+
+51:                                               ; preds = %46, %45
+  br label %63
+
+52:                                               ; preds = %16
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %54 = load ptr, ptr @cmd, align 8, !tbaa !23
+  %55 = load i32, ptr @optopt, align 4, !tbaa !4
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.6, ptr noundef %54, i32 noundef %55) #9
+  call void @usage(i32 noundef -1)
+  br label %63
+
+57:                                               ; preds = %16
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 87) #9
+  call void @abort() #11
+  unreachable
+
+61:                                               ; No predecessors!
+  br label %62
+
+62:                                               ; preds = %61
+  br label %63
+
+63:                                               ; preds = %62, %52, %51, %39, %36, %28
+  br label %11, !llvm.loop !27
+
+64:                                               ; preds = %11
+  %65 = load i32, ptr @optind, align 4, !tbaa !4
+  %66 = load i32, ptr %5, align 4, !tbaa !4
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %68, label %78
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %6, align 8, !tbaa !8
+  %70 = getelementptr inbounds ptr, ptr %69, i64 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !23
+  %72 = load ptr, ptr %6, align 8, !tbaa !8
+  %73 = load i32, ptr @optind, align 4, !tbaa !4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !23
+  %77 = call ptr @openFile(ptr noundef %71, ptr noundef %76, ptr noundef @.str.9)
+  store ptr %77, ptr @inFile, align 8, !tbaa !13
+  br label %80
+
+78:                                               ; preds = %64
+  %79 = load ptr, ptr @stdin, align 8, !tbaa !13
+  store ptr %79, ptr @inFile, align 8, !tbaa !13
+  br label %80
+
+80:                                               ; preds = %78, %68
+  %81 = load ptr, ptr %4, align 8, !tbaa !22
+  %82 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !25
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %89, label %85
+
+85:                                               ; preds = %80
+  %86 = load ptr, ptr @stdout, align 8, !tbaa !13
+  %87 = load ptr, ptr %4, align 8, !tbaa !22
+  %88 = getelementptr inbounds nuw %struct.graphviz_acyclic_options_t, ptr %87, i32 0, i32 0
+  store ptr %86, ptr %88, align 8, !tbaa !25
+  br label %89
+
+89:                                               ; preds = %85, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
   ret void
 }
 
-declare ptr @agnameof(ptr noundef) #1
+declare ptr @agread(ptr noundef, ptr noundef) #3
 
-declare i32 @agdelete(ptr noundef, ptr noundef) #1
+declare i32 @agisdirected(ptr noundef) #3
 
-declare i32 @agcopyattr(ptr noundef, ptr noundef) #1
+declare zeroext i1 @graphviz_acyclic(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
-declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @agnameof(ptr noundef) #3
 
-declare ptr @agxget(ptr noundef, ptr noundef) #1
+; Function Attrs: inlinehint noreturn nounwind uwtable
+define internal void @graphviz_exit(i32 noundef %0) #5 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load i32, ptr %2, align 4, !tbaa !4
+  call void @exit(i32 noundef %3) #11
+  unreachable
+}
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nounwind
+declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) #4
+
+declare i32 @fclose(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @openFile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %9 = load ptr, ptr %5, align 8, !tbaa !23
+  %10 = load ptr, ptr %6, align 8, !tbaa !23
+  %11 = call noalias ptr @fopen(ptr noundef %9, ptr noundef %10)
+  store ptr %11, ptr %7, align 8, !tbaa !13
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %25
+
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %15 = load ptr, ptr %6, align 8, !tbaa !23
+  %16 = call i32 @strcmp(ptr noundef %15, ptr noundef @.str.9) #12
+  %17 = icmp eq i32 %16, 0
+  %18 = select i1 %17, ptr @.str.10, ptr @.str.11
+  store ptr %18, ptr %8, align 8, !tbaa !23
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %20 = load ptr, ptr %4, align 8, !tbaa !23
+  %21 = load ptr, ptr %5, align 8, !tbaa !23
+  %22 = load ptr, ptr %8, align 8, !tbaa !23
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.12, ptr noundef %20, ptr noundef %21, ptr noundef %22) #9
+  %24 = load ptr, ptr %5, align 8, !tbaa !23
+  call void @perror(ptr noundef %24)
+  call void @graphviz_exit(i32 noundef 1) #10
+  unreachable
+
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret ptr %26
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @usage(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %4 = load ptr, ptr @useString, align 8, !tbaa !23
+  %5 = load ptr, ptr @cmd, align 8, !tbaa !23
+  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef %4, ptr noundef %5) #9
+  %7 = load i32, ptr %2, align 4, !tbaa !4
+  call void @graphviz_exit(i32 noundef %7) #10
+  unreachable
+}
+
+; Function Attrs: noreturn nounwind
+declare void @abort() #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #8
+
+declare void @perror(ptr noundef) #3
+
+; Function Attrs: noreturn nounwind
+declare void @exit(i32 noundef) #7
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8Agraph_s", !10, i64 0}
+!17 = !{!18, !19, i64 9}
+!18 = !{!"", !14, i64 0, !19, i64 8, !19, i64 9}
+!19 = !{!"_Bool", !6, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!10, !10, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 omnipotent char", !10, i64 0}
+!25 = !{!18, !14, i64 0}
+!26 = !{!18, !19, i64 8}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}

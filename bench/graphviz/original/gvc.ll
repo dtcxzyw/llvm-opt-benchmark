@@ -3,31 +3,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Agobj_s = type { %struct.Agtag_s, ptr }
 %struct.Agtag_s = type { i32, i64 }
-%struct.Agraphinfo_t = type { %struct.Agrec_s, ptr, ptr, %struct.boxf, [4 x %struct.pointf_s], i8, i8, i8, i8, i32, double, double, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.nlist_t, ptr, ptr, i64, i32, i32, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8 }
+%struct.Agraphinfo_t = type { %struct.Agrec_s, ptr, ptr, %struct.boxf, [4 x %struct.pointf_s], i8, i8, i8, i8, i32, double, double, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.nlist_t, ptr, ptr, i32, i32, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8 }
 %struct.Agrec_s = type { ptr, ptr }
 %struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
 %struct.pointf_s = type { double, double }
 %struct.nlist_t = type { ptr, i64 }
 %struct.layout_t = type { double, double, double, double, %struct.pointf_s, %struct.pointf_s, %struct.pointf_s, i8, i8, i8, i32, ptr, ptr }
-%struct.GVC_s = type { %struct.GVCOMMON_s, ptr, i8, ptr, i32, ptr, ptr, [5 x ptr], [5 x ptr], ptr, ptr, %struct._dtdisc_s, ptr, %struct.gvplugin_active_textlayout_s, ptr, ptr, ptr, %struct.gvplugin_active_layout_s, ptr, ptr, ptr, %struct.pointf_s, %struct.pointf_s, %struct.pointf_s, %struct.point, %struct.boxf, i32, i8, i8, i8, ptr, ptr, ptr, ptr, i32, ptr, ptr, double, ptr, %struct.color_s, i32 }
+%struct.GVC_s = type { %struct.GVCOMMON_s, ptr, i8, ptr, i32, ptr, ptr, [5 x ptr], [5 x ptr], ptr, ptr, %struct.dtdisc_s_, ptr, %struct.gvplugin_active_textlayout_s, ptr, ptr, ptr, %struct.gvplugin_active_layout_s, ptr, ptr, ptr, %struct.pointf_s, %struct.pointf_s, %struct.pointf_s, %struct.point, %struct.boxf, i32, i8, i8, i8, ptr, ptr, ptr, ptr, i32, ptr, ptr, double, ptr, %struct.color_s, i32 }
 %struct.GVCOMMON_s = type { ptr, ptr, i32, i8, i8, ptr, ptr, ptr, i32, ptr, i32 }
-%struct._dtdisc_s = type { i32, i32, i32, ptr, ptr, ptr }
+%struct.dtdisc_s_ = type { i32, i32, i32, ptr, ptr, ptr }
 %struct.gvplugin_active_textlayout_s = type { ptr, i32, ptr }
 %struct.gvplugin_active_layout_s = type { ptr, i32, ptr, ptr }
 %struct.point = type { i32, i32 }
 %struct.color_s = type { %union.anon.0, i32 }
 %union.anon.0 = type { [4 x double] }
-%struct.GVJ_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, %struct.gvplugin_active_render_s, %struct.gvplugin_active_device_s, %struct.gvplugin_active_loadimage_t, ptr, %struct.pointf_s, i8, ptr, i32, ptr, i8, ptr, i32, i32, i32, %struct.point, %struct.point, %struct.point, %struct.point, %struct.point, i32, %struct.boxf, %struct.pointf_s, %struct.boxf, %struct.boxf, %struct.pointf_s, %struct.pointf_s, double, i32, %struct.pointf_s, %struct.boxf, %struct.pointf_s, %struct.pointf_s, i32, i32, %struct.box, %struct.box, %struct.pointf_s, %struct.pointf_s, %struct.pointf_s, i8, i8, i8, i8, i8, i8, %struct.pointf_s, %struct.pointf_s, ptr, ptr, ptr, ptr, %struct.gv_argvlist_s, %struct.gv_argvlist_s, ptr, ptr, i32, ptr }
+%struct.GVJ_s = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, i32, %struct.gvplugin_active_render_s, %struct.gvplugin_active_device_s, %struct.gvplugin_active_loadimage_t, ptr, %struct.pointf_s, i8, ptr, i32, ptr, i8, ptr, i32, i32, i32, %struct.point, %struct.point, %struct.point, %struct.point, %struct.point, i32, %struct.boxf, %struct.pointf_s, %struct.boxf, %struct.boxf, %struct.pointf_s, %struct.pointf_s, double, i32, %struct.pointf_s, %struct.boxf, %struct.pointf_s, %struct.pointf_s, i32, i32, %struct.box, %struct.box, %struct.pointf_s, %struct.pointf_s, %struct.pointf_s, i8, i8, i8, i8, i8, i8, %struct.pointf_s, %struct.pointf_s, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr }
 %struct.gvplugin_active_render_s = type { ptr, i32, ptr, ptr }
 %struct.gvplugin_active_device_s = type { ptr, i32, ptr, ptr }
 %struct.gvplugin_active_loadimage_t = type { ptr, i32, ptr }
 %struct.box = type { %struct.point, %struct.point }
-%struct.gv_argvlist_s = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"label\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"\\N\00", align 1
 @.str.2 = private unnamed_addr constant [49 x i8] c"Layout type: \22%s\22 not recognized. Use one of:%s\0A\00", align 1
-@.str.3 = private unnamed_addr constant [12 x i8] c"%d %d %d %d\00", align 1
+@.str.3 = private unnamed_addr constant [20 x i8] c"%.0f %.0f %.0f %.0f\00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c"bb\00", align 1
 @.str.5 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.6 = private unnamed_addr constant [44 x i8] c"Format: \22%s\22 not recognized. Use one of:%s\0A\00", align 1
@@ -38,36 +37,46 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @gvContext() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %2 = call ptr @agattr(ptr noundef null, i32 noundef 1, ptr noundef @.str, ptr noundef @.str.1)
   %3 = call ptr @gvNEWcontext(ptr noundef null, i32 noundef 1)
-  store ptr %3, ptr %1, align 8
-  %4 = load ptr, ptr %1, align 8
+  store ptr %3, ptr %1, align 8, !tbaa !3
+  %4 = load ptr, ptr %1, align 8, !tbaa !3
   call void @gvconfig(ptr noundef %4, i1 noundef zeroext false)
-  %5 = load ptr, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret ptr %5
 }
 
-declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @gvNEWcontext(ptr noundef, i32 noundef) #1
+declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @gvconfig(ptr noundef, i1 noundef zeroext) #1
+declare ptr @gvNEWcontext(ptr noundef, i32 noundef) #2
+
+declare void @gvconfig(ptr noundef, i1 noundef zeroext) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @gvContextPlugins(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   %6 = call ptr @agattr(ptr noundef null, i32 noundef 1, ptr noundef @.str, ptr noundef @.str.1)
-  %7 = load ptr, ptr %3, align 8
-  %8 = load i32, ptr %4, align 4
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = load i32, ptr %4, align 4, !tbaa !9
   %9 = call ptr @gvNEWcontext(ptr noundef %7, i32 noundef %8)
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
   call void @gvconfig(ptr noundef %10, i1 noundef zeroext false)
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %11
 }
 
@@ -79,370 +88,157 @@ define i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [256 x i8], align 16
   %9 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = call i32 @gvlayout_select(ptr noundef %10, ptr noundef %11)
-  store i32 %12, ptr %9, align 4
-  %13 = load i32, ptr %9, align 4
-  %14 = icmp eq i32 %13, 999
-  br i1 %14, label %15, label %21
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 256, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  %13 = call i32 @gvlayout_select(ptr noundef %11, ptr noundef %12)
+  store i32 %13, ptr %9, align 4, !tbaa !9
+  %14 = load i32, ptr %9, align 4, !tbaa !9
+  %15 = icmp eq i32 %14, 999
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = call ptr @gvplugin_list(ptr noundef %17, i32 noundef 1, ptr noundef %18)
-  %20 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.2, ptr noundef %16, ptr noundef %19)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8, !tbaa !13
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %7, align 8, !tbaa !13
+  %20 = call ptr @gvplugin_list(ptr noundef %18, i32 noundef 1, ptr noundef %19)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.2, ptr noundef %17, ptr noundef %20)
   store i32 -1, ptr %4, align 4
-  br label %286
+  store i32 1, ptr %10, align 4
+  br label %110
 
 21:                                               ; preds = %3
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !11
   %24 = call i32 @gvLayoutJobs(ptr noundef %22, ptr noundef %23)
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %21
   store i32 -1, ptr %4, align 4
-  br label %286
+  store i32 1, ptr %10, align 4
+  br label %110
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.Agobj_s, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.Agraphinfo_t, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.layout_t, ptr %32, i32 0, i32 8
-  %34 = load i8, ptr %33, align 1
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.Agobj_s, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  %31 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  %33 = getelementptr inbounds nuw %struct.layout_t, ptr %32, i32 0, i32 8
+  %34 = load i8, ptr %33, align 1, !tbaa !37, !range !39, !noundef !40
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %159
+  br i1 %35, label %36, label %71
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.Agobj_s, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Agraphinfo_t, ptr %40, i32 0, i32 3
-  %42 = getelementptr inbounds %struct.boxf, ptr %41, i32 0, i32 0
-  %43 = getelementptr inbounds %struct.pointf_s, ptr %42, i32 0, i32 1
-  %44 = load double, ptr %43, align 8
-  %45 = fcmp oge double %44, 0.000000e+00
-  br i1 %45, label %46, label %56
+  %38 = load ptr, ptr %6, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.Agobj_s, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !15
+  %41 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %40, i32 0, i32 3
+  %42 = getelementptr inbounds nuw %struct.boxf, ptr %41, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i32 0, i32 1
+  %44 = load double, ptr %43, align 8, !tbaa !41
+  %45 = call double @llvm.round.f64(double %44)
+  %46 = load ptr, ptr %6, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw %struct.Agobj_s, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.boxf, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.pointf_s, ptr %50, i32 0, i32 0
+  %52 = load double, ptr %51, align 8, !tbaa !42
+  %53 = call double @llvm.round.f64(double %52)
+  %54 = load ptr, ptr %6, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.Agobj_s, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !15
+  %57 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %56, i32 0, i32 3
+  %58 = getelementptr inbounds nuw %struct.boxf, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %58, i32 0, i32 1
+  %60 = load double, ptr %59, align 8, !tbaa !43
+  %61 = call double @llvm.round.f64(double %60)
+  %62 = load ptr, ptr %6, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.Agobj_s, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8, !tbaa !15
+  %65 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %64, i32 0, i32 3
+  %66 = getelementptr inbounds nuw %struct.boxf, ptr %65, i32 0, i32 1
+  %67 = getelementptr inbounds nuw %struct.pointf_s, ptr %66, i32 0, i32 0
+  %68 = load double, ptr %67, align 8, !tbaa !44
+  %69 = call double @llvm.round.f64(double %68)
+  %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 256, ptr noundef @.str.3, double noundef %45, double noundef %53, double noundef %61, double noundef %69) #6
+  br label %106
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.Agobj_s, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.Agraphinfo_t, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds %struct.boxf, ptr %50, i32 0, i32 0
-  %52 = getelementptr inbounds %struct.pointf_s, ptr %51, i32 0, i32 1
-  %53 = load double, ptr %52, align 8
-  %54 = fadd double %53, 5.000000e-01
-  %55 = fptosi double %54 to i32
-  br label %66
+71:                                               ; preds = %27
+  %72 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
+  %73 = load ptr, ptr %6, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.Agobj_s, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !15
+  %76 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %75, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.boxf, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.pointf_s, ptr %77, i32 0, i32 0
+  %79 = load double, ptr %78, align 8, !tbaa !42
+  %80 = call double @llvm.round.f64(double %79)
+  %81 = load ptr, ptr %6, align 8, !tbaa !11
+  %82 = getelementptr inbounds nuw %struct.Agobj_s, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
+  %84 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %83, i32 0, i32 3
+  %85 = getelementptr inbounds nuw %struct.boxf, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.pointf_s, ptr %85, i32 0, i32 1
+  %87 = load double, ptr %86, align 8, !tbaa !41
+  %88 = call double @llvm.round.f64(double %87)
+  %89 = load ptr, ptr %6, align 8, !tbaa !11
+  %90 = getelementptr inbounds nuw %struct.Agobj_s, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !15
+  %92 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %91, i32 0, i32 3
+  %93 = getelementptr inbounds nuw %struct.boxf, ptr %92, i32 0, i32 1
+  %94 = getelementptr inbounds nuw %struct.pointf_s, ptr %93, i32 0, i32 0
+  %95 = load double, ptr %94, align 8, !tbaa !44
+  %96 = call double @llvm.round.f64(double %95)
+  %97 = load ptr, ptr %6, align 8, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.Agobj_s, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8, !tbaa !15
+  %100 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %99, i32 0, i32 3
+  %101 = getelementptr inbounds nuw %struct.boxf, ptr %100, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct.pointf_s, ptr %101, i32 0, i32 1
+  %103 = load double, ptr %102, align 8, !tbaa !43
+  %104 = call double @llvm.round.f64(double %103)
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %72, i64 noundef 256, ptr noundef @.str.3, double noundef %80, double noundef %88, double noundef %96, double noundef %104) #6
+  br label %106
 
-56:                                               ; preds = %36
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct.Agobj_s, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.Agraphinfo_t, ptr %59, i32 0, i32 3
-  %61 = getelementptr inbounds %struct.boxf, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds %struct.pointf_s, ptr %61, i32 0, i32 1
-  %63 = load double, ptr %62, align 8
-  %64 = fsub double %63, 5.000000e-01
-  %65 = fptosi double %64 to i32
-  br label %66
-
-66:                                               ; preds = %56, %46
-  %67 = phi i32 [ %55, %46 ], [ %65, %56 ]
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.Agobj_s, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.Agraphinfo_t, ptr %70, i32 0, i32 3
-  %72 = getelementptr inbounds %struct.boxf, ptr %71, i32 0, i32 0
-  %73 = getelementptr inbounds %struct.pointf_s, ptr %72, i32 0, i32 0
-  %74 = load double, ptr %73, align 8
-  %75 = fcmp oge double %74, 0.000000e+00
-  br i1 %75, label %76, label %86
-
-76:                                               ; preds = %66
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.Agobj_s, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.Agraphinfo_t, ptr %79, i32 0, i32 3
-  %81 = getelementptr inbounds %struct.boxf, ptr %80, i32 0, i32 0
-  %82 = getelementptr inbounds %struct.pointf_s, ptr %81, i32 0, i32 0
-  %83 = load double, ptr %82, align 8
-  %84 = fadd double %83, 5.000000e-01
-  %85 = fptosi double %84 to i32
-  br label %96
-
-86:                                               ; preds = %66
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.Agobj_s, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.Agraphinfo_t, ptr %89, i32 0, i32 3
-  %91 = getelementptr inbounds %struct.boxf, ptr %90, i32 0, i32 0
-  %92 = getelementptr inbounds %struct.pointf_s, ptr %91, i32 0, i32 0
-  %93 = load double, ptr %92, align 8
-  %94 = fsub double %93, 5.000000e-01
-  %95 = fptosi double %94 to i32
-  br label %96
-
-96:                                               ; preds = %86, %76
-  %97 = phi i32 [ %85, %76 ], [ %95, %86 ]
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct.Agobj_s, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.Agraphinfo_t, ptr %100, i32 0, i32 3
-  %102 = getelementptr inbounds %struct.boxf, ptr %101, i32 0, i32 1
-  %103 = getelementptr inbounds %struct.pointf_s, ptr %102, i32 0, i32 1
-  %104 = load double, ptr %103, align 8
-  %105 = fcmp oge double %104, 0.000000e+00
-  br i1 %105, label %106, label %116
-
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.Agobj_s, ptr %107, i32 0, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.Agraphinfo_t, ptr %109, i32 0, i32 3
-  %111 = getelementptr inbounds %struct.boxf, ptr %110, i32 0, i32 1
-  %112 = getelementptr inbounds %struct.pointf_s, ptr %111, i32 0, i32 1
-  %113 = load double, ptr %112, align 8
-  %114 = fadd double %113, 5.000000e-01
-  %115 = fptosi double %114 to i32
-  br label %126
-
-116:                                              ; preds = %96
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds %struct.Agobj_s, ptr %117, i32 0, i32 1
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.Agraphinfo_t, ptr %119, i32 0, i32 3
-  %121 = getelementptr inbounds %struct.boxf, ptr %120, i32 0, i32 1
-  %122 = getelementptr inbounds %struct.pointf_s, ptr %121, i32 0, i32 1
-  %123 = load double, ptr %122, align 8
-  %124 = fsub double %123, 5.000000e-01
-  %125 = fptosi double %124 to i32
-  br label %126
-
-126:                                              ; preds = %116, %106
-  %127 = phi i32 [ %115, %106 ], [ %125, %116 ]
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct.Agobj_s, ptr %128, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.Agraphinfo_t, ptr %130, i32 0, i32 3
-  %132 = getelementptr inbounds %struct.boxf, ptr %131, i32 0, i32 1
-  %133 = getelementptr inbounds %struct.pointf_s, ptr %132, i32 0, i32 0
-  %134 = load double, ptr %133, align 8
-  %135 = fcmp oge double %134, 0.000000e+00
-  br i1 %135, label %136, label %146
-
-136:                                              ; preds = %126
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct.Agobj_s, ptr %137, i32 0, i32 1
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct.Agraphinfo_t, ptr %139, i32 0, i32 3
-  %141 = getelementptr inbounds %struct.boxf, ptr %140, i32 0, i32 1
-  %142 = getelementptr inbounds %struct.pointf_s, ptr %141, i32 0, i32 0
-  %143 = load double, ptr %142, align 8
-  %144 = fadd double %143, 5.000000e-01
-  %145 = fptosi double %144 to i32
-  br label %156
-
-146:                                              ; preds = %126
-  %147 = load ptr, ptr %6, align 8
-  %148 = getelementptr inbounds %struct.Agobj_s, ptr %147, i32 0, i32 1
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds %struct.Agraphinfo_t, ptr %149, i32 0, i32 3
-  %151 = getelementptr inbounds %struct.boxf, ptr %150, i32 0, i32 1
-  %152 = getelementptr inbounds %struct.pointf_s, ptr %151, i32 0, i32 0
-  %153 = load double, ptr %152, align 8
-  %154 = fsub double %153, 5.000000e-01
-  %155 = fptosi double %154 to i32
-  br label %156
-
-156:                                              ; preds = %146, %136
-  %157 = phi i32 [ %145, %136 ], [ %155, %146 ]
-  %158 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 256, ptr noundef @.str.3, i32 noundef %67, i32 noundef %97, i32 noundef %127, i32 noundef %157) #4
-  br label %282
-
-159:                                              ; preds = %27
-  %160 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds %struct.Agobj_s, ptr %161, i32 0, i32 1
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds %struct.Agraphinfo_t, ptr %163, i32 0, i32 3
-  %165 = getelementptr inbounds %struct.boxf, ptr %164, i32 0, i32 0
-  %166 = getelementptr inbounds %struct.pointf_s, ptr %165, i32 0, i32 0
-  %167 = load double, ptr %166, align 8
-  %168 = fcmp oge double %167, 0.000000e+00
-  br i1 %168, label %169, label %179
-
-169:                                              ; preds = %159
-  %170 = load ptr, ptr %6, align 8
-  %171 = getelementptr inbounds %struct.Agobj_s, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds %struct.Agraphinfo_t, ptr %172, i32 0, i32 3
-  %174 = getelementptr inbounds %struct.boxf, ptr %173, i32 0, i32 0
-  %175 = getelementptr inbounds %struct.pointf_s, ptr %174, i32 0, i32 0
-  %176 = load double, ptr %175, align 8
-  %177 = fadd double %176, 5.000000e-01
-  %178 = fptosi double %177 to i32
-  br label %189
-
-179:                                              ; preds = %159
-  %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr inbounds %struct.Agobj_s, ptr %180, i32 0, i32 1
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %struct.Agraphinfo_t, ptr %182, i32 0, i32 3
-  %184 = getelementptr inbounds %struct.boxf, ptr %183, i32 0, i32 0
-  %185 = getelementptr inbounds %struct.pointf_s, ptr %184, i32 0, i32 0
-  %186 = load double, ptr %185, align 8
-  %187 = fsub double %186, 5.000000e-01
-  %188 = fptosi double %187 to i32
-  br label %189
-
-189:                                              ; preds = %179, %169
-  %190 = phi i32 [ %178, %169 ], [ %188, %179 ]
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds %struct.Agobj_s, ptr %191, i32 0, i32 1
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds %struct.Agraphinfo_t, ptr %193, i32 0, i32 3
-  %195 = getelementptr inbounds %struct.boxf, ptr %194, i32 0, i32 0
-  %196 = getelementptr inbounds %struct.pointf_s, ptr %195, i32 0, i32 1
-  %197 = load double, ptr %196, align 8
-  %198 = fcmp oge double %197, 0.000000e+00
-  br i1 %198, label %199, label %209
-
-199:                                              ; preds = %189
-  %200 = load ptr, ptr %6, align 8
-  %201 = getelementptr inbounds %struct.Agobj_s, ptr %200, i32 0, i32 1
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds %struct.Agraphinfo_t, ptr %202, i32 0, i32 3
-  %204 = getelementptr inbounds %struct.boxf, ptr %203, i32 0, i32 0
-  %205 = getelementptr inbounds %struct.pointf_s, ptr %204, i32 0, i32 1
-  %206 = load double, ptr %205, align 8
-  %207 = fadd double %206, 5.000000e-01
-  %208 = fptosi double %207 to i32
-  br label %219
-
-209:                                              ; preds = %189
-  %210 = load ptr, ptr %6, align 8
-  %211 = getelementptr inbounds %struct.Agobj_s, ptr %210, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds %struct.Agraphinfo_t, ptr %212, i32 0, i32 3
-  %214 = getelementptr inbounds %struct.boxf, ptr %213, i32 0, i32 0
-  %215 = getelementptr inbounds %struct.pointf_s, ptr %214, i32 0, i32 1
-  %216 = load double, ptr %215, align 8
-  %217 = fsub double %216, 5.000000e-01
-  %218 = fptosi double %217 to i32
-  br label %219
-
-219:                                              ; preds = %209, %199
-  %220 = phi i32 [ %208, %199 ], [ %218, %209 ]
-  %221 = load ptr, ptr %6, align 8
-  %222 = getelementptr inbounds %struct.Agobj_s, ptr %221, i32 0, i32 1
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds %struct.Agraphinfo_t, ptr %223, i32 0, i32 3
-  %225 = getelementptr inbounds %struct.boxf, ptr %224, i32 0, i32 1
-  %226 = getelementptr inbounds %struct.pointf_s, ptr %225, i32 0, i32 0
-  %227 = load double, ptr %226, align 8
-  %228 = fcmp oge double %227, 0.000000e+00
-  br i1 %228, label %229, label %239
-
-229:                                              ; preds = %219
-  %230 = load ptr, ptr %6, align 8
-  %231 = getelementptr inbounds %struct.Agobj_s, ptr %230, i32 0, i32 1
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds %struct.Agraphinfo_t, ptr %232, i32 0, i32 3
-  %234 = getelementptr inbounds %struct.boxf, ptr %233, i32 0, i32 1
-  %235 = getelementptr inbounds %struct.pointf_s, ptr %234, i32 0, i32 0
-  %236 = load double, ptr %235, align 8
-  %237 = fadd double %236, 5.000000e-01
-  %238 = fptosi double %237 to i32
-  br label %249
-
-239:                                              ; preds = %219
-  %240 = load ptr, ptr %6, align 8
-  %241 = getelementptr inbounds %struct.Agobj_s, ptr %240, i32 0, i32 1
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds %struct.Agraphinfo_t, ptr %242, i32 0, i32 3
-  %244 = getelementptr inbounds %struct.boxf, ptr %243, i32 0, i32 1
-  %245 = getelementptr inbounds %struct.pointf_s, ptr %244, i32 0, i32 0
-  %246 = load double, ptr %245, align 8
-  %247 = fsub double %246, 5.000000e-01
-  %248 = fptosi double %247 to i32
-  br label %249
-
-249:                                              ; preds = %239, %229
-  %250 = phi i32 [ %238, %229 ], [ %248, %239 ]
-  %251 = load ptr, ptr %6, align 8
-  %252 = getelementptr inbounds %struct.Agobj_s, ptr %251, i32 0, i32 1
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds %struct.Agraphinfo_t, ptr %253, i32 0, i32 3
-  %255 = getelementptr inbounds %struct.boxf, ptr %254, i32 0, i32 1
-  %256 = getelementptr inbounds %struct.pointf_s, ptr %255, i32 0, i32 1
-  %257 = load double, ptr %256, align 8
-  %258 = fcmp oge double %257, 0.000000e+00
-  br i1 %258, label %259, label %269
-
-259:                                              ; preds = %249
-  %260 = load ptr, ptr %6, align 8
-  %261 = getelementptr inbounds %struct.Agobj_s, ptr %260, i32 0, i32 1
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %struct.Agraphinfo_t, ptr %262, i32 0, i32 3
-  %264 = getelementptr inbounds %struct.boxf, ptr %263, i32 0, i32 1
-  %265 = getelementptr inbounds %struct.pointf_s, ptr %264, i32 0, i32 1
-  %266 = load double, ptr %265, align 8
-  %267 = fadd double %266, 5.000000e-01
-  %268 = fptosi double %267 to i32
-  br label %279
-
-269:                                              ; preds = %249
-  %270 = load ptr, ptr %6, align 8
-  %271 = getelementptr inbounds %struct.Agobj_s, ptr %270, i32 0, i32 1
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds %struct.Agraphinfo_t, ptr %272, i32 0, i32 3
-  %274 = getelementptr inbounds %struct.boxf, ptr %273, i32 0, i32 1
-  %275 = getelementptr inbounds %struct.pointf_s, ptr %274, i32 0, i32 1
-  %276 = load double, ptr %275, align 8
-  %277 = fsub double %276, 5.000000e-01
-  %278 = fptosi double %277 to i32
-  br label %279
-
-279:                                              ; preds = %269, %259
-  %280 = phi i32 [ %268, %259 ], [ %278, %269 ]
-  %281 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %160, i64 noundef 256, ptr noundef @.str.3, i32 noundef %190, i32 noundef %220, i32 noundef %250, i32 noundef %280) #4
-  br label %282
-
-282:                                              ; preds = %279, %156
-  %283 = load ptr, ptr %6, align 8
-  %284 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %285 = call i32 @agsafeset(ptr noundef %283, ptr noundef @.str.4, ptr noundef %284, ptr noundef @.str.5)
+106:                                              ; preds = %71, %36
+  %107 = load ptr, ptr %6, align 8, !tbaa !11
+  %108 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
+  %109 = call i32 @agsafeset(ptr noundef %107, ptr noundef @.str.4, ptr noundef %108, ptr noundef @.str.5)
   store i32 0, ptr %4, align 4
-  br label %286
+  store i32 1, ptr %10, align 4
+  br label %110
 
-286:                                              ; preds = %282, %26, %15
-  %287 = load i32, ptr %4, align 4
-  ret i32 %287
+110:                                              ; preds = %106, %26, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 256, ptr %8) #6
+  %111 = load i32, ptr %4, align 4
+  ret i32 %111
 }
 
-declare i32 @gvlayout_select(ptr noundef, ptr noundef) #1
+declare i32 @gvlayout_select(ptr noundef, ptr noundef) #2
 
-declare i32 @agerr(i32 noundef, ptr noundef, ...) #1
+declare void @agerrorf(ptr noundef, ...) #2
 
-declare ptr @gvplugin_list(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @gvplugin_list(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @gvLayoutJobs(ptr noundef, ptr noundef) #1
+declare i32 @gvLayoutJobs(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
-declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.round.f64(double) #4
+
+declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -454,59 +250,64 @@ define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @gvjobs_output_langname(ptr noundef %13, ptr noundef %14)
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %12, align 1
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.GVC_s, ptr %17, i32 0, i32 15
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %11, align 8
-  %20 = load i8, ptr %12, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %28, label %22
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !13
+  %16 = call zeroext i1 @gvjobs_output_langname(ptr noundef %14, ptr noundef %15)
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %12, align 1, !tbaa !47
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.GVC_s, ptr %18, i32 0, i32 15
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  store ptr %20, ptr %11, align 8, !tbaa !64
+  %21 = load i8, ptr %12, align 1, !tbaa !47, !range !39, !noundef !40
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %28, label %23
 
-22:                                               ; preds = %4
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = call ptr @gvplugin_list(ptr noundef %24, i32 noundef 3, ptr noundef %25)
-  %27 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.6, ptr noundef %23, ptr noundef %26)
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %8, align 8, !tbaa !13
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %8, align 8, !tbaa !13
+  %27 = call ptr @gvplugin_list(ptr noundef %25, i32 noundef 3, ptr noundef %26)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.6, ptr noundef %24, ptr noundef %27)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %71
 
 28:                                               ; preds = %4
-  %29 = load ptr, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds %struct.GVJ_s, ptr %30, i32 0, i32 13
-  %32 = load ptr, ptr %31, align 8
+  %29 = load ptr, ptr %11, align 8, !tbaa !64
+  %30 = load ptr, ptr %11, align 8, !tbaa !64
+  %31 = getelementptr inbounds nuw %struct.GVJ_s, ptr %30, i32 0, i32 13
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = call i32 @gvrender_select(ptr noundef %29, ptr noundef %32)
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.GVJ_s, ptr %34, i32 0, i32 14
-  store i32 %33, ptr %35, align 8
-  %36 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %11, align 8, !tbaa !64
+  %35 = getelementptr inbounds nuw %struct.GVJ_s, ptr %34, i32 0, i32 14
+  store i32 %33, ptr %35, align 8, !tbaa !78
+  %36 = load ptr, ptr %7, align 8, !tbaa !11
   %37 = call ptr @agbindrec(ptr noundef %36, ptr noundef @.str.7, i32 noundef 0, i32 noundef 1)
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %28
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.Agobj_s, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.Agobj_s, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
   %45 = icmp ne ptr %44, null
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %39, %28
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds %struct.GVJ_s, ptr %47, i32 0, i32 26
-  %49 = load i32, ptr %48, align 8
+  %47 = load ptr, ptr %11, align 8, !tbaa !64
+  %48 = getelementptr inbounds nuw %struct.GVJ_s, ptr %47, i32 0, i32 26
+  %49 = load i32, ptr %48, align 8, !tbaa !79
   %50 = and i32 %49, 67108864
   %51 = icmp ne i32 %50, 0
   br i1 %51, label %53, label %52
@@ -514,56 +315,59 @@ define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 52:                                               ; preds = %46
   call void (ptr, ...) @agerrorf(ptr noundef @.str.8)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %71
 
 53:                                               ; preds = %46, %39
-  %54 = load ptr, ptr %9, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds %struct.GVJ_s, ptr %55, i32 0, i32 9
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %9, align 8, !tbaa !45
+  %55 = load ptr, ptr %11, align 8, !tbaa !64
+  %56 = getelementptr inbounds nuw %struct.GVJ_s, ptr %55, i32 0, i32 9
+  store ptr %54, ptr %56, align 8, !tbaa !80
+  %57 = load ptr, ptr %9, align 8, !tbaa !45
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %53
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds %struct.GVJ_s, ptr %60, i32 0, i32 26
-  %62 = load i32, ptr %61, align 8
+  %60 = load ptr, ptr %11, align 8, !tbaa !64
+  %61 = getelementptr inbounds nuw %struct.GVJ_s, ptr %60, i32 0, i32 26
+  %62 = load i32, ptr %61, align 8, !tbaa !79
   %63 = or i32 %62, 134217728
-  store i32 %63, ptr %61, align 8
+  store i32 %63, ptr %61, align 8, !tbaa !79
   br label %64
 
 64:                                               ; preds = %59, %53
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %6, align 8, !tbaa !3
+  %66 = load ptr, ptr %7, align 8, !tbaa !11
   %67 = call i32 @gvRenderJobs(ptr noundef %65, ptr noundef %66)
-  store i32 %67, ptr %10, align 4
-  %68 = load ptr, ptr %11, align 8
+  store i32 %67, ptr %10, align 4, !tbaa !9
+  %68 = load ptr, ptr %11, align 8, !tbaa !64
   call void @gvrender_end_job(ptr noundef %68)
-  %69 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %6, align 8, !tbaa !3
   call void @gvjobs_delete(ptr noundef %69)
-  %70 = load i32, ptr %10, align 4
+  %70 = load i32, ptr %10, align 4, !tbaa !9
   store i32 %70, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %71
 
-71:                                               ; preds = %64, %52, %22
+71:                                               ; preds = %64, %52, %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
   %72 = load i32, ptr %5, align 4
   ret i32 %72
 }
 
-declare zeroext i1 @gvjobs_output_langname(ptr noundef, ptr noundef) #1
+declare zeroext i1 @gvjobs_output_langname(ptr noundef, ptr noundef) #2
 
-declare i32 @gvrender_select(ptr noundef, ptr noundef) #1
+declare i32 @gvrender_select(ptr noundef, ptr noundef) #2
 
-declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @agerrorf(ptr noundef, ...) #1
+declare i32 @gvRenderJobs(ptr noundef, ptr noundef) #2
 
-declare i32 @gvRenderJobs(ptr noundef, ptr noundef) #1
+declare void @gvrender_end_job(ptr noundef) #2
 
-declare void @gvrender_end_job(ptr noundef) #1
-
-declare void @gvjobs_delete(ptr noundef) #1
+declare void @gvjobs_delete(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @gvRenderFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -575,59 +379,64 @@ define i32 @gvRenderFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @gvjobs_output_langname(ptr noundef %13, ptr noundef %14)
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %12, align 1
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.GVC_s, ptr %17, i32 0, i32 15
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %11, align 8
-  %20 = load i8, ptr %12, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %28, label %22
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !13
+  %16 = call zeroext i1 @gvjobs_output_langname(ptr noundef %14, ptr noundef %15)
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %12, align 1, !tbaa !47
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.GVC_s, ptr %18, i32 0, i32 15
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  store ptr %20, ptr %11, align 8, !tbaa !64
+  %21 = load i8, ptr %12, align 1, !tbaa !47, !range !39, !noundef !40
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %28, label %23
 
-22:                                               ; preds = %4
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = call ptr @gvplugin_list(ptr noundef %24, i32 noundef 3, ptr noundef %25)
-  %27 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.6, ptr noundef %23, ptr noundef %26)
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %8, align 8, !tbaa !13
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %8, align 8, !tbaa !13
+  %27 = call ptr @gvplugin_list(ptr noundef %25, i32 noundef 3, ptr noundef %26)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.6, ptr noundef %24, ptr noundef %27)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %63
 
 28:                                               ; preds = %4
-  %29 = load ptr, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds %struct.GVJ_s, ptr %30, i32 0, i32 13
-  %32 = load ptr, ptr %31, align 8
+  %29 = load ptr, ptr %11, align 8, !tbaa !64
+  %30 = load ptr, ptr %11, align 8, !tbaa !64
+  %31 = getelementptr inbounds nuw %struct.GVJ_s, ptr %30, i32 0, i32 13
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = call i32 @gvrender_select(ptr noundef %29, ptr noundef %32)
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.GVJ_s, ptr %34, i32 0, i32 14
-  store i32 %33, ptr %35, align 8
-  %36 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %11, align 8, !tbaa !64
+  %35 = getelementptr inbounds nuw %struct.GVJ_s, ptr %34, i32 0, i32 14
+  store i32 %33, ptr %35, align 8, !tbaa !78
+  %36 = load ptr, ptr %7, align 8, !tbaa !11
   %37 = call ptr @agbindrec(ptr noundef %36, ptr noundef @.str.7, i32 noundef 0, i32 noundef 1)
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %28
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.Agobj_s, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.Agobj_s, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
   %45 = icmp ne ptr %44, null
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %39, %28
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds %struct.GVJ_s, ptr %47, i32 0, i32 26
-  %49 = load i32, ptr %48, align 8
+  %47 = load ptr, ptr %11, align 8, !tbaa !64
+  %48 = getelementptr inbounds nuw %struct.GVJ_s, ptr %47, i32 0, i32 26
+  %49 = load i32, ptr %48, align 8, !tbaa !79
   %50 = and i32 %49, 67108864
   %51 = icmp ne i32 %50, 0
   br i1 %51, label %53, label %52
@@ -635,34 +444,39 @@ define i32 @gvRenderFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 52:                                               ; preds = %46
   call void (ptr, ...) @agerrorf(ptr noundef @.str.8)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %63
 
 53:                                               ; preds = %46, %39
-  %54 = load ptr, ptr %6, align 8
-  %55 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %55 = load ptr, ptr %9, align 8, !tbaa !13
   call void @gvjobs_output_filename(ptr noundef %54, ptr noundef %55)
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %7, align 8
+  %56 = load ptr, ptr %6, align 8, !tbaa !3
+  %57 = load ptr, ptr %7, align 8, !tbaa !11
   %58 = call i32 @gvRenderJobs(ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %10, align 4
-  %59 = load ptr, ptr %11, align 8
+  store i32 %58, ptr %10, align 4, !tbaa !9
+  %59 = load ptr, ptr %11, align 8, !tbaa !64
   call void @gvrender_end_job(ptr noundef %59)
-  %60 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %11, align 8, !tbaa !64
   call void @gvdevice_finalize(ptr noundef %60)
-  %61 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %6, align 8, !tbaa !3
   call void @gvjobs_delete(ptr noundef %61)
-  %62 = load i32, ptr %10, align 4
+  %62 = load i32, ptr %10, align 4, !tbaa !9
   store i32 %62, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %63
 
-63:                                               ; preds = %53, %52, %22
+63:                                               ; preds = %53, %52, %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
   %64 = load i32, ptr %5, align 4
   ret i32 %64
 }
 
-declare void @gvjobs_output_filename(ptr noundef, ptr noundef) #1
+declare void @gvjobs_output_filename(ptr noundef, ptr noundef) #2
 
-declare void @gvdevice_finalize(ptr noundef) #1
+declare void @gvdevice_finalize(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -674,59 +488,64 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @gvjobs_output_langname(ptr noundef %13, ptr noundef %14)
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %12, align 1
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.GVC_s, ptr %17, i32 0, i32 15
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %11, align 8
-  %20 = load i8, ptr %12, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %28, label %22
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !13
+  %16 = call zeroext i1 @gvjobs_output_langname(ptr noundef %14, ptr noundef %15)
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %12, align 1, !tbaa !47
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.GVC_s, ptr %18, i32 0, i32 15
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  store ptr %20, ptr %11, align 8, !tbaa !64
+  %21 = load i8, ptr %12, align 1, !tbaa !47, !range !39, !noundef !40
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %28, label %23
 
-22:                                               ; preds = %4
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = call ptr @gvplugin_list(ptr noundef %24, i32 noundef 3, ptr noundef %25)
-  %27 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.6, ptr noundef %23, ptr noundef %26)
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %8, align 8, !tbaa !13
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = load ptr, ptr %8, align 8, !tbaa !13
+  %27 = call ptr @gvplugin_list(ptr noundef %25, i32 noundef 3, ptr noundef %26)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.6, ptr noundef %24, ptr noundef %27)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %66
 
 28:                                               ; preds = %4
-  %29 = load ptr, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds %struct.GVJ_s, ptr %30, i32 0, i32 13
-  %32 = load ptr, ptr %31, align 8
+  %29 = load ptr, ptr %11, align 8, !tbaa !64
+  %30 = load ptr, ptr %11, align 8, !tbaa !64
+  %31 = getelementptr inbounds nuw %struct.GVJ_s, ptr %30, i32 0, i32 13
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = call i32 @gvrender_select(ptr noundef %29, ptr noundef %32)
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.GVJ_s, ptr %34, i32 0, i32 14
-  store i32 %33, ptr %35, align 8
-  %36 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %11, align 8, !tbaa !64
+  %35 = getelementptr inbounds nuw %struct.GVJ_s, ptr %34, i32 0, i32 14
+  store i32 %33, ptr %35, align 8, !tbaa !78
+  %36 = load ptr, ptr %7, align 8, !tbaa !11
   %37 = call ptr @agbindrec(ptr noundef %36, ptr noundef @.str.7, i32 noundef 0, i32 noundef 1)
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %28
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.Agobj_s, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.Agobj_s, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
   %45 = icmp ne ptr %44, null
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %39, %28
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds %struct.GVJ_s, ptr %47, i32 0, i32 26
-  %49 = load i32, ptr %48, align 8
+  %47 = load ptr, ptr %11, align 8, !tbaa !64
+  %48 = getelementptr inbounds nuw %struct.GVJ_s, ptr %47, i32 0, i32 26
+  %49 = load i32, ptr %48, align 8, !tbaa !79
   %50 = and i32 %49, 67108864
   %51 = icmp ne i32 %50, 0
   br i1 %51, label %53, label %52
@@ -734,31 +553,36 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 52:                                               ; preds = %46
   call void (ptr, ...) @agerrorf(ptr noundef @.str.8)
   store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %66
 
 53:                                               ; preds = %46, %39
-  %54 = load ptr, ptr %9, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds %struct.GVJ_s, ptr %55, i32 0, i32 23
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds %struct.GVJ_s, ptr %57, i32 0, i32 24
-  store i8 1, ptr %58, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %9, align 8, !tbaa !8
+  %55 = load ptr, ptr %11, align 8, !tbaa !64
+  %56 = getelementptr inbounds nuw %struct.GVJ_s, ptr %55, i32 0, i32 23
+  store ptr %54, ptr %56, align 8, !tbaa !81
+  %57 = load ptr, ptr %11, align 8, !tbaa !64
+  %58 = getelementptr inbounds nuw %struct.GVJ_s, ptr %57, i32 0, i32 24
+  store i8 1, ptr %58, align 8, !tbaa !82
+  %59 = load ptr, ptr %6, align 8, !tbaa !3
+  %60 = load ptr, ptr %7, align 8, !tbaa !11
   %61 = call i32 @gvRenderJobs(ptr noundef %59, ptr noundef %60)
-  store i32 %61, ptr %10, align 4
-  %62 = load ptr, ptr %11, align 8
+  store i32 %61, ptr %10, align 4, !tbaa !9
+  %62 = load ptr, ptr %11, align 8, !tbaa !64
   call void @gvrender_end_job(ptr noundef %62)
-  %63 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %11, align 8, !tbaa !64
   call void @gvdevice_finalize(ptr noundef %63)
-  %64 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %6, align 8, !tbaa !3
   call void @gvjobs_delete(ptr noundef %64)
-  %65 = load i32, ptr %10, align 4
+  %65 = load i32, ptr %10, align 4, !tbaa !9
   store i32 %65, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %66
 
-66:                                               ; preds = %53, %52, %22
+66:                                               ; preds = %53, %52, %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
   %67 = load i32, ptr %5, align 4
   ret i32 %67
 }
@@ -774,60 +598,65 @@ define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i8, align 1
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = call zeroext i1 @gvjobs_output_langname(ptr noundef %15, ptr noundef %16)
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr %14, align 1
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.GVC_s, ptr %19, i32 0, i32 15
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %13, align 8
-  %22 = load i8, ptr %14, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %30, label %24
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  store ptr %2, ptr %9, align 8, !tbaa !13
+  store ptr %3, ptr %10, align 8, !tbaa !83
+  store ptr %4, ptr %11, align 8, !tbaa !84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  %16 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = load ptr, ptr %9, align 8, !tbaa !13
+  %18 = call zeroext i1 @gvjobs_output_langname(ptr noundef %16, ptr noundef %17)
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %14, align 1, !tbaa !47
+  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.GVC_s, ptr %20, i32 0, i32 15
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
+  store ptr %22, ptr %13, align 8, !tbaa !64
+  %23 = load i8, ptr %14, align 1, !tbaa !47, !range !39, !noundef !40
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %30, label %25
 
-24:                                               ; preds = %5
-  %25 = load ptr, ptr %9, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = call ptr @gvplugin_list(ptr noundef %26, i32 noundef 3, ptr noundef %27)
-  %29 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.6, ptr noundef %25, ptr noundef %28)
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %9, align 8, !tbaa !13
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = load ptr, ptr %9, align 8, !tbaa !13
+  %29 = call ptr @gvplugin_list(ptr noundef %27, i32 noundef 3, ptr noundef %28)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.6, ptr noundef %26, ptr noundef %29)
   store i32 -1, ptr %6, align 4
-  br label %91
+  store i32 1, ptr %15, align 4
+  br label %90
 
 30:                                               ; preds = %5
-  %31 = load ptr, ptr %13, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr inbounds %struct.GVJ_s, ptr %32, i32 0, i32 13
-  %34 = load ptr, ptr %33, align 8
+  %31 = load ptr, ptr %13, align 8, !tbaa !64
+  %32 = load ptr, ptr %13, align 8, !tbaa !64
+  %33 = getelementptr inbounds nuw %struct.GVJ_s, ptr %32, i32 0, i32 13
+  %34 = load ptr, ptr %33, align 8, !tbaa !65
   %35 = call i32 @gvrender_select(ptr noundef %31, ptr noundef %34)
-  %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds %struct.GVJ_s, ptr %36, i32 0, i32 14
-  store i32 %35, ptr %37, align 8
-  %38 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %13, align 8, !tbaa !64
+  %37 = getelementptr inbounds nuw %struct.GVJ_s, ptr %36, i32 0, i32 14
+  store i32 %35, ptr %37, align 8, !tbaa !78
+  %38 = load ptr, ptr %8, align 8, !tbaa !11
   %39 = call ptr @agbindrec(ptr noundef %38, ptr noundef @.str.7, i32 noundef 0, i32 noundef 1)
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %30
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.Agobj_s, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.Agraphinfo_t, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
+  %42 = load ptr, ptr %8, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.Agobj_s, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !15
+  %45 = getelementptr inbounds nuw %struct.Agraphinfo_t, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !20
   %47 = icmp ne ptr %46, null
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %41, %30
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds %struct.GVJ_s, ptr %49, i32 0, i32 26
-  %51 = load i32, ptr %50, align 8
+  %49 = load ptr, ptr %13, align 8, !tbaa !64
+  %50 = getelementptr inbounds nuw %struct.GVJ_s, ptr %49, i32 0, i32 26
+  %51 = load i32, ptr %50, align 8, !tbaa !79
   %52 = and i32 %51, 67108864
   %53 = icmp ne i32 %52, 0
   br i1 %53, label %55, label %54
@@ -835,148 +664,243 @@ define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 54:                                               ; preds = %48
   call void (ptr, ...) @agerrorf(ptr noundef @.str.8)
   store i32 -1, ptr %6, align 4
-  br label %91
+  store i32 1, ptr %15, align 4
+  br label %90
 
 55:                                               ; preds = %48, %41
-  %56 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %10, align 8, !tbaa !83
   %57 = icmp ne ptr %56, null
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = call noalias ptr @malloc(i64 noundef 4096) #5
-  %60 = load ptr, ptr %10, align 8
-  store ptr %59, ptr %60, align 8
+  %59 = call noalias ptr @malloc(i64 noundef 4096) #7
+  %60 = load ptr, ptr %10, align 8, !tbaa !83
+  store ptr %59, ptr %60, align 8, !tbaa !13
   %61 = icmp ne ptr %59, null
-  br i1 %61, label %64, label %62
+  br i1 %61, label %63, label %62
 
 62:                                               ; preds = %58, %55
-  %63 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.9)
+  call void (ptr, ...) @agerrorf(ptr noundef @.str.9)
   store i32 -1, ptr %6, align 4
-  br label %91
+  store i32 1, ptr %15, align 4
+  br label %90
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %10, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %13, align 8
-  %68 = getelementptr inbounds %struct.GVJ_s, ptr %67, i32 0, i32 10
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %13, align 8
-  %70 = getelementptr inbounds %struct.GVJ_s, ptr %69, i32 0, i32 11
-  store i32 4096, ptr %70, align 8
-  %71 = load ptr, ptr %13, align 8
-  %72 = getelementptr inbounds %struct.GVJ_s, ptr %71, i32 0, i32 12
-  store i32 0, ptr %72, align 4
-  %73 = load ptr, ptr %7, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = call i32 @gvRenderJobs(ptr noundef %73, ptr noundef %74)
-  store i32 %75, ptr %12, align 4
-  %76 = load ptr, ptr %13, align 8
-  call void @gvrender_end_job(ptr noundef %76)
-  %77 = load i32, ptr %12, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %88
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %10, align 8, !tbaa !83
+  %65 = load ptr, ptr %64, align 8, !tbaa !13
+  %66 = load ptr, ptr %13, align 8, !tbaa !64
+  %67 = getelementptr inbounds nuw %struct.GVJ_s, ptr %66, i32 0, i32 10
+  store ptr %65, ptr %67, align 8, !tbaa !86
+  %68 = load ptr, ptr %13, align 8, !tbaa !64
+  %69 = getelementptr inbounds nuw %struct.GVJ_s, ptr %68, i32 0, i32 11
+  store i64 4096, ptr %69, align 8, !tbaa !87
+  %70 = load ptr, ptr %13, align 8, !tbaa !64
+  %71 = getelementptr inbounds nuw %struct.GVJ_s, ptr %70, i32 0, i32 12
+  store i64 0, ptr %71, align 8, !tbaa !88
+  %72 = load ptr, ptr %7, align 8, !tbaa !3
+  %73 = load ptr, ptr %8, align 8, !tbaa !11
+  %74 = call i32 @gvRenderJobs(ptr noundef %72, ptr noundef %73)
+  store i32 %74, ptr %12, align 4, !tbaa !9
+  %75 = load ptr, ptr %13, align 8, !tbaa !64
+  call void @gvrender_end_job(ptr noundef %75)
+  %76 = load i32, ptr %12, align 4, !tbaa !9
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %87
 
-79:                                               ; preds = %64
-  %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct.GVJ_s, ptr %80, i32 0, i32 10
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %10, align 8
-  store ptr %82, ptr %83, align 8
-  %84 = load ptr, ptr %13, align 8
-  %85 = getelementptr inbounds %struct.GVJ_s, ptr %84, i32 0, i32 12
-  %86 = load i32, ptr %85, align 4
-  %87 = load ptr, ptr %11, align 8
-  store i32 %86, ptr %87, align 4
-  br label %88
+78:                                               ; preds = %63
+  %79 = load ptr, ptr %13, align 8, !tbaa !64
+  %80 = getelementptr inbounds nuw %struct.GVJ_s, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !86
+  %82 = load ptr, ptr %10, align 8, !tbaa !83
+  store ptr %81, ptr %82, align 8, !tbaa !13
+  %83 = load ptr, ptr %13, align 8, !tbaa !64
+  %84 = getelementptr inbounds nuw %struct.GVJ_s, ptr %83, i32 0, i32 12
+  %85 = load i64, ptr %84, align 8, !tbaa !88
+  %86 = load ptr, ptr %11, align 8, !tbaa !84
+  store i64 %85, ptr %86, align 8, !tbaa !89
+  br label %87
 
-88:                                               ; preds = %79, %64
-  %89 = load ptr, ptr %7, align 8
-  call void @gvjobs_delete(ptr noundef %89)
-  %90 = load i32, ptr %12, align 4
-  store i32 %90, ptr %6, align 4
-  br label %91
+87:                                               ; preds = %78, %63
+  %88 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @gvjobs_delete(ptr noundef %88)
+  %89 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %89, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %90
 
-91:                                               ; preds = %88, %62, %54, %24
-  %92 = load i32, ptr %6, align 4
-  ret i32 %92
+90:                                               ; preds = %87, %62, %54, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  %91 = load i32, ptr %6, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define void @gvFreeRenderData(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %3) #4
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  call void @free(ptr noundef %3) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define void @gvAddLibrary(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
   call void @gvconfig_plugin_install_from_library(ptr noundef %5, ptr noundef null, ptr noundef %6)
   ret void
 }
 
-declare void @gvconfig_plugin_install_from_library(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @gvconfig_plugin_install_from_library(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @gvcInfo(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.GVC_s, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.GVC_s, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @gvcVersion(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.GVC_s, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.GVC_s, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @gvcBuildDate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.GVC_s, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.GVC_s, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.GVCOMMON_s, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   %7 = getelementptr inbounds ptr, ptr %6, i64 2
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
   ret ptr %8
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS5GVC_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !5, i64 0}
+!15 = !{!16, !19, i64 16}
+!16 = !{!"Agobj_s", !17, i64 0, !19, i64 16}
+!17 = !{!"Agtag_s", !10, i64 0, !10, i64 0, !10, i64 0, !10, i64 0, !18, i64 8}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!"p1 _ZTS7Agrec_s", !5, i64 0}
+!20 = !{!21, !23, i64 16}
+!21 = !{!"Agraphinfo_t", !22, i64 0, !23, i64 16, !24, i64 24, !25, i64 32, !6, i64 64, !6, i64 128, !6, i64 129, !28, i64 130, !6, i64 131, !10, i64 132, !27, i64 136, !27, i64 144, !29, i64 152, !5, i64 160, !4, i64 168, !5, i64 176, !30, i64 184, !10, i64 192, !31, i64 200, !31, i64 208, !31, i64 216, !32, i64 224, !29, i64 232, !29, i64 234, !10, i64 236, !33, i64 240, !12, i64 248, !34, i64 256, !35, i64 264, !12, i64 272, !10, i64 280, !34, i64 288, !34, i64 296, !36, i64 304, !34, i64 320, !34, i64 328, !10, i64 336, !10, i64 340, !28, i64 344, !6, i64 345, !10, i64 348, !10, i64 352, !10, i64 356, !34, i64 360, !34, i64 368, !34, i64 376, !30, i64 384, !28, i64 392, !6, i64 393, !6, i64 394, !6, i64 395, !28, i64 396}
+!22 = !{!"Agrec_s", !14, i64 0, !19, i64 8}
+!23 = !{!"p1 _ZTS8layout_t", !5, i64 0}
+!24 = !{!"p1 _ZTS11textlabel_t", !5, i64 0}
+!25 = !{!"", !26, i64 0, !26, i64 16}
+!26 = !{!"pointf_s", !27, i64 0, !27, i64 8}
+!27 = !{!"double", !6, i64 0}
+!28 = !{!"_Bool", !6, i64 0}
+!29 = !{!"short", !6, i64 0}
+!30 = !{!"p2 _ZTS8Agnode_s", !5, i64 0}
+!31 = !{!"p2 double", !5, i64 0}
+!32 = !{!"p3 double", !5, i64 0}
+!33 = !{!"p2 _ZTS8Agraph_s", !5, i64 0}
+!34 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
+!35 = !{!"p1 _ZTS6rank_t", !5, i64 0}
+!36 = !{!"nlist_t", !30, i64 0, !18, i64 8}
+!37 = !{!38, !28, i64 81}
+!38 = !{!"layout_t", !27, i64 0, !27, i64 8, !27, i64 16, !27, i64 24, !26, i64 32, !26, i64 48, !26, i64 64, !28, i64 80, !28, i64 81, !28, i64 82, !10, i64 84, !5, i64 88, !14, i64 96}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = !{!21, !27, i64 40}
+!42 = !{!21, !27, i64 32}
+!43 = !{!21, !27, i64 56}
+!44 = !{!21, !27, i64 48}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!47 = !{!28, !28, i64 0}
+!48 = !{!49, !58, i64 296}
+!49 = !{!"GVC_s", !50, i64 0, !14, i64 72, !28, i64 80, !51, i64 88, !10, i64 96, !52, i64 104, !52, i64 112, !6, i64 120, !6, i64 160, !53, i64 200, !5, i64 208, !54, i64 216, !55, i64 256, !56, i64 264, !58, i64 288, !58, i64 296, !12, i64 304, !59, i64 312, !14, i64 344, !58, i64 352, !14, i64 360, !26, i64 368, !26, i64 384, !26, i64 400, !61, i64 416, !25, i64 424, !10, i64 456, !28, i64 460, !28, i64 461, !28, i64 462, !14, i64 464, !14, i64 472, !14, i64 480, !51, i64 488, !10, i64 496, !62, i64 504, !14, i64 512, !27, i64 520, !51, i64 528, !63, i64 536, !10, i64 576}
+!50 = !{!"GVCOMMON_s", !51, i64 0, !14, i64 8, !10, i64 16, !28, i64 20, !28, i64 21, !5, i64 24, !51, i64 32, !51, i64 40, !10, i64 48, !5, i64 56, !10, i64 64}
+!51 = !{!"p2 omnipotent char", !5, i64 0}
+!52 = !{!"p1 _ZTS5GVG_s", !5, i64 0}
+!53 = !{!"p1 _ZTS18gvplugin_package_s", !5, i64 0}
+!54 = !{!"dtdisc_s_", !10, i64 0, !10, i64 4, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!55 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
+!56 = !{!"gvplugin_active_textlayout_s", !57, i64 0, !10, i64 8, !14, i64 16}
+!57 = !{!"p1 _ZTS21gvtextlayout_engine_s", !5, i64 0}
+!58 = !{!"p1 _ZTS5GVJ_s", !5, i64 0}
+!59 = !{!"gvplugin_active_layout_s", !60, i64 0, !10, i64 8, !5, i64 16, !14, i64 24}
+!60 = !{!"p1 _ZTS17gvlayout_engine_s", !5, i64 0}
+!61 = !{!"", !10, i64 0, !10, i64 4}
+!62 = !{!"p1 int", !5, i64 0}
+!63 = !{!"color_s", !6, i64 0, !10, i64 32}
+!64 = !{!58, !58, i64 0}
+!65 = !{!66, !14, i64 104}
+!66 = !{!"GVJ_s", !4, i64 0, !58, i64 8, !58, i64 16, !67, i64 24, !68, i64 32, !14, i64 40, !10, i64 48, !14, i64 56, !14, i64 64, !46, i64 72, !14, i64 80, !18, i64 88, !18, i64 96, !14, i64 104, !10, i64 112, !69, i64 120, !71, i64 152, !73, i64 184, !75, i64 208, !26, i64 216, !28, i64 232, !5, i64 240, !10, i64 248, !5, i64 256, !28, i64 264, !14, i64 272, !10, i64 280, !10, i64 284, !10, i64 288, !61, i64 292, !61, i64 300, !61, i64 308, !61, i64 316, !61, i64 324, !10, i64 332, !25, i64 336, !26, i64 368, !25, i64 384, !25, i64 416, !26, i64 448, !26, i64 464, !27, i64 480, !10, i64 488, !26, i64 496, !25, i64 512, !26, i64 544, !26, i64 560, !10, i64 576, !10, i64 580, !76, i64 584, !76, i64 600, !26, i64 616, !26, i64 632, !26, i64 648, !28, i64 664, !28, i64 665, !28, i64 666, !28, i64 667, !28, i64 668, !6, i64 669, !26, i64 672, !26, i64 688, !5, i64 704, !5, i64 712, !14, i64 720, !14, i64 728, !5, i64 736, !77, i64 744, !18, i64 752, !5, i64 760}
+!67 = !{!"p1 _ZTS10GVCOMMON_s", !5, i64 0}
+!68 = !{!"p1 _ZTS11obj_state_s", !5, i64 0}
+!69 = !{!"gvplugin_active_render_s", !70, i64 0, !10, i64 8, !5, i64 16, !14, i64 24}
+!70 = !{!"p1 _ZTS17gvrender_engine_s", !5, i64 0}
+!71 = !{!"gvplugin_active_device_s", !72, i64 0, !10, i64 8, !5, i64 16, !14, i64 24}
+!72 = !{!"p1 _ZTS17gvdevice_engine_s", !5, i64 0}
+!73 = !{!"gvplugin_active_loadimage_t", !74, i64 0, !10, i64 8, !14, i64 16}
+!74 = !{!"p1 _ZTS20gvloadimage_engine_s", !5, i64 0}
+!75 = !{!"p1 _ZTS20gvdevice_callbacks_s", !5, i64 0}
+!76 = !{!"", !61, i64 0, !61, i64 8}
+!77 = !{!"p1 _ZTS21gvevent_key_binding_s", !5, i64 0}
+!78 = !{!66, !10, i64 112}
+!79 = !{!66, !10, i64 280}
+!80 = !{!66, !46, i64 72}
+!81 = !{!66, !5, i64 256}
+!82 = !{!66, !28, i64 264}
+!83 = !{!51, !51, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 long", !5, i64 0}
+!86 = !{!66, !14, i64 80}
+!87 = !{!66, !18, i64 88}
+!88 = !{!66, !18, i64 96}
+!89 = !{!18, !18, i64 0}
+!90 = !{!49, !51, i64 0}

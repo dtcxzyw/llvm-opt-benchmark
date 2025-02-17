@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @excontext(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %6 = load ptr, ptr %5, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = ptrtoint ptr %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = icmp ugt ptr %6, %8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 868
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !22
   %10 = icmp eq i32 %.pre, 0
   br i1 %9, label %15, label %11
 
@@ -35,20 +35,20 @@ define noundef ptr @excontext(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 .preheader69:                                     ; preds = %.thread, %15
   %19 = phi ptr [ %14, %.thread ], [ %18, %15 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 868
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %.070 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %21 = icmp ult ptr %.070, %5
   br i1 %21, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader69
-  %22 = add i64 %4, 848
+  %22 = add i64 %4, 792
   %23 = sub i64 %22, %7
   %scevgep = getelementptr i8, ptr %6, i64 %23
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %gv_isspace.exit
   %.071 = phi ptr [ %.0, %gv_isspace.exit ], [ %.070, %.lr.ph.preheader ]
-  %24 = load i8, ptr %.071, align 1
+  %24 = load i8, ptr %.071, align 1, !tbaa !23
   switch i8 %24, label %.critedge [
     i8 9, label %gv_isspace.exit
     i8 10, label %gv_isspace.exit
@@ -61,7 +61,7 @@ define noundef ptr @excontext(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.0 = getelementptr inbounds nuw i8, ptr %.071, i64 1
   %exitcond.not = icmp eq ptr %.0, %scevgep
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
 
 .critedge:                                        ; preds = %gv_isspace.exit, %.lr.ph, %.preheader69
   %.0.lcssa = phi ptr [ %.070, %.preheader69 ], [ %.071, %.lr.ph ], [ %scevgep, %gv_isspace.exit ]
@@ -87,7 +87,7 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
 
 .lr.ph76.preheader:                               ; preds = %.critedge
   %.191 = ptrtoint ptr %.1 to i64
-  %39 = add i64 %4, 848
+  %39 = add i64 %4, 792
   %40 = sub i64 %39, %.191
   %scevgep92 = getelementptr i8, ptr %.1, i64 %40
   br label %.lr.ph76
@@ -96,21 +96,21 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   %.275 = phi ptr [ %41, %.lr.ph76 ], [ %.1, %.lr.ph76.preheader ]
   %.25374 = phi ptr [ %43, %.lr.ph76 ], [ %1, %.lr.ph76.preheader ]
   %41 = getelementptr inbounds nuw i8, ptr %.275, i64 1
-  %42 = load i8, ptr %.275, align 1
+  %42 = load i8, ptr %.275, align 1, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %.25374, i64 1
-  store i8 %42, ptr %.25374, align 1
+  store i8 %42, ptr %.25374, align 1, !tbaa !23
   %exitcond93.not = icmp eq ptr %41, %scevgep92
-  br i1 %exitcond93.not, label %thread-pre-split, label %.lr.ph76
+  br i1 %exitcond93.not, label %thread-pre-split, label %.lr.ph76, !llvm.loop !26
 
 thread-pre-split:                                 ; preds = %.lr.ph76
-  %.pr.pre = load i32, ptr %20, align 4
+  %.pr.pre = load i32, ptr %20, align 8, !tbaa !22
   %44 = icmp eq i32 %.pr.pre, 0
   br i1 %44, label %.preheader, label %thread-pre-split.thread107
 
 .preheader:                                       ; preds = %15, %thread-pre-split
   %.152106 = phi ptr [ %43, %thread-pre-split ], [ %1, %15 ]
   %45 = phi ptr [ %19, %thread-pre-split ], [ %18, %15 ]
-  %46 = load ptr, ptr %5, align 8
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
   %47 = ptrtoint ptr %46 to i64
   %48 = icmp ult ptr %8, %46
   br i1 %48, label %.lr.ph79.preheader, label %.critedge2
@@ -122,14 +122,14 @@ thread-pre-split:                                 ; preds = %.lr.ph76
 
 thread-pre-split.thread107:                       ; preds = %.critedge, %thread-pre-split
   %.152110 = phi ptr [ %43, %thread-pre-split ], [ %1, %.critedge ]
-  store i32 0, ptr %20, align 4
-  %.pre100 = load ptr, ptr %5, align 8
+  store i32 0, ptr %20, align 8, !tbaa !22
+  %.pre100 = load ptr, ptr %5, align 8, !tbaa !3
   %.pre101 = ptrtoint ptr %.pre100 to i64
   br label %.critedge2
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %51
   %.478 = phi ptr [ %52, %51 ], [ %8, %.lr.ph79.preheader ]
-  %50 = load i8, ptr %.478, align 1
+  %50 = load i8, ptr %.478, align 1, !tbaa !23
   switch i8 %50, label %.critedge2 [
     i8 9, label %51
     i8 10, label %51
@@ -142,7 +142,7 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
 51:                                               ; preds = %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79
   %52 = getelementptr inbounds nuw i8, ptr %.478, i64 1
   %exitcond95.not = icmp eq ptr %52, %46
-  br i1 %exitcond95.not, label %.critedge2, label %.lr.ph79
+  br i1 %exitcond95.not, label %.critedge2, label %.lr.ph79, !llvm.loop !27
 
 .critedge2:                                       ; preds = %51, %.lr.ph79, %.preheader, %thread-pre-split.thread107
   %.152105 = phi ptr [ %.152106, %.preheader ], [ %.152110, %thread-pre-split.thread107 ], [ %.152106, %.lr.ph79 ], [ %.152106, %51 ]
@@ -168,17 +168,17 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   %.684 = phi ptr [ %64, %.lr.ph85 ], [ %.5, %.critedge2 ]
   %.35483 = phi ptr [ %66, %.lr.ph85 ], [ %.152105, %.critedge2 ]
   %64 = getelementptr inbounds nuw i8, ptr %.684, i64 1
-  %65 = load i8, ptr %.684, align 1
+  %65 = load i8, ptr %.684, align 1, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %.35483, i64 1
-  store i8 %65, ptr %.35483, align 1
-  %67 = load ptr, ptr %5, align 8
+  store i8 %65, ptr %.35483, align 1, !tbaa !23
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
   %68 = icmp ult ptr %64, %67
-  br i1 %68, label %.lr.ph85, label %._crit_edge
+  br i1 %68, label %.lr.ph85, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.critedge2
   %.354.lcssa = phi ptr [ %.152105, %.critedge2 ], [ %66, %.lr.ph85 ]
-  store ptr %8, ptr %5, align 8
-  store i8 60, ptr %.354.lcssa, align 1
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  store i8 60, ptr %.354.lcssa, align 1, !tbaa !23
   br label %69
 
 69:                                               ; preds = %._crit_edge, %69
@@ -187,22 +187,48 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   %.788.add = add nuw nsw i64 %.788.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str, i64 %.788.add
   %70 = getelementptr inbounds nuw i8, ptr %.45587, i64 1
-  %71 = load i8, ptr %.ptr, align 1
-  store i8 %71, ptr %70, align 1
+  %71 = load i8, ptr %.ptr, align 1, !tbaa !23
+  store i8 %71, ptr %70, align 1, !tbaa !23
   %exitcond97 = icmp eq i64 %.788.add, 4
-  br i1 %exitcond97, label %.loopexit, label %69
+  br i1 %exitcond97, label %.loopexit, label %69, !llvm.loop !29
 
 .loopexit:                                        ; preds = %69, %11
   %.051 = phi ptr [ %1, %11 ], [ %70, %69 ]
-  store i8 0, ptr %.051, align 1
+  store i8 0, ptr %.051, align 1, !tbaa !23
   ret ptr %.051
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 792}
+!4 = !{!"Expr_s", !5, i64 0, !9, i64 8, !7, i64 16, !10, i64 96, !10, i64 104, !9, i64 112, !11, i64 120, !12, i64 128, !13, i64 136, !14, i64 144, !7, i64 176, !15, i64 184, !7, i64 280, !5, i64 792, !20, i64 800, !20, i64 804, !20, i64 808, !21, i64 816, !18, i64 824, !20, i64 832}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS5dt_s_", !6, i64 0}
+!10 = !{!"p1 _ZTS10_vmalloc_s", !6, i64 0}
+!11 = !{!"p1 _ZTS8Exdisc_s", !6, i64 0}
+!12 = !{!"p1 _ZTS9Exinput_s", !6, i64 0}
+!13 = !{!"p1 _ZTS6Expr_s", !6, i64 0}
+!14 = !{!"", !7, i64 0}
+!15 = !{!"Exid_s", !16, i64 0, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !19, i64 48, !6, i64 56, !7, i64 64}
+!16 = !{!"dtlink_s_", !17, i64 0, !7, i64 8}
+!17 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!"p1 _ZTS8Exnode_s", !6, i64 0}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!"long long", !7, i64 0}
+!22 = !{!4, !20, i64 808}
+!23 = !{!7, !7, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}

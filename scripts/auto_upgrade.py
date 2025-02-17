@@ -19,12 +19,14 @@ supported_project = [
     "flac",
     "freetype",
     "git",
+    "graphviz",
 ]
 
 modify_only = [
     "cjson",
     "cmake",
     "coremark",
+    "graphviz",
 ]
 
 

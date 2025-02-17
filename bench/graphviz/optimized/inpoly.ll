@@ -6,50 +6,45 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Pxy_t = type { double, double }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @in_poly(ptr readonly captures(none) %0, i32 %1, double %2, double %3) local_unnamed_addr #0 {
-  %5 = add i32 %1, -1
-  %6 = icmp slt i32 %1, 1
-  br i1 %6, label %._crit_edge, label %.lr.ph.preheader
+define noundef zeroext i1 @in_poly(ptr readonly captures(none) %0, i64 %1, double %2, double %3) local_unnamed_addr #0 {
+  %5 = add i64 %1, -1
+  %.not1920 = icmp eq i64 %1, 0
+  br i1 %.not1920, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %8 = add i32 %5, %7
-  %9 = srem i32 %8, %1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %10
-  %12 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %indvars.iv
-  %13 = load double, ptr %11, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.01721 = phi i64 [ %17, %.lr.ph ], [ 0, %4 ]
+  %6 = add i64 %5, %.01721
+  %7 = urem i64 %6, %1
+  %8 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %.01721
+  %10 = load double, ptr %8, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = load double, ptr %9, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = load double, ptr %12, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %18 = load double, ptr %17, align 8
-  %19 = tail call i32 @wind(double %13, double %15, double %16, double %18, double %2, double %3) #2
-  %.not = icmp ne i32 %19, 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
+  %16 = tail call i32 @wind(double %10, double %12, double %13, double %15, double %2, double %3) #2
+  %.not.not = icmp ne i32 %16, 1
+  %17 = add nuw i64 %.01721, 1
+  %exitcond.not = icmp ne i64 %17, %1
+  %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.lcssa = phi i1 [ true, %4 ], [ %.not, %.lr.ph ]
-  ret i1 %.lcssa
+.critedge:                                        ; preds = %.lr.ph, %4
+  %.not19.lcssa = phi i1 [ true, %4 ], [ %.not.not, %.lr.ph ]
+  ret i1 %.not19.lcssa
 }
 
 declare i32 @wind(double, double, double, double, double, double) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}

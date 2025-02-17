@@ -3,9 +3,9 @@ source_filename = "bench/graphviz/original/taper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.pathpoint = type { double, double, double, i8, double, double, i8, double }
 %struct.pointf_s = type { double, double }
 %struct.stroke_t = type { i64, ptr }
-%struct.pathpoint = type { double, double, double, i8, double, double, i8, double }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
@@ -14,460 +14,472 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @taper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = alloca [4 x %struct.pointf_s], align 16
-  %5 = alloca %struct.stroke_t, align 8
-  %.val = load ptr, ptr %0, align 8
-  %6 = getelementptr i8, ptr %0, i64 8
-  %.val187 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %7 = load double, ptr %.val, align 8, !noalias !4
-  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %9 = load double, ptr %8, align 8, !noalias !4
+  %4 = alloca %struct.pathpoint, align 8
+  %5 = alloca %struct.pathpoint, align 8
+  %6 = alloca [4 x %struct.pointf_s], align 16
+  %7 = alloca %struct.stroke_t, align 8
+  %.val = load ptr, ptr %0, align 8, !tbaa !3
+  %8 = getelementptr i8, ptr %0, i64 8
+  %.val188 = load i64, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #14, !noalias !14
+  %9 = load double, ptr %.val, align 8, !noalias !14
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %11 = load double, ptr %10, align 8, !noalias !14
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
-  %10 = icmp eq ptr %calloc, null
-  br i1 %10, label %11, label %insertArr.exit
+  %12 = icmp eq ptr %calloc, null
+  br i1 %12, label %13, label %insertArr.exit
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call ptr @strerror(i32 noundef 12) #14
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %13) #15
+13:                                               ; preds = %3
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %15 = tail call ptr @strerror(i32 noundef 12) #14
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef %15) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable
 
 insertArr.exit:                                   ; preds = %3
-  store double %7, ptr %calloc, align 8
-  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store double %9, ptr %.sroa.45.0..sroa_idx.i, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, i64 16, i1 false), !noalias !4
-  %16 = icmp ugt i64 %.val187, 3
-  br i1 %16, label %.lr.ph.i, label %pathtolines.exit.thread
+  store double %9, ptr %calloc, align 8
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store double %11, ptr %.sroa.43.0..sroa_idx.i, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, i64 16, i1 false), !tbaa.struct !19, !noalias !14
+  %18 = icmp ugt i64 %.val188, 3
+  br i1 %18, label %.lr.ph.i, label %vararr_detach.exit.thread
 
-pathtolines.exit.thread:                          ; preds = %insertArr.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  br label %.lr.ph
+vararr_detach.exit.thread:                        ; preds = %insertArr.exit
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14, !noalias !14
+  %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  br label %.lr.ph.preheader
 
 .lr.ph.i:                                         ; preds = %insertArr.exit
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %invariant.gep.i = getelementptr i8, ptr %.val, i64 16
-  br label %20
+  br label %22
 
 .loopexit.i:                                      ; preds = %insertArr.exit.i
-  %18 = add i64 %21, 3
-  %19 = icmp ult i64 %18, %.val187
+  %20 = add i64 %23, 3
+  %21 = icmp ult i64 %20, %.val188
   %indvar.next.i = add i64 %indvar.i, 1
-  br i1 %19, label %20, label %pathtolines.exit
+  br i1 %21, label %22, label %pathtolines.exit, !llvm.loop !21
 
-20:                                               ; preds = %.loopexit.i, %.lr.ph.i
+22:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %.sroa.0.0 = phi ptr [ %calloc, %.lr.ph.i ], [ %.sroa.0.2, %.loopexit.i ]
-  %.sroa.9.0 = phi i64 [ 1, %.lr.ph.i ], [ %51, %.loopexit.i ]
-  %.sroa.16.0 = phi i64 [ 1, %.lr.ph.i ], [ %.sroa.16.2, %.loopexit.i ]
+  %.sroa.13.0 = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.13.2, %.loopexit.i ]
+  %.sroa.22.0 = phi i64 [ 1, %.lr.ph.i ], [ %62, %.loopexit.i ]
+  %.sroa.29.0 = phi i64 [ 1, %.lr.ph.i ], [ %.sroa.29.2, %.loopexit.i ]
   %indvar.i = phi i64 [ 0, %.lr.ph.i ], [ %indvar.next.i, %.loopexit.i ]
-  %21 = phi i64 [ 3, %.lr.ph.i ], [ %18, %.loopexit.i ]
-  %.0228.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %32, %.loopexit.i ]
-  %22 = mul i64 %indvar.i, 48
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false), !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %gep.i, i64 48, i1 false), !noalias !4
-  %.sroa.013.0.copyload.i = load double, ptr %4, align 16, !noalias !4
-  %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4
-  br label %23
+  %23 = phi i64 [ 3, %.lr.ph.i ], [ %20, %.loopexit.i ]
+  %.0228.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %34, %.loopexit.i ]
+  %24 = mul i64 %indvar.i, 48
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !19, !noalias !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %gep.i, i64 48, i1 false), !noalias !14
+  %.sroa.013.0.copyload.i = load double, ptr %6, align 16, !tbaa !20, !noalias !14
+  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !20, !noalias !14
+  br label %25
 
-23:                                               ; preds = %insertArr.exit.i, %20
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %20 ], [ %.sroa.0.2, %insertArr.exit.i ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.0, %20 ], [ %51, %insertArr.exit.i ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0, %20 ], [ %.sroa.16.2, %insertArr.exit.i ]
-  %.06.i = phi i32 [ 1, %20 ], [ %52, %insertArr.exit.i ]
-  %.15.i = phi double [ %.0228.i, %20 ], [ %32, %insertArr.exit.i ]
-  %.sroa.3.04.i = phi double [ %.sroa.3.0.copyload.i, %20 ], [ %28, %insertArr.exit.i ]
-  %.sroa.013.03.i = phi double [ %.sroa.013.0.copyload.i, %20 ], [ %27, %insertArr.exit.i ]
-  %24 = uitofp nneg i32 %.06.i to double
-  %25 = fdiv double %24, 2.000000e+01
-  %26 = call { double, double } @Bezier(ptr noundef nonnull %4, double noundef %25, ptr noundef null, ptr noundef null) #14, !noalias !4
-  %27 = extractvalue { double, double } %26, 0
-  %28 = extractvalue { double, double } %26, 1
-  %29 = fsub double %.sroa.013.03.i, %27
-  %30 = fsub double %.sroa.3.04.i, %28
-  %31 = call double @hypot(double noundef %29, double noundef %30) #14, !noalias !4
-  %32 = fadd double %.15.i, %31
-  %33 = icmp eq i64 %.sroa.9.1, %.sroa.16.1
-  br i1 %33, label %34, label %insertArr.exit.i
+25:                                               ; preds = %insertArr.exit.i, %22
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %22 ], [ %.sroa.0.2, %insertArr.exit.i ]
+  %.sroa.13.1 = phi i64 [ %.sroa.13.0, %22 ], [ %.sroa.13.2, %insertArr.exit.i ]
+  %.sroa.22.1 = phi i64 [ %.sroa.22.0, %22 ], [ %62, %insertArr.exit.i ]
+  %.sroa.29.1 = phi i64 [ %.sroa.29.0, %22 ], [ %.sroa.29.2, %insertArr.exit.i ]
+  %.06.i = phi i32 [ 1, %22 ], [ %63, %insertArr.exit.i ]
+  %.15.i = phi double [ %.0228.i, %22 ], [ %34, %insertArr.exit.i ]
+  %.sroa.5.04.i = phi double [ %.sroa.5.0.copyload.i, %22 ], [ %30, %insertArr.exit.i ]
+  %.sroa.013.03.i = phi double [ %.sroa.013.0.copyload.i, %22 ], [ %29, %insertArr.exit.i ]
+  %26 = uitofp nneg i32 %.06.i to double
+  %27 = fdiv double %26, 2.000000e+01
+  %28 = call { double, double } @Bezier(ptr noundef nonnull %6, double noundef %27, ptr noundef null, ptr noundef null) #14, !noalias !14
+  %29 = extractvalue { double, double } %28, 0
+  %30 = extractvalue { double, double } %28, 1
+  %31 = fsub double %.sroa.013.03.i, %29
+  %32 = fsub double %.sroa.5.04.i, %30
+  %33 = call double @hypot(double noundef %31, double noundef %32) #14, !tbaa !23, !noalias !14
+  %34 = fadd double %.15.i, %33
+  %35 = icmp eq i64 %.sroa.22.1, %.sroa.29.1
+  br i1 %35, label %36, label %insertArr.exit.i
 
-34:                                               ; preds = %23
-  %35 = icmp eq i64 %.sroa.9.1, 0
-  %36 = shl i64 %.sroa.9.1, 1
-  %spec.select.i.i.i.i = select i1 %35, i64 1, i64 %36
+36:                                               ; preds = %25
+  %37 = icmp eq i64 %.sroa.22.1, 0
+  %38 = shl i64 %.sroa.22.1, 1
+  %spec.select.i.i.i.i = select i1 %37, i64 1, i64 %38
   %mul.ov.i.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 288230376151711743
-  br i1 %mul.ov.i.i.i.i, label %46, label %37
+  br i1 %mul.ov.i.i.i.i, label %55, label %39
 
-37:                                               ; preds = %34
-  %38 = shl nuw i64 %spec.select.i.i.i.i, 6
-  %39 = call ptr @realloc(ptr noundef %.sroa.0.1, i64 noundef %38) #17, !noalias !4
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %41
+39:                                               ; preds = %36
+  %40 = shl nuw i64 %spec.select.i.i.i.i, 6
+  %41 = call ptr @realloc(ptr noundef %.sroa.0.1, i64 noundef %40) #17, !noalias !14
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %55, label %43
 
-41:                                               ; preds = %37
-  %42 = shl i64 %.sroa.9.1, 6
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = sub i64 %spec.select.i.i.i.i, %.sroa.9.1
-  %45 = shl i64 %44, 6
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %43, i8 0, i64 %45, i1 false), !noalias !4
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %.sroa.22.1
+  %45 = sub i64 %spec.select.i.i.i.i, %.sroa.22.1
+  %46 = shl i64 %45, 6
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 0, i64 %46, i1 false), !noalias !14
+  %47 = add i64 %.sroa.22.1, %.sroa.13.1
+  %48 = icmp ugt i64 %47, %.sroa.22.1
+  br i1 %48, label %49, label %insertArr.exit.i
+
+49:                                               ; preds = %43
+  %50 = sub i64 %.sroa.22.1, %.sroa.13.1
+  %51 = sub i64 %spec.select.i.i.i.i, %50
+  %52 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %51
+  %53 = getelementptr inbounds nuw %struct.pathpoint, ptr %41, i64 %.sroa.13.1
+  %54 = shl i64 %50, 6
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %53, i64 %54, i1 false), !noalias !14
   br label %insertArr.exit.i
 
-46:                                               ; preds = %37, %34
-  %.0.i.ph.i.i.i = phi i32 [ 12, %37 ], [ 34, %34 ]
-  %47 = load ptr, ptr @stderr, align 8, !noalias !4
-  %48 = call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #14, !noalias !4
-  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, ptr noundef %48) #15, !noalias !4
+55:                                               ; preds = %39, %36
+  %.2.i.ph.i.i.i = phi i32 [ 34, %36 ], [ 12, %39 ]
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !17, !noalias !14
+  %57 = call ptr @strerror(i32 noundef %.2.i.ph.i.i.i) #14, !noalias !14
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str, ptr noundef %57) #15, !noalias !14
   call fastcc void @graphviz_exit() #16
   unreachable
 
-insertArr.exit.i:                                 ; preds = %23, %41
-  %.sroa.0.2 = phi ptr [ %39, %41 ], [ %.sroa.0.1, %23 ]
-  %.sroa.16.2 = phi i64 [ %spec.select.i.i.i.i, %41 ], [ %.sroa.16.1, %23 ]
-  %50 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1
-  store double %27, ptr %50, align 8, !noalias !4
-  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store double %28, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store double %32, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.67.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i8 0, ptr %.sroa.67.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.89.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.89.0..sroa_idx.i.i, i8 0, i64 17, i1 false), !noalias !4
-  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 56
-  store double 0.000000e+00, ptr %.sroa.12.0..sroa_idx.i.i, align 8, !noalias !4
-  %51 = add i64 %.sroa.9.1, 1
-  %52 = add nuw nsw i32 %.06.i, 1
-  %exitcond.not.i = icmp eq i32 %52, 21
-  br i1 %exitcond.not.i, label %.loopexit.i, label %23
+insertArr.exit.i:                                 ; preds = %43, %49, %25
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %25 ], [ %41, %49 ], [ %41, %43 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1, %25 ], [ %51, %49 ], [ %.sroa.13.1, %43 ]
+  %.sroa.29.2 = phi i64 [ %.sroa.29.1, %25 ], [ %spec.select.i.i.i.i, %49 ], [ %spec.select.i.i.i.i, %43 ]
+  %59 = add i64 %.sroa.13.2, %.sroa.22.1
+  %60 = urem i64 %59, %.sroa.29.2
+  %61 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %60
+  store double %29, ptr %61, align 8, !noalias !14
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store double %30, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !14
+  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store double %34, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !noalias !14
+  %.sroa.65.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.65.0..sroa_idx.i.i, i8 0, i64 40, i1 false), !noalias !14
+  %62 = add i64 %.sroa.22.1, 1
+  %63 = add nuw nsw i32 %.06.i, 1
+  %exitcond.not.i = icmp eq i32 %63, 21
+  br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !24
 
 pathtolines.exit:                                 ; preds = %.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14, !noalias !14
+  %.not12.i.i = icmp eq i64 %.sroa.13.2, 0
+  br i1 %.not12.i.i, label %vararr_detach.exit, label %.lr.ph14.split.i.i
+
+.lr.ph14.split.i.i:                               ; preds = %pathtolines.exit, %._crit_edge.i.i
+  %.sroa.13.5 = phi i64 [ %64, %._crit_edge.i.i ], [ %.sroa.13.2, %pathtolines.exit ]
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.2, i64 64, i1 false), !tbaa.struct !25
+  br label %.lr.ph.i.i
+
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
+  %64 = add i64 %.sroa.13.5, -1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %53 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1, i32 2
-  %.not235 = icmp eq i64 %51, 0
-  br i1 %.not235, label %._crit_edge.thread, label %.lr.ph
+  %.not.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i, label %vararr_detach.exit, label %.lr.ph14.split.i.i, !llvm.loop !29
 
-._crit_edge.thread:                               ; preds = %pathtolines.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br label %._crit_edge225
+.lr.ph.i.i:                                       ; preds = %.lr.ph14.split.i.i, %.lr.ph.i.i
+  %.0.in11.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.sroa.29.2, %.lr.ph14.split.i.i ]
+  %.0.i.i = add i64 %.0.in11.i.i, -1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  %65 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %.0.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %65, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  %.not9.i.i = icmp eq i64 %.0.i.i, 0
+  br i1 %.not9.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %pathtolines.exit.thread, %pathtolines.exit
-  %.in = phi ptr [ %17, %pathtolines.exit.thread ], [ %53, %pathtolines.exit ]
-  %54 = phi i64 [ 0, %pathtolines.exit.thread ], [ %.sroa.9.1, %pathtolines.exit ]
-  %.sroa.9.2245 = phi i64 [ 1, %pathtolines.exit.thread ], [ %51, %pathtolines.exit ]
-  %.sroa.0.3243 = phi ptr [ %calloc, %pathtolines.exit.thread ], [ %.sroa.0.2, %pathtolines.exit ]
-  %55 = load double, ptr %.in, align 8
-  %56 = trunc i64 %.sroa.9.2245 to i32
-  %57 = sitofp i32 %56 to double
-  br label %58
+vararr_detach.exit:                               ; preds = %._crit_edge.i.i, %pathtolines.exit
+  %66 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.22.1, i32 2
+  %.not250 = icmp eq i64 %62, 0
+  br i1 %.not250, label %._crit_edge.thread, label %.lr.ph.preheader
 
-58:                                               ; preds = %.lr.ph, %mymod.exit202
-  %.0173218 = phi i64 [ 0, %.lr.ph ], [ %142, %mymod.exit202 ]
-  %59 = trunc i64 %.0173218 to i32
-  %60 = add nsw i32 %59, -1
-  %61 = sitofp i32 %60 to double
-  %62 = icmp sgt i32 %59, 0
-  %63 = fcmp ult double %61, %57
-  %or.cond.i = and i1 %62, %63
-  br i1 %or.cond.i, label %mymod.exit, label %64
+._crit_edge.thread:                               ; preds = %vararr_detach.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  br label %._crit_edge240
 
-64:                                               ; preds = %58
-  %65 = fdiv double %61, %57
-  %66 = call double @llvm.floor.f64(double %65)
-  %67 = fneg double %66
-  %68 = call double @llvm.fmuladd.f64(double %67, double %57, double %61)
-  br label %mymod.exit
+.lr.ph.preheader:                                 ; preds = %vararr_detach.exit.thread, %vararr_detach.exit
+  %.in = phi ptr [ %19, %vararr_detach.exit.thread ], [ %66, %vararr_detach.exit ]
+  %67 = phi i64 [ 0, %vararr_detach.exit.thread ], [ %.sroa.22.1, %vararr_detach.exit ]
+  %.sroa.0.3229260 = phi ptr [ %calloc, %vararr_detach.exit.thread ], [ %.sroa.0.2, %vararr_detach.exit ]
+  %.sroa.22.2230258 = phi i64 [ 1, %vararr_detach.exit.thread ], [ %62, %vararr_detach.exit ]
+  %68 = load double, ptr %.in, align 8, !tbaa !32
+  br label %.lr.ph
 
-mymod.exit:                                       ; preds = %58, %64
-  %.0.i = phi double [ %68, %64 ], [ %61, %58 ]
-  %69 = fptosi double %.0.i to i32
-  %70 = add nsw i32 %59, 1
-  %71 = sitofp i32 %70 to double
-  %72 = icmp sgt i32 %59, -2
-  %73 = fcmp ult double %71, %57
-  %or.cond.i189 = and i1 %72, %73
-  br i1 %or.cond.i189, label %mymod.exit191, label %74
+._crit_edge:                                      ; preds = %mymod.exit197
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  br label %.lr.ph239
 
-74:                                               ; preds = %mymod.exit
-  %75 = fdiv double %71, %57
-  %76 = call double @llvm.floor.f64(double %75)
-  %77 = fneg double %76
-  %78 = call double @llvm.fmuladd.f64(double %77, double %57, double %71)
-  br label %mymod.exit191
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %mymod.exit197
+  %.0174233 = phi i64 [ %72, %mymod.exit197 ], [ 0, %.lr.ph.preheader ]
+  %69 = icmp eq i64 %.0174233, 0
+  %70 = add i64 %.0174233, -1
+  %71 = select i1 %69, i64 %67, i64 %70
+  %72 = add nuw i64 %.0174233, 1
+  %73 = icmp eq i64 %72, %.sroa.22.2230258
+  %74 = select i1 %73, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3229260, i64 %.0174233
+  %.sroa.0107.0.copyload = load double, ptr %75, align 8, !tbaa !20
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !20
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !20
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %.sroa.12126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 48
+  %.sroa.18144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 56
+  %76 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3229260, i64 %74
+  %.sroa.0.0.copyload = load double, ptr %76, align 8, !tbaa !20
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
+  %77 = fsub double %.sroa.4.0.copyload, %.sroa.8.0.copyload
+  %78 = fsub double %.sroa.0.0.copyload, %.sroa.0107.0.copyload
+  %79 = fcmp oeq double %78, 0.000000e+00
+  %80 = fcmp oeq double %77, 0.000000e+00
+  %or.cond.i = and i1 %79, %80
+  br i1 %or.cond.i, label %myatan.exit, label %81
 
-mymod.exit191:                                    ; preds = %mymod.exit, %74
-  %.0.i190 = phi double [ %78, %74 ], [ %71, %mymod.exit ]
-  %79 = fptosi double %.0.i190 to i32
-  %80 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0173218
-  %.sroa.0104.0.copyload = load double, ptr %80, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %.sroa.10123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %.sroa.16141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %81
-  %.sroa.0.0.copyload = load double, ptr %82, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %83 = fsub double %.sroa.2.0.copyload, %.sroa.6.0.copyload
-  %84 = fsub double %.sroa.0.0.copyload, %.sroa.0104.0.copyload
-  %85 = fcmp oeq double %84, 0.000000e+00
-  %86 = fcmp oeq double %83, 0.000000e+00
-  %or.cond.i192 = and i1 %85, %86
-  br i1 %or.cond.i192, label %myatan.exit, label %87
+81:                                               ; preds = %.lr.ph
+  %82 = call double @atan2(double noundef %77, double noundef %78) #14, !tbaa !23
+  %83 = fcmp ult double %82, 0.000000e+00
+  br i1 %83, label %84, label %myatan.exit
 
-87:                                               ; preds = %mymod.exit191
-  %88 = call double @atan2(double noundef %83, double noundef %84) #14
-  %89 = fcmp ult double %88, 0.000000e+00
-  br i1 %89, label %90, label %myatan.exit
-
-90:                                               ; preds = %87
-  %91 = fadd double %88, 0x401921FB54442D18
+84:                                               ; preds = %81
+  %85 = fadd double %82, 0x401921FB54442D18
   br label %myatan.exit
 
-myatan.exit:                                      ; preds = %mymod.exit191, %87, %90
-  %.0.i193 = phi double [ %91, %90 ], [ 0.000000e+00, %mymod.exit191 ], [ %88, %87 ]
-  %92 = sext i32 %69 to i64
-  %93 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %92
-  %.sroa.0101.0.copyload = load double, ptr %93, align 8
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %.sroa.2102.0.copyload = load double, ptr %.sroa.2102.0..sroa_idx, align 8
-  %94 = fsub double %.sroa.2102.0.copyload, %.sroa.6.0.copyload
-  %95 = fsub double %.sroa.0101.0.copyload, %.sroa.0104.0.copyload
-  %96 = fcmp oeq double %95, 0.000000e+00
-  %97 = fcmp oeq double %94, 0.000000e+00
-  %or.cond.i194 = and i1 %96, %97
-  br i1 %or.cond.i194, label %myatan.exit196, label %98
+myatan.exit:                                      ; preds = %.lr.ph, %81, %84
+  %.0.i = phi double [ %85, %84 ], [ 0.000000e+00, %.lr.ph ], [ %82, %81 ]
+  %86 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3229260, i64 %71
+  %.sroa.0104.0.copyload = load double, ptr %86, align 8, !tbaa !20
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %.sroa.4105.0.copyload = load double, ptr %.sroa.4105.0..sroa_idx, align 8, !tbaa !20
+  %87 = fsub double %.sroa.4105.0.copyload, %.sroa.8.0.copyload
+  %88 = fsub double %.sroa.0104.0.copyload, %.sroa.0107.0.copyload
+  %89 = fcmp oeq double %88, 0.000000e+00
+  %90 = fcmp oeq double %87, 0.000000e+00
+  %or.cond.i190 = and i1 %89, %90
+  br i1 %or.cond.i190, label %myatan.exit192, label %91
 
-98:                                               ; preds = %myatan.exit
-  %99 = call double @atan2(double noundef %94, double noundef %95) #14
-  %100 = fcmp ult double %99, 0.000000e+00
-  br i1 %100, label %101, label %myatan.exit196
+91:                                               ; preds = %myatan.exit
+  %92 = call double @atan2(double noundef %87, double noundef %88) #14, !tbaa !23
+  %93 = fcmp ult double %92, 0.000000e+00
+  br i1 %93, label %94, label %myatan.exit192
 
-101:                                              ; preds = %98
-  %102 = fadd double %99, 0x401921FB54442D18
-  br label %myatan.exit196
+94:                                               ; preds = %91
+  %95 = fadd double %92, 0x401921FB54442D18
+  br label %myatan.exit192
 
-myatan.exit196:                                   ; preds = %myatan.exit, %98, %101
-  %.0.i195 = phi double [ %102, %101 ], [ 0.000000e+00, %myatan.exit ], [ %99, %98 ]
-  %103 = call double %1(double noundef %.sroa.9.0.copyload, double noundef %55, double noundef %2) #14
-  %104 = icmp eq i64 %.0173218, 0
-  %105 = icmp eq i64 %.0173218, %54
-  %or.cond = or i1 %104, %105
-  br i1 %or.cond, label %106, label %109
+myatan.exit192:                                   ; preds = %myatan.exit, %91, %94
+  %.0.i191 = phi double [ %95, %94 ], [ 0.000000e+00, %myatan.exit ], [ %92, %91 ]
+  %96 = call double %1(double noundef %.sroa.11.0.copyload, double noundef %68, double noundef %2) #14
+  %97 = icmp eq i64 %.0174233, %67
+  %or.cond = or i1 %69, %97
+  br i1 %or.cond, label %98, label %101
 
-106:                                              ; preds = %myatan.exit196
-  %107 = fadd double %.0.i193, 0x3FF921FB54442D18
-  %108 = fadd double %.0.i195, 0xBFF921FB54442D18
-  %.1 = select i1 %104, double %107, double %108
-  br label %mymod.exit202
+98:                                               ; preds = %myatan.exit192
+  %99 = fadd double %.0.i, 0x3FF921FB54442D18
+  %100 = fadd double %.0.i191, 0xBFF921FB54442D18
+  %.1 = select i1 %69, double %99, double %100
+  br label %mymod.exit197
 
-109:                                              ; preds = %myatan.exit196
-  %110 = fsub double %.0.i193, %.0.i195
-  %111 = fcmp olt double %110, 0.000000e+00
-  %112 = fadd double %110, 0x401921FB54442D18
-  %.0174 = select i1 %111, double %112, double %110
-  %113 = fmul double %.0174, 5.000000e-01
-  %114 = fsub double 0x3FF921FB54442D18, %113
-  %115 = call double @cos(double noundef %114) #14
-  %116 = fcmp oeq double %115, 0.000000e+00
-  br i1 %116, label %120, label %117
+101:                                              ; preds = %myatan.exit192
+  %102 = fsub double %.0.i, %.0.i191
+  %103 = fcmp olt double %102, 0.000000e+00
+  %104 = fadd double %102, 0x401921FB54442D18
+  %.0175 = select i1 %103, double %104, double %102
+  %105 = fmul double %.0175, 5.000000e-01
+  %106 = fsub double 0x3FF921FB54442D18, %105
+  %107 = call double @cos(double noundef %106) #14, !tbaa !23
+  %108 = fcmp oeq double %107, 0.000000e+00
+  br i1 %108, label %112, label %109
 
-117:                                              ; preds = %109
-  %118 = call double @cos(double noundef %114) #14
-  %119 = fdiv double %103, %118
-  br label %120
+109:                                              ; preds = %101
+  %110 = call double @cos(double noundef %106) #14, !tbaa !23
+  %111 = fdiv double %96, %110
+  br label %112
 
-120:                                              ; preds = %109, %117
-  %.2177 = phi double [ %119, %117 ], [ 0.000000e+00, %109 ]
-  %121 = fadd double %.0.i193, 0x3FF921FB54442D18
-  %122 = fmul double %103, 1.000000e+01
-  %123 = fcmp ogt double %.2177, %122
-  br i1 %123, label %124, label %140
+112:                                              ; preds = %101, %109
+  %.2178 = phi double [ %111, %109 ], [ 0.000000e+00, %101 ]
+  %113 = fadd double %.0.i, 0x3FF921FB54442D18
+  %114 = fmul double %96, 1.000000e+01
+  %115 = fcmp ogt double %.2178, %114
+  br i1 %115, label %116, label %132
 
-124:                                              ; preds = %120
-  %125 = fadd double %.0.i195, 0xBFF921FB54442D18
-  %126 = fcmp uge double %125, 0.000000e+00
-  %127 = fcmp ult double %125, 0x401921FB54442D18
-  %or.cond.i197 = and i1 %126, %127
-  br i1 %or.cond.i197, label %mymod.exit199, label %128
+116:                                              ; preds = %112
+  %117 = fadd double %.0.i191, 0xBFF921FB54442D18
+  %118 = fcmp uge double %117, 0.000000e+00
+  %119 = fcmp ult double %117, 0x401921FB54442D18
+  %or.cond.i193 = and i1 %118, %119
+  br i1 %or.cond.i193, label %mymod.exit, label %120
 
-128:                                              ; preds = %124
-  %129 = fdiv double %125, 0x401921FB54442D18
-  %130 = call double @llvm.floor.f64(double %129)
-  %131 = fneg double %130
-  %132 = call double @llvm.fmuladd.f64(double %131, double 0x401921FB54442D18, double %125)
-  br label %mymod.exit199
+120:                                              ; preds = %116
+  %121 = fdiv double %117, 0x401921FB54442D18
+  %122 = call double @llvm.floor.f64(double %121)
+  %123 = fneg double %122
+  %124 = call double @llvm.fmuladd.f64(double %123, double 0x401921FB54442D18, double %117)
+  br label %mymod.exit
 
-mymod.exit199:                                    ; preds = %124, %128
-  %.0.i198 = phi double [ %132, %128 ], [ %125, %124 ]
-  %133 = fcmp uge double %121, 0.000000e+00
-  %134 = fcmp ult double %121, 0x401921FB54442D18
-  %or.cond.i200 = and i1 %133, %134
-  br i1 %or.cond.i200, label %mymod.exit202, label %135
+mymod.exit:                                       ; preds = %116, %120
+  %.0.i194 = phi double [ %124, %120 ], [ %117, %116 ]
+  %125 = fcmp uge double %113, 0.000000e+00
+  %126 = fcmp ult double %113, 0x401921FB54442D18
+  %or.cond.i195 = and i1 %125, %126
+  br i1 %or.cond.i195, label %mymod.exit197, label %127
 
-135:                                              ; preds = %mymod.exit199
-  %136 = fdiv double %121, 0x401921FB54442D18
-  %137 = call double @llvm.floor.f64(double %136)
-  %138 = fneg double %137
-  %139 = call double @llvm.fmuladd.f64(double %138, double 0x401921FB54442D18, double %121)
-  br label %mymod.exit202
+127:                                              ; preds = %mymod.exit
+  %128 = fdiv double %113, 0x401921FB54442D18
+  %129 = call double @llvm.floor.f64(double %128)
+  %130 = fneg double %129
+  %131 = call double @llvm.fmuladd.f64(double %130, double 0x401921FB54442D18, double %113)
+  br label %mymod.exit197
 
-140:                                              ; preds = %120
-  %141 = fadd double %121, %114
-  br label %mymod.exit202
+132:                                              ; preds = %112
+  %133 = fadd double %113, %106
+  br label %mymod.exit197
 
-mymod.exit202:                                    ; preds = %135, %mymod.exit199, %140, %106
-  %.1176 = phi double [ %103, %106 ], [ %.2177, %140 ], [ %103, %mymod.exit199 ], [ %103, %135 ]
-  %.0172 = phi i8 [ 0, %106 ], [ 0, %140 ], [ 1, %mymod.exit199 ], [ 1, %135 ]
-  %.0170 = phi double [ %.1, %106 ], [ %141, %140 ], [ %121, %mymod.exit199 ], [ %139, %135 ]
-  %.2 = phi double [ %.1, %106 ], [ %141, %140 ], [ %.0.i198, %mymod.exit199 ], [ %.0.i198, %135 ]
-  store double %.sroa.0104.0.copyload, ptr %80, align 8
-  store double %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
-  store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
-  store i8 108, ptr %.sroa.10.0..sroa_idx, align 8
-  store double %.2, ptr %.sroa.10123.0..sroa_idx, align 8
-  store double %.1176, ptr %.sroa.12.0..sroa_idx, align 8
-  store i8 %.0172, ptr %.sroa.14.0..sroa_idx, align 8
-  store double %.0170, ptr %.sroa.16141.0..sroa_idx, align 8
-  %142 = add nuw i64 %.0173218, 1
-  %exitcond.not = icmp eq i64 %142, %.sroa.9.2245
-  br i1 %exitcond.not, label %._crit_edge, label %58
+mymod.exit197:                                    ; preds = %127, %mymod.exit, %132, %98
+  %.1177 = phi double [ %96, %98 ], [ %.2178, %132 ], [ %96, %mymod.exit ], [ %96, %127 ]
+  %.0173 = phi i8 [ 0, %98 ], [ 0, %132 ], [ 1, %mymod.exit ], [ 1, %127 ]
+  %.0171 = phi double [ %.1, %98 ], [ %133, %132 ], [ %113, %mymod.exit ], [ %131, %127 ]
+  %.2 = phi double [ %.1, %98 ], [ %133, %132 ], [ %.0.i194, %mymod.exit ], [ %.0.i194, %127 ]
+  store double %.sroa.0107.0.copyload, ptr %75, align 8, !tbaa !34
+  store double %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !35
+  store double %.sroa.11.0.copyload, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !32
+  store i8 108, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !36
+  store double %.2, ptr %.sroa.12126.0..sroa_idx, align 8, !tbaa !37
+  store double %.1177, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !38
+  store i8 %.0173, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !39
+  store double %.0171, ptr %.sroa.18144.0..sroa_idx, align 8, !tbaa !40
+  %exitcond.not = icmp eq i64 %72, %.sroa.22.2230258
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %mymod.exit202
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br label %.lr.ph224
+._crit_edge240.loopexit:                          ; preds = %151
+  %134 = fadd double %.sroa.12126.0.copyload128, 0x400921FB54442D18
+  %135 = add i64 %.sroa.22.2230258, -2
+  br label %._crit_edge240
 
-.lr.ph224:                                        ; preds = %._crit_edge, %154
-  %.0171222 = phi i64 [ %155, %154 ], [ 0, %._crit_edge ]
-  %143 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0171222
-  %.sroa.0104.0.copyload107 = load double, ptr %143, align 8
-  %.sroa.6.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %.sroa.6.0.copyload110 = load double, ptr %.sroa.6.0..sroa_idx109, align 8
-  %.sroa.10123.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  %.sroa.10123.0.copyload125 = load double, ptr %.sroa.10123.0..sroa_idx124, align 8
-  %.sroa.12.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %.sroa.12.0.copyload130 = load double, ptr %.sroa.12.0..sroa_idx129, align 8
-  %.sroa.14.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %.sroa.14.0.copyload135 = load i8, ptr %.sroa.14.0..sroa_idx134, align 8
-  %.sroa.16141.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %143, i64 56
-  %.sroa.16141.0.copyload143 = load double, ptr %.sroa.16141.0..sroa_idx142, align 8
-  %144 = trunc i8 %.sroa.14.0.copyload135 to i1
-  %145 = call double @cos(double noundef %.sroa.10123.0.copyload125) #14
-  %146 = call double @llvm.fmuladd.f64(double %145, double %.sroa.12.0.copyload130, double %.sroa.0104.0.copyload107)
-  %147 = call double @sin(double noundef %.sroa.10123.0.copyload125) #14
-  %148 = call double @llvm.fmuladd.f64(double %147, double %.sroa.12.0.copyload130, double %.sroa.6.0.copyload110)
-  call fastcc void @addto(ptr noundef %5, double noundef %146, double noundef %148)
-  br i1 %144, label %149, label %154
+._crit_edge240:                                   ; preds = %._crit_edge240.loopexit, %._crit_edge.thread
+  %.sroa.22.2230259272 = phi i64 [ -2, %._crit_edge.thread ], [ %135, %._crit_edge240.loopexit ]
+  %.sroa.0.3229261271 = phi ptr [ %.sroa.0.2, %._crit_edge.thread ], [ %.sroa.0.3229260, %._crit_edge240.loopexit ]
+  %.1183.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.8.0.copyload113, %._crit_edge240.loopexit ]
+  %.1181.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.0107.0.copyload110, %._crit_edge240.loopexit ]
+  %.3179.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.14.0.copyload133, %._crit_edge240.loopexit ]
+  %.3.lcssa = phi double [ 0x400921FB54442D18, %._crit_edge.thread ], [ %134, %._crit_edge240.loopexit ]
+  %136 = call double @cos(double noundef %.3.lcssa) #14, !tbaa !23
+  %137 = call double @llvm.fmuladd.f64(double %136, double %.3179.lcssa, double %.1181.lcssa)
+  %138 = call double @sin(double noundef %.3.lcssa) #14, !tbaa !23
+  %139 = call double @llvm.fmuladd.f64(double %138, double %.3179.lcssa, double %.1183.lcssa)
+  call fastcc void @addto(ptr noundef %7, double noundef %137, double noundef %139)
+  %.not245 = icmp eq i64 %.sroa.22.2230259272, -1
+  br i1 %.not245, label %._crit_edge249, label %.lr.ph248
 
-149:                                              ; preds = %.lr.ph224
-  %150 = call double @cos(double noundef %.sroa.16141.0.copyload143) #14
-  %151 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %150, double %.sroa.0104.0.copyload107)
-  %152 = call double @sin(double noundef %.sroa.16141.0.copyload143) #14
-  %153 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %152, double %.sroa.0104.0.copyload107)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %151, double noundef %153)
-  br label %154
+.lr.ph239:                                        ; preds = %._crit_edge, %151
+  %.0172237 = phi i64 [ %152, %151 ], [ 0, %._crit_edge ]
+  %140 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3229260, i64 %.0172237
+  %.sroa.0107.0.copyload110 = load double, ptr %140, align 8, !tbaa !20
+  %.sroa.8.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %.sroa.8.0.copyload113 = load double, ptr %.sroa.8.0..sroa_idx112, align 8, !tbaa !20
+  %.sroa.12126.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  %.sroa.12126.0.copyload128 = load double, ptr %.sroa.12126.0..sroa_idx127, align 8, !tbaa !20
+  %.sroa.14.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  %.sroa.14.0.copyload133 = load double, ptr %.sroa.14.0..sroa_idx132, align 8, !tbaa !20
+  %.sroa.16.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %140, i64 48
+  %.sroa.16.0.copyload138 = load i8, ptr %.sroa.16.0..sroa_idx137, align 8, !tbaa !27
+  %.sroa.18144.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %140, i64 56
+  %.sroa.18144.0.copyload146 = load double, ptr %.sroa.18144.0..sroa_idx145, align 8, !tbaa !20
+  %141 = trunc i8 %.sroa.16.0.copyload138 to i1
+  %142 = call double @cos(double noundef %.sroa.12126.0.copyload128) #14, !tbaa !23
+  %143 = call double @llvm.fmuladd.f64(double %142, double %.sroa.14.0.copyload133, double %.sroa.0107.0.copyload110)
+  %144 = call double @sin(double noundef %.sroa.12126.0.copyload128) #14, !tbaa !23
+  %145 = call double @llvm.fmuladd.f64(double %144, double %.sroa.14.0.copyload133, double %.sroa.8.0.copyload113)
+  call fastcc void @addto(ptr noundef %7, double noundef %143, double noundef %145)
+  br i1 %141, label %146, label %151
 
-154:                                              ; preds = %.lr.ph224, %149
-  %155 = add nuw i64 %.0171222, 1
-  %exitcond239.not = icmp eq i64 %155, %.sroa.9.2245
-  br i1 %exitcond239.not, label %._crit_edge225.loopexit, label %.lr.ph224
+146:                                              ; preds = %.lr.ph239
+  %147 = call double @cos(double noundef %.sroa.18144.0.copyload146) #14, !tbaa !23
+  %148 = call double @llvm.fmuladd.f64(double %.sroa.14.0.copyload133, double %147, double %.sroa.0107.0.copyload110)
+  %149 = call double @sin(double noundef %.sroa.18144.0.copyload146) #14, !tbaa !23
+  %150 = call double @llvm.fmuladd.f64(double %.sroa.14.0.copyload133, double %149, double %.sroa.0107.0.copyload110)
+  call fastcc void @addto(ptr noundef nonnull %7, double noundef %148, double noundef %150)
+  br label %151
 
-._crit_edge225.loopexit:                          ; preds = %154
-  %156 = fadd double %.sroa.10123.0.copyload125, 0x400921FB54442D18
-  %157 = add i64 %.sroa.9.2245, -2
-  br label %._crit_edge225
+151:                                              ; preds = %146, %.lr.ph239
+  %152 = add nuw i64 %.0172237, 1
+  %exitcond254.not = icmp eq i64 %152, %.sroa.22.2230258
+  br i1 %exitcond254.not, label %._crit_edge240.loopexit, label %.lr.ph239, !llvm.loop !42
 
-._crit_edge225:                                   ; preds = %._crit_edge225.loopexit, %._crit_edge.thread
-  %.sroa.0.3244257 = phi ptr [ %.sroa.0.2, %._crit_edge.thread ], [ %.sroa.0.3243, %._crit_edge225.loopexit ]
-  %.sroa.9.2246256 = phi i64 [ -2, %._crit_edge.thread ], [ %157, %._crit_edge225.loopexit ]
-  %.1182.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.6.0.copyload110, %._crit_edge225.loopexit ]
-  %.1180.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.0104.0.copyload107, %._crit_edge225.loopexit ]
-  %.3178.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.12.0.copyload130, %._crit_edge225.loopexit ]
-  %.3.lcssa = phi double [ 0x400921FB54442D18, %._crit_edge.thread ], [ %156, %._crit_edge225.loopexit ]
-  %158 = call double @cos(double noundef %.3.lcssa) #14
-  %159 = call double @llvm.fmuladd.f64(double %158, double %.3178.lcssa, double %.1180.lcssa)
-  %160 = call double @sin(double noundef %.3.lcssa) #14
-  %161 = call double @llvm.fmuladd.f64(double %160, double %.3178.lcssa, double %.1182.lcssa)
-  call fastcc void @addto(ptr noundef %5, double noundef %159, double noundef %161)
-  %.not230 = icmp eq i64 %.sroa.9.2246256, -1
-  br i1 %.not230, label %._crit_edge234, label %.lr.ph233
-
-.lr.ph233:                                        ; preds = %._crit_edge225, %175
-  %.0169231 = phi i64 [ %176, %175 ], [ %.sroa.9.2246256, %._crit_edge225 ]
-  %162 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3244257, i64 %.0169231
-  %.sroa.0104.0.copyload108 = load double, ptr %162, align 8
-  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %.sroa.6.0.copyload112 = load double, ptr %.sroa.6.0..sroa_idx111, align 8
-  %.sroa.10123.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %.sroa.10123.0.copyload127 = load double, ptr %.sroa.10123.0..sroa_idx126, align 8
-  %.sroa.12.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %.sroa.12.0.copyload132 = load double, ptr %.sroa.12.0..sroa_idx131, align 8
-  %.sroa.14.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %162, i64 48
-  %.sroa.14.0.copyload137 = load i8, ptr %.sroa.14.0..sroa_idx136, align 8
-  %.sroa.16141.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %162, i64 56
-  %.sroa.16141.0.copyload145 = load double, ptr %.sroa.16141.0..sroa_idx144, align 8
-  %163 = trunc i8 %.sroa.14.0.copyload137 to i1
-  %164 = fadd double %.sroa.16141.0.copyload145, 0x400921FB54442D18
-  %165 = call double @cos(double noundef %164) #14
-  %166 = call double @llvm.fmuladd.f64(double %165, double %.sroa.12.0.copyload132, double %.sroa.0104.0.copyload108)
-  %167 = call double @sin(double noundef %164) #14
-  %168 = call double @llvm.fmuladd.f64(double %167, double %.sroa.12.0.copyload132, double %.sroa.6.0.copyload112)
-  call fastcc void @addto(ptr noundef %5, double noundef %166, double noundef %168)
-  br i1 %163, label %169, label %175
-
-169:                                              ; preds = %.lr.ph233
-  %170 = fadd double %.sroa.10123.0.copyload127, 0x400921FB54442D18
-  %171 = call double @cos(double noundef %170) #14
-  %172 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %171, double %.sroa.0104.0.copyload108)
-  %173 = call double @sin(double noundef %170) #14
-  %174 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %173, double %.sroa.0104.0.copyload108)
-  call fastcc void @addto(ptr noundef nonnull %5, double noundef %172, double noundef %174)
-  br label %175
-
-175:                                              ; preds = %.lr.ph233, %169
-  %176 = add i64 %.0169231, -1
-  %.not = icmp eq i64 %.0169231, 0
-  br i1 %.not, label %._crit_edge234, label %.lr.ph233
-
-._crit_edge234:                                   ; preds = %175, %._crit_edge225
-  call void @free(ptr noundef nonnull %.sroa.0.3244257) #14
-  %.fca.0.load = load i64, ptr %5, align 8
+._crit_edge249:                                   ; preds = %166, %._crit_edge240
+  call void @free(ptr noundef nonnull %.sroa.0.3229261271) #14
+  %.fca.0.load = load i64, ptr %7, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load = load ptr, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
   ret { i64, ptr } %.fca.1.insert
+
+.lr.ph248:                                        ; preds = %._crit_edge240, %166
+  %.0170246 = phi i64 [ %167, %166 ], [ %.sroa.22.2230259272, %._crit_edge240 ]
+  %153 = getelementptr inbounds nuw %struct.pathpoint, ptr %.sroa.0.3229261271, i64 %.0170246
+  %.sroa.0107.0.copyload111 = load double, ptr %153, align 8, !tbaa !20
+  %.sroa.8.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %.sroa.8.0.copyload115 = load double, ptr %.sroa.8.0..sroa_idx114, align 8, !tbaa !20
+  %.sroa.12126.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  %.sroa.12126.0.copyload130 = load double, ptr %.sroa.12126.0..sroa_idx129, align 8, !tbaa !20
+  %.sroa.14.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %153, i64 40
+  %.sroa.14.0.copyload135 = load double, ptr %.sroa.14.0..sroa_idx134, align 8, !tbaa !20
+  %.sroa.16.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %153, i64 48
+  %.sroa.16.0.copyload140 = load i8, ptr %.sroa.16.0..sroa_idx139, align 8, !tbaa !27
+  %.sroa.18144.0..sroa_idx147 = getelementptr inbounds nuw i8, ptr %153, i64 56
+  %.sroa.18144.0.copyload148 = load double, ptr %.sroa.18144.0..sroa_idx147, align 8, !tbaa !20
+  %154 = trunc i8 %.sroa.16.0.copyload140 to i1
+  %155 = fadd double %.sroa.18144.0.copyload148, 0x400921FB54442D18
+  %156 = call double @cos(double noundef %155) #14, !tbaa !23
+  %157 = call double @llvm.fmuladd.f64(double %156, double %.sroa.14.0.copyload135, double %.sroa.0107.0.copyload111)
+  %158 = call double @sin(double noundef %155) #14, !tbaa !23
+  %159 = call double @llvm.fmuladd.f64(double %158, double %.sroa.14.0.copyload135, double %.sroa.8.0.copyload115)
+  call fastcc void @addto(ptr noundef %7, double noundef %157, double noundef %159)
+  br i1 %154, label %160, label %166
+
+160:                                              ; preds = %.lr.ph248
+  %161 = fadd double %.sroa.12126.0.copyload130, 0x400921FB54442D18
+  %162 = call double @cos(double noundef %161) #14, !tbaa !23
+  %163 = call double @llvm.fmuladd.f64(double %.sroa.14.0.copyload135, double %162, double %.sroa.0107.0.copyload111)
+  %164 = call double @sin(double noundef %161) #14, !tbaa !23
+  %165 = call double @llvm.fmuladd.f64(double %.sroa.14.0.copyload135, double %164, double %.sroa.0107.0.copyload111)
+  call fastcc void @addto(ptr noundef nonnull %7, double noundef %163, double noundef %165)
+  br label %166
+
+166:                                              ; preds = %160, %.lr.ph248
+  %167 = add i64 %.0170246, -1
+  %.not = icmp eq i64 %.0170246, 0
+  br i1 %.not, label %._crit_edge249, label %.lr.ph248, !llvm.loop !43
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #2
+declare double @cos(double noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @addto(ptr noundef nonnull captures(none) %0, double noundef %1, double noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load i64, ptr %0, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %6 = load i64, ptr %0, align 8, !tbaa !46
   %7 = add i64 %6, 1
   %8 = icmp ugt i64 %7, 1152921504606846975
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr @stderr, align 8
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !17
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef %7, i64 noundef 16) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable
@@ -488,7 +500,7 @@ define internal fastcc void @addto(ptr noundef nonnull captures(none) %0, double
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr @stderr, align 8
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !17
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -15) %14) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable
@@ -498,83 +510,80 @@ define internal fastcc void @addto(ptr noundef nonnull captures(none) %0, double
   br i1 %24, label %25, label %gv_recalloc.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %18, i64 %13
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %gv_recalloc.exit
 
 gv_recalloc.exit:                                 ; preds = %16, %23, %25
   %.0.i.i = phi ptr [ null, %16 ], [ %18, %25 ], [ %18, %23 ]
-  store ptr %.0.i.i, ptr %4, align 8
-  %27 = load i64, ptr %0, align 8
+  store ptr %.0.i.i, ptr %4, align 8, !tbaa !44
+  %27 = load i64, ptr %0, align 8, !tbaa !46
   %28 = add i64 %27, 1
-  store i64 %28, ptr %0, align 8
-  %29 = getelementptr inbounds %struct.pointf_s, ptr %.0.i.i, i64 %27
-  store double %1, ptr %29, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store double %2, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %28, ptr %0, align 8, !tbaa !46
+  %29 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0.i.i, i64 %27
+  store double %1, ptr %29, align 8, !tbaa !20
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store double %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #2
+declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #8
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #10 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #11
+declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #2
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #14 = { nounwind }
 attributes #15 = { cold nounwind }
@@ -582,12 +591,52 @@ attributes #16 = { noreturn }
 attributes #17 = { nounwind allocsize(1) }
 attributes #18 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"pathtolines: argument 0"}
-!6 = distinct !{!6, !"pathtolines"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"bezier", !5, i64 0, !9, i64 8, !10, i64 16, !10, i64 20, !11, i64 24, !11, i64 40}
+!5 = !{!"p1 _ZTS8pointf_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"long", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"pointf_s", !12, i64 0, !12, i64 8}
+!12 = !{!"double", !7, i64 0}
+!13 = !{!4, !9, i64 8}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pathtolines: argument 0"}
+!16 = distinct !{!16, !"pathtolines"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!19 = !{i64 0, i64 8, !20, i64 8, i64 8, !20}
+!20 = !{!12, !12, i64 0}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!10, !10, i64 0}
+!24 = distinct !{!24, !22}
+!25 = !{i64 0, i64 8, !20, i64 8, i64 8, !20, i64 16, i64 8, !20, i64 24, i64 1, !26, i64 32, i64 8, !20, i64 40, i64 8, !20, i64 48, i64 1, !27, i64 56, i64 8, !20}
+!26 = !{!7, !7, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"_Bool", !7, i64 0}
+!29 = distinct !{!29, !22, !30}
+!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!31 = distinct !{!31, !22}
+!32 = !{!33, !12, i64 16}
+!33 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !7, i64 24, !12, i64 32, !12, i64 40, !28, i64 48, !12, i64 56}
+!34 = !{!33, !12, i64 0}
+!35 = !{!33, !12, i64 8}
+!36 = !{!33, !7, i64 24}
+!37 = !{!33, !12, i64 32}
+!38 = !{!33, !12, i64 40}
+!39 = !{!33, !28, i64 48}
+!40 = !{!33, !12, i64 56}
+!41 = distinct !{!41, !22}
+!42 = distinct !{!42, !22}
+!43 = distinct !{!43, !22}
+!44 = !{!45, !5, i64 8}
+!45 = !{!"stroke_t", !9, i64 0, !5, i64 8}
+!46 = !{!45, !9, i64 0}

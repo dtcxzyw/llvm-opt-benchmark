@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @chresc(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = load i8, ptr %0, align 1
+  %4 = load i8, ptr %0, align 1, !tbaa !3
   %5 = sext i8 %4 to i32
   switch i8 %4, label %.loopexit [
     i8 0, label %6
@@ -20,7 +20,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly captures(address_is_nul
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %9 = load i8, ptr %3, align 1
+  %9 = load i8, ptr %3, align 1, !tbaa !3
   %10 = sext i8 %9 to i32
   switch i8 %9, label %.loopexit [
     i8 48, label %11
@@ -53,7 +53,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly captures(address_is_nul
   %.143 = phi i32 [ %12, %11 ], [ %.2, %14 ]
   %.02442 = phi ptr [ %13, %11 ], [ %.125, %14 ]
   %.12941 = phi ptr [ %8, %11 ], [ %.230, %14 ]
-  %15 = load i8, ptr %.12941, align 1
+  %15 = load i8, ptr %.12941, align 1, !tbaa !3
   %16 = and i8 %15, -8
   %switch = icmp eq i8 %16, 48
   %17 = shl i32 %.143, 3
@@ -65,7 +65,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly captures(address_is_nul
   %.125 = select i1 %switch, ptr %.02442, ptr %.12941
   %.2 = select i1 %switch, i32 %20, i32 %.143
   %21 = icmp ult ptr %.230, %.125
-  br i1 %21, label %14, label %.loopexit
+  br i1 %21, label %14, label %.loopexit, !llvm.loop !6
 
 22:                                               ; preds = %7
   br label %.loopexit
@@ -94,7 +94,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly captures(address_is_nul
 .preheader:                                       ; preds = %7, %switch.lookup
   %.340 = phi i32 [ %37, %switch.lookup ], [ 0, %7 ]
   %.33138 = phi ptr [ %34, %switch.lookup ], [ %8, %7 ]
-  %30 = load i8, ptr %.33138, align 1
+  %30 = load i8, ptr %.33138, align 1, !tbaa !3
   %switch.tableidx = add i8 %30, -48
   %31 = icmp ult i8 %switch.tableidx, 55
   br i1 %31, label %switch.hole_check, label %.loopexit
@@ -114,7 +114,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i8 %30 to i32
   %36 = add i32 %33, %switch.load
   %37 = add i32 %36, %35
-  br label %.preheader
+  br label %.preheader, !llvm.loop !8
 
 38:                                               ; preds = %7
   br label %.loopexit
@@ -122,25 +122,33 @@ switch.lookup:                                    ; preds = %switch.hole_check
 39:                                               ; preds = %7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %7, %22, %23, %24, %25, %26, %27, %28, %29, %38, %39, %6, %2
+.loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %2, %22, %23, %24, %25, %26, %27, %28, %29, %38, %39, %7, %6
   %.028 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %39 ], [ %8, %38 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.230, %14 ], [ %.33138, %switch.hole_check ], [ %.33138, %.preheader ]
   %.0 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %39 ], [ 27, %38 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.2, %14 ], [ %.340, %switch.hole_check ], [ %.340, %.preheader ]
   %.not36 = icmp eq ptr %1, null
   br i1 %.not36, label %41, label %40
 
 40:                                               ; preds = %.loopexit
-  store ptr %.028, ptr %1, align 8
+  store ptr %.028, ptr %1, align 8, !tbaa !9
   br label %41
 
 41:                                               ; preds = %40, %.loopexit
   ret i32 %.0
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}

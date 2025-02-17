@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %1, i1 noundef zeroext false) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !3
   %.not = icmp eq i32 %8, 1
   br i1 %6, label %9, label %10
 
@@ -32,8 +32,8 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly c
 15:                                               ; preds = %11, %.thread, %9
   %.041 = phi ptr [ %13, %11 ], [ %14, %.thread ], [ %1, %9 ]
   %16 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.041) #6
-  store i32 0, ptr %4, align 4
-  %17 = load i32, ptr %16, align 8
+  store i32 0, ptr %4, align 4, !tbaa !12
+  %17 = load i32, ptr %16, align 8, !tbaa !13
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %18, label %21
 
@@ -44,21 +44,21 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly c
   unreachable
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8
+  %22 = load ptr, ptr %2, align 8, !tbaa !14
   %23 = tail call ptr @SparseStressMajorizationSmoother_new(ptr noundef nonnull %16, i32 noundef %0, ptr noundef %22) #6
   %.not46 = icmp eq ptr %23, null
   br i1 %.not46, label %24, label %25
 
 24:                                               ; preds = %21
-  store i32 -1, ptr %4, align 4
+  store i32 -1, ptr %4, align 4, !tbaa !12
   br label %39
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store double 1.000000e-01, ptr %26, align 8
+  store double 1.000000e-01, ptr %26, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store i32 2, ptr %27, align 8
-  %28 = load ptr, ptr %2, align 8
+  store i32 2, ptr %27, align 8, !tbaa !20
+  %28 = load ptr, ptr %2, align 8, !tbaa !14
   %29 = tail call double @SparseStressMajorizationSmoother_smooth(ptr noundef nonnull %23, i32 noundef %0, ptr noundef %28, i32 noundef %3) #6
   %30 = mul nsw i32 %17, %0
   %31 = icmp sgt i32 %30, 0
@@ -66,22 +66,22 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %33 = load ptr, ptr %2, align 8, !tbaa !14
   %wide.trip.count = zext nneg i32 %30 to i64
-  br label %33
+  br label %34
 
-33:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = load double, ptr %32, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
-  %37 = load double, ptr %36, align 8
-  %38 = fdiv double %37, %34
-  store double %38, ptr %36, align 8
+34:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %35 = load double, ptr %32, align 8, !tbaa !21
+  %36 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  %37 = load double, ptr %36, align 8, !tbaa !22
+  %38 = fdiv double %37, %35
+  store double %38, ptr %36, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %33
+  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %33, %25
+._crit_edge:                                      ; preds = %34, %25
   tail call void @SparseStressMajorizationSmoother_delete(ptr noundef nonnull %23) #6
   br label %39
 
@@ -105,13 +105,13 @@ declare ptr @SparseMatrix_remove_diagonal(ptr noundef) local_unnamed_addr #1
 
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: inlinehint nofree nounwind uwtable
 define internal fastcc void @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0) unnamed_addr #2 {
   %mul.ov = icmp ugt i64 %0, 2305843009213693951
   br i1 %mul.ov, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr @stderr, align 8
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !25
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef 8) #7
   tail call fastcc void @graphviz_exit() #8
   unreachable
@@ -131,7 +131,7 @@ declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #9
   unreachable
@@ -140,20 +140,43 @@ define internal fastcc void @graphviz_exit() unnamed_addr #4 {
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }
 attributes #8 = { noreturn }
 attributes #9 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 16}
+!4 = !{!"SparseMatrix_struct", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !8, i64 24, !8, i64 32, !9, i64 40, !5, i64 48, !10, i64 52, !10, i64 52, !10, i64 52, !11, i64 56}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 int", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"_Bool", !6, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = !{!4, !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 double", !9, i64 0}
+!16 = !{!17, !19, i64 64}
+!17 = !{!"StressMajorizationSmoother_struct", !18, i64 0, !18, i64 8, !18, i64 16, !15, i64 24, !9, i64 32, !9, i64 40, !5, i64 48, !19, i64 56, !19, i64 64, !19, i64 72}
+!18 = !{!"p1 _ZTS19SparseMatrix_struct", !9, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = !{!17, !5, i64 48}
+!21 = !{!17, !19, i64 56}
+!22 = !{!19, !19, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}

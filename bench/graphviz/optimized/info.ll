@@ -3,245 +3,315 @@ source_filename = "bench/graphviz/original/info.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.freelist = type { ptr, ptr, i32 }
-%struct.Info_t = type { ptr, %struct.Site, i32, %struct.Poly, ptr }
+%struct.Info_t = type { ptr, %struct.Site, i8, %struct.Poly, ptr, i64 }
 %struct.Site = type { %struct.pointf_s, i64, i32 }
 %struct.pointf_s = type { double, double }
 %struct.Poly = type { %struct.pointf_s, %struct.pointf_s, i32, ptr, i32 }
 
-@pfl = internal global %struct.freelist zeroinitializer, align 8
 @nodeInfo = local_unnamed_addr global ptr null, align 8
-
-; Function Attrs: nounwind uwtable
-define void @infoinit() local_unnamed_addr #0 {
-  tail call void @freeinit(ptr noundef nonnull @pfl, i32 noundef 24) #2
-  ret void
-}
-
-declare void @freeinit(ptr noundef, i32 noundef) local_unnamed_addr #1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
+@.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr @nodeInfo, align 8
+  %.sroa.010.0.copyload = load double, ptr %0, align 8, !tbaa !3
+  %.sroa.010.0.copyload.fr = freeze double %.sroa.010.0.copyload
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
+  %.sroa.4.0.copyload.fr = freeze double %.sroa.4.0.copyload
+  %4 = load ptr, ptr @nodeInfo, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.Info_t, ptr %4, i64 %6, i32 4
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %select.unfold, label %10
+  %6 = load i64, ptr %5, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct.Info_t, ptr %4, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %9 = load i64, ptr %8, align 8, !tbaa !14
+  %.not = icmp eq i64 %9, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
+  br i1 %.not, label %.thread, label %.lr.ph
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load double, ptr %11, align 8
-  %13 = fcmp oeq double %1, %12
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %15 = load double, ptr %14, align 8
-  %16 = fcmp oeq double %2, %15
-  %or.cond.i = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond.i, label %compare.exit, label %._crit_edge.i
+.thread:                                          ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  br label %94
 
-._crit_edge.i:                                    ; preds = %10
-  %17 = load double, ptr %0, align 8
-  %18 = fsub double %1, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load double, ptr %19, align 8
-  %21 = fsub double %2, %20
-  %22 = fsub double %12, %17
-  %23 = fsub double %15, %20
-  %24 = fcmp ult double %18, 0.000000e+00
-  br i1 %24, label %49, label %25
+.lr.ph:                                           ; preds = %3
+  %11 = fsub double %1, %.sroa.010.0.copyload.fr
+  %12 = fsub double %2, %.sroa.4.0.copyload.fr
+  %13 = fcmp ult double %11, 0.000000e+00
+  %14 = fcmp ugt double %12, 0.000000e+00
+  %15 = fdiv double %12, %11
+  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
-25:                                               ; preds = %._crit_edge.i
-  %26 = fcmp olt double %22, 0.000000e+00
-  br i1 %26, label %select.unfold, label %27
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold29.us
+  %.02544.us = phi i64 [ %32, %select.unfold29.us ], [ 0, %.lr.ph ]
+  %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load double, ptr %18, align 8
+  %20 = fcmp oeq double %1, %17
+  %21 = fcmp oeq double %2, %19
+  %or.cond.i.us = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond.i.us, label %.thread37, label %22
 
-27:                                               ; preds = %25
-  %28 = fcmp ogt double %18, 0.000000e+00
-  %29 = fcmp ogt double %22, 0.000000e+00
-  br i1 %28, label %30, label %40
+22:                                               ; preds = %.lr.ph.split.us
+  %23 = fsub double %17, %.sroa.010.0.copyload.fr
+  %24 = fcmp ult double %23, 0.000000e+00
+  br i1 %24, label %25, label %select.unfold29.us
 
-30:                                               ; preds = %27
-  br i1 %29, label %31, label %38
+25:                                               ; preds = %22
+  %26 = fsub double %19, %.sroa.4.0.copyload.fr
+  %27 = fdiv double %26, %23
+  %28 = fcmp olt double %15, %27
+  br i1 %28, label %select.unfold, label %29
 
-31:                                               ; preds = %30
-  %32 = fdiv double %23, %22
-  %33 = fdiv double %21, %18
-  %34 = fcmp olt double %33, %32
-  br i1 %34, label %select.unfold, label %35
+29:                                               ; preds = %25
+  %30 = fcmp ule double %15, %27
+  %31 = fcmp ogt double %11, %23
+  %or.cond39.us = and i1 %31, %30
+  br i1 %or.cond39.us, label %select.unfold, label %select.unfold29.us
 
-35:                                               ; preds = %31
-  %36 = fcmp ule double %33, %32
-  %37 = fcmp olt double %18, %22
-  %or.cond = and i1 %37, %36
-  br i1 %or.cond, label %select.unfold, label %select.unfold49
+select.unfold29.us:                               ; preds = %29, %22
+  %32 = add nuw i64 %.02544.us, 1
+  %exitcond175.not = icmp eq i64 %32, %9
+  br i1 %exitcond175.not, label %select.unfold, label %.lr.ph.split.us, !llvm.loop !21
 
-38:                                               ; preds = %30
-  %39 = fcmp ogt double %23, 0.000000e+00
-  br i1 %39, label %select.unfold, label %select.unfold49
+.lr.ph.split:                                     ; preds = %.lr.ph
+  %33 = fcmp ogt double %11, 0.000000e+00
+  br i1 %33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-40:                                               ; preds = %27
-  br i1 %29, label %41, label %43
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %select.unfold29.us80
+  %.02544.us78 = phi i64 [ %54, %select.unfold29.us80 ], [ 0, %.lr.ph.split ]
+  %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us78
+  %35 = load double, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %37 = load double, ptr %36, align 8
+  %38 = fcmp oeq double %1, %35
+  %39 = fcmp oeq double %2, %37
+  %or.cond.i.us79 = select i1 %38, i1 %39, i1 false
+  br i1 %or.cond.i.us79, label %.thread37, label %40
 
-41:                                               ; preds = %40
-  %42 = fcmp ugt double %21, 0.000000e+00
-  br i1 %42, label %select.unfold49, label %select.unfold
+40:                                               ; preds = %.lr.ph.split.split.us
+  %41 = fsub double %35, %.sroa.010.0.copyload.fr
+  %42 = fsub double %37, %.sroa.4.0.copyload.fr
+  %43 = fcmp olt double %41, 0.000000e+00
+  br i1 %43, label %select.unfold, label %44
 
-43:                                               ; preds = %40
-  %44 = fcmp olt double %21, %23
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %40
+  %45 = fcmp ogt double %41, 0.000000e+00
+  br i1 %45, label %48, label %46
 
-45:                                               ; preds = %43
-  %46 = fcmp ugt double %23, 0.000000e+00
-  br i1 %46, label %select.unfold, label %select.unfold49
+46:                                               ; preds = %44
+  %47 = fcmp ogt double %42, 0.000000e+00
+  br i1 %47, label %select.unfold, label %select.unfold29.us80
 
-47:                                               ; preds = %43
-  %48 = fcmp ugt double %21, 0.000000e+00
-  br i1 %48, label %select.unfold49, label %select.unfold
+48:                                               ; preds = %44
+  %49 = fdiv double %42, %41
+  %50 = fcmp olt double %15, %49
+  br i1 %50, label %select.unfold, label %51
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = fcmp ult double %22, 0.000000e+00
-  br i1 %50, label %51, label %select.unfold49
+51:                                               ; preds = %48
+  %52 = fcmp ule double %15, %49
+  %53 = fcmp olt double %11, %41
+  %or.cond.us = and i1 %53, %52
+  br i1 %or.cond.us, label %select.unfold, label %select.unfold29.us80
 
-51:                                               ; preds = %49
-  %52 = fdiv double %23, %22
-  %53 = fdiv double %21, %18
-  %54 = fcmp olt double %53, %52
-  br i1 %54, label %select.unfold, label %55
+select.unfold29.us80:                             ; preds = %51, %46
+  %54 = add nuw i64 %.02544.us78, 1
+  %exitcond174.not = icmp eq i64 %54, %9
+  br i1 %exitcond174.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !21
 
-55:                                               ; preds = %51
-  %56 = fcmp ule double %53, %52
-  %57 = fcmp ogt double %18, %22
-  %or.cond66 = and i1 %57, %56
-  br i1 %or.cond66, label %select.unfold, label %select.unfold49
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  br i1 %14, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.split
 
-select.unfold49:                                  ; preds = %41, %47, %38, %45, %35, %49, %55
-  %.03171 = load ptr, ptr %8, align 8
-  %58 = icmp eq ptr %.03171, null
-  br i1 %58, label %select.unfold55, label %.lr.ph
+.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split, %select.unfold29.us95.us
+  %.02544.us93.us = phi i64 [ %70, %select.unfold29.us95.us ], [ 0, %.lr.ph.split.split ]
+  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us93.us
+  %56 = load double, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = load double, ptr %57, align 8
+  %59 = fcmp oeq double %1, %56
+  %60 = fcmp oeq double %2, %58
+  %or.cond.i.us94.us = select i1 %59, i1 %60, i1 false
+  br i1 %or.cond.i.us94.us, label %.thread37, label %61
 
-.lr.ph:                                           ; preds = %select.unfold49
-  %59 = fcmp ogt double %18, 0.000000e+00
-  %60 = fcmp ugt double %21, 0.000000e+00
-  %61 = fcmp ugt double %21, 0.000000e+00
-  %62 = fdiv double %21, %18
-  %63 = fdiv double %21, %18
-  br label %67
+61:                                               ; preds = %.lr.ph.split.split.split.us.split.us
+  %62 = fsub double %56, %.sroa.010.0.copyload.fr
+  %63 = fsub double %58, %.sroa.4.0.copyload.fr
+  %64 = fcmp olt double %62, 0.000000e+00
+  br i1 %64, label %select.unfold, label %65
 
-select.unfold:                                    ; preds = %55, %35, %38, %45, %51, %47, %41, %31, %25, %3
-  %64 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store double %1, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store double %2, ptr %66, align 8
-  store ptr %8, ptr %64, align 8
-  store ptr %64, ptr %7, align 8
-  br label %compare.exit
+65:                                               ; preds = %61
+  %66 = fcmp ogt double %62, 0.000000e+00
+  br i1 %66, label %select.unfold29.us95.us, label %67
 
-67:                                               ; preds = %.lr.ph, %compare.exit46
-  %.03173 = phi ptr [ %.03171, %.lr.ph ], [ %.031, %compare.exit46 ]
-  %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.exit46 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.03173, i64 8
-  %69 = load double, ptr %68, align 8
-  %70 = fcmp oeq double %1, %69
-  %71 = getelementptr inbounds nuw i8, ptr %.03173, i64 16
+67:                                               ; preds = %65
+  %68 = fcmp olt double %12, %63
+  %69 = fcmp ugt double %63, 0.000000e+00
+  %or.cond = and i1 %68, %69
+  br i1 %or.cond, label %select.unfold, label %select.unfold29.us95.us
+
+select.unfold29.us95.us:                          ; preds = %65, %67
+  %70 = add nuw i64 %.02544.us93.us, 1
+  %exitcond173.not = icmp eq i64 %70, %9
+  br i1 %exitcond173.not, label %select.unfold, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !21
+
+.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold29
+  %.02544 = phi i64 [ %82, %select.unfold29 ], [ 0, %.lr.ph.split.split ]
+  %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544
   %72 = load double, ptr %71, align 8
-  %73 = fcmp oeq double %2, %72
-  %or.cond.i37 = select i1 %70, i1 %73, i1 false
-  br i1 %or.cond.i37, label %compare.exit, label %._crit_edge.i38
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load double, ptr %73, align 8
+  %75 = fcmp oeq double %1, %72
+  %76 = fcmp oeq double %2, %74
+  %or.cond.i = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond.i, label %.thread37, label %77
 
-._crit_edge.i38:                                  ; preds = %67
-  %74 = fsub double %69, %17
-  %75 = fsub double %72, %20
-  br i1 %24, label %96, label %76
+77:                                               ; preds = %.lr.ph.split.split.split.split
+  %78 = fsub double %74, %.sroa.4.0.copyload.fr
+  %or.cond150 = fcmp one double %72, %.sroa.010.0.copyload.fr
+  %79 = fcmp uge double %12, %78
+  %80 = fcmp ugt double %78, 0.000000e+00
+  %81 = or i1 %79, %80
+  %or.cond152 = select i1 %or.cond150, i1 true, i1 %81
+  br i1 %or.cond152, label %select.unfold, label %select.unfold29
 
-76:                                               ; preds = %._crit_edge.i38
-  %77 = fcmp olt double %74, 0.000000e+00
-  br i1 %77, label %select.unfold55, label %78
+select.unfold29:                                  ; preds = %77
+  %82 = add nuw i64 %.02544, 1
+  %exitcond.not = icmp eq i64 %82, %9
+  br i1 %exitcond.not, label %select.unfold, label %.lr.ph.split.split.split.split, !llvm.loop !21
 
-78:                                               ; preds = %76
-  %79 = fcmp ogt double %74, 0.000000e+00
-  br i1 %59, label %80, label %89
+select.unfold:                                    ; preds = %select.unfold29, %77, %select.unfold29.us95.us, %67, %61, %select.unfold29.us80, %46, %48, %40, %51, %select.unfold29.us, %25, %29
+  %.025.lcssa = phi i64 [ %.02544.us, %29 ], [ %.02544.us, %25 ], [ %9, %select.unfold29.us ], [ %.02544.us78, %51 ], [ %.02544.us78, %40 ], [ %.02544.us78, %48 ], [ %.02544.us78, %46 ], [ %9, %select.unfold29.us80 ], [ %.02544.us93.us, %61 ], [ %.02544.us93.us, %67 ], [ %9, %select.unfold29.us95.us ], [ %.02544, %77 ], [ %9, %select.unfold29 ]
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %84 = add i64 %9, 1
+  %85 = icmp ugt i64 %84, 1152921504606846975
+  br i1 %85, label %86, label %89
 
-80:                                               ; preds = %78
-  br i1 %79, label %81, label %87
+86:                                               ; preds = %select.unfold
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str, i64 noundef %84, i64 noundef 16) #8
+  tail call fastcc void @graphviz_exit() #9
+  unreachable
 
-81:                                               ; preds = %80
-  %82 = fdiv double %75, %74
-  %83 = fcmp olt double %62, %82
-  br i1 %83, label %select.unfold55, label %84
+89:                                               ; preds = %select.unfold
+  %90 = shl nuw i64 %9, 4
+  %91 = shl nuw i64 %84, 4
+  %92 = icmp eq i64 %84, 0
+  br i1 %92, label %93, label %94
 
-84:                                               ; preds = %81
-  %85 = fcmp ule double %62, %82
-  %86 = fcmp olt double %18, %74
-  %or.cond67 = and i1 %86, %85
-  br i1 %or.cond67, label %select.unfold55, label %compare.exit46
+93:                                               ; preds = %89
+  tail call void @free(ptr noundef nonnull %.pre) #10
+  br label %gv_recalloc.exit
 
-87:                                               ; preds = %80
-  %88 = fcmp ogt double %75, 0.000000e+00
-  br i1 %88, label %select.unfold55, label %compare.exit46
+94:                                               ; preds = %.thread, %89
+  %95 = phi i64 [ 16, %.thread ], [ %91, %89 ]
+  %96 = phi i64 [ 0, %.thread ], [ %90, %89 ]
+  %.025.lcssa177180 = phi i64 [ 0, %.thread ], [ %.025.lcssa, %89 ]
+  %97 = phi ptr [ %10, %.thread ], [ %83, %89 ]
+  %98 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef range(i64 0, -15) %95) #11
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %103
 
-89:                                               ; preds = %78
-  br i1 %79, label %90, label %91
+100:                                              ; preds = %94
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.1, i64 noundef range(i64 0, -15) %95) #8
+  tail call fastcc void @graphviz_exit() #9
+  unreachable
 
-90:                                               ; preds = %89
-  br i1 %61, label %compare.exit46, label %select.unfold55
+103:                                              ; preds = %94
+  %104 = icmp ugt i64 %95, %96
+  br i1 %104, label %105, label %gv_recalloc.exit
 
-91:                                               ; preds = %89
-  %92 = fcmp olt double %21, %75
-  br i1 %92, label %93, label %95
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 %96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %106, i8 0, i64 16, i1 false)
+  br label %gv_recalloc.exit
 
-93:                                               ; preds = %91
-  %94 = fcmp ugt double %75, 0.000000e+00
-  br i1 %94, label %select.unfold55, label %compare.exit46
+gv_recalloc.exit:                                 ; preds = %93, %103, %105
+  %.025.lcssa177179 = phi i64 [ %.025.lcssa, %93 ], [ %.025.lcssa177180, %105 ], [ %.025.lcssa177180, %103 ]
+  %107 = phi ptr [ %83, %93 ], [ %97, %105 ], [ %97, %103 ]
+  %.0.i.i = phi ptr [ null, %93 ], [ %98, %105 ], [ %98, %103 ]
+  store ptr %.0.i.i, ptr %107, align 8, !tbaa !20
+  %108 = getelementptr %struct.pointf_s, ptr %.0.i.i, i64 %.025.lcssa177179
+  %109 = getelementptr i8, ptr %108, i64 16
+  %110 = load i64, ptr %8, align 8, !tbaa !14
+  %111 = sub i64 %110, %.025.lcssa177179
+  %112 = shl i64 %111, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %109, ptr align 8 %108, i64 %112, i1 false)
+  store double %1, ptr %108, align 8, !tbaa !3
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store double %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !3
+  %113 = add i64 %110, 1
+  store i64 %113, ptr %8, align 8, !tbaa !14
+  br label %.thread37
 
-95:                                               ; preds = %91
-  br i1 %60, label %compare.exit46, label %select.unfold55
-
-96:                                               ; preds = %._crit_edge.i38
-  %97 = fcmp ult double %74, 0.000000e+00
-  br i1 %97, label %98, label %compare.exit46
-
-98:                                               ; preds = %96
-  %99 = fdiv double %75, %74
-  %100 = fcmp olt double %63, %99
-  br i1 %100, label %select.unfold55, label %101
-
-101:                                              ; preds = %98
-  %102 = fcmp ule double %63, %99
-  %103 = fcmp ogt double %18, %74
-  %or.cond68 = and i1 %103, %102
-  br i1 %or.cond68, label %select.unfold55, label %compare.exit46
-
-compare.exit46:                                   ; preds = %95, %90, %93, %87, %84, %96, %101
-  %.031 = load ptr, ptr %.03173, align 8
-  %104 = icmp eq ptr %.031, null
-  br i1 %104, label %select.unfold55, label %67
-
-select.unfold55:                                  ; preds = %compare.exit46, %76, %81, %90, %95, %98, %87, %93, %84, %101, %select.unfold49
-  %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %101 ], [ %.072, %84 ], [ %.072, %93 ], [ %.072, %87 ], [ %.072, %98 ], [ %.072, %95 ], [ %.072, %90 ], [ %.072, %81 ], [ %.072, %76 ], [ %.03173, %compare.exit46 ]
-  %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %101 ], [ %.03173, %84 ], [ %.03173, %93 ], [ %.03173, %87 ], [ %.03173, %98 ], [ %.03173, %95 ], [ %.03173, %90 ], [ %.03173, %81 ], [ %.03173, %76 ], [ null, %compare.exit46 ]
-  %105 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store double %1, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store double %2, ptr %107, align 8
-  store ptr %105, ptr %.0.lcssa, align 8
-  store ptr %.031.lcssa, ptr %105, align 8
-  br label %compare.exit
-
-compare.exit:                                     ; preds = %67, %10, %select.unfold55, %select.unfold
+.thread37:                                        ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %gv_recalloc.exit
   ret void
 }
 
-declare ptr @getfree(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #3 {
+  tail call void @exit(i32 noundef 1) #12
+  unreachable
+}
+
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { cold nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(1) }
+attributes #12 = { cold noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !12, i64 16}
+!10 = !{!"Site", !11, i64 0, !12, i64 16, !13, i64 24}
+!11 = !{!"pointf_s", !4, i64 0, !4, i64 8}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!15, !12, i64 112}
+!15 = !{!"", !16, i64 0, !10, i64 8, !17, i64 40, !18, i64 48, !19, i64 104, !12, i64 112}
+!16 = !{!"p1 _ZTS8Agnode_s", !8, i64 0}
+!17 = !{!"_Bool", !5, i64 0}
+!18 = !{!"", !11, i64 0, !11, i64 16, !13, i64 32, !19, i64 40, !13, i64 48}
+!19 = !{!"p1 _ZTS8pointf_s", !8, i64 0}
+!20 = !{!15, !19, i64 104}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
