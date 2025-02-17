@@ -1,12 +1,6 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.uv__queue = type { ptr, ptr }
-%struct.uv_buf_t = type { ptr, i64 }
 %struct.uv_loop_s = type { ptr, i32, %struct.uv__queue, %union.anon, ptr, i32, i64, i32, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, %struct.uv__queue, %union.pthread_mutex_t, %struct.uv_async_s, %union.pthread_rwlock_t, ptr, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, ptr, %struct.uv__io_s, i32, %struct.anon, i64, i64, [2 x i32], %struct.uv__io_s, %struct.uv_signal_s, i32, %struct.uv__io_s, ptr, i32 }
 %union.anon = type { ptr }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
@@ -16,11 +10,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { [4 x ptr] }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
+%struct.uv__queue = type { ptr, ptr }
 %struct.anon = type { ptr, i32 }
 %struct.uv_signal_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, ptr, i32, %struct.anon.2, i32, i32 }
 %union.anon.1 = type { [4 x ptr] }
 %struct.anon.2 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
+%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
+%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
+%struct.uv_timespec_t = type { i64, i64 }
+%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
+%struct.uv_buf_t = type { ptr, i64 }
 %struct.uv_dir_s = type { ptr, i64, [4 x ptr], ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -39,5738 +39,5828 @@ target triple = "x86_64-unknown-linux-gnu"
 @uv__fs_mkstemp.once = internal global i32 0, align 4
 @uv__fs_mkstemp.no_cloexec_support = internal global i32 0, align 4
 @uv__fs_mkstemp.pattern = internal constant [7 x i8] c"XXXXXX\00", align 1
-@uv__fs_mkstemp.pattern_size = internal constant i64 6, align 8
 @uv__mkostemp = internal global ptr null, align 8
 @.str.1 = private unnamed_addr constant [9 x i8] c"mkostemp\00", align 1
-@.str.2 = private unnamed_addr constant [2 x i8] c".\00", align 1
-@.str.3 = private unnamed_addr constant [3 x i8] c"..\00", align 1
+@uv__preadv.cache = internal global i64 0, align 8
+@.str.2 = private unnamed_addr constant [9 x i8] c"preadv64\00", align 1
+@.str.3 = private unnamed_addr constant [10 x i8] c"pwritev64\00", align 1
+@.str.4 = private unnamed_addr constant [7 x i8] c"preadv\00", align 1
+@.str.5 = private unnamed_addr constant [8 x i8] c"pwritev\00", align 1
+@.str.6 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@.str.7 = private unnamed_addr constant [3 x i8] c"..\00", align 1
 @uv__fs_try_copy_file_range.no_copy_file_range_support = internal global i32 0, align 4
+@uv__pwritev.cache = internal global i64 0, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_access(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %flags, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define hidden void @uv__fs_post(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %5
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %7, align 8
+  %9 = add i32 %8, 1
+  store i32 %9, ptr %7, align 8
+  br label %10
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end26
-
-if.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 12, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
-
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
-
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
-
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end26
-
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
-
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %flags.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 12
-  store i32 %19, ptr %flags17, align 4
-  br label %do.body18
-
-do.body18:                                        ; preds = %do.end16
-  %21 = load ptr, ptr %cb.addr, align 8
-  %cmp19 = icmp ne ptr %21, null
-  br i1 %cmp19, label %if.then20, label %if.else23
-
-if.then20:                                        ; preds = %do.body18
-  br label %do.body21
-
-do.body21:                                        ; preds = %if.then20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %22, i32 0, i32 3
-  %23 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %23, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end22
-
-do.end22:                                         ; preds = %do.body21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %24, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end26
-
-if.else23:                                        ; preds = %do.body18
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req24)
-  %27 = load ptr, ptr %req.addr, align 8
-  %result25 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 6
-  %28 = load i64, ptr %result25, align 8
-  %conv = trunc i64 %28 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end26
-
-do.end26:                                         ; preds = %if.else23, %do.end22, %if.then13, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %3, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %12, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %11, ptr noundef %13, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  ret void
 }
-
-declare ptr @uv__strdup(ptr noundef) #1
 
 declare void @uv__work_submit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__fs_work(ptr noundef %w) #0 {
-entry:
-  %w.addr = alloca ptr, align 8
-  %retry_on_eintr = alloca i32, align 4
-  %req = alloca ptr, align 8
-  %r = alloca i64, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -336
-  store ptr %add.ptr, ptr %req, align 8
-  %1 = load ptr, ptr %req, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 3
-  %2 = load i32, ptr %fs_type, align 8
-  %cmp = icmp eq i32 %2, 2
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define internal void @uv__fs_work(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 -336
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %8, i32 0, i32 3
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 2
+  br i1 %11, label %17, label %12
 
-lor.rhs:                                          ; preds = %entry
-  %3 = load ptr, ptr %req, align 8
-  %fs_type1 = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 3
-  %4 = load i32, ptr %fs_type1, align 8
-  %cmp2 = icmp eq i32 %4, 3
-  br label %lor.end
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %13, i32 0, i32 3
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 3
+  br label %17
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %5 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
-  %lnot = xor i1 %5, true
-  %lnot.ext = zext i1 %lnot to i32
-  store i32 %lnot.ext, ptr %retry_on_eintr, align 4
-  br label %do.body
+17:                                               ; preds = %12, %1
+  %18 = phi i1 [ true, %1 ], [ %16, %12 ]
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  store i32 %20, ptr %3, align 4
+  br label %21
 
-do.body:                                          ; preds = %land.end, %lor.end
-  %call = call ptr @__errno_location() #7
-  store i32 0, ptr %call, align 4
-  %6 = load ptr, ptr %req, align 8
-  %fs_type3 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %fs_type3, align 8
-  switch i32 %7, label %sw.default [
-    i32 12, label %sw.bb
-    i32 13, label %sw.bb5
-    i32 26, label %sw.bb9
-    i32 2, label %sw.bb13
-    i32 29, label %sw.bb16
-    i32 14, label %sw.bb18
-    i32 27, label %sw.bb23
-    i32 30, label %sw.bb29
-    i32 16, label %sw.bb35
-    i32 8, label %sw.bb37
-    i32 15, label %sw.bb41
-    i32 9, label %sw.bb43
-    i32 11, label %sw.bb47
-    i32 36, label %sw.bb49
-    i32 7, label %sw.bb51
-    i32 23, label %sw.bb56
-    i32 19, label %sw.bb60
-    i32 20, label %sw.bb65
-    i32 35, label %sw.bb67
-    i32 1, label %sw.bb70
-    i32 3, label %sw.bb72
-    i32 22, label %sw.bb74
-    i32 31, label %sw.bb76
-    i32 32, label %sw.bb79
-    i32 33, label %sw.bb82
-    i32 25, label %sw.bb85
-    i32 28, label %sw.bb87
-    i32 21, label %sw.bb89
-    i32 18, label %sw.bb94
-    i32 5, label %sw.bb98
-    i32 6, label %sw.bb100
-    i32 34, label %sw.bb105
-    i32 24, label %sw.bb108
-    i32 17, label %sw.bb113
-    i32 10, label %sw.bb117
-    i32 4, label %sw.bb119
+21:                                               ; preds = %250, %17
+  %22 = call ptr @__errno_location() #9
+  store i32 0, ptr %22, align 4
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 8
+  switch i32 %25, label %238 [
+    i32 12, label %26
+    i32 13, label %35
+    i32 26, label %44
+    i32 2, label %56
+    i32 29, label %62
+    i32 14, label %65
+    i32 27, label %74
+    i32 30, label %86
+    i32 16, label %98
+    i32 8, label %101
+    i32 15, label %109
+    i32 9, label %112
+    i32 11, label %121
+    i32 36, label %124
+    i32 7, label %127
+    i32 23, label %135
+    i32 19, label %144
+    i32 20, label %153
+    i32 35, label %156
+    i32 1, label %160
+    i32 3, label %163
+    i32 22, label %166
+    i32 31, label %169
+    i32 32, label %173
+    i32 33, label %177
+    i32 25, label %181
+    i32 28, label %184
+    i32 21, label %187
+    i32 18, label %196
+    i32 5, label %202
+    i32 6, label %205
+    i32 34, label %213
+    i32 24, label %217
+    i32 17, label %226
+    i32 10, label %232
+    i32 4, label %235
   ]
 
-sw.bb:                                            ; preds = %do.body
-  %8 = load ptr, ptr %req, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 8
-  %9 = load ptr, ptr %path, align 8
-  %10 = load ptr, ptr %req, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %10, i32 0, i32 12
-  %11 = load i32, ptr %flags, align 4
-  %call4 = call i32 @access(ptr noundef %9, i32 noundef %11) #8
-  %conv = sext i32 %call4 to i64
-  store i64 %conv, ptr %r, align 8
-  br label %sw.epilog
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 12
+  %32 = load i32, ptr %31, align 4
+  %33 = call i32 @access(ptr noundef %29, i32 noundef %32) #8
+  %34 = sext i32 %33 to i64
+  store i64 %34, ptr %5, align 8
+  br label %239
 
-sw.bb5:                                           ; preds = %do.body
-  %12 = load ptr, ptr %req, align 8
-  %path6 = getelementptr inbounds %struct.uv_fs_s, ptr %12, i32 0, i32 8
-  %13 = load ptr, ptr %path6, align 8
-  %14 = load ptr, ptr %req, align 8
-  %mode = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 13
-  %15 = load i32, ptr %mode, align 8
-  %call7 = call i32 @chmod(ptr noundef %13, i32 noundef %15) #8
-  %conv8 = sext i32 %call7 to i64
-  store i64 %conv8, ptr %r, align 8
-  br label %sw.epilog
+35:                                               ; preds = %21
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 13
+  %41 = load i32, ptr %40, align 8
+  %42 = call i32 @chmod(ptr noundef %38, i32 noundef %41) #8
+  %43 = sext i32 %42 to i64
+  store i64 %43, ptr %5, align 8
+  br label %239
 
-sw.bb9:                                           ; preds = %do.body
-  %16 = load ptr, ptr %req, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  %17 = load ptr, ptr %path10, align 8
-  %18 = load ptr, ptr %req, align 8
-  %uid = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 17
-  %19 = load i32, ptr %uid, align 8
-  %20 = load ptr, ptr %req, align 8
-  %gid = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 18
-  %21 = load i32, ptr %gid, align 4
-  %call11 = call i32 @chown(ptr noundef %17, i32 noundef %19, i32 noundef %21) #8
-  %conv12 = sext i32 %call11 to i64
-  store i64 %conv12, ptr %r, align 8
-  br label %sw.epilog
+44:                                               ; preds = %21
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 17
+  %50 = load i32, ptr %49, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %51, i32 0, i32 18
+  %53 = load i32, ptr %52, align 4
+  %54 = call i32 @chown(ptr noundef %47, i32 noundef %50, i32 noundef %53) #8
+  %55 = sext i32 %54 to i64
+  store i64 %55, ptr %5, align 8
+  br label %239
 
-sw.bb13:                                          ; preds = %do.body
-  %22 = load ptr, ptr %req, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 11
-  %23 = load i32, ptr %file, align 8
-  %call14 = call i32 @uv__fs_close(i32 noundef %23)
-  %conv15 = sext i32 %call14 to i64
-  store i64 %conv15, ptr %r, align 8
-  br label %sw.epilog
+56:                                               ; preds = %21
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %57, i32 0, i32 11
+  %59 = load i32, ptr %58, align 8
+  %60 = call i32 @uv__fs_close(i32 noundef %59)
+  %61 = sext i32 %60 to i64
+  store i64 %61, ptr %5, align 8
+  br label %239
 
-sw.bb16:                                          ; preds = %do.body
-  %24 = load ptr, ptr %req, align 8
-  %call17 = call i64 @uv__fs_copyfile(ptr noundef %24)
-  store i64 %call17, ptr %r, align 8
-  br label %sw.epilog
+62:                                               ; preds = %21
+  %63 = load ptr, ptr %4, align 8
+  %64 = call i64 @uv__fs_copyfile(ptr noundef %63)
+  store i64 %64, ptr %5, align 8
+  br label %239
 
-sw.bb18:                                          ; preds = %do.body
-  %25 = load ptr, ptr %req, align 8
-  %file19 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 11
-  %26 = load i32, ptr %file19, align 8
-  %27 = load ptr, ptr %req, align 8
-  %mode20 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 13
-  %28 = load i32, ptr %mode20, align 8
-  %call21 = call i32 @fchmod(i32 noundef %26, i32 noundef %28) #8
-  %conv22 = sext i32 %call21 to i64
-  store i64 %conv22, ptr %r, align 8
-  br label %sw.epilog
+65:                                               ; preds = %21
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 11
+  %68 = load i32, ptr %67, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 13
+  %71 = load i32, ptr %70, align 8
+  %72 = call i32 @fchmod(i32 noundef %68, i32 noundef %71) #8
+  %73 = sext i32 %72 to i64
+  store i64 %73, ptr %5, align 8
+  br label %239
 
-sw.bb23:                                          ; preds = %do.body
-  %29 = load ptr, ptr %req, align 8
-  %file24 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 11
-  %30 = load i32, ptr %file24, align 8
-  %31 = load ptr, ptr %req, align 8
-  %uid25 = getelementptr inbounds %struct.uv_fs_s, ptr %31, i32 0, i32 17
-  %32 = load i32, ptr %uid25, align 8
-  %33 = load ptr, ptr %req, align 8
-  %gid26 = getelementptr inbounds %struct.uv_fs_s, ptr %33, i32 0, i32 18
-  %34 = load i32, ptr %gid26, align 4
-  %call27 = call i32 @fchown(i32 noundef %30, i32 noundef %32, i32 noundef %34) #8
-  %conv28 = sext i32 %call27 to i64
-  store i64 %conv28, ptr %r, align 8
-  br label %sw.epilog
+74:                                               ; preds = %21
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %75, i32 0, i32 11
+  %77 = load i32, ptr %76, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %78, i32 0, i32 17
+  %80 = load i32, ptr %79, align 8
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %81, i32 0, i32 18
+  %83 = load i32, ptr %82, align 4
+  %84 = call i32 @fchown(i32 noundef %77, i32 noundef %80, i32 noundef %83) #8
+  %85 = sext i32 %84 to i64
+  store i64 %85, ptr %5, align 8
+  br label %239
 
-sw.bb29:                                          ; preds = %do.body
-  %35 = load ptr, ptr %req, align 8
-  %path30 = getelementptr inbounds %struct.uv_fs_s, ptr %35, i32 0, i32 8
-  %36 = load ptr, ptr %path30, align 8
-  %37 = load ptr, ptr %req, align 8
-  %uid31 = getelementptr inbounds %struct.uv_fs_s, ptr %37, i32 0, i32 17
-  %38 = load i32, ptr %uid31, align 8
-  %39 = load ptr, ptr %req, align 8
-  %gid32 = getelementptr inbounds %struct.uv_fs_s, ptr %39, i32 0, i32 18
-  %40 = load i32, ptr %gid32, align 4
-  %call33 = call i32 @lchown(ptr noundef %36, i32 noundef %38, i32 noundef %40) #8
-  %conv34 = sext i32 %call33 to i64
-  store i64 %conv34, ptr %r, align 8
-  br label %sw.epilog
+86:                                               ; preds = %21
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %87, i32 0, i32 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %90, i32 0, i32 17
+  %92 = load i32, ptr %91, align 8
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %93, i32 0, i32 18
+  %95 = load i32, ptr %94, align 4
+  %96 = call i32 @lchown(ptr noundef %89, i32 noundef %92, i32 noundef %95) #8
+  %97 = sext i32 %96 to i64
+  store i64 %97, ptr %5, align 8
+  br label %239
 
-sw.bb35:                                          ; preds = %do.body
-  %41 = load ptr, ptr %req, align 8
-  %call36 = call i64 @uv__fs_fdatasync(ptr noundef %41)
-  store i64 %call36, ptr %r, align 8
-  br label %sw.epilog
+98:                                               ; preds = %21
+  %99 = load ptr, ptr %4, align 8
+  %100 = call i64 @uv__fs_fdatasync(ptr noundef %99)
+  store i64 %100, ptr %5, align 8
+  br label %239
 
-sw.bb37:                                          ; preds = %do.body
-  %42 = load ptr, ptr %req, align 8
-  %file38 = getelementptr inbounds %struct.uv_fs_s, ptr %42, i32 0, i32 11
-  %43 = load i32, ptr %file38, align 8
-  %44 = load ptr, ptr %req, align 8
-  %statbuf = getelementptr inbounds %struct.uv_fs_s, ptr %44, i32 0, i32 9
-  %call39 = call i32 @uv__fs_fstat(i32 noundef %43, ptr noundef %statbuf)
-  %conv40 = sext i32 %call39 to i64
-  store i64 %conv40, ptr %r, align 8
-  br label %sw.epilog
+101:                                              ; preds = %21
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %102, i32 0, i32 11
+  %104 = load i32, ptr %103, align 8
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %105, i32 0, i32 9
+  %107 = call i32 @uv__fs_fstat(i32 noundef %104, ptr noundef %106)
+  %108 = sext i32 %107 to i64
+  store i64 %108, ptr %5, align 8
+  br label %239
 
-sw.bb41:                                          ; preds = %do.body
-  %45 = load ptr, ptr %req, align 8
-  %call42 = call i64 @uv__fs_fsync(ptr noundef %45)
-  store i64 %call42, ptr %r, align 8
-  br label %sw.epilog
+109:                                              ; preds = %21
+  %110 = load ptr, ptr %4, align 8
+  %111 = call i64 @uv__fs_fsync(ptr noundef %110)
+  store i64 %111, ptr %5, align 8
+  br label %239
 
-sw.bb43:                                          ; preds = %do.body
-  %46 = load ptr, ptr %req, align 8
-  %file44 = getelementptr inbounds %struct.uv_fs_s, ptr %46, i32 0, i32 11
-  %47 = load i32, ptr %file44, align 8
-  %48 = load ptr, ptr %req, align 8
-  %off = getelementptr inbounds %struct.uv_fs_s, ptr %48, i32 0, i32 16
-  %49 = load i64, ptr %off, align 8
-  %call45 = call i32 @ftruncate64(i32 noundef %47, i64 noundef %49) #8
-  %conv46 = sext i32 %call45 to i64
-  store i64 %conv46, ptr %r, align 8
-  br label %sw.epilog
+112:                                              ; preds = %21
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %113, i32 0, i32 11
+  %115 = load i32, ptr %114, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %116, i32 0, i32 16
+  %118 = load i64, ptr %117, align 8
+  %119 = call i32 @ftruncate64(i32 noundef %115, i64 noundef %118) #8
+  %120 = sext i32 %119 to i64
+  store i64 %120, ptr %5, align 8
+  br label %239
 
-sw.bb47:                                          ; preds = %do.body
-  %50 = load ptr, ptr %req, align 8
-  %call48 = call i64 @uv__fs_futime(ptr noundef %50)
-  store i64 %call48, ptr %r, align 8
-  br label %sw.epilog
+121:                                              ; preds = %21
+  %122 = load ptr, ptr %4, align 8
+  %123 = call i64 @uv__fs_futime(ptr noundef %122)
+  store i64 %123, ptr %5, align 8
+  br label %239
 
-sw.bb49:                                          ; preds = %do.body
-  %51 = load ptr, ptr %req, align 8
-  %call50 = call i64 @uv__fs_lutime(ptr noundef %51)
-  store i64 %call50, ptr %r, align 8
-  br label %sw.epilog
+124:                                              ; preds = %21
+  %125 = load ptr, ptr %4, align 8
+  %126 = call i64 @uv__fs_lutime(ptr noundef %125)
+  store i64 %126, ptr %5, align 8
+  br label %239
 
-sw.bb51:                                          ; preds = %do.body
-  %52 = load ptr, ptr %req, align 8
-  %path52 = getelementptr inbounds %struct.uv_fs_s, ptr %52, i32 0, i32 8
-  %53 = load ptr, ptr %path52, align 8
-  %54 = load ptr, ptr %req, align 8
-  %statbuf53 = getelementptr inbounds %struct.uv_fs_s, ptr %54, i32 0, i32 9
-  %call54 = call i32 @uv__fs_lstat(ptr noundef %53, ptr noundef %statbuf53)
-  %conv55 = sext i32 %call54 to i64
-  store i64 %conv55, ptr %r, align 8
-  br label %sw.epilog
+127:                                              ; preds = %21
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %128, i32 0, i32 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %4, align 8
+  %132 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %131, i32 0, i32 9
+  %133 = call i32 @uv__fs_lstat(ptr noundef %130, ptr noundef %132)
+  %134 = sext i32 %133 to i64
+  store i64 %134, ptr %5, align 8
+  br label %239
 
-sw.bb56:                                          ; preds = %do.body
-  %55 = load ptr, ptr %req, align 8
-  %path57 = getelementptr inbounds %struct.uv_fs_s, ptr %55, i32 0, i32 8
-  %56 = load ptr, ptr %path57, align 8
-  %57 = load ptr, ptr %req, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %57, i32 0, i32 10
-  %58 = load ptr, ptr %new_path, align 8
-  %call58 = call i32 @link(ptr noundef %56, ptr noundef %58) #8
-  %conv59 = sext i32 %call58 to i64
-  store i64 %conv59, ptr %r, align 8
-  br label %sw.epilog
+135:                                              ; preds = %21
+  %136 = load ptr, ptr %4, align 8
+  %137 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %136, i32 0, i32 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %139, i32 0, i32 10
+  %141 = load ptr, ptr %140, align 8
+  %142 = call i32 @link(ptr noundef %138, ptr noundef %141) #8
+  %143 = sext i32 %142 to i64
+  store i64 %143, ptr %5, align 8
+  br label %239
 
-sw.bb60:                                          ; preds = %do.body
-  %59 = load ptr, ptr %req, align 8
-  %path61 = getelementptr inbounds %struct.uv_fs_s, ptr %59, i32 0, i32 8
-  %60 = load ptr, ptr %path61, align 8
-  %61 = load ptr, ptr %req, align 8
-  %mode62 = getelementptr inbounds %struct.uv_fs_s, ptr %61, i32 0, i32 13
-  %62 = load i32, ptr %mode62, align 8
-  %call63 = call i32 @mkdir(ptr noundef %60, i32 noundef %62) #8
-  %conv64 = sext i32 %call63 to i64
-  store i64 %conv64, ptr %r, align 8
-  br label %sw.epilog
+144:                                              ; preds = %21
+  %145 = load ptr, ptr %4, align 8
+  %146 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %145, i32 0, i32 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %4, align 8
+  %149 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %148, i32 0, i32 13
+  %150 = load i32, ptr %149, align 8
+  %151 = call i32 @mkdir(ptr noundef %147, i32 noundef %150) #8
+  %152 = sext i32 %151 to i64
+  store i64 %152, ptr %5, align 8
+  br label %239
 
-sw.bb65:                                          ; preds = %do.body
-  %63 = load ptr, ptr %req, align 8
-  %call66 = call i64 @uv__fs_mkdtemp(ptr noundef %63)
-  store i64 %call66, ptr %r, align 8
-  br label %sw.epilog
+153:                                              ; preds = %21
+  %154 = load ptr, ptr %4, align 8
+  %155 = call i64 @uv__fs_mkdtemp(ptr noundef %154)
+  store i64 %155, ptr %5, align 8
+  br label %239
 
-sw.bb67:                                          ; preds = %do.body
-  %64 = load ptr, ptr %req, align 8
-  %call68 = call i32 @uv__fs_mkstemp(ptr noundef %64)
-  %conv69 = sext i32 %call68 to i64
-  store i64 %conv69, ptr %r, align 8
-  br label %sw.epilog
+156:                                              ; preds = %21
+  %157 = load ptr, ptr %4, align 8
+  %158 = call i32 @uv__fs_mkstemp(ptr noundef %157)
+  %159 = sext i32 %158 to i64
+  store i64 %159, ptr %5, align 8
+  br label %239
 
-sw.bb70:                                          ; preds = %do.body
-  %65 = load ptr, ptr %req, align 8
-  %call71 = call i64 @uv__fs_open(ptr noundef %65)
-  store i64 %call71, ptr %r, align 8
-  br label %sw.epilog
+160:                                              ; preds = %21
+  %161 = load ptr, ptr %4, align 8
+  %162 = call i64 @uv__fs_open(ptr noundef %161)
+  store i64 %162, ptr %5, align 8
+  br label %239
 
-sw.bb72:                                          ; preds = %do.body
-  %66 = load ptr, ptr %req, align 8
-  %call73 = call i64 @uv__fs_read(ptr noundef %66)
-  store i64 %call73, ptr %r, align 8
-  br label %sw.epilog
+163:                                              ; preds = %21
+  %164 = load ptr, ptr %4, align 8
+  %165 = call i64 @uv__fs_read(ptr noundef %164)
+  store i64 %165, ptr %5, align 8
+  br label %239
 
-sw.bb74:                                          ; preds = %do.body
-  %67 = load ptr, ptr %req, align 8
-  %call75 = call i64 @uv__fs_scandir(ptr noundef %67)
-  store i64 %call75, ptr %r, align 8
-  br label %sw.epilog
+166:                                              ; preds = %21
+  %167 = load ptr, ptr %4, align 8
+  %168 = call i64 @uv__fs_scandir(ptr noundef %167)
+  store i64 %168, ptr %5, align 8
+  br label %239
 
-sw.bb76:                                          ; preds = %do.body
-  %68 = load ptr, ptr %req, align 8
-  %call77 = call i32 @uv__fs_opendir(ptr noundef %68)
-  %conv78 = sext i32 %call77 to i64
-  store i64 %conv78, ptr %r, align 8
-  br label %sw.epilog
+169:                                              ; preds = %21
+  %170 = load ptr, ptr %4, align 8
+  %171 = call i32 @uv__fs_opendir(ptr noundef %170)
+  %172 = sext i32 %171 to i64
+  store i64 %172, ptr %5, align 8
+  br label %239
 
-sw.bb79:                                          ; preds = %do.body
-  %69 = load ptr, ptr %req, align 8
-  %call80 = call i32 @uv__fs_readdir(ptr noundef %69)
-  %conv81 = sext i32 %call80 to i64
-  store i64 %conv81, ptr %r, align 8
-  br label %sw.epilog
+173:                                              ; preds = %21
+  %174 = load ptr, ptr %4, align 8
+  %175 = call i32 @uv__fs_readdir(ptr noundef %174)
+  %176 = sext i32 %175 to i64
+  store i64 %176, ptr %5, align 8
+  br label %239
 
-sw.bb82:                                          ; preds = %do.body
-  %70 = load ptr, ptr %req, align 8
-  %call83 = call i32 @uv__fs_closedir(ptr noundef %70)
-  %conv84 = sext i32 %call83 to i64
-  store i64 %conv84, ptr %r, align 8
-  br label %sw.epilog
+177:                                              ; preds = %21
+  %178 = load ptr, ptr %4, align 8
+  %179 = call i32 @uv__fs_closedir(ptr noundef %178)
+  %180 = sext i32 %179 to i64
+  store i64 %180, ptr %5, align 8
+  br label %239
 
-sw.bb85:                                          ; preds = %do.body
-  %71 = load ptr, ptr %req, align 8
-  %call86 = call i64 @uv__fs_readlink(ptr noundef %71)
-  store i64 %call86, ptr %r, align 8
-  br label %sw.epilog
+181:                                              ; preds = %21
+  %182 = load ptr, ptr %4, align 8
+  %183 = call i64 @uv__fs_readlink(ptr noundef %182)
+  store i64 %183, ptr %5, align 8
+  br label %239
 
-sw.bb87:                                          ; preds = %do.body
-  %72 = load ptr, ptr %req, align 8
-  %call88 = call i64 @uv__fs_realpath(ptr noundef %72)
-  store i64 %call88, ptr %r, align 8
-  br label %sw.epilog
+184:                                              ; preds = %21
+  %185 = load ptr, ptr %4, align 8
+  %186 = call i64 @uv__fs_realpath(ptr noundef %185)
+  store i64 %186, ptr %5, align 8
+  br label %239
 
-sw.bb89:                                          ; preds = %do.body
-  %73 = load ptr, ptr %req, align 8
-  %path90 = getelementptr inbounds %struct.uv_fs_s, ptr %73, i32 0, i32 8
-  %74 = load ptr, ptr %path90, align 8
-  %75 = load ptr, ptr %req, align 8
-  %new_path91 = getelementptr inbounds %struct.uv_fs_s, ptr %75, i32 0, i32 10
-  %76 = load ptr, ptr %new_path91, align 8
-  %call92 = call i32 @rename(ptr noundef %74, ptr noundef %76) #8
-  %conv93 = sext i32 %call92 to i64
-  store i64 %conv93, ptr %r, align 8
-  br label %sw.epilog
+187:                                              ; preds = %21
+  %188 = load ptr, ptr %4, align 8
+  %189 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %188, i32 0, i32 8
+  %190 = load ptr, ptr %189, align 8
+  %191 = load ptr, ptr %4, align 8
+  %192 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %191, i32 0, i32 10
+  %193 = load ptr, ptr %192, align 8
+  %194 = call i32 @rename(ptr noundef %190, ptr noundef %193) #8
+  %195 = sext i32 %194 to i64
+  store i64 %195, ptr %5, align 8
+  br label %239
 
-sw.bb94:                                          ; preds = %do.body
-  %77 = load ptr, ptr %req, align 8
-  %path95 = getelementptr inbounds %struct.uv_fs_s, ptr %77, i32 0, i32 8
-  %78 = load ptr, ptr %path95, align 8
-  %call96 = call i32 @rmdir(ptr noundef %78) #8
-  %conv97 = sext i32 %call96 to i64
-  store i64 %conv97, ptr %r, align 8
-  br label %sw.epilog
+196:                                              ; preds = %21
+  %197 = load ptr, ptr %4, align 8
+  %198 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %197, i32 0, i32 8
+  %199 = load ptr, ptr %198, align 8
+  %200 = call i32 @rmdir(ptr noundef %199) #8
+  %201 = sext i32 %200 to i64
+  store i64 %201, ptr %5, align 8
+  br label %239
 
-sw.bb98:                                          ; preds = %do.body
-  %79 = load ptr, ptr %req, align 8
-  %call99 = call i64 @uv__fs_sendfile(ptr noundef %79)
-  store i64 %call99, ptr %r, align 8
-  br label %sw.epilog
+202:                                              ; preds = %21
+  %203 = load ptr, ptr %4, align 8
+  %204 = call i64 @uv__fs_sendfile(ptr noundef %203)
+  store i64 %204, ptr %5, align 8
+  br label %239
 
-sw.bb100:                                         ; preds = %do.body
-  %80 = load ptr, ptr %req, align 8
-  %path101 = getelementptr inbounds %struct.uv_fs_s, ptr %80, i32 0, i32 8
-  %81 = load ptr, ptr %path101, align 8
-  %82 = load ptr, ptr %req, align 8
-  %statbuf102 = getelementptr inbounds %struct.uv_fs_s, ptr %82, i32 0, i32 9
-  %call103 = call i32 @uv__fs_stat(ptr noundef %81, ptr noundef %statbuf102)
-  %conv104 = sext i32 %call103 to i64
-  store i64 %conv104, ptr %r, align 8
-  br label %sw.epilog
+205:                                              ; preds = %21
+  %206 = load ptr, ptr %4, align 8
+  %207 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %206, i32 0, i32 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = load ptr, ptr %4, align 8
+  %210 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %209, i32 0, i32 9
+  %211 = call i32 @uv__fs_stat(ptr noundef %208, ptr noundef %210)
+  %212 = sext i32 %211 to i64
+  store i64 %212, ptr %5, align 8
+  br label %239
 
-sw.bb105:                                         ; preds = %do.body
-  %83 = load ptr, ptr %req, align 8
-  %call106 = call i32 @uv__fs_statfs(ptr noundef %83)
-  %conv107 = sext i32 %call106 to i64
-  store i64 %conv107, ptr %r, align 8
-  br label %sw.epilog
+213:                                              ; preds = %21
+  %214 = load ptr, ptr %4, align 8
+  %215 = call i32 @uv__fs_statfs(ptr noundef %214)
+  %216 = sext i32 %215 to i64
+  store i64 %216, ptr %5, align 8
+  br label %239
 
-sw.bb108:                                         ; preds = %do.body
-  %84 = load ptr, ptr %req, align 8
-  %path109 = getelementptr inbounds %struct.uv_fs_s, ptr %84, i32 0, i32 8
-  %85 = load ptr, ptr %path109, align 8
-  %86 = load ptr, ptr %req, align 8
-  %new_path110 = getelementptr inbounds %struct.uv_fs_s, ptr %86, i32 0, i32 10
-  %87 = load ptr, ptr %new_path110, align 8
-  %call111 = call i32 @symlink(ptr noundef %85, ptr noundef %87) #8
-  %conv112 = sext i32 %call111 to i64
-  store i64 %conv112, ptr %r, align 8
-  br label %sw.epilog
+217:                                              ; preds = %21
+  %218 = load ptr, ptr %4, align 8
+  %219 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %218, i32 0, i32 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = load ptr, ptr %4, align 8
+  %222 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %221, i32 0, i32 10
+  %223 = load ptr, ptr %222, align 8
+  %224 = call i32 @symlink(ptr noundef %220, ptr noundef %223) #8
+  %225 = sext i32 %224 to i64
+  store i64 %225, ptr %5, align 8
+  br label %239
 
-sw.bb113:                                         ; preds = %do.body
-  %88 = load ptr, ptr %req, align 8
-  %path114 = getelementptr inbounds %struct.uv_fs_s, ptr %88, i32 0, i32 8
-  %89 = load ptr, ptr %path114, align 8
-  %call115 = call i32 @unlink(ptr noundef %89) #8
-  %conv116 = sext i32 %call115 to i64
-  store i64 %conv116, ptr %r, align 8
-  br label %sw.epilog
+226:                                              ; preds = %21
+  %227 = load ptr, ptr %4, align 8
+  %228 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %227, i32 0, i32 8
+  %229 = load ptr, ptr %228, align 8
+  %230 = call i32 @unlink(ptr noundef %229) #8
+  %231 = sext i32 %230 to i64
+  store i64 %231, ptr %5, align 8
+  br label %239
 
-sw.bb117:                                         ; preds = %do.body
-  %90 = load ptr, ptr %req, align 8
-  %call118 = call i64 @uv__fs_utime(ptr noundef %90)
-  store i64 %call118, ptr %r, align 8
-  br label %sw.epilog
+232:                                              ; preds = %21
+  %233 = load ptr, ptr %4, align 8
+  %234 = call i64 @uv__fs_utime(ptr noundef %233)
+  store i64 %234, ptr %5, align 8
+  br label %239
 
-sw.bb119:                                         ; preds = %do.body
-  %91 = load ptr, ptr %req, align 8
-  %call120 = call i64 @uv__fs_write_all(ptr noundef %91)
-  store i64 %call120, ptr %r, align 8
-  br label %sw.epilog
+235:                                              ; preds = %21
+  %236 = load ptr, ptr %4, align 8
+  %237 = call i64 @uv__fs_write_all(ptr noundef %236)
+  store i64 %237, ptr %5, align 8
+  br label %239
 
-sw.default:                                       ; preds = %do.body
-  call void @abort() #9
+238:                                              ; preds = %21
+  call void @abort() #10
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb119, %sw.bb117, %sw.bb113, %sw.bb108, %sw.bb105, %sw.bb100, %sw.bb98, %sw.bb94, %sw.bb89, %sw.bb87, %sw.bb85, %sw.bb82, %sw.bb79, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb67, %sw.bb65, %sw.bb60, %sw.bb56, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb43, %sw.bb41, %sw.bb37, %sw.bb35, %sw.bb29, %sw.bb23, %sw.bb18, %sw.bb16, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb
-  br label %do.cond
+239:                                              ; preds = %235, %232, %226, %217, %213, %205, %202, %196, %187, %184, %181, %177, %173, %169, %166, %163, %160, %156, %153, %144, %135, %127, %124, %121, %112, %109, %101, %98, %86, %74, %65, %62, %56, %44, %35, %26
+  br label %240
 
-do.cond:                                          ; preds = %sw.epilog
-  %92 = load i64, ptr %r, align 8
-  %cmp121 = icmp eq i64 %92, -1
-  br i1 %cmp121, label %land.lhs.true, label %land.end
+240:                                              ; preds = %239
+  %241 = load i64, ptr %5, align 8
+  %242 = icmp eq i64 %241, -1
+  br i1 %242, label %243, label %250
 
-land.lhs.true:                                    ; preds = %do.cond
-  %call123 = call ptr @__errno_location() #7
-  %93 = load i32, ptr %call123, align 4
-  %cmp124 = icmp eq i32 %93, 4
-  br i1 %cmp124, label %land.rhs, label %land.end
+243:                                              ; preds = %240
+  %244 = call ptr @__errno_location() #9
+  %245 = load i32, ptr %244, align 4
+  %246 = icmp eq i32 %245, 4
+  br i1 %246, label %247, label %250
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %94 = load i32, ptr %retry_on_eintr, align 4
-  %tobool = icmp ne i32 %94, 0
-  br label %land.end
+247:                                              ; preds = %243
+  %248 = load i32, ptr %3, align 4
+  %249 = icmp ne i32 %248, 0
+  br label %250
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %do.cond
-  %95 = phi i1 [ false, %land.lhs.true ], [ false, %do.cond ], [ %tobool, %land.rhs ]
-  br i1 %95, label %do.body, label %do.end
+250:                                              ; preds = %247, %243, %240
+  %251 = phi i1 [ false, %243 ], [ false, %240 ], [ %249, %247 ]
+  br i1 %251, label %21, label %252
 
-do.end:                                           ; preds = %land.end
-  %96 = load i64, ptr %r, align 8
-  %cmp126 = icmp eq i64 %96, -1
-  br i1 %cmp126, label %if.then, label %if.else
+252:                                              ; preds = %250
+  %253 = load i64, ptr %5, align 8
+  %254 = icmp eq i64 %253, -1
+  br i1 %254, label %255, label %262
 
-if.then:                                          ; preds = %do.end
-  %call128 = call ptr @__errno_location() #7
-  %97 = load i32, ptr %call128, align 4
-  %sub = sub nsw i32 0, %97
-  %conv129 = sext i32 %sub to i64
-  %98 = load ptr, ptr %req, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %98, i32 0, i32 6
-  store i64 %conv129, ptr %result, align 8
-  br label %if.end
+255:                                              ; preds = %252
+  %256 = call ptr @__errno_location() #9
+  %257 = load i32, ptr %256, align 4
+  %258 = sub nsw i32 0, %257
+  %259 = sext i32 %258 to i64
+  %260 = load ptr, ptr %4, align 8
+  %261 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %260, i32 0, i32 6
+  store i64 %259, ptr %261, align 8
+  br label %266
 
-if.else:                                          ; preds = %do.end
-  %99 = load i64, ptr %r, align 8
-  %100 = load ptr, ptr %req, align 8
-  %result130 = getelementptr inbounds %struct.uv_fs_s, ptr %100, i32 0, i32 6
-  store i64 %99, ptr %result130, align 8
-  br label %if.end
+262:                                              ; preds = %252
+  %263 = load i64, ptr %5, align 8
+  %264 = load ptr, ptr %4, align 8
+  %265 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %264, i32 0, i32 6
+  store i64 %263, ptr %265, align 8
+  br label %266
 
-if.end:                                           ; preds = %if.else, %if.then
-  %101 = load i64, ptr %r, align 8
-  %cmp131 = icmp eq i64 %101, 0
-  br i1 %cmp131, label %land.lhs.true133, label %if.end146
+266:                                              ; preds = %262, %255
+  %267 = load i64, ptr %5, align 8
+  %268 = icmp eq i64 %267, 0
+  br i1 %268, label %269, label %289
 
-land.lhs.true133:                                 ; preds = %if.end
-  %102 = load ptr, ptr %req, align 8
-  %fs_type134 = getelementptr inbounds %struct.uv_fs_s, ptr %102, i32 0, i32 3
-  %103 = load i32, ptr %fs_type134, align 8
-  %cmp135 = icmp eq i32 %103, 6
-  br i1 %cmp135, label %if.then144, label %lor.lhs.false
+269:                                              ; preds = %266
+  %270 = load ptr, ptr %4, align 8
+  %271 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %270, i32 0, i32 3
+  %272 = load i32, ptr %271, align 8
+  %273 = icmp eq i32 %272, 6
+  br i1 %273, label %284, label %274
 
-lor.lhs.false:                                    ; preds = %land.lhs.true133
-  %104 = load ptr, ptr %req, align 8
-  %fs_type137 = getelementptr inbounds %struct.uv_fs_s, ptr %104, i32 0, i32 3
-  %105 = load i32, ptr %fs_type137, align 8
-  %cmp138 = icmp eq i32 %105, 8
-  br i1 %cmp138, label %if.then144, label %lor.lhs.false140
+274:                                              ; preds = %269
+  %275 = load ptr, ptr %4, align 8
+  %276 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %275, i32 0, i32 3
+  %277 = load i32, ptr %276, align 8
+  %278 = icmp eq i32 %277, 8
+  br i1 %278, label %284, label %279
 
-lor.lhs.false140:                                 ; preds = %lor.lhs.false
-  %106 = load ptr, ptr %req, align 8
-  %fs_type141 = getelementptr inbounds %struct.uv_fs_s, ptr %106, i32 0, i32 3
-  %107 = load i32, ptr %fs_type141, align 8
-  %cmp142 = icmp eq i32 %107, 7
-  br i1 %cmp142, label %if.then144, label %if.end146
+279:                                              ; preds = %274
+  %280 = load ptr, ptr %4, align 8
+  %281 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %280, i32 0, i32 3
+  %282 = load i32, ptr %281, align 8
+  %283 = icmp eq i32 %282, 7
+  br i1 %283, label %284, label %289
 
-if.then144:                                       ; preds = %lor.lhs.false140, %lor.lhs.false, %land.lhs.true133
-  %108 = load ptr, ptr %req, align 8
-  %statbuf145 = getelementptr inbounds %struct.uv_fs_s, ptr %108, i32 0, i32 9
-  %109 = load ptr, ptr %req, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %109, i32 0, i32 7
-  store ptr %statbuf145, ptr %ptr, align 8
-  br label %if.end146
+284:                                              ; preds = %279, %274, %269
+  %285 = load ptr, ptr %4, align 8
+  %286 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %285, i32 0, i32 9
+  %287 = load ptr, ptr %4, align 8
+  %288 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %287, i32 0, i32 7
+  store ptr %286, ptr %288, align 8
+  br label %289
 
-if.end146:                                        ; preds = %if.then144, %lor.lhs.false140, %if.end
+289:                                              ; preds = %284, %279, %266
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__fs_done(ptr noundef %w, i32 noundef %status) #0 {
-entry:
-  %w.addr = alloca ptr, align 8
-  %status.addr = alloca i32, align 4
-  %req = alloca ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  store i32 %status, ptr %status.addr, align 4
-  %0 = load ptr, ptr %w.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -336
-  store ptr %add.ptr, ptr %req, align 8
-  br label %do.body
+define internal void @uv__fs_done(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 -336
+  store ptr %7, ptr %5, align 8
+  br label %8
 
-do.body:                                          ; preds = %entry
-  %1 = load ptr, ptr %req, align 8
-  %loop = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %active_reqs, align 8
-  %dec = add i32 %3, -1
-  store i32 %dec, ptr %active_reqs, align 8
-  br label %do.end
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %9, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %11, i32 0, i32 3
+  %13 = load i32, ptr %12, align 8
+  %14 = add i32 %13, -1
+  store i32 %14, ptr %12, align 8
+  br label %15
 
-do.end:                                           ; preds = %do.body
-  %4 = load i32, ptr %status.addr, align 4
-  %cmp = icmp eq i32 %4, -125
-  br i1 %cmp, label %if.then, label %if.end
+15:                                               ; preds = %8
+  br label %16
 
-if.then:                                          ; preds = %do.end
-  %5 = load ptr, ptr %req, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %5, i32 0, i32 6
-  store i64 -125, ptr %result, align 8
-  br label %if.end
+16:                                               ; preds = %15
+  %17 = load i32, ptr %4, align 4
+  %18 = icmp eq i32 %17, -125
+  br i1 %18, label %19, label %22
 
-if.end:                                           ; preds = %if.then, %do.end
-  %6 = load ptr, ptr %req, align 8
-  %cb = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %cb, align 8
-  %8 = load ptr, ptr %req, align 8
-  call void %7(ptr noundef %8)
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 6
+  store i64 -125, ptr %21, align 8
+  br label %22
+
+22:                                               ; preds = %19, %16
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 5
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %5, align 8
+  call void %25(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_chmod(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %mode, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %mode.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_access(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end26
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %83
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+16:                                               ; preds = %12
+  br label %17
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 13, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 12, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+39:                                               ; preds = %20
+  br label %40
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %11, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %47
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 8
+  store ptr %44, ptr %46, align 8
+  br label %58
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %9, align 8
+  %49 = call ptr @uv__strdup(ptr noundef %48)
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end26
+56:                                               ; preds = %47
+  store i32 -12, ptr %6, align 4
+  br label %83
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+57:                                               ; preds = %47
+  br label %58
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+58:                                               ; preds = %57, %43
+  br label %59
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %mode.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %mode17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 13
-  store i32 %19, ptr %mode17, align 8
-  br label %do.body18
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 12
+  store i32 %60, ptr %62, align 4
+  br label %63
 
-do.body18:                                        ; preds = %do.end16
-  %21 = load ptr, ptr %cb.addr, align 8
-  %cmp19 = icmp ne ptr %21, null
-  br i1 %cmp19, label %if.then20, label %if.else23
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %11, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %76
 
-if.then20:                                        ; preds = %do.body18
-  br label %do.body21
+66:                                               ; preds = %63
+  br label %67
 
-do.body21:                                        ; preds = %if.then20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %22, i32 0, i32 3
-  %23 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %23, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end22
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %68, i32 0, i32 3
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8
+  br label %72
 
-do.end22:                                         ; preds = %do.body21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %24, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end26
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %73, ptr noundef %75, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %83
 
-if.else23:                                        ; preds = %do.body18
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req24)
-  %27 = load ptr, ptr %req.addr, align 8
-  %result25 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 6
-  %28 = load i64, ptr %result25, align 8
-  %conv = trunc i64 %28 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end26
+76:                                               ; preds = %63
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %77, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %78)
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 6
+  %81 = load i64, ptr %80, align 8
+  %82 = trunc i64 %81 to i32
+  store i32 %82, ptr %6, align 4
+  br label %83
 
-do.end26:                                         ; preds = %if.else23, %do.end22, %if.then13, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+83:                                               ; preds = %15, %56, %72, %76
+  %84 = load i32, ptr %6, align 4
+  ret i32 %84
+}
+
+declare ptr @uv__strdup(ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @uv_fs_chmod(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  br label %12
+
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %83
+
+16:                                               ; preds = %12
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 13, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
+
+39:                                               ; preds = %20
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %11, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 8
+  store ptr %44, ptr %46, align 8
+  br label %58
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %9, align 8
+  %49 = call ptr @uv__strdup(ptr noundef %48)
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %47
+  store i32 -12, ptr %6, align 4
+  br label %83
+
+57:                                               ; preds = %47
+  br label %58
+
+58:                                               ; preds = %57, %43
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 13
+  store i32 %60, ptr %62, align 8
+  br label %63
+
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %11, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %76
+
+66:                                               ; preds = %63
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %68, i32 0, i32 3
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8
+  br label %72
+
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %73, ptr noundef %75, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %83
+
+76:                                               ; preds = %63
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %77, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %78)
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 6
+  %81 = load i64, ptr %80, align 8
+  %82 = trunc i64 %81 to i32
+  store i32 %82, ptr %6, align 4
+  br label %83
+
+83:                                               ; preds = %15, %56, %72, %76
+  %84 = load i32, ptr %6, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_chown(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %uid, i32 noundef %gid, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %uid.addr = alloca i32, align 4
-  %gid.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %uid, ptr %uid.addr, align 4
-  store i32 %gid, ptr %gid.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_chown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end27
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 26, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 26, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+41:                                               ; preds = %22
+  br label %42
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %49
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %60
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @uv__strdup(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end27
+58:                                               ; preds = %49
+  store i32 -12, ptr %7, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+59:                                               ; preds = %49
+  br label %60
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+60:                                               ; preds = %59, %45
+  br label %61
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %uid.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %uid17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 17
-  store i32 %19, ptr %uid17, align 8
-  %21 = load i32, ptr %gid.addr, align 4
-  %22 = load ptr, ptr %req.addr, align 8
-  %gid18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 18
-  store i32 %21, ptr %gid18, align 4
-  br label %do.body19
+61:                                               ; preds = %60
+  %62 = load i32, ptr %11, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %63, i32 0, i32 17
+  store i32 %62, ptr %64, align 8
+  %65 = load i32, ptr %12, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 18
+  store i32 %65, ptr %67, align 4
+  br label %68
 
-do.body19:                                        ; preds = %do.end16
-  %23 = load ptr, ptr %cb.addr, align 8
-  %cmp20 = icmp ne ptr %23, null
-  br i1 %cmp20, label %if.then21, label %if.else24
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %13, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.then21:                                        ; preds = %do.body19
-  br label %do.body22
+71:                                               ; preds = %68
+  br label %72
 
-do.body22:                                        ; preds = %if.then21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %25, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end23
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-do.end23:                                         ; preds = %do.body22
-  %26 = load ptr, ptr %loop.addr, align 8
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %26, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end27
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %88
 
-if.else24:                                        ; preds = %do.body19
-  %28 = load ptr, ptr %req.addr, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req25)
-  %29 = load ptr, ptr %req.addr, align 8
-  %result26 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 6
-  %30 = load i64, ptr %result26, align 8
-  %conv = trunc i64 %30 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end27
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %7, align 4
+  br label %88
 
-do.end27:                                         ; preds = %if.else24, %do.end23, %if.then13, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+88:                                               ; preds = %17, %58, %77, %81
+  %89 = load i32, ptr %7, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_close(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_close(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end18
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %71
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 2, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 2, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load ptr, ptr %cb.addr, align 8
-  %cmp6 = icmp ne ptr %14, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+37:                                               ; preds = %18
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 11
+  store i32 %38, ptr %40, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %50
 
-if.then7:                                         ; preds = %do.end4
-  %15 = load ptr, ptr %loop.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %call = call i32 @uv__iou_fs_close(ptr noundef %15, ptr noundef %16)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then8, label %if.end9
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = call i32 @uv__iou_fs_close(ptr noundef %44, ptr noundef %45)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then8:                                         ; preds = %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+48:                                               ; preds = %43
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.end9:                                          ; preds = %if.then7
-  br label %if.end10
+49:                                               ; preds = %43
+  br label %50
 
-if.end10:                                         ; preds = %if.end9, %do.end4
-  br label %do.body11
+50:                                               ; preds = %49, %37
+  br label %51
 
-do.body11:                                        ; preds = %if.end10
-  %17 = load ptr, ptr %cb.addr, align 8
-  %cmp12 = icmp ne ptr %17, null
-  br i1 %cmp12, label %if.then13, label %if.else
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %9, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
 
-if.then13:                                        ; preds = %do.body11
-  br label %do.body14
+54:                                               ; preds = %51
+  br label %55
 
-do.body14:                                        ; preds = %if.then13
-  %18 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end15
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
 
-do.end15:                                         ; preds = %do.body14
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %20, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.else:                                          ; preds = %do.body11
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req16)
-  %23 = load ptr, ptr %req.addr, align 8
-  %result17 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 6
-  %24 = load i64, ptr %result17, align 8
-  %conv = trunc i64 %24 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end18
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %5, align 4
+  br label %71
 
-do.end18:                                         ; preds = %if.else, %do.end15, %if.then8, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+71:                                               ; preds = %13, %48, %60, %64
+  %72 = load i32, ptr %5, align 4
+  ret i32 %72
 }
 
 declare i32 @uv__iou_fs_close(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_fchmod(ptr noundef %loop, ptr noundef %req, i32 noundef %file, i32 noundef %mode, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %mode.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_fchmod(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store i32 %2, ptr %9, align 4
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end14
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %66
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+16:                                               ; preds = %12
+  br label %17
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 14, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 14, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load i32, ptr %mode.addr, align 4
-  %15 = load ptr, ptr %req.addr, align 8
-  %mode6 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 13
-  store i32 %14, ptr %mode6, align 8
-  br label %do.body7
+39:                                               ; preds = %20
+  %40 = load i32, ptr %9, align 4
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %41, i32 0, i32 11
+  store i32 %40, ptr %42, align 8
+  %43 = load i32, ptr %10, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %44, i32 0, i32 13
+  store i32 %43, ptr %45, align 8
+  br label %46
 
-do.body7:                                         ; preds = %do.end4
-  %16 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp ne ptr %16, null
-  br i1 %cmp8, label %if.then9, label %if.else
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %11, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %59
 
-if.then9:                                         ; preds = %do.body7
-  br label %do.body10
+49:                                               ; preds = %46
+  br label %50
 
-do.body10:                                        ; preds = %if.then9
-  %17 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end11
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %51, i32 0, i32 3
+  %53 = load i32, ptr %52, align 8
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 8
+  br label %55
 
-do.end11:                                         ; preds = %do.body10
-  %19 = load ptr, ptr %loop.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %19, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end14
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %57, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %56, ptr noundef %58, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %66
 
-if.else:                                          ; preds = %do.body7
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req12)
-  %22 = load ptr, ptr %req.addr, align 8
-  %result13 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 6
-  %23 = load i64, ptr %result13, align 8
-  %conv = trunc i64 %23 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end14
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %60, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %61)
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 6
+  %64 = load i64, ptr %63, align 8
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %6, align 4
+  br label %66
 
-do.end14:                                         ; preds = %if.else, %do.end11, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+66:                                               ; preds = %15, %55, %59
+  %67 = load i32, ptr %6, align 4
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_fchown(ptr noundef %loop, ptr noundef %req, i32 noundef %file, i32 noundef %uid, i32 noundef %gid, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %uid.addr = alloca i32, align 4
-  %gid.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store i32 %uid, ptr %uid.addr, align 4
-  store i32 %gid, ptr %gid.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_fchown(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store i32 %2, ptr %10, align 4
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end15
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %71
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 27, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 27, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load i32, ptr %uid.addr, align 4
-  %15 = load ptr, ptr %req.addr, align 8
-  %uid6 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 17
-  store i32 %14, ptr %uid6, align 8
-  %16 = load i32, ptr %gid.addr, align 4
-  %17 = load ptr, ptr %req.addr, align 8
-  %gid7 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 18
-  store i32 %16, ptr %gid7, align 4
-  br label %do.body8
+41:                                               ; preds = %22
+  %42 = load i32, ptr %10, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 11
+  store i32 %42, ptr %44, align 8
+  %45 = load i32, ptr %11, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %46, i32 0, i32 17
+  store i32 %45, ptr %47, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %49, i32 0, i32 18
+  store i32 %48, ptr %50, align 4
+  br label %51
 
-do.body8:                                         ; preds = %do.end4
-  %18 = load ptr, ptr %cb.addr, align 8
-  %cmp9 = icmp ne ptr %18, null
-  br i1 %cmp9, label %if.then10, label %if.else
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %13, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
 
-if.then10:                                        ; preds = %do.body8
-  br label %do.body11
+54:                                               ; preds = %51
+  br label %55
 
-do.body11:                                        ; preds = %if.then10
-  %19 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %20, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end12
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
 
-do.end12:                                         ; preds = %do.body11
-  %21 = load ptr, ptr %loop.addr, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %21, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end15
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %8, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %71
 
-if.else:                                          ; preds = %do.body8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req13 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req13)
-  %24 = load ptr, ptr %req.addr, align 8
-  %result14 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 6
-  %25 = load i64, ptr %result14, align 8
-  %conv = trunc i64 %25 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end15
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %7, align 4
+  br label %71
 
-do.end15:                                         ; preds = %if.else, %do.end12, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+71:                                               ; preds = %17, %60, %64
+  %72 = load i32, ptr %7, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_lchown(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %uid, i32 noundef %gid, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %uid.addr = alloca i32, align 4
-  %gid.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %uid, ptr %uid.addr, align 4
-  store i32 %gid, ptr %gid.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_lchown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end27
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 30, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 30, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+41:                                               ; preds = %22
+  br label %42
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %49
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %60
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @uv__strdup(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end27
+58:                                               ; preds = %49
+  store i32 -12, ptr %7, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+59:                                               ; preds = %49
+  br label %60
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+60:                                               ; preds = %59, %45
+  br label %61
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %uid.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %uid17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 17
-  store i32 %19, ptr %uid17, align 8
-  %21 = load i32, ptr %gid.addr, align 4
-  %22 = load ptr, ptr %req.addr, align 8
-  %gid18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 18
-  store i32 %21, ptr %gid18, align 4
-  br label %do.body19
+61:                                               ; preds = %60
+  %62 = load i32, ptr %11, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %63, i32 0, i32 17
+  store i32 %62, ptr %64, align 8
+  %65 = load i32, ptr %12, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 18
+  store i32 %65, ptr %67, align 4
+  br label %68
 
-do.body19:                                        ; preds = %do.end16
-  %23 = load ptr, ptr %cb.addr, align 8
-  %cmp20 = icmp ne ptr %23, null
-  br i1 %cmp20, label %if.then21, label %if.else24
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %13, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.then21:                                        ; preds = %do.body19
-  br label %do.body22
+71:                                               ; preds = %68
+  br label %72
 
-do.body22:                                        ; preds = %if.then21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %25, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end23
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-do.end23:                                         ; preds = %do.body22
-  %26 = load ptr, ptr %loop.addr, align 8
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %26, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end27
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %88
 
-if.else24:                                        ; preds = %do.body19
-  %28 = load ptr, ptr %req.addr, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req25)
-  %29 = load ptr, ptr %req.addr, align 8
-  %result26 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 6
-  %30 = load i64, ptr %result26, align 8
-  %conv = trunc i64 %30 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end27
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %7, align 4
+  br label %88
 
-do.end27:                                         ; preds = %if.else24, %do.end23, %if.then13, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+88:                                               ; preds = %17, %58, %77, %81
+  %89 = load i32, ptr %7, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_fdatasync(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_fdatasync(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end18
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %71
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 16, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 16, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load ptr, ptr %cb.addr, align 8
-  %cmp6 = icmp ne ptr %14, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+37:                                               ; preds = %18
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 11
+  store i32 %38, ptr %40, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %50
 
-if.then7:                                         ; preds = %do.end4
-  %15 = load ptr, ptr %loop.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %call = call i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %15, ptr noundef %16, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then8, label %if.end9
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = call i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %44, ptr noundef %45, i32 noundef 1)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then8:                                         ; preds = %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+48:                                               ; preds = %43
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.end9:                                          ; preds = %if.then7
-  br label %if.end10
+49:                                               ; preds = %43
+  br label %50
 
-if.end10:                                         ; preds = %if.end9, %do.end4
-  br label %do.body11
+50:                                               ; preds = %49, %37
+  br label %51
 
-do.body11:                                        ; preds = %if.end10
-  %17 = load ptr, ptr %cb.addr, align 8
-  %cmp12 = icmp ne ptr %17, null
-  br i1 %cmp12, label %if.then13, label %if.else
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %9, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
 
-if.then13:                                        ; preds = %do.body11
-  br label %do.body14
+54:                                               ; preds = %51
+  br label %55
 
-do.body14:                                        ; preds = %if.then13
-  %18 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end15
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
 
-do.end15:                                         ; preds = %do.body14
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %20, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.else:                                          ; preds = %do.body11
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req16)
-  %23 = load ptr, ptr %req.addr, align 8
-  %result17 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 6
-  %24 = load i64, ptr %result17, align 8
-  %conv = trunc i64 %24 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end18
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %5, align 4
+  br label %71
 
-do.end18:                                         ; preds = %if.else, %do.end15, %if.then8, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+71:                                               ; preds = %13, %48, %60, %64
+  %72 = load i32, ptr %5, align 4
+  ret i32 %72
 }
 
 declare i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_fstat(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_fstat(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end18
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %71
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 8, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 8, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load ptr, ptr %cb.addr, align 8
-  %cmp6 = icmp ne ptr %14, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+37:                                               ; preds = %18
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 11
+  store i32 %38, ptr %40, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %50
 
-if.then7:                                         ; preds = %do.end4
-  %15 = load ptr, ptr %loop.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %call = call i32 @uv__iou_fs_statx(ptr noundef %15, ptr noundef %16, i32 noundef 1, i32 noundef 0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then8, label %if.end9
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = call i32 @uv__iou_fs_statx(ptr noundef %44, ptr noundef %45, i32 noundef 1, i32 noundef 0)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then8:                                         ; preds = %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+48:                                               ; preds = %43
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.end9:                                          ; preds = %if.then7
-  br label %if.end10
+49:                                               ; preds = %43
+  br label %50
 
-if.end10:                                         ; preds = %if.end9, %do.end4
-  br label %do.body11
+50:                                               ; preds = %49, %37
+  br label %51
 
-do.body11:                                        ; preds = %if.end10
-  %17 = load ptr, ptr %cb.addr, align 8
-  %cmp12 = icmp ne ptr %17, null
-  br i1 %cmp12, label %if.then13, label %if.else
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %9, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
 
-if.then13:                                        ; preds = %do.body11
-  br label %do.body14
+54:                                               ; preds = %51
+  br label %55
 
-do.body14:                                        ; preds = %if.then13
-  %18 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end15
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
 
-do.end15:                                         ; preds = %do.body14
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %20, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.else:                                          ; preds = %do.body11
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req16)
-  %23 = load ptr, ptr %req.addr, align 8
-  %result17 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 6
-  %24 = load i64, ptr %result17, align 8
-  %conv = trunc i64 %24 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end18
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %5, align 4
+  br label %71
 
-do.end18:                                         ; preds = %if.else, %do.end15, %if.then8, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+71:                                               ; preds = %13, %48, %60, %64
+  %72 = load i32, ptr %5, align 4
+  ret i32 %72
 }
 
 declare i32 @uv__iou_fs_statx(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_fsync(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_fsync(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end18
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %71
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 15, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 15, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load ptr, ptr %cb.addr, align 8
-  %cmp6 = icmp ne ptr %14, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+37:                                               ; preds = %18
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 11
+  store i32 %38, ptr %40, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %50
 
-if.then7:                                         ; preds = %do.end4
-  %15 = load ptr, ptr %loop.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %call = call i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %15, ptr noundef %16, i32 noundef 0)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then8, label %if.end9
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = call i32 @uv__iou_fs_fsync_or_fdatasync(ptr noundef %44, ptr noundef %45, i32 noundef 0)
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then8:                                         ; preds = %if.then7
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+48:                                               ; preds = %43
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.end9:                                          ; preds = %if.then7
-  br label %if.end10
+49:                                               ; preds = %43
+  br label %50
 
-if.end10:                                         ; preds = %if.end9, %do.end4
-  br label %do.body11
+50:                                               ; preds = %49, %37
+  br label %51
 
-do.body11:                                        ; preds = %if.end10
-  %17 = load ptr, ptr %cb.addr, align 8
-  %cmp12 = icmp ne ptr %17, null
-  br i1 %cmp12, label %if.then13, label %if.else
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %9, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
 
-if.then13:                                        ; preds = %do.body11
-  br label %do.body14
+54:                                               ; preds = %51
+  br label %55
 
-do.body14:                                        ; preds = %if.then13
-  %18 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end15
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
 
-do.end15:                                         ; preds = %do.body14
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %20, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end18
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %71
 
-if.else:                                          ; preds = %do.body11
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req16)
-  %23 = load ptr, ptr %req.addr, align 8
-  %result17 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 6
-  %24 = load i64, ptr %result17, align 8
-  %conv = trunc i64 %24 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end18
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %5, align 4
+  br label %71
 
-do.end18:                                         ; preds = %if.else, %do.end15, %if.then8, %if.then
-  %25 = load i32, ptr %retval, align 4
-  ret i32 %25
+71:                                               ; preds = %13, %48, %60, %64
+  %72 = load i32, ptr %5, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_ftruncate(ptr noundef %loop, ptr noundef %req, i32 noundef %file, i64 noundef %off, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %off.addr = alloca i64, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store i64 %off, ptr %off.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_ftruncate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store i32 %2, ptr %9, align 4
+  store i64 %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end14
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %76
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+16:                                               ; preds = %12
+  br label %17
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 9, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 9, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load i64, ptr %off.addr, align 8
-  %15 = load ptr, ptr %req.addr, align 8
-  %off6 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 16
-  store i64 %14, ptr %off6, align 8
-  br label %do.body7
+39:                                               ; preds = %20
+  %40 = load i32, ptr %9, align 4
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %41, i32 0, i32 11
+  store i32 %40, ptr %42, align 8
+  %43 = load i64, ptr %10, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %44, i32 0, i32 16
+  store i64 %43, ptr %45, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %55
 
-do.body7:                                         ; preds = %do.end4
-  %16 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp ne ptr %16, null
-  br i1 %cmp8, label %if.then9, label %if.else
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = call i32 @uv__iou_fs_ftruncate(ptr noundef %49, ptr noundef %50)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %54
 
-if.then9:                                         ; preds = %do.body7
-  br label %do.body10
+53:                                               ; preds = %48
+  store i32 0, ptr %6, align 4
+  br label %76
 
-do.body10:                                        ; preds = %if.then9
-  %17 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end11
+54:                                               ; preds = %48
+  br label %55
 
-do.end11:                                         ; preds = %do.body10
-  %19 = load ptr, ptr %loop.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %19, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end14
+55:                                               ; preds = %54, %39
+  br label %56
 
-if.else:                                          ; preds = %do.body7
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req12)
-  %22 = load ptr, ptr %req.addr, align 8
-  %result13 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 6
-  %23 = load i64, ptr %result13, align 8
-  %conv = trunc i64 %23 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end14
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %11, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %69
 
-do.end14:                                         ; preds = %if.else, %do.end11, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+59:                                               ; preds = %56
+  br label %60
+
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %61, i32 0, i32 3
+  %63 = load i32, ptr %62, align 8
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 8
+  br label %65
+
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %66, ptr noundef %68, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %76
+
+69:                                               ; preds = %56
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %70, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %71)
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 6
+  %74 = load i64, ptr %73, align 8
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %6, align 4
+  br label %76
+
+76:                                               ; preds = %15, %53, %65, %69
+  %77 = load i32, ptr %6, align 4
+  ret i32 %77
+}
+
+declare i32 @uv__iou_fs_ftruncate(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @uv_fs_futime(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store i32 %2, ptr %10, align 4
+  store double %3, ptr %11, align 8
+  store double %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  br label %14
+
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %71
+
+18:                                               ; preds = %14
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 11, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
+
+41:                                               ; preds = %22
+  %42 = load i32, ptr %10, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 11
+  store i32 %42, ptr %44, align 8
+  %45 = load double, ptr %11, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %46, i32 0, i32 19
+  store double %45, ptr %47, align 8
+  %48 = load double, ptr %12, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %49, i32 0, i32 20
+  store double %48, ptr %50, align 8
+  br label %51
+
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %13, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %64
+
+54:                                               ; preds = %51
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %60
+
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %8, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %61, ptr noundef %63, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %71
+
+64:                                               ; preds = %51
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %66)
+  %67 = load ptr, ptr %9, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  store i32 %70, ptr %7, align 4
+  br label %71
+
+71:                                               ; preds = %17, %60, %64
+  %72 = load i32, ptr %7, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_futime(ptr noundef %loop, ptr noundef %req, i32 noundef %file, double noundef %atime, double noundef %mtime, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %atime.addr = alloca double, align 8
-  %mtime.addr = alloca double, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store double %atime, ptr %atime.addr, align 8
-  store double %mtime, ptr %mtime.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_lutime(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store double %3, ptr %11, align 8
+  store double %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end15
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 11, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 36, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %file.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %file5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 11
-  store i32 %12, ptr %file5, align 8
-  %14 = load double, ptr %atime.addr, align 8
-  %15 = load ptr, ptr %req.addr, align 8
-  %atime6 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 19
-  store double %14, ptr %atime6, align 8
-  %16 = load double, ptr %mtime.addr, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %mtime7 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 20
-  store double %16, ptr %mtime7, align 8
-  br label %do.body8
+41:                                               ; preds = %22
+  br label %42
 
-do.body8:                                         ; preds = %do.end4
-  %18 = load ptr, ptr %cb.addr, align 8
-  %cmp9 = icmp ne ptr %18, null
-  br i1 %cmp9, label %if.then10, label %if.else
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %49
 
-if.then10:                                        ; preds = %do.body8
-  br label %do.body11
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %60
 
-do.body11:                                        ; preds = %if.then10
-  %19 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %19, i32 0, i32 3
-  %20 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %20, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end12
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @uv__strdup(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-do.end12:                                         ; preds = %do.body11
-  %21 = load ptr, ptr %loop.addr, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %21, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end15
+58:                                               ; preds = %49
+  store i32 -12, ptr %7, align 4
+  br label %88
 
-if.else:                                          ; preds = %do.body8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req13 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req13)
-  %24 = load ptr, ptr %req.addr, align 8
-  %result14 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 6
-  %25 = load i64, ptr %result14, align 8
-  %conv = trunc i64 %25 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end15
+59:                                               ; preds = %49
+  br label %60
 
-do.end15:                                         ; preds = %if.else, %do.end12, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+60:                                               ; preds = %59, %45
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load double, ptr %11, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %63, i32 0, i32 19
+  store double %62, ptr %64, align 8
+  %65 = load double, ptr %12, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 20
+  store double %65, ptr %67, align 8
+  br label %68
+
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %13, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
+
+71:                                               ; preds = %68
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %88
+
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %7, align 4
+  br label %88
+
+88:                                               ; preds = %17, %58, %77, %81
+  %89 = load i32, ptr %7, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_lutime(ptr noundef %loop, ptr noundef %req, ptr noundef %path, double noundef %atime, double noundef %mtime, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %atime.addr = alloca double, align 8
-  %mtime.addr = alloca double, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store double %atime, ptr %atime.addr, align 8
-  store double %mtime, ptr %mtime.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_lstat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end27
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 36, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 7, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end27
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load double, ptr %atime.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %atime17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 19
-  store double %19, ptr %atime17, align 8
-  %21 = load double, ptr %mtime.addr, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %mtime18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 20
-  store double %21, ptr %mtime18, align 8
-  br label %do.body19
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %9, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %67
 
-do.body19:                                        ; preds = %do.end16
-  %23 = load ptr, ptr %cb.addr, align 8
-  %cmp20 = icmp ne ptr %23, null
-  br i1 %cmp20, label %if.then21, label %if.else24
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = call i32 @uv__iou_fs_statx(ptr noundef %61, ptr noundef %62, i32 noundef 0, i32 noundef 1)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %66
 
-if.then21:                                        ; preds = %do.body19
-  br label %do.body22
+65:                                               ; preds = %60
+  store i32 0, ptr %5, align 4
+  br label %88
 
-do.body22:                                        ; preds = %if.then21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %25, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end23
+66:                                               ; preds = %60
+  br label %67
 
-do.end23:                                         ; preds = %do.body22
-  %26 = load ptr, ptr %loop.addr, align 8
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %26, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end27
+67:                                               ; preds = %66, %57
+  br label %68
 
-if.else24:                                        ; preds = %do.body19
-  %28 = load ptr, ptr %req.addr, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req25)
-  %29 = load ptr, ptr %req.addr, align 8
-  %result26 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 6
-  %30 = load i64, ptr %result26, align 8
-  %conv = trunc i64 %30 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end27
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %9, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-do.end27:                                         ; preds = %if.else24, %do.end23, %if.then13, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+71:                                               ; preds = %68
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
+
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %88
+
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %5, align 4
+  br label %88
+
+88:                                               ; preds = %13, %54, %65, %77, %81
+  %89 = load i32, ptr %5, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_lstat(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_link(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  br label %15
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end31
+18:                                               ; preds = %15
+  store i32 -22, ptr %6, align 4
+  br label %124
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+19:                                               ; preds = %15
+  br label %20
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 1
+  store i32 6, ptr %22, align 8
+  br label %23
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 7, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 3
+  store i32 23, ptr %25, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 6
+  store i64 0, ptr %27, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 7
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %31, i32 0, i32 4
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %33, i32 0, i32 8
+  store ptr null, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 10
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 15
+  store ptr null, ptr %38, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %40, i32 0, i32 5
+  store ptr %39, ptr %41, align 8
+  br label %42
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+42:                                               ; preds = %23
+  br label %43
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %11, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %53
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %51, i32 0, i32 10
+  store ptr %50, ptr %52, align 8
+  br label %92
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+53:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %54 = load ptr, ptr %9, align 8
+  %55 = call i64 @strlen(ptr noundef %54) #11
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %12, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = call i64 @strlen(ptr noundef %57) #11
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %13, align 8
+  %60 = load i64, ptr %12, align 8
+  %61 = load i64, ptr %13, align 8
+  %62 = add i64 %60, %61
+  %63 = call ptr @uv__malloc(i64 noundef %62)
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %64, i32 0, i32 8
+  store ptr %63, ptr %65, align 8
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end31
+70:                                               ; preds = %53
+  store i32 -12, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %89
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+71:                                               ; preds = %53
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i64, ptr %12, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %77, i32 0, i32 10
+  store ptr %76, ptr %78, align 8
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %9, align 8
+  %83 = load i64, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %82, i64 %83, i1 false)
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 10
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = load i64, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %87, i64 %88, i1 false)
+  store i32 0, ptr %14, align 4
+  br label %89
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+89:                                               ; preds = %71, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %90 = load i32, ptr %14, align 4
+  switch i32 %90, label %126 [
+    i32 0, label %91
+    i32 1, label %124
+  ]
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp17 = icmp ne ptr %19, null
-  br i1 %cmp17, label %if.then18, label %if.end22
+91:                                               ; preds = %89
+  br label %92
 
-if.then18:                                        ; preds = %do.end16
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %call19 = call i32 @uv__iou_fs_statx(ptr noundef %20, ptr noundef %21, i32 noundef 0, i32 noundef 1)
-  %tobool = icmp ne i32 %call19, 0
-  br i1 %tobool, label %if.then20, label %if.end21
+92:                                               ; preds = %91, %46
+  br label %93
 
-if.then20:                                        ; preds = %if.then18
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %11, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %103
 
-if.end21:                                         ; preds = %if.then18
-  br label %if.end22
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %7, align 8
+  %98 = load ptr, ptr %8, align 8
+  %99 = call i32 @uv__iou_fs_link(ptr noundef %97, ptr noundef %98)
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %102
 
-if.end22:                                         ; preds = %if.end21, %do.end16
-  br label %do.body23
+101:                                              ; preds = %96
+  store i32 0, ptr %6, align 4
+  br label %124
 
-do.body23:                                        ; preds = %if.end22
-  %22 = load ptr, ptr %cb.addr, align 8
-  %cmp24 = icmp ne ptr %22, null
-  br i1 %cmp24, label %if.then25, label %if.else28
+102:                                              ; preds = %96
+  br label %103
 
-if.then25:                                        ; preds = %do.body23
-  br label %do.body26
+103:                                              ; preds = %102, %93
+  br label %104
 
-do.body26:                                        ; preds = %if.then25
-  %23 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %23, i32 0, i32 3
-  %24 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %24, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end27
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %11, align 8
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %117
 
-do.end27:                                         ; preds = %do.body26
-  %25 = load ptr, ptr %loop.addr, align 8
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %25, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+107:                                              ; preds = %104
+  br label %108
 
-if.else28:                                        ; preds = %do.body23
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req29)
-  %28 = load ptr, ptr %req.addr, align 8
-  %result30 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 6
-  %29 = load i64, ptr %result30, align 8
-  %conv = trunc i64 %29 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end31
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 8
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %110, align 8
+  br label %113
 
-do.end31:                                         ; preds = %if.else28, %do.end27, %if.then20, %if.then13, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %7, align 8
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %115, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %114, ptr noundef %116, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %124
+
+117:                                              ; preds = %104
+  %118 = load ptr, ptr %8, align 8
+  %119 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %118, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %119)
+  %120 = load ptr, ptr %8, align 8
+  %121 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %120, i32 0, i32 6
+  %122 = load i64, ptr %121, align 8
+  %123 = trunc i64 %122 to i32
+  store i32 %123, ptr %6, align 4
+  br label %124
+
+124:                                              ; preds = %18, %89, %101, %113, %117
+  %125 = load i32, ptr %6, align 4
+  ret i32 %125
+
+126:                                              ; preds = %89
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @uv_fs_link(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %new_path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %new_path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %path_len = alloca i64, align 8
-  %new_path_len = alloca i64, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %new_path, ptr %new_path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end41
-
-if.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 23, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path4, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb5, align 8
-  br label %do.end6
-
-do.end6:                                          ; preds = %do.end
-  br label %do.body7
-
-do.body7:                                         ; preds = %do.end6
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp eq ptr %12, null
-  br i1 %cmp8, label %if.then9, label %if.else
-
-if.then9:                                         ; preds = %do.body7
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path10, align 8
-  %15 = load ptr, ptr %new_path.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %new_path11 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 10
-  store ptr %15, ptr %new_path11, align 8
-  br label %if.end25
-
-if.else:                                          ; preds = %do.body7
-  %17 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @strlen(ptr noundef %17) #10
-  %add = add i64 %call, 1
-  store i64 %add, ptr %path_len, align 8
-  %18 = load ptr, ptr %new_path.addr, align 8
-  %call12 = call i64 @strlen(ptr noundef %18) #10
-  %add13 = add i64 %call12, 1
-  store i64 %add13, ptr %new_path_len, align 8
-  %19 = load i64, ptr %path_len, align 8
-  %20 = load i64, ptr %new_path_len, align 8
-  %add14 = add i64 %19, %20
-  %call15 = call ptr @uv__malloc(i64 noundef %add14)
-  %21 = load ptr, ptr %req.addr, align 8
-  %path16 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 8
-  store ptr %call15, ptr %path16, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %path17 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 8
-  %23 = load ptr, ptr %path17, align 8
-  %cmp18 = icmp eq ptr %23, null
-  br i1 %cmp18, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end41
-
-if.end20:                                         ; preds = %if.else
-  %24 = load ptr, ptr %req.addr, align 8
-  %path21 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 8
-  %25 = load ptr, ptr %path21, align 8
-  %26 = load i64, ptr %path_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %25, i64 %26
-  %27 = load ptr, ptr %req.addr, align 8
-  %new_path22 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 10
-  store ptr %add.ptr, ptr %new_path22, align 8
-  %28 = load ptr, ptr %req.addr, align 8
-  %path23 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 8
-  %29 = load ptr, ptr %path23, align 8
-  %30 = load ptr, ptr %path.addr, align 8
-  %31 = load i64, ptr %path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 %31, i1 false)
-  %32 = load ptr, ptr %req.addr, align 8
-  %new_path24 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 10
-  %33 = load ptr, ptr %new_path24, align 8
-  %34 = load ptr, ptr %new_path.addr, align 8
-  %35 = load i64, ptr %new_path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end20, %if.then9
-  br label %do.end26
-
-do.end26:                                         ; preds = %if.end25
-  %36 = load ptr, ptr %cb.addr, align 8
-  %cmp27 = icmp ne ptr %36, null
-  br i1 %cmp27, label %if.then28, label %if.end32
-
-if.then28:                                        ; preds = %do.end26
-  %37 = load ptr, ptr %loop.addr, align 8
-  %38 = load ptr, ptr %req.addr, align 8
-  %call29 = call i32 @uv__iou_fs_link(ptr noundef %37, ptr noundef %38)
-  %tobool = icmp ne i32 %call29, 0
-  br i1 %tobool, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %if.then28
-  store i32 0, ptr %retval, align 4
-  br label %do.end41
-
-if.end31:                                         ; preds = %if.then28
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %do.end26
-  br label %do.body33
-
-do.body33:                                        ; preds = %if.end32
-  %39 = load ptr, ptr %cb.addr, align 8
-  %cmp34 = icmp ne ptr %39, null
-  br i1 %cmp34, label %if.then35, label %if.else38
-
-if.then35:                                        ; preds = %do.body33
-  br label %do.body36
-
-do.body36:                                        ; preds = %if.then35
-  %40 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %40, i32 0, i32 3
-  %41 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %41, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end37
-
-do.end37:                                         ; preds = %do.body36
-  %42 = load ptr, ptr %loop.addr, align 8
-  %43 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %43, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %42, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end41
-
-if.else38:                                        ; preds = %do.body33
-  %44 = load ptr, ptr %req.addr, align 8
-  %work_req39 = getelementptr inbounds %struct.uv_fs_s, ptr %44, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req39)
-  %45 = load ptr, ptr %req.addr, align 8
-  %result40 = getelementptr inbounds %struct.uv_fs_s, ptr %45, i32 0, i32 6
-  %46 = load i64, ptr %result40, align 8
-  %conv = trunc i64 %46 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end41
-
-do.end41:                                         ; preds = %if.else38, %do.end37, %if.then30, %if.then19, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 declare ptr @uv__malloc(i64 noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @uv__iou_fs_link(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_mkdir(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %mode, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %mode.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end32
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %93
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+16:                                               ; preds = %12
+  br label %17
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 19, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 19, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+39:                                               ; preds = %20
+  br label %40
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %11, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %47
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 8
+  store ptr %44, ptr %46, align 8
+  br label %58
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %9, align 8
+  %49 = call ptr @uv__strdup(ptr noundef %48)
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end32
+56:                                               ; preds = %47
+  store i32 -12, ptr %6, align 4
+  br label %93
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+57:                                               ; preds = %47
+  br label %58
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+58:                                               ; preds = %57, %43
+  br label %59
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %mode.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %mode17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 13
-  store i32 %19, ptr %mode17, align 8
-  %21 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %21, null
-  br i1 %cmp18, label %if.then19, label %if.end23
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 13
+  store i32 %60, ptr %62, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %72
 
-if.then19:                                        ; preds = %do.end16
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %call20 = call i32 @uv__iou_fs_mkdir(ptr noundef %22, ptr noundef %23)
-  %tobool = icmp ne i32 %call20, 0
-  br i1 %tobool, label %if.then21, label %if.end22
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = call i32 @uv__iou_fs_mkdir(ptr noundef %66, ptr noundef %67)
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %71
 
-if.then21:                                        ; preds = %if.then19
-  store i32 0, ptr %retval, align 4
-  br label %do.end32
+70:                                               ; preds = %65
+  store i32 0, ptr %6, align 4
+  br label %93
 
-if.end22:                                         ; preds = %if.then19
-  br label %if.end23
+71:                                               ; preds = %65
+  br label %72
 
-if.end23:                                         ; preds = %if.end22, %do.end16
-  br label %do.body24
+72:                                               ; preds = %71, %59
+  br label %73
 
-do.body24:                                        ; preds = %if.end23
-  %24 = load ptr, ptr %cb.addr, align 8
-  %cmp25 = icmp ne ptr %24, null
-  br i1 %cmp25, label %if.then26, label %if.else29
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %11, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %86
 
-if.then26:                                        ; preds = %do.body24
-  br label %do.body27
+76:                                               ; preds = %73
+  br label %77
 
-do.body27:                                        ; preds = %if.then26
-  %25 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %25, i32 0, i32 3
-  %26 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %26, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end28
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %78, i32 0, i32 3
+  %80 = load i32, ptr %79, align 8
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 8
+  br label %82
 
-do.end28:                                         ; preds = %do.body27
-  %27 = load ptr, ptr %loop.addr, align 8
-  %28 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %27, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end32
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %83, ptr noundef %85, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %93
 
-if.else29:                                        ; preds = %do.body24
-  %29 = load ptr, ptr %req.addr, align 8
-  %work_req30 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req30)
-  %30 = load ptr, ptr %req.addr, align 8
-  %result31 = getelementptr inbounds %struct.uv_fs_s, ptr %30, i32 0, i32 6
-  %31 = load i64, ptr %result31, align 8
-  %conv = trunc i64 %31 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end32
+86:                                               ; preds = %73
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %87, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %88)
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %89, i32 0, i32 6
+  %91 = load i64, ptr %90, align 8
+  %92 = trunc i64 %91 to i32
+  store i32 %92, ptr %6, align 4
+  br label %93
 
-do.end32:                                         ; preds = %if.else29, %do.end28, %if.then21, %if.then13, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+93:                                               ; preds = %15, %56, %70, %82, %86
+  %94 = load i32, ptr %6, align 4
+  ret i32 %94
 }
 
 declare i32 @uv__iou_fs_mkdir(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_mkdtemp(ptr noundef %loop, ptr noundef %req, ptr noundef %tpl, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %tpl.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %tpl, ptr %tpl.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_mkdtemp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end17
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %68
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 20, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 20, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load ptr, ptr %tpl.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %12)
-  %13 = load ptr, ptr %req.addr, align 8
-  %path5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 8
-  store ptr %call, ptr %path5, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path6 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  %15 = load ptr, ptr %path6, align 8
-  %cmp7 = icmp eq ptr %15, null
-  br i1 %cmp7, label %if.then8, label %if.end9
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %8, align 8
+  %39 = call ptr @uv__strdup(ptr noundef %38)
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %40, i32 0, i32 8
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-if.then8:                                         ; preds = %do.end4
-  store i32 -12, ptr %retval, align 4
-  br label %do.end17
+46:                                               ; preds = %37
+  store i32 -12, ptr %5, align 4
+  br label %68
 
-if.end9:                                          ; preds = %do.end4
-  br label %do.body10
+47:                                               ; preds = %37
+  br label %48
 
-do.body10:                                        ; preds = %if.end9
-  %16 = load ptr, ptr %cb.addr, align 8
-  %cmp11 = icmp ne ptr %16, null
-  br i1 %cmp11, label %if.then12, label %if.else
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %9, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %61
 
-if.then12:                                        ; preds = %do.body10
-  br label %do.body13
+51:                                               ; preds = %48
+  br label %52
 
-do.body13:                                        ; preds = %if.then12
-  %17 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end14
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %53, i32 0, i32 3
+  %55 = load i32, ptr %54, align 8
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %54, align 8
+  br label %57
 
-do.end14:                                         ; preds = %do.body13
-  %19 = load ptr, ptr %loop.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %19, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end17
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %59, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %58, ptr noundef %60, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %68
 
-if.else:                                          ; preds = %do.body10
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req15 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req15)
-  %22 = load ptr, ptr %req.addr, align 8
-  %result16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 6
-  %23 = load i64, ptr %result16, align 8
-  %conv = trunc i64 %23 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end17
+61:                                               ; preds = %48
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %63)
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %64, i32 0, i32 6
+  %66 = load i64, ptr %65, align 8
+  %67 = trunc i64 %66 to i32
+  store i32 %67, ptr %5, align 4
+  br label %68
 
-do.end17:                                         ; preds = %if.else, %do.end14, %if.then8, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+68:                                               ; preds = %13, %46, %57, %61
+  %69 = load i32, ptr %5, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_mkstemp(ptr noundef %loop, ptr noundef %req, ptr noundef %tpl, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %tpl.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %tpl, ptr %tpl.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_mkstemp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end17
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %68
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 35, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 35, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load ptr, ptr %tpl.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %12)
-  %13 = load ptr, ptr %req.addr, align 8
-  %path5 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 8
-  store ptr %call, ptr %path5, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path6 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  %15 = load ptr, ptr %path6, align 8
-  %cmp7 = icmp eq ptr %15, null
-  br i1 %cmp7, label %if.then8, label %if.end9
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %8, align 8
+  %39 = call ptr @uv__strdup(ptr noundef %38)
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %40, i32 0, i32 8
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-if.then8:                                         ; preds = %do.end4
-  store i32 -12, ptr %retval, align 4
-  br label %do.end17
+46:                                               ; preds = %37
+  store i32 -12, ptr %5, align 4
+  br label %68
 
-if.end9:                                          ; preds = %do.end4
-  br label %do.body10
+47:                                               ; preds = %37
+  br label %48
 
-do.body10:                                        ; preds = %if.end9
-  %16 = load ptr, ptr %cb.addr, align 8
-  %cmp11 = icmp ne ptr %16, null
-  br i1 %cmp11, label %if.then12, label %if.else
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %9, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %61
 
-if.then12:                                        ; preds = %do.body10
-  br label %do.body13
+51:                                               ; preds = %48
+  br label %52
 
-do.body13:                                        ; preds = %if.then12
-  %17 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %17, i32 0, i32 3
-  %18 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %18, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end14
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %53, i32 0, i32 3
+  %55 = load i32, ptr %54, align 8
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %54, align 8
+  br label %57
 
-do.end14:                                         ; preds = %do.body13
-  %19 = load ptr, ptr %loop.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %19, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end17
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %59, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %58, ptr noundef %60, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %68
 
-if.else:                                          ; preds = %do.body10
-  %21 = load ptr, ptr %req.addr, align 8
-  %work_req15 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req15)
-  %22 = load ptr, ptr %req.addr, align 8
-  %result16 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 6
-  %23 = load i64, ptr %result16, align 8
-  %conv = trunc i64 %23 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end17
+61:                                               ; preds = %48
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %63)
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %64, i32 0, i32 6
+  %66 = load i64, ptr %65, align 8
+  %67 = trunc i64 %66 to i32
+  store i32 %67, ptr %5, align 4
+  br label %68
 
-do.end17:                                         ; preds = %if.else, %do.end14, %if.then8, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+68:                                               ; preds = %13, %46, %57, %61
+  %69 = load i32, ptr %5, align 4
+  ret i32 %69
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_open(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %flags, i32 noundef %mode, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %mode.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store i32 %mode, ptr %mode.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store i32 %3, ptr %11, align 4
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end33
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %98
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 1, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 1, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+41:                                               ; preds = %22
+  br label %42
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %49
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %60
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @uv__strdup(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end33
+58:                                               ; preds = %49
+  store i32 -12, ptr %7, align 4
+  br label %98
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+59:                                               ; preds = %49
+  br label %60
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+60:                                               ; preds = %59, %45
+  br label %61
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %flags.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 12
-  store i32 %19, ptr %flags17, align 4
-  %21 = load i32, ptr %mode.addr, align 4
-  %22 = load ptr, ptr %req.addr, align 8
-  %mode18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 13
-  store i32 %21, ptr %mode18, align 8
-  %23 = load ptr, ptr %cb.addr, align 8
-  %cmp19 = icmp ne ptr %23, null
-  br i1 %cmp19, label %if.then20, label %if.end24
+61:                                               ; preds = %60
+  %62 = load i32, ptr %11, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %63, i32 0, i32 12
+  store i32 %62, ptr %64, align 4
+  %65 = load i32, ptr %12, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 13
+  store i32 %65, ptr %67, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %77
 
-if.then20:                                        ; preds = %do.end16
-  %24 = load ptr, ptr %loop.addr, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %call21 = call i32 @uv__iou_fs_open(ptr noundef %24, ptr noundef %25)
-  %tobool = icmp ne i32 %call21, 0
-  br i1 %tobool, label %if.then22, label %if.end23
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %8, align 8
+  %72 = load ptr, ptr %9, align 8
+  %73 = call i32 @uv__iou_fs_open(ptr noundef %71, ptr noundef %72)
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %76
 
-if.then22:                                        ; preds = %if.then20
-  store i32 0, ptr %retval, align 4
-  br label %do.end33
+75:                                               ; preds = %70
+  store i32 0, ptr %7, align 4
+  br label %98
 
-if.end23:                                         ; preds = %if.then20
-  br label %if.end24
+76:                                               ; preds = %70
+  br label %77
 
-if.end24:                                         ; preds = %if.end23, %do.end16
-  br label %do.body25
+77:                                               ; preds = %76, %61
+  br label %78
 
-do.body25:                                        ; preds = %if.end24
-  %26 = load ptr, ptr %cb.addr, align 8
-  %cmp26 = icmp ne ptr %26, null
-  br i1 %cmp26, label %if.then27, label %if.else30
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %13, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %91
 
-if.then27:                                        ; preds = %do.body25
-  br label %do.body28
+81:                                               ; preds = %78
+  br label %82
 
-do.body28:                                        ; preds = %if.then27
-  %27 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %27, i32 0, i32 3
-  %28 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %28, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end29
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 8
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %84, align 8
+  br label %87
 
-do.end29:                                         ; preds = %do.body28
-  %29 = load ptr, ptr %loop.addr, align 8
-  %30 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %30, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %29, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end33
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %8, align 8
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %89, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %88, ptr noundef %90, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %98
 
-if.else30:                                        ; preds = %do.body25
-  %31 = load ptr, ptr %req.addr, align 8
-  %work_req31 = getelementptr inbounds %struct.uv_fs_s, ptr %31, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req31)
-  %32 = load ptr, ptr %req.addr, align 8
-  %result32 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 6
-  %33 = load i64, ptr %result32, align 8
-  %conv = trunc i64 %33 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end33
+91:                                               ; preds = %78
+  %92 = load ptr, ptr %9, align 8
+  %93 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %92, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %93)
+  %94 = load ptr, ptr %9, align 8
+  %95 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %94, i32 0, i32 6
+  %96 = load i64, ptr %95, align 8
+  %97 = trunc i64 %96 to i32
+  store i32 %97, ptr %7, align 4
+  br label %98
 
-do.end33:                                         ; preds = %if.else30, %do.end29, %if.then22, %if.then13, %if.then
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+98:                                               ; preds = %17, %58, %75, %87, %91
+  %99 = load i32, ptr %7, align 4
+  ret i32 %99
 }
 
 declare i32 @uv__iou_fs_open(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_read(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %bufs, i32 noundef %nbufs, i64 noundef %off, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %nbufs.addr = alloca i32, align 4
-  %off.addr = alloca i64, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i32 %nbufs, ptr %nbufs.addr, align 4
-  store i64 %off, ptr %off.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store i32 %2, ptr %11, align 4
+  store ptr %3, ptr %12, align 8
+  store i32 %4, ptr %13, align 4
+  store i64 %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  br label %16
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %10, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end44
+19:                                               ; preds = %16
+  store i32 -22, ptr %8, align 4
+  br label %123
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+20:                                               ; preds = %16
+  br label %21
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 1
+  store i32 6, ptr %23, align 8
+  br label %24
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 3, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs3, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 3
+  store i32 3, ptr %26, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 6
+  store i64 0, ptr %28, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %29, i32 0, i32 7
+  store ptr null, ptr %30, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 4
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 8
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 10
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %38, i32 0, i32 15
+  store ptr null, ptr %39, align 8
+  %40 = load ptr, ptr %15, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %41, i32 0, i32 5
+  store ptr %40, ptr %42, align 8
+  br label %43
 
-do.end5:                                          ; preds = %do.end
-  %12 = load ptr, ptr %bufs.addr, align 8
-  %cmp6 = icmp eq ptr %12, null
-  br i1 %cmp6, label %if.then8, label %lor.lhs.false
+43:                                               ; preds = %24
+  %44 = load ptr, ptr %12, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %49, label %46
 
-lor.lhs.false:                                    ; preds = %do.end5
-  %13 = load i32, ptr %nbufs.addr, align 4
-  %cmp7 = icmp eq i32 %13, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+46:                                               ; preds = %43
+  %47 = load i32, ptr %13, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then8:                                         ; preds = %lor.lhs.false, %do.end5
-  store i32 -22, ptr %retval, align 4
-  br label %do.end44
+49:                                               ; preds = %46, %43
+  store i32 -22, ptr %8, align 4
+  br label %123
 
-if.end9:                                          ; preds = %lor.lhs.false
-  %14 = load i64, ptr %off.addr, align 8
-  %15 = load ptr, ptr %req.addr, align 8
-  %off10 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 16
-  store i64 %14, ptr %off10, align 8
-  %16 = load i32, ptr %file.addr, align 4
-  %17 = load ptr, ptr %req.addr, align 8
-  %file11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 11
-  store i32 %16, ptr %file11, align 8
-  %18 = load ptr, ptr %bufs.addr, align 8
-  %19 = load ptr, ptr %req.addr, align 8
-  %bufs12 = getelementptr inbounds %struct.uv_fs_s, ptr %19, i32 0, i32 15
-  store ptr %18, ptr %bufs12, align 8
-  %20 = load i32, ptr %nbufs.addr, align 4
-  %21 = load ptr, ptr %req.addr, align 8
-  %nbufs13 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 14
-  store i32 %20, ptr %nbufs13, align 4
-  %22 = load ptr, ptr %cb.addr, align 8
-  %cmp14 = icmp eq ptr %22, null
-  br i1 %cmp14, label %if.then15, label %if.end16
+50:                                               ; preds = %46
+  %51 = load i64, ptr %14, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 16
+  store i64 %51, ptr %53, align 8
+  %54 = load i32, ptr %11, align 4
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %55, i32 0, i32 11
+  store i32 %54, ptr %56, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %58, i32 0, i32 15
+  store ptr %57, ptr %59, align 8
+  %60 = load i32, ptr %13, align 4
+  %61 = load ptr, ptr %10, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 14
+  store i32 %60, ptr %62, align 4
+  %63 = load ptr, ptr %15, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %66
 
-if.then15:                                        ; preds = %if.end9
-  br label %post
+65:                                               ; preds = %50
+  br label %102
 
-if.end16:                                         ; preds = %if.end9
-  %23 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 22
-  %arraydecay = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %24 = load ptr, ptr %req.addr, align 8
-  %bufs17 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 15
-  store ptr %arraydecay, ptr %bufs17, align 8
-  %25 = load i32, ptr %nbufs.addr, align 4
-  %conv = zext i32 %25 to i64
-  %cmp18 = icmp ugt i64 %conv, 4
-  br i1 %cmp18, label %if.then20, label %if.end23
+66:                                               ; preds = %50
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 22
+  %69 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %68, i64 0, i64 0
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %70, i32 0, i32 15
+  store ptr %69, ptr %71, align 8
+  %72 = load i32, ptr %13, align 4
+  %73 = zext i32 %72 to i64
+  %74 = icmp ugt i64 %73, 4
+  br i1 %74, label %75, label %82
 
-if.then20:                                        ; preds = %if.end16
-  %26 = load i32, ptr %nbufs.addr, align 4
-  %conv21 = zext i32 %26 to i64
-  %mul = mul i64 %conv21, 16
-  %call = call ptr @uv__malloc(i64 noundef %mul)
-  %27 = load ptr, ptr %req.addr, align 8
-  %bufs22 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 15
-  store ptr %call, ptr %bufs22, align 8
-  br label %if.end23
+75:                                               ; preds = %66
+  %76 = load i32, ptr %13, align 4
+  %77 = zext i32 %76 to i64
+  %78 = mul i64 %77, 16
+  %79 = call ptr @uv__malloc(i64 noundef %78)
+  %80 = load ptr, ptr %10, align 8
+  %81 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %80, i32 0, i32 15
+  store ptr %79, ptr %81, align 8
+  br label %82
 
-if.end23:                                         ; preds = %if.then20, %if.end16
-  %28 = load ptr, ptr %req.addr, align 8
-  %bufs24 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 15
-  %29 = load ptr, ptr %bufs24, align 8
-  %cmp25 = icmp eq ptr %29, null
-  br i1 %cmp25, label %if.then27, label %if.end28
+82:                                               ; preds = %75, %66
+  %83 = load ptr, ptr %10, align 8
+  %84 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %83, i32 0, i32 15
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %87, label %88
 
-if.then27:                                        ; preds = %if.end23
-  store i32 -12, ptr %retval, align 4
-  br label %do.end44
+87:                                               ; preds = %82
+  store i32 -12, ptr %8, align 4
+  br label %123
 
-if.end28:                                         ; preds = %if.end23
-  %30 = load ptr, ptr %req.addr, align 8
-  %bufs29 = getelementptr inbounds %struct.uv_fs_s, ptr %30, i32 0, i32 15
-  %31 = load ptr, ptr %bufs29, align 8
-  %32 = load ptr, ptr %bufs.addr, align 8
-  %33 = load i32, ptr %nbufs.addr, align 4
-  %conv30 = zext i32 %33 to i64
-  %mul31 = mul i64 %conv30, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %32, i64 %mul31, i1 false)
-  %34 = load ptr, ptr %loop.addr, align 8
-  %35 = load ptr, ptr %req.addr, align 8
-  %call32 = call i32 @uv__iou_fs_read_or_write(ptr noundef %34, ptr noundef %35, i32 noundef 1)
-  %tobool = icmp ne i32 %call32, 0
-  br i1 %tobool, label %if.then33, label %if.end34
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %89, i32 0, i32 15
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = load i32, ptr %13, align 4
+  %94 = zext i32 %93 to i64
+  %95 = mul i64 %94, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %91, ptr align 8 %92, i64 %95, i1 false)
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = call i32 @uv__iou_fs_read_or_write(ptr noundef %96, ptr noundef %97, i32 noundef 1)
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %101
 
-if.then33:                                        ; preds = %if.end28
-  store i32 0, ptr %retval, align 4
-  br label %do.end44
+100:                                              ; preds = %88
+  store i32 0, ptr %8, align 4
+  br label %123
 
-if.end34:                                         ; preds = %if.end28
-  br label %post
+101:                                              ; preds = %88
+  br label %102
 
-post:                                             ; preds = %if.end34, %if.then15
-  br label %do.body35
+102:                                              ; preds = %101, %65
+  br label %103
 
-do.body35:                                        ; preds = %post
-  %36 = load ptr, ptr %cb.addr, align 8
-  %cmp36 = icmp ne ptr %36, null
-  br i1 %cmp36, label %if.then38, label %if.else
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %15, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %116
 
-if.then38:                                        ; preds = %do.body35
-  br label %do.body39
+106:                                              ; preds = %103
+  br label %107
 
-do.body39:                                        ; preds = %if.then38
-  %37 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %37, i32 0, i32 3
-  %38 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %38, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end40
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %108, i32 0, i32 3
+  %110 = load i32, ptr %109, align 8
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %109, align 8
+  br label %112
 
-do.end40:                                         ; preds = %do.body39
-  %39 = load ptr, ptr %loop.addr, align 8
-  %40 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %40, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %39, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end44
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %9, align 8
+  %114 = load ptr, ptr %10, align 8
+  %115 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %114, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %113, ptr noundef %115, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %8, align 4
+  br label %123
 
-if.else:                                          ; preds = %do.body35
-  %41 = load ptr, ptr %req.addr, align 8
-  %work_req41 = getelementptr inbounds %struct.uv_fs_s, ptr %41, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req41)
-  %42 = load ptr, ptr %req.addr, align 8
-  %result42 = getelementptr inbounds %struct.uv_fs_s, ptr %42, i32 0, i32 6
-  %43 = load i64, ptr %result42, align 8
-  %conv43 = trunc i64 %43 to i32
-  store i32 %conv43, ptr %retval, align 4
-  br label %do.end44
+116:                                              ; preds = %103
+  %117 = load ptr, ptr %10, align 8
+  %118 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %117, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %118)
+  %119 = load ptr, ptr %10, align 8
+  %120 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %119, i32 0, i32 6
+  %121 = load i64, ptr %120, align 8
+  %122 = trunc i64 %121 to i32
+  store i32 %122, ptr %8, align 4
+  br label %123
 
-do.end44:                                         ; preds = %if.else, %do.end40, %if.then33, %if.then27, %if.then8, %if.then
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+123:                                              ; preds = %19, %49, %87, %100, %112, %116
+  %124 = load i32, ptr %8, align 4
+  ret i32 %124
 }
 
 declare i32 @uv__iou_fs_read_or_write(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_scandir(ptr noundef %loop, ptr noundef %req, ptr noundef %path, i32 noundef %flags, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_scandir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  br label %12
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+12:                                               ; preds = %5
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end26
+15:                                               ; preds = %12
+  store i32 -22, ptr %6, align 4
+  br label %83
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+16:                                               ; preds = %12
+  br label %17
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 1
+  store i32 6, ptr %19, align 8
+  br label %20
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 22, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 3
+  store i32 22, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 6
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 4
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 8
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 10
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 15
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 5
+  store ptr %36, ptr %38, align 8
+  br label %39
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+39:                                               ; preds = %20
+  br label %40
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %11, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %47
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 8
+  store ptr %44, ptr %46, align 8
+  br label %58
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %9, align 8
+  %49 = call ptr @uv__strdup(ptr noundef %48)
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end26
+56:                                               ; preds = %47
+  store i32 -12, ptr %6, align 4
+  br label %83
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+57:                                               ; preds = %47
+  br label %58
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+58:                                               ; preds = %57, %43
+  br label %59
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load i32, ptr %flags.addr, align 4
-  %20 = load ptr, ptr %req.addr, align 8
-  %flags17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 12
-  store i32 %19, ptr %flags17, align 4
-  br label %do.body18
+59:                                               ; preds = %58
+  %60 = load i32, ptr %10, align 4
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 12
+  store i32 %60, ptr %62, align 4
+  br label %63
 
-do.body18:                                        ; preds = %do.end16
-  %21 = load ptr, ptr %cb.addr, align 8
-  %cmp19 = icmp ne ptr %21, null
-  br i1 %cmp19, label %if.then20, label %if.else23
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %11, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %76
 
-if.then20:                                        ; preds = %do.body18
-  br label %do.body21
+66:                                               ; preds = %63
+  br label %67
 
-do.body21:                                        ; preds = %if.then20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %22, i32 0, i32 3
-  %23 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %23, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end22
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %68, i32 0, i32 3
+  %70 = load i32, ptr %69, align 8
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 8
+  br label %72
 
-do.end22:                                         ; preds = %do.body21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %24, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end26
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %73, ptr noundef %75, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %83
 
-if.else23:                                        ; preds = %do.body18
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req24 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req24)
-  %27 = load ptr, ptr %req.addr, align 8
-  %result25 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 6
-  %28 = load i64, ptr %result25, align 8
-  %conv = trunc i64 %28 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end26
+76:                                               ; preds = %63
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %77, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %78)
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 6
+  %81 = load i64, ptr %80, align 8
+  %82 = trunc i64 %81 to i32
+  store i32 %82, ptr %6, align 4
+  br label %83
 
-do.end26:                                         ; preds = %if.else23, %do.end22, %if.then13, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
+83:                                               ; preds = %15, %56, %72, %76
+  %84 = load i32, ptr %6, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_opendir(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_opendir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end25
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 31, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 31, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end25
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+57:                                               ; preds = %56
+  br label %58
 
-do.body17:                                        ; preds = %do.end16
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %19, null
-  br i1 %cmp18, label %if.then19, label %if.else22
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %9, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then19:                                        ; preds = %do.body17
-  br label %do.body20
+61:                                               ; preds = %58
+  br label %62
 
-do.body20:                                        ; preds = %if.then19
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end21
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end21:                                         ; preds = %do.body20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end25
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %78
 
-if.else22:                                        ; preds = %do.body17
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req23)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result24, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end25
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %5, align 4
+  br label %78
 
-do.end25:                                         ; preds = %if.else22, %do.end21, %if.then13, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+78:                                               ; preds = %13, %54, %67, %71
+  %79 = load i32, ptr %5, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_readdir(ptr noundef %loop, ptr noundef %req, ptr noundef %dir, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %dir.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %dir, ptr %dir.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_readdir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end20
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %75
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 32, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 32, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load ptr, ptr %dir.addr, align 8
-  %cmp5 = icmp eq ptr %12, null
-  br i1 %cmp5, label %if.then10, label %lor.lhs.false
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %8, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %50, label %40
 
-lor.lhs.false:                                    ; preds = %do.end4
-  %13 = load ptr, ptr %dir.addr, align 8
-  %dir6 = getelementptr inbounds %struct.uv_dir_s, ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %dir6, align 8
-  %cmp7 = icmp eq ptr %14, null
-  br i1 %cmp7, label %if.then10, label %lor.lhs.false8
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %50, label %45
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %15 = load ptr, ptr %dir.addr, align 8
-  %dirents = getelementptr inbounds %struct.uv_dir_s, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %dirents, align 8
-  %cmp9 = icmp eq ptr %16, null
-  br i1 %cmp9, label %if.then10, label %if.end11
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-if.then10:                                        ; preds = %lor.lhs.false8, %lor.lhs.false, %do.end4
-  store i32 -22, ptr %retval, align 4
-  br label %do.end20
+50:                                               ; preds = %45, %40, %37
+  store i32 -22, ptr %5, align 4
+  br label %75
 
-if.end11:                                         ; preds = %lor.lhs.false8
-  %17 = load ptr, ptr %dir.addr, align 8
-  %18 = load ptr, ptr %req.addr, align 8
-  %ptr12 = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 7
-  store ptr %17, ptr %ptr12, align 8
-  br label %do.body13
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %8, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %53, i32 0, i32 7
+  store ptr %52, ptr %54, align 8
+  br label %55
 
-do.body13:                                        ; preds = %if.end11
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp14 = icmp ne ptr %19, null
-  br i1 %cmp14, label %if.then15, label %if.else
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %9, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %68
 
-if.then15:                                        ; preds = %do.body13
-  br label %do.body16
+58:                                               ; preds = %55
+  br label %59
 
-do.body16:                                        ; preds = %if.then15
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end17
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %60, i32 0, i32 3
+  %62 = load i32, ptr %61, align 8
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %61, align 8
+  br label %64
 
-do.end17:                                         ; preds = %do.body16
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end20
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %6, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %65, ptr noundef %67, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %75
 
-if.else:                                          ; preds = %do.body13
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req18 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req18)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result19 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result19, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end20
+68:                                               ; preds = %55
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %70)
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %71, i32 0, i32 6
+  %73 = load i64, ptr %72, align 8
+  %74 = trunc i64 %73 to i32
+  store i32 %74, ptr %5, align 4
+  br label %75
 
-do.end20:                                         ; preds = %if.else, %do.end17, %if.then10, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+75:                                               ; preds = %13, %50, %64, %68
+  %76 = load i32, ptr %5, align 4
+  ret i32 %76
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_closedir(ptr noundef %loop, ptr noundef %req, ptr noundef %dir, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %dir.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %dir, ptr %dir.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_closedir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end16
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %65
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 33, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 33, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end4:                                          ; preds = %do.end
-  %12 = load ptr, ptr %dir.addr, align 8
-  %cmp5 = icmp eq ptr %12, null
-  br i1 %cmp5, label %if.then6, label %if.end7
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %8, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-if.then6:                                         ; preds = %do.end4
-  store i32 -22, ptr %retval, align 4
-  br label %do.end16
+40:                                               ; preds = %37
+  store i32 -22, ptr %5, align 4
+  br label %65
 
-if.end7:                                          ; preds = %do.end4
-  %13 = load ptr, ptr %dir.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %ptr8 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 7
-  store ptr %13, ptr %ptr8, align 8
-  br label %do.body9
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 7
+  store ptr %42, ptr %44, align 8
+  br label %45
 
-do.body9:                                         ; preds = %if.end7
-  %15 = load ptr, ptr %cb.addr, align 8
-  %cmp10 = icmp ne ptr %15, null
-  br i1 %cmp10, label %if.then11, label %if.else
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %58
 
-if.then11:                                        ; preds = %do.body9
-  br label %do.body12
+48:                                               ; preds = %45
+  br label %49
 
-do.body12:                                        ; preds = %if.then11
-  %16 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %17, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end13
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 8
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %51, align 8
+  br label %54
 
-do.end13:                                         ; preds = %do.body12
-  %18 = load ptr, ptr %loop.addr, align 8
-  %19 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %19, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %18, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end16
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %6, align 8
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %56, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %55, ptr noundef %57, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %65
 
-if.else:                                          ; preds = %do.body9
-  %20 = load ptr, ptr %req.addr, align 8
-  %work_req14 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req14)
-  %21 = load ptr, ptr %req.addr, align 8
-  %result15 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 6
-  %22 = load i64, ptr %result15, align 8
-  %conv = trunc i64 %22 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end16
+58:                                               ; preds = %45
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %59, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %60)
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 6
+  %63 = load i64, ptr %62, align 8
+  %64 = trunc i64 %63 to i32
+  store i32 %64, ptr %5, align 4
+  br label %65
 
-do.end16:                                         ; preds = %if.else, %do.end13, %if.then6, %if.then
-  %23 = load i32, ptr %retval, align 4
-  ret i32 %23
+65:                                               ; preds = %13, %40, %54, %58
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_readlink(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_readlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end25
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 25, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 25, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end25
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+57:                                               ; preds = %56
+  br label %58
 
-do.body17:                                        ; preds = %do.end16
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %19, null
-  br i1 %cmp18, label %if.then19, label %if.else22
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %9, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then19:                                        ; preds = %do.body17
-  br label %do.body20
+61:                                               ; preds = %58
+  br label %62
 
-do.body20:                                        ; preds = %if.then19
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end21
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end21:                                         ; preds = %do.body20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end25
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %78
 
-if.else22:                                        ; preds = %do.body17
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req23)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result24, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end25
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %5, align 4
+  br label %78
 
-do.end25:                                         ; preds = %if.else22, %do.end21, %if.then13, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+78:                                               ; preds = %13, %54, %67, %71
+  %79 = load i32, ptr %5, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_realpath(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_realpath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end25
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 28, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 28, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end25
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+57:                                               ; preds = %56
+  br label %58
 
-do.body17:                                        ; preds = %do.end16
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %19, null
-  br i1 %cmp18, label %if.then19, label %if.else22
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %9, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then19:                                        ; preds = %do.body17
-  br label %do.body20
+61:                                               ; preds = %58
+  br label %62
 
-do.body20:                                        ; preds = %if.then19
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end21
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end21:                                         ; preds = %do.body20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end25
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %78
 
-if.else22:                                        ; preds = %do.body17
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req23)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result24, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end25
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %5, align 4
+  br label %78
 
-do.end25:                                         ; preds = %if.else22, %do.end21, %if.then13, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+78:                                               ; preds = %13, %54, %67, %71
+  %79 = load i32, ptr %5, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_rename(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %new_path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %new_path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %path_len = alloca i64, align 8
-  %new_path_len = alloca i64, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %new_path, ptr %new_path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  br label %15
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end41
+18:                                               ; preds = %15
+  store i32 -22, ptr %6, align 4
+  br label %124
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+19:                                               ; preds = %15
+  br label %20
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 1
+  store i32 6, ptr %22, align 8
+  br label %23
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 21, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path4, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb5, align 8
-  br label %do.end6
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 3
+  store i32 21, ptr %25, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 6
+  store i64 0, ptr %27, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 7
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %31, i32 0, i32 4
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %33, i32 0, i32 8
+  store ptr null, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 10
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 15
+  store ptr null, ptr %38, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %40, i32 0, i32 5
+  store ptr %39, ptr %41, align 8
+  br label %42
 
-do.end6:                                          ; preds = %do.end
-  br label %do.body7
+42:                                               ; preds = %23
+  br label %43
 
-do.body7:                                         ; preds = %do.end6
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp eq ptr %12, null
-  br i1 %cmp8, label %if.then9, label %if.else
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %11, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %53
 
-if.then9:                                         ; preds = %do.body7
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path10, align 8
-  %15 = load ptr, ptr %new_path.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %new_path11 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 10
-  store ptr %15, ptr %new_path11, align 8
-  br label %if.end25
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %51, i32 0, i32 10
+  store ptr %50, ptr %52, align 8
+  br label %92
 
-if.else:                                          ; preds = %do.body7
-  %17 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @strlen(ptr noundef %17) #10
-  %add = add i64 %call, 1
-  store i64 %add, ptr %path_len, align 8
-  %18 = load ptr, ptr %new_path.addr, align 8
-  %call12 = call i64 @strlen(ptr noundef %18) #10
-  %add13 = add i64 %call12, 1
-  store i64 %add13, ptr %new_path_len, align 8
-  %19 = load i64, ptr %path_len, align 8
-  %20 = load i64, ptr %new_path_len, align 8
-  %add14 = add i64 %19, %20
-  %call15 = call ptr @uv__malloc(i64 noundef %add14)
-  %21 = load ptr, ptr %req.addr, align 8
-  %path16 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 8
-  store ptr %call15, ptr %path16, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %path17 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 8
-  %23 = load ptr, ptr %path17, align 8
-  %cmp18 = icmp eq ptr %23, null
-  br i1 %cmp18, label %if.then19, label %if.end20
+53:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %54 = load ptr, ptr %9, align 8
+  %55 = call i64 @strlen(ptr noundef %54) #11
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %12, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = call i64 @strlen(ptr noundef %57) #11
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %13, align 8
+  %60 = load i64, ptr %12, align 8
+  %61 = load i64, ptr %13, align 8
+  %62 = add i64 %60, %61
+  %63 = call ptr @uv__malloc(i64 noundef %62)
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %64, i32 0, i32 8
+  store ptr %63, ptr %65, align 8
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
 
-if.then19:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end41
+70:                                               ; preds = %53
+  store i32 -12, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %89
 
-if.end20:                                         ; preds = %if.else
-  %24 = load ptr, ptr %req.addr, align 8
-  %path21 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 8
-  %25 = load ptr, ptr %path21, align 8
-  %26 = load i64, ptr %path_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %25, i64 %26
-  %27 = load ptr, ptr %req.addr, align 8
-  %new_path22 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 10
-  store ptr %add.ptr, ptr %new_path22, align 8
-  %28 = load ptr, ptr %req.addr, align 8
-  %path23 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 8
-  %29 = load ptr, ptr %path23, align 8
-  %30 = load ptr, ptr %path.addr, align 8
-  %31 = load i64, ptr %path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 %31, i1 false)
-  %32 = load ptr, ptr %req.addr, align 8
-  %new_path24 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 10
-  %33 = load ptr, ptr %new_path24, align 8
-  %34 = load ptr, ptr %new_path.addr, align 8
-  %35 = load i64, ptr %new_path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
-  br label %if.end25
+71:                                               ; preds = %53
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i64, ptr %12, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %77, i32 0, i32 10
+  store ptr %76, ptr %78, align 8
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %9, align 8
+  %83 = load i64, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %82, i64 %83, i1 false)
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 10
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = load i64, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %87, i64 %88, i1 false)
+  store i32 0, ptr %14, align 4
+  br label %89
 
-if.end25:                                         ; preds = %if.end20, %if.then9
-  br label %do.end26
+89:                                               ; preds = %71, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %90 = load i32, ptr %14, align 4
+  switch i32 %90, label %126 [
+    i32 0, label %91
+    i32 1, label %124
+  ]
 
-do.end26:                                         ; preds = %if.end25
-  %36 = load ptr, ptr %cb.addr, align 8
-  %cmp27 = icmp ne ptr %36, null
-  br i1 %cmp27, label %if.then28, label %if.end32
+91:                                               ; preds = %89
+  br label %92
 
-if.then28:                                        ; preds = %do.end26
-  %37 = load ptr, ptr %loop.addr, align 8
-  %38 = load ptr, ptr %req.addr, align 8
-  %call29 = call i32 @uv__iou_fs_rename(ptr noundef %37, ptr noundef %38)
-  %tobool = icmp ne i32 %call29, 0
-  br i1 %tobool, label %if.then30, label %if.end31
+92:                                               ; preds = %91, %46
+  br label %93
 
-if.then30:                                        ; preds = %if.then28
-  store i32 0, ptr %retval, align 4
-  br label %do.end41
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %11, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %103
 
-if.end31:                                         ; preds = %if.then28
-  br label %if.end32
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %7, align 8
+  %98 = load ptr, ptr %8, align 8
+  %99 = call i32 @uv__iou_fs_rename(ptr noundef %97, ptr noundef %98)
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %102
 
-if.end32:                                         ; preds = %if.end31, %do.end26
-  br label %do.body33
+101:                                              ; preds = %96
+  store i32 0, ptr %6, align 4
+  br label %124
 
-do.body33:                                        ; preds = %if.end32
-  %39 = load ptr, ptr %cb.addr, align 8
-  %cmp34 = icmp ne ptr %39, null
-  br i1 %cmp34, label %if.then35, label %if.else38
+102:                                              ; preds = %96
+  br label %103
 
-if.then35:                                        ; preds = %do.body33
-  br label %do.body36
+103:                                              ; preds = %102, %93
+  br label %104
 
-do.body36:                                        ; preds = %if.then35
-  %40 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %40, i32 0, i32 3
-  %41 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %41, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end37
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %11, align 8
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %117
 
-do.end37:                                         ; preds = %do.body36
-  %42 = load ptr, ptr %loop.addr, align 8
-  %43 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %43, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %42, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end41
+107:                                              ; preds = %104
+  br label %108
 
-if.else38:                                        ; preds = %do.body33
-  %44 = load ptr, ptr %req.addr, align 8
-  %work_req39 = getelementptr inbounds %struct.uv_fs_s, ptr %44, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req39)
-  %45 = load ptr, ptr %req.addr, align 8
-  %result40 = getelementptr inbounds %struct.uv_fs_s, ptr %45, i32 0, i32 6
-  %46 = load i64, ptr %result40, align 8
-  %conv = trunc i64 %46 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end41
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %7, align 8
+  %110 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 8
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %110, align 8
+  br label %113
 
-do.end41:                                         ; preds = %if.else38, %do.end37, %if.then30, %if.then19, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %7, align 8
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %115, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %114, ptr noundef %116, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %6, align 4
+  br label %124
+
+117:                                              ; preds = %104
+  %118 = load ptr, ptr %8, align 8
+  %119 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %118, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %119)
+  %120 = load ptr, ptr %8, align 8
+  %121 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %120, i32 0, i32 6
+  %122 = load i64, ptr %121, align 8
+  %123 = trunc i64 %122 to i32
+  store i32 %123, ptr %6, align 4
+  br label %124
+
+124:                                              ; preds = %18, %89, %101, %113, %117
+  %125 = load i32, ptr %6, align 4
+  ret i32 %125
+
+126:                                              ; preds = %89
+  unreachable
 }
 
 declare i32 @uv__iou_fs_rename(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_rmdir(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_rmdir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end25
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 18, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 18, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end25
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+57:                                               ; preds = %56
+  br label %58
 
-do.body17:                                        ; preds = %do.end16
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %19, null
-  br i1 %cmp18, label %if.then19, label %if.else22
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %9, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then19:                                        ; preds = %do.body17
-  br label %do.body20
+61:                                               ; preds = %58
+  br label %62
 
-do.body20:                                        ; preds = %if.then19
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end21
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end21:                                         ; preds = %do.body20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end25
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %78
 
-if.else22:                                        ; preds = %do.body17
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req23)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result24, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end25
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %5, align 4
+  br label %78
 
-do.end25:                                         ; preds = %if.else22, %do.end21, %if.then13, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+78:                                               ; preds = %13, %54, %67, %71
+  %79 = load i32, ptr %5, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_sendfile(ptr noundef %loop, ptr noundef %req, i32 noundef %out_fd, i32 noundef %in_fd, i64 noundef %off, i64 noundef %len, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %out_fd.addr = alloca i32, align 4
-  %in_fd.addr = alloca i32, align 4
-  %off.addr = alloca i64, align 8
-  %len.addr = alloca i64, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %out_fd, ptr %out_fd.addr, align 4
-  store i32 %in_fd, ptr %in_fd.addr, align 4
-  store i64 %off, ptr %off.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_sendfile(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store i32 %2, ptr %11, align 4
+  store i32 %3, ptr %12, align 4
+  store i64 %4, ptr %13, align 8
+  store i64 %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  br label %16
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %10, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end14
+19:                                               ; preds = %16
+  store i32 -22, ptr %8, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+20:                                               ; preds = %16
+  br label %21
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 1
+  store i32 6, ptr %23, align 8
+  br label %24
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 5, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb3 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb3, align 8
-  br label %do.end4
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 3
+  store i32 5, ptr %26, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 6
+  store i64 0, ptr %28, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %29, i32 0, i32 7
+  store ptr null, ptr %30, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 4
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 8
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 10
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %38, i32 0, i32 15
+  store ptr null, ptr %39, align 8
+  %40 = load ptr, ptr %15, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %41, i32 0, i32 5
+  store ptr %40, ptr %42, align 8
+  br label %43
 
-do.end4:                                          ; preds = %do.end
-  %12 = load i32, ptr %in_fd.addr, align 4
-  %13 = load ptr, ptr %req.addr, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 12
-  store i32 %12, ptr %flags, align 4
-  %14 = load i32, ptr %out_fd.addr, align 4
-  %15 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 11
-  store i32 %14, ptr %file, align 8
-  %16 = load i64, ptr %off.addr, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %off5 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 16
-  store i64 %16, ptr %off5, align 8
-  %18 = load i64, ptr %len.addr, align 8
-  %19 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %19, i32 0, i32 22
-  %arrayidx = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %len6 = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx, i32 0, i32 1
-  store i64 %18, ptr %len6, align 8
-  br label %do.body7
+43:                                               ; preds = %24
+  %44 = load i32, ptr %12, align 4
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 12
+  store i32 %44, ptr %46, align 4
+  %47 = load i32, ptr %11, align 4
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 11
+  store i32 %47, ptr %49, align 8
+  %50 = load i64, ptr %13, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %51, i32 0, i32 16
+  store i64 %50, ptr %52, align 8
+  %53 = load i64, ptr %14, align 8
+  %54 = load ptr, ptr %10, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 22
+  %56 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %55, i64 0, i64 0
+  %57 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %56, i32 0, i32 1
+  store i64 %53, ptr %57, align 8
+  br label %58
 
-do.body7:                                         ; preds = %do.end4
-  %20 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp ne ptr %20, null
-  br i1 %cmp8, label %if.then9, label %if.else
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %15, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then9:                                         ; preds = %do.body7
-  br label %do.body10
+61:                                               ; preds = %58
+  br label %62
 
-do.body10:                                        ; preds = %if.then9
-  %21 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %21, i32 0, i32 3
-  %22 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %22, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end11
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end11:                                         ; preds = %do.body10
-  %23 = load ptr, ptr %loop.addr, align 8
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %23, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end14
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %9, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %8, align 4
+  br label %78
 
-if.else:                                          ; preds = %do.body7
-  %25 = load ptr, ptr %req.addr, align 8
-  %work_req12 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req12)
-  %26 = load ptr, ptr %req.addr, align 8
-  %result13 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 6
-  %27 = load i64, ptr %result13, align 8
-  %conv = trunc i64 %27 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end14
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %10, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %8, align 4
+  br label %78
 
-do.end14:                                         ; preds = %if.else, %do.end11, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+78:                                               ; preds = %19, %67, %71
+  %79 = load i32, ptr %8, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_stat(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end31
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 6, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 6, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end31
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp17 = icmp ne ptr %19, null
-  br i1 %cmp17, label %if.then18, label %if.end22
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %9, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %67
 
-if.then18:                                        ; preds = %do.end16
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %call19 = call i32 @uv__iou_fs_statx(ptr noundef %20, ptr noundef %21, i32 noundef 0, i32 noundef 0)
-  %tobool = icmp ne i32 %call19, 0
-  br i1 %tobool, label %if.then20, label %if.end21
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = call i32 @uv__iou_fs_statx(ptr noundef %61, ptr noundef %62, i32 noundef 0, i32 noundef 0)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %66
 
-if.then20:                                        ; preds = %if.then18
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+65:                                               ; preds = %60
+  store i32 0, ptr %5, align 4
+  br label %88
 
-if.end21:                                         ; preds = %if.then18
-  br label %if.end22
+66:                                               ; preds = %60
+  br label %67
 
-if.end22:                                         ; preds = %if.end21, %do.end16
-  br label %do.body23
+67:                                               ; preds = %66, %57
+  br label %68
 
-do.body23:                                        ; preds = %if.end22
-  %22 = load ptr, ptr %cb.addr, align 8
-  %cmp24 = icmp ne ptr %22, null
-  br i1 %cmp24, label %if.then25, label %if.else28
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %9, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.then25:                                        ; preds = %do.body23
-  br label %do.body26
+71:                                               ; preds = %68
+  br label %72
 
-do.body26:                                        ; preds = %if.then25
-  %23 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %23, i32 0, i32 3
-  %24 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %24, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end27
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-do.end27:                                         ; preds = %do.body26
-  %25 = load ptr, ptr %loop.addr, align 8
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %25, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %88
 
-if.else28:                                        ; preds = %do.body23
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req29)
-  %28 = load ptr, ptr %req.addr, align 8
-  %result30 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 6
-  %29 = load i64, ptr %result30, align 8
-  %conv = trunc i64 %29 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end31
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %5, align 4
+  br label %88
 
-do.end31:                                         ; preds = %if.else28, %do.end27, %if.then20, %if.then13, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+88:                                               ; preds = %13, %54, %65, %77, %81
+  %89 = load i32, ptr %5, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_symlink(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %new_path, i32 noundef %flags, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %new_path.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  %path_len = alloca i64, align 8
-  %new_path_len = alloca i64, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %new_path, ptr %new_path.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %17
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %9, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end42
+20:                                               ; preds = %17
+  store i32 -22, ptr %7, align 4
+  br label %129
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+21:                                               ; preds = %17
+  br label %22
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 1
+  store i32 6, ptr %24, align 8
+  br label %25
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 24, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path4, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb5, align 8
-  br label %do.end6
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 3
+  store i32 24, ptr %27, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 6
+  store i64 0, ptr %29, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 7
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %33, i32 0, i32 4
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 8
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 10
+  store ptr null, ptr %38, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 15
+  store ptr null, ptr %40, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %42, i32 0, i32 5
+  store ptr %41, ptr %43, align 8
+  br label %44
 
-do.end6:                                          ; preds = %do.end
-  br label %do.body7
+44:                                               ; preds = %25
+  br label %45
 
-do.body7:                                         ; preds = %do.end6
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp8 = icmp eq ptr %12, null
-  br i1 %cmp8, label %if.then9, label %if.else
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %13, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %55
 
-if.then9:                                         ; preds = %do.body7
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path10, align 8
-  %15 = load ptr, ptr %new_path.addr, align 8
-  %16 = load ptr, ptr %req.addr, align 8
-  %new_path11 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 10
-  store ptr %15, ptr %new_path11, align 8
-  br label %if.end25
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %53, i32 0, i32 10
+  store ptr %52, ptr %54, align 8
+  br label %94
 
-if.else:                                          ; preds = %do.body7
-  %17 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @strlen(ptr noundef %17) #10
-  %add = add i64 %call, 1
-  store i64 %add, ptr %path_len, align 8
-  %18 = load ptr, ptr %new_path.addr, align 8
-  %call12 = call i64 @strlen(ptr noundef %18) #10
-  %add13 = add i64 %call12, 1
-  store i64 %add13, ptr %new_path_len, align 8
-  %19 = load i64, ptr %path_len, align 8
-  %20 = load i64, ptr %new_path_len, align 8
-  %add14 = add i64 %19, %20
-  %call15 = call ptr @uv__malloc(i64 noundef %add14)
-  %21 = load ptr, ptr %req.addr, align 8
-  %path16 = getelementptr inbounds %struct.uv_fs_s, ptr %21, i32 0, i32 8
-  store ptr %call15, ptr %path16, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %path17 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 8
-  %23 = load ptr, ptr %path17, align 8
-  %cmp18 = icmp eq ptr %23, null
-  br i1 %cmp18, label %if.then19, label %if.end20
+55:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %56 = load ptr, ptr %10, align 8
+  %57 = call i64 @strlen(ptr noundef %56) #11
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %14, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = call i64 @strlen(ptr noundef %59) #11
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %15, align 8
+  %62 = load i64, ptr %14, align 8
+  %63 = load i64, ptr %15, align 8
+  %64 = add i64 %62, %63
+  %65 = call ptr @uv__malloc(i64 noundef %64)
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 8
+  store ptr %65, ptr %67, align 8
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %68, i32 0, i32 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %73
 
-if.then19:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end42
+72:                                               ; preds = %55
+  store i32 -12, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %91
 
-if.end20:                                         ; preds = %if.else
-  %24 = load ptr, ptr %req.addr, align 8
-  %path21 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 8
-  %25 = load ptr, ptr %path21, align 8
-  %26 = load i64, ptr %path_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %25, i64 %26
-  %27 = load ptr, ptr %req.addr, align 8
-  %new_path22 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 10
-  store ptr %add.ptr, ptr %new_path22, align 8
-  %28 = load ptr, ptr %req.addr, align 8
-  %path23 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 8
-  %29 = load ptr, ptr %path23, align 8
-  %30 = load ptr, ptr %path.addr, align 8
-  %31 = load i64, ptr %path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 %31, i1 false)
-  %32 = load ptr, ptr %req.addr, align 8
-  %new_path24 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 10
-  %33 = load ptr, ptr %new_path24, align 8
-  %34 = load ptr, ptr %new_path.addr, align 8
-  %35 = load i64, ptr %new_path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
-  br label %if.end25
+73:                                               ; preds = %55
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i64, ptr %14, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 10
+  store ptr %78, ptr %80, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %81, i32 0, i32 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = load i64, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %84, i64 %85, i1 false)
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %86, i32 0, i32 10
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %11, align 8
+  %90 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %89, i64 %90, i1 false)
+  store i32 0, ptr %16, align 4
+  br label %91
 
-if.end25:                                         ; preds = %if.end20, %if.then9
-  br label %do.end26
+91:                                               ; preds = %73, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %92 = load i32, ptr %16, align 4
+  switch i32 %92, label %131 [
+    i32 0, label %93
+    i32 1, label %129
+  ]
 
-do.end26:                                         ; preds = %if.end25
-  %36 = load i32, ptr %flags.addr, align 4
-  %37 = load ptr, ptr %req.addr, align 8
-  %flags27 = getelementptr inbounds %struct.uv_fs_s, ptr %37, i32 0, i32 12
-  store i32 %36, ptr %flags27, align 4
-  %38 = load ptr, ptr %cb.addr, align 8
-  %cmp28 = icmp ne ptr %38, null
-  br i1 %cmp28, label %if.then29, label %if.end33
+93:                                               ; preds = %91
+  br label %94
 
-if.then29:                                        ; preds = %do.end26
-  %39 = load ptr, ptr %loop.addr, align 8
-  %40 = load ptr, ptr %req.addr, align 8
-  %call30 = call i32 @uv__iou_fs_symlink(ptr noundef %39, ptr noundef %40)
-  %tobool = icmp ne i32 %call30, 0
-  br i1 %tobool, label %if.then31, label %if.end32
+94:                                               ; preds = %93, %48
+  br label %95
 
-if.then31:                                        ; preds = %if.then29
-  store i32 0, ptr %retval, align 4
-  br label %do.end42
+95:                                               ; preds = %94
+  %96 = load i32, ptr %12, align 4
+  %97 = load ptr, ptr %9, align 8
+  %98 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %97, i32 0, i32 12
+  store i32 %96, ptr %98, align 4
+  %99 = load ptr, ptr %13, align 8
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %101, label %108
 
-if.end32:                                         ; preds = %if.then29
-  br label %if.end33
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %8, align 8
+  %103 = load ptr, ptr %9, align 8
+  %104 = call i32 @uv__iou_fs_symlink(ptr noundef %102, ptr noundef %103)
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %107
 
-if.end33:                                         ; preds = %if.end32, %do.end26
-  br label %do.body34
+106:                                              ; preds = %101
+  store i32 0, ptr %7, align 4
+  br label %129
 
-do.body34:                                        ; preds = %if.end33
-  %41 = load ptr, ptr %cb.addr, align 8
-  %cmp35 = icmp ne ptr %41, null
-  br i1 %cmp35, label %if.then36, label %if.else39
+107:                                              ; preds = %101
+  br label %108
 
-if.then36:                                        ; preds = %do.body34
-  br label %do.body37
+108:                                              ; preds = %107, %95
+  br label %109
 
-do.body37:                                        ; preds = %if.then36
-  %42 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %42, i32 0, i32 3
-  %43 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %43, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end38
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %13, align 8
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %122
 
-do.end38:                                         ; preds = %do.body37
-  %44 = load ptr, ptr %loop.addr, align 8
-  %45 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %45, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %44, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end42
+112:                                              ; preds = %109
+  br label %113
 
-if.else39:                                        ; preds = %do.body34
-  %46 = load ptr, ptr %req.addr, align 8
-  %work_req40 = getelementptr inbounds %struct.uv_fs_s, ptr %46, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req40)
-  %47 = load ptr, ptr %req.addr, align 8
-  %result41 = getelementptr inbounds %struct.uv_fs_s, ptr %47, i32 0, i32 6
-  %48 = load i64, ptr %result41, align 8
-  %conv = trunc i64 %48 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end42
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %8, align 8
+  %115 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %114, i32 0, i32 3
+  %116 = load i32, ptr %115, align 8
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %115, align 8
+  br label %118
 
-do.end42:                                         ; preds = %if.else39, %do.end38, %if.then31, %if.then19, %if.then
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %8, align 8
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %120, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %119, ptr noundef %121, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %129
+
+122:                                              ; preds = %109
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %123, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %124)
+  %125 = load ptr, ptr %9, align 8
+  %126 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %125, i32 0, i32 6
+  %127 = load i64, ptr %126, align 8
+  %128 = trunc i64 %127 to i32
+  store i32 %128, ptr %7, align 4
+  br label %129
+
+129:                                              ; preds = %20, %91, %106, %118, %122
+  %130 = load i32, ptr %7, align 4
+  ret i32 %130
+
+131:                                              ; preds = %91
+  unreachable
 }
 
 declare i32 @uv__iou_fs_symlink(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_unlink(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_unlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end31
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 17, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 17, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end31
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp17 = icmp ne ptr %19, null
-  br i1 %cmp17, label %if.then18, label %if.end22
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %9, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %67
 
-if.then18:                                        ; preds = %do.end16
-  %20 = load ptr, ptr %loop.addr, align 8
-  %21 = load ptr, ptr %req.addr, align 8
-  %call19 = call i32 @uv__iou_fs_unlink(ptr noundef %20, ptr noundef %21)
-  %tobool = icmp ne i32 %call19, 0
-  br i1 %tobool, label %if.then20, label %if.end21
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %6, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = call i32 @uv__iou_fs_unlink(ptr noundef %61, ptr noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %66
 
-if.then20:                                        ; preds = %if.then18
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+65:                                               ; preds = %60
+  store i32 0, ptr %5, align 4
+  br label %88
 
-if.end21:                                         ; preds = %if.then18
-  br label %if.end22
+66:                                               ; preds = %60
+  br label %67
 
-if.end22:                                         ; preds = %if.end21, %do.end16
-  br label %do.body23
+67:                                               ; preds = %66, %57
+  br label %68
 
-do.body23:                                        ; preds = %if.end22
-  %22 = load ptr, ptr %cb.addr, align 8
-  %cmp24 = icmp ne ptr %22, null
-  br i1 %cmp24, label %if.then25, label %if.else28
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %9, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.then25:                                        ; preds = %do.body23
-  br label %do.body26
+71:                                               ; preds = %68
+  br label %72
 
-do.body26:                                        ; preds = %if.then25
-  %23 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %23, i32 0, i32 3
-  %24 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %24, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end27
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-do.end27:                                         ; preds = %do.body26
-  %25 = load ptr, ptr %loop.addr, align 8
-  %26 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %25, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end31
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %88
 
-if.else28:                                        ; preds = %do.body23
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req29 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req29)
-  %28 = load ptr, ptr %req.addr, align 8
-  %result30 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 6
-  %29 = load i64, ptr %result30, align 8
-  %conv = trunc i64 %29 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end31
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %5, align 4
+  br label %88
 
-do.end31:                                         ; preds = %if.else28, %do.end27, %if.then20, %if.then13, %if.then
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+88:                                               ; preds = %13, %54, %65, %77, %81
+  %89 = load i32, ptr %5, align 4
+  ret i32 %89
 }
 
 declare i32 @uv__iou_fs_unlink(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_utime(ptr noundef %loop, ptr noundef %req, ptr noundef %path, double noundef %atime, double noundef %mtime, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %atime.addr = alloca double, align 8
-  %mtime.addr = alloca double, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store double %atime, ptr %atime.addr, align 8
-  store double %mtime, ptr %mtime.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_utime(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store double %3, ptr %11, align 8
+  store double %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+14:                                               ; preds = %6
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end27
+17:                                               ; preds = %14
+  store i32 -22, ptr %7, align 4
+  br label %88
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+18:                                               ; preds = %14
+  br label %19
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 1
+  store i32 6, ptr %21, align 8
+  br label %22
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 10, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 3
+  store i32 10, ptr %24, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 6
+  store i64 0, ptr %26, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 7
+  store ptr null, ptr %28, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 4
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 8
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 10
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 15
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+41:                                               ; preds = %22
+  br label %42
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %49
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %60
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8
+  %51 = call ptr @uv__strdup(ptr noundef %50)
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %59
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end27
+58:                                               ; preds = %49
+  store i32 -12, ptr %7, align 4
+  br label %88
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+59:                                               ; preds = %49
+  br label %60
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+60:                                               ; preds = %59, %45
+  br label %61
 
-do.end16:                                         ; preds = %if.end15
-  %19 = load double, ptr %atime.addr, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %atime17 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 19
-  store double %19, ptr %atime17, align 8
-  %21 = load double, ptr %mtime.addr, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %mtime18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 20
-  store double %21, ptr %mtime18, align 8
-  br label %do.body19
+61:                                               ; preds = %60
+  %62 = load double, ptr %11, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %63, i32 0, i32 19
+  store double %62, ptr %64, align 8
+  %65 = load double, ptr %12, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %66, i32 0, i32 20
+  store double %65, ptr %67, align 8
+  br label %68
 
-do.body19:                                        ; preds = %do.end16
-  %23 = load ptr, ptr %cb.addr, align 8
-  %cmp20 = icmp ne ptr %23, null
-  br i1 %cmp20, label %if.then21, label %if.else24
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %13, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %81
 
-if.then21:                                        ; preds = %do.body19
-  br label %do.body22
+71:                                               ; preds = %68
+  br label %72
 
-do.body22:                                        ; preds = %if.then21
-  %24 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %25, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end23
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 8
+  br label %77
 
-do.end23:                                         ; preds = %do.body22
-  %26 = load ptr, ptr %loop.addr, align 8
-  %27 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %26, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end27
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %78, ptr noundef %80, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %88
 
-if.else24:                                        ; preds = %do.body19
-  %28 = load ptr, ptr %req.addr, align 8
-  %work_req25 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req25)
-  %29 = load ptr, ptr %req.addr, align 8
-  %result26 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 6
-  %30 = load i64, ptr %result26, align 8
-  %conv = trunc i64 %30 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end27
+81:                                               ; preds = %68
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %82, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %83)
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 6
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr %7, align 4
+  br label %88
 
-do.end27:                                         ; preds = %if.else24, %do.end23, %if.then13, %if.then
-  %31 = load i32, ptr %retval, align 4
-  ret i32 %31
+88:                                               ; preds = %17, %58, %77, %81
+  %89 = load i32, ptr %7, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_write(ptr noundef %loop, ptr noundef %req, i32 noundef %file, ptr noundef %bufs, i32 noundef %nbufs, i64 noundef %off, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %file.addr = alloca i32, align 4
-  %bufs.addr = alloca ptr, align 8
-  %nbufs.addr = alloca i32, align 4
-  %off.addr = alloca i64, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 %file, ptr %file.addr, align 4
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i32 %nbufs, ptr %nbufs.addr, align 4
-  store i64 %off, ptr %off.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store i32 %2, ptr %11, align 4
+  store ptr %3, ptr %12, align 8
+  store i32 %4, ptr %13, align 4
+  store i64 %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  br label %16
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %10, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end44
+19:                                               ; preds = %16
+  store i32 -22, ptr %8, align 4
+  br label %119
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+20:                                               ; preds = %16
+  br label %21
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 1
+  store i32 6, ptr %23, align 8
+  br label %24
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 4, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs3, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %25, i32 0, i32 3
+  store i32 4, ptr %26, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 6
+  store i64 0, ptr %28, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %29, i32 0, i32 7
+  store ptr null, ptr %30, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 4
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %34, i32 0, i32 8
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 10
+  store ptr null, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %38, i32 0, i32 15
+  store ptr null, ptr %39, align 8
+  %40 = load ptr, ptr %15, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %41, i32 0, i32 5
+  store ptr %40, ptr %42, align 8
+  br label %43
 
-do.end5:                                          ; preds = %do.end
-  %12 = load ptr, ptr %bufs.addr, align 8
-  %cmp6 = icmp eq ptr %12, null
-  br i1 %cmp6, label %if.then8, label %lor.lhs.false
+43:                                               ; preds = %24
+  %44 = load ptr, ptr %12, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %49, label %46
 
-lor.lhs.false:                                    ; preds = %do.end5
-  %13 = load i32, ptr %nbufs.addr, align 4
-  %cmp7 = icmp eq i32 %13, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
+46:                                               ; preds = %43
+  %47 = load i32, ptr %13, align 4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then8:                                         ; preds = %lor.lhs.false, %do.end5
-  store i32 -22, ptr %retval, align 4
-  br label %do.end44
+49:                                               ; preds = %46, %43
+  store i32 -22, ptr %8, align 4
+  br label %119
 
-if.end9:                                          ; preds = %lor.lhs.false
-  %14 = load i32, ptr %file.addr, align 4
-  %15 = load ptr, ptr %req.addr, align 8
-  %file10 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 11
-  store i32 %14, ptr %file10, align 8
-  %16 = load i32, ptr %nbufs.addr, align 4
-  %17 = load ptr, ptr %req.addr, align 8
-  %nbufs11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 14
-  store i32 %16, ptr %nbufs11, align 4
-  %18 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 22
-  %arraydecay = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %19 = load ptr, ptr %req.addr, align 8
-  %bufs12 = getelementptr inbounds %struct.uv_fs_s, ptr %19, i32 0, i32 15
-  store ptr %arraydecay, ptr %bufs12, align 8
-  %20 = load i32, ptr %nbufs.addr, align 4
-  %conv = zext i32 %20 to i64
-  %cmp13 = icmp ugt i64 %conv, 4
-  br i1 %cmp13, label %if.then15, label %if.end18
+50:                                               ; preds = %46
+  %51 = load i32, ptr %11, align 4
+  %52 = load ptr, ptr %10, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 11
+  store i32 %51, ptr %53, align 8
+  %54 = load i32, ptr %13, align 4
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %55, i32 0, i32 14
+  store i32 %54, ptr %56, align 4
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %57, i32 0, i32 22
+  %59 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %60, i32 0, i32 15
+  store ptr %59, ptr %61, align 8
+  %62 = load i32, ptr %13, align 4
+  %63 = zext i32 %62 to i64
+  %64 = icmp ugt i64 %63, 4
+  br i1 %64, label %65, label %72
 
-if.then15:                                        ; preds = %if.end9
-  %21 = load i32, ptr %nbufs.addr, align 4
-  %conv16 = zext i32 %21 to i64
-  %mul = mul i64 %conv16, 16
-  %call = call ptr @uv__malloc(i64 noundef %mul)
-  %22 = load ptr, ptr %req.addr, align 8
-  %bufs17 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 15
-  store ptr %call, ptr %bufs17, align 8
-  br label %if.end18
+65:                                               ; preds = %50
+  %66 = load i32, ptr %13, align 4
+  %67 = zext i32 %66 to i64
+  %68 = mul i64 %67, 16
+  %69 = call ptr @uv__malloc(i64 noundef %68)
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %70, i32 0, i32 15
+  store ptr %69, ptr %71, align 8
+  br label %72
 
-if.end18:                                         ; preds = %if.then15, %if.end9
-  %23 = load ptr, ptr %req.addr, align 8
-  %bufs19 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 15
-  %24 = load ptr, ptr %bufs19, align 8
-  %cmp20 = icmp eq ptr %24, null
-  br i1 %cmp20, label %if.then22, label %if.end23
+72:                                               ; preds = %65, %50
+  %73 = load ptr, ptr %10, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %73, i32 0, i32 15
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %78
 
-if.then22:                                        ; preds = %if.end18
-  store i32 -12, ptr %retval, align 4
-  br label %do.end44
+77:                                               ; preds = %72
+  store i32 -12, ptr %8, align 4
+  br label %119
 
-if.end23:                                         ; preds = %if.end18
-  %25 = load ptr, ptr %req.addr, align 8
-  %bufs24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 15
-  %26 = load ptr, ptr %bufs24, align 8
-  %27 = load ptr, ptr %bufs.addr, align 8
-  %28 = load i32, ptr %nbufs.addr, align 4
-  %conv25 = zext i32 %28 to i64
-  %mul26 = mul i64 %conv25, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %27, i64 %mul26, i1 false)
-  %29 = load i64, ptr %off.addr, align 8
-  %30 = load ptr, ptr %req.addr, align 8
-  %off27 = getelementptr inbounds %struct.uv_fs_s, ptr %30, i32 0, i32 16
-  store i64 %29, ptr %off27, align 8
-  %31 = load ptr, ptr %cb.addr, align 8
-  %cmp28 = icmp ne ptr %31, null
-  br i1 %cmp28, label %if.then30, label %if.end34
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 15
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr %13, align 4
+  %84 = zext i32 %83 to i64
+  %85 = mul i64 %84, 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %82, i64 %85, i1 false)
+  %86 = load i64, ptr %14, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %87, i32 0, i32 16
+  store i64 %86, ptr %88, align 8
+  %89 = load ptr, ptr %15, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %98
 
-if.then30:                                        ; preds = %if.end23
-  %32 = load ptr, ptr %loop.addr, align 8
-  %33 = load ptr, ptr %req.addr, align 8
-  %call31 = call i32 @uv__iou_fs_read_or_write(ptr noundef %32, ptr noundef %33, i32 noundef 0)
-  %tobool = icmp ne i32 %call31, 0
-  br i1 %tobool, label %if.then32, label %if.end33
+91:                                               ; preds = %78
+  %92 = load ptr, ptr %9, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = call i32 @uv__iou_fs_read_or_write(ptr noundef %92, ptr noundef %93, i32 noundef 0)
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %97
 
-if.then32:                                        ; preds = %if.then30
-  store i32 0, ptr %retval, align 4
-  br label %do.end44
+96:                                               ; preds = %91
+  store i32 0, ptr %8, align 4
+  br label %119
 
-if.end33:                                         ; preds = %if.then30
-  br label %if.end34
+97:                                               ; preds = %91
+  br label %98
 
-if.end34:                                         ; preds = %if.end33, %if.end23
-  br label %do.body35
+98:                                               ; preds = %97, %78
+  br label %99
 
-do.body35:                                        ; preds = %if.end34
-  %34 = load ptr, ptr %cb.addr, align 8
-  %cmp36 = icmp ne ptr %34, null
-  br i1 %cmp36, label %if.then38, label %if.else
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %15, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %112
 
-if.then38:                                        ; preds = %do.body35
-  br label %do.body39
+102:                                              ; preds = %99
+  br label %103
 
-do.body39:                                        ; preds = %if.then38
-  %35 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %35, i32 0, i32 3
-  %36 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %36, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end40
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %9, align 8
+  %105 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %104, i32 0, i32 3
+  %106 = load i32, ptr %105, align 8
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %105, align 8
+  br label %108
 
-do.end40:                                         ; preds = %do.body39
-  %37 = load ptr, ptr %loop.addr, align 8
-  %38 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %38, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %37, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end44
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %10, align 8
+  %111 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %110, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %109, ptr noundef %111, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %8, align 4
+  br label %119
 
-if.else:                                          ; preds = %do.body35
-  %39 = load ptr, ptr %req.addr, align 8
-  %work_req41 = getelementptr inbounds %struct.uv_fs_s, ptr %39, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req41)
-  %40 = load ptr, ptr %req.addr, align 8
-  %result42 = getelementptr inbounds %struct.uv_fs_s, ptr %40, i32 0, i32 6
-  %41 = load i64, ptr %result42, align 8
-  %conv43 = trunc i64 %41 to i32
-  store i32 %conv43, ptr %retval, align 4
-  br label %do.end44
+112:                                              ; preds = %99
+  %113 = load ptr, ptr %10, align 8
+  %114 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %113, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %114)
+  %115 = load ptr, ptr %10, align 8
+  %116 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %115, i32 0, i32 6
+  %117 = load i64, ptr %116, align 8
+  %118 = trunc i64 %117 to i32
+  store i32 %118, ptr %8, align 4
+  br label %119
 
-do.end44:                                         ; preds = %if.else, %do.end40, %if.then32, %if.then22, %if.then8, %if.then
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+119:                                              ; preds = %19, %49, %77, %96, %108, %112
+  %120 = load i32, ptr %8, align 4
+  ret i32 %120
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uv_fs_req_cleanup(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local void @uv_fs_req_cleanup(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %91
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 8
-  %2 = load ptr, ptr %path, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %land.lhs.true, label %if.end9
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %30
 
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %req.addr, align 8
-  %cb = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %cb, align 8
-  %cmp2 = icmp ne ptr %4, null
-  br i1 %cmp2, label %if.then7, label %lor.lhs.false
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %26, label %16
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %5 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %fs_type, align 8
-  %cmp3 = icmp eq i32 %6, 20
-  br i1 %cmp3, label %if.then7, label %lor.lhs.false4
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 20
+  br i1 %20, label %26, label %21
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %req.addr, align 8
-  %fs_type5 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %fs_type5, align 8
-  %cmp6 = icmp eq i32 %8, 35
-  br i1 %cmp6, label %if.then7, label %if.end9
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 35
+  br i1 %25, label %26, label %30
 
-if.then7:                                         ; preds = %lor.lhs.false4, %lor.lhs.false, %land.lhs.true
-  %9 = load ptr, ptr %req.addr, align 8
-  %path8 = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 8
-  %10 = load ptr, ptr %path8, align 8
-  call void @uv__free(ptr noundef %10)
-  br label %if.end9
+26:                                               ; preds = %21, %16, %11
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %27, i32 0, i32 8
+  %29 = load ptr, ptr %28, align 8
+  call void @uv__free(ptr noundef %29)
+  br label %30
 
-if.end9:                                          ; preds = %if.then7, %lor.lhs.false4, %if.end
-  %11 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 8
-  store ptr null, ptr %path10, align 8
-  %12 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %12, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %13 = load ptr, ptr %req.addr, align 8
-  %fs_type11 = getelementptr inbounds %struct.uv_fs_s, ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %fs_type11, align 8
-  %cmp12 = icmp eq i32 %14, 32
-  br i1 %cmp12, label %land.lhs.true13, label %if.end16
+30:                                               ; preds = %26, %21, %6
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %31, i32 0, i32 8
+  store ptr null, ptr %32, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %33, i32 0, i32 10
+  store ptr null, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 3
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 32
+  br i1 %38, label %39, label %46
 
-land.lhs.true13:                                  ; preds = %if.end9
-  %15 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 7
-  %16 = load ptr, ptr %ptr, align 8
-  %cmp14 = icmp ne ptr %16, null
-  br i1 %cmp14, label %if.then15, label %if.end16
+39:                                               ; preds = %30
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %40, i32 0, i32 7
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %46
 
-if.then15:                                        ; preds = %land.lhs.true13
-  %17 = load ptr, ptr %req.addr, align 8
-  call void @uv__fs_readdir_cleanup(ptr noundef %17)
-  br label %if.end16
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %2, align 8
+  call void @uv__fs_readdir_cleanup(ptr noundef %45)
+  br label %46
 
-if.end16:                                         ; preds = %if.then15, %land.lhs.true13, %if.end9
-  %18 = load ptr, ptr %req.addr, align 8
-  %fs_type17 = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %fs_type17, align 8
-  %cmp18 = icmp eq i32 %19, 22
-  br i1 %cmp18, label %land.lhs.true19, label %if.end23
+46:                                               ; preds = %44, %39, %30
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 3
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp eq i32 %49, 22
+  br i1 %50, label %51, label %58
 
-land.lhs.true19:                                  ; preds = %if.end16
-  %20 = load ptr, ptr %req.addr, align 8
-  %ptr20 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %ptr20, align 8
-  %cmp21 = icmp ne ptr %21, null
-  br i1 %cmp21, label %if.then22, label %if.end23
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %52, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %58
 
-if.then22:                                        ; preds = %land.lhs.true19
-  %22 = load ptr, ptr %req.addr, align 8
-  call void @uv__fs_scandir_cleanup(ptr noundef %22)
-  br label %if.end23
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %2, align 8
+  call void @uv__fs_scandir_cleanup(ptr noundef %57)
+  br label %58
 
-if.end23:                                         ; preds = %if.then22, %land.lhs.true19, %if.end16
-  %23 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 15
-  %24 = load ptr, ptr %bufs, align 8
-  %25 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 22
-  %arraydecay = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %cmp24 = icmp ne ptr %24, %arraydecay
-  br i1 %cmp24, label %if.then25, label %if.end27
+58:                                               ; preds = %56, %51, %46
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %59, i32 0, i32 15
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %62, i32 0, i32 22
+  %64 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %63, i64 0, i64 0
+  %65 = icmp ne ptr %61, %64
+  br i1 %65, label %66, label %70
 
-if.then25:                                        ; preds = %if.end23
-  %26 = load ptr, ptr %req.addr, align 8
-  %bufs26 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 15
-  %27 = load ptr, ptr %bufs26, align 8
-  call void @uv__free(ptr noundef %27)
-  br label %if.end27
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %2, align 8
+  %68 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %67, i32 0, i32 15
+  %69 = load ptr, ptr %68, align 8
+  call void @uv__free(ptr noundef %69)
+  br label %70
 
-if.end27:                                         ; preds = %if.then25, %if.end23
-  %28 = load ptr, ptr %req.addr, align 8
-  %bufs28 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 15
-  store ptr null, ptr %bufs28, align 8
-  %29 = load ptr, ptr %req.addr, align 8
-  %fs_type29 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 3
-  %30 = load i32, ptr %fs_type29, align 8
-  %cmp30 = icmp ne i32 %30, 31
-  br i1 %cmp30, label %land.lhs.true31, label %if.end36
+70:                                               ; preds = %66, %58
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %71, i32 0, i32 15
+  store ptr null, ptr %72, align 8
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ne i32 %75, 31
+  br i1 %76, label %77, label %88
 
-land.lhs.true31:                                  ; preds = %if.end27
-  %31 = load ptr, ptr %req.addr, align 8
-  %ptr32 = getelementptr inbounds %struct.uv_fs_s, ptr %31, i32 0, i32 7
-  %32 = load ptr, ptr %ptr32, align 8
-  %33 = load ptr, ptr %req.addr, align 8
-  %statbuf = getelementptr inbounds %struct.uv_fs_s, ptr %33, i32 0, i32 9
-  %cmp33 = icmp ne ptr %32, %statbuf
-  br i1 %cmp33, label %if.then34, label %if.end36
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %78, i32 0, i32 7
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %2, align 8
+  %82 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %81, i32 0, i32 9
+  %83 = icmp ne ptr %80, %82
+  br i1 %83, label %84, label %88
 
-if.then34:                                        ; preds = %land.lhs.true31
-  %34 = load ptr, ptr %req.addr, align 8
-  %ptr35 = getelementptr inbounds %struct.uv_fs_s, ptr %34, i32 0, i32 7
-  %35 = load ptr, ptr %ptr35, align 8
-  call void @uv__free(ptr noundef %35)
-  br label %if.end36
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %85, i32 0, i32 7
+  %87 = load ptr, ptr %86, align 8
+  call void @uv__free(ptr noundef %87)
+  br label %88
 
-if.end36:                                         ; preds = %if.then34, %land.lhs.true31, %if.end27
-  %36 = load ptr, ptr %req.addr, align 8
-  %ptr37 = getelementptr inbounds %struct.uv_fs_s, ptr %36, i32 0, i32 7
-  store ptr null, ptr %ptr37, align 8
-  br label %return
+88:                                               ; preds = %84, %77, %70
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %89, i32 0, i32 7
+  store ptr null, ptr %90, align 8
+  br label %91
 
-return:                                           ; preds = %if.end36, %if.then
+91:                                               ; preds = %88, %5
   ret void
 }
 
@@ -5781,2607 +5871,2839 @@ declare void @uv__fs_readdir_cleanup(ptr noundef) #1
 declare void @uv__fs_scandir_cleanup(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_copyfile(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %new_path, i32 noundef %flags, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %new_path.addr = alloca ptr, align 8
-  %flags.addr = alloca i32, align 4
-  %cb.addr = alloca ptr, align 8
-  %path_len = alloca i64, align 8
-  %new_path_len = alloca i64, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %new_path, ptr %new_path.addr, align 8
-  store i32 %flags, ptr %flags.addr, align 4
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_copyfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store i32 %4, ptr %12, align 4
+  store ptr %5, ptr %13, align 8
+  br label %17
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %9, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end38
+20:                                               ; preds = %17
+  store i32 -22, ptr %7, align 4
+  br label %124
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+21:                                               ; preds = %17
+  br label %22
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 1
+  store i32 6, ptr %24, align 8
+  br label %25
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 29, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path4 = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path4, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb5 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb5, align 8
-  br label %do.end6
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 3
+  store i32 29, ptr %27, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 6
+  store i64 0, ptr %29, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 7
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %33, i32 0, i32 4
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 8
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %37, i32 0, i32 10
+  store ptr null, ptr %38, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %39, i32 0, i32 15
+  store ptr null, ptr %40, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %42, i32 0, i32 5
+  store ptr %41, ptr %43, align 8
+  br label %44
 
-do.end6:                                          ; preds = %do.end
-  %12 = load i32, ptr %flags.addr, align 4
-  %and = and i32 %12, -8
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then7, label %if.end8
+44:                                               ; preds = %25
+  %45 = load i32, ptr %12, align 4
+  %46 = and i32 %45, -8
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then7:                                         ; preds = %do.end6
-  store i32 -22, ptr %retval, align 4
-  br label %do.end38
+48:                                               ; preds = %44
+  store i32 -22, ptr %7, align 4
+  br label %124
 
-if.end8:                                          ; preds = %do.end6
-  br label %do.body9
+49:                                               ; preds = %44
+  br label %50
 
-do.body9:                                         ; preds = %if.end8
-  %13 = load ptr, ptr %cb.addr, align 8
-  %cmp10 = icmp eq ptr %13, null
-  br i1 %cmp10, label %if.then11, label %if.else
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %13, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %60
 
-if.then11:                                        ; preds = %do.body9
-  %14 = load ptr, ptr %path.addr, align 8
-  %15 = load ptr, ptr %req.addr, align 8
-  %path12 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 8
-  store ptr %14, ptr %path12, align 8
-  %16 = load ptr, ptr %new_path.addr, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %new_path13 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 10
-  store ptr %16, ptr %new_path13, align 8
-  br label %if.end27
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %10, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %55, i32 0, i32 8
+  store ptr %54, ptr %56, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %9, align 8
+  %59 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %58, i32 0, i32 10
+  store ptr %57, ptr %59, align 8
+  br label %99
 
-if.else:                                          ; preds = %do.body9
-  %18 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @strlen(ptr noundef %18) #10
-  %add = add i64 %call, 1
-  store i64 %add, ptr %path_len, align 8
-  %19 = load ptr, ptr %new_path.addr, align 8
-  %call14 = call i64 @strlen(ptr noundef %19) #10
-  %add15 = add i64 %call14, 1
-  store i64 %add15, ptr %new_path_len, align 8
-  %20 = load i64, ptr %path_len, align 8
-  %21 = load i64, ptr %new_path_len, align 8
-  %add16 = add i64 %20, %21
-  %call17 = call ptr @uv__malloc(i64 noundef %add16)
-  %22 = load ptr, ptr %req.addr, align 8
-  %path18 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 8
-  store ptr %call17, ptr %path18, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %path19 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 8
-  %24 = load ptr, ptr %path19, align 8
-  %cmp20 = icmp eq ptr %24, null
-  br i1 %cmp20, label %if.then21, label %if.end22
+60:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %61 = load ptr, ptr %10, align 8
+  %62 = call i64 @strlen(ptr noundef %61) #11
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %14, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = call i64 @strlen(ptr noundef %64) #11
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %15, align 8
+  %67 = load i64, ptr %14, align 8
+  %68 = load i64, ptr %15, align 8
+  %69 = add i64 %67, %68
+  %70 = call ptr @uv__malloc(i64 noundef %69)
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %71, i32 0, i32 8
+  store ptr %70, ptr %72, align 8
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %73, i32 0, i32 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %78
 
-if.then21:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end38
+77:                                               ; preds = %60
+  store i32 -12, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %96
 
-if.end22:                                         ; preds = %if.else
-  %25 = load ptr, ptr %req.addr, align 8
-  %path23 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 8
-  %26 = load ptr, ptr %path23, align 8
-  %27 = load i64, ptr %path_len, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 %27
-  %28 = load ptr, ptr %req.addr, align 8
-  %new_path24 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 10
-  store ptr %add.ptr, ptr %new_path24, align 8
-  %29 = load ptr, ptr %req.addr, align 8
-  %path25 = getelementptr inbounds %struct.uv_fs_s, ptr %29, i32 0, i32 8
-  %30 = load ptr, ptr %path25, align 8
-  %31 = load ptr, ptr %path.addr, align 8
-  %32 = load i64, ptr %path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %32, i1 false)
-  %33 = load ptr, ptr %req.addr, align 8
-  %new_path26 = getelementptr inbounds %struct.uv_fs_s, ptr %33, i32 0, i32 10
-  %34 = load ptr, ptr %new_path26, align 8
-  %35 = load ptr, ptr %new_path.addr, align 8
-  %36 = load i64, ptr %new_path_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %35, i64 %36, i1 false)
-  br label %if.end27
+78:                                               ; preds = %60
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %79, i32 0, i32 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i64, ptr %14, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %84, i32 0, i32 10
+  store ptr %83, ptr %85, align 8
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %86, i32 0, i32 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = load i64, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %89, i64 %90, i1 false)
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %91, i32 0, i32 10
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %11, align 8
+  %95 = load i64, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %93, ptr align 1 %94, i64 %95, i1 false)
+  store i32 0, ptr %16, align 4
+  br label %96
 
-if.end27:                                         ; preds = %if.end22, %if.then11
-  br label %do.end28
+96:                                               ; preds = %78, %77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %97 = load i32, ptr %16, align 4
+  switch i32 %97, label %126 [
+    i32 0, label %98
+    i32 1, label %124
+  ]
 
-do.end28:                                         ; preds = %if.end27
-  %37 = load i32, ptr %flags.addr, align 4
-  %38 = load ptr, ptr %req.addr, align 8
-  %flags29 = getelementptr inbounds %struct.uv_fs_s, ptr %38, i32 0, i32 12
-  store i32 %37, ptr %flags29, align 4
-  br label %do.body30
+98:                                               ; preds = %96
+  br label %99
 
-do.body30:                                        ; preds = %do.end28
-  %39 = load ptr, ptr %cb.addr, align 8
-  %cmp31 = icmp ne ptr %39, null
-  br i1 %cmp31, label %if.then32, label %if.else35
+99:                                               ; preds = %98, %53
+  br label %100
 
-if.then32:                                        ; preds = %do.body30
-  br label %do.body33
+100:                                              ; preds = %99
+  %101 = load i32, ptr %12, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %102, i32 0, i32 12
+  store i32 %101, ptr %103, align 4
+  br label %104
 
-do.body33:                                        ; preds = %if.then32
-  %40 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %40, i32 0, i32 3
-  %41 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %41, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end34
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %13, align 8
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %117
 
-do.end34:                                         ; preds = %do.body33
-  %42 = load ptr, ptr %loop.addr, align 8
-  %43 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %43, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %42, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end38
+107:                                              ; preds = %104
+  br label %108
 
-if.else35:                                        ; preds = %do.body30
-  %44 = load ptr, ptr %req.addr, align 8
-  %work_req36 = getelementptr inbounds %struct.uv_fs_s, ptr %44, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req36)
-  %45 = load ptr, ptr %req.addr, align 8
-  %result37 = getelementptr inbounds %struct.uv_fs_s, ptr %45, i32 0, i32 6
-  %46 = load i64, ptr %result37, align 8
-  %conv = trunc i64 %46 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end38
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 8
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %110, align 8
+  br label %113
 
-do.end38:                                         ; preds = %if.else35, %do.end34, %if.then21, %if.then7, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %8, align 8
+  %115 = load ptr, ptr %9, align 8
+  %116 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %115, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %114, ptr noundef %116, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %7, align 4
+  br label %124
+
+117:                                              ; preds = %104
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %118, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %119)
+  %120 = load ptr, ptr %9, align 8
+  %121 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %120, i32 0, i32 6
+  %122 = load i64, ptr %121, align 8
+  %123 = trunc i64 %122 to i32
+  store i32 %123, ptr %7, align 4
+  br label %124
+
+124:                                              ; preds = %20, %48, %96, %113, %117
+  %125 = load i32, ptr %7, align 4
+  ret i32 %125
+
+126:                                              ; preds = %96
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_statfs(ptr noundef %loop, ptr noundef %req, ptr noundef %path, ptr noundef %cb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %loop.addr = alloca ptr, align 8
-  %req.addr = alloca ptr, align 8
-  %path.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  store ptr %loop, ptr %loop.addr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  br label %do.body
+define dso_local i32 @uv_fs_statfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %req.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %7, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %do.body
-  store i32 -22, ptr %retval, align 4
-  br label %do.end25
+13:                                               ; preds = %10
+  store i32 -22, ptr %5, align 4
+  br label %78
 
-if.end:                                           ; preds = %do.body
-  br label %do.body1
+14:                                               ; preds = %10
+  br label %15
 
-do.body1:                                         ; preds = %if.end
-  %1 = load ptr, ptr %req.addr, align 8
-  %type = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 1
-  store i32 6, ptr %type, align 8
-  br label %do.end
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 1
+  store i32 6, ptr %17, align 8
+  br label %18
 
-do.end:                                           ; preds = %do.body1
-  %2 = load ptr, ptr %req.addr, align 8
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 3
-  store i32 34, ptr %fs_type, align 8
-  %3 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %3, i32 0, i32 6
-  store i64 0, ptr %result, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr null, ptr %ptr, align 8
-  %5 = load ptr, ptr %loop.addr, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %loop2 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 4
-  store ptr %5, ptr %loop2, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 8
-  store ptr null, ptr %path3, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 10
-  store ptr null, ptr %new_path, align 8
-  %9 = load ptr, ptr %req.addr, align 8
-  %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 15
-  store ptr null, ptr %bufs, align 8
-  %10 = load ptr, ptr %cb.addr, align 8
-  %11 = load ptr, ptr %req.addr, align 8
-  %cb4 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 5
-  store ptr %10, ptr %cb4, align 8
-  br label %do.end5
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 3
+  store i32 34, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %21, i32 0, i32 6
+  store i64 0, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 4
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 8
+  store ptr null, ptr %29, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %30, i32 0, i32 10
+  store ptr null, ptr %31, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %32, i32 0, i32 15
+  store ptr null, ptr %33, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %35, i32 0, i32 5
+  store ptr %34, ptr %36, align 8
+  br label %37
 
-do.end5:                                          ; preds = %do.end
-  br label %do.body6
+37:                                               ; preds = %18
+  br label %38
 
-do.body6:                                         ; preds = %do.end5
-  %12 = load ptr, ptr %cb.addr, align 8
-  %cmp7 = icmp eq ptr %12, null
-  br i1 %cmp7, label %if.then8, label %if.else
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %9, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %45
 
-if.then8:                                         ; preds = %do.body6
-  %13 = load ptr, ptr %path.addr, align 8
-  %14 = load ptr, ptr %req.addr, align 8
-  %path9 = getelementptr inbounds %struct.uv_fs_s, ptr %14, i32 0, i32 8
-  store ptr %13, ptr %path9, align 8
-  br label %if.end15
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %43, i32 0, i32 8
+  store ptr %42, ptr %44, align 8
+  br label %56
 
-if.else:                                          ; preds = %do.body6
-  %15 = load ptr, ptr %path.addr, align 8
-  %call = call ptr @uv__strdup(ptr noundef %15)
-  %16 = load ptr, ptr %req.addr, align 8
-  %path10 = getelementptr inbounds %struct.uv_fs_s, ptr %16, i32 0, i32 8
-  store ptr %call, ptr %path10, align 8
-  %17 = load ptr, ptr %req.addr, align 8
-  %path11 = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 8
-  %18 = load ptr, ptr %path11, align 8
-  %cmp12 = icmp eq ptr %18, null
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = call ptr @uv__strdup(ptr noundef %46)
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-if.then13:                                        ; preds = %if.else
-  store i32 -12, ptr %retval, align 4
-  br label %do.end25
+54:                                               ; preds = %45
+  store i32 -12, ptr %5, align 4
+  br label %78
 
-if.end14:                                         ; preds = %if.else
-  br label %if.end15
+55:                                               ; preds = %45
+  br label %56
 
-if.end15:                                         ; preds = %if.end14, %if.then8
-  br label %do.end16
+56:                                               ; preds = %55, %41
+  br label %57
 
-do.end16:                                         ; preds = %if.end15
-  br label %do.body17
+57:                                               ; preds = %56
+  br label %58
 
-do.body17:                                        ; preds = %do.end16
-  %19 = load ptr, ptr %cb.addr, align 8
-  %cmp18 = icmp ne ptr %19, null
-  br i1 %cmp18, label %if.then19, label %if.else22
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %9, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %71
 
-if.then19:                                        ; preds = %do.body17
-  br label %do.body20
+61:                                               ; preds = %58
+  br label %62
 
-do.body20:                                        ; preds = %if.then19
-  %20 = load ptr, ptr %loop.addr, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %active_reqs, align 8
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %active_reqs, align 8
-  br label %do.end21
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %67
 
-do.end21:                                         ; preds = %do.body20
-  %22 = load ptr, ptr %loop.addr, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 21
-  call void @uv__work_submit(ptr noundef %22, ptr noundef %work_req, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
-  store i32 0, ptr %retval, align 4
-  br label %do.end25
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %69, i32 0, i32 21
+  call void @uv__work_submit(ptr noundef %68, ptr noundef %70, i32 noundef 1, ptr noundef @uv__fs_work, ptr noundef @uv__fs_done)
+  store i32 0, ptr %5, align 4
+  br label %78
 
-if.else22:                                        ; preds = %do.body17
-  %24 = load ptr, ptr %req.addr, align 8
-  %work_req23 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 21
-  call void @uv__fs_work(ptr noundef %work_req23)
-  %25 = load ptr, ptr %req.addr, align 8
-  %result24 = getelementptr inbounds %struct.uv_fs_s, ptr %25, i32 0, i32 6
-  %26 = load i64, ptr %result24, align 8
-  %conv = trunc i64 %26 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %do.end25
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %72, i32 0, i32 21
+  call void @uv__fs_work(ptr noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %74, i32 0, i32 6
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %5, align 4
+  br label %78
 
-do.end25:                                         ; preds = %if.else22, %do.end21, %if.then13, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+78:                                               ; preds = %13, %54, %67, %71
+  %79 = load i32, ptr %5, align 4
+  ret i32 %79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_get_system_error(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 6
-  %1 = load i64, ptr %result, align 8
-  %sub = sub nsw i64 0, %1
-  %conv = trunc i64 %sub to i32
-  ret i32 %conv
+define dso_local i32 @uv_fs_get_system_error(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %3, i32 0, i32 6
+  %5 = load i64, ptr %4, align 8
+  %6 = sub nsw i64 0, %5
+  %7 = trunc i64 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #5
 
 ; Function Attrs: nounwind
-declare i32 @access(ptr noundef, i32 noundef) #5
+declare i32 @access(ptr noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @chmod(ptr noundef, i32 noundef) #5
+declare i32 @chmod(ptr noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @chown(ptr noundef, i32 noundef, i32 noundef) #5
+declare i32 @chown(ptr noundef, i32 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_close(i32 noundef %fd) #0 {
-entry:
-  %fd.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  %0 = load i32, ptr %fd.addr, align 4
-  %call = call i32 @uv__close_nocancel(i32 noundef %0)
-  store i32 %call, ptr %rc, align 4
-  %1 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then, label %if.end6
+define internal i32 @uv__fs_close(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %4 = load i32, ptr %2, align 4
+  %5 = call i32 @uv__close_nocancel(i32 noundef %4)
+  store i32 %5, ptr %3, align 4
+  %6 = load i32, ptr %3, align 4
+  %7 = icmp eq i32 %6, -1
+  br i1 %7, label %8, label %18
 
-if.then:                                          ; preds = %entry
-  %call1 = call ptr @__errno_location() #7
-  %2 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %2, 4
-  br i1 %cmp2, label %if.then5, label %lor.lhs.false
+8:                                                ; preds = %1
+  %9 = call ptr @__errno_location() #9
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 4
+  br i1 %11, label %16, label %12
 
-lor.lhs.false:                                    ; preds = %if.then
-  %call3 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call3, align 4
-  %cmp4 = icmp eq i32 %3, 115
-  br i1 %cmp4, label %if.then5, label %if.end
+12:                                               ; preds = %8
+  %13 = call ptr @__errno_location() #9
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 115
+  br i1 %15, label %16, label %17
 
-if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  store i32 0, ptr %rc, align 4
-  br label %if.end
+16:                                               ; preds = %12, %8
+  store i32 0, ptr %3, align 4
+  br label %17
 
-if.end:                                           ; preds = %if.then5, %lor.lhs.false
-  br label %if.end6
+17:                                               ; preds = %16, %12
+  br label %18
 
-if.end6:                                          ; preds = %if.end, %entry
-  %4 = load i32, ptr %rc, align 4
-  ret i32 %4
+18:                                               ; preds = %17, %1
+  %19 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_copyfile(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %req.addr = alloca ptr, align 8
-  %fs_req = alloca %struct.uv_fs_s, align 8
-  %srcfd = alloca i32, align 4
-  %dstfd = alloca i32, align 4
-  %src_statsbuf = alloca %struct.stat, align 8
-  %dst_statsbuf = alloca %struct.stat, align 8
-  %dst_flags = alloca i32, align 4
-  %result = alloca i32, align 4
-  %err = alloca i32, align 4
-  %bytes_to_send = alloca i64, align 8
-  %in_offset = alloca i64, align 8
-  %bytes_written = alloca i64, align 8
-  %bytes_chunk = alloca i64, align 8
-  store ptr %req, ptr %req.addr, align 8
-  store i32 -1, ptr %dstfd, align 4
-  store i32 0, ptr %err, align 4
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call i32 @uv_fs_open(ptr noundef null, ptr noundef %fs_req, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  store i32 %call, ptr %srcfd, align 4
-  call void @uv_fs_req_cleanup(ptr noundef %fs_req)
-  %2 = load i32, ptr %srcfd, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @uv__fs_copyfile(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.uv_fs_s, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.stat, align 8
+  %8 = alloca %struct.stat, align 8
+  %9 = alloca [2 x %struct.timespec], align 16
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 440, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 144, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 144, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store i32 -1, ptr %6, align 4
+  store i32 0, ptr %12, align 4
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 @uv_fs_open(ptr noundef null, ptr noundef %4, ptr noundef %20, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  store i32 %21, ptr %5, align 4
+  call void @uv_fs_req_cleanup(ptr noundef %4)
+  %22 = load i32, ptr %5, align 4
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %27
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %srcfd, align 4
-  %conv = sext i32 %3 to i64
-  store i64 %conv, ptr %retval, align 8
-  br label %return
+24:                                               ; preds = %1
+  %25 = load i32, ptr %5, align 4
+  %26 = sext i32 %25 to i64
+  store i64 %26, ptr %2, align 8
+  store i32 1, ptr %17, align 4
+  br label %247
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %srcfd, align 4
-  %call1 = call i32 @uv__fstat(i32 noundef %4, ptr noundef %src_statsbuf)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.then2, label %if.end4
+27:                                               ; preds = %1
+  %28 = load i32, ptr %5, align 4
+  %29 = call i32 @uv__fstat(i32 noundef %28, ptr noundef %7)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %35
 
-if.then2:                                         ; preds = %if.end
-  %call3 = call ptr @__errno_location() #7
-  %5 = load i32, ptr %call3, align 4
-  %sub = sub nsw i32 0, %5
-  store i32 %sub, ptr %err, align 4
-  br label %out
+31:                                               ; preds = %27
+  %32 = call ptr @__errno_location() #9
+  %33 = load i32, ptr %32, align 4
+  %34 = sub nsw i32 0, %33
+  store i32 %34, ptr %12, align 4
+  br label %201
 
-if.end4:                                          ; preds = %if.end
-  store i32 65, ptr %dst_flags, align 4
-  %6 = load ptr, ptr %req.addr, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 12
-  %7 = load i32, ptr %flags, align 4
-  %and = and i32 %7, 1
-  %tobool5 = icmp ne i32 %and, 0
-  br i1 %tobool5, label %if.then6, label %if.end7
+35:                                               ; preds = %27
+  store i32 65, ptr %10, align 4
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %36, i32 0, i32 12
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 1
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %44
 
-if.then6:                                         ; preds = %if.end4
-  %8 = load i32, ptr %dst_flags, align 4
-  %or = or i32 %8, 128
-  store i32 %or, ptr %dst_flags, align 4
-  br label %if.end7
+41:                                               ; preds = %35
+  %42 = load i32, ptr %10, align 4
+  %43 = or i32 %42, 128
+  store i32 %43, ptr %10, align 4
+  br label %44
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  %9 = load ptr, ptr %req.addr, align 8
-  %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 10
-  %10 = load ptr, ptr %new_path, align 8
-  %11 = load i32, ptr %dst_flags, align 4
-  %st_mode = getelementptr inbounds %struct.stat, ptr %src_statsbuf, i32 0, i32 3
-  %12 = load i32, ptr %st_mode, align 8
-  %call8 = call i32 @uv_fs_open(ptr noundef null, ptr noundef %fs_req, ptr noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef null)
-  store i32 %call8, ptr %dstfd, align 4
-  call void @uv_fs_req_cleanup(ptr noundef %fs_req)
-  %13 = load i32, ptr %dstfd, align 4
-  %cmp9 = icmp slt i32 %13, 0
-  br i1 %cmp9, label %if.then11, label %if.end12
+44:                                               ; preds = %41, %35
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %45, i32 0, i32 10
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr %10, align 4
+  %49 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 3
+  %50 = load i32, ptr %49, align 8
+  %51 = call i32 @uv_fs_open(ptr noundef null, ptr noundef %4, ptr noundef %47, i32 noundef %48, i32 noundef %50, ptr noundef null)
+  store i32 %51, ptr %6, align 4
+  call void @uv_fs_req_cleanup(ptr noundef %4)
+  %52 = load i32, ptr %6, align 4
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %56
 
-if.then11:                                        ; preds = %if.end7
-  %14 = load i32, ptr %dstfd, align 4
-  store i32 %14, ptr %err, align 4
-  br label %out
+54:                                               ; preds = %44
+  %55 = load i32, ptr %6, align 4
+  store i32 %55, ptr %12, align 4
+  br label %201
 
-if.end12:                                         ; preds = %if.end7
-  %15 = load ptr, ptr %req.addr, align 8
-  %flags13 = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 12
-  %16 = load i32, ptr %flags13, align 4
-  %and14 = and i32 %16, 1
-  %cmp15 = icmp eq i32 %and14, 0
-  br i1 %cmp15, label %if.then17, label %if.end47
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %57, i32 0, i32 12
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 1
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %101
 
-if.then17:                                        ; preds = %if.end12
-  %17 = load i32, ptr %dstfd, align 4
-  %call18 = call i32 @uv__fstat(i32 noundef %17, ptr noundef %dst_statsbuf)
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.then20, label %if.end23
+62:                                               ; preds = %56
+  %63 = load i32, ptr %6, align 4
+  %64 = call i32 @uv__fstat(i32 noundef %63, ptr noundef %8)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %70
 
-if.then20:                                        ; preds = %if.then17
-  %call21 = call ptr @__errno_location() #7
-  %18 = load i32, ptr %call21, align 4
-  %sub22 = sub nsw i32 0, %18
-  store i32 %sub22, ptr %err, align 4
-  br label %out
+66:                                               ; preds = %62
+  %67 = call ptr @__errno_location() #9
+  %68 = load i32, ptr %67, align 4
+  %69 = sub nsw i32 0, %68
+  store i32 %69, ptr %12, align 4
+  br label %201
 
-if.end23:                                         ; preds = %if.then17
-  %st_dev = getelementptr inbounds %struct.stat, ptr %src_statsbuf, i32 0, i32 0
-  %19 = load i64, ptr %st_dev, align 8
-  %st_dev24 = getelementptr inbounds %struct.stat, ptr %dst_statsbuf, i32 0, i32 0
-  %20 = load i64, ptr %st_dev24, align 8
-  %cmp25 = icmp eq i64 %19, %20
-  br i1 %cmp25, label %land.lhs.true, label %if.end31
+70:                                               ; preds = %62
+  %71 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 0
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds nuw %struct.stat, ptr %8, i32 0, i32 0
+  %74 = load i64, ptr %73, align 8
+  %75 = icmp eq i64 %72, %74
+  br i1 %75, label %76, label %83
 
-land.lhs.true:                                    ; preds = %if.end23
-  %st_ino = getelementptr inbounds %struct.stat, ptr %src_statsbuf, i32 0, i32 1
-  %21 = load i64, ptr %st_ino, align 8
-  %st_ino27 = getelementptr inbounds %struct.stat, ptr %dst_statsbuf, i32 0, i32 1
-  %22 = load i64, ptr %st_ino27, align 8
-  %cmp28 = icmp eq i64 %21, %22
-  br i1 %cmp28, label %if.then30, label %if.end31
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw %struct.stat, ptr %8, i32 0, i32 1
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %78, %80
+  br i1 %81, label %82, label %83
 
-if.then30:                                        ; preds = %land.lhs.true
-  br label %out
+82:                                               ; preds = %76
+  br label %201
 
-if.end31:                                         ; preds = %land.lhs.true, %if.end23
-  %23 = load i32, ptr %dstfd, align 4
-  %call32 = call i32 @ftruncate64(i32 noundef %23, i64 noundef 0) #8
-  %cmp33 = icmp ne i32 %call32, 0
-  br i1 %cmp33, label %if.then35, label %if.end46
+83:                                               ; preds = %76, %70
+  %84 = load i32, ptr %6, align 4
+  %85 = call i32 @ftruncate64(i32 noundef %84, i64 noundef 0) #8
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %100
 
-if.then35:                                        ; preds = %if.end31
-  %call36 = call ptr @__errno_location() #7
-  %24 = load i32, ptr %call36, align 4
-  %sub37 = sub nsw i32 0, %24
-  store i32 %sub37, ptr %err, align 4
-  %25 = load i32, ptr %err, align 4
-  %cmp38 = icmp ne i32 %25, -13
-  br i1 %cmp38, label %if.then40, label %if.end41
+87:                                               ; preds = %83
+  %88 = call ptr @__errno_location() #9
+  %89 = load i32, ptr %88, align 4
+  %90 = sub nsw i32 0, %89
+  store i32 %90, ptr %12, align 4
+  %91 = load i32, ptr %12, align 4
+  %92 = icmp ne i32 %91, -13
+  br i1 %92, label %93, label %94
 
-if.then40:                                        ; preds = %if.then35
-  br label %out
+93:                                               ; preds = %87
+  br label %201
 
-if.end41:                                         ; preds = %if.then35
-  %st_size = getelementptr inbounds %struct.stat, ptr %dst_statsbuf, i32 0, i32 8
-  %26 = load i64, ptr %st_size, align 8
-  %cmp42 = icmp sgt i64 %26, 0
-  br i1 %cmp42, label %if.then44, label %if.end45
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds nuw %struct.stat, ptr %8, i32 0, i32 8
+  %96 = load i64, ptr %95, align 8
+  %97 = icmp sgt i64 %96, 0
+  br i1 %97, label %98, label %99
 
-if.then44:                                        ; preds = %if.end41
-  br label %out
+98:                                               ; preds = %94
+  br label %201
 
-if.end45:                                         ; preds = %if.end41
-  store i32 0, ptr %err, align 4
-  br label %if.end46
+99:                                               ; preds = %94
+  store i32 0, ptr %12, align 4
+  br label %100
 
-if.end46:                                         ; preds = %if.end45, %if.end31
-  br label %if.end47
+100:                                              ; preds = %99, %83
+  br label %101
 
-if.end47:                                         ; preds = %if.end46, %if.end12
-  %27 = load i32, ptr %dstfd, align 4
-  %st_mode48 = getelementptr inbounds %struct.stat, ptr %src_statsbuf, i32 0, i32 3
-  %28 = load i32, ptr %st_mode48, align 8
-  %call49 = call i32 @fchmod(i32 noundef %27, i32 noundef %28) #8
-  %cmp50 = icmp eq i32 %call49, -1
-  br i1 %cmp50, label %if.then52, label %if.end63
+101:                                              ; preds = %100, %56
+  %102 = getelementptr inbounds [2 x %struct.timespec], ptr %9, i64 0, i64 0
+  %103 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %102, ptr align 8 %103, i64 16, i1 false)
+  %104 = getelementptr inbounds [2 x %struct.timespec], ptr %9, i64 0, i64 1
+  %105 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %104, ptr align 8 %105, i64 16, i1 false)
+  %106 = load i32, ptr %6, align 4
+  %107 = getelementptr inbounds [2 x %struct.timespec], ptr %9, i64 0, i64 0
+  %108 = call i32 @futimens(i32 noundef %106, ptr noundef %107) #8
+  %109 = icmp eq i32 %108, -1
+  br i1 %109, label %110, label %114
 
-if.then52:                                        ; preds = %if.end47
-  %call53 = call ptr @__errno_location() #7
-  %29 = load i32, ptr %call53, align 4
-  %sub54 = sub nsw i32 0, %29
-  store i32 %sub54, ptr %err, align 4
-  %30 = load i32, ptr %err, align 4
-  %cmp55 = icmp ne i32 %30, -1
-  br i1 %cmp55, label %if.then57, label %if.end58
+110:                                              ; preds = %101
+  %111 = call ptr @__errno_location() #9
+  %112 = load i32, ptr %111, align 4
+  %113 = sub nsw i32 0, %112
+  store i32 %113, ptr %12, align 4
+  br label %201
 
-if.then57:                                        ; preds = %if.then52
-  br label %out
+114:                                              ; preds = %101
+  %115 = load i32, ptr %6, align 4
+  %116 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 4
+  %117 = load i32, ptr %116, align 4
+  %118 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 5
+  %119 = load i32, ptr %118, align 8
+  %120 = call i32 @fchown(i32 noundef %115, i32 noundef %117, i32 noundef %119) #8
+  store i32 %120, ptr %11, align 4
+  %121 = load i32, ptr %6, align 4
+  %122 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 3
+  %123 = load i32, ptr %122, align 8
+  %124 = call i32 @fchmod(i32 noundef %121, i32 noundef %123) #8
+  %125 = icmp eq i32 %124, -1
+  br i1 %125, label %126, label %139
 
-if.end58:                                         ; preds = %if.then52
-  %31 = load i32, ptr %dstfd, align 4
-  %call59 = call i32 @uv__is_cifs_or_smb(i32 noundef %31)
-  %tobool60 = icmp ne i32 %call59, 0
-  br i1 %tobool60, label %if.end62, label %if.then61
+126:                                              ; preds = %114
+  %127 = call ptr @__errno_location() #9
+  %128 = load i32, ptr %127, align 4
+  %129 = sub nsw i32 0, %128
+  store i32 %129, ptr %12, align 4
+  %130 = load i32, ptr %12, align 4
+  %131 = icmp ne i32 %130, -1
+  br i1 %131, label %132, label %133
 
-if.then61:                                        ; preds = %if.end58
-  br label %out
+132:                                              ; preds = %126
+  br label %201
 
-if.end62:                                         ; preds = %if.end58
-  store i32 0, ptr %err, align 4
-  br label %if.end63
+133:                                              ; preds = %126
+  %134 = load i32, ptr %6, align 4
+  %135 = call i32 @uv__is_cifs_or_smb(i32 noundef %134)
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %138, label %137
 
-if.end63:                                         ; preds = %if.end62, %if.end47
-  %32 = load ptr, ptr %req.addr, align 8
-  %flags64 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 12
-  %33 = load i32, ptr %flags64, align 4
-  %and65 = and i32 %33, 2
-  %tobool66 = icmp ne i32 %and65, 0
-  br i1 %tobool66, label %if.then70, label %lor.lhs.false
+137:                                              ; preds = %133
+  br label %201
 
-lor.lhs.false:                                    ; preds = %if.end63
-  %34 = load ptr, ptr %req.addr, align 8
-  %flags67 = getelementptr inbounds %struct.uv_fs_s, ptr %34, i32 0, i32 12
-  %35 = load i32, ptr %flags67, align 4
-  %and68 = and i32 %35, 4
-  %tobool69 = icmp ne i32 %and68, 0
-  br i1 %tobool69, label %if.then70, label %if.end83
+138:                                              ; preds = %133
+  store i32 0, ptr %12, align 4
+  br label %139
 
-if.then70:                                        ; preds = %lor.lhs.false, %if.end63
-  %36 = load i32, ptr %dstfd, align 4
-  %37 = load i32, ptr %srcfd, align 4
-  %call71 = call i32 (i32, i64, ...) @ioctl(i32 noundef %36, i64 noundef 1074041865, i32 noundef %37) #8
-  %cmp72 = icmp eq i32 %call71, 0
-  br i1 %cmp72, label %if.then74, label %if.end75
+139:                                              ; preds = %138, %114
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %140, i32 0, i32 12
+  %142 = load i32, ptr %141, align 4
+  %143 = and i32 %142, 2
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %151, label %145
 
-if.then74:                                        ; preds = %if.then70
-  br label %out
+145:                                              ; preds = %139
+  %146 = load ptr, ptr %3, align 8
+  %147 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %146, i32 0, i32 12
+  %148 = load i32, ptr %147, align 4
+  %149 = and i32 %148, 4
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %151, label %168
 
-if.end75:                                         ; preds = %if.then70
-  %38 = load ptr, ptr %req.addr, align 8
-  %flags76 = getelementptr inbounds %struct.uv_fs_s, ptr %38, i32 0, i32 12
-  %39 = load i32, ptr %flags76, align 4
-  %and77 = and i32 %39, 4
-  %tobool78 = icmp ne i32 %and77, 0
-  br i1 %tobool78, label %if.then79, label %if.end82
+151:                                              ; preds = %145, %139
+  %152 = load i32, ptr %6, align 4
+  %153 = load i32, ptr %5, align 4
+  %154 = call i32 (i32, i64, ...) @ioctl(i32 noundef %152, i64 noundef 1074041865, i32 noundef %153) #8
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %157
 
-if.then79:                                        ; preds = %if.end75
-  %call80 = call ptr @__errno_location() #7
-  %40 = load i32, ptr %call80, align 4
-  %sub81 = sub nsw i32 0, %40
-  store i32 %sub81, ptr %err, align 4
-  br label %out
+156:                                              ; preds = %151
+  br label %201
 
-if.end82:                                         ; preds = %if.end75
-  br label %if.end83
+157:                                              ; preds = %151
+  %158 = load ptr, ptr %3, align 8
+  %159 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %158, i32 0, i32 12
+  %160 = load i32, ptr %159, align 4
+  %161 = and i32 %160, 4
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %167
 
-if.end83:                                         ; preds = %if.end82, %lor.lhs.false
-  %st_size84 = getelementptr inbounds %struct.stat, ptr %src_statsbuf, i32 0, i32 8
-  %41 = load i64, ptr %st_size84, align 8
-  store i64 %41, ptr %bytes_to_send, align 8
-  store i64 0, ptr %in_offset, align 8
-  br label %while.cond
+163:                                              ; preds = %157
+  %164 = call ptr @__errno_location() #9
+  %165 = load i32, ptr %164, align 4
+  %166 = sub nsw i32 0, %165
+  store i32 %166, ptr %12, align 4
+  br label %201
 
-while.cond:                                       ; preds = %if.end97, %if.end83
-  %42 = load i64, ptr %bytes_to_send, align 8
-  %cmp85 = icmp ne i64 %42, 0
-  br i1 %cmp85, label %while.body, label %while.end
+167:                                              ; preds = %157
+  br label %168
 
-while.body:                                       ; preds = %while.cond
-  store i64 9223372036854775807, ptr %bytes_chunk, align 8
-  %43 = load i64, ptr %bytes_to_send, align 8
-  %44 = load i64, ptr %bytes_chunk, align 8
-  %cmp87 = icmp slt i64 %43, %44
-  br i1 %cmp87, label %if.then89, label %if.end90
+168:                                              ; preds = %167, %145
+  %169 = getelementptr inbounds nuw %struct.stat, ptr %7, i32 0, i32 8
+  %170 = load i64, ptr %169, align 8
+  store i64 %170, ptr %13, align 8
+  store i64 0, ptr %14, align 8
+  br label %171
 
-if.then89:                                        ; preds = %while.body
-  %45 = load i64, ptr %bytes_to_send, align 8
-  store i64 %45, ptr %bytes_chunk, align 8
-  br label %if.end90
+171:                                              ; preds = %193, %168
+  %172 = load i64, ptr %13, align 8
+  %173 = icmp ne i64 %172, 0
+  br i1 %173, label %174, label %200
 
-if.end90:                                         ; preds = %if.then89, %while.body
-  %46 = load i32, ptr %dstfd, align 4
-  %47 = load i32, ptr %srcfd, align 4
-  %48 = load i64, ptr %in_offset, align 8
-  %49 = load i64, ptr %bytes_chunk, align 8
-  %call91 = call i32 @uv_fs_sendfile(ptr noundef null, ptr noundef %fs_req, i32 noundef %46, i32 noundef %47, i64 noundef %48, i64 noundef %49, ptr noundef null)
-  %result92 = getelementptr inbounds %struct.uv_fs_s, ptr %fs_req, i32 0, i32 6
-  %50 = load i64, ptr %result92, align 8
-  store i64 %50, ptr %bytes_written, align 8
-  call void @uv_fs_req_cleanup(ptr noundef %fs_req)
-  %51 = load i64, ptr %bytes_written, align 8
-  %cmp93 = icmp slt i64 %51, 0
-  br i1 %cmp93, label %if.then95, label %if.end97
+174:                                              ; preds = %171
+  store i64 9223372036854775807, ptr %16, align 8
+  %175 = load i64, ptr %13, align 8
+  %176 = load i64, ptr %16, align 8
+  %177 = icmp slt i64 %175, %176
+  br i1 %177, label %178, label %180
 
-if.then95:                                        ; preds = %if.end90
-  %52 = load i64, ptr %bytes_written, align 8
-  %conv96 = trunc i64 %52 to i32
-  store i32 %conv96, ptr %err, align 4
-  br label %while.end
+178:                                              ; preds = %174
+  %179 = load i64, ptr %13, align 8
+  store i64 %179, ptr %16, align 8
+  br label %180
 
-if.end97:                                         ; preds = %if.end90
-  %53 = load i64, ptr %bytes_written, align 8
-  %54 = load i64, ptr %bytes_to_send, align 8
-  %sub98 = sub nsw i64 %54, %53
-  store i64 %sub98, ptr %bytes_to_send, align 8
-  %55 = load i64, ptr %bytes_written, align 8
-  %56 = load i64, ptr %in_offset, align 8
-  %add = add nsw i64 %56, %55
-  store i64 %add, ptr %in_offset, align 8
-  br label %while.cond
+180:                                              ; preds = %178, %174
+  %181 = load i32, ptr %6, align 4
+  %182 = load i32, ptr %5, align 4
+  %183 = load i64, ptr %14, align 8
+  %184 = load i64, ptr %16, align 8
+  %185 = call i32 @uv_fs_sendfile(ptr noundef null, ptr noundef %4, i32 noundef %181, i32 noundef %182, i64 noundef %183, i64 noundef %184, ptr noundef null)
+  %186 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %4, i32 0, i32 6
+  %187 = load i64, ptr %186, align 8
+  store i64 %187, ptr %15, align 8
+  call void @uv_fs_req_cleanup(ptr noundef %4)
+  %188 = load i64, ptr %15, align 8
+  %189 = icmp slt i64 %188, 0
+  br i1 %189, label %190, label %193
 
-while.end:                                        ; preds = %if.then95, %while.cond
-  br label %out
+190:                                              ; preds = %180
+  %191 = load i64, ptr %15, align 8
+  %192 = trunc i64 %191 to i32
+  store i32 %192, ptr %12, align 4
+  br label %200
 
-out:                                              ; preds = %while.end, %if.then79, %if.then74, %if.then61, %if.then57, %if.then44, %if.then40, %if.then30, %if.then20, %if.then11, %if.then2
-  %57 = load i32, ptr %err, align 4
-  %cmp99 = icmp slt i32 %57, 0
-  br i1 %cmp99, label %if.then101, label %if.else
+193:                                              ; preds = %180
+  %194 = load i64, ptr %15, align 8
+  %195 = load i64, ptr %13, align 8
+  %196 = sub nsw i64 %195, %194
+  store i64 %196, ptr %13, align 8
+  %197 = load i64, ptr %15, align 8
+  %198 = load i64, ptr %14, align 8
+  %199 = add nsw i64 %198, %197
+  store i64 %199, ptr %14, align 8
+  br label %171
 
-if.then101:                                       ; preds = %out
-  %58 = load i32, ptr %err, align 4
-  store i32 %58, ptr %result, align 4
-  br label %if.end102
+200:                                              ; preds = %190, %171
+  br label %201
 
-if.else:                                          ; preds = %out
-  store i32 0, ptr %result, align 4
-  br label %if.end102
+201:                                              ; preds = %200, %163, %156, %137, %132, %110, %98, %93, %82, %66, %54, %31
+  %202 = load i32, ptr %12, align 4
+  %203 = icmp slt i32 %202, 0
+  br i1 %203, label %204, label %206
 
-if.end102:                                        ; preds = %if.else, %if.then101
-  %59 = load i32, ptr %srcfd, align 4
-  %call103 = call i32 @uv__close_nocheckstdio(i32 noundef %59)
-  store i32 %call103, ptr %err, align 4
-  %60 = load i32, ptr %err, align 4
-  %cmp104 = icmp ne i32 %60, 0
-  br i1 %cmp104, label %land.lhs.true106, label %if.end110
+204:                                              ; preds = %201
+  %205 = load i32, ptr %12, align 4
+  store i32 %205, ptr %11, align 4
+  br label %207
 
-land.lhs.true106:                                 ; preds = %if.end102
-  %61 = load i32, ptr %result, align 4
-  %cmp107 = icmp eq i32 %61, 0
-  br i1 %cmp107, label %if.then109, label %if.end110
+206:                                              ; preds = %201
+  store i32 0, ptr %11, align 4
+  br label %207
 
-if.then109:                                       ; preds = %land.lhs.true106
-  %62 = load i32, ptr %err, align 4
-  store i32 %62, ptr %result, align 4
-  br label %if.end110
+207:                                              ; preds = %206, %204
+  %208 = load i32, ptr %5, align 4
+  %209 = call i32 @uv__close_nocheckstdio(i32 noundef %208)
+  store i32 %209, ptr %12, align 4
+  %210 = load i32, ptr %12, align 4
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %212, label %217
 
-if.end110:                                        ; preds = %if.then109, %land.lhs.true106, %if.end102
-  %63 = load i32, ptr %dstfd, align 4
-  %cmp111 = icmp sge i32 %63, 0
-  br i1 %cmp111, label %if.then113, label %if.end128
+212:                                              ; preds = %207
+  %213 = load i32, ptr %11, align 4
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %215, label %217
 
-if.then113:                                       ; preds = %if.end110
-  %64 = load i32, ptr %dstfd, align 4
-  %call114 = call i32 @uv__close_nocheckstdio(i32 noundef %64)
-  store i32 %call114, ptr %err, align 4
-  %65 = load i32, ptr %err, align 4
-  %cmp115 = icmp ne i32 %65, 0
-  br i1 %cmp115, label %land.lhs.true117, label %if.end121
+215:                                              ; preds = %212
+  %216 = load i32, ptr %12, align 4
+  store i32 %216, ptr %11, align 4
+  br label %217
 
-land.lhs.true117:                                 ; preds = %if.then113
-  %66 = load i32, ptr %result, align 4
-  %cmp118 = icmp eq i32 %66, 0
-  br i1 %cmp118, label %if.then120, label %if.end121
+217:                                              ; preds = %215, %212, %207
+  %218 = load i32, ptr %6, align 4
+  %219 = icmp sge i32 %218, 0
+  br i1 %219, label %220, label %239
 
-if.then120:                                       ; preds = %land.lhs.true117
-  %67 = load i32, ptr %err, align 4
-  store i32 %67, ptr %result, align 4
-  br label %if.end121
+220:                                              ; preds = %217
+  %221 = load i32, ptr %6, align 4
+  %222 = call i32 @uv__close_nocheckstdio(i32 noundef %221)
+  store i32 %222, ptr %12, align 4
+  %223 = load i32, ptr %12, align 4
+  %224 = icmp ne i32 %223, 0
+  br i1 %224, label %225, label %230
 
-if.end121:                                        ; preds = %if.then120, %land.lhs.true117, %if.then113
-  %68 = load i32, ptr %result, align 4
-  %cmp122 = icmp ne i32 %68, 0
-  br i1 %cmp122, label %if.then124, label %if.end127
+225:                                              ; preds = %220
+  %226 = load i32, ptr %11, align 4
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %230
 
-if.then124:                                       ; preds = %if.end121
-  %69 = load ptr, ptr %req.addr, align 8
-  %new_path125 = getelementptr inbounds %struct.uv_fs_s, ptr %69, i32 0, i32 10
-  %70 = load ptr, ptr %new_path125, align 8
-  %call126 = call i32 @uv_fs_unlink(ptr noundef null, ptr noundef %fs_req, ptr noundef %70, ptr noundef null)
-  call void @uv_fs_req_cleanup(ptr noundef %fs_req)
-  br label %if.end127
+228:                                              ; preds = %225
+  %229 = load i32, ptr %12, align 4
+  store i32 %229, ptr %11, align 4
+  br label %230
 
-if.end127:                                        ; preds = %if.then124, %if.end121
-  br label %if.end128
+230:                                              ; preds = %228, %225, %220
+  %231 = load i32, ptr %11, align 4
+  %232 = icmp ne i32 %231, 0
+  br i1 %232, label %233, label %238
 
-if.end128:                                        ; preds = %if.end127, %if.end110
-  %71 = load i32, ptr %result, align 4
-  %cmp129 = icmp eq i32 %71, 0
-  br i1 %cmp129, label %if.then131, label %if.end132
+233:                                              ; preds = %230
+  %234 = load ptr, ptr %3, align 8
+  %235 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %234, i32 0, i32 10
+  %236 = load ptr, ptr %235, align 8
+  %237 = call i32 @uv_fs_unlink(ptr noundef null, ptr noundef %4, ptr noundef %236, ptr noundef null)
+  call void @uv_fs_req_cleanup(ptr noundef %4)
+  br label %238
 
-if.then131:                                       ; preds = %if.end128
-  store i64 0, ptr %retval, align 8
-  br label %return
+238:                                              ; preds = %233, %230
+  br label %239
 
-if.end132:                                        ; preds = %if.end128
-  %72 = load i32, ptr %result, align 4
-  %sub133 = sub nsw i32 0, %72
-  %call134 = call ptr @__errno_location() #7
-  store i32 %sub133, ptr %call134, align 4
-  store i64 -1, ptr %retval, align 8
-  br label %return
+239:                                              ; preds = %238, %217
+  %240 = load i32, ptr %11, align 4
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %242, label %243
 
-return:                                           ; preds = %if.end132, %if.then131, %if.then
-  %73 = load i64, ptr %retval, align 8
-  ret i64 %73
+242:                                              ; preds = %239
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %17, align 4
+  br label %247
+
+243:                                              ; preds = %239
+  %244 = load i32, ptr %11, align 4
+  %245 = sub nsw i32 0, %244
+  %246 = call ptr @__errno_location() #9
+  store i32 %245, ptr %246, align 4
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %17, align 4
+  br label %247
+
+247:                                              ; preds = %243, %242, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 440, ptr %4) #8
+  %248 = load i64, ptr %2, align 8
+  ret i64 %248
 }
 
 ; Function Attrs: nounwind
-declare i32 @fchmod(i32 noundef, i32 noundef) #5
+declare i32 @fchmod(i32 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) #5
+declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @lchown(ptr noundef, i32 noundef, i32 noundef) #5
+declare i32 @lchown(ptr noundef, i32 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_fdatasync(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %file, align 8
-  %call = call i32 @fdatasync(i32 noundef %1)
-  %conv = sext i32 %call to i64
-  ret i64 %conv
+define internal i64 @uv__fs_fdatasync(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %3, i32 0, i32 11
+  %5 = load i32, ptr %4, align 8
+  %6 = call i32 @fdatasync(i32 noundef %5)
+  %7 = sext i32 %6 to i64
+  ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_fstat(i32 noundef %fd, ptr noundef %buf) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %buf.addr = alloca ptr, align 8
-  %pbuf = alloca %struct.stat, align 8
-  %ret = alloca i32, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load i32, ptr %fd.addr, align 4
-  %1 = load ptr, ptr %buf.addr, align 8
-  %call = call i32 @uv__fs_statx(i32 noundef %0, ptr noundef @.str, i32 noundef 1, i32 noundef 0, ptr noundef %1)
-  store i32 %call, ptr %ret, align 4
-  %2 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %2, -38
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__fs_fstat(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.stat, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load i32, ptr %4, align 4
+  %10 = load ptr, ptr %5, align 8
+  %11 = call i32 @uv__fs_statx(i32 noundef %9, ptr noundef @.str, i32 noundef 1, i32 noundef 0, ptr noundef %10)
+  store i32 %11, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4
+  %13 = icmp ne i32 %12, -38
+  br i1 %13, label %14, label %16
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load i32, ptr %7, align 4
+  store i32 %15, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %fd.addr, align 4
-  %call1 = call i32 @uv__fstat(i32 noundef %4, ptr noundef %pbuf)
-  store i32 %call1, ptr %ret, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+16:                                               ; preds = %2
+  %17 = load i32, ptr %4, align 4
+  %18 = call i32 @uv__fstat(i32 noundef %17, ptr noundef %6)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
 
-if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %buf.addr, align 8
-  call void @uv__to_stat(ptr noundef %pbuf, ptr noundef %6)
-  br label %if.end4
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  call void @uv__to_stat(ptr noundef %6, ptr noundef %22)
+  br label %23
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %21, %16
+  %24 = load i32, ptr %7, align 4
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-return:                                           ; preds = %if.end4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+25:                                               ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %6) #8
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_fsync(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %file, align 8
-  %call = call i32 @fsync(i32 noundef %1)
-  %conv = sext i32 %call to i64
-  ret i64 %conv
-}
-
-; Function Attrs: nounwind
-declare i32 @ftruncate64(i32 noundef, i64 noundef) #5
-
-; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_futime(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %ts = alloca [2 x %struct.timespec], align 16
-  %tmp = alloca %struct.timespec, align 8
-  %tmp2 = alloca %struct.timespec, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %0 = load ptr, ptr %req.addr, align 8
-  %atime = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 19
-  %1 = load double, ptr %atime, align 8
-  %call = call { i64, i64 } @uv__fs_to_timespec(double noundef %1)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 0
-  %3 = extractvalue { i64, i64 } %call, 0
-  store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 1
-  %5 = extractvalue { i64, i64 } %call, 1
-  store i64 %5, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %tmp, i64 16, i1 false)
-  %arrayidx1 = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 1
-  %6 = load ptr, ptr %req.addr, align 8
-  %mtime = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 20
-  %7 = load double, ptr %mtime, align 8
-  %call3 = call { i64, i64 } @uv__fs_to_timespec(double noundef %7)
-  %8 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call3, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call3, 1
-  store i64 %11, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx1, ptr align 8 %tmp2, i64 16, i1 false)
-  %12 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %12, i32 0, i32 11
-  %13 = load i32, ptr %file, align 8
-  %arraydecay = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %call4 = call i32 @futimens(i32 noundef %13, ptr noundef %arraydecay) #8
-  %conv = sext i32 %call4 to i64
-  ret i64 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_lutime(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %ts = alloca [2 x %struct.timespec], align 16
-  %tmp = alloca %struct.timespec, align 8
-  %tmp2 = alloca %struct.timespec, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %0 = load ptr, ptr %req.addr, align 8
-  %atime = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 19
-  %1 = load double, ptr %atime, align 8
-  %call = call { i64, i64 } @uv__fs_to_timespec(double noundef %1)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 0
-  %3 = extractvalue { i64, i64 } %call, 0
-  store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 1
-  %5 = extractvalue { i64, i64 } %call, 1
-  store i64 %5, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %tmp, i64 16, i1 false)
-  %arrayidx1 = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 1
-  %6 = load ptr, ptr %req.addr, align 8
-  %mtime = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 20
-  %7 = load double, ptr %mtime, align 8
-  %call3 = call { i64, i64 } @uv__fs_to_timespec(double noundef %7)
-  %8 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call3, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call3, 1
-  store i64 %11, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx1, ptr align 8 %tmp2, i64 16, i1 false)
-  %12 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %12, i32 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %arraydecay = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %call4 = call i32 @utimensat(i32 noundef -100, ptr noundef %13, ptr noundef %arraydecay, i32 noundef 256) #8
-  %conv = sext i32 %call4 to i64
-  ret i64 %conv
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_lstat(ptr noundef %path, ptr noundef %buf) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %path.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %pbuf = alloca %struct.stat, align 8
-  %ret = alloca i32, align 4
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %1 = load ptr, ptr %buf.addr, align 8
-  %call = call i32 @uv__fs_statx(i32 noundef -1, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef %1)
-  store i32 %call, ptr %ret, align 4
-  %2 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %2, -38
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %path.addr, align 8
-  %call1 = call i32 @uv__lstat(ptr noundef %4, ptr noundef %pbuf)
-  store i32 %call1, ptr %ret, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %buf.addr, align 8
-  call void @uv__to_stat(ptr noundef %pbuf, ptr noundef %6)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.then3, %if.end
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+define internal i64 @uv__fs_fsync(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %3, i32 0, i32 11
+  %5 = load i32, ptr %4, align 8
+  %6 = call i32 @fsync(i32 noundef %5)
+  %7 = sext i32 %6 to i64
+  ret i64 %7
 }
 
 ; Function Attrs: nounwind
-declare i32 @link(ptr noundef, ptr noundef) #5
-
-; Function Attrs: nounwind
-declare i32 @mkdir(ptr noundef, i32 noundef) #5
+declare i32 @ftruncate64(i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_mkdtemp(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call ptr @mkdtemp(ptr noundef %1) #8
-  %tobool = icmp ne ptr %call, null
-  %cond = select i1 %tobool, i32 0, i32 -1
-  %conv = sext i32 %cond to i64
-  ret i64 %conv
+define internal i64 @uv__fs_futime(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [2 x %struct.timespec], align 16
+  %4 = alloca %struct.timespec, align 8
+  %5 = alloca %struct.timespec, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #8
+  %6 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 19
+  %9 = load double, ptr %8, align 8
+  %10 = call { i64, i64 } @uv__fs_to_timespec(double noundef %9)
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %12 = extractvalue { i64, i64 } %10, 0
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %14 = extractvalue { i64, i64 } %10, 1
+  store i64 %14, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 8 %4, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #8
+  %15 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 20
+  %18 = load double, ptr %17, align 8
+  %19 = call { i64, i64 } @uv__fs_to_timespec(double noundef %18)
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %21 = extractvalue { i64, i64 } %19, 0
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %23 = extractvalue { i64, i64 } %19, 1
+  store i64 %23, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %15, ptr align 8 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #8
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 11
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  %28 = call i32 @futimens(i32 noundef %26, ptr noundef %27) #8
+  %29 = sext i32 %28 to i64
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #8
+  ret i64 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_mkstemp(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %req.addr = alloca ptr, align 8
-  %r = alloca i32, align 4
-  %path = alloca ptr, align 8
-  %path_length = alloca i64, align 8
-  %atomic-temp = alloca i32, align 4
-  %.atomictmp = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path1 = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path1, align 8
-  store ptr %1, ptr %path, align 8
-  %2 = load ptr, ptr %path, align 8
-  %call = call i64 @strlen(ptr noundef %2) #10
-  store i64 %call, ptr %path_length, align 8
-  %3 = load i64, ptr %path_length, align 8
-  %cmp = icmp ult i64 %3, 6
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i64 @uv__fs_lutime(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [2 x %struct.timespec], align 16
+  %4 = alloca %struct.timespec, align 8
+  %5 = alloca %struct.timespec, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #8
+  %6 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 19
+  %9 = load double, ptr %8, align 8
+  %10 = call { i64, i64 } @uv__fs_to_timespec(double noundef %9)
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %12 = extractvalue { i64, i64 } %10, 0
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %14 = extractvalue { i64, i64 } %10, 1
+  store i64 %14, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 8 %4, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #8
+  %15 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 20
+  %18 = load double, ptr %17, align 8
+  %19 = call { i64, i64 } @uv__fs_to_timespec(double noundef %18)
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %21 = extractvalue { i64, i64 } %19, 0
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %23 = extractvalue { i64, i64 } %19, 1
+  store i64 %23, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %15, ptr align 8 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #8
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  %28 = call i32 @utimensat(i32 noundef -100, ptr noundef %26, ptr noundef %27, i32 noundef 256) #8
+  %29 = sext i32 %28 to i64
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #8
+  ret i64 %29
+}
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %path, align 8
-  %5 = load i64, ptr %path_length, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -6
-  %call3 = call i32 @strcmp(ptr noundef %add.ptr2, ptr noundef @uv__fs_mkstemp.pattern) #10
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: nounwind uwtable
+define internal i32 @uv__fs_lstat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.stat, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call i32 @uv__fs_statx(i32 noundef -1, ptr noundef %9, i32 noundef 0, i32 noundef 1, ptr noundef %10)
+  store i32 %11, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4
+  %13 = icmp ne i32 %12, -38
+  br i1 %13, label %14, label %16
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call4 = call ptr @__errno_location() #7
-  store i32 22, ptr %call4, align 4
-  store i32 -1, ptr %r, align 4
-  br label %clobber
+14:                                               ; preds = %2
+  %15 = load i32, ptr %7, align 4
+  store i32 %15, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-if.end:                                           ; preds = %lor.lhs.false
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = call i32 @uv__lstat(ptr noundef %17, ptr noundef %6)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  call void @uv__to_stat(ptr noundef %6, ptr noundef %22)
+  br label %23
+
+23:                                               ; preds = %21, %16
+  %24 = load i32, ptr %7, align 4
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
+
+25:                                               ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %6) #8
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
+}
+
+; Function Attrs: nounwind
+declare i32 @link(ptr noundef, ptr noundef) #6
+
+; Function Attrs: nounwind
+declare i32 @mkdir(ptr noundef, i32 noundef) #6
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_mkdtemp(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = call ptr @mkdtemp(ptr noundef %5) #8
+  %7 = icmp ne ptr %6, null
+  %8 = select i1 %7, i32 0, i32 -1
+  %9 = sext i32 %8 to i64
+  ret i64 %9
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @uv__fs_mkstemp(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %10, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %5, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i64 @strlen(ptr noundef %13) #11
+  store i64 %14, ptr %6, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = icmp ult i64 %15, 6
+  br i1 %16, label %24, label %17
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -6
+  %22 = call i32 @strcmp(ptr noundef %21, ptr noundef @uv__fs_mkstemp.pattern) #11
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %17, %1
+  %25 = call ptr @__errno_location() #9
+  store i32 22, ptr %25, align 4
+  store i32 -1, ptr %4, align 4
+  br label %85
+
+26:                                               ; preds = %17
   call void @uv_once(ptr noundef @uv__fs_mkstemp.once, ptr noundef @uv__mkostemp_initonce)
-  %6 = load atomic i32, ptr @uv__fs_mkstemp.no_cloexec_support monotonic, align 4
-  store i32 %6, ptr %atomic-temp, align 4
-  %7 = load i32, ptr %atomic-temp, align 4
-  %cmp5 = icmp eq i32 %7, 0
-  br i1 %cmp5, label %land.lhs.true, label %if.end16
+  %27 = load atomic i32, ptr @uv__fs_mkstemp.no_cloexec_support monotonic, align 4
+  store i32 %27, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %48
 
-land.lhs.true:                                    ; preds = %if.end
-  %8 = load ptr, ptr @uv__mkostemp, align 8
-  %cmp6 = icmp ne ptr %8, null
-  br i1 %cmp6, label %if.then7, label %if.end16
+30:                                               ; preds = %26
+  %31 = load ptr, ptr @uv__mkostemp, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %48
 
-if.then7:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr @uv__mkostemp, align 8
-  %10 = load ptr, ptr %path, align 8
-  %call8 = call i32 %9(ptr noundef %10, i32 noundef 524288)
-  store i32 %call8, ptr %r, align 4
-  %11 = load i32, ptr %r, align 4
-  %cmp9 = icmp sge i32 %11, 0
-  br i1 %cmp9, label %if.then10, label %if.end11
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @uv__mkostemp, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 %34(ptr noundef %35, i32 noundef 524288)
+  store i32 %36, ptr %4, align 4
+  %37 = load i32, ptr %4, align 4
+  %38 = icmp sge i32 %37, 0
+  br i1 %38, label %39, label %41
 
-if.then10:                                        ; preds = %if.then7
-  %12 = load i32, ptr %r, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %33
+  %40 = load i32, ptr %4, align 4
+  store i32 %40, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %93
 
-if.end11:                                         ; preds = %if.then7
-  %call12 = call ptr @__errno_location() #7
-  %13 = load i32, ptr %call12, align 4
-  %cmp13 = icmp ne i32 %13, 22
-  br i1 %cmp13, label %if.then14, label %if.end15
+41:                                               ; preds = %33
+  %42 = call ptr @__errno_location() #9
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp ne i32 %43, 22
+  br i1 %44, label %45, label %46
 
-if.then14:                                        ; preds = %if.end11
-  br label %clobber
+45:                                               ; preds = %41
+  br label %85
 
-if.end15:                                         ; preds = %if.end11
-  store i32 1, ptr %.atomictmp, align 4
-  %14 = load i32, ptr %.atomictmp, align 4
-  store atomic i32 %14, ptr @uv__fs_mkstemp.no_cloexec_support monotonic, align 4
-  br label %if.end16
+46:                                               ; preds = %41
+  store i32 1, ptr %9, align 4
+  %47 = load i32, ptr %9, align 4
+  store atomic i32 %47, ptr @uv__fs_mkstemp.no_cloexec_support monotonic, align 4
+  br label %48
 
-if.end16:                                         ; preds = %if.end15, %land.lhs.true, %if.end
-  %15 = load ptr, ptr %req.addr, align 8
-  %cb = getelementptr inbounds %struct.uv_fs_s, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %cb, align 8
-  %cmp17 = icmp ne ptr %16, null
-  br i1 %cmp17, label %if.then18, label %if.end19
+48:                                               ; preds = %46, %30, %26
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %58
 
-if.then18:                                        ; preds = %if.end16
-  %17 = load ptr, ptr %req.addr, align 8
-  %loop = getelementptr inbounds %struct.uv_fs_s, ptr %17, i32 0, i32 4
-  %18 = load ptr, ptr %loop, align 8
-  %cloexec_lock = getelementptr inbounds %struct.uv_loop_s, ptr %18, i32 0, i32 16
-  call void @uv_rwlock_rdlock(ptr noundef %cloexec_lock)
-  br label %if.end19
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 4
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %56, i32 0, i32 16
+  call void @uv_rwlock_rdlock(ptr noundef %57)
+  br label %58
 
-if.end19:                                         ; preds = %if.then18, %if.end16
-  %19 = load ptr, ptr %path, align 8
-  %call20 = call i32 @mkstemp64(ptr noundef %19)
-  store i32 %call20, ptr %r, align 4
-  %20 = load i32, ptr %r, align 4
-  %cmp21 = icmp sge i32 %20, 0
-  br i1 %cmp21, label %land.lhs.true22, label %if.end30
+58:                                               ; preds = %53, %48
+  %59 = load ptr, ptr %5, align 8
+  %60 = call i32 @mkstemp64(ptr noundef %59)
+  store i32 %60, ptr %4, align 4
+  %61 = load i32, ptr %4, align 4
+  %62 = icmp sge i32 %61, 0
+  br i1 %62, label %63, label %74
 
-land.lhs.true22:                                  ; preds = %if.end19
-  %21 = load i32, ptr %r, align 4
-  %call23 = call i32 @uv__cloexec(i32 noundef %21, i32 noundef 1)
-  %cmp24 = icmp ne i32 %call23, 0
-  br i1 %cmp24, label %if.then25, label %if.end30
+63:                                               ; preds = %58
+  %64 = load i32, ptr %4, align 4
+  %65 = call i32 @uv__cloexec(i32 noundef %64, i32 noundef 1)
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %74
 
-if.then25:                                        ; preds = %land.lhs.true22
-  %22 = load i32, ptr %r, align 4
-  %call26 = call i32 @uv__close(i32 noundef %22)
-  store i32 %call26, ptr %r, align 4
-  %23 = load i32, ptr %r, align 4
-  %cmp27 = icmp ne i32 %23, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
+67:                                               ; preds = %63
+  %68 = load i32, ptr %4, align 4
+  %69 = call i32 @uv__close(i32 noundef %68)
+  store i32 %69, ptr %4, align 4
+  %70 = load i32, ptr %4, align 4
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %73
 
-if.then28:                                        ; preds = %if.then25
-  call void @abort() #9
+72:                                               ; preds = %67
+  call void @abort() #10
   unreachable
 
-if.end29:                                         ; preds = %if.then25
-  store i32 -1, ptr %r, align 4
-  br label %if.end30
+73:                                               ; preds = %67
+  store i32 -1, ptr %4, align 4
+  br label %74
 
-if.end30:                                         ; preds = %if.end29, %land.lhs.true22, %if.end19
-  %24 = load ptr, ptr %req.addr, align 8
-  %cb31 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 5
-  %25 = load ptr, ptr %cb31, align 8
-  %cmp32 = icmp ne ptr %25, null
-  br i1 %cmp32, label %if.then33, label %if.end36
+74:                                               ; preds = %73, %63, %58
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %75, i32 0, i32 5
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %84
 
-if.then33:                                        ; preds = %if.end30
-  %26 = load ptr, ptr %req.addr, align 8
-  %loop34 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %loop34, align 8
-  %cloexec_lock35 = getelementptr inbounds %struct.uv_loop_s, ptr %27, i32 0, i32 16
-  call void @uv_rwlock_rdunlock(ptr noundef %cloexec_lock35)
-  br label %if.end36
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %80, i32 0, i32 4
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw %struct.uv_loop_s, ptr %82, i32 0, i32 16
+  call void @uv_rwlock_rdunlock(ptr noundef %83)
+  br label %84
 
-if.end36:                                         ; preds = %if.then33, %if.end30
-  br label %clobber
+84:                                               ; preds = %79, %74
+  br label %85
 
-clobber:                                          ; preds = %if.end36, %if.then14, %if.then
-  %28 = load i32, ptr %r, align 4
-  %cmp37 = icmp slt i32 %28, 0
-  br i1 %cmp37, label %if.then38, label %if.end39
+85:                                               ; preds = %84, %45, %24
+  %86 = load i32, ptr %4, align 4
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %88, label %91
 
-if.then38:                                        ; preds = %clobber
-  %29 = load ptr, ptr %path, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %29, i64 0
-  store i8 0, ptr %arrayidx, align 1
-  br label %if.end39
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 0
+  store i8 0, ptr %90, align 1
+  br label %91
 
-if.end39:                                         ; preds = %if.then38, %clobber
-  %30 = load i32, ptr %r, align 4
-  store i32 %30, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %88, %85
+  %92 = load i32, ptr %4, align 4
+  store i32 %92, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %93
 
-return:                                           ; preds = %if.end39, %if.then10
-  %31 = load i32, ptr %retval, align 4
+93:                                               ; preds = %91, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %94 = load i32, ptr %2, align 4
+  ret i32 %94
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_open(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %3, i32 0, i32 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %6, i32 0, i32 12
+  %8 = load i32, ptr %7, align 4
+  %9 = or i32 %8, 524288
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %10, i32 0, i32 13
+  %12 = load i32, ptr %11, align 8
+  %13 = call i32 (ptr, i32, ...) @open64(ptr noundef %5, i32 noundef %9, i32 noundef %12)
+  %14 = sext i32 %13 to i64
+  ret i64 %14
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_read(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %9, i32 0, i32 11
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 4
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %12, i32 0, i32 16
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %7, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %15, i32 0, i32 15
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %3, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %18, i32 0, i32 14
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  store i64 %21, ptr %5, align 8
+  %22 = call i32 @uv__getiovmax()
+  store i32 %22, ptr %4, align 4
+  %23 = load i64, ptr %5, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = zext i32 %24 to i64
+  %26 = icmp ugt i64 %23, %25
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %1
+  %28 = load i32, ptr %4, align 4
+  %29 = zext i32 %28 to i64
+  store i64 %29, ptr %5, align 8
+  br label %30
+
+30:                                               ; preds = %27, %1
+  store i64 0, ptr %6, align 8
+  %31 = load i64, ptr %7, align 8
+  %32 = icmp slt i64 %31, 0
+  br i1 %32, label %33, label %56
+
+33:                                               ; preds = %30
+  %34 = load i64, ptr %5, align 8
+  %35 = icmp eq i64 %34, 1
+  br i1 %35, label %36, label %45
+
+36:                                               ; preds = %33
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.iovec, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct.iovec, ptr %41, i32 0, i32 1
+  %43 = load i64, ptr %42, align 8
+  %44 = call i64 @read(i32 noundef %37, ptr noundef %40, i64 noundef %43)
+  store i64 %44, ptr %6, align 8
+  br label %55
+
+45:                                               ; preds = %33
+  %46 = load i64, ptr %5, align 8
+  %47 = icmp ugt i64 %46, 1
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %45
+  %49 = load i32, ptr %8, align 4
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i64, ptr %5, align 8
+  %52 = trunc i64 %51 to i32
+  %53 = call i64 @readv(i32 noundef %49, ptr noundef %50, i32 noundef %52)
+  store i64 %53, ptr %6, align 8
+  br label %54
+
+54:                                               ; preds = %48, %45
+  br label %55
+
+55:                                               ; preds = %54, %36
+  br label %80
+
+56:                                               ; preds = %30
+  %57 = load i64, ptr %5, align 8
+  %58 = icmp eq i64 %57, 1
+  br i1 %58, label %59, label %69
+
+59:                                               ; preds = %56
+  %60 = load i32, ptr %8, align 4
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.iovec, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.iovec, ptr %64, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  %67 = load i64, ptr %7, align 8
+  %68 = call i64 @pread64(i32 noundef %60, ptr noundef %63, i64 noundef %66, i64 noundef %67)
+  store i64 %68, ptr %6, align 8
+  br label %79
+
+69:                                               ; preds = %56
+  %70 = load i64, ptr %5, align 8
+  %71 = icmp ugt i64 %70, 1
+  br i1 %71, label %72, label %78
+
+72:                                               ; preds = %69
+  %73 = load i32, ptr %8, align 4
+  %74 = load ptr, ptr %3, align 8
+  %75 = load i64, ptr %5, align 8
+  %76 = load i64, ptr %7, align 8
+  %77 = call i64 @uv__preadv(i32 noundef %73, ptr noundef %74, i64 noundef %75, i64 noundef %76)
+  store i64 %77, ptr %6, align 8
+  br label %78
+
+78:                                               ; preds = %72, %69
+  br label %79
+
+79:                                               ; preds = %78, %59
+  br label %80
+
+80:                                               ; preds = %79, %55
+  %81 = load ptr, ptr %2, align 8
+  %82 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %81, i32 0, i32 5
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %98
+
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %2, align 8
+  %87 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %86, i32 0, i32 15
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %2, align 8
+  %90 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %89, i32 0, i32 22
+  %91 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %90, i64 0, i64 0
+  %92 = icmp ne ptr %88, %91
+  br i1 %92, label %93, label %97
+
+93:                                               ; preds = %85
+  %94 = load ptr, ptr %2, align 8
+  %95 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %94, i32 0, i32 15
+  %96 = load ptr, ptr %95, align 8
+  call void @uv__free(ptr noundef %96)
+  br label %97
+
+97:                                               ; preds = %93, %85
+  br label %98
+
+98:                                               ; preds = %97, %80
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %99, i32 0, i32 15
+  store ptr null, ptr %100, align 8
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %101, i32 0, i32 14
+  store i32 0, ptr %102, align 4
+  %103 = load i64, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %103
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_scandir(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store ptr null, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 @scandir64(ptr noundef %9, ptr noundef %4, ptr noundef @uv__fs_scandir_filter, ptr noundef @uv__fs_scandir_sort)
+  store i32 %10, ptr %5, align 4
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %11, i32 0, i32 14
+  store i32 0, ptr %12, align 4
+  %13 = load i32, ptr %5, align 4
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %16) #8
+  store ptr null, ptr %4, align 8
+  br label %24
+
+17:                                               ; preds = %1
+  %18 = load i32, ptr %5, align 4
+  %19 = icmp eq i32 %18, -1
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %17
+  %21 = load i32, ptr %5, align 4
+  %22 = sext i32 %21 to i64
+  store i64 %22, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %30
+
+23:                                               ; preds = %17
+  br label %24
+
+24:                                               ; preds = %23, %15
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 7
+  store ptr %25, ptr %27, align 8
+  %28 = load i32, ptr %5, align 4
+  %29 = sext i32 %28 to i64
+  store i64 %29, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %30
+
+30:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %31 = load i64, ptr %2, align 8
+  ret i64 %31
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @uv__fs_opendir(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %6 = call ptr @uv__malloc(i64 noundef 56)
+  store ptr %6, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  br label %26
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %11, i32 0, i32 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @opendir(ptr noundef %13)
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %15, i32 0, i32 3
+  store ptr %14, ptr %16, align 8
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %17, i32 0, i32 3
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %10
+  br label %26
+
+22:                                               ; preds = %10
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 7
+  store ptr %23, ptr %25, align 8
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+26:                                               ; preds = %21, %9
+  %27 = load ptr, ptr %4, align 8
+  call void @uv__free(ptr noundef %27)
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %28, i32 0, i32 7
+  store ptr null, ptr %29, align 8
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %31 = load i32, ptr %2, align 4
   ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_open(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %2 = load ptr, ptr %req.addr, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 12
-  %3 = load i32, ptr %flags, align 4
-  %or = or i32 %3, 524288
-  %4 = load ptr, ptr %req.addr, align 8
-  %mode = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 13
-  %5 = load i32, ptr %mode, align 8
-  %call = call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef %or, i32 noundef %5)
-  %conv = sext i32 %call to i64
-  ret i64 %conv
+define internal i32 @uv__fs_readdir(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %10, i32 0, i32 7
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %4, align 8
+  store i32 0, ptr %7, align 4
+  br label %13
+
+13:                                               ; preds = %65, %46, %1
+  %14 = load i32, ptr %7, align 4
+  %15 = zext i32 %14 to i64
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp ult i64 %15, %18
+  br i1 %19, label %20, label %72
+
+20:                                               ; preds = %13
+  %21 = call ptr @__errno_location() #9
+  store i32 0, ptr %21, align 4
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr @readdir64(ptr noundef %24)
+  store ptr %25, ptr %6, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %20
+  %29 = call ptr @__errno_location() #9
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %28
+  br label %74
+
+33:                                               ; preds = %28
+  br label %72
+
+34:                                               ; preds = %20
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %struct.dirent, ptr %35, i32 0, i32 4
+  %37 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 0
+  %38 = call i32 @strcmp(ptr noundef %37, ptr noundef @.str.6) #11
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %46, label %40
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %struct.dirent, ptr %41, i32 0, i32 4
+  %43 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 0
+  %44 = call i32 @strcmp(ptr noundef %43, ptr noundef @.str.7) #11
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %40, %34
+  br label %13
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %7, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %50, i64 %52
+  store ptr %53, ptr %5, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds nuw %struct.dirent, ptr %54, i32 0, i32 4
+  %56 = getelementptr inbounds [256 x i8], ptr %55, i64 0, i64 0
+  %57 = call ptr @uv__strdup(ptr noundef %56)
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %47
+  br label %74
+
+65:                                               ; preds = %47
+  %66 = load ptr, ptr %6, align 8
+  %67 = call i32 @uv__fs_get_dirent_type(ptr noundef %66)
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %68, i32 0, i32 1
+  store i32 %67, ptr %69, align 8
+  %70 = load i32, ptr %7, align 4
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %7, align 4
+  br label %13
+
+72:                                               ; preds = %33, %13
+  %73 = load i32, ptr %7, align 4
+  store i32 %73, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %99
+
+74:                                               ; preds = %64, %32
+  store i32 0, ptr %8, align 4
+  br label %75
+
+75:                                               ; preds = %95, %74
+  %76 = load i32, ptr %8, align 4
+  %77 = load i32, ptr %7, align 4
+  %78 = icmp ult i32 %76, %77
+  br i1 %78, label %79, label %98
+
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %4, align 8
+  %81 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %82, i64 %84
+  %86 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  call void @uv__free(ptr noundef %87)
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %93, i32 0, i32 0
+  store ptr null, ptr %94, align 8
+  br label %95
+
+95:                                               ; preds = %79
+  %96 = load i32, ptr %8, align 4
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %8, align 4
+  br label %75
+
+98:                                               ; preds = %75
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %99
+
+99:                                               ; preds = %98, %72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %100 = load i32, ptr %2, align 4
+  ret i32 %100
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_read(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %bufs = alloca ptr, align 8
-  %iovmax = alloca i32, align 4
-  %nbufs = alloca i64, align 8
-  %r = alloca i64, align 8
-  %off = alloca i64, align 8
-  %fd = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %file, align 8
-  store i32 %1, ptr %fd, align 4
-  %2 = load ptr, ptr %req.addr, align 8
-  %off1 = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 16
-  %3 = load i64, ptr %off1, align 8
-  store i64 %3, ptr %off, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %bufs2 = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 15
-  %5 = load ptr, ptr %bufs2, align 8
-  store ptr %5, ptr %bufs, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %nbufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 14
-  %7 = load i32, ptr %nbufs3, align 4
-  %conv = zext i32 %7 to i64
-  store i64 %conv, ptr %nbufs, align 8
-  %call = call i32 @uv__getiovmax()
-  store i32 %call, ptr %iovmax, align 4
-  %8 = load i64, ptr %nbufs, align 8
-  %9 = load i32, ptr %iovmax, align 4
-  %conv4 = zext i32 %9 to i64
-  %cmp = icmp ugt i64 %8, %conv4
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__fs_closedir(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %4, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %7, i32 0, i32 3
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %18
 
-if.then:                                          ; preds = %entry
-  %10 = load i32, ptr %iovmax, align 4
-  %conv6 = zext i32 %10 to i64
-  store i64 %conv6, ptr %nbufs, align 8
-  br label %if.end
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 @closedir(ptr noundef %14)
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_dir_s, ptr %16, i32 0, i32 3
+  store ptr null, ptr %17, align 8
+  br label %18
 
-if.end:                                           ; preds = %if.then, %entry
-  store i64 0, ptr %r, align 8
-  %11 = load i64, ptr %off, align 8
-  %cmp7 = icmp slt i64 %11, 0
-  br i1 %cmp7, label %if.then9, label %if.else21
-
-if.then9:                                         ; preds = %if.end
-  %12 = load i64, ptr %nbufs, align 8
-  %cmp10 = icmp eq i64 %12, 1
-  br i1 %cmp10, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %if.then9
-  %13 = load i32, ptr %fd, align 4
-  %14 = load ptr, ptr %bufs, align 8
-  %iov_base = getelementptr inbounds %struct.iovec, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %iov_base, align 8
-  %16 = load ptr, ptr %bufs, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  %17 = load i64, ptr %iov_len, align 8
-  %call13 = call i64 @read(i32 noundef %13, ptr noundef %15, i64 noundef %17)
-  store i64 %call13, ptr %r, align 8
-  br label %if.end20
-
-if.else:                                          ; preds = %if.then9
-  %18 = load i64, ptr %nbufs, align 8
-  %cmp14 = icmp ugt i64 %18, 1
-  br i1 %cmp14, label %if.then16, label %if.end19
-
-if.then16:                                        ; preds = %if.else
-  %19 = load i32, ptr %fd, align 4
-  %20 = load ptr, ptr %bufs, align 8
-  %21 = load i64, ptr %nbufs, align 8
-  %conv17 = trunc i64 %21 to i32
-  %call18 = call i64 @readv(i32 noundef %19, ptr noundef %20, i32 noundef %conv17)
-  store i64 %call18, ptr %r, align 8
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then16, %if.else
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end19, %if.then12
-  br label %if.end36
-
-if.else21:                                        ; preds = %if.end
-  %22 = load i64, ptr %nbufs, align 8
-  %cmp22 = icmp eq i64 %22, 1
-  br i1 %cmp22, label %if.then24, label %if.else28
-
-if.then24:                                        ; preds = %if.else21
-  %23 = load i32, ptr %fd, align 4
-  %24 = load ptr, ptr %bufs, align 8
-  %iov_base25 = getelementptr inbounds %struct.iovec, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %iov_base25, align 8
-  %26 = load ptr, ptr %bufs, align 8
-  %iov_len26 = getelementptr inbounds %struct.iovec, ptr %26, i32 0, i32 1
-  %27 = load i64, ptr %iov_len26, align 8
-  %28 = load i64, ptr %off, align 8
-  %call27 = call i64 @pread64(i32 noundef %23, ptr noundef %25, i64 noundef %27, i64 noundef %28)
-  store i64 %call27, ptr %r, align 8
-  br label %if.end35
-
-if.else28:                                        ; preds = %if.else21
-  %29 = load i64, ptr %nbufs, align 8
-  %cmp29 = icmp ugt i64 %29, 1
-  br i1 %cmp29, label %if.then31, label %if.end34
-
-if.then31:                                        ; preds = %if.else28
-  %30 = load i32, ptr %fd, align 4
-  %31 = load ptr, ptr %bufs, align 8
-  %32 = load i64, ptr %nbufs, align 8
-  %conv32 = trunc i64 %32 to i32
-  %33 = load i64, ptr %off, align 8
-  %call33 = call i64 @preadv64(i32 noundef %30, ptr noundef %31, i32 noundef %conv32, i64 noundef %33)
-  store i64 %call33, ptr %r, align 8
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.then31, %if.else28
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.end34, %if.then24
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end35, %if.end20
-  %34 = load ptr, ptr %req.addr, align 8
-  %cb = getelementptr inbounds %struct.uv_fs_s, ptr %34, i32 0, i32 5
-  %35 = load ptr, ptr %cb, align 8
-  %cmp37 = icmp ne ptr %35, null
-  br i1 %cmp37, label %if.then39, label %if.end46
-
-if.then39:                                        ; preds = %if.end36
-  %36 = load ptr, ptr %req.addr, align 8
-  %bufs40 = getelementptr inbounds %struct.uv_fs_s, ptr %36, i32 0, i32 15
-  %37 = load ptr, ptr %bufs40, align 8
-  %38 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %38, i32 0, i32 22
-  %arraydecay = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %cmp41 = icmp ne ptr %37, %arraydecay
-  br i1 %cmp41, label %if.then43, label %if.end45
-
-if.then43:                                        ; preds = %if.then39
-  %39 = load ptr, ptr %req.addr, align 8
-  %bufs44 = getelementptr inbounds %struct.uv_fs_s, ptr %39, i32 0, i32 15
-  %40 = load ptr, ptr %bufs44, align 8
-  call void @uv__free(ptr noundef %40)
-  br label %if.end45
-
-if.end45:                                         ; preds = %if.then43, %if.then39
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.end45, %if.end36
-  %41 = load ptr, ptr %req.addr, align 8
-  %bufs47 = getelementptr inbounds %struct.uv_fs_s, ptr %41, i32 0, i32 15
-  store ptr null, ptr %bufs47, align 8
-  %42 = load ptr, ptr %req.addr, align 8
-  %nbufs48 = getelementptr inbounds %struct.uv_fs_s, ptr %42, i32 0, i32 14
-  store i32 0, ptr %nbufs48, align 4
-  %43 = load i64, ptr %r, align 8
-  ret i64 %43
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_scandir(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %req.addr = alloca ptr, align 8
-  %dents = alloca ptr, align 8
-  %n = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  store ptr null, ptr %dents, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call i32 @scandir64(ptr noundef %1, ptr noundef %dents, ptr noundef @uv__fs_scandir_filter, ptr noundef @uv__fs_scandir_sort)
-  store i32 %call, ptr %n, align 4
-  %2 = load ptr, ptr %req.addr, align 8
-  %nbufs = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 14
-  store i32 0, ptr %nbufs, align 4
-  %3 = load i32, ptr %n, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %dents, align 8
-  call void @free(ptr noundef %4) #8
-  store ptr null, ptr %dents, align 8
-  br label %if.end3
-
-if.else:                                          ; preds = %entry
-  %5 = load i32, ptr %n, align 4
-  %cmp1 = icmp eq i32 %5, -1
-  br i1 %cmp1, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.else
-  %6 = load i32, ptr %n, align 4
-  %conv = sext i32 %6 to i64
-  store i64 %conv, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.else
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %dents, align 8
-  %8 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %8, i32 0, i32 7
-  store ptr %7, ptr %ptr, align 8
-  %9 = load i32, ptr %n, align 4
-  %conv4 = sext i32 %9 to i64
-  store i64 %conv4, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end3, %if.then2
-  %10 = load i64, ptr %retval, align 8
-  ret i64 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_opendir(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %req.addr = alloca ptr, align 8
-  %dir = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %call = call ptr @uv__malloc(i64 noundef 56)
-  store ptr %call, ptr %dir, align 8
-  %0 = load ptr, ptr %dir, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %error
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %1, i32 0, i32 8
-  %2 = load ptr, ptr %path, align 8
-  %call1 = call ptr @opendir(ptr noundef %2)
-  %3 = load ptr, ptr %dir, align 8
-  %dir2 = getelementptr inbounds %struct.uv_dir_s, ptr %3, i32 0, i32 3
-  store ptr %call1, ptr %dir2, align 8
-  %4 = load ptr, ptr %dir, align 8
-  %dir3 = getelementptr inbounds %struct.uv_dir_s, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %dir3, align 8
-  %cmp4 = icmp eq ptr %5, null
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %if.end
-  br label %error
-
-if.end6:                                          ; preds = %if.end
-  %6 = load ptr, ptr %dir, align 8
-  %7 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 7
-  store ptr %6, ptr %ptr, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-error:                                            ; preds = %if.then5, %if.then
-  %8 = load ptr, ptr %dir, align 8
-  call void @uv__free(ptr noundef %8)
-  %9 = load ptr, ptr %req.addr, align 8
-  %ptr7 = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 7
-  store ptr null, ptr %ptr7, align 8
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %error, %if.end6
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_readdir(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %req.addr = alloca ptr, align 8
-  %dir = alloca ptr, align 8
-  %dirent = alloca ptr, align 8
-  %res = alloca ptr, align 8
-  %dirent_idx = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %ptr, align 8
-  store ptr %1, ptr %dir, align 8
-  store i32 0, ptr %dirent_idx, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end28, %if.then19, %entry
-  %2 = load i32, ptr %dirent_idx, align 4
-  %conv = zext i32 %2 to i64
-  %3 = load ptr, ptr %dir, align 8
-  %nentries = getelementptr inbounds %struct.uv_dir_s, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %nentries, align 8
-  %cmp = icmp ult i64 %conv, %4
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %call = call ptr @__errno_location() #7
-  store i32 0, ptr %call, align 4
-  %5 = load ptr, ptr %dir, align 8
-  %dir2 = getelementptr inbounds %struct.uv_dir_s, ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %dir2, align 8
-  %call3 = call ptr @readdir64(ptr noundef %6)
-  store ptr %call3, ptr %res, align 8
-  %7 = load ptr, ptr %res, align 8
-  %cmp4 = icmp eq ptr %7, null
-  br i1 %cmp4, label %if.then, label %if.end10
-
-if.then:                                          ; preds = %while.body
-  %call6 = call ptr @__errno_location() #7
-  %8 = load i32, ptr %call6, align 4
-  %cmp7 = icmp ne i32 %8, 0
-  br i1 %cmp7, label %if.then9, label %if.end
-
-if.then9:                                         ; preds = %if.then
-  br label %error
-
-if.end:                                           ; preds = %if.then
-  br label %while.end
-
-if.end10:                                         ; preds = %while.body
-  %9 = load ptr, ptr %res, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %9, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %d_name, i64 0, i64 0
-  %call11 = call i32 @strcmp(ptr noundef %arraydecay, ptr noundef @.str.2) #10
-  %cmp12 = icmp eq i32 %call11, 0
-  br i1 %cmp12, label %if.then19, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end10
-  %10 = load ptr, ptr %res, align 8
-  %d_name14 = getelementptr inbounds %struct.dirent, ptr %10, i32 0, i32 4
-  %arraydecay15 = getelementptr inbounds [256 x i8], ptr %d_name14, i64 0, i64 0
-  %call16 = call i32 @strcmp(ptr noundef %arraydecay15, ptr noundef @.str.3) #10
-  %cmp17 = icmp eq i32 %call16, 0
-  br i1 %cmp17, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %lor.lhs.false, %if.end10
-  br label %while.cond
-
-if.end20:                                         ; preds = %lor.lhs.false
-  %11 = load ptr, ptr %dir, align 8
-  %dirents = getelementptr inbounds %struct.uv_dir_s, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %dirents, align 8
-  %13 = load i32, ptr %dirent_idx, align 4
-  %idxprom = zext i32 %13 to i64
-  %arrayidx = getelementptr inbounds %struct.uv_dirent_s, ptr %12, i64 %idxprom
-  store ptr %arrayidx, ptr %dirent, align 8
-  %14 = load ptr, ptr %res, align 8
-  %d_name21 = getelementptr inbounds %struct.dirent, ptr %14, i32 0, i32 4
-  %arraydecay22 = getelementptr inbounds [256 x i8], ptr %d_name21, i64 0, i64 0
-  %call23 = call ptr @uv__strdup(ptr noundef %arraydecay22)
-  %15 = load ptr, ptr %dirent, align 8
-  %name = getelementptr inbounds %struct.uv_dirent_s, ptr %15, i32 0, i32 0
-  store ptr %call23, ptr %name, align 8
-  %16 = load ptr, ptr %dirent, align 8
-  %name24 = getelementptr inbounds %struct.uv_dirent_s, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %name24, align 8
-  %cmp25 = icmp eq ptr %17, null
-  br i1 %cmp25, label %if.then27, label %if.end28
-
-if.then27:                                        ; preds = %if.end20
-  br label %error
-
-if.end28:                                         ; preds = %if.end20
-  %18 = load ptr, ptr %res, align 8
-  %call29 = call i32 @uv__fs_get_dirent_type(ptr noundef %18)
-  %19 = load ptr, ptr %dirent, align 8
-  %type = getelementptr inbounds %struct.uv_dirent_s, ptr %19, i32 0, i32 1
-  store i32 %call29, ptr %type, align 8
-  %20 = load i32, ptr %dirent_idx, align 4
-  %inc = add i32 %20, 1
-  store i32 %inc, ptr %dirent_idx, align 4
-  br label %while.cond
-
-while.end:                                        ; preds = %if.end, %while.cond
-  %21 = load i32, ptr %dirent_idx, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
-
-error:                                            ; preds = %if.then27, %if.then9
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %error
-  %22 = load i32, ptr %i, align 4
-  %23 = load i32, ptr %dirent_idx, align 4
-  %cmp30 = icmp ult i32 %22, %23
-  br i1 %cmp30, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %dir, align 8
-  %dirents32 = getelementptr inbounds %struct.uv_dir_s, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %dirents32, align 8
-  %26 = load i32, ptr %i, align 4
-  %idxprom33 = zext i32 %26 to i64
-  %arrayidx34 = getelementptr inbounds %struct.uv_dirent_s, ptr %25, i64 %idxprom33
-  %name35 = getelementptr inbounds %struct.uv_dirent_s, ptr %arrayidx34, i32 0, i32 0
-  %27 = load ptr, ptr %name35, align 8
-  call void @uv__free(ptr noundef %27)
-  %28 = load ptr, ptr %dir, align 8
-  %dirents36 = getelementptr inbounds %struct.uv_dir_s, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %dirents36, align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom37 = zext i32 %30 to i64
-  %arrayidx38 = getelementptr inbounds %struct.uv_dirent_s, ptr %29, i64 %idxprom37
-  %name39 = getelementptr inbounds %struct.uv_dirent_s, ptr %arrayidx38, i32 0, i32 0
-  store ptr null, ptr %name39, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %31 = load i32, ptr %i, align 4
-  %inc40 = add i32 %31, 1
-  store i32 %inc40, ptr %i, align 4
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %while.end
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_closedir(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %dir = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %ptr, align 8
-  store ptr %1, ptr %dir, align 8
-  %2 = load ptr, ptr %dir, align 8
-  %dir1 = getelementptr inbounds %struct.uv_dir_s, ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %dir1, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %dir, align 8
-  %dir2 = getelementptr inbounds %struct.uv_dir_s, ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %dir2, align 8
-  %call = call i32 @closedir(ptr noundef %5)
-  %6 = load ptr, ptr %dir, align 8
-  %dir3 = getelementptr inbounds %struct.uv_dir_s, ptr %6, i32 0, i32 3
-  store ptr null, ptr %dir3, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %req.addr, align 8
-  %ptr4 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 7
-  %8 = load ptr, ptr %ptr4, align 8
-  call void @uv__free(ptr noundef %8)
-  %9 = load ptr, ptr %req.addr, align 8
-  %ptr5 = getelementptr inbounds %struct.uv_fs_s, ptr %9, i32 0, i32 7
-  store ptr null, ptr %ptr5, align 8
+18:                                               ; preds = %11, %1
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 7
+  %21 = load ptr, ptr %20, align 8
+  call void @uv__free(ptr noundef %21)
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 7
+  store ptr null, ptr %23, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_readlink(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %req.addr = alloca ptr, align 8
-  %maxlen = alloca i64, align 8
-  %len = alloca i64, align 8
-  %buf = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call i64 @uv__fs_pathmax_size(ptr noundef %1)
-  store i64 %call, ptr %maxlen, align 8
-  %2 = load i64, ptr %maxlen, align 8
-  %call1 = call ptr @uv__malloc(i64 noundef %2)
-  store ptr %call1, ptr %buf, align 8
-  %3 = load ptr, ptr %buf, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @uv__fs_readlink(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %8, i32 0, i32 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i64 @uv__fs_pathmax_size(ptr noundef %10)
+  store i64 %11, ptr %4, align 8
+  %12 = load i64, ptr %4, align 8
+  %13 = call ptr @uv__malloc(i64 noundef %12)
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %entry
-  %call2 = call ptr @__errno_location() #7
-  store i32 12, ptr %call2, align 4
-  store i64 -1, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %1
+  %17 = call ptr @__errno_location() #9
+  store i32 12, ptr %17, align 4
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %49
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %req.addr, align 8
-  %path3 = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 8
-  %5 = load ptr, ptr %path3, align 8
-  %6 = load ptr, ptr %buf, align 8
-  %7 = load i64, ptr %maxlen, align 8
-  %call4 = call i64 @readlink(ptr noundef %5, ptr noundef %6, i64 noundef %7) #8
-  store i64 %call4, ptr %len, align 8
-  %8 = load i64, ptr %len, align 8
-  %cmp5 = icmp eq i64 %8, -1
-  br i1 %cmp5, label %if.then6, label %if.end7
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %19, i32 0, i32 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i64, ptr %4, align 8
+  %24 = call i64 @readlink(ptr noundef %21, ptr noundef %22, i64 noundef %23) #8
+  store i64 %24, ptr %5, align 8
+  %25 = load i64, ptr %5, align 8
+  %26 = icmp eq i64 %25, -1
+  br i1 %26, label %27, label %29
 
-if.then6:                                         ; preds = %if.end
-  %9 = load ptr, ptr %buf, align 8
-  call void @uv__free(ptr noundef %9)
-  store i64 -1, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %6, align 8
+  call void @uv__free(ptr noundef %28)
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %49
 
-if.end7:                                          ; preds = %if.end
-  %10 = load i64, ptr %len, align 8
-  %11 = load i64, ptr %maxlen, align 8
-  %cmp8 = icmp eq i64 %10, %11
-  br i1 %cmp8, label %if.then9, label %if.end14
+29:                                               ; preds = %18
+  %30 = load i64, ptr %5, align 8
+  %31 = load i64, ptr %4, align 8
+  %32 = icmp eq i64 %30, %31
+  br i1 %32, label %33, label %42
 
-if.then9:                                         ; preds = %if.end7
-  %12 = load ptr, ptr %buf, align 8
-  %13 = load i64, ptr %len, align 8
-  %add = add nsw i64 %13, 1
-  %call10 = call ptr @uv__reallocf(ptr noundef %12, i64 noundef %add)
-  store ptr %call10, ptr %buf, align 8
-  %14 = load ptr, ptr %buf, align 8
-  %cmp11 = icmp eq ptr %14, null
-  br i1 %cmp11, label %if.then12, label %if.end13
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i64, ptr %5, align 8
+  %36 = add nsw i64 %35, 1
+  %37 = call ptr @uv__reallocf(ptr noundef %34, i64 noundef %36)
+  store ptr %37, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-if.then12:                                        ; preds = %if.then9
-  store i64 -1, ptr %retval, align 8
-  br label %return
+40:                                               ; preds = %33
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %49
 
-if.end13:                                         ; preds = %if.then9
-  br label %if.end14
+41:                                               ; preds = %33
+  br label %42
 
-if.end14:                                         ; preds = %if.end13, %if.end7
-  %15 = load ptr, ptr %buf, align 8
-  %16 = load i64, ptr %len, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %15, i64 %16
-  store i8 0, ptr %arrayidx, align 1
-  %17 = load ptr, ptr %buf, align 8
-  %18 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 7
-  store ptr %17, ptr %ptr, align 8
-  store i64 0, ptr %retval, align 8
-  br label %return
+42:                                               ; preds = %41, %29
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i64, ptr %5, align 8
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+  store i8 0, ptr %45, align 1
+  %46 = load ptr, ptr %6, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %47, i32 0, i32 7
+  store ptr %46, ptr %48, align 8
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %49
 
-return:                                           ; preds = %if.end14, %if.then12, %if.then6, %if.then
-  %19 = load i64, ptr %retval, align 8
-  ret i64 %19
+49:                                               ; preds = %42, %40, %27, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %50 = load i64, ptr %2, align 8
+  ret i64 %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_realpath(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %req.addr = alloca ptr, align 8
-  %buf = alloca ptr, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call ptr @realpath(ptr noundef %1, ptr noundef null) #8
-  store ptr %call, ptr %buf, align 8
-  %2 = load ptr, ptr %buf, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @uv__fs_realpath(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = call ptr @realpath(ptr noundef %9, ptr noundef null) #8
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  store i64 -1, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %1
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %26
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %buf, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 7
-  store ptr %3, ptr %ptr, align 8
-  store i64 0, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %5, align 8
+  %16 = call ptr @uv__strdup(ptr noundef %15)
+  store ptr %16, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %17) #8
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %22
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i64, ptr %retval, align 8
-  ret i64 %5
-}
+20:                                               ; preds = %14
+  %21 = call ptr @__errno_location() #9
+  store i32 12, ptr %21, align 4
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %26
 
-; Function Attrs: nounwind
-declare i32 @rename(ptr noundef, ptr noundef) #5
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 7
+  store ptr %23, ptr %25, align 8
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %26
 
-; Function Attrs: nounwind
-declare i32 @rmdir(ptr noundef) #5
-
-; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_sendfile(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %req.addr = alloca ptr, align 8
-  %in_fd = alloca i32, align 4
-  %out_fd = alloca i32, align 4
-  %off = alloca i64, align 8
-  %r = alloca i64, align 8
-  %len = alloca i64, align 8
-  %try_sendfile = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 12
-  %1 = load i32, ptr %flags, align 4
-  store i32 %1, ptr %in_fd, align 4
-  %2 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 11
-  %3 = load i32, ptr %file, align 8
-  store i32 %3, ptr %out_fd, align 4
-  %4 = load ptr, ptr %req.addr, align 8
-  %off1 = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 16
-  %5 = load i64, ptr %off1, align 8
-  store i64 %5, ptr %off, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 22
-  %arrayidx = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %len2 = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx, i32 0, i32 1
-  %7 = load i64, ptr %len2, align 8
-  store i64 %7, ptr %len, align 8
-  store i32 1, ptr %try_sendfile, align 4
-  %8 = load i32, ptr %in_fd, align 4
-  %9 = load i32, ptr %out_fd, align 4
-  %10 = load i64, ptr %len, align 8
-  %call = call i64 @uv__fs_try_copy_file_range(i32 noundef %8, ptr noundef %off, i32 noundef %9, i64 noundef %10)
-  store i64 %call, ptr %r, align 8
-  %11 = load i64, ptr %r, align 8
-  %cmp = icmp eq i64 %11, -1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %call3 = call ptr @__errno_location() #7
-  %12 = load i32, ptr %call3, align 4
-  %cmp4 = icmp eq i32 %12, 38
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %13 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  %land.ext = zext i1 %13 to i32
-  store i32 %land.ext, ptr %try_sendfile, align 4
-  %14 = load i32, ptr %try_sendfile, align 4
-  %tobool = icmp ne i32 %14, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.end
-  %15 = load i32, ptr %out_fd, align 4
-  %16 = load i32, ptr %in_fd, align 4
-  %17 = load i64, ptr %len, align 8
-  %call5 = call i64 @sendfile64(i32 noundef %15, i32 noundef %16, ptr noundef %off, i64 noundef %17) #8
-  store i64 %call5, ptr %r, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.end
-  %18 = load i64, ptr %r, align 8
-  %cmp6 = icmp ne i64 %18, -1
-  br i1 %cmp6, label %if.then9, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %19 = load i64, ptr %off, align 8
-  %20 = load ptr, ptr %req.addr, align 8
-  %off7 = getelementptr inbounds %struct.uv_fs_s, ptr %20, i32 0, i32 16
-  %21 = load i64, ptr %off7, align 8
-  %cmp8 = icmp sgt i64 %19, %21
-  br i1 %cmp8, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %lor.lhs.false, %if.end
-  %22 = load i64, ptr %off, align 8
-  %23 = load ptr, ptr %req.addr, align 8
-  %off10 = getelementptr inbounds %struct.uv_fs_s, ptr %23, i32 0, i32 16
-  %24 = load i64, ptr %off10, align 8
-  %sub = sub nsw i64 %22, %24
-  store i64 %sub, ptr %r, align 8
-  %25 = load i64, ptr %off, align 8
-  %26 = load ptr, ptr %req.addr, align 8
-  %off11 = getelementptr inbounds %struct.uv_fs_s, ptr %26, i32 0, i32 16
-  store i64 %25, ptr %off11, align 8
-  %27 = load i64, ptr %r, align 8
-  store i64 %27, ptr %retval, align 8
-  br label %return
-
-if.end12:                                         ; preds = %lor.lhs.false
-  %call13 = call ptr @__errno_location() #7
-  %28 = load i32, ptr %call13, align 4
-  %cmp14 = icmp eq i32 %28, 22
-  br i1 %cmp14, label %if.then24, label %lor.lhs.false15
-
-lor.lhs.false15:                                  ; preds = %if.end12
-  %call16 = call ptr @__errno_location() #7
-  %29 = load i32, ptr %call16, align 4
-  %cmp17 = icmp eq i32 %29, 5
-  br i1 %cmp17, label %if.then24, label %lor.lhs.false18
-
-lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %call19 = call ptr @__errno_location() #7
-  %30 = load i32, ptr %call19, align 4
-  %cmp20 = icmp eq i32 %30, 88
-  br i1 %cmp20, label %if.then24, label %lor.lhs.false21
-
-lor.lhs.false21:                                  ; preds = %lor.lhs.false18
-  %call22 = call ptr @__errno_location() #7
-  %31 = load i32, ptr %call22, align 4
-  %cmp23 = icmp eq i32 %31, 18
-  br i1 %cmp23, label %if.then24, label %if.end27
-
-if.then24:                                        ; preds = %lor.lhs.false21, %lor.lhs.false18, %lor.lhs.false15, %if.end12
-  %call25 = call ptr @__errno_location() #7
-  store i32 0, ptr %call25, align 4
-  %32 = load ptr, ptr %req.addr, align 8
-  %call26 = call i64 @uv__fs_sendfile_emul(ptr noundef %32)
-  store i64 %call26, ptr %retval, align 8
-  br label %return
-
-if.end27:                                         ; preds = %lor.lhs.false21
-  store i64 -1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end27, %if.then24, %if.then9
-  %33 = load i64, ptr %retval, align 8
-  ret i64 %33
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_stat(ptr noundef %path, ptr noundef %buf) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %path.addr = alloca ptr, align 8
-  %buf.addr = alloca ptr, align 8
-  %pbuf = alloca %struct.stat, align 8
-  %ret = alloca i32, align 4
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %1 = load ptr, ptr %buf.addr, align 8
-  %call = call i32 @uv__fs_statx(i32 noundef -1, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %1)
-  store i32 %call, ptr %ret, align 4
-  %2 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %2, -38
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %path.addr, align 8
-  %call1 = call i32 @uv__stat(ptr noundef %4, ptr noundef %pbuf)
-  store i32 %call1, ptr %ret, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %buf.addr, align 8
-  call void @uv__to_stat(ptr noundef %pbuf, ptr noundef %6)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.then3, %if.end
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_statfs(ptr noundef %req) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %req.addr = alloca ptr, align 8
-  %stat_fs = alloca ptr, align 8
-  %buf = alloca %struct.statfs, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 8
-  %1 = load ptr, ptr %path, align 8
-  %call = call i32 @statfs64(ptr noundef %1, ptr noundef %buf) #8
-  %cmp = icmp ne i32 0, %call
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call1 = call ptr @uv__malloc(i64 noundef 88)
-  store ptr %call1, ptr %stat_fs, align 8
-  %2 = load ptr, ptr %stat_fs, align 8
-  %cmp2 = icmp eq ptr %2, null
-  br i1 %cmp2, label %if.then3, label %if.end5
-
-if.then3:                                         ; preds = %if.end
-  %call4 = call ptr @__errno_location() #7
-  store i32 12, ptr %call4, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %f_type = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 0
-  %3 = load i64, ptr %f_type, align 8
-  %4 = load ptr, ptr %stat_fs, align 8
-  %f_type6 = getelementptr inbounds %struct.uv_statfs_s, ptr %4, i32 0, i32 0
-  store i64 %3, ptr %f_type6, align 8
-  %f_bsize = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 1
-  %5 = load i64, ptr %f_bsize, align 8
-  %6 = load ptr, ptr %stat_fs, align 8
-  %f_bsize7 = getelementptr inbounds %struct.uv_statfs_s, ptr %6, i32 0, i32 1
-  store i64 %5, ptr %f_bsize7, align 8
-  %f_blocks = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 2
-  %7 = load i64, ptr %f_blocks, align 8
-  %8 = load ptr, ptr %stat_fs, align 8
-  %f_blocks8 = getelementptr inbounds %struct.uv_statfs_s, ptr %8, i32 0, i32 2
-  store i64 %7, ptr %f_blocks8, align 8
-  %f_bfree = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 3
-  %9 = load i64, ptr %f_bfree, align 8
-  %10 = load ptr, ptr %stat_fs, align 8
-  %f_bfree9 = getelementptr inbounds %struct.uv_statfs_s, ptr %10, i32 0, i32 3
-  store i64 %9, ptr %f_bfree9, align 8
-  %f_bavail = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 4
-  %11 = load i64, ptr %f_bavail, align 8
-  %12 = load ptr, ptr %stat_fs, align 8
-  %f_bavail10 = getelementptr inbounds %struct.uv_statfs_s, ptr %12, i32 0, i32 4
-  store i64 %11, ptr %f_bavail10, align 8
-  %f_files = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 5
-  %13 = load i64, ptr %f_files, align 8
-  %14 = load ptr, ptr %stat_fs, align 8
-  %f_files11 = getelementptr inbounds %struct.uv_statfs_s, ptr %14, i32 0, i32 5
-  store i64 %13, ptr %f_files11, align 8
-  %f_ffree = getelementptr inbounds %struct.statfs, ptr %buf, i32 0, i32 6
-  %15 = load i64, ptr %f_ffree, align 8
-  %16 = load ptr, ptr %stat_fs, align 8
-  %f_ffree12 = getelementptr inbounds %struct.uv_statfs_s, ptr %16, i32 0, i32 6
-  store i64 %15, ptr %f_ffree12, align 8
-  %17 = load ptr, ptr %stat_fs, align 8
-  %18 = load ptr, ptr %req.addr, align 8
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %18, i32 0, i32 7
-  store ptr %17, ptr %ptr, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then3, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+26:                                               ; preds = %22, %20, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %27 = load i64, ptr %2, align 8
+  ret i64 %27
 }
 
 ; Function Attrs: nounwind
-declare i32 @symlink(ptr noundef, ptr noundef) #5
+declare i32 @rename(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #5
+declare i32 @rmdir(ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_utime(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %ts = alloca [2 x %struct.timespec], align 16
-  %tmp = alloca %struct.timespec, align 8
-  %tmp2 = alloca %struct.timespec, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %0 = load ptr, ptr %req.addr, align 8
-  %atime = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 19
-  %1 = load double, ptr %atime, align 8
-  %call = call { i64, i64 } @uv__fs_to_timespec(double noundef %1)
-  %2 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 0
-  %3 = extractvalue { i64, i64 } %call, 0
-  store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %tmp, i32 0, i32 1
-  %5 = extractvalue { i64, i64 } %call, 1
-  store i64 %5, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %tmp, i64 16, i1 false)
-  %arrayidx1 = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 1
-  %6 = load ptr, ptr %req.addr, align 8
-  %mtime = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 20
-  %7 = load double, ptr %mtime, align 8
-  %call3 = call { i64, i64 } @uv__fs_to_timespec(double noundef %7)
-  %8 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 0
-  %9 = extractvalue { i64, i64 } %call3, 0
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %tmp2, i32 0, i32 1
-  %11 = extractvalue { i64, i64 } %call3, 1
-  store i64 %11, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx1, ptr align 8 %tmp2, i64 16, i1 false)
-  %12 = load ptr, ptr %req.addr, align 8
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %12, i32 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %arraydecay = getelementptr inbounds [2 x %struct.timespec], ptr %ts, i64 0, i64 0
-  %call4 = call i32 @utimensat(i32 noundef -100, ptr noundef %13, ptr noundef %arraydecay, i32 noundef 0) #8
-  %conv = sext i32 %call4 to i64
-  ret i64 %conv
+define internal i64 @uv__fs_sendfile(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %11, i32 0, i32 12
+  %13 = load i32, ptr %12, align 4
+  store i32 %13, ptr %4, align 4
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %14, i32 0, i32 11
+  %16 = load i32, ptr %15, align 8
+  store i32 %16, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %17, i32 0, i32 16
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %6, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 22
+  %22 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %21, i64 0, i64 0
+  %23 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %22, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  store i64 %24, ptr %8, align 8
+  store i32 1, ptr %9, align 4
+  %25 = load i32, ptr %4, align 4
+  %26 = load i32, ptr %5, align 4
+  %27 = load i64, ptr %8, align 8
+  %28 = call i64 @uv__fs_try_copy_file_range(i32 noundef %25, ptr noundef %6, i32 noundef %26, i64 noundef %27)
+  store i64 %28, ptr %7, align 8
+  %29 = load i64, ptr %7, align 8
+  %30 = icmp eq i64 %29, -1
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %1
+  %32 = call ptr @__errno_location() #9
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, 38
+  br label %35
+
+35:                                               ; preds = %31, %1
+  %36 = phi i1 [ false, %1 ], [ %34, %31 ]
+  %37 = zext i1 %36 to i32
+  store i32 %37, ptr %9, align 4
+  %38 = load i32, ptr %9, align 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr %5, align 4
+  %42 = load i32, ptr %4, align 4
+  %43 = load i64, ptr %8, align 8
+  %44 = call i64 @sendfile64(i32 noundef %41, i32 noundef %42, ptr noundef %6, i64 noundef %43) #8
+  store i64 %44, ptr %7, align 8
+  br label %45
+
+45:                                               ; preds = %40, %35
+  %46 = load i64, ptr %7, align 8
+  %47 = icmp ne i64 %46, -1
+  br i1 %47, label %54, label %48
+
+48:                                               ; preds = %45
+  %49 = load i64, ptr %6, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %50, i32 0, i32 16
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp sgt i64 %49, %52
+  br i1 %53, label %54, label %64
+
+54:                                               ; preds = %48, %45
+  %55 = load i64, ptr %6, align 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %56, i32 0, i32 16
+  %58 = load i64, ptr %57, align 8
+  %59 = sub nsw i64 %55, %58
+  store i64 %59, ptr %7, align 8
+  %60 = load i64, ptr %6, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %61, i32 0, i32 16
+  store i64 %60, ptr %62, align 8
+  %63 = load i64, ptr %7, align 8
+  store i64 %63, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %85
+
+64:                                               ; preds = %48
+  %65 = call ptr @__errno_location() #9
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 22
+  br i1 %67, label %80, label %68
+
+68:                                               ; preds = %64
+  %69 = call ptr @__errno_location() #9
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 5
+  br i1 %71, label %80, label %72
+
+72:                                               ; preds = %68
+  %73 = call ptr @__errno_location() #9
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %74, 88
+  br i1 %75, label %80, label %76
+
+76:                                               ; preds = %72
+  %77 = call ptr @__errno_location() #9
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %78, 18
+  br i1 %79, label %80, label %84
+
+80:                                               ; preds = %76, %72, %68, %64
+  %81 = call ptr @__errno_location() #9
+  store i32 0, ptr %81, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = call i64 @uv__fs_sendfile_emul(ptr noundef %82)
+  store i64 %83, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %85
+
+84:                                               ; preds = %76
+  store i64 -1, ptr %2, align 8
+  store i32 1, ptr %10, align 4
+  br label %85
+
+85:                                               ; preds = %84, %80, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %86 = load i64, ptr %2, align 8
+  ret i64 %86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_write_all(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %iovmax = alloca i32, align 4
-  %nbufs = alloca i32, align 4
-  %bufs = alloca ptr, align 8
-  %total = alloca i64, align 8
-  %result = alloca i64, align 8
-  store ptr %req, ptr %req.addr, align 8
-  %call = call i32 @uv__getiovmax()
-  store i32 %call, ptr %iovmax, align 4
-  %0 = load ptr, ptr %req.addr, align 8
-  %nbufs1 = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 14
-  %1 = load i32, ptr %nbufs1, align 4
-  store i32 %1, ptr %nbufs, align 4
-  %2 = load ptr, ptr %req.addr, align 8
-  %bufs2 = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 15
-  %3 = load ptr, ptr %bufs2, align 8
-  store ptr %3, ptr %bufs, align 8
-  store i64 0, ptr %total, align 8
-  br label %while.cond
+define internal i32 @uv__fs_stat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.stat, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call i32 @uv__fs_statx(i32 noundef -1, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef %10)
+  store i32 %11, ptr %7, align 4
+  %12 = load i32, ptr %7, align 4
+  %13 = icmp ne i32 %12, -38
+  br i1 %13, label %14, label %16
 
-while.cond:                                       ; preds = %if.end20, %entry
-  %4 = load i32, ptr %nbufs, align 4
-  %cmp = icmp ugt i32 %4, 0
-  br i1 %cmp, label %while.body, label %while.end
+14:                                               ; preds = %2
+  %15 = load i32, ptr %7, align 4
+  store i32 %15, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-while.body:                                       ; preds = %while.cond
-  %5 = load i32, ptr %nbufs, align 4
-  %6 = load ptr, ptr %req.addr, align 8
-  %nbufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 14
-  store i32 %5, ptr %nbufs3, align 4
-  %7 = load ptr, ptr %req.addr, align 8
-  %nbufs4 = getelementptr inbounds %struct.uv_fs_s, ptr %7, i32 0, i32 14
-  %8 = load i32, ptr %nbufs4, align 4
-  %9 = load i32, ptr %iovmax, align 4
-  %cmp5 = icmp ugt i32 %8, %9
-  br i1 %cmp5, label %if.then, label %if.end
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = call i32 @uv__stat(ptr noundef %17, ptr noundef %6)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
 
-if.then:                                          ; preds = %while.body
-  %10 = load i32, ptr %iovmax, align 4
-  %11 = load ptr, ptr %req.addr, align 8
-  %nbufs6 = getelementptr inbounds %struct.uv_fs_s, ptr %11, i32 0, i32 14
-  store i32 %10, ptr %nbufs6, align 4
-  br label %if.end
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  call void @uv__to_stat(ptr noundef %6, ptr noundef %22)
+  br label %23
 
-if.end:                                           ; preds = %if.then, %while.body
-  br label %do.body
+23:                                               ; preds = %21, %16
+  %24 = load i32, ptr %7, align 4
+  store i32 %24, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %25
 
-do.body:                                          ; preds = %land.end, %if.end
-  %12 = load ptr, ptr %req.addr, align 8
-  %call7 = call i64 @uv__fs_write(ptr noundef %12)
-  store i64 %call7, ptr %result, align 8
-  br label %do.cond
+25:                                               ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr %6) #8
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
+}
 
-do.cond:                                          ; preds = %do.body
-  %13 = load i64, ptr %result, align 8
-  %cmp8 = icmp slt i64 %13, 0
-  br i1 %cmp8, label %land.rhs, label %land.end
+; Function Attrs: nounwind uwtable
+define internal i32 @uv__fs_statfs(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.statfs, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 120, ptr %5) #8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 @statfs64(ptr noundef %9, ptr noundef %5) #8
+  %11 = icmp ne i32 0, %10
+  br i1 %11, label %12, label %13
 
-land.rhs:                                         ; preds = %do.cond
-  %call9 = call ptr @__errno_location() #7
-  %14 = load i32, ptr %call9, align 4
-  %cmp10 = icmp eq i32 %14, 4
-  br label %land.end
+12:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %51
 
-land.end:                                         ; preds = %land.rhs, %do.cond
-  %15 = phi i1 [ false, %do.cond ], [ %cmp10, %land.rhs ]
-  br i1 %15, label %do.body, label %do.end
+13:                                               ; preds = %1
+  %14 = call ptr @uv__malloc(i64 noundef 88)
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %19
 
-do.end:                                           ; preds = %land.end
-  %16 = load i64, ptr %result, align 8
-  %cmp11 = icmp sle i64 %16, 0
-  br i1 %cmp11, label %if.then12, label %if.end16
+17:                                               ; preds = %13
+  %18 = call ptr @__errno_location() #9
+  store i32 12, ptr %18, align 4
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %51
 
-if.then12:                                        ; preds = %do.end
-  %17 = load i64, ptr %total, align 8
-  %cmp13 = icmp eq i64 %17, 0
-  br i1 %cmp13, label %if.then14, label %if.end15
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %22, i32 0, i32 0
+  store i64 %21, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %26, i32 0, i32 1
+  store i64 %25, ptr %27, align 8
+  %28 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %30, i32 0, i32 2
+  store i64 %29, ptr %31, align 8
+  %32 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %34, i32 0, i32 3
+  store i64 %33, ptr %35, align 8
+  %36 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 4
+  %37 = load i64, ptr %36, align 8
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %38, i32 0, i32 4
+  store i64 %37, ptr %39, align 8
+  %40 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 5
+  %41 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %42, i32 0, i32 5
+  store i64 %41, ptr %43, align 8
+  %44 = getelementptr inbounds nuw %struct.statfs, ptr %5, i32 0, i32 6
+  %45 = load i64, ptr %44, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.uv_statfs_s, ptr %46, i32 0, i32 6
+  store i64 %45, ptr %47, align 8
+  %48 = load ptr, ptr %4, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %49, i32 0, i32 7
+  store ptr %48, ptr %50, align 8
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %51
 
-if.then14:                                        ; preds = %if.then12
-  %18 = load i64, ptr %result, align 8
-  store i64 %18, ptr %total, align 8
-  br label %if.end15
+51:                                               ; preds = %19, %17, %12
+  call void @llvm.lifetime.end.p0(i64 120, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %52 = load i32, ptr %2, align 4
+  ret i32 %52
+}
 
-if.end15:                                         ; preds = %if.then14, %if.then12
-  br label %while.end
+; Function Attrs: nounwind
+declare i32 @symlink(ptr noundef, ptr noundef) #6
 
-if.end16:                                         ; preds = %do.end
-  %19 = load ptr, ptr %req.addr, align 8
-  %off = getelementptr inbounds %struct.uv_fs_s, ptr %19, i32 0, i32 16
-  %20 = load i64, ptr %off, align 8
-  %cmp17 = icmp sge i64 %20, 0
-  br i1 %cmp17, label %if.then18, label %if.end20
+; Function Attrs: nounwind
+declare i32 @unlink(ptr noundef) #6
 
-if.then18:                                        ; preds = %if.end16
-  %21 = load i64, ptr %result, align 8
-  %22 = load ptr, ptr %req.addr, align 8
-  %off19 = getelementptr inbounds %struct.uv_fs_s, ptr %22, i32 0, i32 16
-  %23 = load i64, ptr %off19, align 8
-  %add = add nsw i64 %23, %21
-  store i64 %add, ptr %off19, align 8
-  br label %if.end20
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_utime(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [2 x %struct.timespec], align 16
+  %4 = alloca %struct.timespec, align 8
+  %5 = alloca %struct.timespec, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #8
+  %6 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %7, i32 0, i32 19
+  %9 = load double, ptr %8, align 8
+  %10 = call { i64, i64 } @uv__fs_to_timespec(double noundef %9)
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
+  %12 = extractvalue { i64, i64 } %10, 0
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
+  %14 = extractvalue { i64, i64 } %10, 1
+  store i64 %14, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 8 %4, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #8
+  %15 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %16, i32 0, i32 20
+  %18 = load double, ptr %17, align 8
+  %19 = call { i64, i64 } @uv__fs_to_timespec(double noundef %18)
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %21 = extractvalue { i64, i64 } %19, 0
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %23 = extractvalue { i64, i64 } %19, 1
+  store i64 %23, ptr %22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %15, ptr align 8 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #8
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds [2 x %struct.timespec], ptr %3, i64 0, i64 0
+  %28 = call i32 @utimensat(i32 noundef -100, ptr noundef %26, ptr noundef %27, i32 noundef 0) #8
+  %29 = sext i32 %28 to i64
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #8
+  ret i64 %29
+}
 
-if.end20:                                         ; preds = %if.then18, %if.end16
-  %24 = load ptr, ptr %req.addr, align 8
-  %bufs21 = getelementptr inbounds %struct.uv_fs_s, ptr %24, i32 0, i32 15
-  %25 = load ptr, ptr %bufs21, align 8
-  %26 = load i64, ptr %result, align 8
-  %call22 = call i64 @uv__fs_buf_offset(ptr noundef %25, i64 noundef %26)
-  %conv = trunc i64 %call22 to i32
-  %27 = load ptr, ptr %req.addr, align 8
-  %nbufs23 = getelementptr inbounds %struct.uv_fs_s, ptr %27, i32 0, i32 14
-  store i32 %conv, ptr %nbufs23, align 4
-  %28 = load ptr, ptr %req.addr, align 8
-  %nbufs24 = getelementptr inbounds %struct.uv_fs_s, ptr %28, i32 0, i32 14
-  %29 = load i32, ptr %nbufs24, align 4
-  %30 = load ptr, ptr %req.addr, align 8
-  %bufs25 = getelementptr inbounds %struct.uv_fs_s, ptr %30, i32 0, i32 15
-  %31 = load ptr, ptr %bufs25, align 8
-  %idx.ext = zext i32 %29 to i64
-  %add.ptr = getelementptr inbounds %struct.uv_buf_t, ptr %31, i64 %idx.ext
-  store ptr %add.ptr, ptr %bufs25, align 8
-  %32 = load ptr, ptr %req.addr, align 8
-  %nbufs26 = getelementptr inbounds %struct.uv_fs_s, ptr %32, i32 0, i32 14
-  %33 = load i32, ptr %nbufs26, align 4
-  %34 = load i32, ptr %nbufs, align 4
-  %sub = sub i32 %34, %33
-  store i32 %sub, ptr %nbufs, align 4
-  %35 = load i64, ptr %result, align 8
-  %36 = load i64, ptr %total, align 8
-  %add27 = add nsw i64 %36, %35
-  store i64 %add27, ptr %total, align 8
-  br label %while.cond
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__fs_write_all(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = call i32 @uv__getiovmax()
+  store i32 %8, ptr %3, align 4
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %9, i32 0, i32 14
+  %11 = load i32, ptr %10, align 4
+  store i32 %11, ptr %4, align 4
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %12, i32 0, i32 15
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %5, align 8
+  store i64 0, ptr %6, align 8
+  br label %15
 
-while.end:                                        ; preds = %if.end15, %while.cond
-  %37 = load ptr, ptr %bufs, align 8
-  %38 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %38, i32 0, i32 22
-  %arraydecay = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %cmp28 = icmp ne ptr %37, %arraydecay
-  br i1 %cmp28, label %if.then30, label %if.end31
+15:                                               ; preds = %64, %1
+  %16 = load i32, ptr %4, align 4
+  %17 = icmp ugt i32 %16, 0
+  br i1 %17, label %18, label %89
 
-if.then30:                                        ; preds = %while.end
-  %39 = load ptr, ptr %bufs, align 8
-  call void @uv__free(ptr noundef %39)
-  br label %if.end31
+18:                                               ; preds = %15
+  %19 = load i32, ptr %4, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 14
+  store i32 %19, ptr %21, align 4
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %22, i32 0, i32 14
+  %24 = load i32, ptr %23, align 4
+  %25 = load i32, ptr %3, align 4
+  %26 = icmp ugt i32 %24, %25
+  br i1 %26, label %27, label %31
 
-if.end31:                                         ; preds = %if.then30, %while.end
-  %40 = load ptr, ptr %req.addr, align 8
-  %bufs32 = getelementptr inbounds %struct.uv_fs_s, ptr %40, i32 0, i32 15
-  store ptr null, ptr %bufs32, align 8
-  %41 = load ptr, ptr %req.addr, align 8
-  %nbufs33 = getelementptr inbounds %struct.uv_fs_s, ptr %41, i32 0, i32 14
-  store i32 0, ptr %nbufs33, align 4
-  %42 = load i64, ptr %total, align 8
-  ret i64 %42
+27:                                               ; preds = %18
+  %28 = load i32, ptr %3, align 4
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %29, i32 0, i32 14
+  store i32 %28, ptr %30, align 4
+  br label %31
+
+31:                                               ; preds = %27, %18
+  br label %32
+
+32:                                               ; preds = %42, %31
+  %33 = load ptr, ptr %2, align 8
+  %34 = call i64 @uv__fs_write(ptr noundef %33)
+  store i64 %34, ptr %7, align 8
+  br label %35
+
+35:                                               ; preds = %32
+  %36 = load i64, ptr %7, align 8
+  %37 = icmp slt i64 %36, 0
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %35
+  %39 = call ptr @__errno_location() #9
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 4
+  br label %42
+
+42:                                               ; preds = %38, %35
+  %43 = phi i1 [ false, %35 ], [ %41, %38 ]
+  br i1 %43, label %32, label %44
+
+44:                                               ; preds = %42
+  %45 = load i64, ptr %7, align 8
+  %46 = icmp sle i64 %45, 0
+  br i1 %46, label %47, label %53
+
+47:                                               ; preds = %44
+  %48 = load i64, ptr %6, align 8
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %47
+  %51 = load i64, ptr %7, align 8
+  store i64 %51, ptr %6, align 8
+  br label %52
+
+52:                                               ; preds = %50, %47
+  br label %89
+
+53:                                               ; preds = %44
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %54, i32 0, i32 16
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp sge i64 %56, 0
+  br i1 %57, label %58, label %64
+
+58:                                               ; preds = %53
+  %59 = load i64, ptr %7, align 8
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %60, i32 0, i32 16
+  %62 = load i64, ptr %61, align 8
+  %63 = add nsw i64 %62, %59
+  store i64 %63, ptr %61, align 8
+  br label %64
+
+64:                                               ; preds = %58, %53
+  %65 = load ptr, ptr %2, align 8
+  %66 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %65, i32 0, i32 15
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i64, ptr %7, align 8
+  %69 = call i64 @uv__fs_buf_offset(ptr noundef %67, i64 noundef %68)
+  %70 = trunc i64 %69 to i32
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %71, i32 0, i32 14
+  store i32 %70, ptr %72, align 4
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %73, i32 0, i32 14
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %76, i32 0, i32 15
+  %78 = load ptr, ptr %77, align 8
+  %79 = zext i32 %75 to i64
+  %80 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %78, i64 %79
+  store ptr %80, ptr %77, align 8
+  %81 = load ptr, ptr %2, align 8
+  %82 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %81, i32 0, i32 14
+  %83 = load i32, ptr %82, align 4
+  %84 = load i32, ptr %4, align 4
+  %85 = sub i32 %84, %83
+  store i32 %85, ptr %4, align 4
+  %86 = load i64, ptr %7, align 8
+  %87 = load i64, ptr %6, align 8
+  %88 = add nsw i64 %87, %86
+  store i64 %88, ptr %6, align 8
+  br label %15
+
+89:                                               ; preds = %52, %15
+  %90 = load ptr, ptr %5, align 8
+  %91 = load ptr, ptr %2, align 8
+  %92 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %91, i32 0, i32 22
+  %93 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %92, i64 0, i64 0
+  %94 = icmp ne ptr %90, %93
+  br i1 %94, label %95, label %97
+
+95:                                               ; preds = %89
+  %96 = load ptr, ptr %5, align 8
+  call void @uv__free(ptr noundef %96)
+  br label %97
+
+97:                                               ; preds = %95, %89
+  %98 = load ptr, ptr %2, align 8
+  %99 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %98, i32 0, i32 15
+  store ptr null, ptr %99, align 8
+  %100 = load ptr, ptr %2, align 8
+  %101 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %100, i32 0, i32 14
+  store i32 0, ptr %101, align 4
+  %102 = load i64, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i64 %102
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #6
+declare void @abort() #7
 
 declare i32 @uv__close_nocancel(i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fstat(i32 noundef %fd, ptr noundef %s) #0 {
-entry:
-  %fd.addr = alloca i32, align 4
-  %s.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load i32, ptr %fd.addr, align 4
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call i32 @fstat64(i32 noundef %0, ptr noundef %1) #8
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %rc, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__fstat(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load i32, ptr %3, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = call i32 @fstat64(i32 noundef %6, ptr noundef %7) #8
+  store i32 %8, ptr %5, align 4
+  %9 = load i32, ptr %5, align 4
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %15
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %2
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  br label %if.end
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %do.end, %entry
-  %3 = load i32, ptr %rc, align 4
-  ret i32 %3
-}
+14:                                               ; preds = %13
+  br label %15
 
-; Function Attrs: nounwind uwtable
-define internal i32 @uv__is_cifs_or_smb(i32 noundef %fd) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %s = alloca %struct.statfs, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  %0 = load i32, ptr %fd.addr, align 4
-  %call = call i32 @fstatfs64(i32 noundef %0, ptr noundef %s) #8
-  %cmp = icmp eq i32 -1, %call
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %f_type = getelementptr inbounds %struct.statfs, ptr %s, i32 0, i32 0
-  %1 = load i64, ptr %f_type, align 8
-  %conv = trunc i64 %1 to i32
-  switch i32 %conv, label %sw.epilog [
-    i32 20859, label %sw.bb
-    i32 -28095166, label %sw.bb
-    i32 -11317950, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-sw.epilog:                                        ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+15:                                               ; preds = %14, %2
+  %16 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) #5
+declare i32 @futimens(i32 noundef, ptr noundef) #6
+
+; Function Attrs: nounwind uwtable
+define internal i32 @uv__is_cifs_or_smb(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.statfs, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 120, ptr %4) #8
+  %6 = load i32, ptr %3, align 4
+  %7 = call i32 @fstatfs64(i32 noundef %6, ptr noundef %4) #8
+  %8 = icmp eq i32 -1, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %struct.statfs, ptr %4, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i32
+  switch i32 %13, label %15 [
+    i32 20859, label %14
+    i32 -28095166, label %14
+    i32 -11317950, label %14
+  ]
+
+14:                                               ; preds = %10, %10, %10
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+15:                                               ; preds = %10
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %16
+
+16:                                               ; preds = %15, %14, %9
+  call void @llvm.lifetime.end.p0(i64 120, ptr %4) #8
+  %17 = load i32, ptr %2, align 4
+  ret i32 %17
+}
+
+; Function Attrs: nounwind
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) #6
 
 declare i32 @uv__close_nocheckstdio(i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @fstat64(i32 noundef, ptr noundef) #5
+declare i32 @fstat64(i32 noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @fstatfs64(i32 noundef, ptr noundef) #5
+declare i32 @fstatfs64(i32 noundef, ptr noundef) #6
 
 declare i32 @fdatasync(i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_statx(i32 noundef %fd, ptr noundef %path, i32 noundef %is_fstat, i32 noundef %is_lstat, ptr noundef %buf) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %path.addr = alloca ptr, align 8
-  %is_fstat.addr = alloca i32, align 4
-  %is_lstat.addr = alloca i32, align 4
-  %buf.addr = alloca ptr, align 8
-  %statxbuf = alloca %struct.uv__statx, align 8
-  %dirfd = alloca i32, align 4
-  %flags = alloca i32, align 4
-  %mode = alloca i32, align 4
-  %rc = alloca i32, align 4
-  %atomic-temp = alloca i32, align 4
-  %.atomictmp = alloca i32, align 4
-  store i32 %fd, ptr %fd.addr, align 4
-  store ptr %path, ptr %path.addr, align 8
-  store i32 %is_fstat, ptr %is_fstat.addr, align 4
-  store i32 %is_lstat, ptr %is_lstat.addr, align 4
-  store ptr %buf, ptr %buf.addr, align 8
-  %0 = load atomic i32, ptr @uv__fs_statx.no_statx monotonic, align 4
-  store i32 %0, ptr %atomic-temp, align 4
-  %1 = load i32, ptr %atomic-temp, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @uv__fs_statx(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca %struct.uv__statx, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4
+  store ptr %1, ptr %8, align 8
+  store i32 %2, ptr %9, align 4
+  store i32 %3, ptr %10, align 4
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 256, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %20 = load atomic i32, ptr @uv__fs_statx.no_statx monotonic, align 4
+  store i32 %20, ptr %17, align 4
+  %21 = load i32, ptr %17, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 -38, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %5
+  store i32 -38, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %66
 
-if.end:                                           ; preds = %entry
-  store i32 -100, ptr %dirfd, align 4
-  store i32 0, ptr %flags, align 4
-  store i32 4095, ptr %mode, align 4
-  %2 = load i32, ptr %is_fstat.addr, align 4
-  %tobool1 = icmp ne i32 %2, 0
-  br i1 %tobool1, label %if.then2, label %if.end3
+24:                                               ; preds = %5
+  store i32 -100, ptr %13, align 4
+  store i32 0, ptr %14, align 4
+  store i32 4095, ptr %15, align 4
+  %25 = load i32, ptr %9, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %31
 
-if.then2:                                         ; preds = %if.end
-  %3 = load i32, ptr %fd.addr, align 4
-  store i32 %3, ptr %dirfd, align 4
-  %4 = load i32, ptr %flags, align 4
-  %or = or i32 %4, 4096
-  store i32 %or, ptr %flags, align 4
-  br label %if.end3
+27:                                               ; preds = %24
+  %28 = load i32, ptr %7, align 4
+  store i32 %28, ptr %13, align 4
+  %29 = load i32, ptr %14, align 4
+  %30 = or i32 %29, 4096
+  store i32 %30, ptr %14, align 4
+  br label %31
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %5 = load i32, ptr %is_lstat.addr, align 4
-  %tobool4 = icmp ne i32 %5, 0
-  br i1 %tobool4, label %if.then5, label %if.end7
+31:                                               ; preds = %27, %24
+  %32 = load i32, ptr %10, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %37
 
-if.then5:                                         ; preds = %if.end3
-  %6 = load i32, ptr %flags, align 4
-  %or6 = or i32 %6, 256
-  store i32 %or6, ptr %flags, align 4
-  br label %if.end7
+34:                                               ; preds = %31
+  %35 = load i32, ptr %14, align 4
+  %36 = or i32 %35, 256
+  store i32 %36, ptr %14, align 4
+  br label %37
 
-if.end7:                                          ; preds = %if.then5, %if.end3
-  %7 = load i32, ptr %dirfd, align 4
-  %8 = load ptr, ptr %path.addr, align 8
-  %9 = load i32, ptr %flags, align 4
-  %10 = load i32, ptr %mode, align 4
-  %call = call i32 @uv__statx(i32 noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %statxbuf)
-  store i32 %call, ptr %rc, align 4
-  %11 = load i32, ptr %rc, align 4
-  switch i32 %11, label %sw.default [
-    i32 0, label %sw.bb
-    i32 -1, label %sw.bb8
+37:                                               ; preds = %34, %31
+  %38 = load i32, ptr %13, align 4
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %14, align 4
+  %41 = load i32, ptr %15, align 4
+  %42 = call i32 @uv__statx(i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef %12)
+  store i32 %42, ptr %16, align 4
+  %43 = load i32, ptr %16, align 4
+  switch i32 %43, label %62 [
+    i32 0, label %64
+    i32 -1, label %44
   ]
 
-sw.bb:                                            ; preds = %if.end7
-  br label %sw.epilog
+44:                                               ; preds = %37
+  %45 = call ptr @__errno_location() #9
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ne i32 %46, 22
+  br i1 %47, label %48, label %61
 
-sw.bb8:                                           ; preds = %if.end7
-  %call9 = call ptr @__errno_location() #7
-  %12 = load i32, ptr %call9, align 4
-  %cmp = icmp ne i32 %12, 22
-  br i1 %cmp, label %land.lhs.true, label %if.end19
+48:                                               ; preds = %44
+  %49 = call ptr @__errno_location() #9
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp ne i32 %50, 1
+  br i1 %51, label %52, label %61
 
-land.lhs.true:                                    ; preds = %sw.bb8
-  %call10 = call ptr @__errno_location() #7
-  %13 = load i32, ptr %call10, align 4
-  %cmp11 = icmp ne i32 %13, 1
-  br i1 %cmp11, label %land.lhs.true12, label %if.end19
+52:                                               ; preds = %48
+  %53 = call ptr @__errno_location() #9
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp ne i32 %54, 38
+  br i1 %55, label %56, label %61
 
-land.lhs.true12:                                  ; preds = %land.lhs.true
-  %call13 = call ptr @__errno_location() #7
-  %14 = load i32, ptr %call13, align 4
-  %cmp14 = icmp ne i32 %14, 38
-  br i1 %cmp14, label %land.lhs.true15, label %if.end19
+56:                                               ; preds = %52
+  %57 = call ptr @__errno_location() #9
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp ne i32 %58, 95
+  br i1 %59, label %60, label %61
 
-land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %call16 = call ptr @__errno_location() #7
-  %15 = load i32, ptr %call16, align 4
-  %cmp17 = icmp ne i32 %15, 95
-  br i1 %cmp17, label %if.then18, label %if.end19
+60:                                               ; preds = %56
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %66
 
-if.then18:                                        ; preds = %land.lhs.true15
-  store i32 -1, ptr %retval, align 4
-  br label %return
+61:                                               ; preds = %56, %52, %48, %44
+  br label %62
 
-if.end19:                                         ; preds = %land.lhs.true15, %land.lhs.true12, %land.lhs.true, %sw.bb8
-  br label %sw.default
+62:                                               ; preds = %37, %61
+  store i32 1, ptr %19, align 4
+  %63 = load i32, ptr %19, align 4
+  store atomic i32 %63, ptr @uv__fs_statx.no_statx monotonic, align 4
+  store i32 -38, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %66
 
-sw.default:                                       ; preds = %if.end19, %if.end7
-  store i32 1, ptr %.atomictmp, align 4
-  %16 = load i32, ptr %.atomictmp, align 4
-  store atomic i32 %16, ptr @uv__fs_statx.no_statx monotonic, align 4
-  store i32 -38, ptr %retval, align 4
-  br label %return
+64:                                               ; preds = %37
+  %65 = load ptr, ptr %11, align 8
+  call void @uv__statx_to_stat(ptr noundef %12, ptr noundef %65)
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %66
 
-sw.epilog:                                        ; preds = %sw.bb
-  %17 = load ptr, ptr %buf.addr, align 8
-  call void @uv__statx_to_stat(ptr noundef %statxbuf, ptr noundef %17)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.default, %if.then18, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+66:                                               ; preds = %64, %62, %60, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr %12) #8
+  %67 = load i32, ptr %6, align 4
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__to_stat(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %st_dev = getelementptr inbounds %struct.stat, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %st_dev, align 8
-  %2 = load ptr, ptr %dst.addr, align 8
-  %st_dev1 = getelementptr inbounds %struct.uv_stat_t, ptr %2, i32 0, i32 0
-  store i64 %1, ptr %st_dev1, align 8
-  %3 = load ptr, ptr %src.addr, align 8
-  %st_mode = getelementptr inbounds %struct.stat, ptr %3, i32 0, i32 3
-  %4 = load i32, ptr %st_mode, align 8
-  %conv = zext i32 %4 to i64
-  %5 = load ptr, ptr %dst.addr, align 8
-  %st_mode2 = getelementptr inbounds %struct.uv_stat_t, ptr %5, i32 0, i32 1
-  store i64 %conv, ptr %st_mode2, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %st_nlink = getelementptr inbounds %struct.stat, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %st_nlink, align 8
-  %8 = load ptr, ptr %dst.addr, align 8
-  %st_nlink3 = getelementptr inbounds %struct.uv_stat_t, ptr %8, i32 0, i32 2
-  store i64 %7, ptr %st_nlink3, align 8
-  %9 = load ptr, ptr %src.addr, align 8
-  %st_uid = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 4
-  %10 = load i32, ptr %st_uid, align 4
-  %conv4 = zext i32 %10 to i64
-  %11 = load ptr, ptr %dst.addr, align 8
-  %st_uid5 = getelementptr inbounds %struct.uv_stat_t, ptr %11, i32 0, i32 3
-  store i64 %conv4, ptr %st_uid5, align 8
-  %12 = load ptr, ptr %src.addr, align 8
-  %st_gid = getelementptr inbounds %struct.stat, ptr %12, i32 0, i32 5
-  %13 = load i32, ptr %st_gid, align 8
-  %conv6 = zext i32 %13 to i64
-  %14 = load ptr, ptr %dst.addr, align 8
-  %st_gid7 = getelementptr inbounds %struct.uv_stat_t, ptr %14, i32 0, i32 4
-  store i64 %conv6, ptr %st_gid7, align 8
-  %15 = load ptr, ptr %src.addr, align 8
-  %st_rdev = getelementptr inbounds %struct.stat, ptr %15, i32 0, i32 7
-  %16 = load i64, ptr %st_rdev, align 8
-  %17 = load ptr, ptr %dst.addr, align 8
-  %st_rdev8 = getelementptr inbounds %struct.uv_stat_t, ptr %17, i32 0, i32 5
-  store i64 %16, ptr %st_rdev8, align 8
-  %18 = load ptr, ptr %src.addr, align 8
-  %st_ino = getelementptr inbounds %struct.stat, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %st_ino, align 8
-  %20 = load ptr, ptr %dst.addr, align 8
-  %st_ino9 = getelementptr inbounds %struct.uv_stat_t, ptr %20, i32 0, i32 6
-  store i64 %19, ptr %st_ino9, align 8
-  %21 = load ptr, ptr %src.addr, align 8
-  %st_size = getelementptr inbounds %struct.stat, ptr %21, i32 0, i32 8
-  %22 = load i64, ptr %st_size, align 8
-  %23 = load ptr, ptr %dst.addr, align 8
-  %st_size10 = getelementptr inbounds %struct.uv_stat_t, ptr %23, i32 0, i32 7
-  store i64 %22, ptr %st_size10, align 8
-  %24 = load ptr, ptr %src.addr, align 8
-  %st_blksize = getelementptr inbounds %struct.stat, ptr %24, i32 0, i32 9
-  %25 = load i64, ptr %st_blksize, align 8
-  %26 = load ptr, ptr %dst.addr, align 8
-  %st_blksize11 = getelementptr inbounds %struct.uv_stat_t, ptr %26, i32 0, i32 8
-  store i64 %25, ptr %st_blksize11, align 8
-  %27 = load ptr, ptr %src.addr, align 8
-  %st_blocks = getelementptr inbounds %struct.stat, ptr %27, i32 0, i32 10
-  %28 = load i64, ptr %st_blocks, align 8
-  %29 = load ptr, ptr %dst.addr, align 8
-  %st_blocks12 = getelementptr inbounds %struct.uv_stat_t, ptr %29, i32 0, i32 9
-  store i64 %28, ptr %st_blocks12, align 8
-  %30 = load ptr, ptr %src.addr, align 8
-  %st_atim = getelementptr inbounds %struct.stat, ptr %30, i32 0, i32 11
-  %tv_sec = getelementptr inbounds %struct.timespec, ptr %st_atim, i32 0, i32 0
-  %31 = load i64, ptr %tv_sec, align 8
-  %32 = load ptr, ptr %dst.addr, align 8
-  %st_atim13 = getelementptr inbounds %struct.uv_stat_t, ptr %32, i32 0, i32 12
-  %tv_sec14 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_atim13, i32 0, i32 0
-  store i64 %31, ptr %tv_sec14, align 8
-  %33 = load ptr, ptr %src.addr, align 8
-  %st_atim15 = getelementptr inbounds %struct.stat, ptr %33, i32 0, i32 11
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %st_atim15, i32 0, i32 1
-  %34 = load i64, ptr %tv_nsec, align 8
-  %35 = load ptr, ptr %dst.addr, align 8
-  %st_atim16 = getelementptr inbounds %struct.uv_stat_t, ptr %35, i32 0, i32 12
-  %tv_nsec17 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_atim16, i32 0, i32 1
-  store i64 %34, ptr %tv_nsec17, align 8
-  %36 = load ptr, ptr %src.addr, align 8
-  %st_mtim = getelementptr inbounds %struct.stat, ptr %36, i32 0, i32 12
-  %tv_sec18 = getelementptr inbounds %struct.timespec, ptr %st_mtim, i32 0, i32 0
-  %37 = load i64, ptr %tv_sec18, align 8
-  %38 = load ptr, ptr %dst.addr, align 8
-  %st_mtim19 = getelementptr inbounds %struct.uv_stat_t, ptr %38, i32 0, i32 13
-  %tv_sec20 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_mtim19, i32 0, i32 0
-  store i64 %37, ptr %tv_sec20, align 8
-  %39 = load ptr, ptr %src.addr, align 8
-  %st_mtim21 = getelementptr inbounds %struct.stat, ptr %39, i32 0, i32 12
-  %tv_nsec22 = getelementptr inbounds %struct.timespec, ptr %st_mtim21, i32 0, i32 1
-  %40 = load i64, ptr %tv_nsec22, align 8
-  %41 = load ptr, ptr %dst.addr, align 8
-  %st_mtim23 = getelementptr inbounds %struct.uv_stat_t, ptr %41, i32 0, i32 13
-  %tv_nsec24 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_mtim23, i32 0, i32 1
-  store i64 %40, ptr %tv_nsec24, align 8
-  %42 = load ptr, ptr %src.addr, align 8
-  %st_ctim = getelementptr inbounds %struct.stat, ptr %42, i32 0, i32 13
-  %tv_sec25 = getelementptr inbounds %struct.timespec, ptr %st_ctim, i32 0, i32 0
-  %43 = load i64, ptr %tv_sec25, align 8
-  %44 = load ptr, ptr %dst.addr, align 8
-  %st_ctim26 = getelementptr inbounds %struct.uv_stat_t, ptr %44, i32 0, i32 14
-  %tv_sec27 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_ctim26, i32 0, i32 0
-  store i64 %43, ptr %tv_sec27, align 8
-  %45 = load ptr, ptr %src.addr, align 8
-  %st_ctim28 = getelementptr inbounds %struct.stat, ptr %45, i32 0, i32 13
-  %tv_nsec29 = getelementptr inbounds %struct.timespec, ptr %st_ctim28, i32 0, i32 1
-  %46 = load i64, ptr %tv_nsec29, align 8
-  %47 = load ptr, ptr %dst.addr, align 8
-  %st_ctim30 = getelementptr inbounds %struct.uv_stat_t, ptr %47, i32 0, i32 14
-  %tv_nsec31 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_ctim30, i32 0, i32 1
-  store i64 %46, ptr %tv_nsec31, align 8
-  %48 = load ptr, ptr %src.addr, align 8
-  %st_ctim32 = getelementptr inbounds %struct.stat, ptr %48, i32 0, i32 13
-  %tv_sec33 = getelementptr inbounds %struct.timespec, ptr %st_ctim32, i32 0, i32 0
-  %49 = load i64, ptr %tv_sec33, align 8
-  %50 = load ptr, ptr %dst.addr, align 8
-  %st_birthtim = getelementptr inbounds %struct.uv_stat_t, ptr %50, i32 0, i32 15
-  %tv_sec34 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_birthtim, i32 0, i32 0
-  store i64 %49, ptr %tv_sec34, align 8
-  %51 = load ptr, ptr %src.addr, align 8
-  %st_ctim35 = getelementptr inbounds %struct.stat, ptr %51, i32 0, i32 13
-  %tv_nsec36 = getelementptr inbounds %struct.timespec, ptr %st_ctim35, i32 0, i32 1
-  %52 = load i64, ptr %tv_nsec36, align 8
-  %53 = load ptr, ptr %dst.addr, align 8
-  %st_birthtim37 = getelementptr inbounds %struct.uv_stat_t, ptr %53, i32 0, i32 15
-  %tv_nsec38 = getelementptr inbounds %struct.uv_timespec_t, ptr %st_birthtim37, i32 0, i32 1
-  store i64 %52, ptr %tv_nsec38, align 8
-  %54 = load ptr, ptr %dst.addr, align 8
-  %st_flags = getelementptr inbounds %struct.uv_stat_t, ptr %54, i32 0, i32 10
-  store i64 0, ptr %st_flags, align 8
-  %55 = load ptr, ptr %dst.addr, align 8
-  %st_gen = getelementptr inbounds %struct.uv_stat_t, ptr %55, i32 0, i32 11
-  store i64 0, ptr %st_gen, align 8
+define internal void @uv__to_stat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.stat, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %8, i32 0, i32 0
+  store i64 %7, ptr %9, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct.stat, ptr %10, i32 0, i32 3
+  %12 = load i32, ptr %11, align 8
+  %13 = zext i32 %12 to i64
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %14, i32 0, i32 1
+  store i64 %13, ptr %15, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.stat, ptr %16, i32 0, i32 2
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %19, i32 0, i32 2
+  store i64 %18, ptr %20, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.stat, ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 4
+  %24 = zext i32 %23 to i64
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %25, i32 0, i32 3
+  store i64 %24, ptr %26, align 8
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.stat, ptr %27, i32 0, i32 5
+  %29 = load i32, ptr %28, align 8
+  %30 = zext i32 %29 to i64
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %31, i32 0, i32 4
+  store i64 %30, ptr %32, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.stat, ptr %33, i32 0, i32 7
+  %35 = load i64, ptr %34, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %36, i32 0, i32 5
+  store i64 %35, ptr %37, align 8
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.stat, ptr %38, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %41, i32 0, i32 6
+  store i64 %40, ptr %42, align 8
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds nuw %struct.stat, ptr %43, i32 0, i32 8
+  %45 = load i64, ptr %44, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %46, i32 0, i32 7
+  store i64 %45, ptr %47, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.stat, ptr %48, i32 0, i32 9
+  %50 = load i64, ptr %49, align 8
+  %51 = load ptr, ptr %4, align 8
+  %52 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %51, i32 0, i32 8
+  store i64 %50, ptr %52, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw %struct.stat, ptr %53, i32 0, i32 10
+  %55 = load i64, ptr %54, align 8
+  %56 = load ptr, ptr %4, align 8
+  %57 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %56, i32 0, i32 9
+  store i64 %55, ptr %57, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds nuw %struct.stat, ptr %58, i32 0, i32 11
+  %60 = getelementptr inbounds nuw %struct.timespec, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %62, i32 0, i32 12
+  %64 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %63, i32 0, i32 0
+  store i64 %61, ptr %64, align 8
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds nuw %struct.stat, ptr %65, i32 0, i32 11
+  %67 = getelementptr inbounds nuw %struct.timespec, ptr %66, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %69, i32 0, i32 12
+  %71 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %70, i32 0, i32 1
+  store i64 %68, ptr %71, align 8
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds nuw %struct.stat, ptr %72, i32 0, i32 12
+  %74 = getelementptr inbounds nuw %struct.timespec, ptr %73, i32 0, i32 0
+  %75 = load i64, ptr %74, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %76, i32 0, i32 13
+  %78 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %77, i32 0, i32 0
+  store i64 %75, ptr %78, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.stat, ptr %79, i32 0, i32 12
+  %81 = getelementptr inbounds nuw %struct.timespec, ptr %80, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %83, i32 0, i32 13
+  %85 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %84, i32 0, i32 1
+  store i64 %82, ptr %85, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw %struct.stat, ptr %86, i32 0, i32 13
+  %88 = getelementptr inbounds nuw %struct.timespec, ptr %87, i32 0, i32 0
+  %89 = load i64, ptr %88, align 8
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %90, i32 0, i32 14
+  %92 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %91, i32 0, i32 0
+  store i64 %89, ptr %92, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw %struct.stat, ptr %93, i32 0, i32 13
+  %95 = getelementptr inbounds nuw %struct.timespec, ptr %94, i32 0, i32 1
+  %96 = load i64, ptr %95, align 8
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %97, i32 0, i32 14
+  %99 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %98, i32 0, i32 1
+  store i64 %96, ptr %99, align 8
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds nuw %struct.stat, ptr %100, i32 0, i32 13
+  %102 = getelementptr inbounds nuw %struct.timespec, ptr %101, i32 0, i32 0
+  %103 = load i64, ptr %102, align 8
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %104, i32 0, i32 15
+  %106 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %105, i32 0, i32 0
+  store i64 %103, ptr %106, align 8
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds nuw %struct.stat, ptr %107, i32 0, i32 13
+  %109 = getelementptr inbounds nuw %struct.timespec, ptr %108, i32 0, i32 1
+  %110 = load i64, ptr %109, align 8
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %111, i32 0, i32 15
+  %113 = getelementptr inbounds nuw %struct.uv_timespec_t, ptr %112, i32 0, i32 1
+  store i64 %110, ptr %113, align 8
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %114, i32 0, i32 10
+  store i64 0, ptr %115, align 8
+  %116 = load ptr, ptr %4, align 8
+  %117 = getelementptr inbounds nuw %struct.uv_stat_t, ptr %116, i32 0, i32 11
+  store i64 0, ptr %117, align 8
   ret void
 }
 
@@ -8392,107 +8714,106 @@ declare void @uv__statx_to_stat(ptr noundef, ptr noundef) #1
 declare i32 @fsync(i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, i64 } @uv__fs_to_timespec(double noundef %time) #0 {
-entry:
-  %retval = alloca %struct.timespec, align 8
-  %time.addr = alloca double, align 8
-  store double %time, ptr %time.addr, align 8
-  %0 = load double, ptr %time.addr, align 8
-  %conv = fptosi double %0 to i64
-  %tv_sec = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 0
-  store i64 %conv, ptr %tv_sec, align 8
-  %1 = load double, ptr %time.addr, align 8
-  %tv_sec1 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 0
-  %2 = load i64, ptr %tv_sec1, align 8
-  %conv2 = sitofp i64 %2 to double
-  %sub = fsub double %1, %conv2
-  %mul = fmul double %sub, 1.000000e+09
-  %conv3 = fptosi double %mul to i64
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 1
-  store i64 %conv3, ptr %tv_nsec, align 8
-  %tv_nsec4 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 1
-  %3 = load i64, ptr %tv_nsec4, align 8
-  %rem = srem i64 %3, 1000
-  %tv_nsec5 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 1
-  %4 = load i64, ptr %tv_nsec5, align 8
-  %sub6 = sub nsw i64 %4, %rem
-  store i64 %sub6, ptr %tv_nsec5, align 8
-  %tv_nsec7 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 1
-  %5 = load i64, ptr %tv_nsec7, align 8
-  %cmp = icmp slt i64 %5, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal { i64, i64 } @uv__fs_to_timespec(double noundef %0) #0 {
+  %2 = alloca %struct.timespec, align 8
+  %3 = alloca double, align 8
+  store double %0, ptr %3, align 8
+  %4 = load double, ptr %3, align 8
+  %5 = fptosi double %4 to i64
+  %6 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  store i64 %5, ptr %6, align 8
+  %7 = load double, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = sitofp i64 %9 to double
+  %11 = fsub double %7, %10
+  %12 = fmul double %11, 1.000000e+09
+  %13 = fptosi double %12 to i64
+  %14 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = srem i64 %16, 1000
+  %18 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %20 = sub nsw i64 %19, %17
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp slt i64 %22, 0
+  br i1 %23, label %24, label %33
 
-if.then:                                          ; preds = %entry
-  %tv_nsec9 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 1
-  %6 = load i64, ptr %tv_nsec9, align 8
-  %conv10 = sitofp i64 %6 to double
-  %add = fadd double %conv10, 1.000000e+09
-  %conv11 = fptosi double %add to i64
-  store i64 %conv11, ptr %tv_nsec9, align 8
-  %tv_sec12 = getelementptr inbounds %struct.timespec, ptr %retval, i32 0, i32 0
-  %7 = load i64, ptr %tv_sec12, align 8
-  %sub13 = sub nsw i64 %7, 1
-  store i64 %sub13, ptr %tv_sec12, align 8
-  br label %if.end
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = sitofp i64 %26 to double
+  %28 = fadd double %27, 1.000000e+09
+  %29 = fptosi double %28 to i64
+  store i64 %29, ptr %25, align 8
+  %30 = getelementptr inbounds nuw %struct.timespec, ptr %2, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8
+  %32 = sub nsw i64 %31, 1
+  store i64 %32, ptr %30, align 8
+  br label %33
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load { i64, i64 }, ptr %retval, align 8
-  ret { i64, i64 } %8
+33:                                               ; preds = %24, %1
+  %34 = load { i64, i64 }, ptr %2, align 8
+  ret { i64, i64 } %34
 }
 
 ; Function Attrs: nounwind
-declare i32 @futimens(i32 noundef, ptr noundef) #5
-
-; Function Attrs: nounwind
-declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #5
+declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__lstat(ptr noundef %path, ptr noundef %s) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call i32 @lstat64(ptr noundef %0, ptr noundef %1) #8
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %rc, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__lstat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call i32 @lstat64(ptr noundef %6, ptr noundef %7) #8
+  store i32 %8, ptr %5, align 4
+  %9 = load i32, ptr %5, align 4
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %15
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %2
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  br label %if.end
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %do.end, %entry
-  %3 = load i32, ptr %rc, align 4
-  ret i32 %3
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14, %2
+  %16 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind
-declare i32 @lstat64(ptr noundef, ptr noundef) #5
+declare i32 @lstat64(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare ptr @mkdtemp(ptr noundef) #5
+declare ptr @mkdtemp(ptr noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 declare void @uv_once(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__mkostemp_initonce() #0 {
-entry:
-  %call = call ptr @dlsym(ptr noundef null, ptr noundef @.str.1) #8
-  store ptr %call, ptr @uv__mkostemp, align 8
-  %call1 = call ptr @dlerror() #8
+  %1 = call ptr @dlsym(ptr noundef null, ptr noundef @.str.1) #8
+  store ptr %1, ptr @uv__mkostemp, align 8
+  %2 = call ptr @dlerror() #8
   ret void
 }
 
@@ -8507,10 +8828,10 @@ declare i32 @uv__close(i32 noundef) #1
 declare void @uv_rwlock_rdunlock(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) #5
+declare ptr @dlsym(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare ptr @dlerror() #5
+declare ptr @dlerror() #6
 
 declare i32 @open64(ptr noundef, i32 noundef, ...) #1
 
@@ -8522,57 +8843,352 @@ declare i64 @readv(i32 noundef, ptr noundef, i32 noundef) #1
 
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) #1
 
-declare i64 @preadv64(i32 noundef, ptr noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__preadv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store i32 %0, ptr %5, align 4
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  %13 = call i64 @uv__preadv_or_pwritev(i32 noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, ptr noundef @uv__preadv.cache, i32 noundef 1)
+  ret i64 %13
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__preadv_or_pwritev(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  store i32 %0, ptr %7, align 4
+  store ptr %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  store i64 %18, ptr %15, align 8
+  %19 = load i64, ptr %15, align 8
+  %20 = inttoptr i64 %19 to ptr
+  store ptr %20, ptr %14, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %48
+
+23:                                               ; preds = %6
+  %24 = load i32, ptr %12, align 4
+  %25 = icmp ne i32 %24, 0
+  %26 = select i1 %25, ptr @.str.2, ptr @.str.3
+  %27 = call ptr @dlsym(ptr noundef null, ptr noundef %26) #8
+  store ptr %27, ptr %14, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %23
+  %31 = load i32, ptr %12, align 4
+  %32 = icmp ne i32 %31, 0
+  %33 = select i1 %32, ptr @.str.4, ptr @.str.5
+  %34 = call ptr @dlsym(ptr noundef null, ptr noundef %33) #8
+  store ptr %34, ptr %14, align 8
+  br label %35
+
+35:                                               ; preds = %30, %23
+  %36 = call ptr @dlerror() #8
+  %37 = load ptr, ptr %14, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %35
+  %40 = load i32, ptr %12, align 4
+  %41 = icmp ne i32 %40, 0
+  %42 = select i1 %41, ptr @uv__preadv_emul, ptr @uv__pwritev_emul
+  store ptr %42, ptr %14, align 8
+  br label %43
+
+43:                                               ; preds = %39, %35
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %14, align 8
+  %46 = ptrtoint ptr %45 to i64
+  store i64 %46, ptr %16, align 8
+  %47 = load i64, ptr %16, align 8
+  store atomic i64 %47, ptr %44 monotonic, align 8
+  br label %48
+
+48:                                               ; preds = %43, %6
+  %49 = load ptr, ptr %14, align 8
+  store ptr %49, ptr %13, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load i32, ptr %7, align 4
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i64, ptr %9, align 8
+  %54 = trunc i64 %53 to i32
+  %55 = load i64, ptr %10, align 8
+  %56 = call i64 %50(i32 noundef %51, ptr noundef %52, i32 noundef %54, i64 noundef %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  ret i64 %56
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__preadv_emul(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store i32 %0, ptr %5, align 4
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  store i64 %3, ptr %8, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i32, ptr %7, align 4
+  %12 = sext i32 %11 to i64
+  %13 = load i64, ptr %8, align 8
+  %14 = call i64 @uv__preadv_or_pwritev_emul(i32 noundef %9, ptr noundef %10, i64 noundef %12, i64 noundef %13, i32 noundef 1)
+  ret i64 %14
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  store i32 %0, ptr %5, align 4
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  store i64 %3, ptr %8, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i32, ptr %7, align 4
+  %12 = sext i32 %11 to i64
+  %13 = load i64, ptr %8, align 8
+  %14 = call i64 @uv__preadv_or_pwritev_emul(i32 noundef %9, ptr noundef %10, i64 noundef %12, i64 noundef %13, i32 noundef 0)
+  ret i64 %14
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__preadv_or_pwritev_emul(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4
+  store ptr %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store i64 %3, ptr %10, align 8
+  store i32 %4, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store i64 0, ptr %12, align 8
+  store i64 0, ptr %14, align 8
+  br label %18
+
+18:                                               ; preds = %80, %5
+  %19 = load i64, ptr %14, align 8
+  %20 = load i64, ptr %9, align 8
+  %21 = icmp ult i64 %19, %20
+  br i1 %21, label %22, label %83
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i64, ptr %14, align 8
+  %25 = getelementptr inbounds nuw %struct.iovec, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw %struct.iovec, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %16, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i64, ptr %14, align 8
+  %30 = getelementptr inbounds nuw %struct.iovec, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw %struct.iovec, ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8
+  store i64 %32, ptr %15, align 8
+  br label %33
+
+33:                                               ; preds = %56, %22
+  %34 = load i32, ptr %11, align 4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %42
+
+36:                                               ; preds = %33
+  %37 = load i32, ptr %7, align 4
+  %38 = load ptr, ptr %16, align 8
+  %39 = load i64, ptr %15, align 8
+  %40 = load i64, ptr %10, align 8
+  %41 = call i64 @pread64(i32 noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40)
+  store i64 %41, ptr %13, align 8
+  br label %48
+
+42:                                               ; preds = %33
+  %43 = load i32, ptr %7, align 4
+  %44 = load ptr, ptr %16, align 8
+  %45 = load i64, ptr %15, align 8
+  %46 = load i64, ptr %10, align 8
+  %47 = call i64 @pwrite64(i32 noundef %43, ptr noundef %44, i64 noundef %45, i64 noundef %46)
+  store i64 %47, ptr %13, align 8
+  br label %48
+
+48:                                               ; preds = %42, %36
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load i64, ptr %13, align 8
+  %51 = icmp eq i64 %50, -1
+  br i1 %51, label %52, label %56
+
+52:                                               ; preds = %49
+  %53 = call ptr @__errno_location() #9
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 4
+  br label %56
+
+56:                                               ; preds = %52, %49
+  %57 = phi i1 [ false, %49 ], [ %55, %52 ]
+  br i1 %57, label %33, label %58
+
+58:                                               ; preds = %56
+  %59 = load i64, ptr %13, align 8
+  %60 = icmp eq i64 %59, -1
+  br i1 %60, label %61, label %67
+
+61:                                               ; preds = %58
+  %62 = load i64, ptr %12, align 8
+  %63 = icmp sgt i64 %62, 0
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %61
+  %65 = load i64, ptr %12, align 8
+  store i64 %65, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %85
+
+66:                                               ; preds = %61
+  store i64 -1, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %85
+
+67:                                               ; preds = %58
+  %68 = load i64, ptr %13, align 8
+  %69 = load i64, ptr %10, align 8
+  %70 = add nsw i64 %69, %68
+  store i64 %70, ptr %10, align 8
+  %71 = load i64, ptr %13, align 8
+  %72 = load i64, ptr %12, align 8
+  %73 = add nsw i64 %72, %71
+  store i64 %73, ptr %12, align 8
+  %74 = load i64, ptr %13, align 8
+  %75 = load i64, ptr %15, align 8
+  %76 = icmp ult i64 %74, %75
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %67
+  %78 = load i64, ptr %12, align 8
+  store i64 %78, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %85
+
+79:                                               ; preds = %67
+  br label %80
+
+80:                                               ; preds = %79
+  %81 = load i64, ptr %14, align 8
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %14, align 8
+  br label %18
+
+83:                                               ; preds = %18
+  %84 = load i64, ptr %12, align 8
+  store i64 %84, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  br label %85
+
+85:                                               ; preds = %83, %77, %66, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %86 = load i64, ptr %6, align 8
+  ret i64 %86
+}
+
+declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) #1
 
 declare i32 @scandir64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_scandir_filter(ptr noundef %dent) #0 {
-entry:
-  %dent.addr = alloca ptr, align 8
-  store ptr %dent, ptr %dent.addr, align 8
-  %0 = load ptr, ptr %dent.addr, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %0, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %d_name, i64 0, i64 0
-  %call = call i32 @strcmp(ptr noundef %arraydecay, ptr noundef @.str.2) #10
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+define internal i32 @uv__fs_scandir_filter(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.dirent, ptr %3, i32 0, i32 4
+  %5 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
+  %6 = call i32 @strcmp(ptr noundef %5, ptr noundef @.str.6) #11
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %14
 
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %dent.addr, align 8
-  %d_name1 = getelementptr inbounds %struct.dirent, ptr %1, i32 0, i32 4
-  %arraydecay2 = getelementptr inbounds [256 x i8], ptr %d_name1, i64 0, i64 0
-  %call3 = call i32 @strcmp(ptr noundef %arraydecay2, ptr noundef @.str.3) #10
-  %cmp4 = icmp ne i32 %call3, 0
-  br label %land.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct.dirent, ptr %9, i32 0, i32 4
+  %11 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %12 = call i32 @strcmp(ptr noundef %11, ptr noundef @.str.7) #11
+  %13 = icmp ne i32 %12, 0
+  br label %14
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  %land.ext = zext i1 %2 to i32
-  ret i32 %land.ext
+14:                                               ; preds = %8, %1
+  %15 = phi i1 [ false, %1 ], [ %13, %8 ]
+  %16 = zext i1 %15 to i32
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__fs_scandir_sort(ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %1, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %d_name, i64 0, i64 0
-  %2 = load ptr, ptr %b.addr, align 8
-  %3 = load ptr, ptr %2, align 8
-  %d_name1 = getelementptr inbounds %struct.dirent, ptr %3, i32 0, i32 4
-  %arraydecay2 = getelementptr inbounds [256 x i8], ptr %d_name1, i64 0, i64 0
-  %call = call i32 @strcmp(ptr noundef %arraydecay, ptr noundef %arraydecay2) #10
-  ret i32 %call
+define internal i32 @uv__fs_scandir_sort(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %struct.dirent, ptr %6, i32 0, i32 4
+  %8 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %struct.dirent, ptr %10, i32 0, i32 4
+  %12 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 0
+  %13 = call i32 @strcmp(ptr noundef %8, ptr noundef %12) #11
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #6
 
 declare ptr @opendir(ptr noundef) #1
 
@@ -8583,485 +9199,519 @@ declare i32 @uv__fs_get_dirent_type(ptr noundef) #1
 declare i32 @closedir(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_pathmax_size(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %pathmax = alloca i64, align 8
-  store ptr %path, ptr %path.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %call = call i64 @pathconf(ptr noundef %0, i32 noundef 4) #8
-  store i64 %call, ptr %pathmax, align 8
-  %1 = load i64, ptr %pathmax, align 8
-  %cmp = icmp eq i64 %1, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @uv__fs_pathmax_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call i64 @pathconf(ptr noundef %4, i32 noundef 4) #8
+  store i64 %5, ptr %3, align 8
+  %6 = load i64, ptr %3, align 8
+  %7 = icmp eq i64 %6, -1
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i64 4096, ptr %pathmax, align 8
-  br label %if.end
+8:                                                ; preds = %1
+  store i64 4096, ptr %3, align 8
+  br label %9
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i64, ptr %pathmax, align 8
-  ret i64 %2
+9:                                                ; preds = %8, %1
+  %10 = load i64, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind
-declare i64 @readlink(ptr noundef, ptr noundef, i64 noundef) #5
+declare i64 @readlink(ptr noundef, ptr noundef, i64 noundef) #6
 
 declare ptr @uv__reallocf(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare i64 @pathconf(ptr noundef, i32 noundef) #5
+declare i64 @pathconf(ptr noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind
-declare ptr @realpath(ptr noundef, ptr noundef) #5
+declare ptr @realpath(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_try_copy_file_range(i32 noundef %in_fd, ptr noundef %off, i32 noundef %out_fd, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %in_fd.addr = alloca i32, align 4
-  %off.addr = alloca ptr, align 8
-  %out_fd.addr = alloca i32, align 4
-  %len.addr = alloca i64, align 8
-  %r = alloca i64, align 8
-  %atomic-temp = alloca i32, align 4
-  %.atomictmp = alloca i32, align 4
-  store i32 %in_fd, ptr %in_fd.addr, align 4
-  store ptr %off, ptr %off.addr, align 8
-  store i32 %out_fd, ptr %out_fd.addr, align 4
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load atomic i32, ptr @uv__fs_try_copy_file_range.no_copy_file_range_support monotonic, align 4
-  store i32 %0, ptr %atomic-temp, align 4
-  %1 = load i32, ptr %atomic-temp, align 4
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i64 @uv__fs_try_copy_file_range(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store i64 %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %14 = load atomic i32, ptr @uv__fs_try_copy_file_range.no_copy_file_range_support monotonic, align 4
+  store i32 %14, ptr %11, align 4
+  %15 = load i32, ptr %11, align 4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %19
 
-if.then:                                          ; preds = %entry
-  %call = call ptr @__errno_location() #7
-  store i32 38, ptr %call, align 4
-  store i64 -1, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %4
+  %18 = call ptr @__errno_location() #9
+  store i32 38, ptr %18, align 4
+  store i64 -1, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %51
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %in_fd.addr, align 4
-  %3 = load ptr, ptr %off.addr, align 8
-  %4 = load i32, ptr %out_fd.addr, align 4
-  %5 = load i64, ptr %len.addr, align 8
-  %call1 = call i64 @uv__fs_copy_file_range(i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null, i64 noundef %5, i32 noundef 0)
-  store i64 %call1, ptr %r, align 8
-  %6 = load i64, ptr %r, align 8
-  %cmp = icmp ne i64 %6, -1
-  br i1 %cmp, label %if.then2, label %if.end3
+19:                                               ; preds = %4
+  %20 = load i32, ptr %6, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load i64, ptr %9, align 8
+  %24 = call i64 @uv__fs_copy_file_range(i32 noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef null, i64 noundef %23, i32 noundef 0)
+  store i64 %24, ptr %10, align 8
+  %25 = load i64, ptr %10, align 8
+  %26 = icmp ne i64 %25, -1
+  br i1 %26, label %27, label %29
 
-if.then2:                                         ; preds = %if.end
-  %7 = load i64, ptr %r, align 8
-  store i64 %7, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %19
+  %28 = load i64, ptr %10, align 8
+  store i64 %28, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %51
 
-if.end3:                                          ; preds = %if.end
-  %call4 = call ptr @__errno_location() #7
-  %8 = load i32, ptr %call4, align 4
-  switch i32 %8, label %sw.epilog [
-    i32 13, label %sw.bb
-    i32 38, label %sw.bb10
-    i32 1, label %sw.bb11
-    i32 95, label %sw.bb17
-    i32 18, label %sw.bb17
+29:                                               ; preds = %19
+  %30 = call ptr @__errno_location() #9
+  %31 = load i32, ptr %30, align 4
+  switch i32 %31, label %50 [
+    i32 13, label %32
+    i32 38, label %39
+    i32 1, label %41
+    i32 95, label %48
+    i32 18, label %48
   ]
 
-sw.bb:                                            ; preds = %if.end3
-  %9 = load i32, ptr %in_fd.addr, align 4
-  %call5 = call i32 @uv__is_buggy_cephfs(i32 noundef %9)
-  %tobool6 = icmp ne i32 %call5, 0
-  br i1 %tobool6, label %if.then7, label %if.end9
+32:                                               ; preds = %29
+  %33 = load i32, ptr %6, align 4
+  %34 = call i32 @uv__is_buggy_cephfs(i32 noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
 
-if.then7:                                         ; preds = %sw.bb
-  %call8 = call ptr @__errno_location() #7
-  store i32 38, ptr %call8, align 4
-  br label %if.end9
+36:                                               ; preds = %32
+  %37 = call ptr @__errno_location() #9
+  store i32 38, ptr %37, align 4
+  br label %38
 
-if.end9:                                          ; preds = %if.then7, %sw.bb
-  br label %sw.epilog
+38:                                               ; preds = %36, %32
+  br label %50
 
-sw.bb10:                                          ; preds = %if.end3
-  store i32 1, ptr %.atomictmp, align 4
-  %10 = load i32, ptr %.atomictmp, align 4
-  store atomic i32 %10, ptr @uv__fs_try_copy_file_range.no_copy_file_range_support monotonic, align 4
-  br label %sw.epilog
+39:                                               ; preds = %29
+  store i32 1, ptr %13, align 4
+  %40 = load i32, ptr %13, align 4
+  store atomic i32 %40, ptr @uv__fs_try_copy_file_range.no_copy_file_range_support monotonic, align 4
+  br label %50
 
-sw.bb11:                                          ; preds = %if.end3
-  %11 = load i32, ptr %out_fd.addr, align 4
-  %call12 = call i32 @uv__is_cifs_or_smb(i32 noundef %11)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.then14, label %if.end16
+41:                                               ; preds = %29
+  %42 = load i32, ptr %8, align 4
+  %43 = call i32 @uv__is_cifs_or_smb(i32 noundef %42)
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %47
 
-if.then14:                                        ; preds = %sw.bb11
-  %call15 = call ptr @__errno_location() #7
-  store i32 38, ptr %call15, align 4
-  br label %if.end16
+45:                                               ; preds = %41
+  %46 = call ptr @__errno_location() #9
+  store i32 38, ptr %46, align 4
+  br label %47
 
-if.end16:                                         ; preds = %if.then14, %sw.bb11
-  br label %sw.epilog
+47:                                               ; preds = %45, %41
+  br label %50
 
-sw.bb17:                                          ; preds = %if.end3, %if.end3
-  %call18 = call ptr @__errno_location() #7
-  store i32 38, ptr %call18, align 4
-  br label %sw.epilog
+48:                                               ; preds = %29, %29
+  %49 = call ptr @__errno_location() #9
+  store i32 38, ptr %49, align 4
+  br label %50
 
-sw.epilog:                                        ; preds = %sw.bb17, %if.end16, %sw.bb10, %if.end9, %if.end3
-  store i64 -1, ptr %retval, align 8
-  br label %return
+50:                                               ; preds = %29, %48, %47, %39, %38
+  store i64 -1, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %51
 
-return:                                           ; preds = %sw.epilog, %if.then2, %if.then
-  %12 = load i64, ptr %retval, align 8
-  ret i64 %12
+51:                                               ; preds = %50, %27, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %52 = load i64, ptr %5, align 8
+  ret i64 %52
 }
 
 ; Function Attrs: nounwind
-declare i64 @sendfile64(i32 noundef, i32 noundef, ptr noundef, i64 noundef) #5
+declare i64 @sendfile64(i32 noundef, i32 noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_sendfile_emul(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %pfd = alloca %struct.pollfd, align 4
-  %use_pread = alloca i32, align 4
-  %offset = alloca i64, align 8
-  %nsent = alloca i64, align 8
-  %nread = alloca i64, align 8
-  %nwritten = alloca i64, align 8
-  %buflen = alloca i64, align 8
-  %len = alloca i64, align 8
-  %n = alloca i64, align 8
-  %in_fd = alloca i32, align 4
-  %out_fd = alloca i32, align 4
-  %buf = alloca [8192 x i8], align 16
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %bufsml = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 22
-  %arrayidx = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %bufsml, i64 0, i64 0
-  %len1 = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx, i32 0, i32 1
-  %1 = load i64, ptr %len1, align 8
-  store i64 %1, ptr %len, align 8
-  %2 = load ptr, ptr %req.addr, align 8
-  %flags = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 12
-  %3 = load i32, ptr %flags, align 4
-  store i32 %3, ptr %in_fd, align 4
-  %4 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 11
-  %5 = load i32, ptr %file, align 8
-  store i32 %5, ptr %out_fd, align 4
-  %6 = load ptr, ptr %req.addr, align 8
-  %off = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 16
-  %7 = load i64, ptr %off, align 8
-  store i64 %7, ptr %offset, align 8
-  store i32 1, ptr %use_pread, align 4
-  store i64 0, ptr %nsent, align 8
-  br label %for.cond
+define internal i64 @uv__fs_sendfile_emul(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.pollfd, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [8192 x i8], align 16
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8192, ptr %14) #8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %15, i32 0, i32 22
+  %17 = getelementptr inbounds [4 x %struct.uv_buf_t], ptr %16, i64 0, i64 0
+  %18 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %10, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %20, i32 0, i32 12
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %12, align 4
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %23, i32 0, i32 11
+  %25 = load i32, ptr %24, align 8
+  store i32 %25, ptr %13, align 4
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %26, i32 0, i32 16
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %5, align 8
+  store i32 1, ptr %4, align 4
+  store i64 0, ptr %6, align 8
+  br label %29
 
-for.cond:                                         ; preds = %for.end, %if.then22, %entry
-  %8 = load i64, ptr %nsent, align 8
-  %9 = load i64, ptr %len, align 8
-  %cmp = icmp ult i64 %8, %9
-  br i1 %cmp, label %for.body, label %for.end75
+29:                                               ; preds = %161, %86, %1
+  %30 = load i64, ptr %6, align 8
+  %31 = load i64, ptr %10, align 8
+  %32 = icmp ult i64 %30, %31
+  br i1 %32, label %33, label %168
 
-for.body:                                         ; preds = %for.cond
-  %10 = load i64, ptr %len, align 8
-  %11 = load i64, ptr %nsent, align 8
-  %sub = sub i64 %10, %11
-  store i64 %sub, ptr %buflen, align 8
-  %12 = load i64, ptr %buflen, align 8
-  %cmp2 = icmp ugt i64 %12, 8192
-  br i1 %cmp2, label %if.then, label %if.end
+33:                                               ; preds = %29
+  %34 = load i64, ptr %10, align 8
+  %35 = load i64, ptr %6, align 8
+  %36 = sub i64 %34, %35
+  store i64 %36, ptr %9, align 8
+  %37 = load i64, ptr %9, align 8
+  %38 = icmp ugt i64 %37, 8192
+  br i1 %38, label %39, label %40
 
-if.then:                                          ; preds = %for.body
-  store i64 8192, ptr %buflen, align 8
-  br label %if.end
+39:                                               ; preds = %33
+  store i64 8192, ptr %9, align 8
+  br label %40
 
-if.end:                                           ; preds = %if.then, %for.body
-  br label %do.body
+40:                                               ; preds = %39, %33
+  br label %41
 
-do.body:                                          ; preds = %land.end, %if.end
-  %13 = load i32, ptr %use_pread, align 4
-  %tobool = icmp ne i32 %13, 0
-  br i1 %tobool, label %if.then3, label %if.else
+41:                                               ; preds = %63, %40
+  %42 = load i32, ptr %4, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %50
 
-if.then3:                                         ; preds = %do.body
-  %14 = load i32, ptr %in_fd, align 4
-  %arraydecay = getelementptr inbounds [8192 x i8], ptr %buf, i64 0, i64 0
-  %15 = load i64, ptr %buflen, align 8
-  %16 = load i64, ptr %offset, align 8
-  %call = call i64 @pread64(i32 noundef %14, ptr noundef %arraydecay, i64 noundef %15, i64 noundef %16)
-  store i64 %call, ptr %nread, align 8
-  br label %if.end6
+44:                                               ; preds = %41
+  %45 = load i32, ptr %12, align 4
+  %46 = getelementptr inbounds [8192 x i8], ptr %14, i64 0, i64 0
+  %47 = load i64, ptr %9, align 8
+  %48 = load i64, ptr %5, align 8
+  %49 = call i64 @pread64(i32 noundef %45, ptr noundef %46, i64 noundef %47, i64 noundef %48)
+  store i64 %49, ptr %7, align 8
+  br label %55
 
-if.else:                                          ; preds = %do.body
-  %17 = load i32, ptr %in_fd, align 4
-  %arraydecay4 = getelementptr inbounds [8192 x i8], ptr %buf, i64 0, i64 0
-  %18 = load i64, ptr %buflen, align 8
-  %call5 = call i64 @read(i32 noundef %17, ptr noundef %arraydecay4, i64 noundef %18)
-  store i64 %call5, ptr %nread, align 8
-  br label %if.end6
+50:                                               ; preds = %41
+  %51 = load i32, ptr %12, align 4
+  %52 = getelementptr inbounds [8192 x i8], ptr %14, i64 0, i64 0
+  %53 = load i64, ptr %9, align 8
+  %54 = call i64 @read(i32 noundef %51, ptr noundef %52, i64 noundef %53)
+  store i64 %54, ptr %7, align 8
+  br label %55
 
-if.end6:                                          ; preds = %if.else, %if.then3
-  br label %do.cond
+55:                                               ; preds = %50, %44
+  br label %56
 
-do.cond:                                          ; preds = %if.end6
-  %19 = load i64, ptr %nread, align 8
-  %cmp7 = icmp eq i64 %19, -1
-  br i1 %cmp7, label %land.rhs, label %land.end
+56:                                               ; preds = %55
+  %57 = load i64, ptr %7, align 8
+  %58 = icmp eq i64 %57, -1
+  br i1 %58, label %59, label %63
 
-land.rhs:                                         ; preds = %do.cond
-  %call8 = call ptr @__errno_location() #7
-  %20 = load i32, ptr %call8, align 4
-  %cmp9 = icmp eq i32 %20, 4
-  br label %land.end
+59:                                               ; preds = %56
+  %60 = call ptr @__errno_location() #9
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, 4
+  br label %63
 
-land.end:                                         ; preds = %land.rhs, %do.cond
-  %21 = phi i1 [ false, %do.cond ], [ %cmp9, %land.rhs ]
-  br i1 %21, label %do.body, label %do.end
+63:                                               ; preds = %59, %56
+  %64 = phi i1 [ false, %56 ], [ %62, %59 ]
+  br i1 %64, label %41, label %65
 
-do.end:                                           ; preds = %land.end
-  %22 = load i64, ptr %nread, align 8
-  %cmp10 = icmp eq i64 %22, 0
-  br i1 %cmp10, label %if.then11, label %if.end12
+65:                                               ; preds = %63
+  %66 = load i64, ptr %7, align 8
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %68, label %69
 
-if.then11:                                        ; preds = %do.end
-  br label %out
+68:                                               ; preds = %65
+  br label %169
 
-if.end12:                                         ; preds = %do.end
-  %23 = load i64, ptr %nread, align 8
-  %cmp13 = icmp eq i64 %23, -1
-  br i1 %cmp13, label %if.then14, label %if.end27
+69:                                               ; preds = %65
+  %70 = load i64, ptr %7, align 8
+  %71 = icmp eq i64 %70, -1
+  br i1 %71, label %72, label %92
 
-if.then14:                                        ; preds = %if.end12
-  %24 = load i32, ptr %use_pread, align 4
-  %tobool15 = icmp ne i32 %24, 0
-  br i1 %tobool15, label %land.lhs.true, label %if.end23
+72:                                               ; preds = %69
+  %73 = load i32, ptr %4, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %87
 
-land.lhs.true:                                    ; preds = %if.then14
-  %25 = load i64, ptr %nsent, align 8
-  %cmp16 = icmp eq i64 %25, 0
-  br i1 %cmp16, label %land.lhs.true17, label %if.end23
+75:                                               ; preds = %72
+  %76 = load i64, ptr %6, align 8
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %78, label %87
 
-land.lhs.true17:                                  ; preds = %land.lhs.true
-  %call18 = call ptr @__errno_location() #7
-  %26 = load i32, ptr %call18, align 4
-  %cmp19 = icmp eq i32 %26, 5
-  br i1 %cmp19, label %if.then22, label %lor.lhs.false
+78:                                               ; preds = %75
+  %79 = call ptr @__errno_location() #9
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, 5
+  br i1 %81, label %86, label %82
 
-lor.lhs.false:                                    ; preds = %land.lhs.true17
-  %call20 = call ptr @__errno_location() #7
-  %27 = load i32, ptr %call20, align 4
-  %cmp21 = icmp eq i32 %27, 29
-  br i1 %cmp21, label %if.then22, label %if.end23
+82:                                               ; preds = %78
+  %83 = call ptr @__errno_location() #9
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp eq i32 %84, 29
+  br i1 %85, label %86, label %87
 
-if.then22:                                        ; preds = %lor.lhs.false, %land.lhs.true17
-  store i32 0, ptr %use_pread, align 4
-  br label %for.cond
+86:                                               ; preds = %82, %78
+  store i32 0, ptr %4, align 4
+  br label %29
 
-if.end23:                                         ; preds = %lor.lhs.false, %land.lhs.true, %if.then14
-  %28 = load i64, ptr %nsent, align 8
-  %cmp24 = icmp eq i64 %28, 0
-  br i1 %cmp24, label %if.then25, label %if.end26
+87:                                               ; preds = %82, %75, %72
+  %88 = load i64, ptr %6, align 8
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %90, label %91
 
-if.then25:                                        ; preds = %if.end23
-  store i64 -1, ptr %nsent, align 8
-  br label %if.end26
+90:                                               ; preds = %87
+  store i64 -1, ptr %6, align 8
+  br label %91
 
-if.end26:                                         ; preds = %if.then25, %if.end23
-  br label %out
+91:                                               ; preds = %90, %87
+  br label %169
 
-if.end27:                                         ; preds = %if.end12
-  store i64 0, ptr %nwritten, align 8
-  br label %for.cond28
+92:                                               ; preds = %69
+  store i64 0, ptr %8, align 8
+  br label %93
 
-for.cond28:                                       ; preds = %if.end72, %if.then43, %if.end27
-  %29 = load i64, ptr %nwritten, align 8
-  %30 = load i64, ptr %nread, align 8
-  %cmp29 = icmp slt i64 %29, %30
-  br i1 %cmp29, label %for.body30, label %for.end
+93:                                               ; preds = %160, %119, %92
+  %94 = load i64, ptr %8, align 8
+  %95 = load i64, ptr %7, align 8
+  %96 = icmp slt i64 %94, %95
+  br i1 %96, label %97, label %161
 
-for.body30:                                       ; preds = %for.cond28
-  br label %do.body31
+97:                                               ; preds = %93
+  br label %98
 
-do.body31:                                        ; preds = %land.end40, %for.body30
-  %31 = load i32, ptr %out_fd, align 4
-  %arraydecay32 = getelementptr inbounds [8192 x i8], ptr %buf, i64 0, i64 0
-  %32 = load i64, ptr %nwritten, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay32, i64 %32
-  %33 = load i64, ptr %nread, align 8
-  %34 = load i64, ptr %nwritten, align 8
-  %sub33 = sub nsw i64 %33, %34
-  %call34 = call i64 @write(i32 noundef %31, ptr noundef %add.ptr, i64 noundef %sub33)
-  store i64 %call34, ptr %n, align 8
-  br label %do.cond35
+98:                                               ; preds = %114, %97
+  %99 = load i32, ptr %13, align 4
+  %100 = getelementptr inbounds [8192 x i8], ptr %14, i64 0, i64 0
+  %101 = load i64, ptr %8, align 8
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
+  %103 = load i64, ptr %7, align 8
+  %104 = load i64, ptr %8, align 8
+  %105 = sub nsw i64 %103, %104
+  %106 = call i64 @write(i32 noundef %99, ptr noundef %102, i64 noundef %105)
+  store i64 %106, ptr %11, align 8
+  br label %107
 
-do.cond35:                                        ; preds = %do.body31
-  %35 = load i64, ptr %n, align 8
-  %cmp36 = icmp eq i64 %35, -1
-  br i1 %cmp36, label %land.rhs37, label %land.end40
+107:                                              ; preds = %98
+  %108 = load i64, ptr %11, align 8
+  %109 = icmp eq i64 %108, -1
+  br i1 %109, label %110, label %114
 
-land.rhs37:                                       ; preds = %do.cond35
-  %call38 = call ptr @__errno_location() #7
-  %36 = load i32, ptr %call38, align 4
-  %cmp39 = icmp eq i32 %36, 4
-  br label %land.end40
+110:                                              ; preds = %107
+  %111 = call ptr @__errno_location() #9
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, 4
+  br label %114
 
-land.end40:                                       ; preds = %land.rhs37, %do.cond35
-  %37 = phi i1 [ false, %do.cond35 ], [ %cmp39, %land.rhs37 ]
-  br i1 %37, label %do.body31, label %do.end41
+114:                                              ; preds = %110, %107
+  %115 = phi i1 [ false, %107 ], [ %113, %110 ]
+  br i1 %115, label %98, label %116
 
-do.end41:                                         ; preds = %land.end40
-  %38 = load i64, ptr %n, align 8
-  %cmp42 = icmp ne i64 %38, -1
-  br i1 %cmp42, label %if.then43, label %if.end44
+116:                                              ; preds = %114
+  %117 = load i64, ptr %11, align 8
+  %118 = icmp ne i64 %117, -1
+  br i1 %118, label %119, label %123
 
-if.then43:                                        ; preds = %do.end41
-  %39 = load i64, ptr %n, align 8
-  %40 = load i64, ptr %nwritten, align 8
-  %add = add nsw i64 %40, %39
-  store i64 %add, ptr %nwritten, align 8
-  br label %for.cond28
+119:                                              ; preds = %116
+  %120 = load i64, ptr %11, align 8
+  %121 = load i64, ptr %8, align 8
+  %122 = add nsw i64 %121, %120
+  store i64 %122, ptr %8, align 8
+  br label %93
 
-if.end44:                                         ; preds = %do.end41
-  %call45 = call ptr @__errno_location() #7
-  %41 = load i32, ptr %call45, align 4
-  %cmp46 = icmp ne i32 %41, 11
-  br i1 %cmp46, label %land.lhs.true47, label %if.end51
+123:                                              ; preds = %116
+  %124 = call ptr @__errno_location() #9
+  %125 = load i32, ptr %124, align 4
+  %126 = icmp ne i32 %125, 11
+  br i1 %126, label %127, label %132
 
-land.lhs.true47:                                  ; preds = %if.end44
-  %call48 = call ptr @__errno_location() #7
-  %42 = load i32, ptr %call48, align 4
-  %cmp49 = icmp ne i32 %42, 11
-  br i1 %cmp49, label %if.then50, label %if.end51
+127:                                              ; preds = %123
+  %128 = call ptr @__errno_location() #9
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp ne i32 %129, 11
+  br i1 %130, label %131, label %132
 
-if.then50:                                        ; preds = %land.lhs.true47
-  store i64 -1, ptr %nsent, align 8
-  br label %out
+131:                                              ; preds = %127
+  store i64 -1, ptr %6, align 8
+  br label %169
 
-if.end51:                                         ; preds = %land.lhs.true47, %if.end44
-  %43 = load i32, ptr %out_fd, align 4
-  %fd = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 0
-  store i32 %43, ptr %fd, align 4
-  %events = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 1
-  store i16 4, ptr %events, align 4
-  %revents = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 2
-  store i16 0, ptr %revents, align 2
-  br label %do.body52
+132:                                              ; preds = %127, %123
+  %133 = load i32, ptr %13, align 4
+  %134 = getelementptr inbounds nuw %struct.pollfd, ptr %3, i32 0, i32 0
+  store i32 %133, ptr %134, align 4
+  %135 = getelementptr inbounds nuw %struct.pollfd, ptr %3, i32 0, i32 1
+  store i16 4, ptr %135, align 4
+  %136 = getelementptr inbounds nuw %struct.pollfd, ptr %3, i32 0, i32 2
+  store i16 0, ptr %136, align 2
+  br label %137
 
-do.body52:                                        ; preds = %land.end61, %if.end51
-  %call53 = call i32 @poll(ptr noundef %pfd, i64 noundef 1, i32 noundef -1)
-  %conv = sext i32 %call53 to i64
-  store i64 %conv, ptr %n, align 8
-  br label %do.cond54
+137:                                              ; preds = %147, %132
+  %138 = call i32 @poll(ptr noundef %3, i64 noundef 1, i32 noundef -1)
+  %139 = sext i32 %138 to i64
+  store i64 %139, ptr %11, align 8
+  br label %140
 
-do.cond54:                                        ; preds = %do.body52
-  %44 = load i64, ptr %n, align 8
-  %cmp55 = icmp eq i64 %44, -1
-  br i1 %cmp55, label %land.rhs57, label %land.end61
+140:                                              ; preds = %137
+  %141 = load i64, ptr %11, align 8
+  %142 = icmp eq i64 %141, -1
+  br i1 %142, label %143, label %147
 
-land.rhs57:                                       ; preds = %do.cond54
-  %call58 = call ptr @__errno_location() #7
-  %45 = load i32, ptr %call58, align 4
-  %cmp59 = icmp eq i32 %45, 4
-  br label %land.end61
+143:                                              ; preds = %140
+  %144 = call ptr @__errno_location() #9
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp eq i32 %145, 4
+  br label %147
 
-land.end61:                                       ; preds = %land.rhs57, %do.cond54
-  %46 = phi i1 [ false, %do.cond54 ], [ %cmp59, %land.rhs57 ]
-  br i1 %46, label %do.body52, label %do.end62
+147:                                              ; preds = %143, %140
+  %148 = phi i1 [ false, %140 ], [ %146, %143 ]
+  br i1 %148, label %137, label %149
 
-do.end62:                                         ; preds = %land.end61
-  %47 = load i64, ptr %n, align 8
-  %cmp63 = icmp eq i64 %47, -1
-  br i1 %cmp63, label %if.then70, label %lor.lhs.false65
+149:                                              ; preds = %147
+  %150 = load i64, ptr %11, align 8
+  %151 = icmp eq i64 %150, -1
+  br i1 %151, label %158, label %152
 
-lor.lhs.false65:                                  ; preds = %do.end62
-  %revents66 = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 2
-  %48 = load i16, ptr %revents66, align 2
-  %conv67 = sext i16 %48 to i32
-  %and = and i32 %conv67, -5
-  %cmp68 = icmp ne i32 %and, 0
-  br i1 %cmp68, label %if.then70, label %if.end72
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds nuw %struct.pollfd, ptr %3, i32 0, i32 2
+  %154 = load i16, ptr %153, align 2
+  %155 = sext i16 %154 to i32
+  %156 = and i32 %155, -5
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %160
 
-if.then70:                                        ; preds = %lor.lhs.false65, %do.end62
-  %call71 = call ptr @__errno_location() #7
-  store i32 5, ptr %call71, align 4
-  store i64 -1, ptr %nsent, align 8
-  br label %out
+158:                                              ; preds = %152, %149
+  %159 = call ptr @__errno_location() #9
+  store i32 5, ptr %159, align 4
+  store i64 -1, ptr %6, align 8
+  br label %169
 
-if.end72:                                         ; preds = %lor.lhs.false65
-  br label %for.cond28
+160:                                              ; preds = %152
+  br label %93
 
-for.end:                                          ; preds = %for.cond28
-  %49 = load i64, ptr %nread, align 8
-  %50 = load i64, ptr %offset, align 8
-  %add73 = add nsw i64 %50, %49
-  store i64 %add73, ptr %offset, align 8
-  %51 = load i64, ptr %nread, align 8
-  %52 = load i64, ptr %nsent, align 8
-  %add74 = add nsw i64 %52, %51
-  store i64 %add74, ptr %nsent, align 8
-  br label %for.cond
+161:                                              ; preds = %93
+  %162 = load i64, ptr %7, align 8
+  %163 = load i64, ptr %5, align 8
+  %164 = add nsw i64 %163, %162
+  store i64 %164, ptr %5, align 8
+  %165 = load i64, ptr %7, align 8
+  %166 = load i64, ptr %6, align 8
+  %167 = add nsw i64 %166, %165
+  store i64 %167, ptr %6, align 8
+  br label %29
 
-for.end75:                                        ; preds = %for.cond
-  br label %out
+168:                                              ; preds = %29
+  br label %169
 
-out:                                              ; preds = %for.end75, %if.then70, %if.then50, %if.end26, %if.then11
-  %53 = load i64, ptr %nsent, align 8
-  %cmp76 = icmp ne i64 %53, -1
-  br i1 %cmp76, label %if.then78, label %if.end80
+169:                                              ; preds = %168, %158, %131, %91, %68
+  %170 = load i64, ptr %6, align 8
+  %171 = icmp ne i64 %170, -1
+  br i1 %171, label %172, label %176
 
-if.then78:                                        ; preds = %out
-  %54 = load i64, ptr %offset, align 8
-  %55 = load ptr, ptr %req.addr, align 8
-  %off79 = getelementptr inbounds %struct.uv_fs_s, ptr %55, i32 0, i32 16
-  store i64 %54, ptr %off79, align 8
-  br label %if.end80
+172:                                              ; preds = %169
+  %173 = load i64, ptr %5, align 8
+  %174 = load ptr, ptr %2, align 8
+  %175 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %174, i32 0, i32 16
+  store i64 %173, ptr %175, align 8
+  br label %176
 
-if.end80:                                         ; preds = %if.then78, %out
-  %56 = load i64, ptr %nsent, align 8
-  ret i64 %56
+176:                                              ; preds = %172, %169
+  %177 = load i64, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8192, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %177
 }
 
 declare i64 @uv__fs_copy_file_range(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__is_buggy_cephfs(i32 noundef %fd) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %fd.addr = alloca i32, align 4
-  %s = alloca %struct.statfs, align 8
-  store i32 %fd, ptr %fd.addr, align 4
-  %0 = load i32, ptr %fd.addr, align 4
-  %call = call i32 @fstatfs64(i32 noundef %0, ptr noundef %s) #8
-  %cmp = icmp eq i32 -1, %call
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__is_buggy_cephfs(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.statfs, align 8
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 120, ptr %4) #8
+  %6 = load i32, ptr %3, align 4
+  %7 = call i32 @fstatfs64(i32 noundef %6, ptr noundef %4) #8
+  %8 = icmp eq i32 -1, %7
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %f_type = getelementptr inbounds %struct.statfs, ptr %s, i32 0, i32 0
-  %1 = load i64, ptr %f_type, align 8
-  %cmp1 = icmp ne i64 %1, 12805120
-  br i1 %cmp1, label %if.then2, label %if.end3
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %struct.statfs, ptr %4, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp ne i64 %12, 12805120
+  br i1 %13, label %14, label %15
 
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %10
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
 
-if.end3:                                          ; preds = %if.end
-  %call4 = call i32 @uv__kernel_version()
-  %cmp5 = icmp ult i32 %call4, 267264
-  %conv = zext i1 %cmp5 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %10
+  %16 = call i32 @uv__kernel_version()
+  %17 = icmp ult i32 %16, 267264
+  %18 = zext i1 %17 to i32
+  store i32 %18, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %19
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+19:                                               ; preds = %15, %14, %9
+  call void @llvm.lifetime.end.p0(i64 120, ptr %4) #8
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
 }
 
 declare i32 @uv__kernel_version() #1
@@ -9071,251 +9721,279 @@ declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uv__stat(ptr noundef %path, ptr noundef %s) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  store ptr %path, ptr %path.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %call = call i32 @stat64(ptr noundef %0, ptr noundef %1) #8
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %rc, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @uv__stat(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call i32 @stat64(ptr noundef %6, ptr noundef %7) #8
+  store i32 %8, ptr %5, align 4
+  %9 = load i32, ptr %5, align 4
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %15
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+11:                                               ; preds = %2
+  br label %12
 
-do.body:                                          ; preds = %if.then
-  br label %do.end
+12:                                               ; preds = %11
+  br label %13
 
-do.end:                                           ; preds = %do.body
-  br label %if.end
+13:                                               ; preds = %12
+  br label %14
 
-if.end:                                           ; preds = %do.end, %entry
-  %3 = load i32, ptr %rc, align 4
-  ret i32 %3
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14, %2
+  %16 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind
-declare i32 @stat64(ptr noundef, ptr noundef) #5
+declare i32 @stat64(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @statfs64(ptr noundef, ptr noundef) #5
+declare i32 @statfs64(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_write(ptr noundef %req) #0 {
-entry:
-  %req.addr = alloca ptr, align 8
-  %bufs = alloca ptr, align 8
-  %nbufs = alloca i64, align 8
-  %r = alloca i64, align 8
-  %off = alloca i64, align 8
-  %fd = alloca i32, align 4
-  store ptr %req, ptr %req.addr, align 8
-  %0 = load ptr, ptr %req.addr, align 8
-  %file = getelementptr inbounds %struct.uv_fs_s, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %file, align 8
-  store i32 %1, ptr %fd, align 4
-  %2 = load ptr, ptr %req.addr, align 8
-  %off1 = getelementptr inbounds %struct.uv_fs_s, ptr %2, i32 0, i32 16
-  %3 = load i64, ptr %off1, align 8
-  store i64 %3, ptr %off, align 8
-  %4 = load ptr, ptr %req.addr, align 8
-  %bufs2 = getelementptr inbounds %struct.uv_fs_s, ptr %4, i32 0, i32 15
-  %5 = load ptr, ptr %bufs2, align 8
-  store ptr %5, ptr %bufs, align 8
-  %6 = load ptr, ptr %req.addr, align 8
-  %nbufs3 = getelementptr inbounds %struct.uv_fs_s, ptr %6, i32 0, i32 14
-  %7 = load i32, ptr %nbufs3, align 4
-  %conv = zext i32 %7 to i64
-  store i64 %conv, ptr %nbufs, align 8
-  store i64 0, ptr %r, align 8
-  %8 = load i64, ptr %off, align 8
-  %cmp = icmp slt i64 %8, 0
-  br i1 %cmp, label %if.then, label %if.else14
+define internal i64 @uv__fs_write(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %8, i32 0, i32 11
+  %10 = load i32, ptr %9, align 8
+  store i32 %10, ptr %7, align 4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %11, i32 0, i32 16
+  %13 = load i64, ptr %12, align 8
+  store i64 %13, ptr %6, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %14, i32 0, i32 15
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %3, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds nuw %struct.uv_fs_s, ptr %17, i32 0, i32 14
+  %19 = load i32, ptr %18, align 4
+  %20 = zext i32 %19 to i64
+  store i64 %20, ptr %4, align 8
+  store i64 0, ptr %5, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = icmp slt i64 %21, 0
+  br i1 %22, label %23, label %46
 
-if.then:                                          ; preds = %entry
-  %9 = load i64, ptr %nbufs, align 8
-  %cmp5 = icmp eq i64 %9, 1
-  br i1 %cmp5, label %if.then7, label %if.else
+23:                                               ; preds = %1
+  %24 = load i64, ptr %4, align 8
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %35
 
-if.then7:                                         ; preds = %if.then
-  %10 = load i32, ptr %fd, align 4
-  %11 = load ptr, ptr %bufs, align 8
-  %iov_base = getelementptr inbounds %struct.iovec, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %iov_base, align 8
-  %13 = load ptr, ptr %bufs, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %13, i32 0, i32 1
-  %14 = load i64, ptr %iov_len, align 8
-  %call = call i64 @write(i32 noundef %10, ptr noundef %12, i64 noundef %14)
-  store i64 %call, ptr %r, align 8
-  br label %if.end13
+26:                                               ; preds = %23
+  %27 = load i32, ptr %7, align 4
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw %struct.iovec, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw %struct.iovec, ptr %31, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8
+  %34 = call i64 @write(i32 noundef %27, ptr noundef %30, i64 noundef %33)
+  store i64 %34, ptr %5, align 8
+  br label %45
 
-if.else:                                          ; preds = %if.then
-  %15 = load i64, ptr %nbufs, align 8
-  %cmp8 = icmp ugt i64 %15, 1
-  br i1 %cmp8, label %if.then10, label %if.end
+35:                                               ; preds = %23
+  %36 = load i64, ptr %4, align 8
+  %37 = icmp ugt i64 %36, 1
+  br i1 %37, label %38, label %44
 
-if.then10:                                        ; preds = %if.else
-  %16 = load i32, ptr %fd, align 4
-  %17 = load ptr, ptr %bufs, align 8
-  %18 = load i64, ptr %nbufs, align 8
-  %conv11 = trunc i64 %18 to i32
-  %call12 = call i64 @writev(i32 noundef %16, ptr noundef %17, i32 noundef %conv11)
-  store i64 %call12, ptr %r, align 8
-  br label %if.end
+38:                                               ; preds = %35
+  %39 = load i32, ptr %7, align 4
+  %40 = load ptr, ptr %3, align 8
+  %41 = load i64, ptr %4, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = call i64 @writev(i32 noundef %39, ptr noundef %40, i32 noundef %42)
+  store i64 %43, ptr %5, align 8
+  br label %44
 
-if.end:                                           ; preds = %if.then10, %if.else
-  br label %if.end13
+44:                                               ; preds = %38, %35
+  br label %45
 
-if.end13:                                         ; preds = %if.end, %if.then7
-  br label %if.end29
+45:                                               ; preds = %44, %26
+  br label %70
 
-if.else14:                                        ; preds = %entry
-  %19 = load i64, ptr %nbufs, align 8
-  %cmp15 = icmp eq i64 %19, 1
-  br i1 %cmp15, label %if.then17, label %if.else21
+46:                                               ; preds = %1
+  %47 = load i64, ptr %4, align 8
+  %48 = icmp eq i64 %47, 1
+  br i1 %48, label %49, label %59
 
-if.then17:                                        ; preds = %if.else14
-  %20 = load i32, ptr %fd, align 4
-  %21 = load ptr, ptr %bufs, align 8
-  %iov_base18 = getelementptr inbounds %struct.iovec, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %iov_base18, align 8
-  %23 = load ptr, ptr %bufs, align 8
-  %iov_len19 = getelementptr inbounds %struct.iovec, ptr %23, i32 0, i32 1
-  %24 = load i64, ptr %iov_len19, align 8
-  %25 = load i64, ptr %off, align 8
-  %call20 = call i64 @pwrite64(i32 noundef %20, ptr noundef %22, i64 noundef %24, i64 noundef %25)
-  store i64 %call20, ptr %r, align 8
-  br label %if.end28
+49:                                               ; preds = %46
+  %50 = load i32, ptr %7, align 4
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.iovec, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.iovec, ptr %54, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
+  %57 = load i64, ptr %6, align 8
+  %58 = call i64 @pwrite64(i32 noundef %50, ptr noundef %53, i64 noundef %56, i64 noundef %57)
+  store i64 %58, ptr %5, align 8
+  br label %69
 
-if.else21:                                        ; preds = %if.else14
-  %26 = load i64, ptr %nbufs, align 8
-  %cmp22 = icmp ugt i64 %26, 1
-  br i1 %cmp22, label %if.then24, label %if.end27
+59:                                               ; preds = %46
+  %60 = load i64, ptr %4, align 8
+  %61 = icmp ugt i64 %60, 1
+  br i1 %61, label %62, label %68
 
-if.then24:                                        ; preds = %if.else21
-  %27 = load i32, ptr %fd, align 4
-  %28 = load ptr, ptr %bufs, align 8
-  %29 = load i64, ptr %nbufs, align 8
-  %conv25 = trunc i64 %29 to i32
-  %30 = load i64, ptr %off, align 8
-  %call26 = call i64 @pwritev64(i32 noundef %27, ptr noundef %28, i32 noundef %conv25, i64 noundef %30)
-  store i64 %call26, ptr %r, align 8
-  br label %if.end27
+62:                                               ; preds = %59
+  %63 = load i32, ptr %7, align 4
+  %64 = load ptr, ptr %3, align 8
+  %65 = load i64, ptr %4, align 8
+  %66 = load i64, ptr %6, align 8
+  %67 = call i64 @uv__pwritev(i32 noundef %63, ptr noundef %64, i64 noundef %65, i64 noundef %66)
+  store i64 %67, ptr %5, align 8
+  br label %68
 
-if.end27:                                         ; preds = %if.then24, %if.else21
-  br label %if.end28
+68:                                               ; preds = %62, %59
+  br label %69
 
-if.end28:                                         ; preds = %if.end27, %if.then17
-  br label %if.end29
+69:                                               ; preds = %68, %49
+  br label %70
 
-if.end29:                                         ; preds = %if.end28, %if.end13
-  %31 = load i64, ptr %r, align 8
-  ret i64 %31
+70:                                               ; preds = %69, %45
+  %71 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @uv__fs_buf_offset(ptr noundef %bufs, i64 noundef %size) #0 {
-entry:
-  %bufs.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %offset = alloca i64, align 8
-  store ptr %bufs, ptr %bufs.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 0, ptr %offset, align 8
-  br label %for.cond
+define internal i64 @uv__fs_buf_offset(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  store i64 0, ptr %5, align 8
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ugt i64 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+6:                                                ; preds = %27, %2
+  %7 = load i64, ptr %4, align 8
+  %8 = icmp ugt i64 %7, 0
+  br i1 %8, label %9, label %17
 
-land.rhs:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %bufs.addr, align 8
-  %2 = load i64, ptr %offset, align 8
-  %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %1, i64 %2
-  %len = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx, i32 0, i32 1
-  %3 = load i64, ptr %len, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %cmp1 = icmp ule i64 %3, %4
-  br label %land.end
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %3, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %15 = load i64, ptr %4, align 8
+  %16 = icmp ule i64 %14, %15
+  br label %17
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %5 = phi i1 [ false, %for.cond ], [ %cmp1, %land.rhs ]
-  br i1 %5, label %for.body, label %for.end
+17:                                               ; preds = %9, %6
+  %18 = phi i1 [ false, %6 ], [ %16, %9 ]
+  br i1 %18, label %19, label %30
 
-for.body:                                         ; preds = %land.end
-  %6 = load ptr, ptr %bufs.addr, align 8
-  %7 = load i64, ptr %offset, align 8
-  %arrayidx2 = getelementptr inbounds %struct.uv_buf_t, ptr %6, i64 %7
-  %len3 = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx2, i32 0, i32 1
-  %8 = load i64, ptr %len3, align 8
-  %9 = load i64, ptr %size.addr, align 8
-  %sub = sub i64 %9, %8
-  store i64 %sub, ptr %size.addr, align 8
-  br label %for.inc
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i64, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %22, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  %25 = load i64, ptr %4, align 8
+  %26 = sub i64 %25, %24
+  store i64 %26, ptr %4, align 8
+  br label %27
 
-for.inc:                                          ; preds = %for.body
-  %10 = load i64, ptr %offset, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %offset, align 8
-  br label %for.cond
+27:                                               ; preds = %19
+  %28 = load i64, ptr %5, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %5, align 8
+  br label %6
 
-for.end:                                          ; preds = %land.end
-  %11 = load i64, ptr %size.addr, align 8
-  %cmp4 = icmp ugt i64 %11, 0
-  br i1 %cmp4, label %if.then, label %if.end
+30:                                               ; preds = %17
+  %31 = load i64, ptr %4, align 8
+  %32 = icmp ugt i64 %31, 0
+  br i1 %32, label %33, label %48
 
-if.then:                                          ; preds = %for.end
-  %12 = load i64, ptr %size.addr, align 8
-  %13 = load ptr, ptr %bufs.addr, align 8
-  %14 = load i64, ptr %offset, align 8
-  %arrayidx5 = getelementptr inbounds %struct.uv_buf_t, ptr %13, i64 %14
-  %base = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx5, i32 0, i32 0
-  %15 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %12
-  store ptr %add.ptr, ptr %base, align 8
-  %16 = load i64, ptr %size.addr, align 8
-  %17 = load ptr, ptr %bufs.addr, align 8
-  %18 = load i64, ptr %offset, align 8
-  %arrayidx6 = getelementptr inbounds %struct.uv_buf_t, ptr %17, i64 %18
-  %len7 = getelementptr inbounds %struct.uv_buf_t, ptr %arrayidx6, i32 0, i32 1
-  %19 = load i64, ptr %len7, align 8
-  %sub8 = sub i64 %19, %16
-  store i64 %sub8, ptr %len7, align 8
-  br label %if.end
+33:                                               ; preds = %30
+  %34 = load i64, ptr %4, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i64, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %34
+  store ptr %40, ptr %38, align 8
+  %41 = load i64, ptr %4, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i64, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %42, i64 %43
+  %45 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = sub i64 %46, %41
+  store i64 %47, ptr %45, align 8
+  br label %48
 
-if.end:                                           ; preds = %if.then, %for.end
-  %20 = load i64, ptr %offset, align 8
-  ret i64 %20
+48:                                               ; preds = %33, %30
+  %49 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret i64 %49
 }
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) #1
 
-declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) #1
+; Function Attrs: nounwind uwtable
+define internal i64 @uv__pwritev(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store i32 %0, ptr %5, align 4
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %8, align 8
+  %13 = call i64 @uv__preadv_or_pwritev(i32 noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, ptr noundef @uv__pwritev.cache, i32 noundef 0)
+  ret i64 %13
+}
 
-declare i64 @pwritev64(i32 noundef, ptr noundef, i32 noundef, i64 noundef) #1
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}

@@ -31,6 +31,7 @@ supported_project = [
     "libpng",
     "libquic",
     "libsodium",
+    "libuv",
 ]
 
 modify_only = [
