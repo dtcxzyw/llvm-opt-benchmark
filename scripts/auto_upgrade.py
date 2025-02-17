@@ -30,6 +30,7 @@ supported_project = [
     "libjpeg-turbo",
     "libpng",
     "libquic",
+    "libsodium",
 ]
 
 modify_only = [
@@ -37,6 +38,8 @@ modify_only = [
     "cmake",
     "coremark",
     "graphviz",
+    "libquic",
+    "libsodium",
 ]
 
 
