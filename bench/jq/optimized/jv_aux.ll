@@ -113,7 +113,7 @@ define dso_local { i64, ptr } @jv_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   br label %51
 
 51:                                               ; preds = %.sink.split, %44
-  %.merged142 = phi { i64, ptr } [ %45, %44 ], [ %50, %.sink.split ]
+  %.merged143 = phi { i64, ptr } [ %45, %44 ], [ %50, %.sink.split ]
   tail call void @jv_free(i64 %2, ptr %3) #6
   br label %140
 
@@ -190,7 +190,7 @@ define dso_local { i64, ptr } @jv_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   br label %93
 
 93:                                               ; preds = %92, %88
-  %.merged145 = phi { i64, ptr } [ %91, %88 ], [ %83, %92 ]
+  %.merged142 = phi { i64, ptr } [ %91, %88 ], [ %83, %92 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   br label %140
@@ -273,7 +273,7 @@ define dso_local { i64, ptr } @jv_get(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
   br label %140
 
 140:                                              ; preds = %51, %93, %114, %136, %100, %72, %14, %19
-  %.fca.1.insert.merged = phi { i64, ptr } [ %15, %14 ], [ %20, %19 ], [ %.merged142, %51 ], [ %.merged, %72 ], [ %.merged145, %93 ], [ %101, %100 ], [ %115, %114 ], [ %139, %136 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %15, %14 ], [ %20, %19 ], [ %.merged143, %51 ], [ %.merged, %72 ], [ %.merged142, %93 ], [ %101, %100 ], [ %115, %114 ], [ %139, %136 ]
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
