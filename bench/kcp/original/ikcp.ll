@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.IKCPCB = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.IQUEUEHEAD, %struct.IQUEUEHEAD, %struct.IQUEUEHEAD, %struct.IQUEUEHEAD, ptr, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr }
@@ -39,5449 +39,5664 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [15 x i8] c"[RO] %ld bytes\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_allocator(ptr noundef %new_malloc, ptr noundef %new_free) #0 {
-entry:
-  %new_malloc.addr = alloca ptr, align 8
-  %new_free.addr = alloca ptr, align 8
-  store ptr %new_malloc, ptr %new_malloc.addr, align 8
-  store ptr %new_free, ptr %new_free.addr, align 8
-  %0 = load ptr, ptr %new_malloc.addr, align 8
-  store ptr %0, ptr @ikcp_malloc_hook, align 8
-  %1 = load ptr, ptr %new_free.addr, align 8
-  store ptr %1, ptr @ikcp_free_hook, align 8
+define dso_local void @ikcp_allocator(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %5, ptr @ikcp_malloc_hook, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %6, ptr @ikcp_free_hook, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_log(ptr noundef %kcp, i32 noundef %mask, ptr noundef %fmt, ...) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %mask.addr = alloca i32, align 4
-  %fmt.addr = alloca ptr, align 8
-  %buffer = alloca [1024 x i8], align 16
-  %argptr = alloca [1 x %struct.__va_list_tag], align 16
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %mask, ptr %mask.addr, align 4
-  store ptr %fmt, ptr %fmt.addr, align 8
-  %0 = load i32, ptr %mask.addr, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %logmask = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 46
-  %2 = load i32, ptr %logmask, align 8
-  %and = and i32 %0, %2
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local void @ikcp_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca [1024 x i8], align 16
+  %8 = alloca [1 x %struct.__va_list_tag], align 16
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #8
+  %10 = load i32, ptr %5, align 4, !tbaa !10
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.IKCPCB, ptr %11, i32 0, i32 46
+  %13 = load i32, ptr %12, align 8, !tbaa !14
+  %14 = and i32 %10, %13
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %21, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %writelog = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 48
-  %4 = load ptr, ptr %writelog, align 8
-  %cmp1 = icmp eq ptr %4, null
-  br i1 %cmp1, label %if.then, label %if.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 48
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %return
+21:                                               ; preds = %16, %3
+  store i32 1, ptr %9, align 4
+  br label %37
 
-if.end:                                           ; preds = %lor.lhs.false
-  %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argptr, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
-  %arraydecay2 = getelementptr inbounds [1024 x i8], ptr %buffer, i64 0, i64 0
-  %5 = load ptr, ptr %fmt.addr, align 8
-  %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argptr, i64 0, i64 0
-  %call = call i32 @vsprintf(ptr noundef %arraydecay2, ptr noundef %5, ptr noundef %arraydecay3) #6
-  %arraydecay4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %argptr, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay4)
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %writelog5 = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 48
-  %7 = load ptr, ptr %writelog5, align 8
-  %arraydecay6 = getelementptr inbounds [1024 x i8], ptr %buffer, i64 0, i64 0
-  %8 = load ptr, ptr %kcp.addr, align 8
-  %9 = load ptr, ptr %kcp.addr, align 8
-  %user = getelementptr inbounds %struct.IKCPCB, ptr %9, i32 0, i32 40
-  %10 = load ptr, ptr %user, align 8
-  call void %7(ptr noundef %arraydecay6, ptr noundef %8, ptr noundef %10)
-  br label %return
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %23)
+  %24 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %25 = load ptr, ptr %6, align 8, !tbaa !12
+  %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  %27 = call i32 @vsprintf(ptr noundef %24, ptr noundef %25, ptr noundef %26) #8
+  %28 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.IKCPCB, ptr %29, i32 0, i32 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %32 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = load ptr, ptr %4, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.IKCPCB, ptr %34, i32 0, i32 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !20
+  call void %31(ptr noundef %32, ptr noundef %33, ptr noundef %36)
+  store i32 0, ptr %9, align 4
+  br label %37
 
-return:                                           ; preds = %if.end, %if.then
+37:                                               ; preds = %22, %21
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %7) #8
+  %38 = load i32, ptr %9, align 4
+  switch i32 %38, label %40 [
+    i32 0, label %39
+    i32 1, label %39
+  ]
+
+39:                                               ; preds = %37, %37
   ret void
+
+40:                                               ; preds = %37
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nounwind
-declare i32 @vsprintf(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @vsprintf(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare void @llvm.va_end.p0(ptr) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_qprint(ptr noundef %name, ptr noundef %head) #0 {
-entry:
-  %name.addr = alloca ptr, align 8
-  %head.addr = alloca ptr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %head, ptr %head.addr, align 8
+define dso_local void @ikcp_qprint(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ikcp_create(i32 noundef %conv, ptr noundef %user) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %conv.addr = alloca i32, align 4
-  %user.addr = alloca ptr, align 8
-  %kcp = alloca ptr, align 8
-  store i32 %conv, ptr %conv.addr, align 4
-  store ptr %user, ptr %user.addr, align 8
-  %call = call ptr @ikcp_malloc(i64 noundef 272)
-  store ptr %call, ptr %kcp, align 8
-  %0 = load ptr, ptr %kcp, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local ptr @ikcp_create(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = call ptr @ikcp_malloc(i64 noundef 272)
+  store ptr %8, ptr %6, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %164
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %conv.addr, align 4
-  %2 = load ptr, ptr %kcp, align 8
-  %conv2 = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 0
-  store i32 %1, ptr %conv2, align 8
-  %3 = load ptr, ptr %user.addr, align 8
-  %4 = load ptr, ptr %kcp, align 8
-  %user3 = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 40
-  store ptr %3, ptr %user3, align 8
-  %5 = load ptr, ptr %kcp, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 4
-  store i32 0, ptr %snd_una, align 8
-  %6 = load ptr, ptr %kcp, align 8
-  %snd_nxt = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 5
-  store i32 0, ptr %snd_nxt, align 4
-  %7 = load ptr, ptr %kcp, align 8
-  %rcv_nxt = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 6
-  store i32 0, ptr %rcv_nxt, align 8
-  %8 = load ptr, ptr %kcp, align 8
-  %ts_recent = getelementptr inbounds %struct.IKCPCB, ptr %8, i32 0, i32 7
-  store i32 0, ptr %ts_recent, align 4
-  %9 = load ptr, ptr %kcp, align 8
-  %ts_lastack = getelementptr inbounds %struct.IKCPCB, ptr %9, i32 0, i32 8
-  store i32 0, ptr %ts_lastack, align 8
-  %10 = load ptr, ptr %kcp, align 8
-  %ts_probe = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 29
-  store i32 0, ptr %ts_probe, align 4
-  %11 = load ptr, ptr %kcp, align 8
-  %probe_wait = getelementptr inbounds %struct.IKCPCB, ptr %11, i32 0, i32 30
-  store i32 0, ptr %probe_wait, align 8
-  %12 = load ptr, ptr %kcp, align 8
-  %snd_wnd = getelementptr inbounds %struct.IKCPCB, ptr %12, i32 0, i32 14
-  store i32 32, ptr %snd_wnd, align 8
-  %13 = load ptr, ptr %kcp, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 15
-  store i32 128, ptr %rcv_wnd, align 4
-  %14 = load ptr, ptr %kcp, align 8
-  %rmt_wnd = getelementptr inbounds %struct.IKCPCB, ptr %14, i32 0, i32 16
-  store i32 128, ptr %rmt_wnd, align 8
-  %15 = load ptr, ptr %kcp, align 8
-  %cwnd = getelementptr inbounds %struct.IKCPCB, ptr %15, i32 0, i32 17
-  store i32 0, ptr %cwnd, align 4
-  %16 = load ptr, ptr %kcp, align 8
-  %incr = getelementptr inbounds %struct.IKCPCB, ptr %16, i32 0, i32 32
-  store i32 0, ptr %incr, align 8
-  %17 = load ptr, ptr %kcp, align 8
-  %probe = getelementptr inbounds %struct.IKCPCB, ptr %17, i32 0, i32 18
-  store i32 0, ptr %probe, align 8
-  %18 = load ptr, ptr %kcp, align 8
-  %mtu = getelementptr inbounds %struct.IKCPCB, ptr %18, i32 0, i32 1
-  store i32 1400, ptr %mtu, align 4
-  %19 = load ptr, ptr %kcp, align 8
-  %mtu4 = getelementptr inbounds %struct.IKCPCB, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %mtu4, align 4
-  %sub = sub i32 %20, 24
-  %21 = load ptr, ptr %kcp, align 8
-  %mss = getelementptr inbounds %struct.IKCPCB, ptr %21, i32 0, i32 2
-  store i32 %sub, ptr %mss, align 8
-  %22 = load ptr, ptr %kcp, align 8
-  %stream = getelementptr inbounds %struct.IKCPCB, ptr %22, i32 0, i32 45
-  store i32 0, ptr %stream, align 4
-  %23 = load ptr, ptr %kcp, align 8
-  %mtu5 = getelementptr inbounds %struct.IKCPCB, ptr %23, i32 0, i32 1
-  %24 = load i32, ptr %mtu5, align 4
-  %add = add i32 %24, 24
-  %mul = mul i32 %add, 3
-  %conv6 = zext i32 %mul to i64
-  %call7 = call ptr @ikcp_malloc(i64 noundef %conv6)
-  %25 = load ptr, ptr %kcp, align 8
-  %buffer = getelementptr inbounds %struct.IKCPCB, ptr %25, i32 0, i32 41
-  store ptr %call7, ptr %buffer, align 8
-  %26 = load ptr, ptr %kcp, align 8
-  %buffer8 = getelementptr inbounds %struct.IKCPCB, ptr %26, i32 0, i32 41
-  %27 = load ptr, ptr %buffer8, align 8
-  %cmp9 = icmp eq ptr %27, null
-  br i1 %cmp9, label %if.then11, label %if.end12
+12:                                               ; preds = %2
+  %13 = load i32, ptr %4, align 4, !tbaa !10
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.IKCPCB, ptr %14, i32 0, i32 0
+  store i32 %13, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 40
+  store ptr %16, ptr %18, align 8, !tbaa !20
+  %19 = load ptr, ptr %6, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.IKCPCB, ptr %19, i32 0, i32 4
+  store i32 0, ptr %20, align 8, !tbaa !23
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.IKCPCB, ptr %21, i32 0, i32 5
+  store i32 0, ptr %22, align 4, !tbaa !24
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.IKCPCB, ptr %23, i32 0, i32 6
+  store i32 0, ptr %24, align 8, !tbaa !25
+  %25 = load ptr, ptr %6, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.IKCPCB, ptr %25, i32 0, i32 7
+  store i32 0, ptr %26, align 4, !tbaa !26
+  %27 = load ptr, ptr %6, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.IKCPCB, ptr %27, i32 0, i32 8
+  store i32 0, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.IKCPCB, ptr %29, i32 0, i32 29
+  store i32 0, ptr %30, align 4, !tbaa !28
+  %31 = load ptr, ptr %6, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.IKCPCB, ptr %31, i32 0, i32 30
+  store i32 0, ptr %32, align 8, !tbaa !29
+  %33 = load ptr, ptr %6, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.IKCPCB, ptr %33, i32 0, i32 14
+  store i32 32, ptr %34, align 8, !tbaa !30
+  %35 = load ptr, ptr %6, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.IKCPCB, ptr %35, i32 0, i32 15
+  store i32 128, ptr %36, align 4, !tbaa !31
+  %37 = load ptr, ptr %6, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.IKCPCB, ptr %37, i32 0, i32 16
+  store i32 128, ptr %38, align 8, !tbaa !32
+  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.IKCPCB, ptr %39, i32 0, i32 17
+  store i32 0, ptr %40, align 4, !tbaa !33
+  %41 = load ptr, ptr %6, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.IKCPCB, ptr %41, i32 0, i32 32
+  store i32 0, ptr %42, align 8, !tbaa !34
+  %43 = load ptr, ptr %6, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.IKCPCB, ptr %43, i32 0, i32 18
+  store i32 0, ptr %44, align 8, !tbaa !35
+  %45 = load ptr, ptr %6, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.IKCPCB, ptr %45, i32 0, i32 1
+  store i32 1400, ptr %46, align 4, !tbaa !36
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4, !tbaa !36
+  %50 = sub i32 %49, 24
+  %51 = load ptr, ptr %6, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.IKCPCB, ptr %51, i32 0, i32 2
+  store i32 %50, ptr %52, align 8, !tbaa !37
+  %53 = load ptr, ptr %6, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.IKCPCB, ptr %53, i32 0, i32 45
+  store i32 0, ptr %54, align 4, !tbaa !38
+  %55 = load ptr, ptr %6, align 8, !tbaa !8
+  %56 = getelementptr inbounds nuw %struct.IKCPCB, ptr %55, i32 0, i32 1
+  %57 = load i32, ptr %56, align 4, !tbaa !36
+  %58 = add i32 %57, 24
+  %59 = mul i32 %58, 3
+  %60 = zext i32 %59 to i64
+  %61 = call ptr @ikcp_malloc(i64 noundef %60)
+  %62 = load ptr, ptr %6, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw %struct.IKCPCB, ptr %62, i32 0, i32 41
+  store ptr %61, ptr %63, align 8, !tbaa !39
+  %64 = load ptr, ptr %6, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.IKCPCB, ptr %64, i32 0, i32 41
+  %66 = load ptr, ptr %65, align 8, !tbaa !39
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %70
 
-if.then11:                                        ; preds = %if.end
-  %28 = load ptr, ptr %kcp, align 8
-  call void @ikcp_free(ptr noundef %28)
-  store ptr null, ptr %retval, align 8
-  br label %return
+68:                                               ; preds = %12
+  %69 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @ikcp_free(ptr noundef %69)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %164
 
-if.end12:                                         ; preds = %if.end
-  %29 = load ptr, ptr %kcp, align 8
-  %snd_queue = getelementptr inbounds %struct.IKCPCB, ptr %29, i32 0, i32 33
-  %30 = load ptr, ptr %kcp, align 8
-  %snd_queue13 = getelementptr inbounds %struct.IKCPCB, ptr %30, i32 0, i32 33
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue13, i32 0, i32 0
-  store ptr %snd_queue, ptr %next, align 8
-  %31 = load ptr, ptr %kcp, align 8
-  %snd_queue14 = getelementptr inbounds %struct.IKCPCB, ptr %31, i32 0, i32 33
-  %32 = load ptr, ptr %kcp, align 8
-  %snd_queue15 = getelementptr inbounds %struct.IKCPCB, ptr %32, i32 0, i32 33
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue15, i32 0, i32 1
-  store ptr %snd_queue14, ptr %prev, align 8
-  %33 = load ptr, ptr %kcp, align 8
-  %rcv_queue = getelementptr inbounds %struct.IKCPCB, ptr %33, i32 0, i32 34
-  %34 = load ptr, ptr %kcp, align 8
-  %rcv_queue16 = getelementptr inbounds %struct.IKCPCB, ptr %34, i32 0, i32 34
-  %next17 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue16, i32 0, i32 0
-  store ptr %rcv_queue, ptr %next17, align 8
-  %35 = load ptr, ptr %kcp, align 8
-  %rcv_queue18 = getelementptr inbounds %struct.IKCPCB, ptr %35, i32 0, i32 34
-  %36 = load ptr, ptr %kcp, align 8
-  %rcv_queue19 = getelementptr inbounds %struct.IKCPCB, ptr %36, i32 0, i32 34
-  %prev20 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue19, i32 0, i32 1
-  store ptr %rcv_queue18, ptr %prev20, align 8
-  %37 = load ptr, ptr %kcp, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %37, i32 0, i32 35
-  %38 = load ptr, ptr %kcp, align 8
-  %snd_buf21 = getelementptr inbounds %struct.IKCPCB, ptr %38, i32 0, i32 35
-  %next22 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf21, i32 0, i32 0
-  store ptr %snd_buf, ptr %next22, align 8
-  %39 = load ptr, ptr %kcp, align 8
-  %snd_buf23 = getelementptr inbounds %struct.IKCPCB, ptr %39, i32 0, i32 35
-  %40 = load ptr, ptr %kcp, align 8
-  %snd_buf24 = getelementptr inbounds %struct.IKCPCB, ptr %40, i32 0, i32 35
-  %prev25 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf24, i32 0, i32 1
-  store ptr %snd_buf23, ptr %prev25, align 8
-  %41 = load ptr, ptr %kcp, align 8
-  %rcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %41, i32 0, i32 36
-  %42 = load ptr, ptr %kcp, align 8
-  %rcv_buf26 = getelementptr inbounds %struct.IKCPCB, ptr %42, i32 0, i32 36
-  %next27 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf26, i32 0, i32 0
-  store ptr %rcv_buf, ptr %next27, align 8
-  %43 = load ptr, ptr %kcp, align 8
-  %rcv_buf28 = getelementptr inbounds %struct.IKCPCB, ptr %43, i32 0, i32 36
-  %44 = load ptr, ptr %kcp, align 8
-  %rcv_buf29 = getelementptr inbounds %struct.IKCPCB, ptr %44, i32 0, i32 36
-  %prev30 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf29, i32 0, i32 1
-  store ptr %rcv_buf28, ptr %prev30, align 8
-  %45 = load ptr, ptr %kcp, align 8
-  %nrcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %45, i32 0, i32 23
-  store i32 0, ptr %nrcv_buf, align 4
-  %46 = load ptr, ptr %kcp, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %46, i32 0, i32 24
-  store i32 0, ptr %nsnd_buf, align 8
-  %47 = load ptr, ptr %kcp, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %47, i32 0, i32 25
-  store i32 0, ptr %nrcv_que, align 4
-  %48 = load ptr, ptr %kcp, align 8
-  %nsnd_que = getelementptr inbounds %struct.IKCPCB, ptr %48, i32 0, i32 26
-  store i32 0, ptr %nsnd_que, align 8
-  %49 = load ptr, ptr %kcp, align 8
-  %state = getelementptr inbounds %struct.IKCPCB, ptr %49, i32 0, i32 3
-  store i32 0, ptr %state, align 4
-  %50 = load ptr, ptr %kcp, align 8
-  %acklist = getelementptr inbounds %struct.IKCPCB, ptr %50, i32 0, i32 37
-  store ptr null, ptr %acklist, align 8
-  %51 = load ptr, ptr %kcp, align 8
-  %ackblock = getelementptr inbounds %struct.IKCPCB, ptr %51, i32 0, i32 39
-  store i32 0, ptr %ackblock, align 4
-  %52 = load ptr, ptr %kcp, align 8
-  %ackcount = getelementptr inbounds %struct.IKCPCB, ptr %52, i32 0, i32 38
-  store i32 0, ptr %ackcount, align 8
-  %53 = load ptr, ptr %kcp, align 8
-  %rx_srtt = getelementptr inbounds %struct.IKCPCB, ptr %53, i32 0, i32 11
-  store i32 0, ptr %rx_srtt, align 4
-  %54 = load ptr, ptr %kcp, align 8
-  %rx_rttval = getelementptr inbounds %struct.IKCPCB, ptr %54, i32 0, i32 10
-  store i32 0, ptr %rx_rttval, align 8
-  %55 = load ptr, ptr %kcp, align 8
-  %rx_rto = getelementptr inbounds %struct.IKCPCB, ptr %55, i32 0, i32 12
-  store i32 200, ptr %rx_rto, align 8
-  %56 = load ptr, ptr %kcp, align 8
-  %rx_minrto = getelementptr inbounds %struct.IKCPCB, ptr %56, i32 0, i32 13
-  store i32 100, ptr %rx_minrto, align 4
-  %57 = load ptr, ptr %kcp, align 8
-  %current = getelementptr inbounds %struct.IKCPCB, ptr %57, i32 0, i32 19
-  store i32 0, ptr %current, align 4
-  %58 = load ptr, ptr %kcp, align 8
-  %interval = getelementptr inbounds %struct.IKCPCB, ptr %58, i32 0, i32 20
-  store i32 100, ptr %interval, align 8
-  %59 = load ptr, ptr %kcp, align 8
-  %ts_flush = getelementptr inbounds %struct.IKCPCB, ptr %59, i32 0, i32 21
-  store i32 100, ptr %ts_flush, align 4
-  %60 = load ptr, ptr %kcp, align 8
-  %nodelay = getelementptr inbounds %struct.IKCPCB, ptr %60, i32 0, i32 27
-  store i32 0, ptr %nodelay, align 4
-  %61 = load ptr, ptr %kcp, align 8
-  %updated = getelementptr inbounds %struct.IKCPCB, ptr %61, i32 0, i32 28
-  store i32 0, ptr %updated, align 8
-  %62 = load ptr, ptr %kcp, align 8
-  %logmask = getelementptr inbounds %struct.IKCPCB, ptr %62, i32 0, i32 46
-  store i32 0, ptr %logmask, align 8
-  %63 = load ptr, ptr %kcp, align 8
-  %ssthresh = getelementptr inbounds %struct.IKCPCB, ptr %63, i32 0, i32 9
-  store i32 2, ptr %ssthresh, align 4
-  %64 = load ptr, ptr %kcp, align 8
-  %fastresend = getelementptr inbounds %struct.IKCPCB, ptr %64, i32 0, i32 42
-  store i32 0, ptr %fastresend, align 8
-  %65 = load ptr, ptr %kcp, align 8
-  %fastlimit = getelementptr inbounds %struct.IKCPCB, ptr %65, i32 0, i32 43
-  store i32 5, ptr %fastlimit, align 4
-  %66 = load ptr, ptr %kcp, align 8
-  %nocwnd = getelementptr inbounds %struct.IKCPCB, ptr %66, i32 0, i32 44
-  store i32 0, ptr %nocwnd, align 8
-  %67 = load ptr, ptr %kcp, align 8
-  %xmit = getelementptr inbounds %struct.IKCPCB, ptr %67, i32 0, i32 22
-  store i32 0, ptr %xmit, align 8
-  %68 = load ptr, ptr %kcp, align 8
-  %dead_link = getelementptr inbounds %struct.IKCPCB, ptr %68, i32 0, i32 31
-  store i32 20, ptr %dead_link, align 4
-  %69 = load ptr, ptr %kcp, align 8
-  %output = getelementptr inbounds %struct.IKCPCB, ptr %69, i32 0, i32 47
-  store ptr null, ptr %output, align 8
-  %70 = load ptr, ptr %kcp, align 8
-  %writelog = getelementptr inbounds %struct.IKCPCB, ptr %70, i32 0, i32 48
-  store ptr null, ptr %writelog, align 8
-  %71 = load ptr, ptr %kcp, align 8
-  store ptr %71, ptr %retval, align 8
-  br label %return
+70:                                               ; preds = %12
+  %71 = load ptr, ptr %6, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.IKCPCB, ptr %71, i32 0, i32 33
+  %73 = load ptr, ptr %6, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw %struct.IKCPCB, ptr %73, i32 0, i32 33
+  %75 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %74, i32 0, i32 0
+  store ptr %72, ptr %75, align 8, !tbaa !40
+  %76 = load ptr, ptr %6, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.IKCPCB, ptr %76, i32 0, i32 33
+  %78 = load ptr, ptr %6, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.IKCPCB, ptr %78, i32 0, i32 33
+  %80 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %79, i32 0, i32 1
+  store ptr %77, ptr %80, align 8, !tbaa !41
+  %81 = load ptr, ptr %6, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.IKCPCB, ptr %81, i32 0, i32 34
+  %83 = load ptr, ptr %6, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.IKCPCB, ptr %83, i32 0, i32 34
+  %85 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %84, i32 0, i32 0
+  store ptr %82, ptr %85, align 8, !tbaa !42
+  %86 = load ptr, ptr %6, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw %struct.IKCPCB, ptr %86, i32 0, i32 34
+  %88 = load ptr, ptr %6, align 8, !tbaa !8
+  %89 = getelementptr inbounds nuw %struct.IKCPCB, ptr %88, i32 0, i32 34
+  %90 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %89, i32 0, i32 1
+  store ptr %87, ptr %90, align 8, !tbaa !43
+  %91 = load ptr, ptr %6, align 8, !tbaa !8
+  %92 = getelementptr inbounds nuw %struct.IKCPCB, ptr %91, i32 0, i32 35
+  %93 = load ptr, ptr %6, align 8, !tbaa !8
+  %94 = getelementptr inbounds nuw %struct.IKCPCB, ptr %93, i32 0, i32 35
+  %95 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %94, i32 0, i32 0
+  store ptr %92, ptr %95, align 8, !tbaa !44
+  %96 = load ptr, ptr %6, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw %struct.IKCPCB, ptr %96, i32 0, i32 35
+  %98 = load ptr, ptr %6, align 8, !tbaa !8
+  %99 = getelementptr inbounds nuw %struct.IKCPCB, ptr %98, i32 0, i32 35
+  %100 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %99, i32 0, i32 1
+  store ptr %97, ptr %100, align 8, !tbaa !45
+  %101 = load ptr, ptr %6, align 8, !tbaa !8
+  %102 = getelementptr inbounds nuw %struct.IKCPCB, ptr %101, i32 0, i32 36
+  %103 = load ptr, ptr %6, align 8, !tbaa !8
+  %104 = getelementptr inbounds nuw %struct.IKCPCB, ptr %103, i32 0, i32 36
+  %105 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %104, i32 0, i32 0
+  store ptr %102, ptr %105, align 8, !tbaa !46
+  %106 = load ptr, ptr %6, align 8, !tbaa !8
+  %107 = getelementptr inbounds nuw %struct.IKCPCB, ptr %106, i32 0, i32 36
+  %108 = load ptr, ptr %6, align 8, !tbaa !8
+  %109 = getelementptr inbounds nuw %struct.IKCPCB, ptr %108, i32 0, i32 36
+  %110 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %109, i32 0, i32 1
+  store ptr %107, ptr %110, align 8, !tbaa !47
+  %111 = load ptr, ptr %6, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw %struct.IKCPCB, ptr %111, i32 0, i32 23
+  store i32 0, ptr %112, align 4, !tbaa !48
+  %113 = load ptr, ptr %6, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw %struct.IKCPCB, ptr %113, i32 0, i32 24
+  store i32 0, ptr %114, align 8, !tbaa !49
+  %115 = load ptr, ptr %6, align 8, !tbaa !8
+  %116 = getelementptr inbounds nuw %struct.IKCPCB, ptr %115, i32 0, i32 25
+  store i32 0, ptr %116, align 4, !tbaa !50
+  %117 = load ptr, ptr %6, align 8, !tbaa !8
+  %118 = getelementptr inbounds nuw %struct.IKCPCB, ptr %117, i32 0, i32 26
+  store i32 0, ptr %118, align 8, !tbaa !51
+  %119 = load ptr, ptr %6, align 8, !tbaa !8
+  %120 = getelementptr inbounds nuw %struct.IKCPCB, ptr %119, i32 0, i32 3
+  store i32 0, ptr %120, align 4, !tbaa !52
+  %121 = load ptr, ptr %6, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw %struct.IKCPCB, ptr %121, i32 0, i32 37
+  store ptr null, ptr %122, align 8, !tbaa !53
+  %123 = load ptr, ptr %6, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw %struct.IKCPCB, ptr %123, i32 0, i32 39
+  store i32 0, ptr %124, align 4, !tbaa !54
+  %125 = load ptr, ptr %6, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw %struct.IKCPCB, ptr %125, i32 0, i32 38
+  store i32 0, ptr %126, align 8, !tbaa !55
+  %127 = load ptr, ptr %6, align 8, !tbaa !8
+  %128 = getelementptr inbounds nuw %struct.IKCPCB, ptr %127, i32 0, i32 11
+  store i32 0, ptr %128, align 4, !tbaa !56
+  %129 = load ptr, ptr %6, align 8, !tbaa !8
+  %130 = getelementptr inbounds nuw %struct.IKCPCB, ptr %129, i32 0, i32 10
+  store i32 0, ptr %130, align 8, !tbaa !57
+  %131 = load ptr, ptr %6, align 8, !tbaa !8
+  %132 = getelementptr inbounds nuw %struct.IKCPCB, ptr %131, i32 0, i32 12
+  store i32 200, ptr %132, align 8, !tbaa !58
+  %133 = load ptr, ptr %6, align 8, !tbaa !8
+  %134 = getelementptr inbounds nuw %struct.IKCPCB, ptr %133, i32 0, i32 13
+  store i32 100, ptr %134, align 4, !tbaa !59
+  %135 = load ptr, ptr %6, align 8, !tbaa !8
+  %136 = getelementptr inbounds nuw %struct.IKCPCB, ptr %135, i32 0, i32 19
+  store i32 0, ptr %136, align 4, !tbaa !60
+  %137 = load ptr, ptr %6, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw %struct.IKCPCB, ptr %137, i32 0, i32 20
+  store i32 100, ptr %138, align 8, !tbaa !61
+  %139 = load ptr, ptr %6, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw %struct.IKCPCB, ptr %139, i32 0, i32 21
+  store i32 100, ptr %140, align 4, !tbaa !62
+  %141 = load ptr, ptr %6, align 8, !tbaa !8
+  %142 = getelementptr inbounds nuw %struct.IKCPCB, ptr %141, i32 0, i32 27
+  store i32 0, ptr %142, align 4, !tbaa !63
+  %143 = load ptr, ptr %6, align 8, !tbaa !8
+  %144 = getelementptr inbounds nuw %struct.IKCPCB, ptr %143, i32 0, i32 28
+  store i32 0, ptr %144, align 8, !tbaa !64
+  %145 = load ptr, ptr %6, align 8, !tbaa !8
+  %146 = getelementptr inbounds nuw %struct.IKCPCB, ptr %145, i32 0, i32 46
+  store i32 0, ptr %146, align 8, !tbaa !14
+  %147 = load ptr, ptr %6, align 8, !tbaa !8
+  %148 = getelementptr inbounds nuw %struct.IKCPCB, ptr %147, i32 0, i32 9
+  store i32 2, ptr %148, align 4, !tbaa !65
+  %149 = load ptr, ptr %6, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw %struct.IKCPCB, ptr %149, i32 0, i32 42
+  store i32 0, ptr %150, align 8, !tbaa !66
+  %151 = load ptr, ptr %6, align 8, !tbaa !8
+  %152 = getelementptr inbounds nuw %struct.IKCPCB, ptr %151, i32 0, i32 43
+  store i32 5, ptr %152, align 4, !tbaa !67
+  %153 = load ptr, ptr %6, align 8, !tbaa !8
+  %154 = getelementptr inbounds nuw %struct.IKCPCB, ptr %153, i32 0, i32 44
+  store i32 0, ptr %154, align 8, !tbaa !68
+  %155 = load ptr, ptr %6, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw %struct.IKCPCB, ptr %155, i32 0, i32 22
+  store i32 0, ptr %156, align 8, !tbaa !69
+  %157 = load ptr, ptr %6, align 8, !tbaa !8
+  %158 = getelementptr inbounds nuw %struct.IKCPCB, ptr %157, i32 0, i32 31
+  store i32 20, ptr %158, align 4, !tbaa !70
+  %159 = load ptr, ptr %6, align 8, !tbaa !8
+  %160 = getelementptr inbounds nuw %struct.IKCPCB, ptr %159, i32 0, i32 47
+  store ptr null, ptr %160, align 8, !tbaa !71
+  %161 = load ptr, ptr %6, align 8, !tbaa !8
+  %162 = getelementptr inbounds nuw %struct.IKCPCB, ptr %161, i32 0, i32 48
+  store ptr null, ptr %162, align 8, !tbaa !19
+  %163 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %163, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %164
 
-return:                                           ; preds = %if.end12, %if.then11, %if.then
-  %72 = load ptr, ptr %retval, align 8
-  ret ptr %72
+164:                                              ; preds = %70, %68, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %165 = load ptr, ptr %3, align 8
+  ret ptr %165
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ikcp_malloc(i64 noundef %size) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr @ikcp_malloc_hook, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal ptr @ikcp_malloc(i64 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr @ikcp_malloc_hook, align 8, !tbaa !4
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %10
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @ikcp_malloc_hook, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(i64 noundef %2)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr @ikcp_malloc_hook, align 8, !tbaa !4
+  %8 = load i64, ptr %3, align 8, !tbaa !72
+  %9 = call ptr %7(i64 noundef %8)
+  store ptr %9, ptr %2, align 8
+  br label %13
 
-if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %size.addr, align 8
-  %call1 = call noalias ptr @malloc(i64 noundef %3) #7
-  store ptr %call1, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %1
+  %11 = load i64, ptr %3, align 8, !tbaa !72
+  %12 = call noalias ptr @malloc(i64 noundef %11) #9
+  store ptr %12, ptr %2, align 8
+  br label %13
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+13:                                               ; preds = %10, %6
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikcp_free(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr @ikcp_free_hook, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.else
+define internal void @ikcp_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %8
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @ikcp_free_hook, align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %1(ptr noundef %2)
-  br label %if.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  call void %6(ptr noundef %7)
+  br label %10
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %ptr.addr, align 8
-  call void @free(ptr noundef %3) #6
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @free(ptr noundef %9) #8
+  br label %10
 
-if.end:                                           ; preds = %if.else, %if.then
+10:                                               ; preds = %8, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_release(ptr noundef %kcp) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end97
+define dso_local void @ikcp_release(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %208
 
-if.then:                                          ; preds = %entry
-  br label %while.cond
+6:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  br label %7
 
-while.cond:                                       ; preds = %while.body, %if.then
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 35
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf1 = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 35
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf1, i32 0, i32 0
-  %3 = load ptr, ptr %next, align 8
-  %cmp = icmp eq ptr %snd_buf, %3
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %while.body, label %while.end
+7:                                                ; preds = %16, %6
+  %8 = load ptr, ptr %2, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.IKCPCB, ptr %8, i32 0, i32 35
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.IKCPCB, ptr %10, i32 0, i32 35
+  %12 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %14 = icmp eq ptr %9, %13
+  %15 = xor i1 %14, true
+  br i1 %15, label %16, label %48
 
-while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf2 = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 35
-  %next3 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf2, i32 0, i32 0
-  %5 = load ptr, ptr %next3, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %6 = load ptr, ptr %seg, align 8
-  %node = getelementptr inbounds %struct.IKCPSEG, ptr %6, i32 0, i32 0
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node, i32 0, i32 1
-  %7 = load ptr, ptr %prev, align 8
-  %8 = load ptr, ptr %seg, align 8
-  %node4 = getelementptr inbounds %struct.IKCPSEG, ptr %8, i32 0, i32 0
-  %next5 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node4, i32 0, i32 0
-  %9 = load ptr, ptr %next5, align 8
-  %prev6 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %9, i32 0, i32 1
-  store ptr %7, ptr %prev6, align 8
-  %10 = load ptr, ptr %seg, align 8
-  %node7 = getelementptr inbounds %struct.IKCPSEG, ptr %10, i32 0, i32 0
-  %next8 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node7, i32 0, i32 0
-  %11 = load ptr, ptr %next8, align 8
-  %12 = load ptr, ptr %seg, align 8
-  %node9 = getelementptr inbounds %struct.IKCPSEG, ptr %12, i32 0, i32 0
-  %prev10 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node9, i32 0, i32 1
-  %13 = load ptr, ptr %prev10, align 8
-  %next11 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %13, i32 0, i32 0
-  store ptr %11, ptr %next11, align 8
-  %14 = load ptr, ptr %seg, align 8
-  %node12 = getelementptr inbounds %struct.IKCPSEG, ptr %14, i32 0, i32 0
-  %next13 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node12, i32 0, i32 0
-  store ptr null, ptr %next13, align 8
-  %15 = load ptr, ptr %seg, align 8
-  %node14 = getelementptr inbounds %struct.IKCPSEG, ptr %15, i32 0, i32 0
-  %prev15 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node14, i32 0, i32 1
-  store ptr null, ptr %prev15, align 8
-  %16 = load ptr, ptr %kcp.addr, align 8
-  %17 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %16, ptr noundef %17)
-  br label %while.cond, !llvm.loop !5
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %2, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 35
+  %19 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  store ptr %21, ptr %3, align 8, !tbaa !74
+  %22 = load ptr, ptr %3, align 8, !tbaa !74
+  %23 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !76
+  %26 = load ptr, ptr %3, align 8, !tbaa !74
+  %27 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %29, i32 0, i32 1
+  store ptr %25, ptr %30, align 8, !tbaa !79
+  %31 = load ptr, ptr %3, align 8, !tbaa !74
+  %32 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !78
+  %35 = load ptr, ptr %3, align 8, !tbaa !74
+  %36 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %39 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %38, i32 0, i32 0
+  store ptr %34, ptr %39, align 8, !tbaa !80
+  %40 = load ptr, ptr %3, align 8, !tbaa !74
+  %41 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %40, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %41, i32 0, i32 0
+  store ptr null, ptr %42, align 8, !tbaa !78
+  %43 = load ptr, ptr %3, align 8, !tbaa !74
+  %44 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %44, i32 0, i32 1
+  store ptr null, ptr %45, align 8, !tbaa !76
+  %46 = load ptr, ptr %2, align 8, !tbaa !8
+  %47 = load ptr, ptr %3, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %46, ptr noundef %47)
+  br label %7, !llvm.loop !81
 
-while.end:                                        ; preds = %while.cond
-  br label %while.cond16
+48:                                               ; preds = %7
+  br label %49
 
-while.cond16:                                     ; preds = %while.body21, %while.end
-  %18 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %18, i32 0, i32 36
-  %19 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf17 = getelementptr inbounds %struct.IKCPCB, ptr %19, i32 0, i32 36
-  %next18 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf17, i32 0, i32 0
-  %20 = load ptr, ptr %next18, align 8
-  %cmp19 = icmp eq ptr %rcv_buf, %20
-  %lnot20 = xor i1 %cmp19, true
-  br i1 %lnot20, label %while.body21, label %while.end39
+49:                                               ; preds = %58, %48
+  %50 = load ptr, ptr %2, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.IKCPCB, ptr %50, i32 0, i32 36
+  %52 = load ptr, ptr %2, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.IKCPCB, ptr %52, i32 0, i32 36
+  %54 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !46
+  %56 = icmp eq ptr %51, %55
+  %57 = xor i1 %56, true
+  br i1 %57, label %58, label %90
 
-while.body21:                                     ; preds = %while.cond16
-  %21 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf22 = getelementptr inbounds %struct.IKCPCB, ptr %21, i32 0, i32 36
-  %next23 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf22, i32 0, i32 0
-  %22 = load ptr, ptr %next23, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %22, i64 0
-  store ptr %add.ptr24, ptr %seg, align 8
-  %23 = load ptr, ptr %seg, align 8
-  %node25 = getelementptr inbounds %struct.IKCPSEG, ptr %23, i32 0, i32 0
-  %prev26 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node25, i32 0, i32 1
-  %24 = load ptr, ptr %prev26, align 8
-  %25 = load ptr, ptr %seg, align 8
-  %node27 = getelementptr inbounds %struct.IKCPSEG, ptr %25, i32 0, i32 0
-  %next28 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node27, i32 0, i32 0
-  %26 = load ptr, ptr %next28, align 8
-  %prev29 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %26, i32 0, i32 1
-  store ptr %24, ptr %prev29, align 8
-  %27 = load ptr, ptr %seg, align 8
-  %node30 = getelementptr inbounds %struct.IKCPSEG, ptr %27, i32 0, i32 0
-  %next31 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node30, i32 0, i32 0
-  %28 = load ptr, ptr %next31, align 8
-  %29 = load ptr, ptr %seg, align 8
-  %node32 = getelementptr inbounds %struct.IKCPSEG, ptr %29, i32 0, i32 0
-  %prev33 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node32, i32 0, i32 1
-  %30 = load ptr, ptr %prev33, align 8
-  %next34 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %30, i32 0, i32 0
-  store ptr %28, ptr %next34, align 8
-  %31 = load ptr, ptr %seg, align 8
-  %node35 = getelementptr inbounds %struct.IKCPSEG, ptr %31, i32 0, i32 0
-  %next36 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node35, i32 0, i32 0
-  store ptr null, ptr %next36, align 8
-  %32 = load ptr, ptr %seg, align 8
-  %node37 = getelementptr inbounds %struct.IKCPSEG, ptr %32, i32 0, i32 0
-  %prev38 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node37, i32 0, i32 1
-  store ptr null, ptr %prev38, align 8
-  %33 = load ptr, ptr %kcp.addr, align 8
-  %34 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %33, ptr noundef %34)
-  br label %while.cond16, !llvm.loop !7
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %2, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.IKCPCB, ptr %59, i32 0, i32 36
+  %61 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !46
+  %63 = getelementptr inbounds i8, ptr %62, i64 0
+  store ptr %63, ptr %3, align 8, !tbaa !74
+  %64 = load ptr, ptr %3, align 8, !tbaa !74
+  %65 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %64, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !76
+  %68 = load ptr, ptr %3, align 8, !tbaa !74
+  %69 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !78
+  %72 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %71, i32 0, i32 1
+  store ptr %67, ptr %72, align 8, !tbaa !79
+  %73 = load ptr, ptr %3, align 8, !tbaa !74
+  %74 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %73, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !78
+  %77 = load ptr, ptr %3, align 8, !tbaa !74
+  %78 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !76
+  %81 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %80, i32 0, i32 0
+  store ptr %76, ptr %81, align 8, !tbaa !80
+  %82 = load ptr, ptr %3, align 8, !tbaa !74
+  %83 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %83, i32 0, i32 0
+  store ptr null, ptr %84, align 8, !tbaa !78
+  %85 = load ptr, ptr %3, align 8, !tbaa !74
+  %86 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %85, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %86, i32 0, i32 1
+  store ptr null, ptr %87, align 8, !tbaa !76
+  %88 = load ptr, ptr %2, align 8, !tbaa !8
+  %89 = load ptr, ptr %3, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %88, ptr noundef %89)
+  br label %49, !llvm.loop !83
 
-while.end39:                                      ; preds = %while.cond16
-  br label %while.cond40
+90:                                               ; preds = %49
+  br label %91
 
-while.cond40:                                     ; preds = %while.body45, %while.end39
-  %35 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue = getelementptr inbounds %struct.IKCPCB, ptr %35, i32 0, i32 33
-  %36 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue41 = getelementptr inbounds %struct.IKCPCB, ptr %36, i32 0, i32 33
-  %next42 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue41, i32 0, i32 0
-  %37 = load ptr, ptr %next42, align 8
-  %cmp43 = icmp eq ptr %snd_queue, %37
-  %lnot44 = xor i1 %cmp43, true
-  br i1 %lnot44, label %while.body45, label %while.end63
+91:                                               ; preds = %100, %90
+  %92 = load ptr, ptr %2, align 8, !tbaa !8
+  %93 = getelementptr inbounds nuw %struct.IKCPCB, ptr %92, i32 0, i32 33
+  %94 = load ptr, ptr %2, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw %struct.IKCPCB, ptr %94, i32 0, i32 33
+  %96 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8, !tbaa !40
+  %98 = icmp eq ptr %93, %97
+  %99 = xor i1 %98, true
+  br i1 %99, label %100, label %132
 
-while.body45:                                     ; preds = %while.cond40
-  %38 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue46 = getelementptr inbounds %struct.IKCPCB, ptr %38, i32 0, i32 33
-  %next47 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue46, i32 0, i32 0
-  %39 = load ptr, ptr %next47, align 8
-  %add.ptr48 = getelementptr inbounds i8, ptr %39, i64 0
-  store ptr %add.ptr48, ptr %seg, align 8
-  %40 = load ptr, ptr %seg, align 8
-  %node49 = getelementptr inbounds %struct.IKCPSEG, ptr %40, i32 0, i32 0
-  %prev50 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node49, i32 0, i32 1
-  %41 = load ptr, ptr %prev50, align 8
-  %42 = load ptr, ptr %seg, align 8
-  %node51 = getelementptr inbounds %struct.IKCPSEG, ptr %42, i32 0, i32 0
-  %next52 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node51, i32 0, i32 0
-  %43 = load ptr, ptr %next52, align 8
-  %prev53 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %43, i32 0, i32 1
-  store ptr %41, ptr %prev53, align 8
-  %44 = load ptr, ptr %seg, align 8
-  %node54 = getelementptr inbounds %struct.IKCPSEG, ptr %44, i32 0, i32 0
-  %next55 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node54, i32 0, i32 0
-  %45 = load ptr, ptr %next55, align 8
-  %46 = load ptr, ptr %seg, align 8
-  %node56 = getelementptr inbounds %struct.IKCPSEG, ptr %46, i32 0, i32 0
-  %prev57 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node56, i32 0, i32 1
-  %47 = load ptr, ptr %prev57, align 8
-  %next58 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %47, i32 0, i32 0
-  store ptr %45, ptr %next58, align 8
-  %48 = load ptr, ptr %seg, align 8
-  %node59 = getelementptr inbounds %struct.IKCPSEG, ptr %48, i32 0, i32 0
-  %next60 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node59, i32 0, i32 0
-  store ptr null, ptr %next60, align 8
-  %49 = load ptr, ptr %seg, align 8
-  %node61 = getelementptr inbounds %struct.IKCPSEG, ptr %49, i32 0, i32 0
-  %prev62 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node61, i32 0, i32 1
-  store ptr null, ptr %prev62, align 8
-  %50 = load ptr, ptr %kcp.addr, align 8
-  %51 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %50, ptr noundef %51)
-  br label %while.cond40, !llvm.loop !8
+100:                                              ; preds = %91
+  %101 = load ptr, ptr %2, align 8, !tbaa !8
+  %102 = getelementptr inbounds nuw %struct.IKCPCB, ptr %101, i32 0, i32 33
+  %103 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8, !tbaa !40
+  %105 = getelementptr inbounds i8, ptr %104, i64 0
+  store ptr %105, ptr %3, align 8, !tbaa !74
+  %106 = load ptr, ptr %3, align 8, !tbaa !74
+  %107 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %106, i32 0, i32 0
+  %108 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !76
+  %110 = load ptr, ptr %3, align 8, !tbaa !74
+  %111 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %110, i32 0, i32 0
+  %112 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8, !tbaa !78
+  %114 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %113, i32 0, i32 1
+  store ptr %109, ptr %114, align 8, !tbaa !79
+  %115 = load ptr, ptr %3, align 8, !tbaa !74
+  %116 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %115, i32 0, i32 0
+  %117 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %116, i32 0, i32 0
+  %118 = load ptr, ptr %117, align 8, !tbaa !78
+  %119 = load ptr, ptr %3, align 8, !tbaa !74
+  %120 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %119, i32 0, i32 0
+  %121 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8, !tbaa !76
+  %123 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %122, i32 0, i32 0
+  store ptr %118, ptr %123, align 8, !tbaa !80
+  %124 = load ptr, ptr %3, align 8, !tbaa !74
+  %125 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %124, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %125, i32 0, i32 0
+  store ptr null, ptr %126, align 8, !tbaa !78
+  %127 = load ptr, ptr %3, align 8, !tbaa !74
+  %128 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %127, i32 0, i32 0
+  %129 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %128, i32 0, i32 1
+  store ptr null, ptr %129, align 8, !tbaa !76
+  %130 = load ptr, ptr %2, align 8, !tbaa !8
+  %131 = load ptr, ptr %3, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %130, ptr noundef %131)
+  br label %91, !llvm.loop !84
 
-while.end63:                                      ; preds = %while.cond40
-  br label %while.cond64
+132:                                              ; preds = %91
+  br label %133
 
-while.cond64:                                     ; preds = %while.body69, %while.end63
-  %52 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue = getelementptr inbounds %struct.IKCPCB, ptr %52, i32 0, i32 34
-  %53 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue65 = getelementptr inbounds %struct.IKCPCB, ptr %53, i32 0, i32 34
-  %next66 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue65, i32 0, i32 0
-  %54 = load ptr, ptr %next66, align 8
-  %cmp67 = icmp eq ptr %rcv_queue, %54
-  %lnot68 = xor i1 %cmp67, true
-  br i1 %lnot68, label %while.body69, label %while.end87
+133:                                              ; preds = %142, %132
+  %134 = load ptr, ptr %2, align 8, !tbaa !8
+  %135 = getelementptr inbounds nuw %struct.IKCPCB, ptr %134, i32 0, i32 34
+  %136 = load ptr, ptr %2, align 8, !tbaa !8
+  %137 = getelementptr inbounds nuw %struct.IKCPCB, ptr %136, i32 0, i32 34
+  %138 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8, !tbaa !42
+  %140 = icmp eq ptr %135, %139
+  %141 = xor i1 %140, true
+  br i1 %141, label %142, label %174
 
-while.body69:                                     ; preds = %while.cond64
-  %55 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue70 = getelementptr inbounds %struct.IKCPCB, ptr %55, i32 0, i32 34
-  %next71 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue70, i32 0, i32 0
-  %56 = load ptr, ptr %next71, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %56, i64 0
-  store ptr %add.ptr72, ptr %seg, align 8
-  %57 = load ptr, ptr %seg, align 8
-  %node73 = getelementptr inbounds %struct.IKCPSEG, ptr %57, i32 0, i32 0
-  %prev74 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node73, i32 0, i32 1
-  %58 = load ptr, ptr %prev74, align 8
-  %59 = load ptr, ptr %seg, align 8
-  %node75 = getelementptr inbounds %struct.IKCPSEG, ptr %59, i32 0, i32 0
-  %next76 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node75, i32 0, i32 0
-  %60 = load ptr, ptr %next76, align 8
-  %prev77 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %60, i32 0, i32 1
-  store ptr %58, ptr %prev77, align 8
-  %61 = load ptr, ptr %seg, align 8
-  %node78 = getelementptr inbounds %struct.IKCPSEG, ptr %61, i32 0, i32 0
-  %next79 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node78, i32 0, i32 0
-  %62 = load ptr, ptr %next79, align 8
-  %63 = load ptr, ptr %seg, align 8
-  %node80 = getelementptr inbounds %struct.IKCPSEG, ptr %63, i32 0, i32 0
-  %prev81 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node80, i32 0, i32 1
-  %64 = load ptr, ptr %prev81, align 8
-  %next82 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %64, i32 0, i32 0
-  store ptr %62, ptr %next82, align 8
-  %65 = load ptr, ptr %seg, align 8
-  %node83 = getelementptr inbounds %struct.IKCPSEG, ptr %65, i32 0, i32 0
-  %next84 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node83, i32 0, i32 0
-  store ptr null, ptr %next84, align 8
-  %66 = load ptr, ptr %seg, align 8
-  %node85 = getelementptr inbounds %struct.IKCPSEG, ptr %66, i32 0, i32 0
-  %prev86 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node85, i32 0, i32 1
-  store ptr null, ptr %prev86, align 8
-  %67 = load ptr, ptr %kcp.addr, align 8
-  %68 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %67, ptr noundef %68)
-  br label %while.cond64, !llvm.loop !9
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %2, align 8, !tbaa !8
+  %144 = getelementptr inbounds nuw %struct.IKCPCB, ptr %143, i32 0, i32 34
+  %145 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8, !tbaa !42
+  %147 = getelementptr inbounds i8, ptr %146, i64 0
+  store ptr %147, ptr %3, align 8, !tbaa !74
+  %148 = load ptr, ptr %3, align 8, !tbaa !74
+  %149 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %148, i32 0, i32 0
+  %150 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %149, i32 0, i32 1
+  %151 = load ptr, ptr %150, align 8, !tbaa !76
+  %152 = load ptr, ptr %3, align 8, !tbaa !74
+  %153 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %152, i32 0, i32 0
+  %154 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8, !tbaa !78
+  %156 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %155, i32 0, i32 1
+  store ptr %151, ptr %156, align 8, !tbaa !79
+  %157 = load ptr, ptr %3, align 8, !tbaa !74
+  %158 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %157, i32 0, i32 0
+  %159 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %158, i32 0, i32 0
+  %160 = load ptr, ptr %159, align 8, !tbaa !78
+  %161 = load ptr, ptr %3, align 8, !tbaa !74
+  %162 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %161, i32 0, i32 0
+  %163 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8, !tbaa !76
+  %165 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %164, i32 0, i32 0
+  store ptr %160, ptr %165, align 8, !tbaa !80
+  %166 = load ptr, ptr %3, align 8, !tbaa !74
+  %167 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %166, i32 0, i32 0
+  %168 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %167, i32 0, i32 0
+  store ptr null, ptr %168, align 8, !tbaa !78
+  %169 = load ptr, ptr %3, align 8, !tbaa !74
+  %170 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %169, i32 0, i32 0
+  %171 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %170, i32 0, i32 1
+  store ptr null, ptr %171, align 8, !tbaa !76
+  %172 = load ptr, ptr %2, align 8, !tbaa !8
+  %173 = load ptr, ptr %3, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %172, ptr noundef %173)
+  br label %133, !llvm.loop !85
 
-while.end87:                                      ; preds = %while.cond64
-  %69 = load ptr, ptr %kcp.addr, align 8
-  %buffer = getelementptr inbounds %struct.IKCPCB, ptr %69, i32 0, i32 41
-  %70 = load ptr, ptr %buffer, align 8
-  %tobool88 = icmp ne ptr %70, null
-  br i1 %tobool88, label %if.then89, label %if.end
+174:                                              ; preds = %133
+  %175 = load ptr, ptr %2, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw %struct.IKCPCB, ptr %175, i32 0, i32 41
+  %177 = load ptr, ptr %176, align 8, !tbaa !39
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %183
 
-if.then89:                                        ; preds = %while.end87
-  %71 = load ptr, ptr %kcp.addr, align 8
-  %buffer90 = getelementptr inbounds %struct.IKCPCB, ptr %71, i32 0, i32 41
-  %72 = load ptr, ptr %buffer90, align 8
-  call void @ikcp_free(ptr noundef %72)
-  br label %if.end
+179:                                              ; preds = %174
+  %180 = load ptr, ptr %2, align 8, !tbaa !8
+  %181 = getelementptr inbounds nuw %struct.IKCPCB, ptr %180, i32 0, i32 41
+  %182 = load ptr, ptr %181, align 8, !tbaa !39
+  call void @ikcp_free(ptr noundef %182)
+  br label %183
 
-if.end:                                           ; preds = %if.then89, %while.end87
-  %73 = load ptr, ptr %kcp.addr, align 8
-  %acklist = getelementptr inbounds %struct.IKCPCB, ptr %73, i32 0, i32 37
-  %74 = load ptr, ptr %acklist, align 8
-  %tobool91 = icmp ne ptr %74, null
-  br i1 %tobool91, label %if.then92, label %if.end94
+183:                                              ; preds = %179, %174
+  %184 = load ptr, ptr %2, align 8, !tbaa !8
+  %185 = getelementptr inbounds nuw %struct.IKCPCB, ptr %184, i32 0, i32 37
+  %186 = load ptr, ptr %185, align 8, !tbaa !53
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %188, label %192
 
-if.then92:                                        ; preds = %if.end
-  %75 = load ptr, ptr %kcp.addr, align 8
-  %acklist93 = getelementptr inbounds %struct.IKCPCB, ptr %75, i32 0, i32 37
-  %76 = load ptr, ptr %acklist93, align 8
-  call void @ikcp_free(ptr noundef %76)
-  br label %if.end94
+188:                                              ; preds = %183
+  %189 = load ptr, ptr %2, align 8, !tbaa !8
+  %190 = getelementptr inbounds nuw %struct.IKCPCB, ptr %189, i32 0, i32 37
+  %191 = load ptr, ptr %190, align 8, !tbaa !53
+  call void @ikcp_free(ptr noundef %191)
+  br label %192
 
-if.end94:                                         ; preds = %if.then92, %if.end
-  %77 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %77, i32 0, i32 23
-  store i32 0, ptr %nrcv_buf, align 4
-  %78 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %78, i32 0, i32 24
-  store i32 0, ptr %nsnd_buf, align 8
-  %79 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %79, i32 0, i32 25
-  store i32 0, ptr %nrcv_que, align 4
-  %80 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_que = getelementptr inbounds %struct.IKCPCB, ptr %80, i32 0, i32 26
-  store i32 0, ptr %nsnd_que, align 8
-  %81 = load ptr, ptr %kcp.addr, align 8
-  %ackcount = getelementptr inbounds %struct.IKCPCB, ptr %81, i32 0, i32 38
-  store i32 0, ptr %ackcount, align 8
-  %82 = load ptr, ptr %kcp.addr, align 8
-  %buffer95 = getelementptr inbounds %struct.IKCPCB, ptr %82, i32 0, i32 41
-  store ptr null, ptr %buffer95, align 8
-  %83 = load ptr, ptr %kcp.addr, align 8
-  %acklist96 = getelementptr inbounds %struct.IKCPCB, ptr %83, i32 0, i32 37
-  store ptr null, ptr %acklist96, align 8
-  %84 = load ptr, ptr %kcp.addr, align 8
-  call void @ikcp_free(ptr noundef %84)
-  br label %if.end97
+192:                                              ; preds = %188, %183
+  %193 = load ptr, ptr %2, align 8, !tbaa !8
+  %194 = getelementptr inbounds nuw %struct.IKCPCB, ptr %193, i32 0, i32 23
+  store i32 0, ptr %194, align 4, !tbaa !48
+  %195 = load ptr, ptr %2, align 8, !tbaa !8
+  %196 = getelementptr inbounds nuw %struct.IKCPCB, ptr %195, i32 0, i32 24
+  store i32 0, ptr %196, align 8, !tbaa !49
+  %197 = load ptr, ptr %2, align 8, !tbaa !8
+  %198 = getelementptr inbounds nuw %struct.IKCPCB, ptr %197, i32 0, i32 25
+  store i32 0, ptr %198, align 4, !tbaa !50
+  %199 = load ptr, ptr %2, align 8, !tbaa !8
+  %200 = getelementptr inbounds nuw %struct.IKCPCB, ptr %199, i32 0, i32 26
+  store i32 0, ptr %200, align 8, !tbaa !51
+  %201 = load ptr, ptr %2, align 8, !tbaa !8
+  %202 = getelementptr inbounds nuw %struct.IKCPCB, ptr %201, i32 0, i32 38
+  store i32 0, ptr %202, align 8, !tbaa !55
+  %203 = load ptr, ptr %2, align 8, !tbaa !8
+  %204 = getelementptr inbounds nuw %struct.IKCPCB, ptr %203, i32 0, i32 41
+  store ptr null, ptr %204, align 8, !tbaa !39
+  %205 = load ptr, ptr %2, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw %struct.IKCPCB, ptr %205, i32 0, i32 37
+  store ptr null, ptr %206, align 8, !tbaa !53
+  %207 = load ptr, ptr %2, align 8, !tbaa !8
+  call void @ikcp_free(ptr noundef %207)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  br label %208
 
-if.end97:                                         ; preds = %if.end94, %entry
+208:                                              ; preds = %192, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikcp_segment_delete(ptr noundef %kcp, ptr noundef %seg) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %seg.addr = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %seg, ptr %seg.addr, align 8
-  %0 = load ptr, ptr %seg.addr, align 8
-  call void @ikcp_free(ptr noundef %0)
+define internal void @ikcp_segment_delete(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @ikcp_free(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_setoutput(ptr noundef %kcp, ptr noundef %output) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %output.addr = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %output, ptr %output.addr, align 8
-  %0 = load ptr, ptr %output.addr, align 8
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %output1 = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 47
-  store ptr %0, ptr %output1, align 8
+define dso_local void @ikcp_setoutput(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.IKCPCB, ptr %6, i32 0, i32 47
+  store ptr %5, ptr %7, align 8, !tbaa !71
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_recv(ptr noundef %kcp, ptr noundef %buffer, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %buffer.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %ispeek = alloca i32, align 4
-  %peeksize = alloca i32, align 4
-  %recover = alloca i32, align 4
-  %seg = alloca ptr, align 8
-  %fragment = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load i32, ptr %len.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  %cond = select i1 %cmp, i32 1, i32 0
-  store i32 %cond, ptr %ispeek, align 4
-  store i32 0, ptr %recover, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 34
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue1 = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 34
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue1, i32 0, i32 0
-  %3 = load ptr, ptr %next, align 8
-  %cmp2 = icmp eq ptr %rcv_queue, %3
-  br i1 %cmp2, label %if.then, label %if.end
+define dso_local i32 @ikcp_recv(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %15 = load i32, ptr %7, align 4, !tbaa !10
+  %16 = icmp slt i32 %15, 0
+  %17 = select i1 %16, i32 1, i32 0
+  store i32 %17, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 0, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.IKCPCB, ptr %18, i32 0, i32 34
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.IKCPCB, ptr %20, i32 0, i32 34
+  %22 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !42
+  %24 = icmp eq ptr %19, %23
+  br i1 %24, label %25, label %26
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %257
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %len.addr, align 4
-  %cmp3 = icmp slt i32 %4, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+26:                                               ; preds = %3
+  %27 = load i32, ptr %7, align 4, !tbaa !10
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %32
 
-if.then4:                                         ; preds = %if.end
-  %5 = load i32, ptr %len.addr, align 4
-  %sub = sub nsw i32 0, %5
-  store i32 %sub, ptr %len.addr, align 4
-  br label %if.end5
+29:                                               ; preds = %26
+  %30 = load i32, ptr %7, align 4, !tbaa !10
+  %31 = sub nsw i32 0, %30
+  store i32 %31, ptr %7, align 4, !tbaa !10
+  br label %32
 
-if.end5:                                          ; preds = %if.then4, %if.end
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %call = call i32 @ikcp_peeksize(ptr noundef %6)
-  store i32 %call, ptr %peeksize, align 4
-  %7 = load i32, ptr %peeksize, align 4
-  %cmp6 = icmp slt i32 %7, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+32:                                               ; preds = %29, %26
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
+  %34 = call i32 @ikcp_peeksize(ptr noundef %33)
+  store i32 %34, ptr %10, align 4, !tbaa !10
+  %35 = load i32, ptr %10, align 4, !tbaa !10
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %38
 
-if.then7:                                         ; preds = %if.end5
-  store i32 -2, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %32
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %257
 
-if.end8:                                          ; preds = %if.end5
-  %8 = load i32, ptr %peeksize, align 4
-  %9 = load i32, ptr %len.addr, align 4
-  %cmp9 = icmp sgt i32 %8, %9
-  br i1 %cmp9, label %if.then10, label %if.end11
+38:                                               ; preds = %32
+  %39 = load i32, ptr %10, align 4, !tbaa !10
+  %40 = load i32, ptr %7, align 4, !tbaa !10
+  %41 = icmp sgt i32 %39, %40
+  br i1 %41, label %42, label %43
 
-if.then10:                                        ; preds = %if.end8
-  store i32 -3, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %38
+  store i32 -3, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %257
 
-if.end11:                                         ; preds = %if.end8
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 25
-  %11 = load i32, ptr %nrcv_que, align 4
-  %12 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %12, i32 0, i32 15
-  %13 = load i32, ptr %rcv_wnd, align 4
-  %cmp12 = icmp uge i32 %11, %13
-  br i1 %cmp12, label %if.then13, label %if.end14
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.IKCPCB, ptr %44, i32 0, i32 25
+  %46 = load i32, ptr %45, align 4, !tbaa !50
+  %47 = load ptr, ptr %5, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 15
+  %49 = load i32, ptr %48, align 4, !tbaa !31
+  %50 = icmp uge i32 %46, %49
+  br i1 %50, label %51, label %52
 
-if.then13:                                        ; preds = %if.end11
-  store i32 1, ptr %recover, align 4
-  br label %if.end14
+51:                                               ; preds = %43
+  store i32 1, ptr %11, align 4, !tbaa !10
+  br label %52
 
-if.end14:                                         ; preds = %if.then13, %if.end11
-  store i32 0, ptr %len.addr, align 4
-  %14 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue15 = getelementptr inbounds %struct.IKCPCB, ptr %14, i32 0, i32 34
-  %next16 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue15, i32 0, i32 0
-  %15 = load ptr, ptr %next16, align 8
-  store ptr %15, ptr %p, align 8
-  br label %for.cond
+52:                                               ; preds = %51, %43
+  store i32 0, ptr %7, align 4, !tbaa !10
+  %53 = load ptr, ptr %5, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.IKCPCB, ptr %53, i32 0, i32 34
+  %55 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !42
+  store ptr %56, ptr %8, align 8, !tbaa !21
+  br label %57
 
-for.cond:                                         ; preds = %if.end51, %if.end14
-  %16 = load ptr, ptr %p, align 8
-  %17 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue17 = getelementptr inbounds %struct.IKCPCB, ptr %17, i32 0, i32 34
-  %cmp18 = icmp ne ptr %16, %rcv_queue17
-  br i1 %cmp18, label %for.body, label %for.end
+57:                                               ; preds = %144, %52
+  %58 = load ptr, ptr %8, align 8, !tbaa !21
+  %59 = load ptr, ptr %5, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw %struct.IKCPCB, ptr %59, i32 0, i32 34
+  %61 = icmp ne ptr %58, %60
+  br i1 %61, label %62, label %145
 
-for.body:                                         ; preds = %for.cond
-  %18 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %18, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %19 = load ptr, ptr %p, align 8
-  %next19 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %next19, align 8
-  store ptr %20, ptr %p, align 8
-  %21 = load ptr, ptr %buffer.addr, align 8
-  %tobool = icmp ne ptr %21, null
-  br i1 %tobool, label %if.then20, label %if.end24
+62:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %63 = load ptr, ptr %8, align 8, !tbaa !21
+  %64 = getelementptr inbounds i8, ptr %63, i64 0
+  store ptr %64, ptr %12, align 8, !tbaa !74
+  %65 = load ptr, ptr %8, align 8, !tbaa !21
+  %66 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !80
+  store ptr %67, ptr %8, align 8, !tbaa !21
+  %68 = load ptr, ptr %6, align 8, !tbaa !12
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %85
 
-if.then20:                                        ; preds = %for.body
-  %22 = load ptr, ptr %buffer.addr, align 8
-  %23 = load ptr, ptr %seg, align 8
-  %data = getelementptr inbounds %struct.IKCPSEG, ptr %23, i32 0, i32 13
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %data, i64 0, i64 0
-  %24 = load ptr, ptr %seg, align 8
-  %len21 = getelementptr inbounds %struct.IKCPSEG, ptr %24, i32 0, i32 8
-  %25 = load i32, ptr %len21, align 4
-  %conv = zext i32 %25 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 8 %arraydecay, i64 %conv, i1 false)
-  %26 = load ptr, ptr %seg, align 8
-  %len22 = getelementptr inbounds %struct.IKCPSEG, ptr %26, i32 0, i32 8
-  %27 = load i32, ptr %len22, align 4
-  %28 = load ptr, ptr %buffer.addr, align 8
-  %idx.ext = zext i32 %27 to i64
-  %add.ptr23 = getelementptr inbounds i8, ptr %28, i64 %idx.ext
-  store ptr %add.ptr23, ptr %buffer.addr, align 8
-  br label %if.end24
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %6, align 8, !tbaa !12
+  %72 = load ptr, ptr %12, align 8, !tbaa !74
+  %73 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %72, i32 0, i32 13
+  %74 = getelementptr inbounds [1 x i8], ptr %73, i64 0, i64 0
+  %75 = load ptr, ptr %12, align 8, !tbaa !74
+  %76 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %75, i32 0, i32 8
+  %77 = load i32, ptr %76, align 4, !tbaa !86
+  %78 = zext i32 %77 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 8 %74, i64 %78, i1 false)
+  %79 = load ptr, ptr %12, align 8, !tbaa !74
+  %80 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %79, i32 0, i32 8
+  %81 = load i32, ptr %80, align 4, !tbaa !86
+  %82 = load ptr, ptr %6, align 8, !tbaa !12
+  %83 = zext i32 %81 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
+  store ptr %84, ptr %6, align 8, !tbaa !12
+  br label %85
 
-if.end24:                                         ; preds = %if.then20, %for.body
-  %29 = load ptr, ptr %seg, align 8
-  %len25 = getelementptr inbounds %struct.IKCPSEG, ptr %29, i32 0, i32 8
-  %30 = load i32, ptr %len25, align 4
-  %31 = load i32, ptr %len.addr, align 4
-  %add = add i32 %31, %30
-  store i32 %add, ptr %len.addr, align 4
-  %32 = load ptr, ptr %seg, align 8
-  %frg = getelementptr inbounds %struct.IKCPSEG, ptr %32, i32 0, i32 3
-  %33 = load i32, ptr %frg, align 8
-  store i32 %33, ptr %fragment, align 4
-  %34 = load ptr, ptr %kcp.addr, align 8
-  %call26 = call i32 @ikcp_canlog(ptr noundef %34, i32 noundef 8)
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then28, label %if.end30
+85:                                               ; preds = %70, %62
+  %86 = load ptr, ptr %12, align 8, !tbaa !74
+  %87 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %86, i32 0, i32 8
+  %88 = load i32, ptr %87, align 4, !tbaa !86
+  %89 = load i32, ptr %7, align 4, !tbaa !10
+  %90 = add i32 %89, %88
+  store i32 %90, ptr %7, align 4, !tbaa !10
+  %91 = load ptr, ptr %12, align 8, !tbaa !74
+  %92 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %91, i32 0, i32 3
+  %93 = load i32, ptr %92, align 8, !tbaa !87
+  store i32 %93, ptr %14, align 4, !tbaa !10
+  %94 = load ptr, ptr %5, align 8, !tbaa !8
+  %95 = call i32 @ikcp_canlog(ptr noundef %94, i32 noundef 8)
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %103
 
-if.then28:                                        ; preds = %if.end24
-  %35 = load ptr, ptr %kcp.addr, align 8
-  %36 = load ptr, ptr %seg, align 8
-  %sn = getelementptr inbounds %struct.IKCPSEG, ptr %36, i32 0, i32 6
-  %37 = load i32, ptr %sn, align 4
-  %conv29 = zext i32 %37 to i64
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %35, i32 noundef 8, ptr noundef @.str, i64 noundef %conv29)
-  br label %if.end30
+97:                                               ; preds = %85
+  %98 = load ptr, ptr %5, align 8, !tbaa !8
+  %99 = load ptr, ptr %12, align 8, !tbaa !74
+  %100 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %99, i32 0, i32 6
+  %101 = load i32, ptr %100, align 4, !tbaa !88
+  %102 = zext i32 %101 to i64
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %98, i32 noundef 8, ptr noundef @.str, i64 noundef %102)
+  br label %103
 
-if.end30:                                         ; preds = %if.then28, %if.end24
-  %38 = load i32, ptr %ispeek, align 4
-  %cmp31 = icmp eq i32 %38, 0
-  br i1 %cmp31, label %if.then33, label %if.end47
+103:                                              ; preds = %97, %85
+  %104 = load i32, ptr %9, align 4, !tbaa !10
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %137
 
-if.then33:                                        ; preds = %if.end30
-  %39 = load ptr, ptr %seg, align 8
-  %node = getelementptr inbounds %struct.IKCPSEG, ptr %39, i32 0, i32 0
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node, i32 0, i32 1
-  %40 = load ptr, ptr %prev, align 8
-  %41 = load ptr, ptr %seg, align 8
-  %node34 = getelementptr inbounds %struct.IKCPSEG, ptr %41, i32 0, i32 0
-  %next35 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node34, i32 0, i32 0
-  %42 = load ptr, ptr %next35, align 8
-  %prev36 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %42, i32 0, i32 1
-  store ptr %40, ptr %prev36, align 8
-  %43 = load ptr, ptr %seg, align 8
-  %node37 = getelementptr inbounds %struct.IKCPSEG, ptr %43, i32 0, i32 0
-  %next38 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node37, i32 0, i32 0
-  %44 = load ptr, ptr %next38, align 8
-  %45 = load ptr, ptr %seg, align 8
-  %node39 = getelementptr inbounds %struct.IKCPSEG, ptr %45, i32 0, i32 0
-  %prev40 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node39, i32 0, i32 1
-  %46 = load ptr, ptr %prev40, align 8
-  %next41 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %46, i32 0, i32 0
-  store ptr %44, ptr %next41, align 8
-  %47 = load ptr, ptr %seg, align 8
-  %node42 = getelementptr inbounds %struct.IKCPSEG, ptr %47, i32 0, i32 0
-  %next43 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node42, i32 0, i32 0
-  store ptr null, ptr %next43, align 8
-  %48 = load ptr, ptr %seg, align 8
-  %node44 = getelementptr inbounds %struct.IKCPSEG, ptr %48, i32 0, i32 0
-  %prev45 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node44, i32 0, i32 1
-  store ptr null, ptr %prev45, align 8
-  %49 = load ptr, ptr %kcp.addr, align 8
-  %50 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %49, ptr noundef %50)
-  %51 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que46 = getelementptr inbounds %struct.IKCPCB, ptr %51, i32 0, i32 25
-  %52 = load i32, ptr %nrcv_que46, align 4
-  %dec = add i32 %52, -1
-  store i32 %dec, ptr %nrcv_que46, align 4
-  br label %if.end47
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %12, align 8, !tbaa !74
+  %108 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !76
+  %111 = load ptr, ptr %12, align 8, !tbaa !74
+  %112 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8, !tbaa !78
+  %115 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %114, i32 0, i32 1
+  store ptr %110, ptr %115, align 8, !tbaa !79
+  %116 = load ptr, ptr %12, align 8, !tbaa !74
+  %117 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8, !tbaa !78
+  %120 = load ptr, ptr %12, align 8, !tbaa !74
+  %121 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %120, i32 0, i32 0
+  %122 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %121, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8, !tbaa !76
+  %124 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %123, i32 0, i32 0
+  store ptr %119, ptr %124, align 8, !tbaa !80
+  %125 = load ptr, ptr %12, align 8, !tbaa !74
+  %126 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %125, i32 0, i32 0
+  %127 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %126, i32 0, i32 0
+  store ptr null, ptr %127, align 8, !tbaa !78
+  %128 = load ptr, ptr %12, align 8, !tbaa !74
+  %129 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %128, i32 0, i32 0
+  %130 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %129, i32 0, i32 1
+  store ptr null, ptr %130, align 8, !tbaa !76
+  %131 = load ptr, ptr %5, align 8, !tbaa !8
+  %132 = load ptr, ptr %12, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %131, ptr noundef %132)
+  %133 = load ptr, ptr %5, align 8, !tbaa !8
+  %134 = getelementptr inbounds nuw %struct.IKCPCB, ptr %133, i32 0, i32 25
+  %135 = load i32, ptr %134, align 4, !tbaa !50
+  %136 = add i32 %135, -1
+  store i32 %136, ptr %134, align 4, !tbaa !50
+  br label %137
 
-if.end47:                                         ; preds = %if.then33, %if.end30
-  %53 = load i32, ptr %fragment, align 4
-  %cmp48 = icmp eq i32 %53, 0
-  br i1 %cmp48, label %if.then50, label %if.end51
+137:                                              ; preds = %106, %103
+  %138 = load i32, ptr %14, align 4, !tbaa !10
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %141
 
-if.then50:                                        ; preds = %if.end47
-  br label %for.end
+140:                                              ; preds = %137
+  store i32 2, ptr %13, align 4
+  br label %142
 
-if.end51:                                         ; preds = %if.end47
-  br label %for.cond, !llvm.loop !10
+141:                                              ; preds = %137
+  store i32 0, ptr %13, align 4
+  br label %142
 
-for.end:                                          ; preds = %if.then50, %for.cond
-  br label %while.cond
+142:                                              ; preds = %141, %140
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %143 = load i32, ptr %13, align 4
+  switch i32 %143, label %259 [
+    i32 0, label %144
+    i32 2, label %145
+  ]
 
-while.cond:                                       ; preds = %if.end99, %for.end
-  %54 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %54, i32 0, i32 36
-  %55 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf52 = getelementptr inbounds %struct.IKCPCB, ptr %55, i32 0, i32 36
-  %next53 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf52, i32 0, i32 0
-  %56 = load ptr, ptr %next53, align 8
-  %cmp54 = icmp eq ptr %rcv_buf, %56
-  %lnot = xor i1 %cmp54, true
-  br i1 %lnot, label %while.body, label %while.end
+144:                                              ; preds = %142
+  br label %57, !llvm.loop !89
 
-while.body:                                       ; preds = %while.cond
-  %57 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf56 = getelementptr inbounds %struct.IKCPCB, ptr %57, i32 0, i32 36
-  %next57 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf56, i32 0, i32 0
-  %58 = load ptr, ptr %next57, align 8
-  %add.ptr58 = getelementptr inbounds i8, ptr %58, i64 0
-  store ptr %add.ptr58, ptr %seg, align 8
-  %59 = load ptr, ptr %seg, align 8
-  %sn59 = getelementptr inbounds %struct.IKCPSEG, ptr %59, i32 0, i32 6
-  %60 = load i32, ptr %sn59, align 4
-  %61 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt = getelementptr inbounds %struct.IKCPCB, ptr %61, i32 0, i32 6
-  %62 = load i32, ptr %rcv_nxt, align 8
-  %cmp60 = icmp eq i32 %60, %62
-  br i1 %cmp60, label %land.lhs.true, label %if.else
+145:                                              ; preds = %142, %57
+  br label %146
 
-land.lhs.true:                                    ; preds = %while.body
-  %63 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que62 = getelementptr inbounds %struct.IKCPCB, ptr %63, i32 0, i32 25
-  %64 = load i32, ptr %nrcv_que62, align 4
-  %65 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd63 = getelementptr inbounds %struct.IKCPCB, ptr %65, i32 0, i32 15
-  %66 = load i32, ptr %rcv_wnd63, align 4
-  %cmp64 = icmp ult i32 %64, %66
-  br i1 %cmp64, label %if.then66, label %if.else
+146:                                              ; preds = %238, %145
+  %147 = load ptr, ptr %5, align 8, !tbaa !8
+  %148 = getelementptr inbounds nuw %struct.IKCPCB, ptr %147, i32 0, i32 36
+  %149 = load ptr, ptr %5, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw %struct.IKCPCB, ptr %149, i32 0, i32 36
+  %151 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8, !tbaa !46
+  %153 = icmp eq ptr %148, %152
+  %154 = xor i1 %153, true
+  br i1 %154, label %155, label %239
 
-if.then66:                                        ; preds = %land.lhs.true
-  %67 = load ptr, ptr %seg, align 8
-  %node67 = getelementptr inbounds %struct.IKCPSEG, ptr %67, i32 0, i32 0
-  %prev68 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node67, i32 0, i32 1
-  %68 = load ptr, ptr %prev68, align 8
-  %69 = load ptr, ptr %seg, align 8
-  %node69 = getelementptr inbounds %struct.IKCPSEG, ptr %69, i32 0, i32 0
-  %next70 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node69, i32 0, i32 0
-  %70 = load ptr, ptr %next70, align 8
-  %prev71 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %70, i32 0, i32 1
-  store ptr %68, ptr %prev71, align 8
-  %71 = load ptr, ptr %seg, align 8
-  %node72 = getelementptr inbounds %struct.IKCPSEG, ptr %71, i32 0, i32 0
-  %next73 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node72, i32 0, i32 0
-  %72 = load ptr, ptr %next73, align 8
-  %73 = load ptr, ptr %seg, align 8
-  %node74 = getelementptr inbounds %struct.IKCPSEG, ptr %73, i32 0, i32 0
-  %prev75 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node74, i32 0, i32 1
-  %74 = load ptr, ptr %prev75, align 8
-  %next76 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %74, i32 0, i32 0
-  store ptr %72, ptr %next76, align 8
-  %75 = load ptr, ptr %seg, align 8
-  %node77 = getelementptr inbounds %struct.IKCPSEG, ptr %75, i32 0, i32 0
-  %next78 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node77, i32 0, i32 0
-  store ptr null, ptr %next78, align 8
-  %76 = load ptr, ptr %seg, align 8
-  %node79 = getelementptr inbounds %struct.IKCPSEG, ptr %76, i32 0, i32 0
-  %prev80 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node79, i32 0, i32 1
-  store ptr null, ptr %prev80, align 8
-  %77 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %77, i32 0, i32 23
-  %78 = load i32, ptr %nrcv_buf, align 4
-  %dec81 = add i32 %78, -1
-  store i32 %dec81, ptr %nrcv_buf, align 4
-  %79 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue82 = getelementptr inbounds %struct.IKCPCB, ptr %79, i32 0, i32 34
-  %prev83 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue82, i32 0, i32 1
-  %80 = load ptr, ptr %prev83, align 8
-  %81 = load ptr, ptr %seg, align 8
-  %node84 = getelementptr inbounds %struct.IKCPSEG, ptr %81, i32 0, i32 0
-  %prev85 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node84, i32 0, i32 1
-  store ptr %80, ptr %prev85, align 8
-  %82 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue86 = getelementptr inbounds %struct.IKCPCB, ptr %82, i32 0, i32 34
-  %83 = load ptr, ptr %seg, align 8
-  %node87 = getelementptr inbounds %struct.IKCPSEG, ptr %83, i32 0, i32 0
-  %next88 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node87, i32 0, i32 0
-  store ptr %rcv_queue86, ptr %next88, align 8
-  %84 = load ptr, ptr %seg, align 8
-  %node89 = getelementptr inbounds %struct.IKCPSEG, ptr %84, i32 0, i32 0
-  %85 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue90 = getelementptr inbounds %struct.IKCPCB, ptr %85, i32 0, i32 34
-  %prev91 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue90, i32 0, i32 1
-  %86 = load ptr, ptr %prev91, align 8
-  %next92 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %86, i32 0, i32 0
-  store ptr %node89, ptr %next92, align 8
-  %87 = load ptr, ptr %seg, align 8
-  %node93 = getelementptr inbounds %struct.IKCPSEG, ptr %87, i32 0, i32 0
-  %88 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue94 = getelementptr inbounds %struct.IKCPCB, ptr %88, i32 0, i32 34
-  %prev95 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue94, i32 0, i32 1
-  store ptr %node93, ptr %prev95, align 8
-  %89 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que96 = getelementptr inbounds %struct.IKCPCB, ptr %89, i32 0, i32 25
-  %90 = load i32, ptr %nrcv_que96, align 4
-  %inc = add i32 %90, 1
-  store i32 %inc, ptr %nrcv_que96, align 4
-  %91 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt97 = getelementptr inbounds %struct.IKCPCB, ptr %91, i32 0, i32 6
-  %92 = load i32, ptr %rcv_nxt97, align 8
-  %inc98 = add i32 %92, 1
-  store i32 %inc98, ptr %rcv_nxt97, align 8
-  br label %if.end99
+155:                                              ; preds = %146
+  %156 = load ptr, ptr %5, align 8, !tbaa !8
+  %157 = getelementptr inbounds nuw %struct.IKCPCB, ptr %156, i32 0, i32 36
+  %158 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %157, i32 0, i32 0
+  %159 = load ptr, ptr %158, align 8, !tbaa !46
+  %160 = getelementptr inbounds i8, ptr %159, i64 0
+  store ptr %160, ptr %12, align 8, !tbaa !74
+  %161 = load ptr, ptr %12, align 8, !tbaa !74
+  %162 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %161, i32 0, i32 6
+  %163 = load i32, ptr %162, align 4, !tbaa !88
+  %164 = load ptr, ptr %5, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw %struct.IKCPCB, ptr %164, i32 0, i32 6
+  %166 = load i32, ptr %165, align 8, !tbaa !25
+  %167 = icmp eq i32 %163, %166
+  br i1 %167, label %168, label %237
 
-if.else:                                          ; preds = %land.lhs.true, %while.body
-  br label %while.end
+168:                                              ; preds = %155
+  %169 = load ptr, ptr %5, align 8, !tbaa !8
+  %170 = getelementptr inbounds nuw %struct.IKCPCB, ptr %169, i32 0, i32 25
+  %171 = load i32, ptr %170, align 4, !tbaa !50
+  %172 = load ptr, ptr %5, align 8, !tbaa !8
+  %173 = getelementptr inbounds nuw %struct.IKCPCB, ptr %172, i32 0, i32 15
+  %174 = load i32, ptr %173, align 4, !tbaa !31
+  %175 = icmp ult i32 %171, %174
+  br i1 %175, label %176, label %237
 
-if.end99:                                         ; preds = %if.then66
-  br label %while.cond, !llvm.loop !11
+176:                                              ; preds = %168
+  %177 = load ptr, ptr %12, align 8, !tbaa !74
+  %178 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %177, i32 0, i32 0
+  %179 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %178, i32 0, i32 1
+  %180 = load ptr, ptr %179, align 8, !tbaa !76
+  %181 = load ptr, ptr %12, align 8, !tbaa !74
+  %182 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %181, i32 0, i32 0
+  %183 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %182, i32 0, i32 0
+  %184 = load ptr, ptr %183, align 8, !tbaa !78
+  %185 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %184, i32 0, i32 1
+  store ptr %180, ptr %185, align 8, !tbaa !79
+  %186 = load ptr, ptr %12, align 8, !tbaa !74
+  %187 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %187, i32 0, i32 0
+  %189 = load ptr, ptr %188, align 8, !tbaa !78
+  %190 = load ptr, ptr %12, align 8, !tbaa !74
+  %191 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %190, i32 0, i32 0
+  %192 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %191, i32 0, i32 1
+  %193 = load ptr, ptr %192, align 8, !tbaa !76
+  %194 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %193, i32 0, i32 0
+  store ptr %189, ptr %194, align 8, !tbaa !80
+  %195 = load ptr, ptr %12, align 8, !tbaa !74
+  %196 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %195, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %196, i32 0, i32 0
+  store ptr null, ptr %197, align 8, !tbaa !78
+  %198 = load ptr, ptr %12, align 8, !tbaa !74
+  %199 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %198, i32 0, i32 0
+  %200 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %199, i32 0, i32 1
+  store ptr null, ptr %200, align 8, !tbaa !76
+  %201 = load ptr, ptr %5, align 8, !tbaa !8
+  %202 = getelementptr inbounds nuw %struct.IKCPCB, ptr %201, i32 0, i32 23
+  %203 = load i32, ptr %202, align 4, !tbaa !48
+  %204 = add i32 %203, -1
+  store i32 %204, ptr %202, align 4, !tbaa !48
+  %205 = load ptr, ptr %5, align 8, !tbaa !8
+  %206 = getelementptr inbounds nuw %struct.IKCPCB, ptr %205, i32 0, i32 34
+  %207 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %206, i32 0, i32 1
+  %208 = load ptr, ptr %207, align 8, !tbaa !43
+  %209 = load ptr, ptr %12, align 8, !tbaa !74
+  %210 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %209, i32 0, i32 0
+  %211 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %210, i32 0, i32 1
+  store ptr %208, ptr %211, align 8, !tbaa !76
+  %212 = load ptr, ptr %5, align 8, !tbaa !8
+  %213 = getelementptr inbounds nuw %struct.IKCPCB, ptr %212, i32 0, i32 34
+  %214 = load ptr, ptr %12, align 8, !tbaa !74
+  %215 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %215, i32 0, i32 0
+  store ptr %213, ptr %216, align 8, !tbaa !78
+  %217 = load ptr, ptr %12, align 8, !tbaa !74
+  %218 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %217, i32 0, i32 0
+  %219 = load ptr, ptr %5, align 8, !tbaa !8
+  %220 = getelementptr inbounds nuw %struct.IKCPCB, ptr %219, i32 0, i32 34
+  %221 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %220, i32 0, i32 1
+  %222 = load ptr, ptr %221, align 8, !tbaa !43
+  %223 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %222, i32 0, i32 0
+  store ptr %218, ptr %223, align 8, !tbaa !80
+  %224 = load ptr, ptr %12, align 8, !tbaa !74
+  %225 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %5, align 8, !tbaa !8
+  %227 = getelementptr inbounds nuw %struct.IKCPCB, ptr %226, i32 0, i32 34
+  %228 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %227, i32 0, i32 1
+  store ptr %225, ptr %228, align 8, !tbaa !43
+  %229 = load ptr, ptr %5, align 8, !tbaa !8
+  %230 = getelementptr inbounds nuw %struct.IKCPCB, ptr %229, i32 0, i32 25
+  %231 = load i32, ptr %230, align 4, !tbaa !50
+  %232 = add i32 %231, 1
+  store i32 %232, ptr %230, align 4, !tbaa !50
+  %233 = load ptr, ptr %5, align 8, !tbaa !8
+  %234 = getelementptr inbounds nuw %struct.IKCPCB, ptr %233, i32 0, i32 6
+  %235 = load i32, ptr %234, align 8, !tbaa !25
+  %236 = add i32 %235, 1
+  store i32 %236, ptr %234, align 8, !tbaa !25
+  br label %238
 
-while.end:                                        ; preds = %if.else, %while.cond
-  %93 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que100 = getelementptr inbounds %struct.IKCPCB, ptr %93, i32 0, i32 25
-  %94 = load i32, ptr %nrcv_que100, align 4
-  %95 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd101 = getelementptr inbounds %struct.IKCPCB, ptr %95, i32 0, i32 15
-  %96 = load i32, ptr %rcv_wnd101, align 4
-  %cmp102 = icmp ult i32 %94, %96
-  br i1 %cmp102, label %land.lhs.true104, label %if.end107
+237:                                              ; preds = %168, %155
+  br label %239
 
-land.lhs.true104:                                 ; preds = %while.end
-  %97 = load i32, ptr %recover, align 4
-  %tobool105 = icmp ne i32 %97, 0
-  br i1 %tobool105, label %if.then106, label %if.end107
+238:                                              ; preds = %176
+  br label %146, !llvm.loop !90
 
-if.then106:                                       ; preds = %land.lhs.true104
-  %98 = load ptr, ptr %kcp.addr, align 8
-  %probe = getelementptr inbounds %struct.IKCPCB, ptr %98, i32 0, i32 18
-  %99 = load i32, ptr %probe, align 8
-  %or = or i32 %99, 2
-  store i32 %or, ptr %probe, align 8
-  br label %if.end107
+239:                                              ; preds = %237, %146
+  %240 = load ptr, ptr %5, align 8, !tbaa !8
+  %241 = getelementptr inbounds nuw %struct.IKCPCB, ptr %240, i32 0, i32 25
+  %242 = load i32, ptr %241, align 4, !tbaa !50
+  %243 = load ptr, ptr %5, align 8, !tbaa !8
+  %244 = getelementptr inbounds nuw %struct.IKCPCB, ptr %243, i32 0, i32 15
+  %245 = load i32, ptr %244, align 4, !tbaa !31
+  %246 = icmp ult i32 %242, %245
+  br i1 %246, label %247, label %255
 
-if.end107:                                        ; preds = %if.then106, %land.lhs.true104, %while.end
-  %100 = load i32, ptr %len.addr, align 4
-  store i32 %100, ptr %retval, align 4
-  br label %return
+247:                                              ; preds = %239
+  %248 = load i32, ptr %11, align 4, !tbaa !10
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %250, label %255
 
-return:                                           ; preds = %if.end107, %if.then10, %if.then7, %if.then
-  %101 = load i32, ptr %retval, align 4
-  ret i32 %101
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %5, align 8, !tbaa !8
+  %252 = getelementptr inbounds nuw %struct.IKCPCB, ptr %251, i32 0, i32 18
+  %253 = load i32, ptr %252, align 8, !tbaa !35
+  %254 = or i32 %253, 2
+  store i32 %254, ptr %252, align 8, !tbaa !35
+  br label %255
+
+255:                                              ; preds = %250, %247, %239
+  %256 = load i32, ptr %7, align 4, !tbaa !10
+  store i32 %256, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %257
+
+257:                                              ; preds = %255, %42, %37, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %258 = load i32, ptr %4, align 4
+  ret i32 %258
+
+259:                                              ; preds = %142
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_peeksize(ptr noundef %kcp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  %length = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 0, ptr %length, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 34
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue1 = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 34
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue1, i32 0, i32 0
-  %2 = load ptr, ptr %next, align 8
-  %cmp = icmp eq ptr %rcv_queue, %2
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @ikcp_peeksize(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !10
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.IKCPCB, ptr %8, i32 0, i32 34
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.IKCPCB, ptr %10, i32 0, i32 34
+  %12 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
+  %14 = icmp eq ptr %9, %13
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue2 = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 34
-  %next3 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue2, i32 0, i32 0
-  %4 = load ptr, ptr %next3, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %5 = load ptr, ptr %seg, align 8
-  %frg = getelementptr inbounds %struct.IKCPSEG, ptr %5, i32 0, i32 3
-  %6 = load i32, ptr %frg, align 8
-  %cmp4 = icmp eq i32 %6, 0
-  br i1 %cmp4, label %if.then5, label %if.end6
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 34
+  %19 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  store ptr %21, ptr %5, align 8, !tbaa !74
+  %22 = load ptr, ptr %5, align 8, !tbaa !74
+  %23 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %22, i32 0, i32 3
+  %24 = load i32, ptr %23, align 8, !tbaa !87
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %30
 
-if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr %seg, align 8
-  %len = getelementptr inbounds %struct.IKCPSEG, ptr %7, i32 0, i32 8
-  %8 = load i32, ptr %len, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %5, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %27, i32 0, i32 8
+  %29 = load i32, ptr %28, align 4, !tbaa !86
+  store i32 %29, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.end6:                                          ; preds = %if.end
-  %9 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %9, i32 0, i32 25
-  %10 = load i32, ptr %nrcv_que, align 4
-  %11 = load ptr, ptr %seg, align 8
-  %frg7 = getelementptr inbounds %struct.IKCPSEG, ptr %11, i32 0, i32 3
-  %12 = load i32, ptr %frg7, align 8
-  %add = add i32 %12, 1
-  %cmp8 = icmp ult i32 %10, %add
-  br i1 %cmp8, label %if.then9, label %if.end10
+30:                                               ; preds = %16
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.IKCPCB, ptr %31, i32 0, i32 25
+  %33 = load i32, ptr %32, align 4, !tbaa !50
+  %34 = load ptr, ptr %5, align 8, !tbaa !74
+  %35 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 8, !tbaa !87
+  %37 = add i32 %36, 1
+  %38 = icmp ult i32 %33, %37
+  br i1 %38, label %39, label %40
 
-if.then9:                                         ; preds = %if.end6
-  store i32 -1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %30
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.end10:                                         ; preds = %if.end6
-  %13 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue11 = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 34
-  %next12 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue11, i32 0, i32 0
-  %14 = load ptr, ptr %next12, align 8
-  store ptr %14, ptr %p, align 8
-  br label %for.cond
+40:                                               ; preds = %30
+  %41 = load ptr, ptr %3, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.IKCPCB, ptr %41, i32 0, i32 34
+  %43 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !42
+  store ptr %44, ptr %4, align 8, !tbaa !21
+  br label %45
 
-for.cond:                                         ; preds = %for.inc, %if.end10
-  %15 = load ptr, ptr %p, align 8
-  %16 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue13 = getelementptr inbounds %struct.IKCPCB, ptr %16, i32 0, i32 34
-  %cmp14 = icmp ne ptr %15, %rcv_queue13
-  br i1 %cmp14, label %for.body, label %for.end
+45:                                               ; preds = %64, %40
+  %46 = load ptr, ptr %4, align 8, !tbaa !21
+  %47 = load ptr, ptr %3, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 34
+  %49 = icmp ne ptr %46, %48
+  br i1 %49, label %50, label %68
 
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %p, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %17, i64 0
-  store ptr %add.ptr15, ptr %seg, align 8
-  %18 = load ptr, ptr %seg, align 8
-  %len16 = getelementptr inbounds %struct.IKCPSEG, ptr %18, i32 0, i32 8
-  %19 = load i32, ptr %len16, align 4
-  %20 = load i32, ptr %length, align 4
-  %add17 = add i32 %20, %19
-  store i32 %add17, ptr %length, align 4
-  %21 = load ptr, ptr %seg, align 8
-  %frg18 = getelementptr inbounds %struct.IKCPSEG, ptr %21, i32 0, i32 3
-  %22 = load i32, ptr %frg18, align 8
-  %cmp19 = icmp eq i32 %22, 0
-  br i1 %cmp19, label %if.then20, label %if.end21
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %4, align 8, !tbaa !21
+  %52 = getelementptr inbounds i8, ptr %51, i64 0
+  store ptr %52, ptr %5, align 8, !tbaa !74
+  %53 = load ptr, ptr %5, align 8, !tbaa !74
+  %54 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %53, i32 0, i32 8
+  %55 = load i32, ptr %54, align 4, !tbaa !86
+  %56 = load i32, ptr %6, align 4, !tbaa !10
+  %57 = add i32 %56, %55
+  store i32 %57, ptr %6, align 4, !tbaa !10
+  %58 = load ptr, ptr %5, align 8, !tbaa !74
+  %59 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %58, i32 0, i32 3
+  %60 = load i32, ptr %59, align 8, !tbaa !87
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %63
 
-if.then20:                                        ; preds = %for.body
-  br label %for.end
+62:                                               ; preds = %50
+  br label %68
 
-if.end21:                                         ; preds = %for.body
-  br label %for.inc
+63:                                               ; preds = %50
+  br label %64
 
-for.inc:                                          ; preds = %if.end21
-  %23 = load ptr, ptr %p, align 8
-  %next22 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %next22, align 8
-  store ptr %24, ptr %p, align 8
-  br label %for.cond, !llvm.loop !12
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %4, align 8, !tbaa !21
+  %66 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !80
+  store ptr %67, ptr %4, align 8, !tbaa !21
+  br label %45, !llvm.loop !91
 
-for.end:                                          ; preds = %if.then20, %for.cond
-  %25 = load i32, ptr %length, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %62, %45
+  %69 = load i32, ptr %6, align 4, !tbaa !10
+  store i32 %69, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-return:                                           ; preds = %for.end, %if.then9, %if.then5, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+70:                                               ; preds = %68, %39, %26, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %71 = load i32, ptr %2, align 4
+  ret i32 %71
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ikcp_canlog(ptr noundef %kcp, i32 noundef %mask) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %mask.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %mask, ptr %mask.addr, align 4
-  %0 = load i32, ptr %mask.addr, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %logmask = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 46
-  %2 = load i32, ptr %logmask, align 8
-  %and = and i32 %0, %2
-  %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @ikcp_canlog(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  %6 = load i32, ptr %5, align 4, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.IKCPCB, ptr %7, i32 0, i32 46
+  %9 = load i32, ptr %8, align 8, !tbaa !14
+  %10 = and i32 %6, %9
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %17, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %writelog = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 48
-  %4 = load ptr, ptr %writelog, align 8
-  %cmp1 = icmp eq ptr %4, null
-  br i1 %cmp1, label %if.then, label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.IKCPCB, ptr %13, i32 0, i32 48
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %12, %2
+  store i32 0, ptr %3, align 4
+  br label %19
 
-if.end:                                           ; preds = %lor.lhs.false
-  store i32 1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %12
+  store i32 1, ptr %3, align 4
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+19:                                               ; preds = %18, %17
+  %20 = load i32, ptr %3, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_send(ptr noundef %kcp, ptr noundef %buffer, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %buffer.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %seg = alloca ptr, align 8
-  %count = alloca i32, align 4
-  %i = alloca i32, align 4
-  %sent = alloca i32, align 4
-  %old = alloca ptr, align 8
-  %capacity = alloca i32, align 4
-  %extend = alloca i32, align 4
-  %size = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %buffer, ptr %buffer.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store i32 0, ptr %sent, align 4
-  %0 = load i32, ptr %len.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 0, ptr %11, align 4, !tbaa !10
+  %17 = load i32, ptr %7, align 4, !tbaa !10
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %344
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %stream = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 45
-  %2 = load i32, ptr %stream, align 4
-  %cmp1 = icmp ne i32 %2, 0
-  br i1 %cmp1, label %if.then2, label %if.end72
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.IKCPCB, ptr %21, i32 0, i32 45
+  %23 = load i32, ptr %22, align 4, !tbaa !38
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %192
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 33
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue3 = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 33
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue3, i32 0, i32 0
-  %5 = load ptr, ptr %next, align 8
-  %cmp4 = icmp eq ptr %snd_queue, %5
-  br i1 %cmp4, label %if.end67, label %if.then5
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.IKCPCB, ptr %26, i32 0, i32 33
+  %28 = load ptr, ptr %5, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.IKCPCB, ptr %28, i32 0, i32 33
+  %30 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %32 = icmp eq ptr %27, %31
+  br i1 %32, label %186, label %33
 
-if.then5:                                         ; preds = %if.then2
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue6 = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 33
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue6, i32 0, i32 1
-  %7 = load ptr, ptr %prev, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 0
-  store ptr %add.ptr, ptr %old, align 8
-  %8 = load ptr, ptr %old, align 8
-  %len7 = getelementptr inbounds %struct.IKCPSEG, ptr %8, i32 0, i32 8
-  %9 = load i32, ptr %len7, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %mss = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %mss, align 8
-  %cmp8 = icmp ult i32 %9, %11
-  br i1 %cmp8, label %if.then9, label %if.end66
+33:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %34 = load ptr, ptr %5, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.IKCPCB, ptr %34, i32 0, i32 33
+  %36 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %38 = getelementptr inbounds i8, ptr %37, i64 0
+  store ptr %38, ptr %13, align 8, !tbaa !74
+  %39 = load ptr, ptr %13, align 8, !tbaa !74
+  %40 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %39, i32 0, i32 8
+  %41 = load i32, ptr %40, align 4, !tbaa !86
+  %42 = load ptr, ptr %5, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.IKCPCB, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !37
+  %45 = icmp ult i32 %41, %44
+  br i1 %45, label %46, label %182
 
-if.then9:                                         ; preds = %if.then5
-  %12 = load ptr, ptr %kcp.addr, align 8
-  %mss10 = getelementptr inbounds %struct.IKCPCB, ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %mss10, align 8
-  %14 = load ptr, ptr %old, align 8
-  %len11 = getelementptr inbounds %struct.IKCPSEG, ptr %14, i32 0, i32 8
-  %15 = load i32, ptr %len11, align 4
-  %sub = sub i32 %13, %15
-  store i32 %sub, ptr %capacity, align 4
-  %16 = load i32, ptr %len.addr, align 4
-  %17 = load i32, ptr %capacity, align 4
-  %cmp12 = icmp slt i32 %16, %17
-  br i1 %cmp12, label %cond.true, label %cond.false
+46:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %47 = load ptr, ptr %5, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 2
+  %49 = load i32, ptr %48, align 8, !tbaa !37
+  %50 = load ptr, ptr %13, align 8, !tbaa !74
+  %51 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %50, i32 0, i32 8
+  %52 = load i32, ptr %51, align 4, !tbaa !86
+  %53 = sub i32 %49, %52
+  store i32 %53, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %54 = load i32, ptr %7, align 4, !tbaa !10
+  %55 = load i32, ptr %14, align 4, !tbaa !10
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %57, label %59
 
-cond.true:                                        ; preds = %if.then9
-  %18 = load i32, ptr %len.addr, align 4
-  br label %cond.end
+57:                                               ; preds = %46
+  %58 = load i32, ptr %7, align 4, !tbaa !10
+  br label %61
 
-cond.false:                                       ; preds = %if.then9
-  %19 = load i32, ptr %capacity, align 4
-  br label %cond.end
+59:                                               ; preds = %46
+  %60 = load i32, ptr %14, align 4, !tbaa !10
+  br label %61
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %18, %cond.true ], [ %19, %cond.false ]
-  store i32 %cond, ptr %extend, align 4
-  %20 = load ptr, ptr %kcp.addr, align 8
-  %21 = load ptr, ptr %old, align 8
-  %len13 = getelementptr inbounds %struct.IKCPSEG, ptr %21, i32 0, i32 8
-  %22 = load i32, ptr %len13, align 4
-  %23 = load i32, ptr %extend, align 4
-  %add = add i32 %22, %23
-  %call = call ptr @ikcp_segment_new(ptr noundef %20, i32 noundef %add)
-  store ptr %call, ptr %seg, align 8
-  %24 = load ptr, ptr %seg, align 8
-  %cmp14 = icmp eq ptr %24, null
-  br i1 %cmp14, label %if.then15, label %if.end16
+61:                                               ; preds = %59, %57
+  %62 = phi i32 [ %58, %57 ], [ %60, %59 ]
+  store i32 %62, ptr %15, align 4, !tbaa !10
+  %63 = load ptr, ptr %5, align 8, !tbaa !8
+  %64 = load ptr, ptr %13, align 8, !tbaa !74
+  %65 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %64, i32 0, i32 8
+  %66 = load i32, ptr %65, align 4, !tbaa !86
+  %67 = load i32, ptr %15, align 4, !tbaa !10
+  %68 = add i32 %66, %67
+  %69 = call ptr @ikcp_segment_new(ptr noundef %63, i32 noundef %68)
+  store ptr %69, ptr %8, align 8, !tbaa !74
+  %70 = load ptr, ptr %8, align 8, !tbaa !74
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %73
 
-if.then15:                                        ; preds = %cond.end
-  store i32 -2, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %61
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %179
 
-if.end16:                                         ; preds = %cond.end
-  %25 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue17 = getelementptr inbounds %struct.IKCPCB, ptr %25, i32 0, i32 33
-  %prev18 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue17, i32 0, i32 1
-  %26 = load ptr, ptr %prev18, align 8
-  %27 = load ptr, ptr %seg, align 8
-  %node = getelementptr inbounds %struct.IKCPSEG, ptr %27, i32 0, i32 0
-  %prev19 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node, i32 0, i32 1
-  store ptr %26, ptr %prev19, align 8
-  %28 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue20 = getelementptr inbounds %struct.IKCPCB, ptr %28, i32 0, i32 33
-  %29 = load ptr, ptr %seg, align 8
-  %node21 = getelementptr inbounds %struct.IKCPSEG, ptr %29, i32 0, i32 0
-  %next22 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node21, i32 0, i32 0
-  store ptr %snd_queue20, ptr %next22, align 8
-  %30 = load ptr, ptr %seg, align 8
-  %node23 = getelementptr inbounds %struct.IKCPSEG, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue24 = getelementptr inbounds %struct.IKCPCB, ptr %31, i32 0, i32 33
-  %prev25 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue24, i32 0, i32 1
-  %32 = load ptr, ptr %prev25, align 8
-  %next26 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %32, i32 0, i32 0
-  store ptr %node23, ptr %next26, align 8
-  %33 = load ptr, ptr %seg, align 8
-  %node27 = getelementptr inbounds %struct.IKCPSEG, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue28 = getelementptr inbounds %struct.IKCPCB, ptr %34, i32 0, i32 33
-  %prev29 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue28, i32 0, i32 1
-  store ptr %node27, ptr %prev29, align 8
-  %35 = load ptr, ptr %seg, align 8
-  %data = getelementptr inbounds %struct.IKCPSEG, ptr %35, i32 0, i32 13
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %data, i64 0, i64 0
-  %36 = load ptr, ptr %old, align 8
-  %data30 = getelementptr inbounds %struct.IKCPSEG, ptr %36, i32 0, i32 13
-  %arraydecay31 = getelementptr inbounds [1 x i8], ptr %data30, i64 0, i64 0
-  %37 = load ptr, ptr %old, align 8
-  %len32 = getelementptr inbounds %struct.IKCPSEG, ptr %37, i32 0, i32 8
-  %38 = load i32, ptr %len32, align 4
-  %conv = zext i32 %38 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 8 %arraydecay31, i64 %conv, i1 false)
-  %39 = load ptr, ptr %buffer.addr, align 8
-  %tobool = icmp ne ptr %39, null
-  br i1 %tobool, label %if.then33, label %if.end41
+73:                                               ; preds = %61
+  %74 = load ptr, ptr %5, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.IKCPCB, ptr %74, i32 0, i32 33
+  %76 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
+  %78 = load ptr, ptr %8, align 8, !tbaa !74
+  %79 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %79, i32 0, i32 1
+  store ptr %77, ptr %80, align 8, !tbaa !76
+  %81 = load ptr, ptr %5, align 8, !tbaa !8
+  %82 = getelementptr inbounds nuw %struct.IKCPCB, ptr %81, i32 0, i32 33
+  %83 = load ptr, ptr %8, align 8, !tbaa !74
+  %84 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %84, i32 0, i32 0
+  store ptr %82, ptr %85, align 8, !tbaa !78
+  %86 = load ptr, ptr %8, align 8, !tbaa !74
+  %87 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %5, align 8, !tbaa !8
+  %89 = getelementptr inbounds nuw %struct.IKCPCB, ptr %88, i32 0, i32 33
+  %90 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !41
+  %92 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %91, i32 0, i32 0
+  store ptr %87, ptr %92, align 8, !tbaa !80
+  %93 = load ptr, ptr %8, align 8, !tbaa !74
+  %94 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %5, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw %struct.IKCPCB, ptr %95, i32 0, i32 33
+  %97 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %96, i32 0, i32 1
+  store ptr %94, ptr %97, align 8, !tbaa !41
+  %98 = load ptr, ptr %8, align 8, !tbaa !74
+  %99 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %98, i32 0, i32 13
+  %100 = getelementptr inbounds [1 x i8], ptr %99, i64 0, i64 0
+  %101 = load ptr, ptr %13, align 8, !tbaa !74
+  %102 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %101, i32 0, i32 13
+  %103 = getelementptr inbounds [1 x i8], ptr %102, i64 0, i64 0
+  %104 = load ptr, ptr %13, align 8, !tbaa !74
+  %105 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %104, i32 0, i32 8
+  %106 = load i32, ptr %105, align 4, !tbaa !86
+  %107 = zext i32 %106 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %100, ptr align 8 %103, i64 %107, i1 false)
+  %108 = load ptr, ptr %6, align 8, !tbaa !12
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %126
 
-if.then33:                                        ; preds = %if.end16
-  %40 = load ptr, ptr %seg, align 8
-  %data34 = getelementptr inbounds %struct.IKCPSEG, ptr %40, i32 0, i32 13
-  %arraydecay35 = getelementptr inbounds [1 x i8], ptr %data34, i64 0, i64 0
-  %41 = load ptr, ptr %old, align 8
-  %len36 = getelementptr inbounds %struct.IKCPSEG, ptr %41, i32 0, i32 8
-  %42 = load i32, ptr %len36, align 4
-  %idx.ext = zext i32 %42 to i64
-  %add.ptr37 = getelementptr inbounds i8, ptr %arraydecay35, i64 %idx.ext
-  %43 = load ptr, ptr %buffer.addr, align 8
-  %44 = load i32, ptr %extend, align 4
-  %conv38 = sext i32 %44 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr align 1 %43, i64 %conv38, i1 false)
-  %45 = load i32, ptr %extend, align 4
-  %46 = load ptr, ptr %buffer.addr, align 8
-  %idx.ext39 = sext i32 %45 to i64
-  %add.ptr40 = getelementptr inbounds i8, ptr %46, i64 %idx.ext39
-  store ptr %add.ptr40, ptr %buffer.addr, align 8
-  br label %if.end41
+110:                                              ; preds = %73
+  %111 = load ptr, ptr %8, align 8, !tbaa !74
+  %112 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %111, i32 0, i32 13
+  %113 = getelementptr inbounds [1 x i8], ptr %112, i64 0, i64 0
+  %114 = load ptr, ptr %13, align 8, !tbaa !74
+  %115 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %114, i32 0, i32 8
+  %116 = load i32, ptr %115, align 4, !tbaa !86
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %117
+  %119 = load ptr, ptr %6, align 8, !tbaa !12
+  %120 = load i32, ptr %15, align 4, !tbaa !10
+  %121 = sext i32 %120 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr align 1 %119, i64 %121, i1 false)
+  %122 = load i32, ptr %15, align 4, !tbaa !10
+  %123 = load ptr, ptr %6, align 8, !tbaa !12
+  %124 = sext i32 %122 to i64
+  %125 = getelementptr inbounds i8, ptr %123, i64 %124
+  store ptr %125, ptr %6, align 8, !tbaa !12
+  br label %126
 
-if.end41:                                         ; preds = %if.then33, %if.end16
-  %47 = load ptr, ptr %old, align 8
-  %len42 = getelementptr inbounds %struct.IKCPSEG, ptr %47, i32 0, i32 8
-  %48 = load i32, ptr %len42, align 4
-  %49 = load i32, ptr %extend, align 4
-  %add43 = add i32 %48, %49
-  %50 = load ptr, ptr %seg, align 8
-  %len44 = getelementptr inbounds %struct.IKCPSEG, ptr %50, i32 0, i32 8
-  store i32 %add43, ptr %len44, align 4
-  %51 = load ptr, ptr %seg, align 8
-  %frg = getelementptr inbounds %struct.IKCPSEG, ptr %51, i32 0, i32 3
-  store i32 0, ptr %frg, align 8
-  %52 = load i32, ptr %extend, align 4
-  %53 = load i32, ptr %len.addr, align 4
-  %sub45 = sub nsw i32 %53, %52
-  store i32 %sub45, ptr %len.addr, align 4
-  br label %do.body
+126:                                              ; preds = %110, %73
+  %127 = load ptr, ptr %13, align 8, !tbaa !74
+  %128 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %127, i32 0, i32 8
+  %129 = load i32, ptr %128, align 4, !tbaa !86
+  %130 = load i32, ptr %15, align 4, !tbaa !10
+  %131 = add i32 %129, %130
+  %132 = load ptr, ptr %8, align 8, !tbaa !74
+  %133 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %132, i32 0, i32 8
+  store i32 %131, ptr %133, align 4, !tbaa !86
+  %134 = load ptr, ptr %8, align 8, !tbaa !74
+  %135 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %134, i32 0, i32 3
+  store i32 0, ptr %135, align 8, !tbaa !87
+  %136 = load i32, ptr %15, align 4, !tbaa !10
+  %137 = load i32, ptr %7, align 4, !tbaa !10
+  %138 = sub nsw i32 %137, %136
+  store i32 %138, ptr %7, align 4, !tbaa !10
+  br label %139
 
-do.body:                                          ; preds = %if.end41
-  %54 = load ptr, ptr %old, align 8
-  %node46 = getelementptr inbounds %struct.IKCPSEG, ptr %54, i32 0, i32 0
-  %prev47 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node46, i32 0, i32 1
-  %55 = load ptr, ptr %prev47, align 8
-  %56 = load ptr, ptr %old, align 8
-  %node48 = getelementptr inbounds %struct.IKCPSEG, ptr %56, i32 0, i32 0
-  %next49 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node48, i32 0, i32 0
-  %57 = load ptr, ptr %next49, align 8
-  %prev50 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %57, i32 0, i32 1
-  store ptr %55, ptr %prev50, align 8
-  %58 = load ptr, ptr %old, align 8
-  %node51 = getelementptr inbounds %struct.IKCPSEG, ptr %58, i32 0, i32 0
-  %next52 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node51, i32 0, i32 0
-  %59 = load ptr, ptr %next52, align 8
-  %60 = load ptr, ptr %old, align 8
-  %node53 = getelementptr inbounds %struct.IKCPSEG, ptr %60, i32 0, i32 0
-  %prev54 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node53, i32 0, i32 1
-  %61 = load ptr, ptr %prev54, align 8
-  %next55 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %61, i32 0, i32 0
-  store ptr %59, ptr %next55, align 8
-  %62 = load ptr, ptr %old, align 8
-  %node56 = getelementptr inbounds %struct.IKCPSEG, ptr %62, i32 0, i32 0
-  %next57 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node56, i32 0, i32 0
-  store ptr null, ptr %next57, align 8
-  %63 = load ptr, ptr %old, align 8
-  %node58 = getelementptr inbounds %struct.IKCPSEG, ptr %63, i32 0, i32 0
-  %prev59 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node58, i32 0, i32 1
-  store ptr null, ptr %prev59, align 8
-  %64 = load ptr, ptr %old, align 8
-  %node60 = getelementptr inbounds %struct.IKCPSEG, ptr %64, i32 0, i32 0
-  %65 = load ptr, ptr %old, align 8
-  %node61 = getelementptr inbounds %struct.IKCPSEG, ptr %65, i32 0, i32 0
-  %next62 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node61, i32 0, i32 0
-  store ptr %node60, ptr %next62, align 8
-  %66 = load ptr, ptr %old, align 8
-  %node63 = getelementptr inbounds %struct.IKCPSEG, ptr %66, i32 0, i32 0
-  %67 = load ptr, ptr %old, align 8
-  %node64 = getelementptr inbounds %struct.IKCPSEG, ptr %67, i32 0, i32 0
-  %prev65 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node64, i32 0, i32 1
-  store ptr %node63, ptr %prev65, align 8
-  br label %do.end
+139:                                              ; preds = %126
+  %140 = load ptr, ptr %13, align 8, !tbaa !74
+  %141 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %140, i32 0, i32 0
+  %142 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %141, i32 0, i32 1
+  %143 = load ptr, ptr %142, align 8, !tbaa !76
+  %144 = load ptr, ptr %13, align 8, !tbaa !74
+  %145 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %144, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8, !tbaa !78
+  %148 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %147, i32 0, i32 1
+  store ptr %143, ptr %148, align 8, !tbaa !79
+  %149 = load ptr, ptr %13, align 8, !tbaa !74
+  %150 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %149, i32 0, i32 0
+  %151 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8, !tbaa !78
+  %153 = load ptr, ptr %13, align 8, !tbaa !74
+  %154 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %154, i32 0, i32 1
+  %156 = load ptr, ptr %155, align 8, !tbaa !76
+  %157 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %156, i32 0, i32 0
+  store ptr %152, ptr %157, align 8, !tbaa !80
+  %158 = load ptr, ptr %13, align 8, !tbaa !74
+  %159 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %158, i32 0, i32 0
+  %160 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %159, i32 0, i32 0
+  store ptr null, ptr %160, align 8, !tbaa !78
+  %161 = load ptr, ptr %13, align 8, !tbaa !74
+  %162 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %161, i32 0, i32 0
+  %163 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %162, i32 0, i32 1
+  store ptr null, ptr %163, align 8, !tbaa !76
+  %164 = load ptr, ptr %13, align 8, !tbaa !74
+  %165 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %13, align 8, !tbaa !74
+  %167 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %166, i32 0, i32 0
+  %168 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %167, i32 0, i32 0
+  store ptr %165, ptr %168, align 8, !tbaa !78
+  %169 = load ptr, ptr %13, align 8, !tbaa !74
+  %170 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %169, i32 0, i32 0
+  %171 = load ptr, ptr %13, align 8, !tbaa !74
+  %172 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %171, i32 0, i32 0
+  %173 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %172, i32 0, i32 1
+  store ptr %170, ptr %173, align 8, !tbaa !76
+  br label %174
 
-do.end:                                           ; preds = %do.body
-  %68 = load ptr, ptr %kcp.addr, align 8
-  %69 = load ptr, ptr %old, align 8
-  call void @ikcp_segment_delete(ptr noundef %68, ptr noundef %69)
-  %70 = load i32, ptr %extend, align 4
-  store i32 %70, ptr %sent, align 4
-  br label %if.end66
+174:                                              ; preds = %139
+  br label %175
 
-if.end66:                                         ; preds = %do.end, %if.then5
-  br label %if.end67
+175:                                              ; preds = %174
+  %176 = load ptr, ptr %5, align 8, !tbaa !8
+  %177 = load ptr, ptr %13, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %176, ptr noundef %177)
+  %178 = load i32, ptr %15, align 4, !tbaa !10
+  store i32 %178, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %12, align 4
+  br label %179
 
-if.end67:                                         ; preds = %if.end66, %if.then2
-  %71 = load i32, ptr %len.addr, align 4
-  %cmp68 = icmp sle i32 %71, 0
-  br i1 %cmp68, label %if.then70, label %if.end71
+179:                                              ; preds = %175, %72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %180 = load i32, ptr %12, align 4
+  switch i32 %180, label %183 [
+    i32 0, label %181
+  ]
 
-if.then70:                                        ; preds = %if.end67
-  %72 = load i32, ptr %sent, align 4
-  store i32 %72, ptr %retval, align 4
-  br label %return
+181:                                              ; preds = %179
+  br label %182
 
-if.end71:                                         ; preds = %if.end67
-  br label %if.end72
+182:                                              ; preds = %181, %33
+  store i32 0, ptr %12, align 4
+  br label %183
 
-if.end72:                                         ; preds = %if.end71, %if.end
-  %73 = load i32, ptr %len.addr, align 4
-  %74 = load ptr, ptr %kcp.addr, align 8
-  %mss73 = getelementptr inbounds %struct.IKCPCB, ptr %74, i32 0, i32 2
-  %75 = load i32, ptr %mss73, align 8
-  %cmp74 = icmp sle i32 %73, %75
-  br i1 %cmp74, label %if.then76, label %if.else
+183:                                              ; preds = %182, %179
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  %184 = load i32, ptr %12, align 4
+  switch i32 %184, label %344 [
+    i32 0, label %185
+  ]
 
-if.then76:                                        ; preds = %if.end72
-  store i32 1, ptr %count, align 4
-  br label %if.end81
+185:                                              ; preds = %183
+  br label %186
 
-if.else:                                          ; preds = %if.end72
-  %76 = load i32, ptr %len.addr, align 4
-  %77 = load ptr, ptr %kcp.addr, align 8
-  %mss77 = getelementptr inbounds %struct.IKCPCB, ptr %77, i32 0, i32 2
-  %78 = load i32, ptr %mss77, align 8
-  %add78 = add i32 %76, %78
-  %sub79 = sub i32 %add78, 1
-  %79 = load ptr, ptr %kcp.addr, align 8
-  %mss80 = getelementptr inbounds %struct.IKCPCB, ptr %79, i32 0, i32 2
-  %80 = load i32, ptr %mss80, align 8
-  %div = udiv i32 %sub79, %80
-  store i32 %div, ptr %count, align 4
-  br label %if.end81
+186:                                              ; preds = %185, %25
+  %187 = load i32, ptr %7, align 4, !tbaa !10
+  %188 = icmp sle i32 %187, 0
+  br i1 %188, label %189, label %191
 
-if.end81:                                         ; preds = %if.else, %if.then76
-  %81 = load i32, ptr %count, align 4
-  %cmp82 = icmp sge i32 %81, 128
-  br i1 %cmp82, label %if.then84, label %if.end92
+189:                                              ; preds = %186
+  %190 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %190, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %344
 
-if.then84:                                        ; preds = %if.end81
-  %82 = load ptr, ptr %kcp.addr, align 8
-  %stream85 = getelementptr inbounds %struct.IKCPCB, ptr %82, i32 0, i32 45
-  %83 = load i32, ptr %stream85, align 4
-  %cmp86 = icmp ne i32 %83, 0
-  br i1 %cmp86, label %land.lhs.true, label %if.end91
+191:                                              ; preds = %186
+  br label %192
 
-land.lhs.true:                                    ; preds = %if.then84
-  %84 = load i32, ptr %sent, align 4
-  %cmp88 = icmp sgt i32 %84, 0
-  br i1 %cmp88, label %if.then90, label %if.end91
+192:                                              ; preds = %191, %20
+  %193 = load i32, ptr %7, align 4, !tbaa !10
+  %194 = load ptr, ptr %5, align 8, !tbaa !8
+  %195 = getelementptr inbounds nuw %struct.IKCPCB, ptr %194, i32 0, i32 2
+  %196 = load i32, ptr %195, align 8, !tbaa !37
+  %197 = icmp sle i32 %193, %196
+  br i1 %197, label %198, label %199
 
-if.then90:                                        ; preds = %land.lhs.true
-  %85 = load i32, ptr %sent, align 4
-  store i32 %85, ptr %retval, align 4
-  br label %return
+198:                                              ; preds = %192
+  store i32 1, ptr %9, align 4, !tbaa !10
+  br label %210
 
-if.end91:                                         ; preds = %land.lhs.true, %if.then84
-  store i32 -2, ptr %retval, align 4
-  br label %return
+199:                                              ; preds = %192
+  %200 = load i32, ptr %7, align 4, !tbaa !10
+  %201 = load ptr, ptr %5, align 8, !tbaa !8
+  %202 = getelementptr inbounds nuw %struct.IKCPCB, ptr %201, i32 0, i32 2
+  %203 = load i32, ptr %202, align 8, !tbaa !37
+  %204 = add i32 %200, %203
+  %205 = sub i32 %204, 1
+  %206 = load ptr, ptr %5, align 8, !tbaa !8
+  %207 = getelementptr inbounds nuw %struct.IKCPCB, ptr %206, i32 0, i32 2
+  %208 = load i32, ptr %207, align 8, !tbaa !37
+  %209 = udiv i32 %205, %208
+  store i32 %209, ptr %9, align 4, !tbaa !10
+  br label %210
 
-if.end92:                                         ; preds = %if.end81
-  %86 = load i32, ptr %count, align 4
-  %cmp93 = icmp eq i32 %86, 0
-  br i1 %cmp93, label %if.then95, label %if.end96
+210:                                              ; preds = %199, %198
+  %211 = load i32, ptr %9, align 4, !tbaa !10
+  %212 = icmp sge i32 %211, 128
+  br i1 %212, label %213, label %224
 
-if.then95:                                        ; preds = %if.end92
-  store i32 1, ptr %count, align 4
-  br label %if.end96
+213:                                              ; preds = %210
+  %214 = load ptr, ptr %5, align 8, !tbaa !8
+  %215 = getelementptr inbounds nuw %struct.IKCPCB, ptr %214, i32 0, i32 45
+  %216 = load i32, ptr %215, align 4, !tbaa !38
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %223
 
-if.end96:                                         ; preds = %if.then95, %if.end92
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+218:                                              ; preds = %213
+  %219 = load i32, ptr %11, align 4, !tbaa !10
+  %220 = icmp sgt i32 %219, 0
+  br i1 %220, label %221, label %223
 
-for.cond:                                         ; preds = %for.inc, %if.end96
-  %87 = load i32, ptr %i, align 4
-  %88 = load i32, ptr %count, align 4
-  %cmp97 = icmp slt i32 %87, %88
-  br i1 %cmp97, label %for.body, label %for.end
+221:                                              ; preds = %218
+  %222 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %222, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %344
 
-for.body:                                         ; preds = %for.cond
-  %89 = load i32, ptr %len.addr, align 4
-  %90 = load ptr, ptr %kcp.addr, align 8
-  %mss99 = getelementptr inbounds %struct.IKCPCB, ptr %90, i32 0, i32 2
-  %91 = load i32, ptr %mss99, align 8
-  %cmp100 = icmp sgt i32 %89, %91
-  br i1 %cmp100, label %cond.true102, label %cond.false104
+223:                                              ; preds = %218, %213
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %344
 
-cond.true102:                                     ; preds = %for.body
-  %92 = load ptr, ptr %kcp.addr, align 8
-  %mss103 = getelementptr inbounds %struct.IKCPCB, ptr %92, i32 0, i32 2
-  %93 = load i32, ptr %mss103, align 8
-  br label %cond.end105
+224:                                              ; preds = %210
+  %225 = load i32, ptr %9, align 4, !tbaa !10
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %228
 
-cond.false104:                                    ; preds = %for.body
-  %94 = load i32, ptr %len.addr, align 4
-  br label %cond.end105
+227:                                              ; preds = %224
+  store i32 1, ptr %9, align 4, !tbaa !10
+  br label %228
 
-cond.end105:                                      ; preds = %cond.false104, %cond.true102
-  %cond106 = phi i32 [ %93, %cond.true102 ], [ %94, %cond.false104 ]
-  store i32 %cond106, ptr %size, align 4
-  %95 = load ptr, ptr %kcp.addr, align 8
-  %96 = load i32, ptr %size, align 4
-  %call107 = call ptr @ikcp_segment_new(ptr noundef %95, i32 noundef %96)
-  store ptr %call107, ptr %seg, align 8
-  %97 = load ptr, ptr %seg, align 8
-  %cmp108 = icmp eq ptr %97, null
-  br i1 %cmp108, label %if.then110, label %if.end111
+228:                                              ; preds = %227, %224
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %229
 
-if.then110:                                       ; preds = %cond.end105
-  store i32 -2, ptr %retval, align 4
-  br label %return
+229:                                              ; preds = %339, %228
+  %230 = load i32, ptr %10, align 4, !tbaa !10
+  %231 = load i32, ptr %9, align 4, !tbaa !10
+  %232 = icmp slt i32 %230, %231
+  br i1 %232, label %233, label %342
 
-if.end111:                                        ; preds = %cond.end105
-  %98 = load ptr, ptr %buffer.addr, align 8
-  %tobool112 = icmp ne ptr %98, null
-  br i1 %tobool112, label %land.lhs.true113, label %if.end120
+233:                                              ; preds = %229
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  %234 = load i32, ptr %7, align 4, !tbaa !10
+  %235 = load ptr, ptr %5, align 8, !tbaa !8
+  %236 = getelementptr inbounds nuw %struct.IKCPCB, ptr %235, i32 0, i32 2
+  %237 = load i32, ptr %236, align 8, !tbaa !37
+  %238 = icmp sgt i32 %234, %237
+  br i1 %238, label %239, label %243
 
-land.lhs.true113:                                 ; preds = %if.end111
-  %99 = load i32, ptr %len.addr, align 4
-  %cmp114 = icmp sgt i32 %99, 0
-  br i1 %cmp114, label %if.then116, label %if.end120
+239:                                              ; preds = %233
+  %240 = load ptr, ptr %5, align 8, !tbaa !8
+  %241 = getelementptr inbounds nuw %struct.IKCPCB, ptr %240, i32 0, i32 2
+  %242 = load i32, ptr %241, align 8, !tbaa !37
+  br label %245
 
-if.then116:                                       ; preds = %land.lhs.true113
-  %100 = load ptr, ptr %seg, align 8
-  %data117 = getelementptr inbounds %struct.IKCPSEG, ptr %100, i32 0, i32 13
-  %arraydecay118 = getelementptr inbounds [1 x i8], ptr %data117, i64 0, i64 0
-  %101 = load ptr, ptr %buffer.addr, align 8
-  %102 = load i32, ptr %size, align 4
-  %conv119 = sext i32 %102 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay118, ptr align 1 %101, i64 %conv119, i1 false)
-  br label %if.end120
+243:                                              ; preds = %233
+  %244 = load i32, ptr %7, align 4, !tbaa !10
+  br label %245
 
-if.end120:                                        ; preds = %if.then116, %land.lhs.true113, %if.end111
-  %103 = load i32, ptr %size, align 4
-  %104 = load ptr, ptr %seg, align 8
-  %len121 = getelementptr inbounds %struct.IKCPSEG, ptr %104, i32 0, i32 8
-  store i32 %103, ptr %len121, align 4
-  %105 = load ptr, ptr %kcp.addr, align 8
-  %stream122 = getelementptr inbounds %struct.IKCPCB, ptr %105, i32 0, i32 45
-  %106 = load i32, ptr %stream122, align 4
-  %cmp123 = icmp eq i32 %106, 0
-  br i1 %cmp123, label %cond.true125, label %cond.false128
+245:                                              ; preds = %243, %239
+  %246 = phi i32 [ %242, %239 ], [ %244, %243 ]
+  store i32 %246, ptr %16, align 4, !tbaa !10
+  %247 = load ptr, ptr %5, align 8, !tbaa !8
+  %248 = load i32, ptr %16, align 4, !tbaa !10
+  %249 = call ptr @ikcp_segment_new(ptr noundef %247, i32 noundef %248)
+  store ptr %249, ptr %8, align 8, !tbaa !74
+  %250 = load ptr, ptr %8, align 8, !tbaa !74
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %252, label %253
 
-cond.true125:                                     ; preds = %if.end120
-  %107 = load i32, ptr %count, align 4
-  %108 = load i32, ptr %i, align 4
-  %sub126 = sub nsw i32 %107, %108
-  %sub127 = sub nsw i32 %sub126, 1
-  br label %cond.end129
+252:                                              ; preds = %245
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %336
 
-cond.false128:                                    ; preds = %if.end120
-  br label %cond.end129
+253:                                              ; preds = %245
+  %254 = load ptr, ptr %6, align 8, !tbaa !12
+  %255 = icmp ne ptr %254, null
+  br i1 %255, label %256, label %266
 
-cond.end129:                                      ; preds = %cond.false128, %cond.true125
-  %cond130 = phi i32 [ %sub127, %cond.true125 ], [ 0, %cond.false128 ]
-  %109 = load ptr, ptr %seg, align 8
-  %frg131 = getelementptr inbounds %struct.IKCPSEG, ptr %109, i32 0, i32 3
-  store i32 %cond130, ptr %frg131, align 8
-  %110 = load ptr, ptr %seg, align 8
-  %node132 = getelementptr inbounds %struct.IKCPSEG, ptr %110, i32 0, i32 0
-  %111 = load ptr, ptr %seg, align 8
-  %node133 = getelementptr inbounds %struct.IKCPSEG, ptr %111, i32 0, i32 0
-  %next134 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node133, i32 0, i32 0
-  store ptr %node132, ptr %next134, align 8
-  %112 = load ptr, ptr %seg, align 8
-  %node135 = getelementptr inbounds %struct.IKCPSEG, ptr %112, i32 0, i32 0
-  %113 = load ptr, ptr %seg, align 8
-  %node136 = getelementptr inbounds %struct.IKCPSEG, ptr %113, i32 0, i32 0
-  %prev137 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node136, i32 0, i32 1
-  store ptr %node135, ptr %prev137, align 8
-  %114 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue138 = getelementptr inbounds %struct.IKCPCB, ptr %114, i32 0, i32 33
-  %prev139 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue138, i32 0, i32 1
-  %115 = load ptr, ptr %prev139, align 8
-  %116 = load ptr, ptr %seg, align 8
-  %node140 = getelementptr inbounds %struct.IKCPSEG, ptr %116, i32 0, i32 0
-  %prev141 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node140, i32 0, i32 1
-  store ptr %115, ptr %prev141, align 8
-  %117 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue142 = getelementptr inbounds %struct.IKCPCB, ptr %117, i32 0, i32 33
-  %118 = load ptr, ptr %seg, align 8
-  %node143 = getelementptr inbounds %struct.IKCPSEG, ptr %118, i32 0, i32 0
-  %next144 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node143, i32 0, i32 0
-  store ptr %snd_queue142, ptr %next144, align 8
-  %119 = load ptr, ptr %seg, align 8
-  %node145 = getelementptr inbounds %struct.IKCPSEG, ptr %119, i32 0, i32 0
-  %120 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue146 = getelementptr inbounds %struct.IKCPCB, ptr %120, i32 0, i32 33
-  %prev147 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue146, i32 0, i32 1
-  %121 = load ptr, ptr %prev147, align 8
-  %next148 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %121, i32 0, i32 0
-  store ptr %node145, ptr %next148, align 8
-  %122 = load ptr, ptr %seg, align 8
-  %node149 = getelementptr inbounds %struct.IKCPSEG, ptr %122, i32 0, i32 0
-  %123 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue150 = getelementptr inbounds %struct.IKCPCB, ptr %123, i32 0, i32 33
-  %prev151 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue150, i32 0, i32 1
-  store ptr %node149, ptr %prev151, align 8
-  %124 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_que = getelementptr inbounds %struct.IKCPCB, ptr %124, i32 0, i32 26
-  %125 = load i32, ptr %nsnd_que, align 8
-  %inc = add i32 %125, 1
-  store i32 %inc, ptr %nsnd_que, align 8
-  %126 = load ptr, ptr %buffer.addr, align 8
-  %tobool152 = icmp ne ptr %126, null
-  br i1 %tobool152, label %if.then153, label %if.end156
+256:                                              ; preds = %253
+  %257 = load i32, ptr %7, align 4, !tbaa !10
+  %258 = icmp sgt i32 %257, 0
+  br i1 %258, label %259, label %266
 
-if.then153:                                       ; preds = %cond.end129
-  %127 = load i32, ptr %size, align 4
-  %128 = load ptr, ptr %buffer.addr, align 8
-  %idx.ext154 = sext i32 %127 to i64
-  %add.ptr155 = getelementptr inbounds i8, ptr %128, i64 %idx.ext154
-  store ptr %add.ptr155, ptr %buffer.addr, align 8
-  br label %if.end156
+259:                                              ; preds = %256
+  %260 = load ptr, ptr %8, align 8, !tbaa !74
+  %261 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %260, i32 0, i32 13
+  %262 = getelementptr inbounds [1 x i8], ptr %261, i64 0, i64 0
+  %263 = load ptr, ptr %6, align 8, !tbaa !12
+  %264 = load i32, ptr %16, align 4, !tbaa !10
+  %265 = sext i32 %264 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %262, ptr align 1 %263, i64 %265, i1 false)
+  br label %266
 
-if.end156:                                        ; preds = %if.then153, %cond.end129
-  %129 = load i32, ptr %size, align 4
-  %130 = load i32, ptr %len.addr, align 4
-  %sub157 = sub nsw i32 %130, %129
-  store i32 %sub157, ptr %len.addr, align 4
-  %131 = load i32, ptr %size, align 4
-  %132 = load i32, ptr %sent, align 4
-  %add158 = add nsw i32 %132, %131
-  store i32 %add158, ptr %sent, align 4
-  br label %for.inc
+266:                                              ; preds = %259, %256, %253
+  %267 = load i32, ptr %16, align 4, !tbaa !10
+  %268 = load ptr, ptr %8, align 8, !tbaa !74
+  %269 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %268, i32 0, i32 8
+  store i32 %267, ptr %269, align 4, !tbaa !86
+  %270 = load ptr, ptr %5, align 8, !tbaa !8
+  %271 = getelementptr inbounds nuw %struct.IKCPCB, ptr %270, i32 0, i32 45
+  %272 = load i32, ptr %271, align 4, !tbaa !38
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %279
 
-for.inc:                                          ; preds = %if.end156
-  %133 = load i32, ptr %i, align 4
-  %inc159 = add nsw i32 %133, 1
-  store i32 %inc159, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+274:                                              ; preds = %266
+  %275 = load i32, ptr %9, align 4, !tbaa !10
+  %276 = load i32, ptr %10, align 4, !tbaa !10
+  %277 = sub nsw i32 %275, %276
+  %278 = sub nsw i32 %277, 1
+  br label %280
 
-for.end:                                          ; preds = %for.cond
-  %134 = load i32, ptr %sent, align 4
-  store i32 %134, ptr %retval, align 4
-  br label %return
+279:                                              ; preds = %266
+  br label %280
 
-return:                                           ; preds = %for.end, %if.then110, %if.end91, %if.then90, %if.then70, %if.then15, %if.then
-  %135 = load i32, ptr %retval, align 4
-  ret i32 %135
+280:                                              ; preds = %279, %274
+  %281 = phi i32 [ %278, %274 ], [ 0, %279 ]
+  %282 = load ptr, ptr %8, align 8, !tbaa !74
+  %283 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %282, i32 0, i32 3
+  store i32 %281, ptr %283, align 8, !tbaa !87
+  %284 = load ptr, ptr %8, align 8, !tbaa !74
+  %285 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %284, i32 0, i32 0
+  %286 = load ptr, ptr %8, align 8, !tbaa !74
+  %287 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %286, i32 0, i32 0
+  %288 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %287, i32 0, i32 0
+  store ptr %285, ptr %288, align 8, !tbaa !78
+  %289 = load ptr, ptr %8, align 8, !tbaa !74
+  %290 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %289, i32 0, i32 0
+  %291 = load ptr, ptr %8, align 8, !tbaa !74
+  %292 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %291, i32 0, i32 0
+  %293 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %292, i32 0, i32 1
+  store ptr %290, ptr %293, align 8, !tbaa !76
+  %294 = load ptr, ptr %5, align 8, !tbaa !8
+  %295 = getelementptr inbounds nuw %struct.IKCPCB, ptr %294, i32 0, i32 33
+  %296 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %295, i32 0, i32 1
+  %297 = load ptr, ptr %296, align 8, !tbaa !41
+  %298 = load ptr, ptr %8, align 8, !tbaa !74
+  %299 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %298, i32 0, i32 0
+  %300 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %299, i32 0, i32 1
+  store ptr %297, ptr %300, align 8, !tbaa !76
+  %301 = load ptr, ptr %5, align 8, !tbaa !8
+  %302 = getelementptr inbounds nuw %struct.IKCPCB, ptr %301, i32 0, i32 33
+  %303 = load ptr, ptr %8, align 8, !tbaa !74
+  %304 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %303, i32 0, i32 0
+  %305 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %304, i32 0, i32 0
+  store ptr %302, ptr %305, align 8, !tbaa !78
+  %306 = load ptr, ptr %8, align 8, !tbaa !74
+  %307 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %306, i32 0, i32 0
+  %308 = load ptr, ptr %5, align 8, !tbaa !8
+  %309 = getelementptr inbounds nuw %struct.IKCPCB, ptr %308, i32 0, i32 33
+  %310 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %309, i32 0, i32 1
+  %311 = load ptr, ptr %310, align 8, !tbaa !41
+  %312 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %311, i32 0, i32 0
+  store ptr %307, ptr %312, align 8, !tbaa !80
+  %313 = load ptr, ptr %8, align 8, !tbaa !74
+  %314 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %313, i32 0, i32 0
+  %315 = load ptr, ptr %5, align 8, !tbaa !8
+  %316 = getelementptr inbounds nuw %struct.IKCPCB, ptr %315, i32 0, i32 33
+  %317 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %316, i32 0, i32 1
+  store ptr %314, ptr %317, align 8, !tbaa !41
+  %318 = load ptr, ptr %5, align 8, !tbaa !8
+  %319 = getelementptr inbounds nuw %struct.IKCPCB, ptr %318, i32 0, i32 26
+  %320 = load i32, ptr %319, align 8, !tbaa !51
+  %321 = add i32 %320, 1
+  store i32 %321, ptr %319, align 8, !tbaa !51
+  %322 = load ptr, ptr %6, align 8, !tbaa !12
+  %323 = icmp ne ptr %322, null
+  br i1 %323, label %324, label %329
+
+324:                                              ; preds = %280
+  %325 = load i32, ptr %16, align 4, !tbaa !10
+  %326 = load ptr, ptr %6, align 8, !tbaa !12
+  %327 = sext i32 %325 to i64
+  %328 = getelementptr inbounds i8, ptr %326, i64 %327
+  store ptr %328, ptr %6, align 8, !tbaa !12
+  br label %329
+
+329:                                              ; preds = %324, %280
+  %330 = load i32, ptr %16, align 4, !tbaa !10
+  %331 = load i32, ptr %7, align 4, !tbaa !10
+  %332 = sub nsw i32 %331, %330
+  store i32 %332, ptr %7, align 4, !tbaa !10
+  %333 = load i32, ptr %16, align 4, !tbaa !10
+  %334 = load i32, ptr %11, align 4, !tbaa !10
+  %335 = add nsw i32 %334, %333
+  store i32 %335, ptr %11, align 4, !tbaa !10
+  store i32 0, ptr %12, align 4
+  br label %336
+
+336:                                              ; preds = %329, %252
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  %337 = load i32, ptr %12, align 4
+  switch i32 %337, label %344 [
+    i32 0, label %338
+  ]
+
+338:                                              ; preds = %336
+  br label %339
+
+339:                                              ; preds = %338
+  %340 = load i32, ptr %10, align 4, !tbaa !10
+  %341 = add nsw i32 %340, 1
+  store i32 %341, ptr %10, align 4, !tbaa !10
+  br label %229, !llvm.loop !92
+
+342:                                              ; preds = %229
+  %343 = load i32, ptr %11, align 4, !tbaa !10
+  store i32 %343, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %344
+
+344:                                              ; preds = %342, %336, %223, %221, %189, %183, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %345 = load i32, ptr %4, align 4
+  ret i32 %345
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ikcp_segment_new(ptr noundef %kcp, i32 noundef %size) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load i32, ptr %size.addr, align 4
-  %conv = sext i32 %0 to i64
-  %add = add i64 72, %conv
-  %call = call ptr @ikcp_malloc(i64 noundef %add)
-  ret ptr %call
+define internal ptr @ikcp_segment_new(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %6 = sext i32 %5 to i64
+  %7 = add i64 72, %6
+  %8 = call ptr @ikcp_malloc(i64 noundef %7)
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_parse_data(ptr noundef %kcp, ptr noundef %newseg) #0 {
-entry:
-  %later.addr.i87 = alloca i32, align 4
-  %earlier.addr.i88 = alloca i32, align 4
-  %later.addr.i83 = alloca i32, align 4
-  %earlier.addr.i84 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %newseg.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %prev = alloca ptr, align 8
-  %sn = alloca i32, align 4
-  %repeat = alloca i32, align 4
-  %seg = alloca ptr, align 8
-  %seg39 = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %newseg, ptr %newseg.addr, align 8
-  %0 = load ptr, ptr %newseg.addr, align 8
-  %sn1 = getelementptr inbounds %struct.IKCPSEG, ptr %0, i32 0, i32 6
-  %1 = load i32, ptr %sn1, align 4
-  store i32 %1, ptr %sn, align 4
-  store i32 0, ptr %repeat, align 4
-  %2 = load i32, ptr %sn, align 4
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 6
-  %4 = load i32, ptr %rcv_nxt, align 8
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 15
-  %6 = load i32, ptr %rcv_wnd, align 4
-  %add = add i32 %4, %6
-  store i32 %2, ptr %later.addr.i87, align 4
-  store i32 %add, ptr %earlier.addr.i88, align 4
-  %7 = load i32, ptr %later.addr.i87, align 4
-  %8 = load i32, ptr %earlier.addr.i88, align 4
-  %sub.i89 = sub i32 %7, %8
-  %conv.i90 = sext i32 %sub.i89 to i64
-  %cmp = icmp sge i64 %conv.i90, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local void @ikcp_parse_data(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !74
+  %13 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %12, i32 0, i32 6
+  %14 = load i32, ptr %13, align 4, !tbaa !88
+  store i32 %14, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !10
+  %15 = load i32, ptr %7, align 4, !tbaa !10
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.IKCPCB, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8, !tbaa !25
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.IKCPCB, ptr %19, i32 0, i32 15
+  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %22 = add i32 %18, %21
+  %23 = call i64 @_itimediff(i32 noundef %15, i32 noundef %22)
+  %24 = icmp sge i64 %23, 0
+  br i1 %24, label %32, label %25
 
-lor.lhs.false:                                    ; preds = %entry
-  %9 = load i32, ptr %sn, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt2 = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 6
-  %11 = load i32, ptr %rcv_nxt2, align 8
-  store i32 %9, ptr %later.addr.i83, align 4
-  store i32 %11, ptr %earlier.addr.i84, align 4
-  %12 = load i32, ptr %later.addr.i83, align 4
-  %13 = load i32, ptr %earlier.addr.i84, align 4
-  %sub.i85 = sub i32 %12, %13
-  %conv.i86 = sext i32 %sub.i85 to i64
-  %cmp4 = icmp slt i64 %conv.i86, 0
-  br i1 %cmp4, label %if.then, label %if.end
+25:                                               ; preds = %2
+  %26 = load i32, ptr %7, align 4, !tbaa !10
+  %27 = load ptr, ptr %3, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.IKCPCB, ptr %27, i32 0, i32 6
+  %29 = load i32, ptr %28, align 8, !tbaa !25
+  %30 = call i64 @_itimediff(i32 noundef %26, i32 noundef %29)
+  %31 = icmp slt i64 %30, 0
+  br i1 %31, label %32, label %35
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %14 = load ptr, ptr %kcp.addr, align 8
-  %15 = load ptr, ptr %newseg.addr, align 8
-  call void @ikcp_segment_delete(ptr noundef %14, ptr noundef %15)
-  br label %while.end
+32:                                               ; preds = %25, %2
+  %33 = load ptr, ptr %3, align 8, !tbaa !8
+  %34 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %33, ptr noundef %34)
+  store i32 1, ptr %9, align 4
+  br label %210
 
-if.end:                                           ; preds = %lor.lhs.false
-  %16 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %16, i32 0, i32 36
-  %prev5 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf, i32 0, i32 1
-  %17 = load ptr, ptr %prev5, align 8
-  store ptr %17, ptr %p, align 8
-  br label %for.cond
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %3, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.IKCPCB, ptr %36, i32 0, i32 36
+  %38 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !47
+  store ptr %39, ptr %5, align 8, !tbaa !21
+  br label %40
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %18 = load ptr, ptr %p, align 8
-  %19 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf6 = getelementptr inbounds %struct.IKCPCB, ptr %19, i32 0, i32 36
-  %cmp7 = icmp ne ptr %18, %rcv_buf6
-  br i1 %cmp7, label %for.body, label %for.end
+40:                                               ; preds = %69, %35
+  %41 = load ptr, ptr %5, align 8, !tbaa !21
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %struct.IKCPCB, ptr %42, i32 0, i32 36
+  %44 = icmp ne ptr %41, %43
+  br i1 %44, label %45, label %71
 
-for.body:                                         ; preds = %for.cond
-  %20 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %20, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %21 = load ptr, ptr %p, align 8
-  %prev8 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %prev8, align 8
-  store ptr %22, ptr %prev, align 8
-  %23 = load ptr, ptr %seg, align 8
-  %sn9 = getelementptr inbounds %struct.IKCPSEG, ptr %23, i32 0, i32 6
-  %24 = load i32, ptr %sn9, align 4
-  %25 = load i32, ptr %sn, align 4
-  %cmp10 = icmp eq i32 %24, %25
-  br i1 %cmp10, label %if.then11, label %if.end12
+45:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %46 = load ptr, ptr %5, align 8, !tbaa !21
+  %47 = getelementptr inbounds i8, ptr %46, i64 0
+  store ptr %47, ptr %10, align 8, !tbaa !74
+  %48 = load ptr, ptr %5, align 8, !tbaa !21
+  %49 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !79
+  store ptr %50, ptr %6, align 8, !tbaa !21
+  %51 = load ptr, ptr %10, align 8, !tbaa !74
+  %52 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %51, i32 0, i32 6
+  %53 = load i32, ptr %52, align 4, !tbaa !88
+  %54 = load i32, ptr %7, align 4, !tbaa !10
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %56, label %57
 
-if.then11:                                        ; preds = %for.body
-  store i32 1, ptr %repeat, align 4
-  br label %for.end
+56:                                               ; preds = %45
+  store i32 1, ptr %8, align 4, !tbaa !10
+  store i32 2, ptr %9, align 4
+  br label %66
 
-if.end12:                                         ; preds = %for.body
-  %26 = load i32, ptr %sn, align 4
-  %27 = load ptr, ptr %seg, align 8
-  %sn13 = getelementptr inbounds %struct.IKCPSEG, ptr %27, i32 0, i32 6
-  %28 = load i32, ptr %sn13, align 4
-  store i32 %26, ptr %later.addr.i, align 4
-  store i32 %28, ptr %earlier.addr.i, align 4
-  %29 = load i32, ptr %later.addr.i, align 4
-  %30 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %29, %30
-  %conv.i = sext i32 %sub.i to i64
-  %cmp15 = icmp sgt i64 %conv.i, 0
-  br i1 %cmp15, label %if.then16, label %if.end17
+57:                                               ; preds = %45
+  %58 = load i32, ptr %7, align 4, !tbaa !10
+  %59 = load ptr, ptr %10, align 8, !tbaa !74
+  %60 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %59, i32 0, i32 6
+  %61 = load i32, ptr %60, align 4, !tbaa !88
+  %62 = call i64 @_itimediff(i32 noundef %58, i32 noundef %61)
+  %63 = icmp sgt i64 %62, 0
+  br i1 %63, label %64, label %65
 
-if.then16:                                        ; preds = %if.end12
-  br label %for.end
+64:                                               ; preds = %57
+  store i32 2, ptr %9, align 4
+  br label %66
 
-if.end17:                                         ; preds = %if.end12
-  br label %for.inc
+65:                                               ; preds = %57
+  store i32 0, ptr %9, align 4
+  br label %66
 
-for.inc:                                          ; preds = %if.end17
-  %31 = load ptr, ptr %prev, align 8
-  store ptr %31, ptr %p, align 8
-  br label %for.cond, !llvm.loop !14
+66:                                               ; preds = %65, %64, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %67 = load i32, ptr %9, align 4
+  switch i32 %67, label %213 [
+    i32 0, label %68
+    i32 2, label %71
+  ]
 
-for.end:                                          ; preds = %if.then16, %if.then11, %for.cond
-  %32 = load i32, ptr %repeat, align 4
-  %cmp18 = icmp eq i32 %32, 0
-  br i1 %cmp18, label %if.then19, label %if.else
+68:                                               ; preds = %66
+  br label %69
 
-if.then19:                                        ; preds = %for.end
-  %33 = load ptr, ptr %newseg.addr, align 8
-  %node = getelementptr inbounds %struct.IKCPSEG, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %newseg.addr, align 8
-  %node20 = getelementptr inbounds %struct.IKCPSEG, ptr %34, i32 0, i32 0
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node20, i32 0, i32 0
-  store ptr %node, ptr %next, align 8
-  %35 = load ptr, ptr %newseg.addr, align 8
-  %node21 = getelementptr inbounds %struct.IKCPSEG, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %newseg.addr, align 8
-  %node22 = getelementptr inbounds %struct.IKCPSEG, ptr %36, i32 0, i32 0
-  %prev23 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node22, i32 0, i32 1
-  store ptr %node21, ptr %prev23, align 8
-  %37 = load ptr, ptr %p, align 8
-  %38 = load ptr, ptr %newseg.addr, align 8
-  %node24 = getelementptr inbounds %struct.IKCPSEG, ptr %38, i32 0, i32 0
-  %prev25 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node24, i32 0, i32 1
-  store ptr %37, ptr %prev25, align 8
-  %39 = load ptr, ptr %p, align 8
-  %next26 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %next26, align 8
-  %41 = load ptr, ptr %newseg.addr, align 8
-  %node27 = getelementptr inbounds %struct.IKCPSEG, ptr %41, i32 0, i32 0
-  %next28 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node27, i32 0, i32 0
-  store ptr %40, ptr %next28, align 8
-  %42 = load ptr, ptr %newseg.addr, align 8
-  %node29 = getelementptr inbounds %struct.IKCPSEG, ptr %42, i32 0, i32 0
-  %43 = load ptr, ptr %p, align 8
-  %next30 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %next30, align 8
-  %prev31 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %44, i32 0, i32 1
-  store ptr %node29, ptr %prev31, align 8
-  %45 = load ptr, ptr %newseg.addr, align 8
-  %node32 = getelementptr inbounds %struct.IKCPSEG, ptr %45, i32 0, i32 0
-  %46 = load ptr, ptr %p, align 8
-  %next33 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %46, i32 0, i32 0
-  store ptr %node32, ptr %next33, align 8
-  %47 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_buf = getelementptr inbounds %struct.IKCPCB, ptr %47, i32 0, i32 23
-  %48 = load i32, ptr %nrcv_buf, align 4
-  %inc = add i32 %48, 1
-  store i32 %inc, ptr %nrcv_buf, align 4
-  br label %if.end34
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %70, ptr %5, align 8, !tbaa !21
+  br label %40, !llvm.loop !93
 
-if.else:                                          ; preds = %for.end
-  %49 = load ptr, ptr %kcp.addr, align 8
-  %50 = load ptr, ptr %newseg.addr, align 8
+71:                                               ; preds = %66, %40
+  %72 = load i32, ptr %8, align 4, !tbaa !10
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %109
+
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %4, align 8, !tbaa !74
+  %76 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %4, align 8, !tbaa !74
+  %78 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %77, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %78, i32 0, i32 0
+  store ptr %76, ptr %79, align 8, !tbaa !78
+  %80 = load ptr, ptr %4, align 8, !tbaa !74
+  %81 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %4, align 8, !tbaa !74
+  %83 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %83, i32 0, i32 1
+  store ptr %81, ptr %84, align 8, !tbaa !76
+  %85 = load ptr, ptr %5, align 8, !tbaa !21
+  %86 = load ptr, ptr %4, align 8, !tbaa !74
+  %87 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %86, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %87, i32 0, i32 1
+  store ptr %85, ptr %88, align 8, !tbaa !76
+  %89 = load ptr, ptr %5, align 8, !tbaa !21
+  %90 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !80
+  %92 = load ptr, ptr %4, align 8, !tbaa !74
+  %93 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %92, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %93, i32 0, i32 0
+  store ptr %91, ptr %94, align 8, !tbaa !78
+  %95 = load ptr, ptr %4, align 8, !tbaa !74
+  %96 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %95, i32 0, i32 0
+  %97 = load ptr, ptr %5, align 8, !tbaa !21
+  %98 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8, !tbaa !80
+  %100 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %99, i32 0, i32 1
+  store ptr %96, ptr %100, align 8, !tbaa !79
+  %101 = load ptr, ptr %4, align 8, !tbaa !74
+  %102 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %101, i32 0, i32 0
+  %103 = load ptr, ptr %5, align 8, !tbaa !21
+  %104 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %103, i32 0, i32 0
+  store ptr %102, ptr %104, align 8, !tbaa !80
+  %105 = load ptr, ptr %3, align 8, !tbaa !8
+  %106 = getelementptr inbounds nuw %struct.IKCPCB, ptr %105, i32 0, i32 23
+  %107 = load i32, ptr %106, align 4, !tbaa !48
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %106, align 4, !tbaa !48
+  br label %112
+
+109:                                              ; preds = %71
+  %110 = load ptr, ptr %3, align 8, !tbaa !8
+  %111 = load ptr, ptr %4, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %110, ptr noundef %111)
+  br label %112
+
+112:                                              ; preds = %109, %74
+  br label %113
+
+113:                                              ; preds = %208, %112
+  %114 = load ptr, ptr %3, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw %struct.IKCPCB, ptr %114, i32 0, i32 36
+  %116 = load ptr, ptr %3, align 8, !tbaa !8
+  %117 = getelementptr inbounds nuw %struct.IKCPCB, ptr %116, i32 0, i32 36
+  %118 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8, !tbaa !46
+  %120 = icmp eq ptr %115, %119
+  %121 = xor i1 %120, true
+  br i1 %121, label %122, label %209
+
+122:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %123 = load ptr, ptr %3, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw %struct.IKCPCB, ptr %123, i32 0, i32 36
+  %125 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !46
+  %127 = getelementptr inbounds i8, ptr %126, i64 0
+  store ptr %127, ptr %11, align 8, !tbaa !74
+  %128 = load ptr, ptr %11, align 8, !tbaa !74
+  %129 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %128, i32 0, i32 6
+  %130 = load i32, ptr %129, align 4, !tbaa !88
+  %131 = load ptr, ptr %3, align 8, !tbaa !8
+  %132 = getelementptr inbounds nuw %struct.IKCPCB, ptr %131, i32 0, i32 6
+  %133 = load i32, ptr %132, align 8, !tbaa !25
+  %134 = icmp eq i32 %130, %133
+  br i1 %134, label %135, label %204
+
+135:                                              ; preds = %122
+  %136 = load ptr, ptr %3, align 8, !tbaa !8
+  %137 = getelementptr inbounds nuw %struct.IKCPCB, ptr %136, i32 0, i32 25
+  %138 = load i32, ptr %137, align 4, !tbaa !50
+  %139 = load ptr, ptr %3, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw %struct.IKCPCB, ptr %139, i32 0, i32 15
+  %141 = load i32, ptr %140, align 4, !tbaa !31
+  %142 = icmp ult i32 %138, %141
+  br i1 %142, label %143, label %204
+
+143:                                              ; preds = %135
+  %144 = load ptr, ptr %11, align 8, !tbaa !74
+  %145 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %144, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8, !tbaa !76
+  %148 = load ptr, ptr %11, align 8, !tbaa !74
+  %149 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %148, i32 0, i32 0
+  %150 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8, !tbaa !78
+  %152 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %151, i32 0, i32 1
+  store ptr %147, ptr %152, align 8, !tbaa !79
+  %153 = load ptr, ptr %11, align 8, !tbaa !74
+  %154 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8, !tbaa !78
+  %157 = load ptr, ptr %11, align 8, !tbaa !74
+  %158 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %157, i32 0, i32 0
+  %159 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8, !tbaa !76
+  %161 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %160, i32 0, i32 0
+  store ptr %156, ptr %161, align 8, !tbaa !80
+  %162 = load ptr, ptr %11, align 8, !tbaa !74
+  %163 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %162, i32 0, i32 0
+  %164 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %163, i32 0, i32 0
+  store ptr null, ptr %164, align 8, !tbaa !78
+  %165 = load ptr, ptr %11, align 8, !tbaa !74
+  %166 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %165, i32 0, i32 0
+  %167 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %166, i32 0, i32 1
+  store ptr null, ptr %167, align 8, !tbaa !76
+  %168 = load ptr, ptr %3, align 8, !tbaa !8
+  %169 = getelementptr inbounds nuw %struct.IKCPCB, ptr %168, i32 0, i32 23
+  %170 = load i32, ptr %169, align 4, !tbaa !48
+  %171 = add i32 %170, -1
+  store i32 %171, ptr %169, align 4, !tbaa !48
+  %172 = load ptr, ptr %3, align 8, !tbaa !8
+  %173 = getelementptr inbounds nuw %struct.IKCPCB, ptr %172, i32 0, i32 34
+  %174 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %173, i32 0, i32 1
+  %175 = load ptr, ptr %174, align 8, !tbaa !43
+  %176 = load ptr, ptr %11, align 8, !tbaa !74
+  %177 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %176, i32 0, i32 0
+  %178 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %177, i32 0, i32 1
+  store ptr %175, ptr %178, align 8, !tbaa !76
+  %179 = load ptr, ptr %3, align 8, !tbaa !8
+  %180 = getelementptr inbounds nuw %struct.IKCPCB, ptr %179, i32 0, i32 34
+  %181 = load ptr, ptr %11, align 8, !tbaa !74
+  %182 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %181, i32 0, i32 0
+  %183 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %182, i32 0, i32 0
+  store ptr %180, ptr %183, align 8, !tbaa !78
+  %184 = load ptr, ptr %11, align 8, !tbaa !74
+  %185 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %184, i32 0, i32 0
+  %186 = load ptr, ptr %3, align 8, !tbaa !8
+  %187 = getelementptr inbounds nuw %struct.IKCPCB, ptr %186, i32 0, i32 34
+  %188 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %187, i32 0, i32 1
+  %189 = load ptr, ptr %188, align 8, !tbaa !43
+  %190 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %189, i32 0, i32 0
+  store ptr %185, ptr %190, align 8, !tbaa !80
+  %191 = load ptr, ptr %11, align 8, !tbaa !74
+  %192 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %191, i32 0, i32 0
+  %193 = load ptr, ptr %3, align 8, !tbaa !8
+  %194 = getelementptr inbounds nuw %struct.IKCPCB, ptr %193, i32 0, i32 34
+  %195 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %194, i32 0, i32 1
+  store ptr %192, ptr %195, align 8, !tbaa !43
+  %196 = load ptr, ptr %3, align 8, !tbaa !8
+  %197 = getelementptr inbounds nuw %struct.IKCPCB, ptr %196, i32 0, i32 25
+  %198 = load i32, ptr %197, align 4, !tbaa !50
+  %199 = add i32 %198, 1
+  store i32 %199, ptr %197, align 4, !tbaa !50
+  %200 = load ptr, ptr %3, align 8, !tbaa !8
+  %201 = getelementptr inbounds nuw %struct.IKCPCB, ptr %200, i32 0, i32 6
+  %202 = load i32, ptr %201, align 8, !tbaa !25
+  %203 = add i32 %202, 1
+  store i32 %203, ptr %201, align 8, !tbaa !25
+  br label %205
+
+204:                                              ; preds = %135, %122
+  store i32 6, ptr %9, align 4
+  br label %206
+
+205:                                              ; preds = %143
+  store i32 0, ptr %9, align 4
+  br label %206
+
+206:                                              ; preds = %205, %204
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  %207 = load i32, ptr %9, align 4
+  switch i32 %207, label %213 [
+    i32 0, label %208
+    i32 6, label %209
+  ]
+
+208:                                              ; preds = %206
+  br label %113, !llvm.loop !94
+
+209:                                              ; preds = %206, %113
+  store i32 0, ptr %9, align 4
+  br label %210
+
+210:                                              ; preds = %209, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %211 = load i32, ptr %9, align 4
+  switch i32 %211, label %213 [
+    i32 0, label %212
+    i32 1, label %212
+  ]
+
+212:                                              ; preds = %210, %210
+  ret void
+
+213:                                              ; preds = %210, %206, %66
+  unreachable
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @_itimediff(i32 noundef %0, i32 noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = sub i32 %5, %6
+  %8 = sext i32 %7 to i64
+  ret i64 %8
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ikcp_input(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i16, align 2
+  %19 = alloca i8, align 1
+  %20 = alloca i8, align 1
+  %21 = alloca ptr, align 8
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store i64 %2, ptr %7, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.IKCPCB, ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8, !tbaa !23
+  store i32 %25, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  store i32 0, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 0, ptr %11, align 4, !tbaa !10
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = call i32 @ikcp_canlog(ptr noundef %26, i32 noundef 2)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %33
+
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %5, align 8, !tbaa !8
+  %31 = load i64, ptr %7, align 8, !tbaa !72
+  %32 = trunc i64 %31 to i32
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %30, i32 noundef 2, ptr noundef @.str.1, i32 noundef %32)
+  br label %33
+
+33:                                               ; preds = %29, %3
+  %34 = load ptr, ptr %6, align 8, !tbaa !12
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %40, label %36
+
+36:                                               ; preds = %33
+  %37 = load i64, ptr %7, align 8, !tbaa !72
+  %38 = trunc i64 %37 to i32
+  %39 = icmp slt i32 %38, 24
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %36, %33
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %410
+
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %289, %41
+  br label %43
+
+43:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %44 = load i64, ptr %7, align 8, !tbaa !72
+  %45 = icmp slt i64 %44, 24
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %43
+  store i32 3, ptr %12, align 4
+  br label %287
+
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %6, align 8, !tbaa !12
+  %49 = call ptr @ikcp_decode32u(ptr noundef %48, ptr noundef %17)
+  store ptr %49, ptr %6, align 8, !tbaa !12
+  %50 = load i32, ptr %17, align 4, !tbaa !10
+  %51 = load ptr, ptr %5, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.IKCPCB, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !22
+  %54 = icmp ne i32 %50, %53
+  br i1 %54, label %55, label %56
+
+55:                                               ; preds = %47
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %287
+
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %6, align 8, !tbaa !12
+  %58 = call ptr @ikcp_decode8u(ptr noundef %57, ptr noundef %19)
+  store ptr %58, ptr %6, align 8, !tbaa !12
+  %59 = load ptr, ptr %6, align 8, !tbaa !12
+  %60 = call ptr @ikcp_decode8u(ptr noundef %59, ptr noundef %20)
+  store ptr %60, ptr %6, align 8, !tbaa !12
+  %61 = load ptr, ptr %6, align 8, !tbaa !12
+  %62 = call ptr @ikcp_decode16u(ptr noundef %61, ptr noundef %18)
+  store ptr %62, ptr %6, align 8, !tbaa !12
+  %63 = load ptr, ptr %6, align 8, !tbaa !12
+  %64 = call ptr @ikcp_decode32u(ptr noundef %63, ptr noundef %13)
+  store ptr %64, ptr %6, align 8, !tbaa !12
+  %65 = load ptr, ptr %6, align 8, !tbaa !12
+  %66 = call ptr @ikcp_decode32u(ptr noundef %65, ptr noundef %14)
+  store ptr %66, ptr %6, align 8, !tbaa !12
+  %67 = load ptr, ptr %6, align 8, !tbaa !12
+  %68 = call ptr @ikcp_decode32u(ptr noundef %67, ptr noundef %16)
+  store ptr %68, ptr %6, align 8, !tbaa !12
+  %69 = load ptr, ptr %6, align 8, !tbaa !12
+  %70 = call ptr @ikcp_decode32u(ptr noundef %69, ptr noundef %15)
+  store ptr %70, ptr %6, align 8, !tbaa !12
+  %71 = load i64, ptr %7, align 8, !tbaa !72
+  %72 = sub nsw i64 %71, 24
+  store i64 %72, ptr %7, align 8, !tbaa !72
+  %73 = load i64, ptr %7, align 8, !tbaa !72
+  %74 = load i32, ptr %15, align 4, !tbaa !10
+  %75 = zext i32 %74 to i64
+  %76 = icmp slt i64 %73, %75
+  br i1 %76, label %80, label %77
+
+77:                                               ; preds = %56
+  %78 = load i32, ptr %15, align 4, !tbaa !10
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %77, %56
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %287
+
+81:                                               ; preds = %77
+  %82 = load i8, ptr %19, align 1, !tbaa !95
+  %83 = zext i8 %82 to i32
+  %84 = icmp ne i32 %83, 81
+  br i1 %84, label %85, label %98
+
+85:                                               ; preds = %81
+  %86 = load i8, ptr %19, align 1, !tbaa !95
+  %87 = zext i8 %86 to i32
+  %88 = icmp ne i32 %87, 82
+  br i1 %88, label %89, label %98
+
+89:                                               ; preds = %85
+  %90 = load i8, ptr %19, align 1, !tbaa !95
+  %91 = zext i8 %90 to i32
+  %92 = icmp ne i32 %91, 83
+  br i1 %92, label %93, label %98
+
+93:                                               ; preds = %89
+  %94 = load i8, ptr %19, align 1, !tbaa !95
+  %95 = zext i8 %94 to i32
+  %96 = icmp ne i32 %95, 84
+  br i1 %96, label %97, label %98
+
+97:                                               ; preds = %93
+  store i32 -3, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %287
+
+98:                                               ; preds = %93, %89, %85, %81
+  %99 = load i16, ptr %18, align 2, !tbaa !96
+  %100 = zext i16 %99 to i32
+  %101 = load ptr, ptr %5, align 8, !tbaa !8
+  %102 = getelementptr inbounds nuw %struct.IKCPCB, ptr %101, i32 0, i32 16
+  store i32 %100, ptr %102, align 8, !tbaa !32
+  %103 = load ptr, ptr %5, align 8, !tbaa !8
+  %104 = load i32, ptr %16, align 4, !tbaa !10
+  call void @ikcp_parse_una(ptr noundef %103, i32 noundef %104)
+  %105 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @ikcp_shrink_buf(ptr noundef %105)
+  %106 = load i8, ptr %19, align 1, !tbaa !95
+  %107 = zext i8 %106 to i32
+  %108 = icmp eq i32 %107, 82
+  br i1 %108, label %109, label %166
+
+109:                                              ; preds = %98
+  %110 = load ptr, ptr %5, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw %struct.IKCPCB, ptr %110, i32 0, i32 19
+  %112 = load i32, ptr %111, align 4, !tbaa !60
+  %113 = load i32, ptr %13, align 4, !tbaa !10
+  %114 = call i64 @_itimediff(i32 noundef %112, i32 noundef %113)
+  %115 = icmp sge i64 %114, 0
+  br i1 %115, label %116, label %124
+
+116:                                              ; preds = %109
+  %117 = load ptr, ptr %5, align 8, !tbaa !8
+  %118 = load ptr, ptr %5, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw %struct.IKCPCB, ptr %118, i32 0, i32 19
+  %120 = load i32, ptr %119, align 4, !tbaa !60
+  %121 = load i32, ptr %13, align 4, !tbaa !10
+  %122 = call i64 @_itimediff(i32 noundef %120, i32 noundef %121)
+  %123 = trunc i64 %122 to i32
+  call void @ikcp_update_ack(ptr noundef %117, i32 noundef %123)
+  br label %124
+
+124:                                              ; preds = %116, %109
+  %125 = load ptr, ptr %5, align 8, !tbaa !8
+  %126 = load i32, ptr %14, align 4, !tbaa !10
+  call void @ikcp_parse_ack(ptr noundef %125, i32 noundef %126)
+  %127 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @ikcp_shrink_buf(ptr noundef %127)
+  %128 = load i32, ptr %11, align 4, !tbaa !10
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %133
+
+130:                                              ; preds = %124
+  store i32 1, ptr %11, align 4, !tbaa !10
+  %131 = load i32, ptr %14, align 4, !tbaa !10
+  store i32 %131, ptr %9, align 4, !tbaa !10
+  %132 = load i32, ptr %13, align 4, !tbaa !10
+  store i32 %132, ptr %10, align 4, !tbaa !10
+  br label %148
+
+133:                                              ; preds = %124
+  %134 = load i32, ptr %14, align 4, !tbaa !10
+  %135 = load i32, ptr %9, align 4, !tbaa !10
+  %136 = call i64 @_itimediff(i32 noundef %134, i32 noundef %135)
+  %137 = icmp sgt i64 %136, 0
+  br i1 %137, label %138, label %147
+
+138:                                              ; preds = %133
+  %139 = load i32, ptr %13, align 4, !tbaa !10
+  %140 = load i32, ptr %10, align 4, !tbaa !10
+  %141 = call i64 @_itimediff(i32 noundef %139, i32 noundef %140)
+  %142 = icmp sgt i64 %141, 0
+  br i1 %142, label %143, label %146
+
+143:                                              ; preds = %138
+  %144 = load i32, ptr %14, align 4, !tbaa !10
+  store i32 %144, ptr %9, align 4, !tbaa !10
+  %145 = load i32, ptr %13, align 4, !tbaa !10
+  store i32 %145, ptr %10, align 4, !tbaa !10
+  br label %146
+
+146:                                              ; preds = %143, %138
+  br label %147
+
+147:                                              ; preds = %146, %133
+  br label %148
+
+148:                                              ; preds = %147, %130
+  %149 = load ptr, ptr %5, align 8, !tbaa !8
+  %150 = call i32 @ikcp_canlog(ptr noundef %149, i32 noundef 32)
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %165
+
+152:                                              ; preds = %148
+  %153 = load ptr, ptr %5, align 8, !tbaa !8
+  %154 = load i32, ptr %14, align 4, !tbaa !10
+  %155 = zext i32 %154 to i64
+  %156 = load ptr, ptr %5, align 8, !tbaa !8
+  %157 = getelementptr inbounds nuw %struct.IKCPCB, ptr %156, i32 0, i32 19
+  %158 = load i32, ptr %157, align 4, !tbaa !60
+  %159 = load i32, ptr %13, align 4, !tbaa !10
+  %160 = call i64 @_itimediff(i32 noundef %158, i32 noundef %159)
+  %161 = load ptr, ptr %5, align 8, !tbaa !8
+  %162 = getelementptr inbounds nuw %struct.IKCPCB, ptr %161, i32 0, i32 12
+  %163 = load i32, ptr %162, align 8, !tbaa !58
+  %164 = sext i32 %163 to i64
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %153, i32 noundef 32, ptr noundef @.str.2, i64 noundef %155, i64 noundef %160, i64 noundef %164)
+  br label %165
+
+165:                                              ; preds = %152, %148
+  br label %278
+
+166:                                              ; preds = %98
+  %167 = load i8, ptr %19, align 1, !tbaa !95
+  %168 = zext i8 %167 to i32
+  %169 = icmp eq i32 %168, 81
+  br i1 %169, label %170, label %246
+
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %5, align 8, !tbaa !8
+  %172 = call i32 @ikcp_canlog(ptr noundef %171, i32 noundef 16)
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %180
+
+174:                                              ; preds = %170
+  %175 = load ptr, ptr %5, align 8, !tbaa !8
+  %176 = load i32, ptr %14, align 4, !tbaa !10
+  %177 = zext i32 %176 to i64
+  %178 = load i32, ptr %13, align 4, !tbaa !10
+  %179 = zext i32 %178 to i64
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %175, i32 noundef 16, ptr noundef @.str.3, i64 noundef %177, i64 noundef %179)
+  br label %180
+
+180:                                              ; preds = %174, %170
+  %181 = load i32, ptr %14, align 4, !tbaa !10
+  %182 = load ptr, ptr %5, align 8, !tbaa !8
+  %183 = getelementptr inbounds nuw %struct.IKCPCB, ptr %182, i32 0, i32 6
+  %184 = load i32, ptr %183, align 8, !tbaa !25
+  %185 = load ptr, ptr %5, align 8, !tbaa !8
+  %186 = getelementptr inbounds nuw %struct.IKCPCB, ptr %185, i32 0, i32 15
+  %187 = load i32, ptr %186, align 4, !tbaa !31
+  %188 = add i32 %184, %187
+  %189 = call i64 @_itimediff(i32 noundef %181, i32 noundef %188)
+  %190 = icmp slt i64 %189, 0
+  br i1 %190, label %191, label %245
+
+191:                                              ; preds = %180
+  %192 = load ptr, ptr %5, align 8, !tbaa !8
+  %193 = load i32, ptr %14, align 4, !tbaa !10
+  %194 = load i32, ptr %13, align 4, !tbaa !10
+  call void @ikcp_ack_push(ptr noundef %192, i32 noundef %193, i32 noundef %194)
+  %195 = load i32, ptr %14, align 4, !tbaa !10
+  %196 = load ptr, ptr %5, align 8, !tbaa !8
+  %197 = getelementptr inbounds nuw %struct.IKCPCB, ptr %196, i32 0, i32 6
+  %198 = load i32, ptr %197, align 8, !tbaa !25
+  %199 = call i64 @_itimediff(i32 noundef %195, i32 noundef %198)
+  %200 = icmp sge i64 %199, 0
+  br i1 %200, label %201, label %244
+
+201:                                              ; preds = %191
+  %202 = load ptr, ptr %5, align 8, !tbaa !8
+  %203 = load i32, ptr %15, align 4, !tbaa !10
+  %204 = call ptr @ikcp_segment_new(ptr noundef %202, i32 noundef %203)
+  store ptr %204, ptr %21, align 8, !tbaa !74
+  %205 = load i32, ptr %17, align 4, !tbaa !10
+  %206 = load ptr, ptr %21, align 8, !tbaa !74
+  %207 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %206, i32 0, i32 1
+  store i32 %205, ptr %207, align 8, !tbaa !98
+  %208 = load i8, ptr %19, align 1, !tbaa !95
+  %209 = zext i8 %208 to i32
+  %210 = load ptr, ptr %21, align 8, !tbaa !74
+  %211 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %210, i32 0, i32 2
+  store i32 %209, ptr %211, align 4, !tbaa !99
+  %212 = load i8, ptr %20, align 1, !tbaa !95
+  %213 = zext i8 %212 to i32
+  %214 = load ptr, ptr %21, align 8, !tbaa !74
+  %215 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %214, i32 0, i32 3
+  store i32 %213, ptr %215, align 8, !tbaa !87
+  %216 = load i16, ptr %18, align 2, !tbaa !96
+  %217 = zext i16 %216 to i32
+  %218 = load ptr, ptr %21, align 8, !tbaa !74
+  %219 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %218, i32 0, i32 4
+  store i32 %217, ptr %219, align 4, !tbaa !100
+  %220 = load i32, ptr %13, align 4, !tbaa !10
+  %221 = load ptr, ptr %21, align 8, !tbaa !74
+  %222 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %221, i32 0, i32 5
+  store i32 %220, ptr %222, align 8, !tbaa !101
+  %223 = load i32, ptr %14, align 4, !tbaa !10
+  %224 = load ptr, ptr %21, align 8, !tbaa !74
+  %225 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %224, i32 0, i32 6
+  store i32 %223, ptr %225, align 4, !tbaa !88
+  %226 = load i32, ptr %16, align 4, !tbaa !10
+  %227 = load ptr, ptr %21, align 8, !tbaa !74
+  %228 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %227, i32 0, i32 7
+  store i32 %226, ptr %228, align 8, !tbaa !102
+  %229 = load i32, ptr %15, align 4, !tbaa !10
+  %230 = load ptr, ptr %21, align 8, !tbaa !74
+  %231 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %230, i32 0, i32 8
+  store i32 %229, ptr %231, align 4, !tbaa !86
+  %232 = load i32, ptr %15, align 4, !tbaa !10
+  %233 = icmp ugt i32 %232, 0
+  br i1 %233, label %234, label %241
+
+234:                                              ; preds = %201
+  %235 = load ptr, ptr %21, align 8, !tbaa !74
+  %236 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %235, i32 0, i32 13
+  %237 = getelementptr inbounds [1 x i8], ptr %236, i64 0, i64 0
+  %238 = load ptr, ptr %6, align 8, !tbaa !12
+  %239 = load i32, ptr %15, align 4, !tbaa !10
+  %240 = zext i32 %239 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %237, ptr align 1 %238, i64 %240, i1 false)
+  br label %241
+
+241:                                              ; preds = %234, %201
+  %242 = load ptr, ptr %5, align 8, !tbaa !8
+  %243 = load ptr, ptr %21, align 8, !tbaa !74
+  call void @ikcp_parse_data(ptr noundef %242, ptr noundef %243)
+  br label %244
+
+244:                                              ; preds = %241, %191
+  br label %245
+
+245:                                              ; preds = %244, %180
+  br label %277
+
+246:                                              ; preds = %166
+  %247 = load i8, ptr %19, align 1, !tbaa !95
+  %248 = zext i8 %247 to i32
+  %249 = icmp eq i32 %248, 83
+  br i1 %249, label %250, label %261
+
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %5, align 8, !tbaa !8
+  %252 = getelementptr inbounds nuw %struct.IKCPCB, ptr %251, i32 0, i32 18
+  %253 = load i32, ptr %252, align 8, !tbaa !35
+  %254 = or i32 %253, 2
+  store i32 %254, ptr %252, align 8, !tbaa !35
+  %255 = load ptr, ptr %5, align 8, !tbaa !8
+  %256 = call i32 @ikcp_canlog(ptr noundef %255, i32 noundef 64)
+  %257 = icmp ne i32 %256, 0
+  br i1 %257, label %258, label %260
+
+258:                                              ; preds = %250
+  %259 = load ptr, ptr %5, align 8, !tbaa !8
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %259, i32 noundef 64, ptr noundef @.str.4)
+  br label %260
+
+260:                                              ; preds = %258, %250
+  br label %276
+
+261:                                              ; preds = %246
+  %262 = load i8, ptr %19, align 1, !tbaa !95
+  %263 = zext i8 %262 to i32
+  %264 = icmp eq i32 %263, 84
+  br i1 %264, label %265, label %274
+
+265:                                              ; preds = %261
+  %266 = load ptr, ptr %5, align 8, !tbaa !8
+  %267 = call i32 @ikcp_canlog(ptr noundef %266, i32 noundef 128)
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %273
+
+269:                                              ; preds = %265
+  %270 = load ptr, ptr %5, align 8, !tbaa !8
+  %271 = load i16, ptr %18, align 2, !tbaa !96
+  %272 = zext i16 %271 to i64
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %270, i32 noundef 128, ptr noundef @.str.5, i64 noundef %272)
+  br label %273
+
+273:                                              ; preds = %269, %265
+  br label %275
+
+274:                                              ; preds = %261
+  store i32 -3, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %287
+
+275:                                              ; preds = %273
+  br label %276
+
+276:                                              ; preds = %275, %260
+  br label %277
+
+277:                                              ; preds = %276, %245
+  br label %278
+
+278:                                              ; preds = %277, %165
+  %279 = load i32, ptr %15, align 4, !tbaa !10
+  %280 = load ptr, ptr %6, align 8, !tbaa !12
+  %281 = zext i32 %279 to i64
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 %281
+  store ptr %282, ptr %6, align 8, !tbaa !12
+  %283 = load i32, ptr %15, align 4, !tbaa !10
+  %284 = zext i32 %283 to i64
+  %285 = load i64, ptr %7, align 8, !tbaa !72
+  %286 = sub nsw i64 %285, %284
+  store i64 %286, ptr %7, align 8, !tbaa !72
+  store i32 0, ptr %12, align 4
+  br label %287
+
+287:                                              ; preds = %278, %274, %97, %80, %55, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  %288 = load i32, ptr %12, align 4
+  switch i32 %288, label %410 [
+    i32 0, label %289
+    i32 3, label %290
+  ]
+
+289:                                              ; preds = %287
+  br label %42
+
+290:                                              ; preds = %287
+  %291 = load i32, ptr %11, align 4, !tbaa !10
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %297
+
+293:                                              ; preds = %290
+  %294 = load ptr, ptr %5, align 8, !tbaa !8
+  %295 = load i32, ptr %9, align 4, !tbaa !10
+  %296 = load i32, ptr %10, align 4, !tbaa !10
+  call void @ikcp_parse_fastack(ptr noundef %294, i32 noundef %295, i32 noundef %296)
+  br label %297
+
+297:                                              ; preds = %293, %290
+  %298 = load ptr, ptr %5, align 8, !tbaa !8
+  %299 = getelementptr inbounds nuw %struct.IKCPCB, ptr %298, i32 0, i32 4
+  %300 = load i32, ptr %299, align 8, !tbaa !23
+  %301 = load i32, ptr %8, align 4, !tbaa !10
+  %302 = call i64 @_itimediff(i32 noundef %300, i32 noundef %301)
+  %303 = icmp sgt i64 %302, 0
+  br i1 %303, label %304, label %409
+
+304:                                              ; preds = %297
+  %305 = load ptr, ptr %5, align 8, !tbaa !8
+  %306 = getelementptr inbounds nuw %struct.IKCPCB, ptr %305, i32 0, i32 17
+  %307 = load i32, ptr %306, align 4, !tbaa !33
+  %308 = load ptr, ptr %5, align 8, !tbaa !8
+  %309 = getelementptr inbounds nuw %struct.IKCPCB, ptr %308, i32 0, i32 16
+  %310 = load i32, ptr %309, align 8, !tbaa !32
+  %311 = icmp ult i32 %307, %310
+  br i1 %311, label %312, label %408
+
+312:                                              ; preds = %304
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  %313 = load ptr, ptr %5, align 8, !tbaa !8
+  %314 = getelementptr inbounds nuw %struct.IKCPCB, ptr %313, i32 0, i32 2
+  %315 = load i32, ptr %314, align 8, !tbaa !37
+  store i32 %315, ptr %22, align 4, !tbaa !10
+  %316 = load ptr, ptr %5, align 8, !tbaa !8
+  %317 = getelementptr inbounds nuw %struct.IKCPCB, ptr %316, i32 0, i32 17
+  %318 = load i32, ptr %317, align 4, !tbaa !33
+  %319 = load ptr, ptr %5, align 8, !tbaa !8
+  %320 = getelementptr inbounds nuw %struct.IKCPCB, ptr %319, i32 0, i32 9
+  %321 = load i32, ptr %320, align 4, !tbaa !65
+  %322 = icmp ult i32 %318, %321
+  br i1 %322, label %323, label %333
+
+323:                                              ; preds = %312
+  %324 = load ptr, ptr %5, align 8, !tbaa !8
+  %325 = getelementptr inbounds nuw %struct.IKCPCB, ptr %324, i32 0, i32 17
+  %326 = load i32, ptr %325, align 4, !tbaa !33
+  %327 = add i32 %326, 1
+  store i32 %327, ptr %325, align 4, !tbaa !33
+  %328 = load i32, ptr %22, align 4, !tbaa !10
+  %329 = load ptr, ptr %5, align 8, !tbaa !8
+  %330 = getelementptr inbounds nuw %struct.IKCPCB, ptr %329, i32 0, i32 32
+  %331 = load i32, ptr %330, align 8, !tbaa !34
+  %332 = add i32 %331, %328
+  store i32 %332, ptr %330, align 8, !tbaa !34
+  br label %386
+
+333:                                              ; preds = %312
+  %334 = load ptr, ptr %5, align 8, !tbaa !8
+  %335 = getelementptr inbounds nuw %struct.IKCPCB, ptr %334, i32 0, i32 32
+  %336 = load i32, ptr %335, align 8, !tbaa !34
+  %337 = load i32, ptr %22, align 4, !tbaa !10
+  %338 = icmp ult i32 %336, %337
+  br i1 %338, label %339, label %343
+
+339:                                              ; preds = %333
+  %340 = load i32, ptr %22, align 4, !tbaa !10
+  %341 = load ptr, ptr %5, align 8, !tbaa !8
+  %342 = getelementptr inbounds nuw %struct.IKCPCB, ptr %341, i32 0, i32 32
+  store i32 %340, ptr %342, align 8, !tbaa !34
+  br label %343
+
+343:                                              ; preds = %339, %333
+  %344 = load i32, ptr %22, align 4, !tbaa !10
+  %345 = load i32, ptr %22, align 4, !tbaa !10
+  %346 = mul i32 %344, %345
+  %347 = load ptr, ptr %5, align 8, !tbaa !8
+  %348 = getelementptr inbounds nuw %struct.IKCPCB, ptr %347, i32 0, i32 32
+  %349 = load i32, ptr %348, align 8, !tbaa !34
+  %350 = udiv i32 %346, %349
+  %351 = load i32, ptr %22, align 4, !tbaa !10
+  %352 = udiv i32 %351, 16
+  %353 = add i32 %350, %352
+  %354 = load ptr, ptr %5, align 8, !tbaa !8
+  %355 = getelementptr inbounds nuw %struct.IKCPCB, ptr %354, i32 0, i32 32
+  %356 = load i32, ptr %355, align 8, !tbaa !34
+  %357 = add i32 %356, %353
+  store i32 %357, ptr %355, align 8, !tbaa !34
+  %358 = load ptr, ptr %5, align 8, !tbaa !8
+  %359 = getelementptr inbounds nuw %struct.IKCPCB, ptr %358, i32 0, i32 17
+  %360 = load i32, ptr %359, align 4, !tbaa !33
+  %361 = add i32 %360, 1
+  %362 = load i32, ptr %22, align 4, !tbaa !10
+  %363 = mul i32 %361, %362
+  %364 = load ptr, ptr %5, align 8, !tbaa !8
+  %365 = getelementptr inbounds nuw %struct.IKCPCB, ptr %364, i32 0, i32 32
+  %366 = load i32, ptr %365, align 8, !tbaa !34
+  %367 = icmp ule i32 %363, %366
+  br i1 %367, label %368, label %385
+
+368:                                              ; preds = %343
+  %369 = load ptr, ptr %5, align 8, !tbaa !8
+  %370 = getelementptr inbounds nuw %struct.IKCPCB, ptr %369, i32 0, i32 32
+  %371 = load i32, ptr %370, align 8, !tbaa !34
+  %372 = load i32, ptr %22, align 4, !tbaa !10
+  %373 = add i32 %371, %372
+  %374 = sub i32 %373, 1
+  %375 = load i32, ptr %22, align 4, !tbaa !10
+  %376 = icmp ugt i32 %375, 0
+  br i1 %376, label %377, label %379
+
+377:                                              ; preds = %368
+  %378 = load i32, ptr %22, align 4, !tbaa !10
+  br label %380
+
+379:                                              ; preds = %368
+  br label %380
+
+380:                                              ; preds = %379, %377
+  %381 = phi i32 [ %378, %377 ], [ 1, %379 ]
+  %382 = udiv i32 %374, %381
+  %383 = load ptr, ptr %5, align 8, !tbaa !8
+  %384 = getelementptr inbounds nuw %struct.IKCPCB, ptr %383, i32 0, i32 17
+  store i32 %382, ptr %384, align 4, !tbaa !33
+  br label %385
+
+385:                                              ; preds = %380, %343
+  br label %386
+
+386:                                              ; preds = %385, %323
+  %387 = load ptr, ptr %5, align 8, !tbaa !8
+  %388 = getelementptr inbounds nuw %struct.IKCPCB, ptr %387, i32 0, i32 17
+  %389 = load i32, ptr %388, align 4, !tbaa !33
+  %390 = load ptr, ptr %5, align 8, !tbaa !8
+  %391 = getelementptr inbounds nuw %struct.IKCPCB, ptr %390, i32 0, i32 16
+  %392 = load i32, ptr %391, align 8, !tbaa !32
+  %393 = icmp ugt i32 %389, %392
+  br i1 %393, label %394, label %407
+
+394:                                              ; preds = %386
+  %395 = load ptr, ptr %5, align 8, !tbaa !8
+  %396 = getelementptr inbounds nuw %struct.IKCPCB, ptr %395, i32 0, i32 16
+  %397 = load i32, ptr %396, align 8, !tbaa !32
+  %398 = load ptr, ptr %5, align 8, !tbaa !8
+  %399 = getelementptr inbounds nuw %struct.IKCPCB, ptr %398, i32 0, i32 17
+  store i32 %397, ptr %399, align 4, !tbaa !33
+  %400 = load ptr, ptr %5, align 8, !tbaa !8
+  %401 = getelementptr inbounds nuw %struct.IKCPCB, ptr %400, i32 0, i32 16
+  %402 = load i32, ptr %401, align 8, !tbaa !32
+  %403 = load i32, ptr %22, align 4, !tbaa !10
+  %404 = mul i32 %402, %403
+  %405 = load ptr, ptr %5, align 8, !tbaa !8
+  %406 = getelementptr inbounds nuw %struct.IKCPCB, ptr %405, i32 0, i32 32
+  store i32 %404, ptr %406, align 8, !tbaa !34
+  br label %407
+
+407:                                              ; preds = %394, %386
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  br label %408
+
+408:                                              ; preds = %407, %304
+  br label %409
+
+409:                                              ; preds = %408, %297
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %410
+
+410:                                              ; preds = %409, %287, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %411 = load i32, ptr %4, align 4
+  ret i32 %411
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_decode32u(ptr noundef %0, ptr noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 1 %6, i64 4, i1 false)
+  %7 = load ptr, ptr %3, align 8, !tbaa !12
+  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  store ptr %8, ptr %3, align 8, !tbaa !12
+  %9 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %9
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_decode8u(ptr noundef %0, ptr noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i32 1
+  store ptr %6, ptr %3, align 8, !tbaa !12
+  %7 = load i8, ptr %5, align 1, !tbaa !95
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  store i8 %7, ptr %8, align 1, !tbaa !95
+  %9 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %9
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_decode16u(ptr noundef %0, ptr noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 1 %6, i64 2, i1 false)
+  %7 = load ptr, ptr %3, align 8, !tbaa !12
+  %8 = getelementptr inbounds i8, ptr %7, i64 2
+  store ptr %8, ptr %3, align 8, !tbaa !12
+  %9 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %9
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @ikcp_parse_una(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.IKCPCB, ptr %9, i32 0, i32 35
+  %11 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  store ptr %12, ptr %5, align 8, !tbaa !21
+  br label %13
+
+13:                                               ; preds = %60, %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !21
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.IKCPCB, ptr %15, i32 0, i32 35
+  %17 = icmp ne ptr %14, %16
+  br i1 %17, label %18, label %62
+
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %19 = load ptr, ptr %5, align 8, !tbaa !21
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  store ptr %20, ptr %7, align 8, !tbaa !74
+  %21 = load ptr, ptr %5, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !80
+  store ptr %23, ptr %6, align 8, !tbaa !21
+  %24 = load i32, ptr %4, align 4, !tbaa !10
+  %25 = load ptr, ptr %7, align 8, !tbaa !74
+  %26 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %25, i32 0, i32 6
+  %27 = load i32, ptr %26, align 4, !tbaa !88
+  %28 = call i64 @_itimediff(i32 noundef %24, i32 noundef %27)
+  %29 = icmp sgt i64 %28, 0
+  br i1 %29, label %30, label %55
+
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %5, align 8, !tbaa !21
+  %32 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !79
+  %34 = load ptr, ptr %5, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !80
+  %37 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %36, i32 0, i32 1
+  store ptr %33, ptr %37, align 8, !tbaa !79
+  %38 = load ptr, ptr %5, align 8, !tbaa !21
+  %39 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !80
+  %41 = load ptr, ptr %5, align 8, !tbaa !21
+  %42 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !79
+  %44 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %43, i32 0, i32 0
+  store ptr %40, ptr %44, align 8, !tbaa !80
+  %45 = load ptr, ptr %5, align 8, !tbaa !21
+  %46 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %45, i32 0, i32 0
+  store ptr null, ptr %46, align 8, !tbaa !80
+  %47 = load ptr, ptr %5, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %47, i32 0, i32 1
+  store ptr null, ptr %48, align 8, !tbaa !79
+  %49 = load ptr, ptr %3, align 8, !tbaa !8
+  %50 = load ptr, ptr %7, align 8, !tbaa !74
   call void @ikcp_segment_delete(ptr noundef %49, ptr noundef %50)
-  br label %if.end34
+  %51 = load ptr, ptr %3, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw %struct.IKCPCB, ptr %51, i32 0, i32 24
+  %53 = load i32, ptr %52, align 8, !tbaa !49
+  %54 = add i32 %53, -1
+  store i32 %54, ptr %52, align 8, !tbaa !49
+  br label %56
 
-if.end34:                                         ; preds = %if.else, %if.then19
-  br label %while.cond
+55:                                               ; preds = %18
+  store i32 2, ptr %8, align 4
+  br label %57
 
-while.cond:                                       ; preds = %if.end82, %if.end34
-  %51 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf35 = getelementptr inbounds %struct.IKCPCB, ptr %51, i32 0, i32 36
-  %52 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf36 = getelementptr inbounds %struct.IKCPCB, ptr %52, i32 0, i32 36
-  %next37 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf36, i32 0, i32 0
-  %53 = load ptr, ptr %next37, align 8
-  %cmp38 = icmp eq ptr %rcv_buf35, %53
-  %lnot = xor i1 %cmp38, true
-  br i1 %lnot, label %while.body, label %while.end
+56:                                               ; preds = %30
+  store i32 0, ptr %8, align 4
+  br label %57
 
-while.body:                                       ; preds = %while.cond
-  %54 = load ptr, ptr %kcp.addr, align 8
-  %rcv_buf40 = getelementptr inbounds %struct.IKCPCB, ptr %54, i32 0, i32 36
-  %next41 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_buf40, i32 0, i32 0
-  %55 = load ptr, ptr %next41, align 8
-  %add.ptr42 = getelementptr inbounds i8, ptr %55, i64 0
-  store ptr %add.ptr42, ptr %seg39, align 8
-  %56 = load ptr, ptr %seg39, align 8
-  %sn43 = getelementptr inbounds %struct.IKCPSEG, ptr %56, i32 0, i32 6
-  %57 = load i32, ptr %sn43, align 4
-  %58 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt44 = getelementptr inbounds %struct.IKCPCB, ptr %58, i32 0, i32 6
-  %59 = load i32, ptr %rcv_nxt44, align 8
-  %cmp45 = icmp eq i32 %57, %59
-  br i1 %cmp45, label %land.lhs.true, label %if.else81
+57:                                               ; preds = %56, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %58 = load i32, ptr %8, align 4
+  switch i32 %58, label %63 [
+    i32 0, label %59
+    i32 2, label %62
+  ]
 
-land.lhs.true:                                    ; preds = %while.body
-  %60 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %60, i32 0, i32 25
-  %61 = load i32, ptr %nrcv_que, align 4
-  %62 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd46 = getelementptr inbounds %struct.IKCPCB, ptr %62, i32 0, i32 15
-  %63 = load i32, ptr %rcv_wnd46, align 4
-  %cmp47 = icmp ult i32 %61, %63
-  br i1 %cmp47, label %if.then48, label %if.else81
+59:                                               ; preds = %57
+  br label %60
 
-if.then48:                                        ; preds = %land.lhs.true
-  %64 = load ptr, ptr %seg39, align 8
-  %node49 = getelementptr inbounds %struct.IKCPSEG, ptr %64, i32 0, i32 0
-  %prev50 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node49, i32 0, i32 1
-  %65 = load ptr, ptr %prev50, align 8
-  %66 = load ptr, ptr %seg39, align 8
-  %node51 = getelementptr inbounds %struct.IKCPSEG, ptr %66, i32 0, i32 0
-  %next52 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node51, i32 0, i32 0
-  %67 = load ptr, ptr %next52, align 8
-  %prev53 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %67, i32 0, i32 1
-  store ptr %65, ptr %prev53, align 8
-  %68 = load ptr, ptr %seg39, align 8
-  %node54 = getelementptr inbounds %struct.IKCPSEG, ptr %68, i32 0, i32 0
-  %next55 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node54, i32 0, i32 0
-  %69 = load ptr, ptr %next55, align 8
-  %70 = load ptr, ptr %seg39, align 8
-  %node56 = getelementptr inbounds %struct.IKCPSEG, ptr %70, i32 0, i32 0
-  %prev57 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node56, i32 0, i32 1
-  %71 = load ptr, ptr %prev57, align 8
-  %next58 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %71, i32 0, i32 0
-  store ptr %69, ptr %next58, align 8
-  %72 = load ptr, ptr %seg39, align 8
-  %node59 = getelementptr inbounds %struct.IKCPSEG, ptr %72, i32 0, i32 0
-  %next60 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node59, i32 0, i32 0
-  store ptr null, ptr %next60, align 8
-  %73 = load ptr, ptr %seg39, align 8
-  %node61 = getelementptr inbounds %struct.IKCPSEG, ptr %73, i32 0, i32 0
-  %prev62 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node61, i32 0, i32 1
-  store ptr null, ptr %prev62, align 8
-  %74 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_buf63 = getelementptr inbounds %struct.IKCPCB, ptr %74, i32 0, i32 23
-  %75 = load i32, ptr %nrcv_buf63, align 4
-  %dec = add i32 %75, -1
-  store i32 %dec, ptr %nrcv_buf63, align 4
-  %76 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue = getelementptr inbounds %struct.IKCPCB, ptr %76, i32 0, i32 34
-  %prev64 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue, i32 0, i32 1
-  %77 = load ptr, ptr %prev64, align 8
-  %78 = load ptr, ptr %seg39, align 8
-  %node65 = getelementptr inbounds %struct.IKCPSEG, ptr %78, i32 0, i32 0
-  %prev66 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node65, i32 0, i32 1
-  store ptr %77, ptr %prev66, align 8
-  %79 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue67 = getelementptr inbounds %struct.IKCPCB, ptr %79, i32 0, i32 34
-  %80 = load ptr, ptr %seg39, align 8
-  %node68 = getelementptr inbounds %struct.IKCPSEG, ptr %80, i32 0, i32 0
-  %next69 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node68, i32 0, i32 0
-  store ptr %rcv_queue67, ptr %next69, align 8
-  %81 = load ptr, ptr %seg39, align 8
-  %node70 = getelementptr inbounds %struct.IKCPSEG, ptr %81, i32 0, i32 0
-  %82 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue71 = getelementptr inbounds %struct.IKCPCB, ptr %82, i32 0, i32 34
-  %prev72 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue71, i32 0, i32 1
-  %83 = load ptr, ptr %prev72, align 8
-  %next73 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %83, i32 0, i32 0
-  store ptr %node70, ptr %next73, align 8
-  %84 = load ptr, ptr %seg39, align 8
-  %node74 = getelementptr inbounds %struct.IKCPSEG, ptr %84, i32 0, i32 0
-  %85 = load ptr, ptr %kcp.addr, align 8
-  %rcv_queue75 = getelementptr inbounds %struct.IKCPCB, ptr %85, i32 0, i32 34
-  %prev76 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %rcv_queue75, i32 0, i32 1
-  store ptr %node74, ptr %prev76, align 8
-  %86 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que77 = getelementptr inbounds %struct.IKCPCB, ptr %86, i32 0, i32 25
-  %87 = load i32, ptr %nrcv_que77, align 4
-  %inc78 = add i32 %87, 1
-  store i32 %inc78, ptr %nrcv_que77, align 4
-  %88 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt79 = getelementptr inbounds %struct.IKCPCB, ptr %88, i32 0, i32 6
-  %89 = load i32, ptr %rcv_nxt79, align 8
-  %inc80 = add i32 %89, 1
-  store i32 %inc80, ptr %rcv_nxt79, align 8
-  br label %if.end82
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %61, ptr %5, align 8, !tbaa !21
+  br label %13, !llvm.loop !106
 
-if.else81:                                        ; preds = %land.lhs.true, %while.body
-  br label %while.end
+62:                                               ; preds = %57, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret void
 
-if.end82:                                         ; preds = %if.then48
-  br label %while.cond, !llvm.loop !15
+63:                                               ; preds = %57
+  unreachable
+}
 
-while.end:                                        ; preds = %if.else81, %while.cond, %if.then
+; Function Attrs: nounwind uwtable
+define internal void @ikcp_shrink_buf(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %struct.IKCPCB, ptr %5, i32 0, i32 35
+  %7 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  store ptr %8, ptr %3, align 8, !tbaa !21
+  %9 = load ptr, ptr %3, align 8, !tbaa !21
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.IKCPCB, ptr %10, i32 0, i32 35
+  %12 = icmp ne ptr %9, %11
+  br i1 %12, label %13, label %21
+
+13:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %14 = load ptr, ptr %3, align 8, !tbaa !21
+  %15 = getelementptr inbounds i8, ptr %14, i64 0
+  store ptr %15, ptr %4, align 8, !tbaa !74
+  %16 = load ptr, ptr %4, align 8, !tbaa !74
+  %17 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %16, i32 0, i32 6
+  %18 = load i32, ptr %17, align 4, !tbaa !88
+  %19 = load ptr, ptr %2, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.IKCPCB, ptr %19, i32 0, i32 4
+  store i32 %18, ptr %20, align 8, !tbaa !23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %27
+
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %2, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.IKCPCB, ptr %22, i32 0, i32 5
+  %24 = load i32, ptr %23, align 4, !tbaa !24
+  %25 = load ptr, ptr %2, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.IKCPCB, ptr %25, i32 0, i32 4
+  store i32 %24, ptr %26, align 8, !tbaa !23
+  br label %27
+
+27:                                               ; preds = %21, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_input(ptr noundef %kcp, ptr noundef %data, i64 noundef %size) #0 {
-entry:
-  %p.addr.i246 = alloca ptr, align 8
-  %w.addr.i = alloca ptr, align 8
-  %p.addr.i243 = alloca ptr, align 8
-  %c.addr.i244 = alloca ptr, align 8
-  %p.addr.i242 = alloca ptr, align 8
-  %c.addr.i = alloca ptr, align 8
-  %p.addr.i239 = alloca ptr, align 8
-  %l.addr.i240 = alloca ptr, align 8
-  %p.addr.i236 = alloca ptr, align 8
-  %l.addr.i237 = alloca ptr, align 8
-  %p.addr.i233 = alloca ptr, align 8
-  %l.addr.i234 = alloca ptr, align 8
-  %p.addr.i230 = alloca ptr, align 8
-  %l.addr.i231 = alloca ptr, align 8
-  %p.addr.i = alloca ptr, align 8
-  %l.addr.i = alloca ptr, align 8
-  %later.addr.i226 = alloca i32, align 4
-  %earlier.addr.i227 = alloca i32, align 4
-  %later.addr.i222 = alloca i32, align 4
-  %earlier.addr.i223 = alloca i32, align 4
-  %later.addr.i218 = alloca i32, align 4
-  %earlier.addr.i219 = alloca i32, align 4
-  %later.addr.i214 = alloca i32, align 4
-  %earlier.addr.i215 = alloca i32, align 4
-  %later.addr.i210 = alloca i32, align 4
-  %earlier.addr.i211 = alloca i32, align 4
-  %later.addr.i206 = alloca i32, align 4
-  %earlier.addr.i207 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %prev_una = alloca i32, align 4
-  %maxack = alloca i32, align 4
-  %latest_ts = alloca i32, align 4
-  %flag = alloca i32, align 4
-  %ts = alloca i32, align 4
-  %sn = alloca i32, align 4
-  %len = alloca i32, align 4
-  %una = alloca i32, align 4
-  %conv7 = alloca i32, align 4
-  %wnd = alloca i16, align 2
-  %cmd = alloca i8, align 1
-  %frg = alloca i8, align 1
-  %seg = alloca ptr, align 8
-  %mss = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 4
-  %1 = load i32, ptr %snd_una, align 8
-  store i32 %1, ptr %prev_una, align 4
-  store i32 0, ptr %maxack, align 4
-  store i32 0, ptr %latest_ts, align 4
-  store i32 0, ptr %flag, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %call = call i32 @ikcp_canlog(ptr noundef %2, i32 noundef 2)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %conv = trunc i64 %4 to i32
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %3, i32 noundef 2, ptr noundef @.str.1, i32 noundef %conv)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %data.addr, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then5, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %6 = load i64, ptr %size.addr, align 8
-  %conv2 = trunc i64 %6 to i32
-  %cmp3 = icmp slt i32 %conv2, 24
-  br i1 %cmp3, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %lor.lhs.false
-  br label %while.body
-
-while.body:                                       ; preds = %if.end142, %if.end6
-  %7 = load i64, ptr %size.addr, align 8
-  %cmp8 = icmp slt i64 %7, 24
-  br i1 %cmp8, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %while.body
-  br label %while.end
-
-if.end11:                                         ; preds = %while.body
-  %8 = load ptr, ptr %data.addr, align 8
-  store ptr %8, ptr %p.addr.i239, align 8
-  store ptr %conv7, ptr %l.addr.i240, align 8
-  %9 = load ptr, ptr %l.addr.i240, align 8
-  %10 = load ptr, ptr %p.addr.i239, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 1 %10, i64 4, i1 false)
-  %11 = load ptr, ptr %p.addr.i239, align 8
-  %add.ptr.i241 = getelementptr inbounds i8, ptr %11, i64 4
-  store ptr %add.ptr.i241, ptr %p.addr.i239, align 8
-  %12 = load ptr, ptr %p.addr.i239, align 8
-  store ptr %12, ptr %data.addr, align 8
-  %13 = load i32, ptr %conv7, align 4
-  %14 = load ptr, ptr %kcp.addr, align 8
-  %conv13 = getelementptr inbounds %struct.IKCPCB, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %conv13, align 8
-  %cmp14 = icmp ne i32 %13, %15
-  br i1 %cmp14, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.end11
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end17:                                         ; preds = %if.end11
-  %16 = load ptr, ptr %data.addr, align 8
-  store ptr %16, ptr %p.addr.i243, align 8
-  store ptr %cmd, ptr %c.addr.i244, align 8
-  %17 = load ptr, ptr %p.addr.i243, align 8
-  %incdec.ptr.i245 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr.i245, ptr %p.addr.i243, align 8
-  %18 = load i8, ptr %17, align 1
-  %19 = load ptr, ptr %c.addr.i244, align 8
-  store i8 %18, ptr %19, align 1
-  %20 = load ptr, ptr %p.addr.i243, align 8
-  store ptr %20, ptr %data.addr, align 8
-  %21 = load ptr, ptr %data.addr, align 8
-  store ptr %21, ptr %p.addr.i242, align 8
-  store ptr %frg, ptr %c.addr.i, align 8
-  %22 = load ptr, ptr %p.addr.i242, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i32 1
-  store ptr %incdec.ptr.i, ptr %p.addr.i242, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = load ptr, ptr %c.addr.i, align 8
-  store i8 %23, ptr %24, align 1
-  %25 = load ptr, ptr %p.addr.i242, align 8
-  store ptr %25, ptr %data.addr, align 8
-  %26 = load ptr, ptr %data.addr, align 8
-  store ptr %26, ptr %p.addr.i246, align 8
-  store ptr %wnd, ptr %w.addr.i, align 8
-  %27 = load ptr, ptr %w.addr.i, align 8
-  %28 = load ptr, ptr %p.addr.i246, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %27, ptr align 1 %28, i64 2, i1 false)
-  %29 = load ptr, ptr %p.addr.i246, align 8
-  %add.ptr.i247 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %add.ptr.i247, ptr %p.addr.i246, align 8
-  %30 = load ptr, ptr %p.addr.i246, align 8
-  store ptr %30, ptr %data.addr, align 8
-  %31 = load ptr, ptr %data.addr, align 8
-  store ptr %31, ptr %p.addr.i236, align 8
-  store ptr %ts, ptr %l.addr.i237, align 8
-  %32 = load ptr, ptr %l.addr.i237, align 8
-  %33 = load ptr, ptr %p.addr.i236, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 1 %33, i64 4, i1 false)
-  %34 = load ptr, ptr %p.addr.i236, align 8
-  %add.ptr.i238 = getelementptr inbounds i8, ptr %34, i64 4
-  store ptr %add.ptr.i238, ptr %p.addr.i236, align 8
-  %35 = load ptr, ptr %p.addr.i236, align 8
-  store ptr %35, ptr %data.addr, align 8
-  %36 = load ptr, ptr %data.addr, align 8
-  store ptr %36, ptr %p.addr.i233, align 8
-  store ptr %sn, ptr %l.addr.i234, align 8
-  %37 = load ptr, ptr %l.addr.i234, align 8
-  %38 = load ptr, ptr %p.addr.i233, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %37, ptr align 1 %38, i64 4, i1 false)
-  %39 = load ptr, ptr %p.addr.i233, align 8
-  %add.ptr.i235 = getelementptr inbounds i8, ptr %39, i64 4
-  store ptr %add.ptr.i235, ptr %p.addr.i233, align 8
-  %40 = load ptr, ptr %p.addr.i233, align 8
-  store ptr %40, ptr %data.addr, align 8
-  %41 = load ptr, ptr %data.addr, align 8
-  store ptr %41, ptr %p.addr.i230, align 8
-  store ptr %una, ptr %l.addr.i231, align 8
-  %42 = load ptr, ptr %l.addr.i231, align 8
-  %43 = load ptr, ptr %p.addr.i230, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %42, ptr align 1 %43, i64 4, i1 false)
-  %44 = load ptr, ptr %p.addr.i230, align 8
-  %add.ptr.i232 = getelementptr inbounds i8, ptr %44, i64 4
-  store ptr %add.ptr.i232, ptr %p.addr.i230, align 8
-  %45 = load ptr, ptr %p.addr.i230, align 8
-  store ptr %45, ptr %data.addr, align 8
-  %46 = load ptr, ptr %data.addr, align 8
-  store ptr %46, ptr %p.addr.i, align 8
-  store ptr %len, ptr %l.addr.i, align 8
-  %47 = load ptr, ptr %l.addr.i, align 8
-  %48 = load ptr, ptr %p.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 1 %48, i64 4, i1 false)
-  %49 = load ptr, ptr %p.addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %49, i64 4
-  store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %50 = load ptr, ptr %p.addr.i, align 8
-  store ptr %50, ptr %data.addr, align 8
-  %51 = load i64, ptr %size.addr, align 8
-  %sub = sub nsw i64 %51, 24
-  store i64 %sub, ptr %size.addr, align 8
-  %52 = load i64, ptr %size.addr, align 8
-  %53 = load i32, ptr %len, align 4
-  %conv25 = zext i32 %53 to i64
-  %cmp26 = icmp slt i64 %52, %conv25
-  br i1 %cmp26, label %if.then31, label %lor.lhs.false28
-
-lor.lhs.false28:                                  ; preds = %if.end17
-  %54 = load i32, ptr %len, align 4
-  %cmp29 = icmp slt i32 %54, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %lor.lhs.false28, %if.end17
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end32:                                         ; preds = %lor.lhs.false28
-  %55 = load i8, ptr %cmd, align 1
-  %conv33 = zext i8 %55 to i32
-  %cmp34 = icmp ne i32 %conv33, 81
-  br i1 %cmp34, label %land.lhs.true, label %if.end48
-
-land.lhs.true:                                    ; preds = %if.end32
-  %56 = load i8, ptr %cmd, align 1
-  %conv36 = zext i8 %56 to i32
-  %cmp37 = icmp ne i32 %conv36, 82
-  br i1 %cmp37, label %land.lhs.true39, label %if.end48
-
-land.lhs.true39:                                  ; preds = %land.lhs.true
-  %57 = load i8, ptr %cmd, align 1
-  %conv40 = zext i8 %57 to i32
-  %cmp41 = icmp ne i32 %conv40, 83
-  br i1 %cmp41, label %land.lhs.true43, label %if.end48
-
-land.lhs.true43:                                  ; preds = %land.lhs.true39
-  %58 = load i8, ptr %cmd, align 1
-  %conv44 = zext i8 %58 to i32
-  %cmp45 = icmp ne i32 %conv44, 84
-  br i1 %cmp45, label %if.then47, label %if.end48
-
-if.then47:                                        ; preds = %land.lhs.true43
-  store i32 -3, ptr %retval, align 4
-  br label %return
-
-if.end48:                                         ; preds = %land.lhs.true43, %land.lhs.true39, %land.lhs.true, %if.end32
-  %59 = load i16, ptr %wnd, align 2
-  %conv49 = zext i16 %59 to i32
-  %60 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd = getelementptr inbounds %struct.IKCPCB, ptr %60, i32 0, i32 16
-  store i32 %conv49, ptr %rmt_wnd, align 8
-  %61 = load ptr, ptr %kcp.addr, align 8
-  %62 = load i32, ptr %una, align 4
-  call void @ikcp_parse_una(ptr noundef %61, i32 noundef %62)
-  %63 = load ptr, ptr %kcp.addr, align 8
-  call void @ikcp_shrink_buf(ptr noundef %63)
-  %64 = load i8, ptr %cmd, align 1
-  %conv50 = zext i8 %64 to i32
-  %cmp51 = icmp eq i32 %conv50, 82
-  br i1 %cmp51, label %if.then53, label %if.else79
-
-if.then53:                                        ; preds = %if.end48
-  %65 = load ptr, ptr %kcp.addr, align 8
-  %current = getelementptr inbounds %struct.IKCPCB, ptr %65, i32 0, i32 19
-  %66 = load i32, ptr %current, align 4
-  %67 = load i32, ptr %ts, align 4
-  store i32 %66, ptr %later.addr.i226, align 4
-  store i32 %67, ptr %earlier.addr.i227, align 4
-  %68 = load i32, ptr %later.addr.i226, align 4
-  %69 = load i32, ptr %earlier.addr.i227, align 4
-  %sub.i228 = sub i32 %68, %69
-  %conv.i229 = sext i32 %sub.i228 to i64
-  %cmp55 = icmp sge i64 %conv.i229, 0
-  br i1 %cmp55, label %if.then57, label %if.end61
-
-if.then57:                                        ; preds = %if.then53
-  %70 = load ptr, ptr %kcp.addr, align 8
-  %71 = load ptr, ptr %kcp.addr, align 8
-  %current58 = getelementptr inbounds %struct.IKCPCB, ptr %71, i32 0, i32 19
-  %72 = load i32, ptr %current58, align 4
-  %73 = load i32, ptr %ts, align 4
-  store i32 %72, ptr %later.addr.i222, align 4
-  store i32 %73, ptr %earlier.addr.i223, align 4
-  %74 = load i32, ptr %later.addr.i222, align 4
-  %75 = load i32, ptr %earlier.addr.i223, align 4
-  %sub.i224 = sub i32 %74, %75
-  %conv.i225 = sext i32 %sub.i224 to i64
-  %conv60 = trunc i64 %conv.i225 to i32
-  call void @ikcp_update_ack(ptr noundef %70, i32 noundef %conv60)
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.then57, %if.then53
-  %76 = load ptr, ptr %kcp.addr, align 8
-  %77 = load i32, ptr %sn, align 4
-  call void @ikcp_parse_ack(ptr noundef %76, i32 noundef %77)
-  %78 = load ptr, ptr %kcp.addr, align 8
-  call void @ikcp_shrink_buf(ptr noundef %78)
-  %79 = load i32, ptr %flag, align 4
-  %cmp62 = icmp eq i32 %79, 0
-  br i1 %cmp62, label %if.then64, label %if.else
-
-if.then64:                                        ; preds = %if.end61
-  store i32 1, ptr %flag, align 4
-  %80 = load i32, ptr %sn, align 4
-  store i32 %80, ptr %maxack, align 4
-  %81 = load i32, ptr %ts, align 4
-  store i32 %81, ptr %latest_ts, align 4
-  br label %if.end70
-
-if.else:                                          ; preds = %if.end61
-  %82 = load i32, ptr %sn, align 4
-  %83 = load i32, ptr %maxack, align 4
-  store i32 %82, ptr %later.addr.i218, align 4
-  store i32 %83, ptr %earlier.addr.i219, align 4
-  %84 = load i32, ptr %later.addr.i218, align 4
-  %85 = load i32, ptr %earlier.addr.i219, align 4
-  %sub.i220 = sub i32 %84, %85
-  %conv.i221 = sext i32 %sub.i220 to i64
-  %cmp66 = icmp sgt i64 %conv.i221, 0
-  br i1 %cmp66, label %if.then68, label %if.end69
-
-if.then68:                                        ; preds = %if.else
-  %86 = load i32, ptr %sn, align 4
-  store i32 %86, ptr %maxack, align 4
-  %87 = load i32, ptr %ts, align 4
-  store i32 %87, ptr %latest_ts, align 4
-  br label %if.end69
-
-if.end69:                                         ; preds = %if.then68, %if.else
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.end69, %if.then64
-  %88 = load ptr, ptr %kcp.addr, align 8
-  %call71 = call i32 @ikcp_canlog(ptr noundef %88, i32 noundef 32)
-  %tobool72 = icmp ne i32 %call71, 0
-  br i1 %tobool72, label %if.then73, label %if.end78
-
-if.then73:                                        ; preds = %if.end70
-  %89 = load ptr, ptr %kcp.addr, align 8
-  %90 = load i32, ptr %sn, align 4
-  %conv74 = zext i32 %90 to i64
-  %91 = load ptr, ptr %kcp.addr, align 8
-  %current75 = getelementptr inbounds %struct.IKCPCB, ptr %91, i32 0, i32 19
-  %92 = load i32, ptr %current75, align 4
-  %93 = load i32, ptr %ts, align 4
-  store i32 %92, ptr %later.addr.i214, align 4
-  store i32 %93, ptr %earlier.addr.i215, align 4
-  %94 = load i32, ptr %later.addr.i214, align 4
-  %95 = load i32, ptr %earlier.addr.i215, align 4
-  %sub.i216 = sub i32 %94, %95
-  %conv.i217 = sext i32 %sub.i216 to i64
-  %96 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto = getelementptr inbounds %struct.IKCPCB, ptr %96, i32 0, i32 12
-  %97 = load i32, ptr %rx_rto, align 8
-  %conv77 = sext i32 %97 to i64
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %89, i32 noundef 32, ptr noundef @.str.2, i64 noundef %conv74, i64 noundef %conv.i217, i64 noundef %conv77)
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.then73, %if.end70
-  br label %if.end142
-
-if.else79:                                        ; preds = %if.end48
-  %98 = load i8, ptr %cmd, align 1
-  %conv80 = zext i8 %98 to i32
-  %cmp81 = icmp eq i32 %conv80, 81
-  br i1 %cmp81, label %if.then83, label %if.else119
-
-if.then83:                                        ; preds = %if.else79
-  %99 = load ptr, ptr %kcp.addr, align 8
-  %call84 = call i32 @ikcp_canlog(ptr noundef %99, i32 noundef 16)
-  %tobool85 = icmp ne i32 %call84, 0
-  br i1 %tobool85, label %if.then86, label %if.end89
-
-if.then86:                                        ; preds = %if.then83
-  %100 = load ptr, ptr %kcp.addr, align 8
-  %101 = load i32, ptr %sn, align 4
-  %conv87 = zext i32 %101 to i64
-  %102 = load i32, ptr %ts, align 4
-  %conv88 = zext i32 %102 to i64
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %100, i32 noundef 16, ptr noundef @.str.3, i64 noundef %conv87, i64 noundef %conv88)
-  br label %if.end89
-
-if.end89:                                         ; preds = %if.then86, %if.then83
-  %103 = load i32, ptr %sn, align 4
-  %104 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt = getelementptr inbounds %struct.IKCPCB, ptr %104, i32 0, i32 6
-  %105 = load i32, ptr %rcv_nxt, align 8
-  %106 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %106, i32 0, i32 15
-  %107 = load i32, ptr %rcv_wnd, align 4
-  %add = add i32 %105, %107
-  store i32 %103, ptr %later.addr.i210, align 4
-  store i32 %add, ptr %earlier.addr.i211, align 4
-  %108 = load i32, ptr %later.addr.i210, align 4
-  %109 = load i32, ptr %earlier.addr.i211, align 4
-  %sub.i212 = sub i32 %108, %109
-  %conv.i213 = sext i32 %sub.i212 to i64
-  %cmp91 = icmp slt i64 %conv.i213, 0
-  br i1 %cmp91, label %if.then93, label %if.end118
-
-if.then93:                                        ; preds = %if.end89
-  %110 = load ptr, ptr %kcp.addr, align 8
-  %111 = load i32, ptr %sn, align 4
-  %112 = load i32, ptr %ts, align 4
-  call void @ikcp_ack_push(ptr noundef %110, i32 noundef %111, i32 noundef %112)
-  %113 = load i32, ptr %sn, align 4
-  %114 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt94 = getelementptr inbounds %struct.IKCPCB, ptr %114, i32 0, i32 6
-  %115 = load i32, ptr %rcv_nxt94, align 8
-  store i32 %113, ptr %later.addr.i206, align 4
-  store i32 %115, ptr %earlier.addr.i207, align 4
-  %116 = load i32, ptr %later.addr.i206, align 4
-  %117 = load i32, ptr %earlier.addr.i207, align 4
-  %sub.i208 = sub i32 %116, %117
-  %conv.i209 = sext i32 %sub.i208 to i64
-  %cmp96 = icmp sge i64 %conv.i209, 0
-  br i1 %cmp96, label %if.then98, label %if.end117
-
-if.then98:                                        ; preds = %if.then93
-  %118 = load ptr, ptr %kcp.addr, align 8
-  %119 = load i32, ptr %len, align 4
-  %call99 = call ptr @ikcp_segment_new(ptr noundef %118, i32 noundef %119)
-  store ptr %call99, ptr %seg, align 8
-  %120 = load i32, ptr %conv7, align 4
-  %121 = load ptr, ptr %seg, align 8
-  %conv100 = getelementptr inbounds %struct.IKCPSEG, ptr %121, i32 0, i32 1
-  store i32 %120, ptr %conv100, align 8
-  %122 = load i8, ptr %cmd, align 1
-  %conv101 = zext i8 %122 to i32
-  %123 = load ptr, ptr %seg, align 8
-  %cmd102 = getelementptr inbounds %struct.IKCPSEG, ptr %123, i32 0, i32 2
-  store i32 %conv101, ptr %cmd102, align 4
-  %124 = load i8, ptr %frg, align 1
-  %conv103 = zext i8 %124 to i32
-  %125 = load ptr, ptr %seg, align 8
-  %frg104 = getelementptr inbounds %struct.IKCPSEG, ptr %125, i32 0, i32 3
-  store i32 %conv103, ptr %frg104, align 8
-  %126 = load i16, ptr %wnd, align 2
-  %conv105 = zext i16 %126 to i32
-  %127 = load ptr, ptr %seg, align 8
-  %wnd106 = getelementptr inbounds %struct.IKCPSEG, ptr %127, i32 0, i32 4
-  store i32 %conv105, ptr %wnd106, align 4
-  %128 = load i32, ptr %ts, align 4
-  %129 = load ptr, ptr %seg, align 8
-  %ts107 = getelementptr inbounds %struct.IKCPSEG, ptr %129, i32 0, i32 5
-  store i32 %128, ptr %ts107, align 8
-  %130 = load i32, ptr %sn, align 4
-  %131 = load ptr, ptr %seg, align 8
-  %sn108 = getelementptr inbounds %struct.IKCPSEG, ptr %131, i32 0, i32 6
-  store i32 %130, ptr %sn108, align 4
-  %132 = load i32, ptr %una, align 4
-  %133 = load ptr, ptr %seg, align 8
-  %una109 = getelementptr inbounds %struct.IKCPSEG, ptr %133, i32 0, i32 7
-  store i32 %132, ptr %una109, align 8
-  %134 = load i32, ptr %len, align 4
-  %135 = load ptr, ptr %seg, align 8
-  %len110 = getelementptr inbounds %struct.IKCPSEG, ptr %135, i32 0, i32 8
-  store i32 %134, ptr %len110, align 4
-  %136 = load i32, ptr %len, align 4
-  %cmp111 = icmp ugt i32 %136, 0
-  br i1 %cmp111, label %if.then113, label %if.end116
-
-if.then113:                                       ; preds = %if.then98
-  %137 = load ptr, ptr %seg, align 8
-  %data114 = getelementptr inbounds %struct.IKCPSEG, ptr %137, i32 0, i32 13
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %data114, i64 0, i64 0
-  %138 = load ptr, ptr %data.addr, align 8
-  %139 = load i32, ptr %len, align 4
-  %conv115 = zext i32 %139 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %138, i64 %conv115, i1 false)
-  br label %if.end116
-
-if.end116:                                        ; preds = %if.then113, %if.then98
-  %140 = load ptr, ptr %kcp.addr, align 8
-  %141 = load ptr, ptr %seg, align 8
-  call void @ikcp_parse_data(ptr noundef %140, ptr noundef %141)
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.end116, %if.then93
-  br label %if.end118
-
-if.end118:                                        ; preds = %if.end117, %if.end89
-  br label %if.end141
-
-if.else119:                                       ; preds = %if.else79
-  %142 = load i8, ptr %cmd, align 1
-  %conv120 = zext i8 %142 to i32
-  %cmp121 = icmp eq i32 %conv120, 83
-  br i1 %cmp121, label %if.then123, label %if.else128
-
-if.then123:                                       ; preds = %if.else119
-  %143 = load ptr, ptr %kcp.addr, align 8
-  %probe = getelementptr inbounds %struct.IKCPCB, ptr %143, i32 0, i32 18
-  %144 = load i32, ptr %probe, align 8
-  %or = or i32 %144, 2
-  store i32 %or, ptr %probe, align 8
-  %145 = load ptr, ptr %kcp.addr, align 8
-  %call124 = call i32 @ikcp_canlog(ptr noundef %145, i32 noundef 64)
-  %tobool125 = icmp ne i32 %call124, 0
-  br i1 %tobool125, label %if.then126, label %if.end127
-
-if.then126:                                       ; preds = %if.then123
-  %146 = load ptr, ptr %kcp.addr, align 8
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %146, i32 noundef 64, ptr noundef @.str.4)
-  br label %if.end127
-
-if.end127:                                        ; preds = %if.then126, %if.then123
-  br label %if.end140
-
-if.else128:                                       ; preds = %if.else119
-  %147 = load i8, ptr %cmd, align 1
-  %conv129 = zext i8 %147 to i32
-  %cmp130 = icmp eq i32 %conv129, 84
-  br i1 %cmp130, label %if.then132, label %if.else138
-
-if.then132:                                       ; preds = %if.else128
-  %148 = load ptr, ptr %kcp.addr, align 8
-  %call133 = call i32 @ikcp_canlog(ptr noundef %148, i32 noundef 128)
-  %tobool134 = icmp ne i32 %call133, 0
-  br i1 %tobool134, label %if.then135, label %if.end137
-
-if.then135:                                       ; preds = %if.then132
-  %149 = load ptr, ptr %kcp.addr, align 8
-  %150 = load i16, ptr %wnd, align 2
-  %conv136 = zext i16 %150 to i64
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %149, i32 noundef 128, ptr noundef @.str.5, i64 noundef %conv136)
-  br label %if.end137
-
-if.end137:                                        ; preds = %if.then135, %if.then132
-  br label %if.end139
-
-if.else138:                                       ; preds = %if.else128
-  store i32 -3, ptr %retval, align 4
-  br label %return
-
-if.end139:                                        ; preds = %if.end137
-  br label %if.end140
-
-if.end140:                                        ; preds = %if.end139, %if.end127
-  br label %if.end141
-
-if.end141:                                        ; preds = %if.end140, %if.end118
-  br label %if.end142
-
-if.end142:                                        ; preds = %if.end141, %if.end78
-  %151 = load i32, ptr %len, align 4
-  %152 = load ptr, ptr %data.addr, align 8
-  %idx.ext = zext i32 %151 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %152, i64 %idx.ext
-  store ptr %add.ptr, ptr %data.addr, align 8
-  %153 = load i32, ptr %len, align 4
-  %conv143 = zext i32 %153 to i64
-  %154 = load i64, ptr %size.addr, align 8
-  %sub144 = sub nsw i64 %154, %conv143
-  store i64 %sub144, ptr %size.addr, align 8
-  br label %while.body
-
-while.end:                                        ; preds = %if.then10
-  %155 = load i32, ptr %flag, align 4
-  %cmp145 = icmp ne i32 %155, 0
-  br i1 %cmp145, label %if.then147, label %if.end148
-
-if.then147:                                       ; preds = %while.end
-  %156 = load ptr, ptr %kcp.addr, align 8
-  %157 = load i32, ptr %maxack, align 4
-  %158 = load i32, ptr %latest_ts, align 4
-  call void @ikcp_parse_fastack(ptr noundef %156, i32 noundef %157, i32 noundef %158)
-  br label %if.end148
-
-if.end148:                                        ; preds = %if.then147, %while.end
-  %159 = load ptr, ptr %kcp.addr, align 8
-  %snd_una149 = getelementptr inbounds %struct.IKCPCB, ptr %159, i32 0, i32 4
-  %160 = load i32, ptr %snd_una149, align 8
-  %161 = load i32, ptr %prev_una, align 4
-  store i32 %160, ptr %later.addr.i, align 4
-  store i32 %161, ptr %earlier.addr.i, align 4
-  %162 = load i32, ptr %later.addr.i, align 4
-  %163 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %162, %163
-  %conv.i = sext i32 %sub.i to i64
-  %cmp151 = icmp sgt i64 %conv.i, 0
-  br i1 %cmp151, label %if.then153, label %if.end205
-
-if.then153:                                       ; preds = %if.end148
-  %164 = load ptr, ptr %kcp.addr, align 8
-  %cwnd = getelementptr inbounds %struct.IKCPCB, ptr %164, i32 0, i32 17
-  %165 = load i32, ptr %cwnd, align 4
-  %166 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd154 = getelementptr inbounds %struct.IKCPCB, ptr %166, i32 0, i32 16
-  %167 = load i32, ptr %rmt_wnd154, align 8
-  %cmp155 = icmp ult i32 %165, %167
-  br i1 %cmp155, label %if.then157, label %if.end204
-
-if.then157:                                       ; preds = %if.then153
-  %168 = load ptr, ptr %kcp.addr, align 8
-  %mss158 = getelementptr inbounds %struct.IKCPCB, ptr %168, i32 0, i32 2
-  %169 = load i32, ptr %mss158, align 8
-  store i32 %169, ptr %mss, align 4
-  %170 = load ptr, ptr %kcp.addr, align 8
-  %cwnd159 = getelementptr inbounds %struct.IKCPCB, ptr %170, i32 0, i32 17
-  %171 = load i32, ptr %cwnd159, align 4
-  %172 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh = getelementptr inbounds %struct.IKCPCB, ptr %172, i32 0, i32 9
-  %173 = load i32, ptr %ssthresh, align 4
-  %cmp160 = icmp ult i32 %171, %173
-  br i1 %cmp160, label %if.then162, label %if.else165
-
-if.then162:                                       ; preds = %if.then157
-  %174 = load ptr, ptr %kcp.addr, align 8
-  %cwnd163 = getelementptr inbounds %struct.IKCPCB, ptr %174, i32 0, i32 17
-  %175 = load i32, ptr %cwnd163, align 4
-  %inc = add i32 %175, 1
-  store i32 %inc, ptr %cwnd163, align 4
-  %176 = load i32, ptr %mss, align 4
-  %177 = load ptr, ptr %kcp.addr, align 8
-  %incr = getelementptr inbounds %struct.IKCPCB, ptr %177, i32 0, i32 32
-  %178 = load i32, ptr %incr, align 8
-  %add164 = add i32 %178, %176
-  store i32 %add164, ptr %incr, align 8
-  br label %if.end192
-
-if.else165:                                       ; preds = %if.then157
-  %179 = load ptr, ptr %kcp.addr, align 8
-  %incr166 = getelementptr inbounds %struct.IKCPCB, ptr %179, i32 0, i32 32
-  %180 = load i32, ptr %incr166, align 8
-  %181 = load i32, ptr %mss, align 4
-  %cmp167 = icmp ult i32 %180, %181
-  br i1 %cmp167, label %if.then169, label %if.end171
-
-if.then169:                                       ; preds = %if.else165
-  %182 = load i32, ptr %mss, align 4
-  %183 = load ptr, ptr %kcp.addr, align 8
-  %incr170 = getelementptr inbounds %struct.IKCPCB, ptr %183, i32 0, i32 32
-  store i32 %182, ptr %incr170, align 8
-  br label %if.end171
-
-if.end171:                                        ; preds = %if.then169, %if.else165
-  %184 = load i32, ptr %mss, align 4
-  %185 = load i32, ptr %mss, align 4
-  %mul = mul i32 %184, %185
-  %186 = load ptr, ptr %kcp.addr, align 8
-  %incr172 = getelementptr inbounds %struct.IKCPCB, ptr %186, i32 0, i32 32
-  %187 = load i32, ptr %incr172, align 8
-  %div = udiv i32 %mul, %187
-  %188 = load i32, ptr %mss, align 4
-  %div173 = udiv i32 %188, 16
-  %add174 = add i32 %div, %div173
-  %189 = load ptr, ptr %kcp.addr, align 8
-  %incr175 = getelementptr inbounds %struct.IKCPCB, ptr %189, i32 0, i32 32
-  %190 = load i32, ptr %incr175, align 8
-  %add176 = add i32 %190, %add174
-  store i32 %add176, ptr %incr175, align 8
-  %191 = load ptr, ptr %kcp.addr, align 8
-  %cwnd177 = getelementptr inbounds %struct.IKCPCB, ptr %191, i32 0, i32 17
-  %192 = load i32, ptr %cwnd177, align 4
-  %add178 = add i32 %192, 1
-  %193 = load i32, ptr %mss, align 4
-  %mul179 = mul i32 %add178, %193
-  %194 = load ptr, ptr %kcp.addr, align 8
-  %incr180 = getelementptr inbounds %struct.IKCPCB, ptr %194, i32 0, i32 32
-  %195 = load i32, ptr %incr180, align 8
-  %cmp181 = icmp ule i32 %mul179, %195
-  br i1 %cmp181, label %if.then183, label %if.end191
-
-if.then183:                                       ; preds = %if.end171
-  %196 = load ptr, ptr %kcp.addr, align 8
-  %incr184 = getelementptr inbounds %struct.IKCPCB, ptr %196, i32 0, i32 32
-  %197 = load i32, ptr %incr184, align 8
-  %198 = load i32, ptr %mss, align 4
-  %add185 = add i32 %197, %198
-  %sub186 = sub i32 %add185, 1
-  %199 = load i32, ptr %mss, align 4
-  %cmp187 = icmp ugt i32 %199, 0
-  br i1 %cmp187, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then183
-  %200 = load i32, ptr %mss, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then183
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %200, %cond.true ], [ 1, %cond.false ]
-  %div189 = udiv i32 %sub186, %cond
-  %201 = load ptr, ptr %kcp.addr, align 8
-  %cwnd190 = getelementptr inbounds %struct.IKCPCB, ptr %201, i32 0, i32 17
-  store i32 %div189, ptr %cwnd190, align 4
-  br label %if.end191
-
-if.end191:                                        ; preds = %cond.end, %if.end171
-  br label %if.end192
-
-if.end192:                                        ; preds = %if.end191, %if.then162
-  %202 = load ptr, ptr %kcp.addr, align 8
-  %cwnd193 = getelementptr inbounds %struct.IKCPCB, ptr %202, i32 0, i32 17
-  %203 = load i32, ptr %cwnd193, align 4
-  %204 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd194 = getelementptr inbounds %struct.IKCPCB, ptr %204, i32 0, i32 16
-  %205 = load i32, ptr %rmt_wnd194, align 8
-  %cmp195 = icmp ugt i32 %203, %205
-  br i1 %cmp195, label %if.then197, label %if.end203
-
-if.then197:                                       ; preds = %if.end192
-  %206 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd198 = getelementptr inbounds %struct.IKCPCB, ptr %206, i32 0, i32 16
-  %207 = load i32, ptr %rmt_wnd198, align 8
-  %208 = load ptr, ptr %kcp.addr, align 8
-  %cwnd199 = getelementptr inbounds %struct.IKCPCB, ptr %208, i32 0, i32 17
-  store i32 %207, ptr %cwnd199, align 4
-  %209 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd200 = getelementptr inbounds %struct.IKCPCB, ptr %209, i32 0, i32 16
-  %210 = load i32, ptr %rmt_wnd200, align 8
-  %211 = load i32, ptr %mss, align 4
-  %mul201 = mul i32 %210, %211
-  %212 = load ptr, ptr %kcp.addr, align 8
-  %incr202 = getelementptr inbounds %struct.IKCPCB, ptr %212, i32 0, i32 32
-  store i32 %mul201, ptr %incr202, align 8
-  br label %if.end203
-
-if.end203:                                        ; preds = %if.then197, %if.end192
-  br label %if.end204
-
-if.end204:                                        ; preds = %if.end203, %if.then153
-  br label %if.end205
-
-if.end205:                                        ; preds = %if.end204, %if.end148
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end205, %if.else138, %if.then47, %if.then31, %if.then16, %if.then5
-  %213 = load i32, ptr %retval, align 4
-  ret i32 %213
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ikcp_parse_una(ptr noundef %kcp, i32 noundef %una) #0 {
-entry:
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %una.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %una, ptr %una.addr, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 35
-  %next1 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 0
-  %1 = load ptr, ptr %next1, align 8
-  store ptr %1, ptr %p, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %p, align 8
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf2 = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 35
-  %cmp = icmp ne ptr %2, %snd_buf2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %5 = load ptr, ptr %p, align 8
-  %next3 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %next3, align 8
-  store ptr %6, ptr %next, align 8
-  %7 = load i32, ptr %una.addr, align 4
-  %8 = load ptr, ptr %seg, align 8
-  %sn = getelementptr inbounds %struct.IKCPSEG, ptr %8, i32 0, i32 6
-  %9 = load i32, ptr %sn, align 4
-  store i32 %7, ptr %later.addr.i, align 4
-  store i32 %9, ptr %earlier.addr.i, align 4
-  %10 = load i32, ptr %later.addr.i, align 4
-  %11 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %10, %11
-  %conv.i = sext i32 %sub.i to i64
-  %cmp4 = icmp sgt i64 %conv.i, 0
-  br i1 %cmp4, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body
-  %12 = load ptr, ptr %p, align 8
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %prev, align 8
-  %14 = load ptr, ptr %p, align 8
-  %next5 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %next5, align 8
-  %prev6 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %15, i32 0, i32 1
-  store ptr %13, ptr %prev6, align 8
-  %16 = load ptr, ptr %p, align 8
-  %next7 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %next7, align 8
-  %18 = load ptr, ptr %p, align 8
-  %prev8 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %prev8, align 8
-  %next9 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %19, i32 0, i32 0
-  store ptr %17, ptr %next9, align 8
-  %20 = load ptr, ptr %p, align 8
-  %next10 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %20, i32 0, i32 0
-  store ptr null, ptr %next10, align 8
-  %21 = load ptr, ptr %p, align 8
-  %prev11 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %21, i32 0, i32 1
-  store ptr null, ptr %prev11, align 8
-  %22 = load ptr, ptr %kcp.addr, align 8
-  %23 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %22, ptr noundef %23)
-  %24 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %24, i32 0, i32 24
-  %25 = load i32, ptr %nsnd_buf, align 8
-  %dec = add i32 %25, -1
-  store i32 %dec, ptr %nsnd_buf, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %for.body
-  br label %for.end
-
-if.end:                                           ; preds = %if.then
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %26 = load ptr, ptr %next, align 8
-  store ptr %26, ptr %p, align 8
-  br label %for.cond, !llvm.loop !16
-
-for.end:                                          ; preds = %if.else, %for.cond
+define internal void @ikcp_update_ack(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.IKCPCB, ptr %7, i32 0, i32 11
+  %9 = load i32, ptr %8, align 4, !tbaa !56
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %19
+
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !10
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.IKCPCB, ptr %13, i32 0, i32 11
+  store i32 %12, ptr %14, align 4, !tbaa !56
+  %15 = load i32, ptr %4, align 4, !tbaa !10
+  %16 = sdiv i32 %15, 2
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 10
+  store i32 %16, ptr %18, align 8, !tbaa !57
+  br label %60
+
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %20 = load i32, ptr %4, align 4, !tbaa !10
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.IKCPCB, ptr %21, i32 0, i32 11
+  %23 = load i32, ptr %22, align 4, !tbaa !56
+  %24 = sub nsw i32 %20, %23
+  %25 = sext i32 %24 to i64
+  store i64 %25, ptr %6, align 8, !tbaa !72
+  %26 = load i64, ptr %6, align 8, !tbaa !72
+  %27 = icmp slt i64 %26, 0
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %19
+  %29 = load i64, ptr %6, align 8, !tbaa !72
+  %30 = sub nsw i64 0, %29
+  store i64 %30, ptr %6, align 8, !tbaa !72
+  br label %31
+
+31:                                               ; preds = %28, %19
+  %32 = load ptr, ptr %3, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.IKCPCB, ptr %32, i32 0, i32 10
+  %34 = load i32, ptr %33, align 8, !tbaa !57
+  %35 = mul nsw i32 3, %34
+  %36 = sext i32 %35 to i64
+  %37 = load i64, ptr %6, align 8, !tbaa !72
+  %38 = add nsw i64 %36, %37
+  %39 = sdiv i64 %38, 4
+  %40 = trunc i64 %39 to i32
+  %41 = load ptr, ptr %3, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.IKCPCB, ptr %41, i32 0, i32 10
+  store i32 %40, ptr %42, align 8, !tbaa !57
+  %43 = load ptr, ptr %3, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.IKCPCB, ptr %43, i32 0, i32 11
+  %45 = load i32, ptr %44, align 4, !tbaa !56
+  %46 = mul nsw i32 7, %45
+  %47 = load i32, ptr %4, align 4, !tbaa !10
+  %48 = add nsw i32 %46, %47
+  %49 = sdiv i32 %48, 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.IKCPCB, ptr %50, i32 0, i32 11
+  store i32 %49, ptr %51, align 4, !tbaa !56
+  %52 = load ptr, ptr %3, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.IKCPCB, ptr %52, i32 0, i32 11
+  %54 = load i32, ptr %53, align 4, !tbaa !56
+  %55 = icmp slt i32 %54, 1
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %31
+  %57 = load ptr, ptr %3, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.IKCPCB, ptr %57, i32 0, i32 11
+  store i32 1, ptr %58, align 4, !tbaa !56
+  br label %59
+
+59:                                               ; preds = %56, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  br label %60
+
+60:                                               ; preds = %59, %11
+  %61 = load ptr, ptr %3, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.IKCPCB, ptr %61, i32 0, i32 11
+  %63 = load i32, ptr %62, align 4, !tbaa !56
+  %64 = load ptr, ptr %3, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.IKCPCB, ptr %64, i32 0, i32 20
+  %66 = load i32, ptr %65, align 8, !tbaa !61
+  %67 = load ptr, ptr %3, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.IKCPCB, ptr %67, i32 0, i32 10
+  %69 = load i32, ptr %68, align 8, !tbaa !57
+  %70 = mul nsw i32 4, %69
+  %71 = call i32 @_imax_(i32 noundef %66, i32 noundef %70)
+  %72 = add i32 %63, %71
+  store i32 %72, ptr %5, align 4, !tbaa !10
+  %73 = load ptr, ptr %3, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw %struct.IKCPCB, ptr %73, i32 0, i32 13
+  %75 = load i32, ptr %74, align 4, !tbaa !59
+  %76 = load i32, ptr %5, align 4, !tbaa !10
+  %77 = call i32 @_ibound_(i32 noundef %75, i32 noundef %76, i32 noundef 60000)
+  %78 = load ptr, ptr %3, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct.IKCPCB, ptr %78, i32 0, i32 12
+  store i32 %77, ptr %79, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikcp_shrink_buf(ptr noundef %kcp) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 35
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 0
-  %1 = load ptr, ptr %next, align 8
-  store ptr %1, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf1 = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 35
-  %cmp = icmp ne ptr %2, %snd_buf1
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @ikcp_parse_ack(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %9 = load i32, ptr %4, align 4, !tbaa !10
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct.IKCPCB, ptr %10, i32 0, i32 4
+  %12 = load i32, ptr %11, align 8, !tbaa !23
+  %13 = call i64 @_itimediff(i32 noundef %9, i32 noundef %12)
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %22, label %15
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %5 = load ptr, ptr %seg, align 8
-  %sn = getelementptr inbounds %struct.IKCPSEG, ptr %5, i32 0, i32 6
-  %6 = load i32, ptr %sn, align 4
-  %7 = load ptr, ptr %kcp.addr, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 4
-  store i32 %6, ptr %snd_una, align 8
-  br label %if.end
+15:                                               ; preds = %2
+  %16 = load i32, ptr %4, align 4, !tbaa !10
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 5
+  %19 = load i32, ptr %18, align 4, !tbaa !24
+  %20 = call i64 @_itimediff(i32 noundef %16, i32 noundef %19)
+  %21 = icmp sge i64 %20, 0
+  br i1 %21, label %22, label %23
 
-if.else:                                          ; preds = %entry
-  %8 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt = getelementptr inbounds %struct.IKCPCB, ptr %8, i32 0, i32 5
-  %9 = load i32, ptr %snd_nxt, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %snd_una2 = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 4
-  store i32 %9, ptr %snd_una2, align 8
-  br label %if.end
+22:                                               ; preds = %15, %2
+  store i32 1, ptr %7, align 4
+  br label %84
 
-if.end:                                           ; preds = %if.else, %if.then
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %3, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.IKCPCB, ptr %24, i32 0, i32 35
+  %26 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !44
+  store ptr %27, ptr %5, align 8, !tbaa !21
+  br label %28
+
+28:                                               ; preds = %81, %23
+  %29 = load ptr, ptr %5, align 8, !tbaa !21
+  %30 = load ptr, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.IKCPCB, ptr %30, i32 0, i32 35
+  %32 = icmp ne ptr %29, %31
+  br i1 %32, label %33, label %83
+
+33:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %34 = load ptr, ptr %5, align 8, !tbaa !21
+  %35 = getelementptr inbounds i8, ptr %34, i64 0
+  store ptr %35, ptr %8, align 8, !tbaa !74
+  %36 = load ptr, ptr %5, align 8, !tbaa !21
+  %37 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !80
+  store ptr %38, ptr %6, align 8, !tbaa !21
+  %39 = load i32, ptr %4, align 4, !tbaa !10
+  %40 = load ptr, ptr %8, align 8, !tbaa !74
+  %41 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %40, i32 0, i32 6
+  %42 = load i32, ptr %41, align 4, !tbaa !88
+  %43 = icmp eq i32 %39, %42
+  br i1 %43, label %44, label %69
+
+44:                                               ; preds = %33
+  %45 = load ptr, ptr %5, align 8, !tbaa !21
+  %46 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !79
+  %48 = load ptr, ptr %5, align 8, !tbaa !21
+  %49 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !80
+  %51 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %50, i32 0, i32 1
+  store ptr %47, ptr %51, align 8, !tbaa !79
+  %52 = load ptr, ptr %5, align 8, !tbaa !21
+  %53 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !80
+  %55 = load ptr, ptr %5, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !79
+  %58 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %57, i32 0, i32 0
+  store ptr %54, ptr %58, align 8, !tbaa !80
+  %59 = load ptr, ptr %5, align 8, !tbaa !21
+  %60 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %59, i32 0, i32 0
+  store ptr null, ptr %60, align 8, !tbaa !80
+  %61 = load ptr, ptr %5, align 8, !tbaa !21
+  %62 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %61, i32 0, i32 1
+  store ptr null, ptr %62, align 8, !tbaa !79
+  %63 = load ptr, ptr %3, align 8, !tbaa !8
+  %64 = load ptr, ptr %8, align 8, !tbaa !74
+  call void @ikcp_segment_delete(ptr noundef %63, ptr noundef %64)
+  %65 = load ptr, ptr %3, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw %struct.IKCPCB, ptr %65, i32 0, i32 24
+  %67 = load i32, ptr %66, align 8, !tbaa !49
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %66, align 8, !tbaa !49
+  store i32 2, ptr %7, align 4
+  br label %78
+
+69:                                               ; preds = %33
+  %70 = load i32, ptr %4, align 4, !tbaa !10
+  %71 = load ptr, ptr %8, align 8, !tbaa !74
+  %72 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %71, i32 0, i32 6
+  %73 = load i32, ptr %72, align 4, !tbaa !88
+  %74 = call i64 @_itimediff(i32 noundef %70, i32 noundef %73)
+  %75 = icmp slt i64 %74, 0
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %69
+  store i32 2, ptr %7, align 4
+  br label %78
+
+77:                                               ; preds = %69
+  store i32 0, ptr %7, align 4
+  br label %78
+
+78:                                               ; preds = %77, %76, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  %79 = load i32, ptr %7, align 4
+  switch i32 %79, label %87 [
+    i32 0, label %80
+    i32 2, label %83
+  ]
+
+80:                                               ; preds = %78
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %82, ptr %5, align 8, !tbaa !21
+  br label %28, !llvm.loop !107
+
+83:                                               ; preds = %78, %28
+  store i32 0, ptr %7, align 4
+  br label %84
+
+84:                                               ; preds = %83, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  %85 = load i32, ptr %7, align 4
+  switch i32 %85, label %87 [
+    i32 0, label %86
+    i32 1, label %86
+  ]
+
+86:                                               ; preds = %84, %84
   ret void
+
+87:                                               ; preds = %84, %78
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikcp_update_ack(ptr noundef %kcp, i32 noundef %rtt) #0 {
-entry:
-  %a.addr.i2.i = alloca i32, align 4
-  %b.addr.i3.i = alloca i32, align 4
-  %a.addr.i.i = alloca i32, align 4
-  %b.addr.i.i = alloca i32, align 4
-  %lower.addr.i = alloca i32, align 4
-  %middle.addr.i = alloca i32, align 4
-  %upper.addr.i = alloca i32, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %rtt.addr = alloca i32, align 4
-  %rto = alloca i32, align 4
-  %delta = alloca i64, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %rtt, ptr %rtt.addr, align 4
-  store i32 0, ptr %rto, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 11
-  %1 = load i32, ptr %rx_srtt, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @ikcp_ack_push(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.IKCPCB, ptr %12, i32 0, i32 38
+  %14 = load i32, ptr %13, align 8, !tbaa !55
+  %15 = add i32 %14, 1
+  store i32 %15, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %16 = load i32, ptr %7, align 4, !tbaa !10
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 39
+  %19 = load i32, ptr %18, align 4, !tbaa !54
+  %20 = icmp ugt i32 %16, %19
+  br i1 %20, label %21, label %96
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %rtt.addr, align 4
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt1 = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 11
-  store i32 %2, ptr %rx_srtt1, align 4
-  %4 = load i32, ptr %rtt.addr, align 4
-  %div = sdiv i32 %4, 2
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %rx_rttval = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 10
-  store i32 %div, ptr %rx_rttval, align 8
-  br label %if.end23
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 8, ptr %10, align 4, !tbaa !10
+  br label %22
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %rtt.addr, align 4
-  %7 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt2 = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 11
-  %8 = load i32, ptr %rx_srtt2, align 4
-  %sub = sub nsw i32 %6, %8
-  %conv = sext i32 %sub to i64
-  store i64 %conv, ptr %delta, align 8
-  %9 = load i64, ptr %delta, align 8
-  %cmp3 = icmp slt i64 %9, 0
-  br i1 %cmp3, label %if.then5, label %if.end
+22:                                               ; preds = %27, %21
+  %23 = load i32, ptr %10, align 4, !tbaa !10
+  %24 = load i32, ptr %7, align 4, !tbaa !10
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %26, label %30
 
-if.then5:                                         ; preds = %if.else
-  %10 = load i64, ptr %delta, align 8
-  %sub6 = sub nsw i64 0, %10
-  store i64 %sub6, ptr %delta, align 8
-  br label %if.end
+26:                                               ; preds = %22
+  br label %27
 
-if.end:                                           ; preds = %if.then5, %if.else
-  %11 = load ptr, ptr %kcp.addr, align 8
-  %rx_rttval7 = getelementptr inbounds %struct.IKCPCB, ptr %11, i32 0, i32 10
-  %12 = load i32, ptr %rx_rttval7, align 8
-  %mul = mul nsw i32 3, %12
-  %conv8 = sext i32 %mul to i64
-  %13 = load i64, ptr %delta, align 8
-  %add = add nsw i64 %conv8, %13
-  %div9 = sdiv i64 %add, 4
-  %conv10 = trunc i64 %div9 to i32
-  %14 = load ptr, ptr %kcp.addr, align 8
-  %rx_rttval11 = getelementptr inbounds %struct.IKCPCB, ptr %14, i32 0, i32 10
-  store i32 %conv10, ptr %rx_rttval11, align 8
-  %15 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt12 = getelementptr inbounds %struct.IKCPCB, ptr %15, i32 0, i32 11
-  %16 = load i32, ptr %rx_srtt12, align 4
-  %mul13 = mul nsw i32 7, %16
-  %17 = load i32, ptr %rtt.addr, align 4
-  %add14 = add nsw i32 %mul13, %17
-  %div15 = sdiv i32 %add14, 8
-  %18 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt16 = getelementptr inbounds %struct.IKCPCB, ptr %18, i32 0, i32 11
-  store i32 %div15, ptr %rx_srtt16, align 4
-  %19 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt17 = getelementptr inbounds %struct.IKCPCB, ptr %19, i32 0, i32 11
-  %20 = load i32, ptr %rx_srtt17, align 4
-  %cmp18 = icmp slt i32 %20, 1
-  br i1 %cmp18, label %if.then20, label %if.end22
+27:                                               ; preds = %26
+  %28 = load i32, ptr %10, align 4, !tbaa !10
+  %29 = shl i32 %28, 1
+  store i32 %29, ptr %10, align 4, !tbaa !10
+  br label %22, !llvm.loop !108
 
-if.then20:                                        ; preds = %if.end
-  %21 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt21 = getelementptr inbounds %struct.IKCPCB, ptr %21, i32 0, i32 11
-  store i32 1, ptr %rx_srtt21, align 4
-  br label %if.end22
+30:                                               ; preds = %22
+  %31 = load i32, ptr %10, align 4, !tbaa !10
+  %32 = zext i32 %31 to i64
+  %33 = mul i64 %32, 4
+  %34 = mul i64 %33, 2
+  %35 = call ptr @ikcp_malloc(i64 noundef %34)
+  store ptr %35, ptr %9, align 8, !tbaa !103
+  %36 = load ptr, ptr %9, align 8, !tbaa !103
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
 
-if.end22:                                         ; preds = %if.then20, %if.end
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end22, %if.then
-  %22 = load ptr, ptr %kcp.addr, align 8
-  %rx_srtt24 = getelementptr inbounds %struct.IKCPCB, ptr %22, i32 0, i32 11
-  %23 = load i32, ptr %rx_srtt24, align 4
-  %24 = load ptr, ptr %kcp.addr, align 8
-  %interval = getelementptr inbounds %struct.IKCPCB, ptr %24, i32 0, i32 20
-  %25 = load i32, ptr %interval, align 8
-  %26 = load ptr, ptr %kcp.addr, align 8
-  %rx_rttval25 = getelementptr inbounds %struct.IKCPCB, ptr %26, i32 0, i32 10
-  %27 = load i32, ptr %rx_rttval25, align 8
-  %mul26 = mul nsw i32 4, %27
-  store i32 %25, ptr %a.addr.i, align 4
-  store i32 %mul26, ptr %b.addr.i, align 4
-  %28 = load i32, ptr %a.addr.i, align 4
-  %29 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp uge i32 %28, %29
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %if.end23
-  %30 = load i32, ptr %a.addr.i, align 4
-  br label %_imax_.exit
-
-cond.false.i:                                     ; preds = %if.end23
-  %31 = load i32, ptr %b.addr.i, align 4
-  br label %_imax_.exit
-
-_imax_.exit:                                      ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %30, %cond.true.i ], [ %31, %cond.false.i ]
-  %add27 = add i32 %23, %cond.i
-  store i32 %add27, ptr %rto, align 4
-  %32 = load ptr, ptr %kcp.addr, align 8
-  %rx_minrto = getelementptr inbounds %struct.IKCPCB, ptr %32, i32 0, i32 13
-  %33 = load i32, ptr %rx_minrto, align 4
-  %34 = load i32, ptr %rto, align 4
-  store i32 %33, ptr %lower.addr.i, align 4
-  store i32 %34, ptr %middle.addr.i, align 4
-  store i32 60000, ptr %upper.addr.i, align 4
-  %35 = load i32, ptr %lower.addr.i, align 4
-  %36 = load i32, ptr %middle.addr.i, align 4
-  store i32 %35, ptr %a.addr.i2.i, align 4
-  store i32 %36, ptr %b.addr.i3.i, align 4
-  %37 = load i32, ptr %a.addr.i2.i, align 4
-  %38 = load i32, ptr %b.addr.i3.i, align 4
-  %cmp.i4.i = icmp uge i32 %37, %38
-  br i1 %cmp.i4.i, label %cond.true.i7.i, label %cond.false.i5.i
-
-cond.true.i7.i:                                   ; preds = %_imax_.exit
-  %39 = load i32, ptr %a.addr.i2.i, align 4
-  br label %_imax_.exit.i
-
-cond.false.i5.i:                                  ; preds = %_imax_.exit
-  %40 = load i32, ptr %b.addr.i3.i, align 4
-  br label %_imax_.exit.i
-
-_imax_.exit.i:                                    ; preds = %cond.false.i5.i, %cond.true.i7.i
-  %cond.i6.i = phi i32 [ %39, %cond.true.i7.i ], [ %40, %cond.false.i5.i ]
-  %41 = load i32, ptr %upper.addr.i, align 4
-  store i32 %cond.i6.i, ptr %a.addr.i.i, align 4
-  store i32 %41, ptr %b.addr.i.i, align 4
-  %42 = load i32, ptr %a.addr.i.i, align 4
-  %43 = load i32, ptr %b.addr.i.i, align 4
-  %cmp.i.i = icmp ule i32 %42, %43
-  br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
-
-cond.true.i.i:                                    ; preds = %_imax_.exit.i
-  %44 = load i32, ptr %a.addr.i.i, align 4
-  br label %_ibound_.exit
-
-cond.false.i.i:                                   ; preds = %_imax_.exit.i
-  %45 = load i32, ptr %b.addr.i.i, align 4
-  br label %_ibound_.exit
-
-_ibound_.exit:                                    ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi i32 [ %44, %cond.true.i.i ], [ %45, %cond.false.i.i ]
-  %46 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto = getelementptr inbounds %struct.IKCPCB, ptr %46, i32 0, i32 12
-  store i32 %cond.i.i, ptr %rx_rto, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ikcp_parse_ack(ptr noundef %kcp, i32 noundef %sn) #0 {
-entry:
-  %later.addr.i27 = alloca i32, align 4
-  %earlier.addr.i28 = alloca i32, align 4
-  %later.addr.i23 = alloca i32, align 4
-  %earlier.addr.i24 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %sn.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %sn, ptr %sn.addr, align 4
-  %0 = load i32, ptr %sn.addr, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %snd_una, align 8
-  store i32 %0, ptr %later.addr.i27, align 4
-  store i32 %2, ptr %earlier.addr.i28, align 4
-  %3 = load i32, ptr %later.addr.i27, align 4
-  %4 = load i32, ptr %earlier.addr.i28, align 4
-  %sub.i29 = sub i32 %3, %4
-  %conv.i30 = sext i32 %sub.i29 to i64
-  %cmp = icmp slt i64 %conv.i30, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %5 = load i32, ptr %sn.addr, align 4
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 5
-  %7 = load i32, ptr %snd_nxt, align 4
-  store i32 %5, ptr %later.addr.i23, align 4
-  store i32 %7, ptr %earlier.addr.i24, align 4
-  %8 = load i32, ptr %later.addr.i23, align 4
-  %9 = load i32, ptr %earlier.addr.i24, align 4
-  %sub.i25 = sub i32 %8, %9
-  %conv.i26 = sext i32 %sub.i25 to i64
-  %cmp2 = icmp sge i64 %conv.i26, 0
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %for.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 35
-  %next3 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 0
-  %11 = load ptr, ptr %next3, align 8
-  store ptr %11, ptr %p, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %12 = load ptr, ptr %p, align 8
-  %13 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf4 = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 35
-  %cmp5 = icmp ne ptr %12, %snd_buf4
-  br i1 %cmp5, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %15 = load ptr, ptr %p, align 8
-  %next6 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %next6, align 8
-  store ptr %16, ptr %next, align 8
-  %17 = load i32, ptr %sn.addr, align 4
-  %18 = load ptr, ptr %seg, align 8
-  %sn7 = getelementptr inbounds %struct.IKCPSEG, ptr %18, i32 0, i32 6
-  %19 = load i32, ptr %sn7, align 4
-  %cmp8 = icmp eq i32 %17, %19
-  br i1 %cmp8, label %if.then9, label %if.end17
-
-if.then9:                                         ; preds = %for.body
-  %20 = load ptr, ptr %p, align 8
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %prev, align 8
-  %22 = load ptr, ptr %p, align 8
-  %next10 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %next10, align 8
-  %prev11 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %23, i32 0, i32 1
-  store ptr %21, ptr %prev11, align 8
-  %24 = load ptr, ptr %p, align 8
-  %next12 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %next12, align 8
-  %26 = load ptr, ptr %p, align 8
-  %prev13 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %prev13, align 8
-  %next14 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %27, i32 0, i32 0
-  store ptr %25, ptr %next14, align 8
-  %28 = load ptr, ptr %p, align 8
-  %next15 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %28, i32 0, i32 0
-  store ptr null, ptr %next15, align 8
-  %29 = load ptr, ptr %p, align 8
-  %prev16 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %29, i32 0, i32 1
-  store ptr null, ptr %prev16, align 8
-  %30 = load ptr, ptr %kcp.addr, align 8
-  %31 = load ptr, ptr %seg, align 8
-  call void @ikcp_segment_delete(ptr noundef %30, ptr noundef %31)
-  %32 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %32, i32 0, i32 24
-  %33 = load i32, ptr %nsnd_buf, align 8
-  %dec = add i32 %33, -1
-  store i32 %dec, ptr %nsnd_buf, align 8
-  br label %for.end
-
-if.end17:                                         ; preds = %for.body
-  %34 = load i32, ptr %sn.addr, align 4
-  %35 = load ptr, ptr %seg, align 8
-  %sn18 = getelementptr inbounds %struct.IKCPSEG, ptr %35, i32 0, i32 6
-  %36 = load i32, ptr %sn18, align 4
-  store i32 %34, ptr %later.addr.i, align 4
-  store i32 %36, ptr %earlier.addr.i, align 4
-  %37 = load i32, ptr %later.addr.i, align 4
-  %38 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %37, %38
-  %conv.i = sext i32 %sub.i to i64
-  %cmp20 = icmp slt i64 %conv.i, 0
-  br i1 %cmp20, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.end17
-  br label %for.end
-
-if.end22:                                         ; preds = %if.end17
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end22
-  %39 = load ptr, ptr %next, align 8
-  store ptr %39, ptr %p, align 8
-  br label %for.cond, !llvm.loop !17
-
-for.end:                                          ; preds = %if.then21, %if.then9, %for.cond, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ikcp_ack_push(ptr noundef %kcp, i32 noundef %sn, i32 noundef %ts) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %sn.addr = alloca i32, align 4
-  %ts.addr = alloca i32, align 4
-  %newsize = alloca i32, align 4
-  %ptr = alloca ptr, align 8
-  %acklist = alloca ptr, align 8
-  %newblock = alloca i32, align 4
-  %x = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %sn, ptr %sn.addr, align 4
-  store i32 %ts, ptr %ts.addr, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %ackcount = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 38
-  %1 = load i32, ptr %ackcount, align 8
-  %add = add i32 %1, 1
-  store i32 %add, ptr %newsize, align 4
-  %2 = load i32, ptr %newsize, align 4
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %ackblock = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 39
-  %4 = load i32, ptr %ackblock, align 4
-  %cmp = icmp ugt i32 %2, %4
-  br i1 %cmp, label %if.then, label %if.end37
-
-if.then:                                          ; preds = %entry
-  store i32 8, ptr %newblock, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %5 = load i32, ptr %newblock, align 4
-  %6 = load i32, ptr %newsize, align 4
-  %cmp1 = icmp ult i32 %5, %6
-  br i1 %cmp1, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %newblock, align 4
-  %shl = shl i32 %7, 1
-  store i32 %shl, ptr %newblock, align 4
-  br label %for.cond, !llvm.loop !18
-
-for.end:                                          ; preds = %for.cond
-  %8 = load i32, ptr %newblock, align 4
-  %conv = zext i32 %8 to i64
-  %mul = mul i64 %conv, 4
-  %mul2 = mul i64 %mul, 2
-  %call = call ptr @ikcp_malloc(i64 noundef %mul2)
-  store ptr %call, ptr %acklist, align 8
-  %9 = load ptr, ptr %acklist, align 8
-  %cmp3 = icmp eq ptr %9, null
-  br i1 %cmp3, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %for.end
-  call void @abort() #8
+38:                                               ; preds = %30
+  call void @abort() #10
   unreachable
 
-if.end:                                           ; preds = %for.end
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %acklist6 = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 37
-  %11 = load ptr, ptr %acklist6, align 8
-  %cmp7 = icmp ne ptr %11, null
-  br i1 %cmp7, label %if.then9, label %if.end34
+39:                                               ; preds = %30
+  %40 = load ptr, ptr %4, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.IKCPCB, ptr %40, i32 0, i32 37
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %89
 
-if.then9:                                         ; preds = %if.end
-  store i32 0, ptr %x, align 4
-  br label %for.cond10
+44:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  store i32 0, ptr %11, align 4, !tbaa !10
+  br label %45
 
-for.cond10:                                       ; preds = %for.inc31, %if.then9
-  %12 = load i32, ptr %x, align 4
-  %13 = load ptr, ptr %kcp.addr, align 8
-  %ackcount11 = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 38
-  %14 = load i32, ptr %ackcount11, align 8
-  %cmp12 = icmp ult i32 %12, %14
-  br i1 %cmp12, label %for.body14, label %for.end32
+45:                                               ; preds = %82, %44
+  %46 = load i32, ptr %11, align 4, !tbaa !10
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 38
+  %49 = load i32, ptr %48, align 8, !tbaa !55
+  %50 = icmp ult i32 %46, %49
+  br i1 %50, label %51, label %85
 
-for.body14:                                       ; preds = %for.cond10
-  %15 = load ptr, ptr %kcp.addr, align 8
-  %acklist15 = getelementptr inbounds %struct.IKCPCB, ptr %15, i32 0, i32 37
-  %16 = load ptr, ptr %acklist15, align 8
-  %17 = load i32, ptr %x, align 4
-  %mul16 = mul i32 %17, 2
-  %add17 = add i32 %mul16, 0
-  %idxprom = zext i32 %add17 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %16, i64 %idxprom
-  %18 = load i32, ptr %arrayidx, align 4
-  %19 = load ptr, ptr %acklist, align 8
-  %20 = load i32, ptr %x, align 4
-  %mul18 = mul i32 %20, 2
-  %add19 = add i32 %mul18, 0
-  %idxprom20 = zext i32 %add19 to i64
-  %arrayidx21 = getelementptr inbounds i32, ptr %19, i64 %idxprom20
-  store i32 %18, ptr %arrayidx21, align 4
-  %21 = load ptr, ptr %kcp.addr, align 8
-  %acklist22 = getelementptr inbounds %struct.IKCPCB, ptr %21, i32 0, i32 37
-  %22 = load ptr, ptr %acklist22, align 8
-  %23 = load i32, ptr %x, align 4
-  %mul23 = mul i32 %23, 2
-  %add24 = add i32 %mul23, 1
-  %idxprom25 = zext i32 %add24 to i64
-  %arrayidx26 = getelementptr inbounds i32, ptr %22, i64 %idxprom25
-  %24 = load i32, ptr %arrayidx26, align 4
-  %25 = load ptr, ptr %acklist, align 8
-  %26 = load i32, ptr %x, align 4
-  %mul27 = mul i32 %26, 2
-  %add28 = add i32 %mul27, 1
-  %idxprom29 = zext i32 %add28 to i64
-  %arrayidx30 = getelementptr inbounds i32, ptr %25, i64 %idxprom29
-  store i32 %24, ptr %arrayidx30, align 4
-  br label %for.inc31
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %4, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.IKCPCB, ptr %52, i32 0, i32 37
+  %54 = load ptr, ptr %53, align 8, !tbaa !53
+  %55 = load i32, ptr %11, align 4, !tbaa !10
+  %56 = mul i32 %55, 2
+  %57 = add i32 %56, 0
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !10
+  %61 = load ptr, ptr %9, align 8, !tbaa !103
+  %62 = load i32, ptr %11, align 4, !tbaa !10
+  %63 = mul i32 %62, 2
+  %64 = add i32 %63, 0
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw i32, ptr %61, i64 %65
+  store i32 %60, ptr %66, align 4, !tbaa !10
+  %67 = load ptr, ptr %4, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw %struct.IKCPCB, ptr %67, i32 0, i32 37
+  %69 = load ptr, ptr %68, align 8, !tbaa !53
+  %70 = load i32, ptr %11, align 4, !tbaa !10
+  %71 = mul i32 %70, 2
+  %72 = add i32 %71, 1
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i32, ptr %69, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !10
+  %76 = load ptr, ptr %9, align 8, !tbaa !103
+  %77 = load i32, ptr %11, align 4, !tbaa !10
+  %78 = mul i32 %77, 2
+  %79 = add i32 %78, 1
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw i32, ptr %76, i64 %80
+  store i32 %75, ptr %81, align 4, !tbaa !10
+  br label %82
 
-for.inc31:                                        ; preds = %for.body14
-  %27 = load i32, ptr %x, align 4
-  %inc = add i32 %27, 1
-  store i32 %inc, ptr %x, align 4
-  br label %for.cond10, !llvm.loop !19
+82:                                               ; preds = %51
+  %83 = load i32, ptr %11, align 4, !tbaa !10
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %11, align 4, !tbaa !10
+  br label %45, !llvm.loop !109
 
-for.end32:                                        ; preds = %for.cond10
-  %28 = load ptr, ptr %kcp.addr, align 8
-  %acklist33 = getelementptr inbounds %struct.IKCPCB, ptr %28, i32 0, i32 37
-  %29 = load ptr, ptr %acklist33, align 8
-  call void @ikcp_free(ptr noundef %29)
-  br label %if.end34
+85:                                               ; preds = %45
+  %86 = load ptr, ptr %4, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw %struct.IKCPCB, ptr %86, i32 0, i32 37
+  %88 = load ptr, ptr %87, align 8, !tbaa !53
+  call void @ikcp_free(ptr noundef %88)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  br label %89
 
-if.end34:                                         ; preds = %for.end32, %if.end
-  %30 = load ptr, ptr %acklist, align 8
-  %31 = load ptr, ptr %kcp.addr, align 8
-  %acklist35 = getelementptr inbounds %struct.IKCPCB, ptr %31, i32 0, i32 37
-  store ptr %30, ptr %acklist35, align 8
-  %32 = load i32, ptr %newblock, align 4
-  %33 = load ptr, ptr %kcp.addr, align 8
-  %ackblock36 = getelementptr inbounds %struct.IKCPCB, ptr %33, i32 0, i32 39
-  store i32 %32, ptr %ackblock36, align 4
-  br label %if.end37
+89:                                               ; preds = %85, %39
+  %90 = load ptr, ptr %9, align 8, !tbaa !103
+  %91 = load ptr, ptr %4, align 8, !tbaa !8
+  %92 = getelementptr inbounds nuw %struct.IKCPCB, ptr %91, i32 0, i32 37
+  store ptr %90, ptr %92, align 8, !tbaa !53
+  %93 = load i32, ptr %10, align 4, !tbaa !10
+  %94 = load ptr, ptr %4, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw %struct.IKCPCB, ptr %94, i32 0, i32 39
+  store i32 %93, ptr %95, align 4, !tbaa !54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %96
 
-if.end37:                                         ; preds = %if.end34, %entry
-  %34 = load ptr, ptr %kcp.addr, align 8
-  %acklist38 = getelementptr inbounds %struct.IKCPCB, ptr %34, i32 0, i32 37
-  %35 = load ptr, ptr %acklist38, align 8
-  %36 = load ptr, ptr %kcp.addr, align 8
-  %ackcount39 = getelementptr inbounds %struct.IKCPCB, ptr %36, i32 0, i32 38
-  %37 = load i32, ptr %ackcount39, align 8
-  %mul40 = mul i32 %37, 2
-  %idxprom41 = zext i32 %mul40 to i64
-  %arrayidx42 = getelementptr inbounds i32, ptr %35, i64 %idxprom41
-  store ptr %arrayidx42, ptr %ptr, align 8
-  %38 = load i32, ptr %sn.addr, align 4
-  %39 = load ptr, ptr %ptr, align 8
-  %arrayidx43 = getelementptr inbounds i32, ptr %39, i64 0
-  store i32 %38, ptr %arrayidx43, align 4
-  %40 = load i32, ptr %ts.addr, align 4
-  %41 = load ptr, ptr %ptr, align 8
-  %arrayidx44 = getelementptr inbounds i32, ptr %41, i64 1
-  store i32 %40, ptr %arrayidx44, align 4
-  %42 = load ptr, ptr %kcp.addr, align 8
-  %ackcount45 = getelementptr inbounds %struct.IKCPCB, ptr %42, i32 0, i32 38
-  %43 = load i32, ptr %ackcount45, align 8
-  %inc46 = add i32 %43, 1
-  store i32 %inc46, ptr %ackcount45, align 8
+96:                                               ; preds = %89, %3
+  %97 = load ptr, ptr %4, align 8, !tbaa !8
+  %98 = getelementptr inbounds nuw %struct.IKCPCB, ptr %97, i32 0, i32 37
+  %99 = load ptr, ptr %98, align 8, !tbaa !53
+  %100 = load ptr, ptr %4, align 8, !tbaa !8
+  %101 = getelementptr inbounds nuw %struct.IKCPCB, ptr %100, i32 0, i32 38
+  %102 = load i32, ptr %101, align 8, !tbaa !55
+  %103 = mul i32 %102, 2
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw i32, ptr %99, i64 %104
+  store ptr %105, ptr %8, align 8, !tbaa !103
+  %106 = load i32, ptr %5, align 4, !tbaa !10
+  %107 = load ptr, ptr %8, align 8, !tbaa !103
+  %108 = getelementptr inbounds i32, ptr %107, i64 0
+  store i32 %106, ptr %108, align 4, !tbaa !10
+  %109 = load i32, ptr %6, align 4, !tbaa !10
+  %110 = load ptr, ptr %8, align 8, !tbaa !103
+  %111 = getelementptr inbounds i32, ptr %110, i64 1
+  store i32 %109, ptr %111, align 4, !tbaa !10
+  %112 = load ptr, ptr %4, align 8, !tbaa !8
+  %113 = getelementptr inbounds nuw %struct.IKCPCB, ptr %112, i32 0, i32 38
+  %114 = load i32, ptr %113, align 8, !tbaa !55
+  %115 = add i32 %114, 1
+  store i32 %115, ptr %113, align 8, !tbaa !55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikcp_parse_fastack(ptr noundef %kcp, i32 noundef %sn, i32 noundef %ts) #0 {
-entry:
-  %later.addr.i20 = alloca i32, align 4
-  %earlier.addr.i21 = alloca i32, align 4
-  %later.addr.i16 = alloca i32, align 4
-  %earlier.addr.i17 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %sn.addr = alloca i32, align 4
-  %ts.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %sn, ptr %sn.addr, align 4
-  store i32 %ts, ptr %ts.addr, align 4
-  %0 = load i32, ptr %sn.addr, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %snd_una, align 8
-  store i32 %0, ptr %later.addr.i20, align 4
-  store i32 %2, ptr %earlier.addr.i21, align 4
-  %3 = load i32, ptr %later.addr.i20, align 4
-  %4 = load i32, ptr %earlier.addr.i21, align 4
-  %sub.i22 = sub i32 %3, %4
-  %conv.i23 = sext i32 %sub.i22 to i64
-  %cmp = icmp slt i64 %conv.i23, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal void @ikcp_parse_fastack(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %11 = load i32, ptr %5, align 4, !tbaa !10
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.IKCPCB, ptr %12, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8, !tbaa !23
+  %15 = call i64 @_itimediff(i32 noundef %11, i32 noundef %14)
+  %16 = icmp slt i64 %15, 0
+  br i1 %16, label %24, label %17
 
-lor.lhs.false:                                    ; preds = %entry
-  %5 = load i32, ptr %sn.addr, align 4
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 5
-  %7 = load i32, ptr %snd_nxt, align 4
-  store i32 %5, ptr %later.addr.i16, align 4
-  store i32 %7, ptr %earlier.addr.i17, align 4
-  %8 = load i32, ptr %later.addr.i16, align 4
-  %9 = load i32, ptr %earlier.addr.i17, align 4
-  %sub.i18 = sub i32 %8, %9
-  %conv.i19 = sext i32 %sub.i18 to i64
-  %cmp2 = icmp sge i64 %conv.i19, 0
-  br i1 %cmp2, label %if.then, label %if.end
+17:                                               ; preds = %3
+  %18 = load i32, ptr %5, align 4, !tbaa !10
+  %19 = load ptr, ptr %4, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.IKCPCB, ptr %19, i32 0, i32 5
+  %21 = load i32, ptr %20, align 4, !tbaa !24
+  %22 = call i64 @_itimediff(i32 noundef %18, i32 noundef %21)
+  %23 = icmp sge i64 %22, 0
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %for.end
+24:                                               ; preds = %17, %3
+  store i32 1, ptr %9, align 4
+  br label %75
 
-if.end:                                           ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 35
-  %next3 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 0
-  %11 = load ptr, ptr %next3, align 8
-  store ptr %11, ptr %p, align 8
-  br label %for.cond
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.IKCPCB, ptr %26, i32 0, i32 35
+  %28 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !44
+  store ptr %29, ptr %7, align 8, !tbaa !21
+  br label %30
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %12 = load ptr, ptr %p, align 8
-  %13 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf4 = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 35
-  %cmp5 = icmp ne ptr %12, %snd_buf4
-  br i1 %cmp5, label %for.body, label %for.end
+30:                                               ; preds = %72, %25
+  %31 = load ptr, ptr %7, align 8, !tbaa !21
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.IKCPCB, ptr %32, i32 0, i32 35
+  %34 = icmp ne ptr %31, %33
+  br i1 %34, label %35, label %74
 
-for.body:                                         ; preds = %for.cond
-  %14 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %14, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %15 = load ptr, ptr %p, align 8
-  %next6 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %next6, align 8
-  store ptr %16, ptr %next, align 8
-  %17 = load i32, ptr %sn.addr, align 4
-  %18 = load ptr, ptr %seg, align 8
-  %sn7 = getelementptr inbounds %struct.IKCPSEG, ptr %18, i32 0, i32 6
-  %19 = load i32, ptr %sn7, align 4
-  store i32 %17, ptr %later.addr.i, align 4
-  store i32 %19, ptr %earlier.addr.i, align 4
-  %20 = load i32, ptr %later.addr.i, align 4
-  %21 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %20, %21
-  %conv.i = sext i32 %sub.i to i64
-  %cmp9 = icmp slt i64 %conv.i, 0
-  br i1 %cmp9, label %if.then10, label %if.else
+35:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %36 = load ptr, ptr %7, align 8, !tbaa !21
+  %37 = getelementptr inbounds i8, ptr %36, i64 0
+  store ptr %37, ptr %10, align 8, !tbaa !74
+  %38 = load ptr, ptr %7, align 8, !tbaa !21
+  %39 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !80
+  store ptr %40, ptr %8, align 8, !tbaa !21
+  %41 = load i32, ptr %5, align 4, !tbaa !10
+  %42 = load ptr, ptr %10, align 8, !tbaa !74
+  %43 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %42, i32 0, i32 6
+  %44 = load i32, ptr %43, align 4, !tbaa !88
+  %45 = call i64 @_itimediff(i32 noundef %41, i32 noundef %44)
+  %46 = icmp slt i64 %45, 0
+  br i1 %46, label %47, label %48
 
-if.then10:                                        ; preds = %for.body
-  br label %for.end
+47:                                               ; preds = %35
+  store i32 2, ptr %9, align 4
+  br label %69
 
-if.else:                                          ; preds = %for.body
-  %22 = load i32, ptr %sn.addr, align 4
-  %23 = load ptr, ptr %seg, align 8
-  %sn11 = getelementptr inbounds %struct.IKCPSEG, ptr %23, i32 0, i32 6
-  %24 = load i32, ptr %sn11, align 4
-  %cmp12 = icmp ne i32 %22, %24
-  br i1 %cmp12, label %if.then13, label %if.end14
+48:                                               ; preds = %35
+  %49 = load i32, ptr %5, align 4, !tbaa !10
+  %50 = load ptr, ptr %10, align 8, !tbaa !74
+  %51 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !88
+  %53 = icmp ne i32 %49, %52
+  br i1 %53, label %54, label %67
 
-if.then13:                                        ; preds = %if.else
-  %25 = load ptr, ptr %seg, align 8
-  %fastack = getelementptr inbounds %struct.IKCPSEG, ptr %25, i32 0, i32 11
-  %26 = load i32, ptr %fastack, align 8
-  %inc = add i32 %26, 1
-  store i32 %inc, ptr %fastack, align 8
-  br label %if.end14
+54:                                               ; preds = %48
+  %55 = load i32, ptr %6, align 4, !tbaa !10
+  %56 = load ptr, ptr %10, align 8, !tbaa !74
+  %57 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %56, i32 0, i32 5
+  %58 = load i32, ptr %57, align 8, !tbaa !101
+  %59 = call i64 @_itimediff(i32 noundef %55, i32 noundef %58)
+  %60 = icmp sge i64 %59, 0
+  br i1 %60, label %61, label %66
 
-if.end14:                                         ; preds = %if.then13, %if.else
-  br label %if.end15
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %10, align 8, !tbaa !74
+  %63 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %62, i32 0, i32 11
+  %64 = load i32, ptr %63, align 8, !tbaa !110
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %63, align 8, !tbaa !110
+  br label %66
 
-if.end15:                                         ; preds = %if.end14
-  br label %for.inc
+66:                                               ; preds = %61, %54
+  br label %67
 
-for.inc:                                          ; preds = %if.end15
-  %27 = load ptr, ptr %next, align 8
-  store ptr %27, ptr %p, align 8
-  br label %for.cond, !llvm.loop !20
+67:                                               ; preds = %66, %48
+  br label %68
 
-for.end:                                          ; preds = %if.then10, %for.cond, %if.then
+68:                                               ; preds = %67
+  store i32 0, ptr %9, align 4
+  br label %69
+
+69:                                               ; preds = %68, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %70 = load i32, ptr %9, align 4
+  switch i32 %70, label %78 [
+    i32 0, label %71
+    i32 2, label %74
+  ]
+
+71:                                               ; preds = %69
+  br label %72
+
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8, !tbaa !21
+  store ptr %73, ptr %7, align 8, !tbaa !21
+  br label %30, !llvm.loop !111
+
+74:                                               ; preds = %69, %30
+  store i32 0, ptr %9, align 4
+  br label %75
+
+75:                                               ; preds = %74, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  %76 = load i32, ptr %9, align 4
+  switch i32 %76, label %78 [
+    i32 0, label %77
+    i32 1, label %77
+  ]
+
+77:                                               ; preds = %75, %75
+  ret void
+
+78:                                               ; preds = %75, %69
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @ikcp_flush(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.IKCPSEG, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %23 = load ptr, ptr %2, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.IKCPCB, ptr %23, i32 0, i32 19
+  %25 = load i32, ptr %24, align 4, !tbaa !60
+  store i32 %25, ptr %3, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %26 = load ptr, ptr %2, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.IKCPCB, ptr %26, i32 0, i32 41
+  %28 = load ptr, ptr %27, align 8, !tbaa !39
+  store ptr %28, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %29 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %29, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  store i32 0, ptr %13, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  store i32 0, ptr %14, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #8
+  %30 = load ptr, ptr %2, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.IKCPCB, ptr %30, i32 0, i32 28
+  %32 = load i32, ptr %31, align 8, !tbaa !64
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %1
+  store i32 1, ptr %16, align 4
+  br label %694
+
+35:                                               ; preds = %1
+  %36 = load ptr, ptr %2, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.IKCPCB, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 8, !tbaa !22
+  %39 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 1
+  store i32 %38, ptr %39, align 8, !tbaa !98
+  %40 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 2
+  store i32 82, ptr %40, align 4, !tbaa !99
+  %41 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 3
+  store i32 0, ptr %41, align 8, !tbaa !87
+  %42 = load ptr, ptr %2, align 8, !tbaa !8
+  %43 = call i32 @ikcp_wnd_unused(ptr noundef %42)
+  %44 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 4
+  store i32 %43, ptr %44, align 4, !tbaa !100
+  %45 = load ptr, ptr %2, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.IKCPCB, ptr %45, i32 0, i32 6
+  %47 = load i32, ptr %46, align 8, !tbaa !25
+  %48 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 7
+  store i32 %47, ptr %48, align 8, !tbaa !102
+  %49 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 8
+  store i32 0, ptr %49, align 4, !tbaa !86
+  %50 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 6
+  store i32 0, ptr %50, align 4, !tbaa !88
+  %51 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 5
+  store i32 0, ptr %51, align 8, !tbaa !101
+  %52 = load ptr, ptr %2, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.IKCPCB, ptr %52, i32 0, i32 38
+  %54 = load i32, ptr %53, align 8, !tbaa !55
+  store i32 %54, ptr %6, align 4, !tbaa !10
+  store i32 0, ptr %8, align 4, !tbaa !10
+  br label %55
+
+55:                                               ; preds = %85, %35
+  %56 = load i32, ptr %8, align 4, !tbaa !10
+  %57 = load i32, ptr %6, align 4, !tbaa !10
+  %58 = icmp slt i32 %56, %57
+  br i1 %58, label %59, label %88
+
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %5, align 8, !tbaa !12
+  %61 = load ptr, ptr %4, align 8, !tbaa !12
+  %62 = ptrtoint ptr %60 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %7, align 4, !tbaa !10
+  %66 = load i32, ptr %7, align 4, !tbaa !10
+  %67 = add nsw i32 %66, 24
+  %68 = load ptr, ptr %2, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.IKCPCB, ptr %68, i32 0, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !36
+  %71 = icmp sgt i32 %67, %70
+  br i1 %71, label %72, label %78
+
+72:                                               ; preds = %59
+  %73 = load ptr, ptr %2, align 8, !tbaa !8
+  %74 = load ptr, ptr %4, align 8, !tbaa !12
+  %75 = load i32, ptr %7, align 4, !tbaa !10
+  %76 = call i32 @ikcp_output(ptr noundef %73, ptr noundef %74, i32 noundef %75)
+  %77 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %77, ptr %5, align 8, !tbaa !12
+  br label %78
+
+78:                                               ; preds = %72, %59
+  %79 = load ptr, ptr %2, align 8, !tbaa !8
+  %80 = load i32, ptr %8, align 4, !tbaa !10
+  %81 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 6
+  %82 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 5
+  call void @ikcp_ack_get(ptr noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82)
+  %83 = load ptr, ptr %5, align 8, !tbaa !12
+  %84 = call ptr @ikcp_encode_seg(ptr noundef %83, ptr noundef %15)
+  store ptr %84, ptr %5, align 8, !tbaa !12
+  br label %85
+
+85:                                               ; preds = %78
+  %86 = load i32, ptr %8, align 4, !tbaa !10
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %8, align 4, !tbaa !10
+  br label %55, !llvm.loop !112
+
+88:                                               ; preds = %55
+  %89 = load ptr, ptr %2, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.IKCPCB, ptr %89, i32 0, i32 38
+  store i32 0, ptr %90, align 8, !tbaa !55
+  %91 = load ptr, ptr %2, align 8, !tbaa !8
+  %92 = getelementptr inbounds nuw %struct.IKCPCB, ptr %91, i32 0, i32 16
+  %93 = load i32, ptr %92, align 8, !tbaa !32
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %161
+
+95:                                               ; preds = %88
+  %96 = load ptr, ptr %2, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw %struct.IKCPCB, ptr %96, i32 0, i32 30
+  %98 = load i32, ptr %97, align 8, !tbaa !29
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %112
+
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %2, align 8, !tbaa !8
+  %102 = getelementptr inbounds nuw %struct.IKCPCB, ptr %101, i32 0, i32 30
+  store i32 7000, ptr %102, align 8, !tbaa !29
+  %103 = load ptr, ptr %2, align 8, !tbaa !8
+  %104 = getelementptr inbounds nuw %struct.IKCPCB, ptr %103, i32 0, i32 19
+  %105 = load i32, ptr %104, align 4, !tbaa !60
+  %106 = load ptr, ptr %2, align 8, !tbaa !8
+  %107 = getelementptr inbounds nuw %struct.IKCPCB, ptr %106, i32 0, i32 30
+  %108 = load i32, ptr %107, align 8, !tbaa !29
+  %109 = add i32 %105, %108
+  %110 = load ptr, ptr %2, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw %struct.IKCPCB, ptr %110, i32 0, i32 29
+  store i32 %109, ptr %111, align 4, !tbaa !28
+  br label %160
+
+112:                                              ; preds = %95
+  %113 = load ptr, ptr %2, align 8, !tbaa !8
+  %114 = getelementptr inbounds nuw %struct.IKCPCB, ptr %113, i32 0, i32 19
+  %115 = load i32, ptr %114, align 4, !tbaa !60
+  %116 = load ptr, ptr %2, align 8, !tbaa !8
+  %117 = getelementptr inbounds nuw %struct.IKCPCB, ptr %116, i32 0, i32 29
+  %118 = load i32, ptr %117, align 4, !tbaa !28
+  %119 = call i64 @_itimediff(i32 noundef %115, i32 noundef %118)
+  %120 = icmp sge i64 %119, 0
+  br i1 %120, label %121, label %159
+
+121:                                              ; preds = %112
+  %122 = load ptr, ptr %2, align 8, !tbaa !8
+  %123 = getelementptr inbounds nuw %struct.IKCPCB, ptr %122, i32 0, i32 30
+  %124 = load i32, ptr %123, align 8, !tbaa !29
+  %125 = icmp ult i32 %124, 7000
+  br i1 %125, label %126, label %129
+
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %2, align 8, !tbaa !8
+  %128 = getelementptr inbounds nuw %struct.IKCPCB, ptr %127, i32 0, i32 30
+  store i32 7000, ptr %128, align 8, !tbaa !29
+  br label %129
+
+129:                                              ; preds = %126, %121
+  %130 = load ptr, ptr %2, align 8, !tbaa !8
+  %131 = getelementptr inbounds nuw %struct.IKCPCB, ptr %130, i32 0, i32 30
+  %132 = load i32, ptr %131, align 8, !tbaa !29
+  %133 = udiv i32 %132, 2
+  %134 = load ptr, ptr %2, align 8, !tbaa !8
+  %135 = getelementptr inbounds nuw %struct.IKCPCB, ptr %134, i32 0, i32 30
+  %136 = load i32, ptr %135, align 8, !tbaa !29
+  %137 = add i32 %136, %133
+  store i32 %137, ptr %135, align 8, !tbaa !29
+  %138 = load ptr, ptr %2, align 8, !tbaa !8
+  %139 = getelementptr inbounds nuw %struct.IKCPCB, ptr %138, i32 0, i32 30
+  %140 = load i32, ptr %139, align 8, !tbaa !29
+  %141 = icmp ugt i32 %140, 120000
+  br i1 %141, label %142, label %145
+
+142:                                              ; preds = %129
+  %143 = load ptr, ptr %2, align 8, !tbaa !8
+  %144 = getelementptr inbounds nuw %struct.IKCPCB, ptr %143, i32 0, i32 30
+  store i32 120000, ptr %144, align 8, !tbaa !29
+  br label %145
+
+145:                                              ; preds = %142, %129
+  %146 = load ptr, ptr %2, align 8, !tbaa !8
+  %147 = getelementptr inbounds nuw %struct.IKCPCB, ptr %146, i32 0, i32 19
+  %148 = load i32, ptr %147, align 4, !tbaa !60
+  %149 = load ptr, ptr %2, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw %struct.IKCPCB, ptr %149, i32 0, i32 30
+  %151 = load i32, ptr %150, align 8, !tbaa !29
+  %152 = add i32 %148, %151
+  %153 = load ptr, ptr %2, align 8, !tbaa !8
+  %154 = getelementptr inbounds nuw %struct.IKCPCB, ptr %153, i32 0, i32 29
+  store i32 %152, ptr %154, align 4, !tbaa !28
+  %155 = load ptr, ptr %2, align 8, !tbaa !8
+  %156 = getelementptr inbounds nuw %struct.IKCPCB, ptr %155, i32 0, i32 18
+  %157 = load i32, ptr %156, align 8, !tbaa !35
+  %158 = or i32 %157, 1
+  store i32 %158, ptr %156, align 8, !tbaa !35
+  br label %159
+
+159:                                              ; preds = %145, %112
+  br label %160
+
+160:                                              ; preds = %159, %100
+  br label %166
+
+161:                                              ; preds = %88
+  %162 = load ptr, ptr %2, align 8, !tbaa !8
+  %163 = getelementptr inbounds nuw %struct.IKCPCB, ptr %162, i32 0, i32 29
+  store i32 0, ptr %163, align 4, !tbaa !28
+  %164 = load ptr, ptr %2, align 8, !tbaa !8
+  %165 = getelementptr inbounds nuw %struct.IKCPCB, ptr %164, i32 0, i32 30
+  store i32 0, ptr %165, align 8, !tbaa !29
+  br label %166
+
+166:                                              ; preds = %161, %160
+  %167 = load ptr, ptr %2, align 8, !tbaa !8
+  %168 = getelementptr inbounds nuw %struct.IKCPCB, ptr %167, i32 0, i32 18
+  %169 = load i32, ptr %168, align 8, !tbaa !35
+  %170 = and i32 %169, 1
+  %171 = icmp ne i32 %170, 0
+  br i1 %171, label %172, label %195
+
+172:                                              ; preds = %166
+  %173 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 2
+  store i32 83, ptr %173, align 4, !tbaa !99
+  %174 = load ptr, ptr %5, align 8, !tbaa !12
+  %175 = load ptr, ptr %4, align 8, !tbaa !12
+  %176 = ptrtoint ptr %174 to i64
+  %177 = ptrtoint ptr %175 to i64
+  %178 = sub i64 %176, %177
+  %179 = trunc i64 %178 to i32
+  store i32 %179, ptr %7, align 4, !tbaa !10
+  %180 = load i32, ptr %7, align 4, !tbaa !10
+  %181 = add nsw i32 %180, 24
+  %182 = load ptr, ptr %2, align 8, !tbaa !8
+  %183 = getelementptr inbounds nuw %struct.IKCPCB, ptr %182, i32 0, i32 1
+  %184 = load i32, ptr %183, align 4, !tbaa !36
+  %185 = icmp sgt i32 %181, %184
+  br i1 %185, label %186, label %192
+
+186:                                              ; preds = %172
+  %187 = load ptr, ptr %2, align 8, !tbaa !8
+  %188 = load ptr, ptr %4, align 8, !tbaa !12
+  %189 = load i32, ptr %7, align 4, !tbaa !10
+  %190 = call i32 @ikcp_output(ptr noundef %187, ptr noundef %188, i32 noundef %189)
+  %191 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %191, ptr %5, align 8, !tbaa !12
+  br label %192
+
+192:                                              ; preds = %186, %172
+  %193 = load ptr, ptr %5, align 8, !tbaa !12
+  %194 = call ptr @ikcp_encode_seg(ptr noundef %193, ptr noundef %15)
+  store ptr %194, ptr %5, align 8, !tbaa !12
+  br label %195
+
+195:                                              ; preds = %192, %166
+  %196 = load ptr, ptr %2, align 8, !tbaa !8
+  %197 = getelementptr inbounds nuw %struct.IKCPCB, ptr %196, i32 0, i32 18
+  %198 = load i32, ptr %197, align 8, !tbaa !35
+  %199 = and i32 %198, 2
+  %200 = icmp ne i32 %199, 0
+  br i1 %200, label %201, label %224
+
+201:                                              ; preds = %195
+  %202 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 2
+  store i32 84, ptr %202, align 4, !tbaa !99
+  %203 = load ptr, ptr %5, align 8, !tbaa !12
+  %204 = load ptr, ptr %4, align 8, !tbaa !12
+  %205 = ptrtoint ptr %203 to i64
+  %206 = ptrtoint ptr %204 to i64
+  %207 = sub i64 %205, %206
+  %208 = trunc i64 %207 to i32
+  store i32 %208, ptr %7, align 4, !tbaa !10
+  %209 = load i32, ptr %7, align 4, !tbaa !10
+  %210 = add nsw i32 %209, 24
+  %211 = load ptr, ptr %2, align 8, !tbaa !8
+  %212 = getelementptr inbounds nuw %struct.IKCPCB, ptr %211, i32 0, i32 1
+  %213 = load i32, ptr %212, align 4, !tbaa !36
+  %214 = icmp sgt i32 %210, %213
+  br i1 %214, label %215, label %221
+
+215:                                              ; preds = %201
+  %216 = load ptr, ptr %2, align 8, !tbaa !8
+  %217 = load ptr, ptr %4, align 8, !tbaa !12
+  %218 = load i32, ptr %7, align 4, !tbaa !10
+  %219 = call i32 @ikcp_output(ptr noundef %216, ptr noundef %217, i32 noundef %218)
+  %220 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %220, ptr %5, align 8, !tbaa !12
+  br label %221
+
+221:                                              ; preds = %215, %201
+  %222 = load ptr, ptr %5, align 8, !tbaa !12
+  %223 = call ptr @ikcp_encode_seg(ptr noundef %222, ptr noundef %15)
+  store ptr %223, ptr %5, align 8, !tbaa !12
+  br label %224
+
+224:                                              ; preds = %221, %195
+  %225 = load ptr, ptr %2, align 8, !tbaa !8
+  %226 = getelementptr inbounds nuw %struct.IKCPCB, ptr %225, i32 0, i32 18
+  store i32 0, ptr %226, align 8, !tbaa !35
+  %227 = load ptr, ptr %2, align 8, !tbaa !8
+  %228 = getelementptr inbounds nuw %struct.IKCPCB, ptr %227, i32 0, i32 14
+  %229 = load i32, ptr %228, align 8, !tbaa !30
+  %230 = load ptr, ptr %2, align 8, !tbaa !8
+  %231 = getelementptr inbounds nuw %struct.IKCPCB, ptr %230, i32 0, i32 16
+  %232 = load i32, ptr %231, align 8, !tbaa !32
+  %233 = call i32 @_imin_(i32 noundef %229, i32 noundef %232)
+  store i32 %233, ptr %10, align 4, !tbaa !10
+  %234 = load ptr, ptr %2, align 8, !tbaa !8
+  %235 = getelementptr inbounds nuw %struct.IKCPCB, ptr %234, i32 0, i32 44
+  %236 = load i32, ptr %235, align 8, !tbaa !68
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %238, label %244
+
+238:                                              ; preds = %224
+  %239 = load ptr, ptr %2, align 8, !tbaa !8
+  %240 = getelementptr inbounds nuw %struct.IKCPCB, ptr %239, i32 0, i32 17
+  %241 = load i32, ptr %240, align 4, !tbaa !33
+  %242 = load i32, ptr %10, align 4, !tbaa !10
+  %243 = call i32 @_imin_(i32 noundef %241, i32 noundef %242)
+  store i32 %243, ptr %10, align 4, !tbaa !10
+  br label %244
+
+244:                                              ; preds = %238, %224
+  br label %245
+
+245:                                              ; preds = %366, %244
+  %246 = load ptr, ptr %2, align 8, !tbaa !8
+  %247 = getelementptr inbounds nuw %struct.IKCPCB, ptr %246, i32 0, i32 5
+  %248 = load i32, ptr %247, align 4, !tbaa !24
+  %249 = load ptr, ptr %2, align 8, !tbaa !8
+  %250 = getelementptr inbounds nuw %struct.IKCPCB, ptr %249, i32 0, i32 4
+  %251 = load i32, ptr %250, align 8, !tbaa !23
+  %252 = load i32, ptr %10, align 4, !tbaa !10
+  %253 = add i32 %251, %252
+  %254 = call i64 @_itimediff(i32 noundef %248, i32 noundef %253)
+  %255 = icmp slt i64 %254, 0
+  br i1 %255, label %256, label %367
+
+256:                                              ; preds = %245
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %257 = load ptr, ptr %2, align 8, !tbaa !8
+  %258 = getelementptr inbounds nuw %struct.IKCPCB, ptr %257, i32 0, i32 33
+  %259 = load ptr, ptr %2, align 8, !tbaa !8
+  %260 = getelementptr inbounds nuw %struct.IKCPCB, ptr %259, i32 0, i32 33
+  %261 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %260, i32 0, i32 0
+  %262 = load ptr, ptr %261, align 8, !tbaa !40
+  %263 = icmp eq ptr %258, %262
+  br i1 %263, label %264, label %265
+
+264:                                              ; preds = %256
+  store i32 6, ptr %16, align 4
+  br label %364
+
+265:                                              ; preds = %256
+  %266 = load ptr, ptr %2, align 8, !tbaa !8
+  %267 = getelementptr inbounds nuw %struct.IKCPCB, ptr %266, i32 0, i32 33
+  %268 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %267, i32 0, i32 0
+  %269 = load ptr, ptr %268, align 8, !tbaa !40
+  %270 = getelementptr inbounds i8, ptr %269, i64 0
+  store ptr %270, ptr %17, align 8, !tbaa !74
+  %271 = load ptr, ptr %17, align 8, !tbaa !74
+  %272 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %271, i32 0, i32 0
+  %273 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %272, i32 0, i32 1
+  %274 = load ptr, ptr %273, align 8, !tbaa !76
+  %275 = load ptr, ptr %17, align 8, !tbaa !74
+  %276 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %275, i32 0, i32 0
+  %277 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %276, i32 0, i32 0
+  %278 = load ptr, ptr %277, align 8, !tbaa !78
+  %279 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %278, i32 0, i32 1
+  store ptr %274, ptr %279, align 8, !tbaa !79
+  %280 = load ptr, ptr %17, align 8, !tbaa !74
+  %281 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %280, i32 0, i32 0
+  %282 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %281, i32 0, i32 0
+  %283 = load ptr, ptr %282, align 8, !tbaa !78
+  %284 = load ptr, ptr %17, align 8, !tbaa !74
+  %285 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %284, i32 0, i32 0
+  %286 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %285, i32 0, i32 1
+  %287 = load ptr, ptr %286, align 8, !tbaa !76
+  %288 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %287, i32 0, i32 0
+  store ptr %283, ptr %288, align 8, !tbaa !80
+  %289 = load ptr, ptr %17, align 8, !tbaa !74
+  %290 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %289, i32 0, i32 0
+  %291 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %290, i32 0, i32 0
+  store ptr null, ptr %291, align 8, !tbaa !78
+  %292 = load ptr, ptr %17, align 8, !tbaa !74
+  %293 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %292, i32 0, i32 0
+  %294 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %293, i32 0, i32 1
+  store ptr null, ptr %294, align 8, !tbaa !76
+  %295 = load ptr, ptr %2, align 8, !tbaa !8
+  %296 = getelementptr inbounds nuw %struct.IKCPCB, ptr %295, i32 0, i32 35
+  %297 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %296, i32 0, i32 1
+  %298 = load ptr, ptr %297, align 8, !tbaa !45
+  %299 = load ptr, ptr %17, align 8, !tbaa !74
+  %300 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %299, i32 0, i32 0
+  %301 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %300, i32 0, i32 1
+  store ptr %298, ptr %301, align 8, !tbaa !76
+  %302 = load ptr, ptr %2, align 8, !tbaa !8
+  %303 = getelementptr inbounds nuw %struct.IKCPCB, ptr %302, i32 0, i32 35
+  %304 = load ptr, ptr %17, align 8, !tbaa !74
+  %305 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %304, i32 0, i32 0
+  %306 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %305, i32 0, i32 0
+  store ptr %303, ptr %306, align 8, !tbaa !78
+  %307 = load ptr, ptr %17, align 8, !tbaa !74
+  %308 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %307, i32 0, i32 0
+  %309 = load ptr, ptr %2, align 8, !tbaa !8
+  %310 = getelementptr inbounds nuw %struct.IKCPCB, ptr %309, i32 0, i32 35
+  %311 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %310, i32 0, i32 1
+  %312 = load ptr, ptr %311, align 8, !tbaa !45
+  %313 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %312, i32 0, i32 0
+  store ptr %308, ptr %313, align 8, !tbaa !80
+  %314 = load ptr, ptr %17, align 8, !tbaa !74
+  %315 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %314, i32 0, i32 0
+  %316 = load ptr, ptr %2, align 8, !tbaa !8
+  %317 = getelementptr inbounds nuw %struct.IKCPCB, ptr %316, i32 0, i32 35
+  %318 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %317, i32 0, i32 1
+  store ptr %315, ptr %318, align 8, !tbaa !45
+  %319 = load ptr, ptr %2, align 8, !tbaa !8
+  %320 = getelementptr inbounds nuw %struct.IKCPCB, ptr %319, i32 0, i32 26
+  %321 = load i32, ptr %320, align 8, !tbaa !51
+  %322 = add i32 %321, -1
+  store i32 %322, ptr %320, align 8, !tbaa !51
+  %323 = load ptr, ptr %2, align 8, !tbaa !8
+  %324 = getelementptr inbounds nuw %struct.IKCPCB, ptr %323, i32 0, i32 24
+  %325 = load i32, ptr %324, align 8, !tbaa !49
+  %326 = add i32 %325, 1
+  store i32 %326, ptr %324, align 8, !tbaa !49
+  %327 = load ptr, ptr %2, align 8, !tbaa !8
+  %328 = getelementptr inbounds nuw %struct.IKCPCB, ptr %327, i32 0, i32 0
+  %329 = load i32, ptr %328, align 8, !tbaa !22
+  %330 = load ptr, ptr %17, align 8, !tbaa !74
+  %331 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %330, i32 0, i32 1
+  store i32 %329, ptr %331, align 8, !tbaa !98
+  %332 = load ptr, ptr %17, align 8, !tbaa !74
+  %333 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %332, i32 0, i32 2
+  store i32 81, ptr %333, align 4, !tbaa !99
+  %334 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 4
+  %335 = load i32, ptr %334, align 4, !tbaa !100
+  %336 = load ptr, ptr %17, align 8, !tbaa !74
+  %337 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %336, i32 0, i32 4
+  store i32 %335, ptr %337, align 4, !tbaa !100
+  %338 = load i32, ptr %3, align 4, !tbaa !10
+  %339 = load ptr, ptr %17, align 8, !tbaa !74
+  %340 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %339, i32 0, i32 5
+  store i32 %338, ptr %340, align 8, !tbaa !101
+  %341 = load ptr, ptr %2, align 8, !tbaa !8
+  %342 = getelementptr inbounds nuw %struct.IKCPCB, ptr %341, i32 0, i32 5
+  %343 = load i32, ptr %342, align 4, !tbaa !24
+  %344 = add i32 %343, 1
+  store i32 %344, ptr %342, align 4, !tbaa !24
+  %345 = load ptr, ptr %17, align 8, !tbaa !74
+  %346 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %345, i32 0, i32 6
+  store i32 %343, ptr %346, align 4, !tbaa !88
+  %347 = load ptr, ptr %2, align 8, !tbaa !8
+  %348 = getelementptr inbounds nuw %struct.IKCPCB, ptr %347, i32 0, i32 6
+  %349 = load i32, ptr %348, align 8, !tbaa !25
+  %350 = load ptr, ptr %17, align 8, !tbaa !74
+  %351 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %350, i32 0, i32 7
+  store i32 %349, ptr %351, align 8, !tbaa !102
+  %352 = load i32, ptr %3, align 4, !tbaa !10
+  %353 = load ptr, ptr %17, align 8, !tbaa !74
+  %354 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %353, i32 0, i32 9
+  store i32 %352, ptr %354, align 8, !tbaa !113
+  %355 = load ptr, ptr %2, align 8, !tbaa !8
+  %356 = getelementptr inbounds nuw %struct.IKCPCB, ptr %355, i32 0, i32 12
+  %357 = load i32, ptr %356, align 8, !tbaa !58
+  %358 = load ptr, ptr %17, align 8, !tbaa !74
+  %359 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %358, i32 0, i32 10
+  store i32 %357, ptr %359, align 4, !tbaa !114
+  %360 = load ptr, ptr %17, align 8, !tbaa !74
+  %361 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %360, i32 0, i32 11
+  store i32 0, ptr %361, align 8, !tbaa !110
+  %362 = load ptr, ptr %17, align 8, !tbaa !74
+  %363 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %362, i32 0, i32 12
+  store i32 0, ptr %363, align 4, !tbaa !115
+  store i32 0, ptr %16, align 4
+  br label %364
+
+364:                                              ; preds = %265, %264
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  %365 = load i32, ptr %16, align 4
+  switch i32 %365, label %697 [
+    i32 0, label %366
+    i32 6, label %367
+  ]
+
+366:                                              ; preds = %364
+  br label %245, !llvm.loop !116
+
+367:                                              ; preds = %364, %245
+  %368 = load ptr, ptr %2, align 8, !tbaa !8
+  %369 = getelementptr inbounds nuw %struct.IKCPCB, ptr %368, i32 0, i32 42
+  %370 = load i32, ptr %369, align 8, !tbaa !66
+  %371 = icmp sgt i32 %370, 0
+  br i1 %371, label %372, label %376
+
+372:                                              ; preds = %367
+  %373 = load ptr, ptr %2, align 8, !tbaa !8
+  %374 = getelementptr inbounds nuw %struct.IKCPCB, ptr %373, i32 0, i32 42
+  %375 = load i32, ptr %374, align 8, !tbaa !66
+  br label %377
+
+376:                                              ; preds = %367
+  br label %377
+
+377:                                              ; preds = %376, %372
+  %378 = phi i32 [ %375, %372 ], [ -1, %376 ]
+  store i32 %378, ptr %9, align 4, !tbaa !10
+  %379 = load ptr, ptr %2, align 8, !tbaa !8
+  %380 = getelementptr inbounds nuw %struct.IKCPCB, ptr %379, i32 0, i32 27
+  %381 = load i32, ptr %380, align 4, !tbaa !63
+  %382 = icmp eq i32 %381, 0
+  br i1 %382, label %383, label %388
+
+383:                                              ; preds = %377
+  %384 = load ptr, ptr %2, align 8, !tbaa !8
+  %385 = getelementptr inbounds nuw %struct.IKCPCB, ptr %384, i32 0, i32 12
+  %386 = load i32, ptr %385, align 8, !tbaa !58
+  %387 = ashr i32 %386, 3
+  br label %389
+
+388:                                              ; preds = %377
+  br label %389
+
+389:                                              ; preds = %388, %383
+  %390 = phi i32 [ %387, %383 ], [ 0, %388 ]
+  store i32 %390, ptr %11, align 4, !tbaa !10
+  %391 = load ptr, ptr %2, align 8, !tbaa !8
+  %392 = getelementptr inbounds nuw %struct.IKCPCB, ptr %391, i32 0, i32 35
+  %393 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %392, i32 0, i32 0
+  %394 = load ptr, ptr %393, align 8, !tbaa !44
+  store ptr %394, ptr %12, align 8, !tbaa !21
+  br label %395
+
+395:                                              ; preds = %600, %389
+  %396 = load ptr, ptr %12, align 8, !tbaa !21
+  %397 = load ptr, ptr %2, align 8, !tbaa !8
+  %398 = getelementptr inbounds nuw %struct.IKCPCB, ptr %397, i32 0, i32 35
+  %399 = icmp ne ptr %396, %398
+  br i1 %399, label %400, label %604
+
+400:                                              ; preds = %395
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %401 = load ptr, ptr %12, align 8, !tbaa !21
+  %402 = getelementptr inbounds i8, ptr %401, i64 0
+  store ptr %402, ptr %18, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  store i32 0, ptr %19, align 4, !tbaa !10
+  %403 = load ptr, ptr %18, align 8, !tbaa !74
+  %404 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %403, i32 0, i32 12
+  %405 = load i32, ptr %404, align 4, !tbaa !115
+  %406 = icmp eq i32 %405, 0
+  br i1 %406, label %407, label %426
+
+407:                                              ; preds = %400
+  store i32 1, ptr %19, align 4, !tbaa !10
+  %408 = load ptr, ptr %18, align 8, !tbaa !74
+  %409 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %408, i32 0, i32 12
+  %410 = load i32, ptr %409, align 4, !tbaa !115
+  %411 = add i32 %410, 1
+  store i32 %411, ptr %409, align 4, !tbaa !115
+  %412 = load ptr, ptr %2, align 8, !tbaa !8
+  %413 = getelementptr inbounds nuw %struct.IKCPCB, ptr %412, i32 0, i32 12
+  %414 = load i32, ptr %413, align 8, !tbaa !58
+  %415 = load ptr, ptr %18, align 8, !tbaa !74
+  %416 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %415, i32 0, i32 10
+  store i32 %414, ptr %416, align 4, !tbaa !114
+  %417 = load i32, ptr %3, align 4, !tbaa !10
+  %418 = load ptr, ptr %18, align 8, !tbaa !74
+  %419 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %418, i32 0, i32 10
+  %420 = load i32, ptr %419, align 4, !tbaa !114
+  %421 = add i32 %417, %420
+  %422 = load i32, ptr %11, align 4, !tbaa !10
+  %423 = add i32 %421, %422
+  %424 = load ptr, ptr %18, align 8, !tbaa !74
+  %425 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %424, i32 0, i32 9
+  store i32 %423, ptr %425, align 8, !tbaa !113
+  br label %525
+
+426:                                              ; preds = %400
+  %427 = load i32, ptr %3, align 4, !tbaa !10
+  %428 = load ptr, ptr %18, align 8, !tbaa !74
+  %429 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %428, i32 0, i32 9
+  %430 = load i32, ptr %429, align 8, !tbaa !113
+  %431 = call i64 @_itimediff(i32 noundef %427, i32 noundef %430)
+  %432 = icmp sge i64 %431, 0
+  br i1 %432, label %433, label %487
+
+433:                                              ; preds = %426
+  store i32 1, ptr %19, align 4, !tbaa !10
+  %434 = load ptr, ptr %18, align 8, !tbaa !74
+  %435 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %434, i32 0, i32 12
+  %436 = load i32, ptr %435, align 4, !tbaa !115
+  %437 = add i32 %436, 1
+  store i32 %437, ptr %435, align 4, !tbaa !115
+  %438 = load ptr, ptr %2, align 8, !tbaa !8
+  %439 = getelementptr inbounds nuw %struct.IKCPCB, ptr %438, i32 0, i32 22
+  %440 = load i32, ptr %439, align 8, !tbaa !69
+  %441 = add i32 %440, 1
+  store i32 %441, ptr %439, align 8, !tbaa !69
+  %442 = load ptr, ptr %2, align 8, !tbaa !8
+  %443 = getelementptr inbounds nuw %struct.IKCPCB, ptr %442, i32 0, i32 27
+  %444 = load i32, ptr %443, align 4, !tbaa !63
+  %445 = icmp eq i32 %444, 0
+  br i1 %445, label %446, label %458
+
+446:                                              ; preds = %433
+  %447 = load ptr, ptr %18, align 8, !tbaa !74
+  %448 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %447, i32 0, i32 10
+  %449 = load i32, ptr %448, align 4, !tbaa !114
+  %450 = load ptr, ptr %2, align 8, !tbaa !8
+  %451 = getelementptr inbounds nuw %struct.IKCPCB, ptr %450, i32 0, i32 12
+  %452 = load i32, ptr %451, align 8, !tbaa !58
+  %453 = call i32 @_imax_(i32 noundef %449, i32 noundef %452)
+  %454 = load ptr, ptr %18, align 8, !tbaa !74
+  %455 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %454, i32 0, i32 10
+  %456 = load i32, ptr %455, align 4, !tbaa !114
+  %457 = add i32 %456, %453
+  store i32 %457, ptr %455, align 4, !tbaa !114
+  br label %479
+
+458:                                              ; preds = %433
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  %459 = load ptr, ptr %2, align 8, !tbaa !8
+  %460 = getelementptr inbounds nuw %struct.IKCPCB, ptr %459, i32 0, i32 27
+  %461 = load i32, ptr %460, align 4, !tbaa !63
+  %462 = icmp ult i32 %461, 2
+  br i1 %462, label %463, label %467
+
+463:                                              ; preds = %458
+  %464 = load ptr, ptr %18, align 8, !tbaa !74
+  %465 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %464, i32 0, i32 10
+  %466 = load i32, ptr %465, align 4, !tbaa !114
+  br label %471
+
+467:                                              ; preds = %458
+  %468 = load ptr, ptr %2, align 8, !tbaa !8
+  %469 = getelementptr inbounds nuw %struct.IKCPCB, ptr %468, i32 0, i32 12
+  %470 = load i32, ptr %469, align 8, !tbaa !58
+  br label %471
+
+471:                                              ; preds = %467, %463
+  %472 = phi i32 [ %466, %463 ], [ %470, %467 ]
+  store i32 %472, ptr %20, align 4, !tbaa !10
+  %473 = load i32, ptr %20, align 4, !tbaa !10
+  %474 = sdiv i32 %473, 2
+  %475 = load ptr, ptr %18, align 8, !tbaa !74
+  %476 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %475, i32 0, i32 10
+  %477 = load i32, ptr %476, align 4, !tbaa !114
+  %478 = add i32 %477, %474
+  store i32 %478, ptr %476, align 4, !tbaa !114
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  br label %479
+
+479:                                              ; preds = %471, %446
+  %480 = load i32, ptr %3, align 4, !tbaa !10
+  %481 = load ptr, ptr %18, align 8, !tbaa !74
+  %482 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %481, i32 0, i32 10
+  %483 = load i32, ptr %482, align 4, !tbaa !114
+  %484 = add i32 %480, %483
+  %485 = load ptr, ptr %18, align 8, !tbaa !74
+  %486 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %485, i32 0, i32 9
+  store i32 %484, ptr %486, align 8, !tbaa !113
+  store i32 1, ptr %14, align 4, !tbaa !10
+  br label %524
+
+487:                                              ; preds = %426
+  %488 = load ptr, ptr %18, align 8, !tbaa !74
+  %489 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %488, i32 0, i32 11
+  %490 = load i32, ptr %489, align 8, !tbaa !110
+  %491 = load i32, ptr %9, align 4, !tbaa !10
+  %492 = icmp uge i32 %490, %491
+  br i1 %492, label %493, label %523
+
+493:                                              ; preds = %487
+  %494 = load ptr, ptr %18, align 8, !tbaa !74
+  %495 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %494, i32 0, i32 12
+  %496 = load i32, ptr %495, align 4, !tbaa !115
+  %497 = load ptr, ptr %2, align 8, !tbaa !8
+  %498 = getelementptr inbounds nuw %struct.IKCPCB, ptr %497, i32 0, i32 43
+  %499 = load i32, ptr %498, align 4, !tbaa !67
+  %500 = icmp sle i32 %496, %499
+  br i1 %500, label %506, label %501
+
+501:                                              ; preds = %493
+  %502 = load ptr, ptr %2, align 8, !tbaa !8
+  %503 = getelementptr inbounds nuw %struct.IKCPCB, ptr %502, i32 0, i32 43
+  %504 = load i32, ptr %503, align 4, !tbaa !67
+  %505 = icmp sle i32 %504, 0
+  br i1 %505, label %506, label %522
+
+506:                                              ; preds = %501, %493
+  store i32 1, ptr %19, align 4, !tbaa !10
+  %507 = load ptr, ptr %18, align 8, !tbaa !74
+  %508 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %507, i32 0, i32 12
+  %509 = load i32, ptr %508, align 4, !tbaa !115
+  %510 = add i32 %509, 1
+  store i32 %510, ptr %508, align 4, !tbaa !115
+  %511 = load ptr, ptr %18, align 8, !tbaa !74
+  %512 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %511, i32 0, i32 11
+  store i32 0, ptr %512, align 8, !tbaa !110
+  %513 = load i32, ptr %3, align 4, !tbaa !10
+  %514 = load ptr, ptr %18, align 8, !tbaa !74
+  %515 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %514, i32 0, i32 10
+  %516 = load i32, ptr %515, align 4, !tbaa !114
+  %517 = add i32 %513, %516
+  %518 = load ptr, ptr %18, align 8, !tbaa !74
+  %519 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %518, i32 0, i32 9
+  store i32 %517, ptr %519, align 8, !tbaa !113
+  %520 = load i32, ptr %13, align 4, !tbaa !10
+  %521 = add nsw i32 %520, 1
+  store i32 %521, ptr %13, align 4, !tbaa !10
+  br label %522
+
+522:                                              ; preds = %506, %501
+  br label %523
+
+523:                                              ; preds = %522, %487
+  br label %524
+
+524:                                              ; preds = %523, %479
+  br label %525
+
+525:                                              ; preds = %524, %407
+  %526 = load i32, ptr %19, align 4, !tbaa !10
+  %527 = icmp ne i32 %526, 0
+  br i1 %527, label %528, label %599
+
+528:                                              ; preds = %525
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  %529 = load i32, ptr %3, align 4, !tbaa !10
+  %530 = load ptr, ptr %18, align 8, !tbaa !74
+  %531 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %530, i32 0, i32 5
+  store i32 %529, ptr %531, align 8, !tbaa !101
+  %532 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %15, i32 0, i32 4
+  %533 = load i32, ptr %532, align 4, !tbaa !100
+  %534 = load ptr, ptr %18, align 8, !tbaa !74
+  %535 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %534, i32 0, i32 4
+  store i32 %533, ptr %535, align 4, !tbaa !100
+  %536 = load ptr, ptr %2, align 8, !tbaa !8
+  %537 = getelementptr inbounds nuw %struct.IKCPCB, ptr %536, i32 0, i32 6
+  %538 = load i32, ptr %537, align 8, !tbaa !25
+  %539 = load ptr, ptr %18, align 8, !tbaa !74
+  %540 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %539, i32 0, i32 7
+  store i32 %538, ptr %540, align 8, !tbaa !102
+  %541 = load ptr, ptr %5, align 8, !tbaa !12
+  %542 = load ptr, ptr %4, align 8, !tbaa !12
+  %543 = ptrtoint ptr %541 to i64
+  %544 = ptrtoint ptr %542 to i64
+  %545 = sub i64 %543, %544
+  %546 = trunc i64 %545 to i32
+  store i32 %546, ptr %7, align 4, !tbaa !10
+  %547 = load ptr, ptr %18, align 8, !tbaa !74
+  %548 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %547, i32 0, i32 8
+  %549 = load i32, ptr %548, align 4, !tbaa !86
+  %550 = add i32 24, %549
+  store i32 %550, ptr %21, align 4, !tbaa !10
+  %551 = load i32, ptr %7, align 4, !tbaa !10
+  %552 = load i32, ptr %21, align 4, !tbaa !10
+  %553 = add nsw i32 %551, %552
+  %554 = load ptr, ptr %2, align 8, !tbaa !8
+  %555 = getelementptr inbounds nuw %struct.IKCPCB, ptr %554, i32 0, i32 1
+  %556 = load i32, ptr %555, align 4, !tbaa !36
+  %557 = icmp sgt i32 %553, %556
+  br i1 %557, label %558, label %564
+
+558:                                              ; preds = %528
+  %559 = load ptr, ptr %2, align 8, !tbaa !8
+  %560 = load ptr, ptr %4, align 8, !tbaa !12
+  %561 = load i32, ptr %7, align 4, !tbaa !10
+  %562 = call i32 @ikcp_output(ptr noundef %559, ptr noundef %560, i32 noundef %561)
+  %563 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %563, ptr %5, align 8, !tbaa !12
+  br label %564
+
+564:                                              ; preds = %558, %528
+  %565 = load ptr, ptr %5, align 8, !tbaa !12
+  %566 = load ptr, ptr %18, align 8, !tbaa !74
+  %567 = call ptr @ikcp_encode_seg(ptr noundef %565, ptr noundef %566)
+  store ptr %567, ptr %5, align 8, !tbaa !12
+  %568 = load ptr, ptr %18, align 8, !tbaa !74
+  %569 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %568, i32 0, i32 8
+  %570 = load i32, ptr %569, align 4, !tbaa !86
+  %571 = icmp ugt i32 %570, 0
+  br i1 %571, label %572, label %587
+
+572:                                              ; preds = %564
+  %573 = load ptr, ptr %5, align 8, !tbaa !12
+  %574 = load ptr, ptr %18, align 8, !tbaa !74
+  %575 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %574, i32 0, i32 13
+  %576 = getelementptr inbounds [1 x i8], ptr %575, i64 0, i64 0
+  %577 = load ptr, ptr %18, align 8, !tbaa !74
+  %578 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %577, i32 0, i32 8
+  %579 = load i32, ptr %578, align 4, !tbaa !86
+  %580 = zext i32 %579 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %573, ptr align 8 %576, i64 %580, i1 false)
+  %581 = load ptr, ptr %18, align 8, !tbaa !74
+  %582 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %581, i32 0, i32 8
+  %583 = load i32, ptr %582, align 4, !tbaa !86
+  %584 = load ptr, ptr %5, align 8, !tbaa !12
+  %585 = zext i32 %583 to i64
+  %586 = getelementptr inbounds nuw i8, ptr %584, i64 %585
+  store ptr %586, ptr %5, align 8, !tbaa !12
+  br label %587
+
+587:                                              ; preds = %572, %564
+  %588 = load ptr, ptr %18, align 8, !tbaa !74
+  %589 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %588, i32 0, i32 12
+  %590 = load i32, ptr %589, align 4, !tbaa !115
+  %591 = load ptr, ptr %2, align 8, !tbaa !8
+  %592 = getelementptr inbounds nuw %struct.IKCPCB, ptr %591, i32 0, i32 31
+  %593 = load i32, ptr %592, align 4, !tbaa !70
+  %594 = icmp uge i32 %590, %593
+  br i1 %594, label %595, label %598
+
+595:                                              ; preds = %587
+  %596 = load ptr, ptr %2, align 8, !tbaa !8
+  %597 = getelementptr inbounds nuw %struct.IKCPCB, ptr %596, i32 0, i32 3
+  store i32 -1, ptr %597, align 4, !tbaa !52
+  br label %598
+
+598:                                              ; preds = %595, %587
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  br label %599
+
+599:                                              ; preds = %598, %525
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  br label %600
+
+600:                                              ; preds = %599
+  %601 = load ptr, ptr %12, align 8, !tbaa !21
+  %602 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %601, i32 0, i32 0
+  %603 = load ptr, ptr %602, align 8, !tbaa !80
+  store ptr %603, ptr %12, align 8, !tbaa !21
+  br label %395, !llvm.loop !117
+
+604:                                              ; preds = %395
+  %605 = load ptr, ptr %5, align 8, !tbaa !12
+  %606 = load ptr, ptr %4, align 8, !tbaa !12
+  %607 = ptrtoint ptr %605 to i64
+  %608 = ptrtoint ptr %606 to i64
+  %609 = sub i64 %607, %608
+  %610 = trunc i64 %609 to i32
+  store i32 %610, ptr %7, align 4, !tbaa !10
+  %611 = load i32, ptr %7, align 4, !tbaa !10
+  %612 = icmp sgt i32 %611, 0
+  br i1 %612, label %613, label %618
+
+613:                                              ; preds = %604
+  %614 = load ptr, ptr %2, align 8, !tbaa !8
+  %615 = load ptr, ptr %4, align 8, !tbaa !12
+  %616 = load i32, ptr %7, align 4, !tbaa !10
+  %617 = call i32 @ikcp_output(ptr noundef %614, ptr noundef %615, i32 noundef %616)
+  br label %618
+
+618:                                              ; preds = %613, %604
+  %619 = load i32, ptr %13, align 4, !tbaa !10
+  %620 = icmp ne i32 %619, 0
+  br i1 %620, label %621, label %657
+
+621:                                              ; preds = %618
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  %622 = load ptr, ptr %2, align 8, !tbaa !8
+  %623 = getelementptr inbounds nuw %struct.IKCPCB, ptr %622, i32 0, i32 5
+  %624 = load i32, ptr %623, align 4, !tbaa !24
+  %625 = load ptr, ptr %2, align 8, !tbaa !8
+  %626 = getelementptr inbounds nuw %struct.IKCPCB, ptr %625, i32 0, i32 4
+  %627 = load i32, ptr %626, align 8, !tbaa !23
+  %628 = sub i32 %624, %627
+  store i32 %628, ptr %22, align 4, !tbaa !10
+  %629 = load i32, ptr %22, align 4, !tbaa !10
+  %630 = udiv i32 %629, 2
+  %631 = load ptr, ptr %2, align 8, !tbaa !8
+  %632 = getelementptr inbounds nuw %struct.IKCPCB, ptr %631, i32 0, i32 9
+  store i32 %630, ptr %632, align 4, !tbaa !65
+  %633 = load ptr, ptr %2, align 8, !tbaa !8
+  %634 = getelementptr inbounds nuw %struct.IKCPCB, ptr %633, i32 0, i32 9
+  %635 = load i32, ptr %634, align 4, !tbaa !65
+  %636 = icmp ult i32 %635, 2
+  br i1 %636, label %637, label %640
+
+637:                                              ; preds = %621
+  %638 = load ptr, ptr %2, align 8, !tbaa !8
+  %639 = getelementptr inbounds nuw %struct.IKCPCB, ptr %638, i32 0, i32 9
+  store i32 2, ptr %639, align 4, !tbaa !65
+  br label %640
+
+640:                                              ; preds = %637, %621
+  %641 = load ptr, ptr %2, align 8, !tbaa !8
+  %642 = getelementptr inbounds nuw %struct.IKCPCB, ptr %641, i32 0, i32 9
+  %643 = load i32, ptr %642, align 4, !tbaa !65
+  %644 = load i32, ptr %9, align 4, !tbaa !10
+  %645 = add i32 %643, %644
+  %646 = load ptr, ptr %2, align 8, !tbaa !8
+  %647 = getelementptr inbounds nuw %struct.IKCPCB, ptr %646, i32 0, i32 17
+  store i32 %645, ptr %647, align 4, !tbaa !33
+  %648 = load ptr, ptr %2, align 8, !tbaa !8
+  %649 = getelementptr inbounds nuw %struct.IKCPCB, ptr %648, i32 0, i32 17
+  %650 = load i32, ptr %649, align 4, !tbaa !33
+  %651 = load ptr, ptr %2, align 8, !tbaa !8
+  %652 = getelementptr inbounds nuw %struct.IKCPCB, ptr %651, i32 0, i32 2
+  %653 = load i32, ptr %652, align 8, !tbaa !37
+  %654 = mul i32 %650, %653
+  %655 = load ptr, ptr %2, align 8, !tbaa !8
+  %656 = getelementptr inbounds nuw %struct.IKCPCB, ptr %655, i32 0, i32 32
+  store i32 %654, ptr %656, align 8, !tbaa !34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  br label %657
+
+657:                                              ; preds = %640, %618
+  %658 = load i32, ptr %14, align 4, !tbaa !10
+  %659 = icmp ne i32 %658, 0
+  br i1 %659, label %660, label %680
+
+660:                                              ; preds = %657
+  %661 = load i32, ptr %10, align 4, !tbaa !10
+  %662 = udiv i32 %661, 2
+  %663 = load ptr, ptr %2, align 8, !tbaa !8
+  %664 = getelementptr inbounds nuw %struct.IKCPCB, ptr %663, i32 0, i32 9
+  store i32 %662, ptr %664, align 4, !tbaa !65
+  %665 = load ptr, ptr %2, align 8, !tbaa !8
+  %666 = getelementptr inbounds nuw %struct.IKCPCB, ptr %665, i32 0, i32 9
+  %667 = load i32, ptr %666, align 4, !tbaa !65
+  %668 = icmp ult i32 %667, 2
+  br i1 %668, label %669, label %672
+
+669:                                              ; preds = %660
+  %670 = load ptr, ptr %2, align 8, !tbaa !8
+  %671 = getelementptr inbounds nuw %struct.IKCPCB, ptr %670, i32 0, i32 9
+  store i32 2, ptr %671, align 4, !tbaa !65
+  br label %672
+
+672:                                              ; preds = %669, %660
+  %673 = load ptr, ptr %2, align 8, !tbaa !8
+  %674 = getelementptr inbounds nuw %struct.IKCPCB, ptr %673, i32 0, i32 17
+  store i32 1, ptr %674, align 4, !tbaa !33
+  %675 = load ptr, ptr %2, align 8, !tbaa !8
+  %676 = getelementptr inbounds nuw %struct.IKCPCB, ptr %675, i32 0, i32 2
+  %677 = load i32, ptr %676, align 8, !tbaa !37
+  %678 = load ptr, ptr %2, align 8, !tbaa !8
+  %679 = getelementptr inbounds nuw %struct.IKCPCB, ptr %678, i32 0, i32 32
+  store i32 %677, ptr %679, align 8, !tbaa !34
+  br label %680
+
+680:                                              ; preds = %672, %657
+  %681 = load ptr, ptr %2, align 8, !tbaa !8
+  %682 = getelementptr inbounds nuw %struct.IKCPCB, ptr %681, i32 0, i32 17
+  %683 = load i32, ptr %682, align 4, !tbaa !33
+  %684 = icmp ult i32 %683, 1
+  br i1 %684, label %685, label %693
+
+685:                                              ; preds = %680
+  %686 = load ptr, ptr %2, align 8, !tbaa !8
+  %687 = getelementptr inbounds nuw %struct.IKCPCB, ptr %686, i32 0, i32 17
+  store i32 1, ptr %687, align 4, !tbaa !33
+  %688 = load ptr, ptr %2, align 8, !tbaa !8
+  %689 = getelementptr inbounds nuw %struct.IKCPCB, ptr %688, i32 0, i32 2
+  %690 = load i32, ptr %689, align 8, !tbaa !37
+  %691 = load ptr, ptr %2, align 8, !tbaa !8
+  %692 = getelementptr inbounds nuw %struct.IKCPCB, ptr %691, i32 0, i32 32
+  store i32 %690, ptr %692, align 8, !tbaa !34
+  br label %693
+
+693:                                              ; preds = %685, %680
+  store i32 0, ptr %16, align 4
+  br label %694
+
+694:                                              ; preds = %693, %34
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  %695 = load i32, ptr %16, align 4
+  switch i32 %695, label %697 [
+    i32 0, label %696
+    i32 1, label %696
+  ]
+
+696:                                              ; preds = %694, %694
+  ret void
+
+697:                                              ; preds = %694, %364
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ikcp_wnd_unused(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %4 = load ptr, ptr %3, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.IKCPCB, ptr %4, i32 0, i32 25
+  %6 = load i32, ptr %5, align 4, !tbaa !50
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.IKCPCB, ptr %7, i32 0, i32 15
+  %9 = load i32, ptr %8, align 4, !tbaa !31
+  %10 = icmp ult i32 %6, %9
+  br i1 %10, label %11, label %19
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.IKCPCB, ptr %12, i32 0, i32 15
+  %14 = load i32, ptr %13, align 4, !tbaa !31
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.IKCPCB, ptr %15, i32 0, i32 25
+  %17 = load i32, ptr %16, align 4, !tbaa !50
+  %18 = sub i32 %14, %17
+  store i32 %18, ptr %2, align 4
+  br label %20
+
+19:                                               ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %20
+
+20:                                               ; preds = %19, %11
+  %21 = load i32, ptr %2, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @ikcp_output(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = call i32 @ikcp_canlog(ptr noundef %8, i32 noundef 1)
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = load i32, ptr %7, align 4, !tbaa !10
+  %14 = sext i32 %13 to i64
+  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %12, i32 noundef 1, ptr noundef @.str.6, i64 noundef %14)
+  br label %15
+
+15:                                               ; preds = %11, %3
+  %16 = load i32, ptr %7, align 4, !tbaa !10
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %15
+  store i32 0, ptr %4, align 4
+  br label %30
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.IKCPCB, ptr %20, i32 0, i32 47
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = load ptr, ptr %6, align 8, !tbaa !4
+  %24 = load i32, ptr %7, align 4, !tbaa !10
+  %25 = load ptr, ptr %5, align 8, !tbaa !8
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.IKCPCB, ptr %26, i32 0, i32 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  %29 = call i32 %22(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %28)
+  store i32 %29, ptr %4, align 4
+  br label %30
+
+30:                                               ; preds = %19, %18
+  %31 = load i32, ptr %4, align 4
+  ret i32 %31
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @ikcp_ack_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store i32 %1, ptr %6, align 4, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !103
+  store ptr %3, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %7, align 8, !tbaa !103
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %23
+
+11:                                               ; preds = %4
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.IKCPCB, ptr %12, i32 0, i32 37
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %15 = load i32, ptr %6, align 4, !tbaa !10
+  %16 = mul nsw i32 %15, 2
+  %17 = add nsw i32 %16, 0
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i32, ptr %14, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !10
+  %21 = load ptr, ptr %7, align 8, !tbaa !103
+  %22 = getelementptr inbounds i32, ptr %21, i64 0
+  store i32 %20, ptr %22, align 4, !tbaa !10
+  br label %23
+
+23:                                               ; preds = %11, %4
+  %24 = load ptr, ptr %8, align 8, !tbaa !103
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %38
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.IKCPCB, ptr %27, i32 0, i32 37
+  %29 = load ptr, ptr %28, align 8, !tbaa !53
+  %30 = load i32, ptr %6, align 4, !tbaa !10
+  %31 = mul nsw i32 %30, 2
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %36 = load ptr, ptr %8, align 8, !tbaa !103
+  %37 = getelementptr inbounds i32, ptr %36, i64 0
+  store i32 %35, ptr %37, align 4, !tbaa !10
+  br label %38
+
+38:                                               ; preds = %26, %23
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_flush(ptr noundef %kcp) #0 {
-entry:
-  %a.addr.i338 = alloca i32, align 4
-  %b.addr.i339 = alloca i32, align 4
-  %a.addr.i331 = alloca i32, align 4
-  %b.addr.i332 = alloca i32, align 4
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %later.addr.i327 = alloca i32, align 4
-  %earlier.addr.i328 = alloca i32, align 4
-  %later.addr.i323 = alloca i32, align 4
-  %earlier.addr.i324 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %current = alloca i32, align 4
-  %buffer = alloca ptr, align 8
-  %ptr = alloca ptr, align 8
-  %count = alloca i32, align 4
-  %size = alloca i32, align 4
-  %i = alloca i32, align 4
-  %resent = alloca i32, align 4
-  %cwnd = alloca i32, align 4
-  %rtomin = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %change = alloca i32, align 4
-  %lost = alloca i32, align 4
-  %seg = alloca %struct.IKCPSEG, align 8
-  %newseg = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %needsend = alloca i32, align 4
-  %step = alloca i32, align 4
-  %need = alloca i32, align 4
-  %inflight = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %current1 = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 19
-  %1 = load i32, ptr %current1, align 4
-  store i32 %1, ptr %current, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %buffer2 = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 41
-  %3 = load ptr, ptr %buffer2, align 8
-  store ptr %3, ptr %buffer, align 8
-  %4 = load ptr, ptr %buffer, align 8
-  store ptr %4, ptr %ptr, align 8
-  store i32 0, ptr %change, align 4
-  store i32 0, ptr %lost, align 4
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %updated = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 28
-  %6 = load i32, ptr %updated, align 8
-  %cmp = icmp eq i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %if.end322
-
-if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %kcp.addr, align 8
-  %conv = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %conv, align 8
-  %conv3 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 1
-  store i32 %8, ptr %conv3, align 8
-  %cmd = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 2
-  store i32 82, ptr %cmd, align 4
-  %frg = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 3
-  store i32 0, ptr %frg, align 8
-  %9 = load ptr, ptr %kcp.addr, align 8
-  %call = call i32 @ikcp_wnd_unused(ptr noundef %9)
-  %wnd = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 4
-  store i32 %call, ptr %wnd, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 6
-  %11 = load i32, ptr %rcv_nxt, align 8
-  %una = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 7
-  store i32 %11, ptr %una, align 8
-  %len = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 8
-  store i32 0, ptr %len, align 4
-  %sn = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 6
-  store i32 0, ptr %sn, align 4
-  %ts = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 5
-  store i32 0, ptr %ts, align 8
-  %12 = load ptr, ptr %kcp.addr, align 8
-  %ackcount = getelementptr inbounds %struct.IKCPCB, ptr %12, i32 0, i32 38
-  %13 = load i32, ptr %ackcount, align 8
-  store i32 %13, ptr %count, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %14 = load i32, ptr %i, align 4
-  %15 = load i32, ptr %count, align 4
-  %cmp4 = icmp slt i32 %14, %15
-  br i1 %cmp4, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %ptr, align 8
-  %17 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %17 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv6 = trunc i64 %sub.ptr.sub to i32
-  store i32 %conv6, ptr %size, align 4
-  %18 = load i32, ptr %size, align 4
-  %add = add nsw i32 %18, 24
-  %19 = load ptr, ptr %kcp.addr, align 8
-  %mtu = getelementptr inbounds %struct.IKCPCB, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %mtu, align 4
-  %cmp7 = icmp sgt i32 %add, %20
-  br i1 %cmp7, label %if.then9, label %if.end11
-
-if.then9:                                         ; preds = %for.body
-  %21 = load ptr, ptr %kcp.addr, align 8
-  %22 = load ptr, ptr %buffer, align 8
-  %23 = load i32, ptr %size, align 4
-  %call10 = call i32 @ikcp_output(ptr noundef %21, ptr noundef %22, i32 noundef %23)
-  %24 = load ptr, ptr %buffer, align 8
-  store ptr %24, ptr %ptr, align 8
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then9, %for.body
-  %25 = load ptr, ptr %kcp.addr, align 8
-  %26 = load i32, ptr %i, align 4
-  %sn12 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 6
-  %ts13 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 5
-  call void @ikcp_ack_get(ptr noundef %25, i32 noundef %26, ptr noundef %sn12, ptr noundef %ts13)
-  %27 = load ptr, ptr %ptr, align 8
-  %call14 = call ptr @ikcp_encode_seg(ptr noundef %27, ptr noundef %seg)
-  store ptr %call14, ptr %ptr, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end11
-  %28 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %28, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !21
-
-for.end:                                          ; preds = %for.cond
-  %29 = load ptr, ptr %kcp.addr, align 8
-  %ackcount15 = getelementptr inbounds %struct.IKCPCB, ptr %29, i32 0, i32 38
-  store i32 0, ptr %ackcount15, align 8
-  %30 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd = getelementptr inbounds %struct.IKCPCB, ptr %30, i32 0, i32 16
-  %31 = load i32, ptr %rmt_wnd, align 8
-  %cmp16 = icmp eq i32 %31, 0
-  br i1 %cmp16, label %if.then18, label %if.else53
-
-if.then18:                                        ; preds = %for.end
-  %32 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait = getelementptr inbounds %struct.IKCPCB, ptr %32, i32 0, i32 30
-  %33 = load i32, ptr %probe_wait, align 8
-  %cmp19 = icmp eq i32 %33, 0
-  br i1 %cmp19, label %if.then21, label %if.else
-
-if.then21:                                        ; preds = %if.then18
-  %34 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait22 = getelementptr inbounds %struct.IKCPCB, ptr %34, i32 0, i32 30
-  store i32 7000, ptr %probe_wait22, align 8
-  %35 = load ptr, ptr %kcp.addr, align 8
-  %current23 = getelementptr inbounds %struct.IKCPCB, ptr %35, i32 0, i32 19
-  %36 = load i32, ptr %current23, align 4
-  %37 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait24 = getelementptr inbounds %struct.IKCPCB, ptr %37, i32 0, i32 30
-  %38 = load i32, ptr %probe_wait24, align 8
-  %add25 = add i32 %36, %38
-  %39 = load ptr, ptr %kcp.addr, align 8
-  %ts_probe = getelementptr inbounds %struct.IKCPCB, ptr %39, i32 0, i32 29
-  store i32 %add25, ptr %ts_probe, align 4
-  br label %if.end52
-
-if.else:                                          ; preds = %if.then18
-  %40 = load ptr, ptr %kcp.addr, align 8
-  %current26 = getelementptr inbounds %struct.IKCPCB, ptr %40, i32 0, i32 19
-  %41 = load i32, ptr %current26, align 4
-  %42 = load ptr, ptr %kcp.addr, align 8
-  %ts_probe27 = getelementptr inbounds %struct.IKCPCB, ptr %42, i32 0, i32 29
-  %43 = load i32, ptr %ts_probe27, align 4
-  store i32 %41, ptr %later.addr.i327, align 4
-  store i32 %43, ptr %earlier.addr.i328, align 4
-  %44 = load i32, ptr %later.addr.i327, align 4
-  %45 = load i32, ptr %earlier.addr.i328, align 4
-  %sub.i329 = sub i32 %44, %45
-  %conv.i330 = sext i32 %sub.i329 to i64
-  %cmp29 = icmp sge i64 %conv.i330, 0
-  br i1 %cmp29, label %if.then31, label %if.end51
-
-if.then31:                                        ; preds = %if.else
-  %46 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait32 = getelementptr inbounds %struct.IKCPCB, ptr %46, i32 0, i32 30
-  %47 = load i32, ptr %probe_wait32, align 8
-  %cmp33 = icmp ult i32 %47, 7000
-  br i1 %cmp33, label %if.then35, label %if.end37
-
-if.then35:                                        ; preds = %if.then31
-  %48 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait36 = getelementptr inbounds %struct.IKCPCB, ptr %48, i32 0, i32 30
-  store i32 7000, ptr %probe_wait36, align 8
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then35, %if.then31
-  %49 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait38 = getelementptr inbounds %struct.IKCPCB, ptr %49, i32 0, i32 30
-  %50 = load i32, ptr %probe_wait38, align 8
-  %div = udiv i32 %50, 2
-  %51 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait39 = getelementptr inbounds %struct.IKCPCB, ptr %51, i32 0, i32 30
-  %52 = load i32, ptr %probe_wait39, align 8
-  %add40 = add i32 %52, %div
-  store i32 %add40, ptr %probe_wait39, align 8
-  %53 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait41 = getelementptr inbounds %struct.IKCPCB, ptr %53, i32 0, i32 30
-  %54 = load i32, ptr %probe_wait41, align 8
-  %cmp42 = icmp ugt i32 %54, 120000
-  br i1 %cmp42, label %if.then44, label %if.end46
-
-if.then44:                                        ; preds = %if.end37
-  %55 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait45 = getelementptr inbounds %struct.IKCPCB, ptr %55, i32 0, i32 30
-  store i32 120000, ptr %probe_wait45, align 8
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.then44, %if.end37
-  %56 = load ptr, ptr %kcp.addr, align 8
-  %current47 = getelementptr inbounds %struct.IKCPCB, ptr %56, i32 0, i32 19
-  %57 = load i32, ptr %current47, align 4
-  %58 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait48 = getelementptr inbounds %struct.IKCPCB, ptr %58, i32 0, i32 30
-  %59 = load i32, ptr %probe_wait48, align 8
-  %add49 = add i32 %57, %59
-  %60 = load ptr, ptr %kcp.addr, align 8
-  %ts_probe50 = getelementptr inbounds %struct.IKCPCB, ptr %60, i32 0, i32 29
-  store i32 %add49, ptr %ts_probe50, align 4
-  %61 = load ptr, ptr %kcp.addr, align 8
-  %probe = getelementptr inbounds %struct.IKCPCB, ptr %61, i32 0, i32 18
-  %62 = load i32, ptr %probe, align 8
-  %or = or i32 %62, 1
-  store i32 %or, ptr %probe, align 8
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.end46, %if.else
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.end51, %if.then21
-  br label %if.end56
-
-if.else53:                                        ; preds = %for.end
-  %63 = load ptr, ptr %kcp.addr, align 8
-  %ts_probe54 = getelementptr inbounds %struct.IKCPCB, ptr %63, i32 0, i32 29
-  store i32 0, ptr %ts_probe54, align 4
-  %64 = load ptr, ptr %kcp.addr, align 8
-  %probe_wait55 = getelementptr inbounds %struct.IKCPCB, ptr %64, i32 0, i32 30
-  store i32 0, ptr %probe_wait55, align 8
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.else53, %if.end52
-  %65 = load ptr, ptr %kcp.addr, align 8
-  %probe57 = getelementptr inbounds %struct.IKCPCB, ptr %65, i32 0, i32 18
-  %66 = load i32, ptr %probe57, align 8
-  %and = and i32 %66, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then58, label %if.end72
-
-if.then58:                                        ; preds = %if.end56
-  %cmd59 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 2
-  store i32 83, ptr %cmd59, align 4
-  %67 = load ptr, ptr %ptr, align 8
-  %68 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast60 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast61 = ptrtoint ptr %68 to i64
-  %sub.ptr.sub62 = sub i64 %sub.ptr.lhs.cast60, %sub.ptr.rhs.cast61
-  %conv63 = trunc i64 %sub.ptr.sub62 to i32
-  store i32 %conv63, ptr %size, align 4
-  %69 = load i32, ptr %size, align 4
-  %add64 = add nsw i32 %69, 24
-  %70 = load ptr, ptr %kcp.addr, align 8
-  %mtu65 = getelementptr inbounds %struct.IKCPCB, ptr %70, i32 0, i32 1
-  %71 = load i32, ptr %mtu65, align 4
-  %cmp66 = icmp sgt i32 %add64, %71
-  br i1 %cmp66, label %if.then68, label %if.end70
-
-if.then68:                                        ; preds = %if.then58
-  %72 = load ptr, ptr %kcp.addr, align 8
-  %73 = load ptr, ptr %buffer, align 8
-  %74 = load i32, ptr %size, align 4
-  %call69 = call i32 @ikcp_output(ptr noundef %72, ptr noundef %73, i32 noundef %74)
-  %75 = load ptr, ptr %buffer, align 8
-  store ptr %75, ptr %ptr, align 8
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then68, %if.then58
-  %76 = load ptr, ptr %ptr, align 8
-  %call71 = call ptr @ikcp_encode_seg(ptr noundef %76, ptr noundef %seg)
-  store ptr %call71, ptr %ptr, align 8
-  br label %if.end72
-
-if.end72:                                         ; preds = %if.end70, %if.end56
-  %77 = load ptr, ptr %kcp.addr, align 8
-  %probe73 = getelementptr inbounds %struct.IKCPCB, ptr %77, i32 0, i32 18
-  %78 = load i32, ptr %probe73, align 8
-  %and74 = and i32 %78, 2
-  %tobool75 = icmp ne i32 %and74, 0
-  br i1 %tobool75, label %if.then76, label %if.end90
-
-if.then76:                                        ; preds = %if.end72
-  %cmd77 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 2
-  store i32 84, ptr %cmd77, align 4
-  %79 = load ptr, ptr %ptr, align 8
-  %80 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast78 = ptrtoint ptr %79 to i64
-  %sub.ptr.rhs.cast79 = ptrtoint ptr %80 to i64
-  %sub.ptr.sub80 = sub i64 %sub.ptr.lhs.cast78, %sub.ptr.rhs.cast79
-  %conv81 = trunc i64 %sub.ptr.sub80 to i32
-  store i32 %conv81, ptr %size, align 4
-  %81 = load i32, ptr %size, align 4
-  %add82 = add nsw i32 %81, 24
-  %82 = load ptr, ptr %kcp.addr, align 8
-  %mtu83 = getelementptr inbounds %struct.IKCPCB, ptr %82, i32 0, i32 1
-  %83 = load i32, ptr %mtu83, align 4
-  %cmp84 = icmp sgt i32 %add82, %83
-  br i1 %cmp84, label %if.then86, label %if.end88
-
-if.then86:                                        ; preds = %if.then76
-  %84 = load ptr, ptr %kcp.addr, align 8
-  %85 = load ptr, ptr %buffer, align 8
-  %86 = load i32, ptr %size, align 4
-  %call87 = call i32 @ikcp_output(ptr noundef %84, ptr noundef %85, i32 noundef %86)
-  %87 = load ptr, ptr %buffer, align 8
-  store ptr %87, ptr %ptr, align 8
-  br label %if.end88
-
-if.end88:                                         ; preds = %if.then86, %if.then76
-  %88 = load ptr, ptr %ptr, align 8
-  %call89 = call ptr @ikcp_encode_seg(ptr noundef %88, ptr noundef %seg)
-  store ptr %call89, ptr %ptr, align 8
-  br label %if.end90
-
-if.end90:                                         ; preds = %if.end88, %if.end72
-  %89 = load ptr, ptr %kcp.addr, align 8
-  %probe91 = getelementptr inbounds %struct.IKCPCB, ptr %89, i32 0, i32 18
-  store i32 0, ptr %probe91, align 8
-  %90 = load ptr, ptr %kcp.addr, align 8
-  %snd_wnd = getelementptr inbounds %struct.IKCPCB, ptr %90, i32 0, i32 14
-  %91 = load i32, ptr %snd_wnd, align 8
-  %92 = load ptr, ptr %kcp.addr, align 8
-  %rmt_wnd92 = getelementptr inbounds %struct.IKCPCB, ptr %92, i32 0, i32 16
-  %93 = load i32, ptr %rmt_wnd92, align 8
-  store i32 %91, ptr %a.addr.i331, align 4
-  store i32 %93, ptr %b.addr.i332, align 4
-  %94 = load i32, ptr %a.addr.i331, align 4
-  %95 = load i32, ptr %b.addr.i332, align 4
-  %cmp.i333 = icmp ule i32 %94, %95
-  br i1 %cmp.i333, label %cond.true.i336, label %cond.false.i334
-
-cond.true.i336:                                   ; preds = %if.end90
-  %96 = load i32, ptr %a.addr.i331, align 4
-  br label %_imin_.exit337
-
-cond.false.i334:                                  ; preds = %if.end90
-  %97 = load i32, ptr %b.addr.i332, align 4
-  br label %_imin_.exit337
-
-_imin_.exit337:                                   ; preds = %cond.false.i334, %cond.true.i336
-  %cond.i335 = phi i32 [ %96, %cond.true.i336 ], [ %97, %cond.false.i334 ]
-  store i32 %cond.i335, ptr %cwnd, align 4
-  %98 = load ptr, ptr %kcp.addr, align 8
-  %nocwnd = getelementptr inbounds %struct.IKCPCB, ptr %98, i32 0, i32 44
-  %99 = load i32, ptr %nocwnd, align 8
-  %cmp94 = icmp eq i32 %99, 0
-  br i1 %cmp94, label %if.then96, label %if.end99
-
-if.then96:                                        ; preds = %_imin_.exit337
-  %100 = load ptr, ptr %kcp.addr, align 8
-  %cwnd97 = getelementptr inbounds %struct.IKCPCB, ptr %100, i32 0, i32 17
-  %101 = load i32, ptr %cwnd97, align 4
-  %102 = load i32, ptr %cwnd, align 4
-  store i32 %101, ptr %a.addr.i, align 4
-  store i32 %102, ptr %b.addr.i, align 4
-  %103 = load i32, ptr %a.addr.i, align 4
-  %104 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp ule i32 %103, %104
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %if.then96
-  %105 = load i32, ptr %a.addr.i, align 4
-  br label %_imin_.exit
-
-cond.false.i:                                     ; preds = %if.then96
-  %106 = load i32, ptr %b.addr.i, align 4
-  br label %_imin_.exit
-
-_imin_.exit:                                      ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %105, %cond.true.i ], [ %106, %cond.false.i ]
-  store i32 %cond.i, ptr %cwnd, align 4
-  br label %if.end99
-
-if.end99:                                         ; preds = %_imin_.exit, %_imin_.exit337
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end108, %if.end99
-  %107 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt = getelementptr inbounds %struct.IKCPCB, ptr %107, i32 0, i32 5
-  %108 = load i32, ptr %snd_nxt, align 4
-  %109 = load ptr, ptr %kcp.addr, align 8
-  %snd_una = getelementptr inbounds %struct.IKCPCB, ptr %109, i32 0, i32 4
-  %110 = load i32, ptr %snd_una, align 8
-  %111 = load i32, ptr %cwnd, align 4
-  %add100 = add i32 %110, %111
-  store i32 %108, ptr %later.addr.i323, align 4
-  store i32 %add100, ptr %earlier.addr.i324, align 4
-  %112 = load i32, ptr %later.addr.i323, align 4
-  %113 = load i32, ptr %earlier.addr.i324, align 4
-  %sub.i325 = sub i32 %112, %113
-  %conv.i326 = sext i32 %sub.i325 to i64
-  %cmp102 = icmp slt i64 %conv.i326, 0
-  br i1 %cmp102, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %114 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue = getelementptr inbounds %struct.IKCPCB, ptr %114, i32 0, i32 33
-  %115 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue104 = getelementptr inbounds %struct.IKCPCB, ptr %115, i32 0, i32 33
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue104, i32 0, i32 0
-  %116 = load ptr, ptr %next, align 8
-  %cmp105 = icmp eq ptr %snd_queue, %116
-  br i1 %cmp105, label %if.then107, label %if.end108
-
-if.then107:                                       ; preds = %while.body
-  br label %while.end
-
-if.end108:                                        ; preds = %while.body
-  %117 = load ptr, ptr %kcp.addr, align 8
-  %snd_queue109 = getelementptr inbounds %struct.IKCPCB, ptr %117, i32 0, i32 33
-  %next110 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_queue109, i32 0, i32 0
-  %118 = load ptr, ptr %next110, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %118, i64 0
-  store ptr %add.ptr, ptr %newseg, align 8
-  %119 = load ptr, ptr %newseg, align 8
-  %node = getelementptr inbounds %struct.IKCPSEG, ptr %119, i32 0, i32 0
-  %prev = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node, i32 0, i32 1
-  %120 = load ptr, ptr %prev, align 8
-  %121 = load ptr, ptr %newseg, align 8
-  %node111 = getelementptr inbounds %struct.IKCPSEG, ptr %121, i32 0, i32 0
-  %next112 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node111, i32 0, i32 0
-  %122 = load ptr, ptr %next112, align 8
-  %prev113 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %122, i32 0, i32 1
-  store ptr %120, ptr %prev113, align 8
-  %123 = load ptr, ptr %newseg, align 8
-  %node114 = getelementptr inbounds %struct.IKCPSEG, ptr %123, i32 0, i32 0
-  %next115 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node114, i32 0, i32 0
-  %124 = load ptr, ptr %next115, align 8
-  %125 = load ptr, ptr %newseg, align 8
-  %node116 = getelementptr inbounds %struct.IKCPSEG, ptr %125, i32 0, i32 0
-  %prev117 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node116, i32 0, i32 1
-  %126 = load ptr, ptr %prev117, align 8
-  %next118 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %126, i32 0, i32 0
-  store ptr %124, ptr %next118, align 8
-  %127 = load ptr, ptr %newseg, align 8
-  %node119 = getelementptr inbounds %struct.IKCPSEG, ptr %127, i32 0, i32 0
-  %next120 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node119, i32 0, i32 0
-  store ptr null, ptr %next120, align 8
-  %128 = load ptr, ptr %newseg, align 8
-  %node121 = getelementptr inbounds %struct.IKCPSEG, ptr %128, i32 0, i32 0
-  %prev122 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node121, i32 0, i32 1
-  store ptr null, ptr %prev122, align 8
-  %129 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %129, i32 0, i32 35
-  %prev123 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 1
-  %130 = load ptr, ptr %prev123, align 8
-  %131 = load ptr, ptr %newseg, align 8
-  %node124 = getelementptr inbounds %struct.IKCPSEG, ptr %131, i32 0, i32 0
-  %prev125 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node124, i32 0, i32 1
-  store ptr %130, ptr %prev125, align 8
-  %132 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf126 = getelementptr inbounds %struct.IKCPCB, ptr %132, i32 0, i32 35
-  %133 = load ptr, ptr %newseg, align 8
-  %node127 = getelementptr inbounds %struct.IKCPSEG, ptr %133, i32 0, i32 0
-  %next128 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %node127, i32 0, i32 0
-  store ptr %snd_buf126, ptr %next128, align 8
-  %134 = load ptr, ptr %newseg, align 8
-  %node129 = getelementptr inbounds %struct.IKCPSEG, ptr %134, i32 0, i32 0
-  %135 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf130 = getelementptr inbounds %struct.IKCPCB, ptr %135, i32 0, i32 35
-  %prev131 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf130, i32 0, i32 1
-  %136 = load ptr, ptr %prev131, align 8
-  %next132 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %136, i32 0, i32 0
-  store ptr %node129, ptr %next132, align 8
-  %137 = load ptr, ptr %newseg, align 8
-  %node133 = getelementptr inbounds %struct.IKCPSEG, ptr %137, i32 0, i32 0
-  %138 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf134 = getelementptr inbounds %struct.IKCPCB, ptr %138, i32 0, i32 35
-  %prev135 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf134, i32 0, i32 1
-  store ptr %node133, ptr %prev135, align 8
-  %139 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_que = getelementptr inbounds %struct.IKCPCB, ptr %139, i32 0, i32 26
-  %140 = load i32, ptr %nsnd_que, align 8
-  %dec = add i32 %140, -1
-  store i32 %dec, ptr %nsnd_que, align 8
-  %141 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %141, i32 0, i32 24
-  %142 = load i32, ptr %nsnd_buf, align 8
-  %inc136 = add i32 %142, 1
-  store i32 %inc136, ptr %nsnd_buf, align 8
-  %143 = load ptr, ptr %kcp.addr, align 8
-  %conv137 = getelementptr inbounds %struct.IKCPCB, ptr %143, i32 0, i32 0
-  %144 = load i32, ptr %conv137, align 8
-  %145 = load ptr, ptr %newseg, align 8
-  %conv138 = getelementptr inbounds %struct.IKCPSEG, ptr %145, i32 0, i32 1
-  store i32 %144, ptr %conv138, align 8
-  %146 = load ptr, ptr %newseg, align 8
-  %cmd139 = getelementptr inbounds %struct.IKCPSEG, ptr %146, i32 0, i32 2
-  store i32 81, ptr %cmd139, align 4
-  %wnd140 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 4
-  %147 = load i32, ptr %wnd140, align 4
-  %148 = load ptr, ptr %newseg, align 8
-  %wnd141 = getelementptr inbounds %struct.IKCPSEG, ptr %148, i32 0, i32 4
-  store i32 %147, ptr %wnd141, align 4
-  %149 = load i32, ptr %current, align 4
-  %150 = load ptr, ptr %newseg, align 8
-  %ts142 = getelementptr inbounds %struct.IKCPSEG, ptr %150, i32 0, i32 5
-  store i32 %149, ptr %ts142, align 8
-  %151 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt143 = getelementptr inbounds %struct.IKCPCB, ptr %151, i32 0, i32 5
-  %152 = load i32, ptr %snd_nxt143, align 4
-  %inc144 = add i32 %152, 1
-  store i32 %inc144, ptr %snd_nxt143, align 4
-  %153 = load ptr, ptr %newseg, align 8
-  %sn145 = getelementptr inbounds %struct.IKCPSEG, ptr %153, i32 0, i32 6
-  store i32 %152, ptr %sn145, align 4
-  %154 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt146 = getelementptr inbounds %struct.IKCPCB, ptr %154, i32 0, i32 6
-  %155 = load i32, ptr %rcv_nxt146, align 8
-  %156 = load ptr, ptr %newseg, align 8
-  %una147 = getelementptr inbounds %struct.IKCPSEG, ptr %156, i32 0, i32 7
-  store i32 %155, ptr %una147, align 8
-  %157 = load i32, ptr %current, align 4
-  %158 = load ptr, ptr %newseg, align 8
-  %resendts = getelementptr inbounds %struct.IKCPSEG, ptr %158, i32 0, i32 9
-  store i32 %157, ptr %resendts, align 8
-  %159 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto = getelementptr inbounds %struct.IKCPCB, ptr %159, i32 0, i32 12
-  %160 = load i32, ptr %rx_rto, align 8
-  %161 = load ptr, ptr %newseg, align 8
-  %rto = getelementptr inbounds %struct.IKCPSEG, ptr %161, i32 0, i32 10
-  store i32 %160, ptr %rto, align 4
-  %162 = load ptr, ptr %newseg, align 8
-  %fastack = getelementptr inbounds %struct.IKCPSEG, ptr %162, i32 0, i32 11
-  store i32 0, ptr %fastack, align 8
-  %163 = load ptr, ptr %newseg, align 8
-  %xmit = getelementptr inbounds %struct.IKCPSEG, ptr %163, i32 0, i32 12
-  store i32 0, ptr %xmit, align 4
-  br label %while.cond, !llvm.loop !22
-
-while.end:                                        ; preds = %if.then107, %while.cond
-  %164 = load ptr, ptr %kcp.addr, align 8
-  %fastresend = getelementptr inbounds %struct.IKCPCB, ptr %164, i32 0, i32 42
-  %165 = load i32, ptr %fastresend, align 8
-  %cmp148 = icmp sgt i32 %165, 0
-  br i1 %cmp148, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.end
-  %166 = load ptr, ptr %kcp.addr, align 8
-  %fastresend150 = getelementptr inbounds %struct.IKCPCB, ptr %166, i32 0, i32 42
-  %167 = load i32, ptr %fastresend150, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %while.end
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %167, %cond.true ], [ -1, %cond.false ]
-  store i32 %cond, ptr %resent, align 4
-  %168 = load ptr, ptr %kcp.addr, align 8
-  %nodelay = getelementptr inbounds %struct.IKCPCB, ptr %168, i32 0, i32 27
-  %169 = load i32, ptr %nodelay, align 4
-  %cmp151 = icmp eq i32 %169, 0
-  br i1 %cmp151, label %cond.true153, label %cond.false155
-
-cond.true153:                                     ; preds = %cond.end
-  %170 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto154 = getelementptr inbounds %struct.IKCPCB, ptr %170, i32 0, i32 12
-  %171 = load i32, ptr %rx_rto154, align 8
-  %shr = ashr i32 %171, 3
-  br label %cond.end156
-
-cond.false155:                                    ; preds = %cond.end
-  br label %cond.end156
-
-cond.end156:                                      ; preds = %cond.false155, %cond.true153
-  %cond157 = phi i32 [ %shr, %cond.true153 ], [ 0, %cond.false155 ]
-  store i32 %cond157, ptr %rtomin, align 4
-  %172 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf158 = getelementptr inbounds %struct.IKCPCB, ptr %172, i32 0, i32 35
-  %next159 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf158, i32 0, i32 0
-  %173 = load ptr, ptr %next159, align 8
-  store ptr %173, ptr %p, align 8
-  br label %for.cond160
-
-for.cond160:                                      ; preds = %for.inc273, %cond.end156
-  %174 = load ptr, ptr %p, align 8
-  %175 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf161 = getelementptr inbounds %struct.IKCPCB, ptr %175, i32 0, i32 35
-  %cmp162 = icmp ne ptr %174, %snd_buf161
-  br i1 %cmp162, label %for.body164, label %for.end275
-
-for.body164:                                      ; preds = %for.cond160
-  %176 = load ptr, ptr %p, align 8
-  %add.ptr165 = getelementptr inbounds i8, ptr %176, i64 0
-  store ptr %add.ptr165, ptr %segment, align 8
-  store i32 0, ptr %needsend, align 4
-  %177 = load ptr, ptr %segment, align 8
-  %xmit166 = getelementptr inbounds %struct.IKCPSEG, ptr %177, i32 0, i32 12
-  %178 = load i32, ptr %xmit166, align 4
-  %cmp167 = icmp eq i32 %178, 0
-  br i1 %cmp167, label %if.then169, label %if.else178
-
-if.then169:                                       ; preds = %for.body164
-  store i32 1, ptr %needsend, align 4
-  %179 = load ptr, ptr %segment, align 8
-  %xmit170 = getelementptr inbounds %struct.IKCPSEG, ptr %179, i32 0, i32 12
-  %180 = load i32, ptr %xmit170, align 4
-  %inc171 = add i32 %180, 1
-  store i32 %inc171, ptr %xmit170, align 4
-  %181 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto172 = getelementptr inbounds %struct.IKCPCB, ptr %181, i32 0, i32 12
-  %182 = load i32, ptr %rx_rto172, align 8
-  %183 = load ptr, ptr %segment, align 8
-  %rto173 = getelementptr inbounds %struct.IKCPSEG, ptr %183, i32 0, i32 10
-  store i32 %182, ptr %rto173, align 4
-  %184 = load i32, ptr %current, align 4
-  %185 = load ptr, ptr %segment, align 8
-  %rto174 = getelementptr inbounds %struct.IKCPSEG, ptr %185, i32 0, i32 10
-  %186 = load i32, ptr %rto174, align 4
-  %add175 = add i32 %184, %186
-  %187 = load i32, ptr %rtomin, align 4
-  %add176 = add i32 %add175, %187
-  %188 = load ptr, ptr %segment, align 8
-  %resendts177 = getelementptr inbounds %struct.IKCPSEG, ptr %188, i32 0, i32 9
-  store i32 %add176, ptr %resendts177, align 8
-  br label %if.end236
-
-if.else178:                                       ; preds = %for.body164
-  %189 = load i32, ptr %current, align 4
-  %190 = load ptr, ptr %segment, align 8
-  %resendts179 = getelementptr inbounds %struct.IKCPSEG, ptr %190, i32 0, i32 9
-  %191 = load i32, ptr %resendts179, align 8
-  store i32 %189, ptr %later.addr.i, align 4
-  store i32 %191, ptr %earlier.addr.i, align 4
-  %192 = load i32, ptr %later.addr.i, align 4
-  %193 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %192, %193
-  %conv.i = sext i32 %sub.i to i64
-  %cmp181 = icmp sge i64 %conv.i, 0
-  br i1 %cmp181, label %if.then183, label %if.else214
-
-if.then183:                                       ; preds = %if.else178
-  store i32 1, ptr %needsend, align 4
-  %194 = load ptr, ptr %segment, align 8
-  %xmit184 = getelementptr inbounds %struct.IKCPSEG, ptr %194, i32 0, i32 12
-  %195 = load i32, ptr %xmit184, align 4
-  %inc185 = add i32 %195, 1
-  store i32 %inc185, ptr %xmit184, align 4
-  %196 = load ptr, ptr %kcp.addr, align 8
-  %xmit186 = getelementptr inbounds %struct.IKCPCB, ptr %196, i32 0, i32 22
-  %197 = load i32, ptr %xmit186, align 8
-  %inc187 = add i32 %197, 1
-  store i32 %inc187, ptr %xmit186, align 8
-  %198 = load ptr, ptr %kcp.addr, align 8
-  %nodelay188 = getelementptr inbounds %struct.IKCPCB, ptr %198, i32 0, i32 27
-  %199 = load i32, ptr %nodelay188, align 4
-  %cmp189 = icmp eq i32 %199, 0
-  br i1 %cmp189, label %if.then191, label %if.else197
-
-if.then191:                                       ; preds = %if.then183
-  %200 = load ptr, ptr %segment, align 8
-  %rto192 = getelementptr inbounds %struct.IKCPSEG, ptr %200, i32 0, i32 10
-  %201 = load i32, ptr %rto192, align 4
-  %202 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto193 = getelementptr inbounds %struct.IKCPCB, ptr %202, i32 0, i32 12
-  %203 = load i32, ptr %rx_rto193, align 8
-  store i32 %201, ptr %a.addr.i338, align 4
-  store i32 %203, ptr %b.addr.i339, align 4
-  %204 = load i32, ptr %a.addr.i338, align 4
-  %205 = load i32, ptr %b.addr.i339, align 4
-  %cmp.i340 = icmp uge i32 %204, %205
-  br i1 %cmp.i340, label %cond.true.i343, label %cond.false.i341
-
-cond.true.i343:                                   ; preds = %if.then191
-  %206 = load i32, ptr %a.addr.i338, align 4
-  br label %_imax_.exit
-
-cond.false.i341:                                  ; preds = %if.then191
-  %207 = load i32, ptr %b.addr.i339, align 4
-  br label %_imax_.exit
-
-_imax_.exit:                                      ; preds = %cond.false.i341, %cond.true.i343
-  %cond.i342 = phi i32 [ %206, %cond.true.i343 ], [ %207, %cond.false.i341 ]
-  %208 = load ptr, ptr %segment, align 8
-  %rto195 = getelementptr inbounds %struct.IKCPSEG, ptr %208, i32 0, i32 10
-  %209 = load i32, ptr %rto195, align 4
-  %add196 = add i32 %209, %cond.i342
-  store i32 %add196, ptr %rto195, align 4
-  br label %if.end210
-
-if.else197:                                       ; preds = %if.then183
-  %210 = load ptr, ptr %kcp.addr, align 8
-  %nodelay198 = getelementptr inbounds %struct.IKCPCB, ptr %210, i32 0, i32 27
-  %211 = load i32, ptr %nodelay198, align 4
-  %cmp199 = icmp ult i32 %211, 2
-  br i1 %cmp199, label %cond.true201, label %cond.false203
-
-cond.true201:                                     ; preds = %if.else197
-  %212 = load ptr, ptr %segment, align 8
-  %rto202 = getelementptr inbounds %struct.IKCPSEG, ptr %212, i32 0, i32 10
-  %213 = load i32, ptr %rto202, align 4
-  br label %cond.end205
-
-cond.false203:                                    ; preds = %if.else197
-  %214 = load ptr, ptr %kcp.addr, align 8
-  %rx_rto204 = getelementptr inbounds %struct.IKCPCB, ptr %214, i32 0, i32 12
-  %215 = load i32, ptr %rx_rto204, align 8
-  br label %cond.end205
-
-cond.end205:                                      ; preds = %cond.false203, %cond.true201
-  %cond206 = phi i32 [ %213, %cond.true201 ], [ %215, %cond.false203 ]
-  store i32 %cond206, ptr %step, align 4
-  %216 = load i32, ptr %step, align 4
-  %div207 = sdiv i32 %216, 2
-  %217 = load ptr, ptr %segment, align 8
-  %rto208 = getelementptr inbounds %struct.IKCPSEG, ptr %217, i32 0, i32 10
-  %218 = load i32, ptr %rto208, align 4
-  %add209 = add i32 %218, %div207
-  store i32 %add209, ptr %rto208, align 4
-  br label %if.end210
-
-if.end210:                                        ; preds = %cond.end205, %_imax_.exit
-  %219 = load i32, ptr %current, align 4
-  %220 = load ptr, ptr %segment, align 8
-  %rto211 = getelementptr inbounds %struct.IKCPSEG, ptr %220, i32 0, i32 10
-  %221 = load i32, ptr %rto211, align 4
-  %add212 = add i32 %219, %221
-  %222 = load ptr, ptr %segment, align 8
-  %resendts213 = getelementptr inbounds %struct.IKCPSEG, ptr %222, i32 0, i32 9
-  store i32 %add212, ptr %resendts213, align 8
-  store i32 1, ptr %lost, align 4
-  br label %if.end235
-
-if.else214:                                       ; preds = %if.else178
-  %223 = load ptr, ptr %segment, align 8
-  %fastack215 = getelementptr inbounds %struct.IKCPSEG, ptr %223, i32 0, i32 11
-  %224 = load i32, ptr %fastack215, align 8
-  %225 = load i32, ptr %resent, align 4
-  %cmp216 = icmp uge i32 %224, %225
-  br i1 %cmp216, label %if.then218, label %if.end234
-
-if.then218:                                       ; preds = %if.else214
-  %226 = load ptr, ptr %segment, align 8
-  %xmit219 = getelementptr inbounds %struct.IKCPSEG, ptr %226, i32 0, i32 12
-  %227 = load i32, ptr %xmit219, align 4
-  %228 = load ptr, ptr %kcp.addr, align 8
-  %fastlimit = getelementptr inbounds %struct.IKCPCB, ptr %228, i32 0, i32 43
-  %229 = load i32, ptr %fastlimit, align 4
-  %cmp220 = icmp sle i32 %227, %229
-  br i1 %cmp220, label %if.then225, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then218
-  %230 = load ptr, ptr %kcp.addr, align 8
-  %fastlimit222 = getelementptr inbounds %struct.IKCPCB, ptr %230, i32 0, i32 43
-  %231 = load i32, ptr %fastlimit222, align 4
-  %cmp223 = icmp sle i32 %231, 0
-  br i1 %cmp223, label %if.then225, label %if.end233
-
-if.then225:                                       ; preds = %lor.lhs.false, %if.then218
-  store i32 1, ptr %needsend, align 4
-  %232 = load ptr, ptr %segment, align 8
-  %xmit226 = getelementptr inbounds %struct.IKCPSEG, ptr %232, i32 0, i32 12
-  %233 = load i32, ptr %xmit226, align 4
-  %inc227 = add i32 %233, 1
-  store i32 %inc227, ptr %xmit226, align 4
-  %234 = load ptr, ptr %segment, align 8
-  %fastack228 = getelementptr inbounds %struct.IKCPSEG, ptr %234, i32 0, i32 11
-  store i32 0, ptr %fastack228, align 8
-  %235 = load i32, ptr %current, align 4
-  %236 = load ptr, ptr %segment, align 8
-  %rto229 = getelementptr inbounds %struct.IKCPSEG, ptr %236, i32 0, i32 10
-  %237 = load i32, ptr %rto229, align 4
-  %add230 = add i32 %235, %237
-  %238 = load ptr, ptr %segment, align 8
-  %resendts231 = getelementptr inbounds %struct.IKCPSEG, ptr %238, i32 0, i32 9
-  store i32 %add230, ptr %resendts231, align 8
-  %239 = load i32, ptr %change, align 4
-  %inc232 = add nsw i32 %239, 1
-  store i32 %inc232, ptr %change, align 4
-  br label %if.end233
-
-if.end233:                                        ; preds = %if.then225, %lor.lhs.false
-  br label %if.end234
-
-if.end234:                                        ; preds = %if.end233, %if.else214
-  br label %if.end235
-
-if.end235:                                        ; preds = %if.end234, %if.end210
-  br label %if.end236
-
-if.end236:                                        ; preds = %if.end235, %if.then169
-  %240 = load i32, ptr %needsend, align 4
-  %tobool237 = icmp ne i32 %240, 0
-  br i1 %tobool237, label %if.then238, label %if.end272
-
-if.then238:                                       ; preds = %if.end236
-  %241 = load i32, ptr %current, align 4
-  %242 = load ptr, ptr %segment, align 8
-  %ts239 = getelementptr inbounds %struct.IKCPSEG, ptr %242, i32 0, i32 5
-  store i32 %241, ptr %ts239, align 8
-  %wnd240 = getelementptr inbounds %struct.IKCPSEG, ptr %seg, i32 0, i32 4
-  %243 = load i32, ptr %wnd240, align 4
-  %244 = load ptr, ptr %segment, align 8
-  %wnd241 = getelementptr inbounds %struct.IKCPSEG, ptr %244, i32 0, i32 4
-  store i32 %243, ptr %wnd241, align 4
-  %245 = load ptr, ptr %kcp.addr, align 8
-  %rcv_nxt242 = getelementptr inbounds %struct.IKCPCB, ptr %245, i32 0, i32 6
-  %246 = load i32, ptr %rcv_nxt242, align 8
-  %247 = load ptr, ptr %segment, align 8
-  %una243 = getelementptr inbounds %struct.IKCPSEG, ptr %247, i32 0, i32 7
-  store i32 %246, ptr %una243, align 8
-  %248 = load ptr, ptr %ptr, align 8
-  %249 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast244 = ptrtoint ptr %248 to i64
-  %sub.ptr.rhs.cast245 = ptrtoint ptr %249 to i64
-  %sub.ptr.sub246 = sub i64 %sub.ptr.lhs.cast244, %sub.ptr.rhs.cast245
-  %conv247 = trunc i64 %sub.ptr.sub246 to i32
-  store i32 %conv247, ptr %size, align 4
-  %250 = load ptr, ptr %segment, align 8
-  %len248 = getelementptr inbounds %struct.IKCPSEG, ptr %250, i32 0, i32 8
-  %251 = load i32, ptr %len248, align 4
-  %add249 = add i32 24, %251
-  store i32 %add249, ptr %need, align 4
-  %252 = load i32, ptr %size, align 4
-  %253 = load i32, ptr %need, align 4
-  %add250 = add nsw i32 %252, %253
-  %254 = load ptr, ptr %kcp.addr, align 8
-  %mtu251 = getelementptr inbounds %struct.IKCPCB, ptr %254, i32 0, i32 1
-  %255 = load i32, ptr %mtu251, align 4
-  %cmp252 = icmp sgt i32 %add250, %255
-  br i1 %cmp252, label %if.then254, label %if.end256
-
-if.then254:                                       ; preds = %if.then238
-  %256 = load ptr, ptr %kcp.addr, align 8
-  %257 = load ptr, ptr %buffer, align 8
-  %258 = load i32, ptr %size, align 4
-  %call255 = call i32 @ikcp_output(ptr noundef %256, ptr noundef %257, i32 noundef %258)
-  %259 = load ptr, ptr %buffer, align 8
-  store ptr %259, ptr %ptr, align 8
-  br label %if.end256
-
-if.end256:                                        ; preds = %if.then254, %if.then238
-  %260 = load ptr, ptr %ptr, align 8
-  %261 = load ptr, ptr %segment, align 8
-  %call257 = call ptr @ikcp_encode_seg(ptr noundef %260, ptr noundef %261)
-  store ptr %call257, ptr %ptr, align 8
-  %262 = load ptr, ptr %segment, align 8
-  %len258 = getelementptr inbounds %struct.IKCPSEG, ptr %262, i32 0, i32 8
-  %263 = load i32, ptr %len258, align 4
-  %cmp259 = icmp ugt i32 %263, 0
-  br i1 %cmp259, label %if.then261, label %if.end266
-
-if.then261:                                       ; preds = %if.end256
-  %264 = load ptr, ptr %ptr, align 8
-  %265 = load ptr, ptr %segment, align 8
-  %data = getelementptr inbounds %struct.IKCPSEG, ptr %265, i32 0, i32 13
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %data, i64 0, i64 0
-  %266 = load ptr, ptr %segment, align 8
-  %len262 = getelementptr inbounds %struct.IKCPSEG, ptr %266, i32 0, i32 8
-  %267 = load i32, ptr %len262, align 4
-  %conv263 = zext i32 %267 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %264, ptr align 8 %arraydecay, i64 %conv263, i1 false)
-  %268 = load ptr, ptr %segment, align 8
-  %len264 = getelementptr inbounds %struct.IKCPSEG, ptr %268, i32 0, i32 8
-  %269 = load i32, ptr %len264, align 4
-  %270 = load ptr, ptr %ptr, align 8
-  %idx.ext = zext i32 %269 to i64
-  %add.ptr265 = getelementptr inbounds i8, ptr %270, i64 %idx.ext
-  store ptr %add.ptr265, ptr %ptr, align 8
-  br label %if.end266
-
-if.end266:                                        ; preds = %if.then261, %if.end256
-  %271 = load ptr, ptr %segment, align 8
-  %xmit267 = getelementptr inbounds %struct.IKCPSEG, ptr %271, i32 0, i32 12
-  %272 = load i32, ptr %xmit267, align 4
-  %273 = load ptr, ptr %kcp.addr, align 8
-  %dead_link = getelementptr inbounds %struct.IKCPCB, ptr %273, i32 0, i32 31
-  %274 = load i32, ptr %dead_link, align 4
-  %cmp268 = icmp uge i32 %272, %274
-  br i1 %cmp268, label %if.then270, label %if.end271
-
-if.then270:                                       ; preds = %if.end266
-  %275 = load ptr, ptr %kcp.addr, align 8
-  %state = getelementptr inbounds %struct.IKCPCB, ptr %275, i32 0, i32 3
-  store i32 -1, ptr %state, align 4
-  br label %if.end271
-
-if.end271:                                        ; preds = %if.then270, %if.end266
-  br label %if.end272
-
-if.end272:                                        ; preds = %if.end271, %if.end236
-  br label %for.inc273
-
-for.inc273:                                       ; preds = %if.end272
-  %276 = load ptr, ptr %p, align 8
-  %next274 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %276, i32 0, i32 0
-  %277 = load ptr, ptr %next274, align 8
-  store ptr %277, ptr %p, align 8
-  br label %for.cond160, !llvm.loop !23
-
-for.end275:                                       ; preds = %for.cond160
-  %278 = load ptr, ptr %ptr, align 8
-  %279 = load ptr, ptr %buffer, align 8
-  %sub.ptr.lhs.cast276 = ptrtoint ptr %278 to i64
-  %sub.ptr.rhs.cast277 = ptrtoint ptr %279 to i64
-  %sub.ptr.sub278 = sub i64 %sub.ptr.lhs.cast276, %sub.ptr.rhs.cast277
-  %conv279 = trunc i64 %sub.ptr.sub278 to i32
-  store i32 %conv279, ptr %size, align 4
-  %280 = load i32, ptr %size, align 4
-  %cmp280 = icmp sgt i32 %280, 0
-  br i1 %cmp280, label %if.then282, label %if.end284
-
-if.then282:                                       ; preds = %for.end275
-  %281 = load ptr, ptr %kcp.addr, align 8
-  %282 = load ptr, ptr %buffer, align 8
-  %283 = load i32, ptr %size, align 4
-  %call283 = call i32 @ikcp_output(ptr noundef %281, ptr noundef %282, i32 noundef %283)
-  br label %if.end284
-
-if.end284:                                        ; preds = %if.then282, %for.end275
-  %284 = load i32, ptr %change, align 4
-  %tobool285 = icmp ne i32 %284, 0
-  br i1 %tobool285, label %if.then286, label %if.end300
-
-if.then286:                                       ; preds = %if.end284
-  %285 = load ptr, ptr %kcp.addr, align 8
-  %snd_nxt287 = getelementptr inbounds %struct.IKCPCB, ptr %285, i32 0, i32 5
-  %286 = load i32, ptr %snd_nxt287, align 4
-  %287 = load ptr, ptr %kcp.addr, align 8
-  %snd_una288 = getelementptr inbounds %struct.IKCPCB, ptr %287, i32 0, i32 4
-  %288 = load i32, ptr %snd_una288, align 8
-  %sub = sub i32 %286, %288
-  store i32 %sub, ptr %inflight, align 4
-  %289 = load i32, ptr %inflight, align 4
-  %div289 = udiv i32 %289, 2
-  %290 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh = getelementptr inbounds %struct.IKCPCB, ptr %290, i32 0, i32 9
-  store i32 %div289, ptr %ssthresh, align 4
-  %291 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh290 = getelementptr inbounds %struct.IKCPCB, ptr %291, i32 0, i32 9
-  %292 = load i32, ptr %ssthresh290, align 4
-  %cmp291 = icmp ult i32 %292, 2
-  br i1 %cmp291, label %if.then293, label %if.end295
-
-if.then293:                                       ; preds = %if.then286
-  %293 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh294 = getelementptr inbounds %struct.IKCPCB, ptr %293, i32 0, i32 9
-  store i32 2, ptr %ssthresh294, align 4
-  br label %if.end295
-
-if.end295:                                        ; preds = %if.then293, %if.then286
-  %294 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh296 = getelementptr inbounds %struct.IKCPCB, ptr %294, i32 0, i32 9
-  %295 = load i32, ptr %ssthresh296, align 4
-  %296 = load i32, ptr %resent, align 4
-  %add297 = add i32 %295, %296
-  %297 = load ptr, ptr %kcp.addr, align 8
-  %cwnd298 = getelementptr inbounds %struct.IKCPCB, ptr %297, i32 0, i32 17
-  store i32 %add297, ptr %cwnd298, align 4
-  %298 = load ptr, ptr %kcp.addr, align 8
-  %cwnd299 = getelementptr inbounds %struct.IKCPCB, ptr %298, i32 0, i32 17
-  %299 = load i32, ptr %cwnd299, align 4
-  %300 = load ptr, ptr %kcp.addr, align 8
-  %mss = getelementptr inbounds %struct.IKCPCB, ptr %300, i32 0, i32 2
-  %301 = load i32, ptr %mss, align 8
-  %mul = mul i32 %299, %301
-  %302 = load ptr, ptr %kcp.addr, align 8
-  %incr = getelementptr inbounds %struct.IKCPCB, ptr %302, i32 0, i32 32
-  store i32 %mul, ptr %incr, align 8
-  br label %if.end300
-
-if.end300:                                        ; preds = %if.end295, %if.end284
-  %303 = load i32, ptr %lost, align 4
-  %tobool301 = icmp ne i32 %303, 0
-  br i1 %tobool301, label %if.then302, label %if.end314
-
-if.then302:                                       ; preds = %if.end300
-  %304 = load i32, ptr %cwnd, align 4
-  %div303 = udiv i32 %304, 2
-  %305 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh304 = getelementptr inbounds %struct.IKCPCB, ptr %305, i32 0, i32 9
-  store i32 %div303, ptr %ssthresh304, align 4
-  %306 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh305 = getelementptr inbounds %struct.IKCPCB, ptr %306, i32 0, i32 9
-  %307 = load i32, ptr %ssthresh305, align 4
-  %cmp306 = icmp ult i32 %307, 2
-  br i1 %cmp306, label %if.then308, label %if.end310
-
-if.then308:                                       ; preds = %if.then302
-  %308 = load ptr, ptr %kcp.addr, align 8
-  %ssthresh309 = getelementptr inbounds %struct.IKCPCB, ptr %308, i32 0, i32 9
-  store i32 2, ptr %ssthresh309, align 4
-  br label %if.end310
-
-if.end310:                                        ; preds = %if.then308, %if.then302
-  %309 = load ptr, ptr %kcp.addr, align 8
-  %cwnd311 = getelementptr inbounds %struct.IKCPCB, ptr %309, i32 0, i32 17
-  store i32 1, ptr %cwnd311, align 4
-  %310 = load ptr, ptr %kcp.addr, align 8
-  %mss312 = getelementptr inbounds %struct.IKCPCB, ptr %310, i32 0, i32 2
-  %311 = load i32, ptr %mss312, align 8
-  %312 = load ptr, ptr %kcp.addr, align 8
-  %incr313 = getelementptr inbounds %struct.IKCPCB, ptr %312, i32 0, i32 32
-  store i32 %311, ptr %incr313, align 8
-  br label %if.end314
-
-if.end314:                                        ; preds = %if.end310, %if.end300
-  %313 = load ptr, ptr %kcp.addr, align 8
-  %cwnd315 = getelementptr inbounds %struct.IKCPCB, ptr %313, i32 0, i32 17
-  %314 = load i32, ptr %cwnd315, align 4
-  %cmp316 = icmp ult i32 %314, 1
-  br i1 %cmp316, label %if.then318, label %if.end322
-
-if.then318:                                       ; preds = %if.end314
-  %315 = load ptr, ptr %kcp.addr, align 8
-  %cwnd319 = getelementptr inbounds %struct.IKCPCB, ptr %315, i32 0, i32 17
-  store i32 1, ptr %cwnd319, align 4
-  %316 = load ptr, ptr %kcp.addr, align 8
-  %mss320 = getelementptr inbounds %struct.IKCPCB, ptr %316, i32 0, i32 2
-  %317 = load i32, ptr %mss320, align 8
-  %318 = load ptr, ptr %kcp.addr, align 8
-  %incr321 = getelementptr inbounds %struct.IKCPCB, ptr %318, i32 0, i32 32
-  store i32 %317, ptr %incr321, align 8
-  br label %if.end322
-
-if.end322:                                        ; preds = %if.then318, %if.end314, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @ikcp_wnd_unused(ptr noundef %kcp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 25
-  %1 = load i32, ptr %nrcv_que, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 15
-  %3 = load i32, ptr %rcv_wnd, align 4
-  %cmp = icmp ult i32 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd1 = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 15
-  %5 = load i32, ptr %rcv_wnd1, align 4
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %nrcv_que2 = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 25
-  %7 = load i32, ptr %nrcv_que2, align 4
-  %sub = sub i32 %5, %7
-  store i32 %sub, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @ikcp_output(ptr noundef %kcp, ptr noundef %data, i32 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %call = call i32 @ikcp_canlog(ptr noundef %0, i32 noundef 1)
-  %tobool = icmp ne i32 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %2 = load i32, ptr %size.addr, align 4
-  %conv = sext i32 %2 to i64
-  call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef %1, i32 noundef 1, ptr noundef @.str.6, i64 noundef %conv)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load i32, ptr %size.addr, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %output = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 47
-  %5 = load ptr, ptr %output, align 8
-  %6 = load ptr, ptr %data.addr, align 8
-  %7 = load i32, ptr %size.addr, align 4
-  %8 = load ptr, ptr %kcp.addr, align 8
-  %9 = load ptr, ptr %kcp.addr, align 8
-  %user = getelementptr inbounds %struct.IKCPCB, ptr %9, i32 0, i32 40
-  %10 = load ptr, ptr %user, align 8
-  %call4 = call i32 %5(ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %10)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end3, %if.then2
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ikcp_ack_get(ptr noundef %kcp, i32 noundef %p, ptr noundef %sn, ptr noundef %ts) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %p.addr = alloca i32, align 4
-  %sn.addr = alloca ptr, align 8
-  %ts.addr = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %p, ptr %p.addr, align 4
-  store ptr %sn, ptr %sn.addr, align 8
-  store ptr %ts, ptr %ts.addr, align 8
-  %0 = load ptr, ptr %sn.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %acklist = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 37
-  %2 = load ptr, ptr %acklist, align 8
-  %3 = load i32, ptr %p.addr, align 4
-  %mul = mul nsw i32 %3, 2
-  %add = add nsw i32 %mul, 0
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %5 = load ptr, ptr %sn.addr, align 8
-  %arrayidx1 = getelementptr inbounds i32, ptr %5, i64 0
-  store i32 %4, ptr %arrayidx1, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %ts.addr, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %if.then3, label %if.end10
-
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %kcp.addr, align 8
-  %acklist4 = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 37
-  %8 = load ptr, ptr %acklist4, align 8
-  %9 = load i32, ptr %p.addr, align 4
-  %mul5 = mul nsw i32 %9, 2
-  %add6 = add nsw i32 %mul5, 1
-  %idxprom7 = sext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i32, ptr %8, i64 %idxprom7
-  %10 = load i32, ptr %arrayidx8, align 4
-  %11 = load ptr, ptr %ts.addr, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %11, i64 0
-  store i32 %10, ptr %arrayidx9, align 4
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then3, %if.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @ikcp_encode_seg(ptr noundef %ptr, ptr noundef %seg) #0 {
-entry:
-  %p.addr.i27 = alloca ptr, align 8
-  %w.addr.i = alloca i16, align 2
-  %p.addr.i24 = alloca ptr, align 8
-  %c.addr.i25 = alloca i8, align 1
-  %p.addr.i23 = alloca ptr, align 8
-  %c.addr.i = alloca i8, align 1
-  %p.addr.i20 = alloca ptr, align 8
-  %l.addr.i21 = alloca i32, align 4
-  %p.addr.i17 = alloca ptr, align 8
-  %l.addr.i18 = alloca i32, align 4
-  %p.addr.i14 = alloca ptr, align 8
-  %l.addr.i15 = alloca i32, align 4
-  %p.addr.i11 = alloca ptr, align 8
-  %l.addr.i12 = alloca i32, align 4
-  %p.addr.i = alloca ptr, align 8
-  %l.addr.i = alloca i32, align 4
-  %ptr.addr = alloca ptr, align 8
-  %seg.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store ptr %seg, ptr %seg.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %1 = load ptr, ptr %seg.addr, align 8
-  %conv = getelementptr inbounds %struct.IKCPSEG, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %conv, align 8
-  store ptr %0, ptr %p.addr.i20, align 8
-  store i32 %2, ptr %l.addr.i21, align 4
-  %3 = load ptr, ptr %p.addr.i20, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 4 %l.addr.i21, i64 4, i1 false)
-  %4 = load ptr, ptr %p.addr.i20, align 8
-  %add.ptr.i22 = getelementptr inbounds i8, ptr %4, i64 4
-  store ptr %add.ptr.i22, ptr %p.addr.i20, align 8
-  %5 = load ptr, ptr %p.addr.i20, align 8
-  store ptr %5, ptr %ptr.addr, align 8
-  %6 = load ptr, ptr %ptr.addr, align 8
-  %7 = load ptr, ptr %seg.addr, align 8
-  %cmd = getelementptr inbounds %struct.IKCPSEG, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %cmd, align 4
-  %conv1 = trunc i32 %8 to i8
-  store ptr %6, ptr %p.addr.i24, align 8
-  store i8 %conv1, ptr %c.addr.i25, align 1
-  %9 = load i8, ptr %c.addr.i25, align 1
-  %10 = load ptr, ptr %p.addr.i24, align 8
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr.i26, ptr %p.addr.i24, align 8
-  store i8 %9, ptr %10, align 1
-  %11 = load ptr, ptr %p.addr.i24, align 8
-  store ptr %11, ptr %ptr.addr, align 8
-  %12 = load ptr, ptr %ptr.addr, align 8
-  %13 = load ptr, ptr %seg.addr, align 8
-  %frg = getelementptr inbounds %struct.IKCPSEG, ptr %13, i32 0, i32 3
-  %14 = load i32, ptr %frg, align 8
-  %conv3 = trunc i32 %14 to i8
-  store ptr %12, ptr %p.addr.i23, align 8
-  store i8 %conv3, ptr %c.addr.i, align 1
-  %15 = load i8, ptr %c.addr.i, align 1
-  %16 = load ptr, ptr %p.addr.i23, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i32 1
-  store ptr %incdec.ptr.i, ptr %p.addr.i23, align 8
-  store i8 %15, ptr %16, align 1
-  %17 = load ptr, ptr %p.addr.i23, align 8
-  store ptr %17, ptr %ptr.addr, align 8
-  %18 = load ptr, ptr %ptr.addr, align 8
-  %19 = load ptr, ptr %seg.addr, align 8
-  %wnd = getelementptr inbounds %struct.IKCPSEG, ptr %19, i32 0, i32 4
-  %20 = load i32, ptr %wnd, align 4
-  %conv5 = trunc i32 %20 to i16
-  store ptr %18, ptr %p.addr.i27, align 8
-  store i16 %conv5, ptr %w.addr.i, align 2
-  %21 = load ptr, ptr %p.addr.i27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 2 %w.addr.i, i64 2, i1 false)
-  %22 = load ptr, ptr %p.addr.i27, align 8
-  %add.ptr.i28 = getelementptr inbounds i8, ptr %22, i64 2
-  store ptr %add.ptr.i28, ptr %p.addr.i27, align 8
-  %23 = load ptr, ptr %p.addr.i27, align 8
-  store ptr %23, ptr %ptr.addr, align 8
-  %24 = load ptr, ptr %ptr.addr, align 8
-  %25 = load ptr, ptr %seg.addr, align 8
-  %ts = getelementptr inbounds %struct.IKCPSEG, ptr %25, i32 0, i32 5
-  %26 = load i32, ptr %ts, align 8
-  store ptr %24, ptr %p.addr.i17, align 8
-  store i32 %26, ptr %l.addr.i18, align 4
-  %27 = load ptr, ptr %p.addr.i17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 4 %l.addr.i18, i64 4, i1 false)
-  %28 = load ptr, ptr %p.addr.i17, align 8
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %28, i64 4
-  store ptr %add.ptr.i19, ptr %p.addr.i17, align 8
-  %29 = load ptr, ptr %p.addr.i17, align 8
-  store ptr %29, ptr %ptr.addr, align 8
-  %30 = load ptr, ptr %ptr.addr, align 8
-  %31 = load ptr, ptr %seg.addr, align 8
-  %sn = getelementptr inbounds %struct.IKCPSEG, ptr %31, i32 0, i32 6
-  %32 = load i32, ptr %sn, align 4
-  store ptr %30, ptr %p.addr.i14, align 8
-  store i32 %32, ptr %l.addr.i15, align 4
-  %33 = load ptr, ptr %p.addr.i14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 4 %l.addr.i15, i64 4, i1 false)
-  %34 = load ptr, ptr %p.addr.i14, align 8
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %34, i64 4
-  store ptr %add.ptr.i16, ptr %p.addr.i14, align 8
-  %35 = load ptr, ptr %p.addr.i14, align 8
-  store ptr %35, ptr %ptr.addr, align 8
-  %36 = load ptr, ptr %ptr.addr, align 8
-  %37 = load ptr, ptr %seg.addr, align 8
-  %una = getelementptr inbounds %struct.IKCPSEG, ptr %37, i32 0, i32 7
-  %38 = load i32, ptr %una, align 8
-  store ptr %36, ptr %p.addr.i11, align 8
-  store i32 %38, ptr %l.addr.i12, align 4
-  %39 = load ptr, ptr %p.addr.i11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 4 %l.addr.i12, i64 4, i1 false)
-  %40 = load ptr, ptr %p.addr.i11, align 8
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %40, i64 4
-  store ptr %add.ptr.i13, ptr %p.addr.i11, align 8
-  %41 = load ptr, ptr %p.addr.i11, align 8
-  store ptr %41, ptr %ptr.addr, align 8
-  %42 = load ptr, ptr %ptr.addr, align 8
-  %43 = load ptr, ptr %seg.addr, align 8
-  %len = getelementptr inbounds %struct.IKCPSEG, ptr %43, i32 0, i32 8
-  %44 = load i32, ptr %len, align 4
-  store ptr %42, ptr %p.addr.i, align 8
-  store i32 %44, ptr %l.addr.i, align 4
-  %45 = load ptr, ptr %p.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %l.addr.i, i64 4, i1 false)
-  %46 = load ptr, ptr %p.addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %46, i64 4
-  store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %47 = load ptr, ptr %p.addr.i, align 8
-  store ptr %47, ptr %ptr.addr, align 8
-  %48 = load ptr, ptr %ptr.addr, align 8
+define internal ptr @ikcp_encode_seg(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !74
+  %7 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !98
+  %9 = call ptr @ikcp_encode32u(ptr noundef %5, i32 noundef %8)
+  store ptr %9, ptr %3, align 8, !tbaa !12
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  %11 = load ptr, ptr %4, align 8, !tbaa !74
+  %12 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 4, !tbaa !99
+  %14 = trunc i32 %13 to i8
+  %15 = call ptr @ikcp_encode8u(ptr noundef %10, i8 noundef zeroext %14)
+  store ptr %15, ptr %3, align 8, !tbaa !12
+  %16 = load ptr, ptr %3, align 8, !tbaa !12
+  %17 = load ptr, ptr %4, align 8, !tbaa !74
+  %18 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 8, !tbaa !87
+  %20 = trunc i32 %19 to i8
+  %21 = call ptr @ikcp_encode8u(ptr noundef %16, i8 noundef zeroext %20)
+  store ptr %21, ptr %3, align 8, !tbaa !12
+  %22 = load ptr, ptr %3, align 8, !tbaa !12
+  %23 = load ptr, ptr %4, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %23, i32 0, i32 4
+  %25 = load i32, ptr %24, align 4, !tbaa !100
+  %26 = trunc i32 %25 to i16
+  %27 = call ptr @ikcp_encode16u(ptr noundef %22, i16 noundef zeroext %26)
+  store ptr %27, ptr %3, align 8, !tbaa !12
+  %28 = load ptr, ptr %3, align 8, !tbaa !12
+  %29 = load ptr, ptr %4, align 8, !tbaa !74
+  %30 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %29, i32 0, i32 5
+  %31 = load i32, ptr %30, align 8, !tbaa !101
+  %32 = call ptr @ikcp_encode32u(ptr noundef %28, i32 noundef %31)
+  store ptr %32, ptr %3, align 8, !tbaa !12
+  %33 = load ptr, ptr %3, align 8, !tbaa !12
+  %34 = load ptr, ptr %4, align 8, !tbaa !74
+  %35 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %34, i32 0, i32 6
+  %36 = load i32, ptr %35, align 4, !tbaa !88
+  %37 = call ptr @ikcp_encode32u(ptr noundef %33, i32 noundef %36)
+  store ptr %37, ptr %3, align 8, !tbaa !12
+  %38 = load ptr, ptr %3, align 8, !tbaa !12
+  %39 = load ptr, ptr %4, align 8, !tbaa !74
+  %40 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %39, i32 0, i32 7
+  %41 = load i32, ptr %40, align 8, !tbaa !102
+  %42 = call ptr @ikcp_encode32u(ptr noundef %38, i32 noundef %41)
+  store ptr %42, ptr %3, align 8, !tbaa !12
+  %43 = load ptr, ptr %3, align 8, !tbaa !12
+  %44 = load ptr, ptr %4, align 8, !tbaa !74
+  %45 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %44, i32 0, i32 8
+  %46 = load i32, ptr %45, align 4, !tbaa !86
+  %47 = call ptr @ikcp_encode32u(ptr noundef %43, i32 noundef %46)
+  store ptr %47, ptr %3, align 8, !tbaa !12
+  %48 = load ptr, ptr %3, align 8, !tbaa !12
   ret ptr %48
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_update(ptr noundef %kcp, i32 noundef %current) #0 {
-entry:
-  %later.addr.i30 = alloca i32, align 4
-  %earlier.addr.i31 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %current.addr = alloca i32, align 4
-  %slap = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %current, ptr %current.addr, align 4
-  %0 = load i32, ptr %current.addr, align 4
-  %1 = load ptr, ptr %kcp.addr, align 8
-  %current1 = getelementptr inbounds %struct.IKCPCB, ptr %1, i32 0, i32 19
-  store i32 %0, ptr %current1, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %updated = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 28
-  %3 = load i32, ptr %updated, align 8
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_imin_(i32 noundef %0, i32 noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = icmp ule i32 %5, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %updated2 = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 28
-  store i32 1, ptr %updated2, align 8
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %current3 = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 19
-  %6 = load i32, ptr %current3, align 4
-  %7 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush = getelementptr inbounds %struct.IKCPCB, ptr %7, i32 0, i32 21
-  store i32 %6, ptr %ts_flush, align 4
-  br label %if.end
+8:                                                ; preds = %2
+  %9 = load i32, ptr %3, align 4, !tbaa !10
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %kcp.addr, align 8
-  %current4 = getelementptr inbounds %struct.IKCPCB, ptr %8, i32 0, i32 19
-  %9 = load i32, ptr %current4, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush5 = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 21
-  %11 = load i32, ptr %ts_flush5, align 4
-  store i32 %9, ptr %later.addr.i30, align 4
-  store i32 %11, ptr %earlier.addr.i31, align 4
-  %12 = load i32, ptr %later.addr.i30, align 4
-  %13 = load i32, ptr %earlier.addr.i31, align 4
-  %sub.i32 = sub i32 %12, %13
-  %conv.i33 = sext i32 %sub.i32 to i64
-  %conv = trunc i64 %conv.i33 to i32
-  store i32 %conv, ptr %slap, align 4
-  %14 = load i32, ptr %slap, align 4
-  %cmp6 = icmp sge i32 %14, 10000
-  br i1 %cmp6, label %if.then10, label %lor.lhs.false
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !10
+  br label %12
 
-lor.lhs.false:                                    ; preds = %if.end
-  %15 = load i32, ptr %slap, align 4
-  %cmp8 = icmp slt i32 %15, -10000
-  br i1 %cmp8, label %if.then10, label %if.end13
-
-if.then10:                                        ; preds = %lor.lhs.false, %if.end
-  %16 = load ptr, ptr %kcp.addr, align 8
-  %current11 = getelementptr inbounds %struct.IKCPCB, ptr %16, i32 0, i32 19
-  %17 = load i32, ptr %current11, align 4
-  %18 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush12 = getelementptr inbounds %struct.IKCPCB, ptr %18, i32 0, i32 21
-  store i32 %17, ptr %ts_flush12, align 4
-  store i32 0, ptr %slap, align 4
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then10, %lor.lhs.false
-  %19 = load i32, ptr %slap, align 4
-  %cmp14 = icmp sge i32 %19, 0
-  br i1 %cmp14, label %if.then16, label %if.end29
-
-if.then16:                                        ; preds = %if.end13
-  %20 = load ptr, ptr %kcp.addr, align 8
-  %interval = getelementptr inbounds %struct.IKCPCB, ptr %20, i32 0, i32 20
-  %21 = load i32, ptr %interval, align 8
-  %22 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush17 = getelementptr inbounds %struct.IKCPCB, ptr %22, i32 0, i32 21
-  %23 = load i32, ptr %ts_flush17, align 4
-  %add = add i32 %23, %21
-  store i32 %add, ptr %ts_flush17, align 4
-  %24 = load ptr, ptr %kcp.addr, align 8
-  %current18 = getelementptr inbounds %struct.IKCPCB, ptr %24, i32 0, i32 19
-  %25 = load i32, ptr %current18, align 4
-  %26 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush19 = getelementptr inbounds %struct.IKCPCB, ptr %26, i32 0, i32 21
-  %27 = load i32, ptr %ts_flush19, align 4
-  store i32 %25, ptr %later.addr.i, align 4
-  store i32 %27, ptr %earlier.addr.i, align 4
-  %28 = load i32, ptr %later.addr.i, align 4
-  %29 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %28, %29
-  %conv.i = sext i32 %sub.i to i64
-  %cmp21 = icmp sge i64 %conv.i, 0
-  br i1 %cmp21, label %if.then23, label %if.end28
-
-if.then23:                                        ; preds = %if.then16
-  %30 = load ptr, ptr %kcp.addr, align 8
-  %current24 = getelementptr inbounds %struct.IKCPCB, ptr %30, i32 0, i32 19
-  %31 = load i32, ptr %current24, align 4
-  %32 = load ptr, ptr %kcp.addr, align 8
-  %interval25 = getelementptr inbounds %struct.IKCPCB, ptr %32, i32 0, i32 20
-  %33 = load i32, ptr %interval25, align 8
-  %add26 = add i32 %31, %33
-  %34 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush27 = getelementptr inbounds %struct.IKCPCB, ptr %34, i32 0, i32 21
-  store i32 %add26, ptr %ts_flush27, align 4
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then23, %if.then16
-  %35 = load ptr, ptr %kcp.addr, align 8
-  call void @ikcp_flush(ptr noundef %35)
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.end28, %if.end13
-  ret void
+12:                                               ; preds = %10, %8
+  %13 = phi i32 [ %9, %8 ], [ %11, %10 ]
+  ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_check(ptr noundef %kcp, i32 noundef %current) #0 {
-entry:
-  %later.addr.i45 = alloca i32, align 4
-  %earlier.addr.i46 = alloca i32, align 4
-  %later.addr.i41 = alloca i32, align 4
-  %earlier.addr.i42 = alloca i32, align 4
-  %later.addr.i37 = alloca i32, align 4
-  %earlier.addr.i38 = alloca i32, align 4
-  %later.addr.i33 = alloca i32, align 4
-  %earlier.addr.i34 = alloca i32, align 4
-  %later.addr.i = alloca i32, align 4
-  %earlier.addr.i = alloca i32, align 4
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %current.addr = alloca i32, align 4
-  %ts_flush = alloca i32, align 4
-  %tm_flush = alloca i32, align 4
-  %tm_packet = alloca i32, align 4
-  %minimal = alloca i32, align 4
-  %p = alloca ptr, align 8
-  %seg = alloca ptr, align 8
-  %diff = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %current, ptr %current.addr, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %ts_flush1 = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 21
-  %1 = load i32, ptr %ts_flush1, align 4
-  store i32 %1, ptr %ts_flush, align 4
-  store i32 2147483647, ptr %tm_flush, align 4
-  store i32 2147483647, ptr %tm_packet, align 4
-  store i32 0, ptr %minimal, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %updated = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 28
-  %3 = load i32, ptr %updated, align 8
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_imax_(i32 noundef %0, i32 noundef %1) #5 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = icmp uge i32 %5, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %current.addr, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %2
+  %9 = load i32, ptr %3, align 4, !tbaa !10
+  br label %12
 
-if.end:                                           ; preds = %entry
-  %5 = load i32, ptr %current.addr, align 4
-  %6 = load i32, ptr %ts_flush, align 4
-  store i32 %5, ptr %later.addr.i45, align 4
-  store i32 %6, ptr %earlier.addr.i46, align 4
-  %7 = load i32, ptr %later.addr.i45, align 4
-  %8 = load i32, ptr %earlier.addr.i46, align 4
-  %sub.i47 = sub i32 %7, %8
-  %conv.i48 = sext i32 %sub.i47 to i64
-  %cmp2 = icmp sge i64 %conv.i48, 10000
-  br i1 %cmp2, label %if.then5, label %lor.lhs.false
+10:                                               ; preds = %2
+  %11 = load i32, ptr %4, align 4, !tbaa !10
+  br label %12
 
-lor.lhs.false:                                    ; preds = %if.end
-  %9 = load i32, ptr %current.addr, align 4
-  %10 = load i32, ptr %ts_flush, align 4
-  store i32 %9, ptr %later.addr.i41, align 4
-  store i32 %10, ptr %earlier.addr.i42, align 4
-  %11 = load i32, ptr %later.addr.i41, align 4
-  %12 = load i32, ptr %earlier.addr.i42, align 4
-  %sub.i43 = sub i32 %11, %12
-  %conv.i44 = sext i32 %sub.i43 to i64
-  %cmp4 = icmp slt i64 %conv.i44, -10000
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %13 = load i32, ptr %current.addr, align 4
-  store i32 %13, ptr %ts_flush, align 4
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.then5, %lor.lhs.false
-  %14 = load i32, ptr %current.addr, align 4
-  %15 = load i32, ptr %ts_flush, align 4
-  store i32 %14, ptr %later.addr.i37, align 4
-  store i32 %15, ptr %earlier.addr.i38, align 4
-  %16 = load i32, ptr %later.addr.i37, align 4
-  %17 = load i32, ptr %earlier.addr.i38, align 4
-  %sub.i39 = sub i32 %16, %17
-  %conv.i40 = sext i32 %sub.i39 to i64
-  %cmp8 = icmp sge i64 %conv.i40, 0
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end6
-  %18 = load i32, ptr %current.addr, align 4
-  store i32 %18, ptr %retval, align 4
-  br label %return
-
-if.end10:                                         ; preds = %if.end6
-  %19 = load i32, ptr %ts_flush, align 4
-  %20 = load i32, ptr %current.addr, align 4
-  store i32 %19, ptr %later.addr.i33, align 4
-  store i32 %20, ptr %earlier.addr.i34, align 4
-  %21 = load i32, ptr %later.addr.i33, align 4
-  %22 = load i32, ptr %earlier.addr.i34, align 4
-  %sub.i35 = sub i32 %21, %22
-  %conv.i36 = sext i32 %sub.i35 to i64
-  %conv = trunc i64 %conv.i36 to i32
-  store i32 %conv, ptr %tm_flush, align 4
-  %23 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf = getelementptr inbounds %struct.IKCPCB, ptr %23, i32 0, i32 35
-  %next = getelementptr inbounds %struct.IQUEUEHEAD, ptr %snd_buf, i32 0, i32 0
-  %24 = load ptr, ptr %next, align 8
-  store ptr %24, ptr %p, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end10
-  %25 = load ptr, ptr %p, align 8
-  %26 = load ptr, ptr %kcp.addr, align 8
-  %snd_buf12 = getelementptr inbounds %struct.IKCPCB, ptr %26, i32 0, i32 35
-  %cmp13 = icmp ne ptr %25, %snd_buf12
-  br i1 %cmp13, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %27 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %27, i64 0
-  store ptr %add.ptr, ptr %seg, align 8
-  %28 = load ptr, ptr %seg, align 8
-  %resendts = getelementptr inbounds %struct.IKCPSEG, ptr %28, i32 0, i32 9
-  %29 = load i32, ptr %resendts, align 8
-  %30 = load i32, ptr %current.addr, align 4
-  store i32 %29, ptr %later.addr.i, align 4
-  store i32 %30, ptr %earlier.addr.i, align 4
-  %31 = load i32, ptr %later.addr.i, align 4
-  %32 = load i32, ptr %earlier.addr.i, align 4
-  %sub.i = sub i32 %31, %32
-  %conv.i = sext i32 %sub.i to i64
-  %conv16 = trunc i64 %conv.i to i32
-  store i32 %conv16, ptr %diff, align 4
-  %33 = load i32, ptr %diff, align 4
-  %cmp17 = icmp sle i32 %33, 0
-  br i1 %cmp17, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %for.body
-  %34 = load i32, ptr %current.addr, align 4
-  store i32 %34, ptr %retval, align 4
-  br label %return
-
-if.end20:                                         ; preds = %for.body
-  %35 = load i32, ptr %diff, align 4
-  %36 = load i32, ptr %tm_packet, align 4
-  %cmp21 = icmp slt i32 %35, %36
-  br i1 %cmp21, label %if.then23, label %if.end24
-
-if.then23:                                        ; preds = %if.end20
-  %37 = load i32, ptr %diff, align 4
-  store i32 %37, ptr %tm_packet, align 4
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.then23, %if.end20
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end24
-  %38 = load ptr, ptr %p, align 8
-  %next25 = getelementptr inbounds %struct.IQUEUEHEAD, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %next25, align 8
-  store ptr %39, ptr %p, align 8
-  br label %for.cond, !llvm.loop !24
-
-for.end:                                          ; preds = %for.cond
-  %40 = load i32, ptr %tm_packet, align 4
-  %41 = load i32, ptr %tm_flush, align 4
-  %cmp26 = icmp slt i32 %40, %41
-  br i1 %cmp26, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %for.end
-  %42 = load i32, ptr %tm_packet, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %for.end
-  %43 = load i32, ptr %tm_flush, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %42, %cond.true ], [ %43, %cond.false ]
-  store i32 %cond, ptr %minimal, align 4
-  %44 = load i32, ptr %minimal, align 4
-  %45 = load ptr, ptr %kcp.addr, align 8
-  %interval = getelementptr inbounds %struct.IKCPCB, ptr %45, i32 0, i32 20
-  %46 = load i32, ptr %interval, align 8
-  %cmp28 = icmp uge i32 %44, %46
-  br i1 %cmp28, label %if.then30, label %if.end32
-
-if.then30:                                        ; preds = %cond.end
-  %47 = load ptr, ptr %kcp.addr, align 8
-  %interval31 = getelementptr inbounds %struct.IKCPCB, ptr %47, i32 0, i32 20
-  %48 = load i32, ptr %interval31, align 8
-  store i32 %48, ptr %minimal, align 4
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.then30, %cond.end
-  %49 = load i32, ptr %current.addr, align 4
-  %50 = load i32, ptr %minimal, align 4
-  %add = add i32 %49, %50
-  store i32 %add, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end32, %if.then19, %if.then9, %if.then
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_setmtu(ptr noundef %kcp, i32 noundef %mtu) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %mtu.addr = alloca i32, align 4
-  %buffer = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %mtu, ptr %mtu.addr, align 4
-  %0 = load i32, ptr %mtu.addr, align 4
-  %cmp = icmp slt i32 %0, 50
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %mtu.addr, align 4
-  %cmp1 = icmp slt i32 %1, 24
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load i32, ptr %mtu.addr, align 4
-  %add = add i32 %2, 24
-  %mul = mul i32 %add, 3
-  %conv = zext i32 %mul to i64
-  %call = call ptr @ikcp_malloc(i64 noundef %conv)
-  store ptr %call, ptr %buffer, align 8
-  %3 = load ptr, ptr %buffer, align 8
-  %cmp2 = icmp eq ptr %3, null
-  br i1 %cmp2, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  store i32 -2, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %4 = load i32, ptr %mtu.addr, align 4
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %mtu6 = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 1
-  store i32 %4, ptr %mtu6, align 4
-  %6 = load ptr, ptr %kcp.addr, align 8
-  %mtu7 = getelementptr inbounds %struct.IKCPCB, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %mtu7, align 4
-  %sub = sub i32 %7, 24
-  %8 = load ptr, ptr %kcp.addr, align 8
-  %mss = getelementptr inbounds %struct.IKCPCB, ptr %8, i32 0, i32 2
-  store i32 %sub, ptr %mss, align 8
-  %9 = load ptr, ptr %kcp.addr, align 8
-  %buffer8 = getelementptr inbounds %struct.IKCPCB, ptr %9, i32 0, i32 41
-  %10 = load ptr, ptr %buffer8, align 8
-  call void @ikcp_free(ptr noundef %10)
-  %11 = load ptr, ptr %buffer, align 8
-  %12 = load ptr, ptr %kcp.addr, align 8
-  %buffer9 = getelementptr inbounds %struct.IKCPCB, ptr %12, i32 0, i32 41
-  store ptr %11, ptr %buffer9, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %13 = load i32, ptr %retval, align 4
+12:                                               ; preds = %10, %8
+  %13 = phi i32 [ %9, %8 ], [ %11, %10 ]
   ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_interval(ptr noundef %kcp, i32 noundef %interval) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %interval.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %interval, ptr %interval.addr, align 4
-  %0 = load i32, ptr %interval.addr, align 4
-  %cmp = icmp sgt i32 %0, 5000
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local void @ikcp_update(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.IKCPCB, ptr %7, i32 0, i32 19
+  store i32 %6, ptr %8, align 4, !tbaa !60
+  %9 = load ptr, ptr %3, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct.IKCPCB, ptr %9, i32 0, i32 28
+  %11 = load i32, ptr %10, align 8, !tbaa !64
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %21
 
-if.then:                                          ; preds = %entry
-  store i32 5000, ptr %interval.addr, align 4
-  br label %if.end3
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.IKCPCB, ptr %14, i32 0, i32 28
+  store i32 1, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.IKCPCB, ptr %16, i32 0, i32 19
+  %18 = load i32, ptr %17, align 4, !tbaa !60
+  %19 = load ptr, ptr %3, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.IKCPCB, ptr %19, i32 0, i32 21
+  store i32 %18, ptr %20, align 4, !tbaa !62
+  br label %21
 
-if.else:                                          ; preds = %entry
-  %1 = load i32, ptr %interval.addr, align 4
-  %cmp1 = icmp slt i32 %1, 10
-  br i1 %cmp1, label %if.then2, label %if.end
+21:                                               ; preds = %13, %2
+  %22 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.IKCPCB, ptr %22, i32 0, i32 19
+  %24 = load i32, ptr %23, align 4, !tbaa !60
+  %25 = load ptr, ptr %3, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.IKCPCB, ptr %25, i32 0, i32 21
+  %27 = load i32, ptr %26, align 4, !tbaa !62
+  %28 = call i64 @_itimediff(i32 noundef %24, i32 noundef %27)
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %5, align 4, !tbaa !10
+  %30 = load i32, ptr %5, align 4, !tbaa !10
+  %31 = icmp sge i32 %30, 10000
+  br i1 %31, label %35, label %32
 
-if.then2:                                         ; preds = %if.else
-  store i32 10, ptr %interval.addr, align 4
-  br label %if.end
+32:                                               ; preds = %21
+  %33 = load i32, ptr %5, align 4, !tbaa !10
+  %34 = icmp slt i32 %33, -10000
+  br i1 %34, label %35, label %41
 
-if.end:                                           ; preds = %if.then2, %if.else
-  br label %if.end3
+35:                                               ; preds = %32, %21
+  %36 = load ptr, ptr %3, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.IKCPCB, ptr %36, i32 0, i32 19
+  %38 = load i32, ptr %37, align 4, !tbaa !60
+  %39 = load ptr, ptr %3, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.IKCPCB, ptr %39, i32 0, i32 21
+  store i32 %38, ptr %40, align 4, !tbaa !62
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %41
 
-if.end3:                                          ; preds = %if.end, %if.then
-  %2 = load i32, ptr %interval.addr, align 4
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %interval4 = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 20
-  store i32 %2, ptr %interval4, align 8
+41:                                               ; preds = %35, %32
+  %42 = load i32, ptr %5, align 4, !tbaa !10
+  %43 = icmp sge i32 %42, 0
+  br i1 %43, label %44, label %72
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %3, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.IKCPCB, ptr %45, i32 0, i32 20
+  %47 = load i32, ptr %46, align 8, !tbaa !61
+  %48 = load ptr, ptr %3, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw %struct.IKCPCB, ptr %48, i32 0, i32 21
+  %50 = load i32, ptr %49, align 4, !tbaa !62
+  %51 = add i32 %50, %47
+  store i32 %51, ptr %49, align 4, !tbaa !62
+  %52 = load ptr, ptr %3, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.IKCPCB, ptr %52, i32 0, i32 19
+  %54 = load i32, ptr %53, align 4, !tbaa !60
+  %55 = load ptr, ptr %3, align 8, !tbaa !8
+  %56 = getelementptr inbounds nuw %struct.IKCPCB, ptr %55, i32 0, i32 21
+  %57 = load i32, ptr %56, align 4, !tbaa !62
+  %58 = call i64 @_itimediff(i32 noundef %54, i32 noundef %57)
+  %59 = icmp sge i64 %58, 0
+  br i1 %59, label %60, label %70
+
+60:                                               ; preds = %44
+  %61 = load ptr, ptr %3, align 8, !tbaa !8
+  %62 = getelementptr inbounds nuw %struct.IKCPCB, ptr %61, i32 0, i32 19
+  %63 = load i32, ptr %62, align 4, !tbaa !60
+  %64 = load ptr, ptr %3, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw %struct.IKCPCB, ptr %64, i32 0, i32 20
+  %66 = load i32, ptr %65, align 8, !tbaa !61
+  %67 = add i32 %63, %66
+  %68 = load ptr, ptr %3, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.IKCPCB, ptr %68, i32 0, i32 21
+  store i32 %67, ptr %69, align 4, !tbaa !62
+  br label %70
+
+70:                                               ; preds = %60, %44
+  %71 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @ikcp_flush(ptr noundef %71)
+  br label %72
+
+72:                                               ; preds = %70, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ikcp_check(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.IKCPCB, ptr %14, i32 0, i32 21
+  %16 = load i32, ptr %15, align 4, !tbaa !62
+  store i32 %16, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 2147483647, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 2147483647, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  store i32 0, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.IKCPCB, ptr %17, i32 0, i32 28
+  %19 = load i32, ptr %18, align 8, !tbaa !64
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %2
+  %22 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %22, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
+
+23:                                               ; preds = %2
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  %25 = load i32, ptr %6, align 4, !tbaa !10
+  %26 = call i64 @_itimediff(i32 noundef %24, i32 noundef %25)
+  %27 = icmp sge i64 %26, 10000
+  br i1 %27, label %33, label %28
+
+28:                                               ; preds = %23
+  %29 = load i32, ptr %5, align 4, !tbaa !10
+  %30 = load i32, ptr %6, align 4, !tbaa !10
+  %31 = call i64 @_itimediff(i32 noundef %29, i32 noundef %30)
+  %32 = icmp slt i64 %31, -10000
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %28, %23
+  %34 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %34, ptr %6, align 4, !tbaa !10
+  br label %35
+
+35:                                               ; preds = %33, %28
+  %36 = load i32, ptr %5, align 4, !tbaa !10
+  %37 = load i32, ptr %6, align 4, !tbaa !10
+  %38 = call i64 @_itimediff(i32 noundef %36, i32 noundef %37)
+  %39 = icmp sge i64 %38, 0
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %41, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
+
+42:                                               ; preds = %35
+  %43 = load i32, ptr %6, align 4, !tbaa !10
+  %44 = load i32, ptr %5, align 4, !tbaa !10
+  %45 = call i64 @_itimediff(i32 noundef %43, i32 noundef %44)
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %7, align 4, !tbaa !10
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 35
+  %49 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !44
+  store ptr %50, ptr %10, align 8, !tbaa !21
+  br label %51
+
+51:                                               ; preds = %79, %42
+  %52 = load ptr, ptr %10, align 8, !tbaa !21
+  %53 = load ptr, ptr %4, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.IKCPCB, ptr %53, i32 0, i32 35
+  %55 = icmp ne ptr %52, %54
+  br i1 %55, label %56, label %83
+
+56:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %57 = load ptr, ptr %10, align 8, !tbaa !21
+  %58 = getelementptr inbounds i8, ptr %57, i64 0
+  store ptr %58, ptr %12, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %59 = load ptr, ptr %12, align 8, !tbaa !74
+  %60 = getelementptr inbounds nuw %struct.IKCPSEG, ptr %59, i32 0, i32 9
+  %61 = load i32, ptr %60, align 8, !tbaa !113
+  %62 = load i32, ptr %5, align 4, !tbaa !10
+  %63 = call i64 @_itimediff(i32 noundef %61, i32 noundef %62)
+  %64 = trunc i64 %63 to i32
+  store i32 %64, ptr %13, align 4, !tbaa !10
+  %65 = load i32, ptr %13, align 4, !tbaa !10
+  %66 = icmp sle i32 %65, 0
+  br i1 %66, label %67, label %69
+
+67:                                               ; preds = %56
+  %68 = load i32, ptr %5, align 4, !tbaa !10
+  store i32 %68, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %76
+
+69:                                               ; preds = %56
+  %70 = load i32, ptr %13, align 4, !tbaa !10
+  %71 = load i32, ptr %8, align 4, !tbaa !10
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %69
+  %74 = load i32, ptr %13, align 4, !tbaa !10
+  store i32 %74, ptr %8, align 4, !tbaa !10
+  br label %75
+
+75:                                               ; preds = %73, %69
+  store i32 0, ptr %11, align 4
+  br label %76
+
+76:                                               ; preds = %75, %67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %77 = load i32, ptr %11, align 4
+  switch i32 %77, label %106 [
+    i32 0, label %78
+  ]
+
+78:                                               ; preds = %76
+  br label %79
+
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %10, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw %struct.IQUEUEHEAD, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !80
+  store ptr %82, ptr %10, align 8, !tbaa !21
+  br label %51, !llvm.loop !118
+
+83:                                               ; preds = %51
+  %84 = load i32, ptr %8, align 4, !tbaa !10
+  %85 = load i32, ptr %7, align 4, !tbaa !10
+  %86 = icmp slt i32 %84, %85
+  br i1 %86, label %87, label %89
+
+87:                                               ; preds = %83
+  %88 = load i32, ptr %8, align 4, !tbaa !10
+  br label %91
+
+89:                                               ; preds = %83
+  %90 = load i32, ptr %7, align 4, !tbaa !10
+  br label %91
+
+91:                                               ; preds = %89, %87
+  %92 = phi i32 [ %88, %87 ], [ %90, %89 ]
+  store i32 %92, ptr %9, align 4, !tbaa !10
+  %93 = load i32, ptr %9, align 4, !tbaa !10
+  %94 = load ptr, ptr %4, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw %struct.IKCPCB, ptr %94, i32 0, i32 20
+  %96 = load i32, ptr %95, align 8, !tbaa !61
+  %97 = icmp uge i32 %93, %96
+  br i1 %97, label %98, label %102
+
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %4, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct.IKCPCB, ptr %99, i32 0, i32 20
+  %101 = load i32, ptr %100, align 8, !tbaa !61
+  store i32 %101, ptr %9, align 4, !tbaa !10
+  br label %102
+
+102:                                              ; preds = %98, %91
+  %103 = load i32, ptr %5, align 4, !tbaa !10
+  %104 = load i32, ptr %9, align 4, !tbaa !10
+  %105 = add i32 %103, %104
+  store i32 %105, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %106
+
+106:                                              ; preds = %102, %76, %40, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  %107 = load i32, ptr %3, align 4
+  ret i32 %107
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ikcp_setmtu(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %8 = load i32, ptr %5, align 4, !tbaa !10
+  %9 = icmp slt i32 %8, 50
+  br i1 %9, label %13, label %10
+
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4, !tbaa !10
+  %12 = icmp slt i32 %11, 24
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %10, %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %39
+
+14:                                               ; preds = %10
+  %15 = load i32, ptr %5, align 4, !tbaa !10
+  %16 = add i32 %15, 24
+  %17 = mul i32 %16, 3
+  %18 = zext i32 %17 to i64
+  %19 = call ptr @ikcp_malloc(i64 noundef %18)
+  store ptr %19, ptr %6, align 8, !tbaa !12
+  %20 = load ptr, ptr %6, align 8, !tbaa !12
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %14
+  store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %39
+
+23:                                               ; preds = %14
+  %24 = load i32, ptr %5, align 4, !tbaa !10
+  %25 = load ptr, ptr %4, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw %struct.IKCPCB, ptr %25, i32 0, i32 1
+  store i32 %24, ptr %26, align 4, !tbaa !36
+  %27 = load ptr, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.IKCPCB, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 4, !tbaa !36
+  %30 = sub i32 %29, 24
+  %31 = load ptr, ptr %4, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.IKCPCB, ptr %31, i32 0, i32 2
+  store i32 %30, ptr %32, align 8, !tbaa !37
+  %33 = load ptr, ptr %4, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.IKCPCB, ptr %33, i32 0, i32 41
+  %35 = load ptr, ptr %34, align 8, !tbaa !39
+  call void @ikcp_free(ptr noundef %35)
+  %36 = load ptr, ptr %6, align 8, !tbaa !12
+  %37 = load ptr, ptr %4, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.IKCPCB, ptr %37, i32 0, i32 41
+  store ptr %36, ptr %38, align 8, !tbaa !39
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %39
+
+39:                                               ; preds = %23, %22, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %40 = load i32, ptr %3, align 4
+  ret i32 %40
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ikcp_interval(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %6 = icmp sgt i32 %5, 5000
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  store i32 5000, ptr %4, align 4, !tbaa !10
+  br label %13
+
+8:                                                ; preds = %2
+  %9 = load i32, ptr %4, align 4, !tbaa !10
+  %10 = icmp slt i32 %9, 10
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8
+  store i32 10, ptr %4, align 4, !tbaa !10
+  br label %12
+
+12:                                               ; preds = %11, %8
+  br label %13
+
+13:                                               ; preds = %12, %7
+  %14 = load i32, ptr %4, align 4, !tbaa !10
+  %15 = load ptr, ptr %3, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.IKCPCB, ptr %15, i32 0, i32 20
+  store i32 %14, ptr %16, align 8, !tbaa !61
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_nodelay(ptr noundef %kcp, i32 noundef %nodelay, i32 noundef %interval, i32 noundef %resend, i32 noundef %nc) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  %nodelay.addr = alloca i32, align 4
-  %interval.addr = alloca i32, align 4
-  %resend.addr = alloca i32, align 4
-  %nc.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %nodelay, ptr %nodelay.addr, align 4
-  store i32 %interval, ptr %interval.addr, align 4
-  store i32 %resend, ptr %resend.addr, align 4
-  store i32 %nc, ptr %nc.addr, align 4
-  %0 = load i32, ptr %nodelay.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end4
+define dso_local i32 @ikcp_nodelay(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  store i32 %1, ptr %7, align 4, !tbaa !10
+  store i32 %2, ptr %8, align 4, !tbaa !10
+  store i32 %3, ptr %9, align 4, !tbaa !10
+  store i32 %4, ptr %10, align 4, !tbaa !10
+  %11 = load i32, ptr %7, align 4, !tbaa !10
+  %12 = icmp sge i32 %11, 0
+  br i1 %12, label %13, label %26
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %nodelay.addr, align 4
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %nodelay1 = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 27
-  store i32 %1, ptr %nodelay1, align 4
-  %3 = load i32, ptr %nodelay.addr, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.then2, label %if.else
+13:                                               ; preds = %5
+  %14 = load i32, ptr %7, align 4, !tbaa !10
+  %15 = load ptr, ptr %6, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.IKCPCB, ptr %15, i32 0, i32 27
+  store i32 %14, ptr %16, align 4, !tbaa !63
+  %17 = load i32, ptr %7, align 4, !tbaa !10
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %22
 
-if.then2:                                         ; preds = %if.then
-  %4 = load ptr, ptr %kcp.addr, align 8
-  %rx_minrto = getelementptr inbounds %struct.IKCPCB, ptr %4, i32 0, i32 13
-  store i32 30, ptr %rx_minrto, align 4
-  br label %if.end
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.IKCPCB, ptr %20, i32 0, i32 13
+  store i32 30, ptr %21, align 4, !tbaa !59
+  br label %25
 
-if.else:                                          ; preds = %if.then
-  %5 = load ptr, ptr %kcp.addr, align 8
-  %rx_minrto3 = getelementptr inbounds %struct.IKCPCB, ptr %5, i32 0, i32 13
-  store i32 100, ptr %rx_minrto3, align 4
-  br label %if.end
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.IKCPCB, ptr %23, i32 0, i32 13
+  store i32 100, ptr %24, align 4, !tbaa !59
+  br label %25
 
-if.end:                                           ; preds = %if.else, %if.then2
-  br label %if.end4
+25:                                               ; preds = %22, %19
+  br label %26
 
-if.end4:                                          ; preds = %if.end, %entry
-  %6 = load i32, ptr %interval.addr, align 4
-  %cmp5 = icmp sge i32 %6, 0
-  br i1 %cmp5, label %if.then6, label %if.end15
+26:                                               ; preds = %25, %5
+  %27 = load i32, ptr %8, align 4, !tbaa !10
+  %28 = icmp sge i32 %27, 0
+  br i1 %28, label %29, label %42
 
-if.then6:                                         ; preds = %if.end4
-  %7 = load i32, ptr %interval.addr, align 4
-  %cmp7 = icmp sgt i32 %7, 5000
-  br i1 %cmp7, label %if.then8, label %if.else9
+29:                                               ; preds = %26
+  %30 = load i32, ptr %8, align 4, !tbaa !10
+  %31 = icmp sgt i32 %30, 5000
+  br i1 %31, label %32, label %33
 
-if.then8:                                         ; preds = %if.then6
-  store i32 5000, ptr %interval.addr, align 4
-  br label %if.end13
+32:                                               ; preds = %29
+  store i32 5000, ptr %8, align 4, !tbaa !10
+  br label %38
 
-if.else9:                                         ; preds = %if.then6
-  %8 = load i32, ptr %interval.addr, align 4
-  %cmp10 = icmp slt i32 %8, 10
-  br i1 %cmp10, label %if.then11, label %if.end12
+33:                                               ; preds = %29
+  %34 = load i32, ptr %8, align 4, !tbaa !10
+  %35 = icmp slt i32 %34, 10
+  br i1 %35, label %36, label %37
 
-if.then11:                                        ; preds = %if.else9
-  store i32 10, ptr %interval.addr, align 4
-  br label %if.end12
+36:                                               ; preds = %33
+  store i32 10, ptr %8, align 4, !tbaa !10
+  br label %37
 
-if.end12:                                         ; preds = %if.then11, %if.else9
-  br label %if.end13
+37:                                               ; preds = %36, %33
+  br label %38
 
-if.end13:                                         ; preds = %if.end12, %if.then8
-  %9 = load i32, ptr %interval.addr, align 4
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %interval14 = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 20
-  store i32 %9, ptr %interval14, align 8
-  br label %if.end15
+38:                                               ; preds = %37, %32
+  %39 = load i32, ptr %8, align 4, !tbaa !10
+  %40 = load ptr, ptr %6, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.IKCPCB, ptr %40, i32 0, i32 20
+  store i32 %39, ptr %41, align 8, !tbaa !61
+  br label %42
 
-if.end15:                                         ; preds = %if.end13, %if.end4
-  %11 = load i32, ptr %resend.addr, align 4
-  %cmp16 = icmp sge i32 %11, 0
-  br i1 %cmp16, label %if.then17, label %if.end18
+42:                                               ; preds = %38, %26
+  %43 = load i32, ptr %9, align 4, !tbaa !10
+  %44 = icmp sge i32 %43, 0
+  br i1 %44, label %45, label %49
 
-if.then17:                                        ; preds = %if.end15
-  %12 = load i32, ptr %resend.addr, align 4
-  %13 = load ptr, ptr %kcp.addr, align 8
-  %fastresend = getelementptr inbounds %struct.IKCPCB, ptr %13, i32 0, i32 42
-  store i32 %12, ptr %fastresend, align 8
-  br label %if.end18
+45:                                               ; preds = %42
+  %46 = load i32, ptr %9, align 4, !tbaa !10
+  %47 = load ptr, ptr %6, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.IKCPCB, ptr %47, i32 0, i32 42
+  store i32 %46, ptr %48, align 8, !tbaa !66
+  br label %49
 
-if.end18:                                         ; preds = %if.then17, %if.end15
-  %14 = load i32, ptr %nc.addr, align 4
-  %cmp19 = icmp sge i32 %14, 0
-  br i1 %cmp19, label %if.then20, label %if.end21
+49:                                               ; preds = %45, %42
+  %50 = load i32, ptr %10, align 4, !tbaa !10
+  %51 = icmp sge i32 %50, 0
+  br i1 %51, label %52, label %56
 
-if.then20:                                        ; preds = %if.end18
-  %15 = load i32, ptr %nc.addr, align 4
-  %16 = load ptr, ptr %kcp.addr, align 8
-  %nocwnd = getelementptr inbounds %struct.IKCPCB, ptr %16, i32 0, i32 44
-  store i32 %15, ptr %nocwnd, align 8
-  br label %if.end21
+52:                                               ; preds = %49
+  %53 = load i32, ptr %10, align 4, !tbaa !10
+  %54 = load ptr, ptr %6, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.IKCPCB, ptr %54, i32 0, i32 44
+  store i32 %53, ptr %55, align 8, !tbaa !68
+  br label %56
 
-if.end21:                                         ; preds = %if.then20, %if.end18
+56:                                               ; preds = %52, %49
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_wndsize(ptr noundef %kcp, i32 noundef %sndwnd, i32 noundef %rcvwnd) #0 {
-entry:
-  %a.addr.i = alloca i32, align 4
-  %b.addr.i = alloca i32, align 4
-  %kcp.addr = alloca ptr, align 8
-  %sndwnd.addr = alloca i32, align 4
-  %rcvwnd.addr = alloca i32, align 4
-  store ptr %kcp, ptr %kcp.addr, align 8
-  store i32 %sndwnd, ptr %sndwnd.addr, align 4
-  store i32 %rcvwnd, ptr %rcvwnd.addr, align 4
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end5
+define dso_local i32 @ikcp_wndsize(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %25
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %sndwnd.addr, align 4
-  %cmp = icmp sgt i32 %1, 0
-  br i1 %cmp, label %if.then1, label %if.end
+9:                                                ; preds = %3
+  %10 = load i32, ptr %5, align 4, !tbaa !10
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %12, label %16
 
-if.then1:                                         ; preds = %if.then
-  %2 = load i32, ptr %sndwnd.addr, align 4
-  %3 = load ptr, ptr %kcp.addr, align 8
-  %snd_wnd = getelementptr inbounds %struct.IKCPCB, ptr %3, i32 0, i32 14
-  store i32 %2, ptr %snd_wnd, align 8
-  br label %if.end
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4, !tbaa !10
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.IKCPCB, ptr %14, i32 0, i32 14
+  store i32 %13, ptr %15, align 8, !tbaa !30
+  br label %16
 
-if.end:                                           ; preds = %if.then1, %if.then
-  %4 = load i32, ptr %rcvwnd.addr, align 4
-  %cmp2 = icmp sgt i32 %4, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+16:                                               ; preds = %12, %9
+  %17 = load i32, ptr %6, align 4, !tbaa !10
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %24
 
-if.then3:                                         ; preds = %if.end
-  %5 = load i32, ptr %rcvwnd.addr, align 4
-  store i32 %5, ptr %a.addr.i, align 4
-  store i32 128, ptr %b.addr.i, align 4
-  %6 = load i32, ptr %a.addr.i, align 4
-  %7 = load i32, ptr %b.addr.i, align 4
-  %cmp.i = icmp uge i32 %6, %7
-  br i1 %cmp.i, label %cond.true.i, label %cond.false.i
+19:                                               ; preds = %16
+  %20 = load i32, ptr %6, align 4, !tbaa !10
+  %21 = call i32 @_imax_(i32 noundef %20, i32 noundef 128)
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.IKCPCB, ptr %22, i32 0, i32 15
+  store i32 %21, ptr %23, align 4, !tbaa !31
+  br label %24
 
-cond.true.i:                                      ; preds = %if.then3
-  %8 = load i32, ptr %a.addr.i, align 4
-  br label %_imax_.exit
+24:                                               ; preds = %19, %16
+  br label %25
 
-cond.false.i:                                     ; preds = %if.then3
-  %9 = load i32, ptr %b.addr.i, align 4
-  br label %_imax_.exit
-
-_imax_.exit:                                      ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ %8, %cond.true.i ], [ %9, %cond.false.i ]
-  %10 = load ptr, ptr %kcp.addr, align 8
-  %rcv_wnd = getelementptr inbounds %struct.IKCPCB, ptr %10, i32 0, i32 15
-  store i32 %cond.i, ptr %rcv_wnd, align 4
-  br label %if.end4
-
-if.end4:                                          ; preds = %_imax_.exit, %if.end
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end4, %entry
+25:                                               ; preds = %24, %3
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_waitsnd(ptr noundef %kcp) #0 {
-entry:
-  %kcp.addr = alloca ptr, align 8
-  store ptr %kcp, ptr %kcp.addr, align 8
-  %0 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_buf = getelementptr inbounds %struct.IKCPCB, ptr %0, i32 0, i32 24
-  %1 = load i32, ptr %nsnd_buf, align 8
-  %2 = load ptr, ptr %kcp.addr, align 8
-  %nsnd_que = getelementptr inbounds %struct.IKCPCB, ptr %2, i32 0, i32 26
-  %3 = load i32, ptr %nsnd_que, align 8
-  %add = add i32 %1, %3
-  ret i32 %add
+define dso_local i32 @ikcp_waitsnd(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.IKCPCB, ptr %3, i32 0, i32 24
+  %5 = load i32, ptr %4, align 8, !tbaa !49
+  %6 = load ptr, ptr %2, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.IKCPCB, ptr %6, i32 0, i32 26
+  %8 = load i32, ptr %7, align 8, !tbaa !51
+  %9 = add i32 %5, %8
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ikcp_getconv(ptr noundef %ptr) #0 {
-entry:
-  %p.addr.i = alloca ptr, align 8
-  %l.addr.i = alloca ptr, align 8
-  %ptr.addr = alloca ptr, align 8
-  %conv = alloca i32, align 4
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  store ptr %0, ptr %p.addr.i, align 8
-  store ptr %conv, ptr %l.addr.i, align 8
-  %1 = load ptr, ptr %l.addr.i, align 8
-  %2 = load ptr, ptr %p.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 1 %2, i64 4, i1 false)
-  %3 = load ptr, ptr %p.addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
-  store ptr %add.ptr.i, ptr %p.addr.i, align 8
-  %4 = load i32, ptr %conv, align 4
-  ret i32 %4
+define dso_local i32 @ikcp_getconv(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @ikcp_decode32u(ptr noundef %4, ptr noundef %3)
+  %6 = load i32, ptr %3, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @_ibound_(i32 noundef %0, i32 noundef %1, i32 noundef %2) #5 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !10
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  store i32 %2, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %4, align 4, !tbaa !10
+  %8 = load i32, ptr %5, align 4, !tbaa !10
+  %9 = call i32 @_imax_(i32 noundef %7, i32 noundef %8)
+  %10 = load i32, ptr %6, align 4, !tbaa !10
+  %11 = call i32 @_imin_(i32 noundef %9, i32 noundef %10)
+  ret i32 %11
+}
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #5
+declare void @abort() #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { noreturn nounwind }
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_encode32u(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 4 %4, i64 4, i1 false)
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  store ptr %7, ptr %3, align 8, !tbaa !12
+  %8 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %8
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_encode8u(ptr noundef %0, i8 noundef zeroext %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i8 %1, ptr %4, align 1, !tbaa !95
+  %5 = load i8, ptr %4, align 1, !tbaa !95
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i32 1
+  store ptr %7, ptr %3, align 8, !tbaa !12
+  store i8 %5, ptr %6, align 1, !tbaa !95
+  %8 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %8
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @ikcp_encode16u(ptr noundef %0, i16 noundef zeroext %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i16 %1, ptr %4, align 2, !tbaa !96
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 2 %4, i64 2, i1 false)
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds i8, ptr %6, i64 2
+  store ptr %7, ptr %3, align 8, !tbaa !12
+  %8 = load ptr, ptr %3, align 8, !tbaa !12
+  ret ptr %8
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS6IKCPCB", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!15, !11, i64 248}
+!15 = !{!"IKCPCB", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !11, i64 96, !11, i64 100, !11, i64 104, !11, i64 108, !11, i64 112, !11, i64 116, !11, i64 120, !11, i64 124, !11, i64 128, !16, i64 136, !16, i64 152, !16, i64 168, !16, i64 184, !18, i64 200, !11, i64 208, !11, i64 212, !5, i64 216, !13, i64 224, !11, i64 232, !11, i64 236, !11, i64 240, !11, i64 244, !11, i64 248, !5, i64 256, !5, i64 264}
+!16 = !{!"IQUEUEHEAD", !17, i64 0, !17, i64 8}
+!17 = !{!"p1 _ZTS10IQUEUEHEAD", !5, i64 0}
+!18 = !{!"p1 int", !5, i64 0}
+!19 = !{!15, !5, i64 264}
+!20 = !{!15, !5, i64 216}
+!21 = !{!17, !17, i64 0}
+!22 = !{!15, !11, i64 0}
+!23 = !{!15, !11, i64 16}
+!24 = !{!15, !11, i64 20}
+!25 = !{!15, !11, i64 24}
+!26 = !{!15, !11, i64 28}
+!27 = !{!15, !11, i64 32}
+!28 = !{!15, !11, i64 116}
+!29 = !{!15, !11, i64 120}
+!30 = !{!15, !11, i64 56}
+!31 = !{!15, !11, i64 60}
+!32 = !{!15, !11, i64 64}
+!33 = !{!15, !11, i64 68}
+!34 = !{!15, !11, i64 128}
+!35 = !{!15, !11, i64 72}
+!36 = !{!15, !11, i64 4}
+!37 = !{!15, !11, i64 8}
+!38 = !{!15, !11, i64 244}
+!39 = !{!15, !13, i64 224}
+!40 = !{!15, !17, i64 136}
+!41 = !{!15, !17, i64 144}
+!42 = !{!15, !17, i64 152}
+!43 = !{!15, !17, i64 160}
+!44 = !{!15, !17, i64 168}
+!45 = !{!15, !17, i64 176}
+!46 = !{!15, !17, i64 184}
+!47 = !{!15, !17, i64 192}
+!48 = !{!15, !11, i64 92}
+!49 = !{!15, !11, i64 96}
+!50 = !{!15, !11, i64 100}
+!51 = !{!15, !11, i64 104}
+!52 = !{!15, !11, i64 12}
+!53 = !{!15, !18, i64 200}
+!54 = !{!15, !11, i64 212}
+!55 = !{!15, !11, i64 208}
+!56 = !{!15, !11, i64 44}
+!57 = !{!15, !11, i64 40}
+!58 = !{!15, !11, i64 48}
+!59 = !{!15, !11, i64 52}
+!60 = !{!15, !11, i64 76}
+!61 = !{!15, !11, i64 80}
+!62 = !{!15, !11, i64 84}
+!63 = !{!15, !11, i64 108}
+!64 = !{!15, !11, i64 112}
+!65 = !{!15, !11, i64 36}
+!66 = !{!15, !11, i64 232}
+!67 = !{!15, !11, i64 236}
+!68 = !{!15, !11, i64 240}
+!69 = !{!15, !11, i64 88}
+!70 = !{!15, !11, i64 124}
+!71 = !{!15, !5, i64 256}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"long", !6, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS7IKCPSEG", !5, i64 0}
+!76 = !{!77, !17, i64 8}
+!77 = !{!"IKCPSEG", !16, i64 0, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !6, i64 64}
+!78 = !{!77, !17, i64 0}
+!79 = !{!16, !17, i64 8}
+!80 = !{!16, !17, i64 0}
+!81 = distinct !{!81, !82}
+!82 = !{!"llvm.loop.mustprogress"}
+!83 = distinct !{!83, !82}
+!84 = distinct !{!84, !82}
+!85 = distinct !{!85, !82}
+!86 = !{!77, !11, i64 44}
+!87 = !{!77, !11, i64 24}
+!88 = !{!77, !11, i64 36}
+!89 = distinct !{!89, !82}
+!90 = distinct !{!90, !82}
+!91 = distinct !{!91, !82}
+!92 = distinct !{!92, !82}
+!93 = distinct !{!93, !82}
+!94 = distinct !{!94, !82}
+!95 = !{!6, !6, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"short", !6, i64 0}
+!98 = !{!77, !11, i64 16}
+!99 = !{!77, !11, i64 20}
+!100 = !{!77, !11, i64 28}
+!101 = !{!77, !11, i64 32}
+!102 = !{!77, !11, i64 40}
+!103 = !{!18, !18, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 short", !5, i64 0}
+!106 = distinct !{!106, !82}
+!107 = distinct !{!107, !82}
+!108 = distinct !{!108, !82}
+!109 = distinct !{!109, !82}
+!110 = !{!77, !11, i64 56}
+!111 = distinct !{!111, !82}
+!112 = distinct !{!112, !82}
+!113 = !{!77, !11, i64 48}
+!114 = !{!77, !11, i64 52}
+!115 = !{!77, !11, i64 60}
+!116 = distinct !{!116, !82}
+!117 = distinct !{!117, !82}
+!118 = distinct !{!118, !82}

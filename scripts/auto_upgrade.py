@@ -24,6 +24,7 @@ supported_project = [
     "hwloc",
     "jemalloc",
     "jq",
+    "kcp",
 ]
 
 modify_only = [
