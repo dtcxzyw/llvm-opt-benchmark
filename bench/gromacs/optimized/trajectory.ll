@@ -540,31 +540,31 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory15option
 
 _ZSt5countIPbbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit: ; preds = %8
   %.ptr9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %.not = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  %12 = icmp eq i64 %spec.select.i.i, 0
+  br i1 %12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZSt5countIPbbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %14
 
-13:                                               ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %.ptr9, i64 0, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %19, label %17
+14:                                               ; preds = %.preheader, %20
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.ptr9, i64 0, i64 %indvars.iv
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %20, label %18
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %indvars.iv
-  store i8 0, ptr %18, align 1
-  br label %19
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv
+  store i8 0, ptr %19, align 1
+  br label %20
 
-19:                                               ; preds = %13, %17
+20:                                               ; preds = %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !7
 
-.loopexit:                                        ; preds = %19, %_ZSt5countIPbbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit
+.loopexit:                                        ; preds = %20, %_ZSt5countIPbbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit
   ret void
 }
 

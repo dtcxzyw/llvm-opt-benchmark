@@ -13644,8 +13644,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %if.end38, label %for.body.i, !llvm.loop !30
 
 if.end38:                                         ; preds = %for.body.i
-  %cmp39.not = icmp ne i32 %spec.select.i, 0
-  %brmerge = or i1 %cmp39.not, %narrow.not
+  %cmp39 = icmp ne i32 %spec.select.i, 0
+  %brmerge = or i1 %cmp39, %narrow.not
   br i1 %brmerge, label %if.else, label %if.then43
 
 if.end38.thread:                                  ; preds = %if.then36, %while.body
